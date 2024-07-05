@@ -9,6 +9,11 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
+    "paths": {
+      "ngx-evolution-components": [
+        "./dist/ngx-evolution-components"
+      ]
+    },
     "esModuleInterop": true,
     "sourceMap": true,
     "declaration": false,

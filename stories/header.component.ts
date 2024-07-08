@@ -1,8 +1,8 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ButtonComponent } from './button.component';
-import type { User } from './user';
+import type { User } from '@evolution-components/shared/interfaces/user.interface';
+import { ButtonComponent } from '@evolution-components/button/button.component';
 
 @Component({
   selector: 'storybook-header',
@@ -35,29 +35,29 @@ import type { User } from './user';
             Welcome, <b>{{ user.name }}</b
             >!
           </span>
-          <storybook-button
+          <evo-button
             *ngIf="user"
             size="small"
             (onClick)="onLogout.emit($event)"
             label="Log out"
-          ></storybook-button>
+          ></evo-button>
         </div>
         <div *ngIf="!user">
-          <storybook-button
+          <evo-button
             *ngIf="!user"
             size="small"
             class="margin-left"
             (onClick)="onLogin.emit($event)"
             label="Log in"
-          ></storybook-button>
-          <storybook-button
+          ></evo-button>
+          <evo-button
             *ngIf="!user"
             size="small"
             [primary]="true"
             class="margin-left"
             (onClick)="onCreateAccount.emit($event)"
             label="Sign up"
-          ></storybook-button>
+          ></evo-button>
         </div>
       </div>
     </div>

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { HeaderComponent } from './header.component';
-import type { User } from '@evolution-components/shared/interfaces/user.interface';
+import { User } from '@aseinfo/ngx-evolution-components/public-api';
 
 @Component({
   selector: 'storybook-page',

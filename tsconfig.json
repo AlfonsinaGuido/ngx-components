@@ -11,13 +11,10 @@
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
     "paths": {
-      "@ngx-evolution-components": [
-        "dist/ngx-evolution-components"
-      ],
-      "@evolution-components": [
+      "@aseinfo/ngx-evolution-components": [
         "projects/ngx-evolution-components"
       ],
-      "@evolution-components/*": [
+      "@aseinfo/ngx-evolution-components/*": [
         "projects/ngx-evolution-components/*"
       ]
     },

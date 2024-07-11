@@ -1,4 +1,5 @@
-import { ButtonComponent } from '@evolution-components/button/button.component';
+
+import { ButtonComponent } from '@aseinfo/ngx-evolution-components/public-api';
 import type { Meta, StoryObj } from '@storybook/angular';
 import { fn } from '@storybook/test';
 

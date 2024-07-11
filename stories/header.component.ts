@@ -1,8 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import type { User } from '@evolution-components/shared/interfaces/user.interface';
-import { ButtonComponent } from '@evolution-components/button/button.component';
+import { ButtonComponent, User } from '@aseinfo/ngx-evolution-components/public-api';
 
 @Component({
   selector: 'storybook-header',

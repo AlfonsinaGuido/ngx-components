@@ -1,5 +1,5 @@
 {
-  "name": "ngx-evolution-components",
+  "name": "@aseinfo/ngx-evolution-components",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^17.3.0",

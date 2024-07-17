@@ -6,8 +6,13 @@
     "ngx-evolution-components": {
       "projectType": "library",
       "root": "projects/ngx-evolution-components",
-      "sourceRoot": "projects/ngx-evolution-components/src",
-      "prefix": "lib",
+      "sourceRoot": "projects/ngx-evolution-components",
+      "prefix": "evo",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
@@ -32,6 +37,36 @@
               "zone.js",
               "zone.js/testing"
             ]
+          }
+        },
+        "storybook": {
+          "builder": "@storybook/angular:start-storybook",
+          "options": {
+            "configDir": ".storybook",
+            "browserTarget": "ngx-evolution-components:build",
+            "compodoc": true,
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "."
+            ],
+            "port": 6006
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "configDir": ".storybook",
+            "browserTarget": "ngx-evolution-components:build",
+            "compodoc": true,
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "."
+            ],
+            "outputDir": "storybook-static"
           }
         }
       }

@@ -1,0 +1,11 @@
+{
+  "extends": "../projects/ngx-evolution-components/tsconfig.lib.json",
+  "compilerOptions": {
+    "types": ["node"],
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true
+  },
+  "exclude": ["../projects/ngx-evolution-components/**/*.spec.ts"],
+  "include": ["../stories/*.stories.*", "./preview.ts"],
+  "files": ["./typings.d.ts"]
+}

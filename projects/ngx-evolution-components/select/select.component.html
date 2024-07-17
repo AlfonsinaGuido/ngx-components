@@ -1,0 +1,58 @@
+<mat-form-field>
+  <mat-label>{{ label }}</mat-label>
+  @if (isMultiple) {
+    @if (isRequired) {
+      <mat-select #selectControl [formControl]="control" multiple required>
+        <evo-button
+          [icon]="icon"
+          [isFluid]="true"
+          (click)="clean()"
+        ></evo-button>
+        @for (item of items; track item) {
+          <mat-option [value]="item.key">{{ item.value }}</mat-option>
+        }
+      </mat-select>
+    } @else {
+      <mat-select #selectControl [formControl]="control" multiple>
+        <evo-button
+          [icon]="icon"
+          [isFluid]="true"
+          (click)="clean()"
+        ></evo-button>
+        @for (item of items; track item) {
+          <mat-option [value]="item.key">{{ item.value }}</mat-option>
+        }
+      </mat-select>
+    }
+  } @else {
+    @if (isRequired) {
+      <mat-select #selectControl [formControl]="control" required>
+        <evo-button
+          [icon]="icon"
+          [isFluid]="true"
+          (click)="clean()"
+        ></evo-button>
+        @for (item of items; track item) {
+          <mat-option [value]="item.key">{{ item.value }}</mat-option>
+        }
+      </mat-select>
+    } @else {
+      <mat-select #selectControl [formControl]="control">
+        <evo-button
+          [icon]="icon"
+          [isFluid]="true"
+          (click)="clean()"
+        ></evo-button>
+        @for (item of items; track item) {
+          <mat-option [value]="item.key">{{ item.value }}</mat-option>
+        }
+      </mat-select>
+    }
+  }
+  @if (control.hasError("required") && errorMessage) {
+    <mat-error>{{ errorMessage }}</mat-error>
+  }
+  @if (detail) {
+    <mat-hint>{{ detail }}</mat-hint>
+  }
+</mat-form-field>

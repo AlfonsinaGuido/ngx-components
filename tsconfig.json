@@ -2,6 +2,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "strict": true,
     "noImplicitOverride": true,
@@ -10,8 +11,11 @@
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
     "paths": {
-      "ngx-evolution-components": [
-        "./dist/ngx-evolution-components"
+      "@aseinfo/ngx-evolution-components": [
+        "projects/ngx-evolution-components"
+      ],
+      "@aseinfo/ngx-evolution-components/*": [
+        "projects/ngx-evolution-components/*"
       ]
     },
     "esModuleInterop": true,

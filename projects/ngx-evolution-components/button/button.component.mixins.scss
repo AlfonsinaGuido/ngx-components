@@ -1,0 +1,27 @@
+@mixin transition-button() {
+  -webkit-transition:
+    background-color ease 200ms,
+    box-shadow ease 200ms,
+    color ease 200ms,
+    border ease 200ms;
+  -moz-transition:
+    background-color ease 200ms,
+    box-shadow ease 200ms,
+    color ease 200ms,
+    border ease 200ms;
+  -ms-transition:
+    background-color ease 200ms,
+    box-shadow ease 200ms,
+    color ease 200ms,
+    border ease 200ms;
+  -o-transition:
+    background-color ease 200ms,
+    box-shadow ease 200ms,
+    color ease 200ms,
+    border ease 200ms;
+  transition:
+    background-color ease 200ms,
+    box-shadow ease 200ms,
+    color ease 200ms,
+    border ease 200ms;
+}

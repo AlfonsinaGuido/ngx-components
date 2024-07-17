@@ -28,7 +28,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    label: 'Select',\r\n    items: [\r\n      {\r\n        key: 1,\r\n        value: 'Option 1',\r\n      },\r\n      {\r\n        key: 2,\r\n        value: 'Option 2',\r\n      },\r\n      {\r\n        key: 3,\r\n        value: 'Option 3',\r\n      },\r\n    ],\r\n    control: formControlDefaultSelect,\r\n    detail: 'Lorem ipsum dolor sit amet\\n Lorem ipsum dolor sit amet\\n Lorem ipsum dolor sit amet',\r\n  },\r\n}"
+                "defaultValue": "{\r\n  args: {\r\n    label: 'Select',\r\n    items: [\r\n      {\r\n        key: 1,\r\n        value: 'Option 1',\r\n      },\r\n      {\r\n        key: 2,\r\n        value: 'Option 2',\r\n      },\r\n      {\r\n        key: 3,\r\n        value: 'Option 3',\r\n      },\r\n    ],\r\n    control: formControlDefaultSelect,\r\n    detail: '',\r\n  },\r\n}"
             },
             {
                 "name": "Disabled",
@@ -241,14 +241,14 @@
                 "defaultValue": "{\n  args: {\n    ...Default.args,\n    theme: 'secondary',\n  },\n}"
             },
             {
-                "name": "Terciary",
+                "name": "Warning",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "stories/button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    ...Default.args,\n    theme: 'terciary',\n  },\n}"
+                "defaultValue": "{\n  args: {\n    ...Default.args,\n    theme: 'warning',\n  },\n}"
             },
             {
                 "name": "WithIcon",
@@ -431,14 +431,14 @@
                     "defaultValue": "{\n  args: {\n    ...Default.args,\n    theme: 'secondary',\n  },\n}"
                 },
                 {
-                    "name": "Terciary",
+                    "name": "Warning",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "stories/button.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    ...Default.args,\n    theme: 'terciary',\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    ...Default.args,\n    theme: 'warning',\n  },\n}"
                 },
                 {
                     "name": "WithIcon",
@@ -470,7 +470,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    label: 'Select',\r\n    items: [\r\n      {\r\n        key: 1,\r\n        value: 'Option 1',\r\n      },\r\n      {\r\n        key: 2,\r\n        value: 'Option 2',\r\n      },\r\n      {\r\n        key: 3,\r\n        value: 'Option 3',\r\n      },\r\n    ],\r\n    control: formControlDefaultSelect,\r\n    detail: 'Lorem ipsum dolor sit amet\\n Lorem ipsum dolor sit amet\\n Lorem ipsum dolor sit amet',\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    label: 'Select',\r\n    items: [\r\n      {\r\n        key: 1,\r\n        value: 'Option 1',\r\n      },\r\n      {\r\n        key: 2,\r\n        value: 'Option 2',\r\n      },\r\n      {\r\n        key: 3,\r\n        value: 'Option 3',\r\n      },\r\n    ],\r\n    control: formControlDefaultSelect,\r\n    detail: '',\r\n  },\r\n}"
                 },
                 {
                     "name": "form",
@@ -808,7 +808,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Terciary",
+                "name": "Warning",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

@@ -24,7 +24,7 @@ type Story = StoryObj<SelectComponent>;
 const form = new FormBuilder().group({
   defaultFieldSelect: new FormControl('', []),
   multipleFieldSelect: new FormControl([], []),
-  requiredFieldSelect: new FormControl('', [Validators.required]),
+  requiredFieldSelect: new FormControl('', []),
 });
 
 const formControlDefaultSelect = form.controls['defaultFieldSelect'];

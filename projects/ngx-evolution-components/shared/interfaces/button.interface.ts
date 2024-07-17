@@ -1,12 +1,12 @@
-import { IconInterface } from "../../public-api";
+import { IconInterface } from '../../public-api';
 
-export type ButtonType = 'xs'|'md'|'lg';
-export type ButtonTheme = 'default'|'primary'|'secondary'|'terciary';
+export type ButtonType = 'xs' | 'md' | 'lg';
+export type ButtonTheme = 'default' | 'primary' | 'secondary' | 'warning';
 
 export interface ButtonInterface {
-    theme: ButtonTheme;
-    label: string;
-    icon?: IconInterface;
-    isFlat?: boolean;
-    isFluid?: boolean;
+  theme: ButtonTheme;
+  label: string;
+  icon?: IconInterface;
+  isFlat?: boolean;
+  isFluid?: boolean;
 }

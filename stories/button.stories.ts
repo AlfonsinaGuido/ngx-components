@@ -33,10 +33,10 @@ export const Secondary: Story = {
   },
 };
 
-export const Terciary: Story = {
+export const Warning: Story = {
   args: {
     ...Default.args,
-    theme: 'terciary',
+    theme: 'warning',
   },
 };
 

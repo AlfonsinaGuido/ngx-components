@@ -36,7 +36,6 @@ import { ButtonComponent, User } from '@aseinfo/ngx-evolution-components/public-
           </span>
           <evo-button
             *ngIf="user"
-            size="small"
             (onClick)="onLogout.emit($event)"
             label="Log out"
           ></evo-button>
@@ -44,15 +43,12 @@ import { ButtonComponent, User } from '@aseinfo/ngx-evolution-components/public-
         <div *ngIf="!user">
           <evo-button
             *ngIf="!user"
-            size="small"
             class="margin-left"
             (onClick)="onLogin.emit($event)"
             label="Log in"
           ></evo-button>
           <evo-button
             *ngIf="!user"
-            size="small"
-            [primary]="true"
             class="margin-left"
             (onClick)="onCreateAccount.emit($event)"
             label="Sign up"

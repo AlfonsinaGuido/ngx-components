@@ -49,7 +49,7 @@
               "-e",
               "json",
               "-d",
-              "./"
+              "."
             ],
             "port": 6006
           }
@@ -64,7 +64,7 @@
               "-e",
               "json",
               "-d",
-              "./"
+              "."
             ],
             "outputDir": "storybook-static"
           }

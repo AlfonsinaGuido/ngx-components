@@ -5,6 +5,7 @@ Esta librería fue generada con [Angular CLI](https://github.com/angular/angular
 ## Andamiaje de código
 
 Dentro de la ruta `projects/ngx-evolution-components` ejecuta `ng generate component component-name` para generar un nuevo componente. También puedes utilizar `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
 > Nota: Si tiene más de una librería, no olvide agregar `--project library-name` o se agregará al proyecto predeterminado en su archivo `angular.json`.
 
 ## Construcción
@@ -17,16 +18,13 @@ Después de construir su biblioteca con `ng build ngx-evolution-components`, ve 
 
 ## Construcción y publicación en Verdaccio
 
-Verdaccio es un registro privado de paquetes de código para npm.
+Verdaccio es un registro privado de paquetes de código para npm. [Verdaccio (aseinfo.net)](https://npm.aseinfo.net/)
 
-Requisitos previos:
+Para registrar tu usuario ejecutar `npm adduser --registry https://npm.aseinfo.net`.
 
--Instalar de manera global verdaccio ejecutando `npm install --global verdaccio`.
--Levantar el servidor ejecutando `verdaccio`. Esto permitirá ver los paquetes publicados en `http://localhost:4873/`.
+Para construir y publicar la librería en Verdaccio en su última versión ejecuta `npm run publish-storybook`.
 
-Para construir y publicar la librería en Verdaccio en su última versión ejecuta `npm run prepare-storybook`.
-
-Para eliminar versiones anteriores ejecuta este comando con el número de versión que deseas eliminar `npm unpublish ngx-evolution-components@0.0.1 --registry http://localhost:4873 --force`.
+Para eliminar versiones anteriores ejecuta este comando con el número de versión que deseas eliminar `npm unpublish @aseinfo/ngx-evolution-components@0.0.1 --registry https://npm.aseinfo.net --force`.
 
 ## Ejecución de pruebas unitarias
 

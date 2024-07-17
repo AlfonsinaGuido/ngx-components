@@ -9,7 +9,7 @@
     "test": "ng test",
     "storybook": "ng run ngx-evolution-components:storybook",
     "build-storybook": "ng run ngx-evolution-components:build-storybook",
-    "prepare-storybook": "ng build && cd ./dist/@aseinfo/ngx-evolution-components && npm pack && npm publish --registry http://localhost:4873/"
+    "publish-storybook": "ng build && cd ./dist/@aseinfo/ngx-evolution-components && npm pack && npm publish --registry https://npm.aseinfo.net/"
   },
   "private": true,
   "dependencies": {

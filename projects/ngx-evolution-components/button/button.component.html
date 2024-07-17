@@ -1,8 +1,50 @@
 <button
   type="button"
-  (click)="onClick.emit($event)"
-  [ngClass]="classes"
-  [ngStyle]="{ 'background-color': backgroundColor }"
+  class="evo-button rounded-[38px]"
+  [attr.disabled]="disabled === true ? true : null"
+  [class]="getClasses"
 >
-  {{ label }}
+  <div class="evo-button__content">
+    @if (icon && icon.position === "left") {
+      <div [class]="{ left: icon.position === 'left' && label }" class="icon">
+        @if (icon.type === "svg") {
+          <img [src]="icon.icon" />
+        }
+        @if (icon.type == "class") {
+          <span [class]="icon.class">
+            {{ icon.icon }}
+          </span>
+        }
+      </div>
+    }
+    @if (label) {
+      <div class="label">
+        {{ label }}
+      </div>
+    }
+    @if (icon && icon.position === "right") {
+      <div [class]="{ right: icon.position === 'right' && label }" class="icon">
+        @if (icon.type === "svg") {
+          <img [src]="icon.icon" />
+        }
+        @if (icon.type == "class") {
+          <span [class]="icon.class">
+            {{ icon.icon }}
+          </span>
+        }
+      </div>
+    }
+    @if (icon && !icon.position && !label) {
+      <div class="icon">
+        @if (icon.type === "svg") {
+          <img [src]="icon.icon" />
+        }
+        @if (icon.type == "class") {
+          <span [class]="icon.class">
+            {{ icon.icon }}
+          </span>
+        }
+      </div>
+    }
+  </div>
 </button>

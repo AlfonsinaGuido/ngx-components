@@ -4,15 +4,15 @@ import {
   type Meta,
   type StoryObj,
 } from '@storybook/angular';
-import { provideAnimations } from '@angular/platform-browser/animations';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async'
+import { FormBuilder, FormControl } from '@angular/forms';
 
 const meta: Meta<SelectComponent> = {
   title: 'Evolution Components/Select',
   component: SelectComponent,
   decorators: [
     applicationConfig({
-      providers: [provideAnimations()],
+      providers: [provideAnimationsAsync()],
     }),
   ],
   tags: ['autodocs'],

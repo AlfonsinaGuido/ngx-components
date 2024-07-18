@@ -33,3 +33,11 @@ Ejecuta `ng test ngx-evolution-components` para ejecutar las pruebas unitarias a
 ## Ayuda adicional
 
 Para obtener más ayuda sobre Angular CLI, usa `ng help` o consulta la página de [Visión general y referencia de comandos de Angular CLI](https://angular.io/cli).
+
+## Storybook
+
+Ejecutar `npm run storybook` para compilar el proyecto y ver los componentes en el `http://localhost:6006` escuchando los cambios de los archivos fuente.
+
+## Tailwind
+
+Ejecutar `npm run tailwind` para actualizar el archivo `projects/ngx-evolution-components/output.scss` y escuchar los cambios de los archivos fuente.

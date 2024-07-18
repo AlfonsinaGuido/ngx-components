@@ -8,6 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "storybook": "ng run ngx-evolution-components:storybook",
+    "tailwind": "npx tailwindcss -i ./projects/ngx-evolution-components/styles.scss -o ./projects/ngx-evolution-components/output.scss --watch",
     "build-storybook": "ng run ngx-evolution-components:build-storybook",
     "publish-storybook": "ng build && cd ./dist/@aseinfo/ngx-evolution-components && npm pack && npm publish --registry https://npm.aseinfo.net/"
   },
@@ -24,7 +25,6 @@
     "@angular/platform-browser-dynamic": "^17.3.0",
     "@angular/router": "^17.3.0",
     "rxjs": "~7.8.0",
-    "tailwindcss": "^3.4.4",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
   },
@@ -50,6 +50,7 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "ng-packagr": "^17.3.0",
     "storybook": "^8.1.11",
+    "tailwindcss": "^3.4.6",
     "typescript": "~5.4.2"
   }
 }

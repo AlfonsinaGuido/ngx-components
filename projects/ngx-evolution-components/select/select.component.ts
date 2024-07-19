@@ -1,4 +1,11 @@
-import { Component, Input, ViewChild, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  ViewChild,
+  ViewEncapsulation,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -28,6 +35,7 @@ export class SelectComponent {
   @Input() isRequired?: boolean;
   @Input() errorMessage?: string;
   @Input() detail?: string;
+  @Output() valueChange = new EventEmitter<any>();
 
   icon: IconInterface = {
     icon: 'https://pic.onlinewebfonts.com/thumbnails/icons_320714.svg',
@@ -36,10 +44,15 @@ export class SelectComponent {
 
   @ViewChild('selectControl') selectControl!: MatSelect;
 
-  clean() {
+  clean(event: any) {
     this.control.reset();
+    this.valueChange.emit(event.target.value);
     if (this.selectControl) {
       this.selectControl.close();
     }
+  }
+
+  onValueChange(event: any) {
+    this.valueChange.emit(event.value);
   }
 }

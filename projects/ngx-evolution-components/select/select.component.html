@@ -2,22 +2,33 @@
   <mat-label>{{ label }}</mat-label>
   @if (isMultiple) {
     @if (isRequired) {
-      <mat-select #selectControl [formControl]="control" multiple required>
+      <mat-select
+        #selectControl
+        [formControl]="control"
+        multiple
+        required
+        (selectionChange)="onValueChange($event)"
+      >
         <evo-button
           [icon]="icon"
           [isFluid]="true"
-          (click)="clean()"
+          (click)="clean($event)"
         ></evo-button>
         @for (item of items; track item) {
           <mat-option [value]="item.key">{{ item.value }}</mat-option>
         }
       </mat-select>
     } @else {
-      <mat-select #selectControl [formControl]="control" multiple>
+      <mat-select
+        #selectControl
+        [formControl]="control"
+        multiple
+        (selectionChange)="onValueChange($event)"
+      >
         <evo-button
           [icon]="icon"
           [isFluid]="true"
-          (click)="clean()"
+          (click)="clean($event)"
         ></evo-button>
         @for (item of items; track item) {
           <mat-option [value]="item.key">{{ item.value }}</mat-option>
@@ -26,22 +37,31 @@
     }
   } @else {
     @if (isRequired) {
-      <mat-select #selectControl [formControl]="control" required>
+      <mat-select
+        #selectControl
+        [formControl]="control"
+        required
+        (selectionChange)="onValueChange($event)"
+      >
         <evo-button
           [icon]="icon"
           [isFluid]="true"
-          (click)="clean()"
+          (click)="clean($event)"
         ></evo-button>
         @for (item of items; track item) {
           <mat-option [value]="item.key">{{ item.value }}</mat-option>
         }
       </mat-select>
     } @else {
-      <mat-select #selectControl [formControl]="control">
+      <mat-select
+        #selectControl
+        [formControl]="control"
+        (selectionChange)="onValueChange($event)"
+      >
         <evo-button
           [icon]="icon"
           [isFluid]="true"
-          (click)="clean()"
+          (click)="clean($event)"
         ></evo-button>
         @for (item of items; track item) {
           <mat-option [value]="item.key">{{ item.value }}</mat-option>

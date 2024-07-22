@@ -24,6 +24,16 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "stories/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    control: formControlDefaultInput,\r\n    label: 'Input',\r\n    inputType: 'text',\r\n    detail: '',\r\n  },\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "stories/select.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -41,6 +51,36 @@
                 "defaultValue": "{\n  args: {\n    ...Default.args,\n    disabled: true,\n  },\n}"
             },
             {
+                "name": "ErrorEmail",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    inputType: 'email',\r\n    control: formControlEmailInput,\r\n    requiredErrorMessage: 'Este campo es requerido',\r\n    emailErrorMessage:\r\n      'Por favor, introduce una dirección de correo electrónico válida',\r\n  },\r\n}"
+            },
+            {
+                "name": "ErrorPattern",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    inputType: 'tel',\r\n    control: formControlPatternInput,\r\n    requiredErrorMessage: 'Este campo es requerido',\r\n    patternErrorMessage: 'Formato requerido (123) 456-7890',\r\n  },\r\n}"
+            },
+            {
+                "name": "form",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "new FormBuilder().group({\r\n  defaultFieldInput: new FormControl('', []),\r\n  requiredFieldInput: new FormControl('', [Validators.required]),\r\n  emailFieldInput: new FormControl('', [Validators.required, Validators.email]),\r\n  patternFieldInput: new FormControl('', [\r\n    Validators.required,\r\n    Validators.pattern(/^\\(\\d{3}\\) \\d{3}-\\d{4}$/),\r\n  ]),\r\n})"
+            },
+            {
                 "name": "form",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -49,6 +89,16 @@
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "new FormBuilder().group({\r\n  defaultFieldSelect: new FormControl('', []),\r\n  multipleFieldSelect: new FormControl([], []),\r\n  requiredFieldSelect: new FormControl('', []),\r\n})"
+            },
+            {
+                "name": "formControlDefaultInput",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "form.controls['defaultFieldInput']"
             },
             {
                 "name": "formControlDefaultSelect",
@@ -61,6 +111,16 @@
                 "defaultValue": "form.controls['defaultFieldSelect']"
             },
             {
+                "name": "formControlEmailInput",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "form.controls['emailFieldInput']"
+            },
+            {
                 "name": "formControlMultipleSelect",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -69,6 +129,26 @@
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "form.controls['multipleFieldSelect']"
+            },
+            {
+                "name": "formControlPatternInput",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "form.controls['patternFieldInput']"
+            },
+            {
+                "name": "formControlRequiredInput",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "form.controls['requiredFieldInput']"
             },
             {
                 "name": "formControlRequiredSelect",
@@ -164,6 +244,16 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "stories/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<InputComponent>",
+                "defaultValue": "{\r\n  title: 'Evolution Components/Input',\r\n  component: InputComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideAnimationsAsync()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "stories/page.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -224,11 +314,21 @@
                 "name": "Required",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "stories/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    control: formControlRequiredInput,\r\n    requiredErrorMessage: 'Este campo es requerido',\r\n  },\r\n}"
+            },
+            {
+                "name": "Required",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "stories/select.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    control: formControlRequiredSelect,\r\n    isRequired: true,\r\n    isMultiple: false,\r\n    errorMessage: 'Este campo es requerido',\r\n  },\r\n}"
+                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    control: formControlRequiredSelect,\r\n    isRequired: true,\r\n    isMultiple: false,\r\n    requiredErrorMessage: 'Este campo es requerido',\r\n  },\r\n}"
             },
             {
                 "name": "Secondary",
@@ -272,6 +372,34 @@
             }
         ],
         "functions": [
+            {
+                "name": "addCircularSafeProperties",
+                "file": "stories/input.stories.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "args": [
+                    {
+                        "name": "formControl",
+                        "type": "FormControl",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "formControl",
+                        "type": "FormControl",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
             {
                 "name": "addCircularSafeProperties",
                 "file": "stories/select.stories.ts",
@@ -319,6 +447,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<HeaderComponent>",
                 "file": "stories/header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<InputComponent>",
+                "file": "stories/input.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -461,6 +600,108 @@
                     "defaultValue": "{\n  args: {\n    ...Default.args,\n    withoutBorder: true,\n  },\n}"
                 }
             ],
+            "stories/input.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    control: formControlDefaultInput,\r\n    label: 'Input',\r\n    inputType: 'text',\r\n    detail: '',\r\n  },\r\n}"
+                },
+                {
+                    "name": "ErrorEmail",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    inputType: 'email',\r\n    control: formControlEmailInput,\r\n    requiredErrorMessage: 'Este campo es requerido',\r\n    emailErrorMessage:\r\n      'Por favor, introduce una dirección de correo electrónico válida',\r\n  },\r\n}"
+                },
+                {
+                    "name": "ErrorPattern",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    inputType: 'tel',\r\n    control: formControlPatternInput,\r\n    requiredErrorMessage: 'Este campo es requerido',\r\n    patternErrorMessage: 'Formato requerido (123) 456-7890',\r\n  },\r\n}"
+                },
+                {
+                    "name": "form",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "new FormBuilder().group({\r\n  defaultFieldInput: new FormControl('', []),\r\n  requiredFieldInput: new FormControl('', [Validators.required]),\r\n  emailFieldInput: new FormControl('', [Validators.required, Validators.email]),\r\n  patternFieldInput: new FormControl('', [\r\n    Validators.required,\r\n    Validators.pattern(/^\\(\\d{3}\\) \\d{3}-\\d{4}$/),\r\n  ]),\r\n})"
+                },
+                {
+                    "name": "formControlDefaultInput",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "form.controls['defaultFieldInput']"
+                },
+                {
+                    "name": "formControlEmailInput",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "form.controls['emailFieldInput']"
+                },
+                {
+                    "name": "formControlPatternInput",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "form.controls['patternFieldInput']"
+                },
+                {
+                    "name": "formControlRequiredInput",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "form.controls['requiredFieldInput']"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<InputComponent>",
+                    "defaultValue": "{\r\n  title: 'Evolution Components/Input',\r\n  component: InputComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideAnimationsAsync()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
+                },
+                {
+                    "name": "Required",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    control: formControlRequiredInput,\r\n    requiredErrorMessage: 'Este campo es requerido',\r\n  },\r\n}"
+                }
+            ],
             "stories/select.stories.ts": [
                 {
                     "name": "Default",
@@ -540,7 +781,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    control: formControlRequiredSelect,\r\n    isRequired: true,\r\n    isMultiple: false,\r\n    errorMessage: 'Este campo es requerido',\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    control: formControlRequiredSelect,\r\n    isRequired: true,\r\n    isMultiple: false,\r\n    requiredErrorMessage: 'Este campo es requerido',\r\n  },\r\n}"
                 }
             ],
             "stories/header.stories.ts": [
@@ -621,6 +862,36 @@
             ]
         },
         "groupedFunctions": {
+            "stories/input.stories.ts": [
+                {
+                    "name": "addCircularSafeProperties",
+                    "file": "stories/input.stories.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "formControl",
+                            "type": "FormControl",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "formControl",
+                            "type": "FormControl",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
             "stories/select.stories.ts": [
                 {
                     "name": "addCircularSafeProperties",
@@ -674,6 +945,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<HeaderComponent>",
                     "file": "stories/header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "stories/input.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<InputComponent>",
+                    "file": "stories/input.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -859,6 +1143,116 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/input.stories.ts",
+                "type": "function",
+                "linktype": "miscellaneous",
+                "linksubtype": "function",
+                "name": "addCircularSafeProperties",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ErrorEmail",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ErrorPattern",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "form",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "formControlDefaultInput",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "formControlEmailInput",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "formControlPatternInput",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "formControlRequiredInput",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Required",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

@@ -81,6 +81,6 @@ export const Required: Story = {
     control: formControlRequiredSelect,
     isRequired: true,
     isMultiple: false,
-    errorMessage: 'Este campo es requerido',
+    requiredErrorMessage: 'Este campo es requerido',
   },
 };

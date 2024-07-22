@@ -9,7 +9,7 @@ h1 {
   font-size: 2.6rem;
   line-height: 3rem;
   font-weight: 700;
-  margin: 0 !important;
+  margin: 0;
 }
 
 h2 {
@@ -17,7 +17,7 @@ h2 {
   font-size: 1.75rem;
   line-height: 2.5rem;
   font-weight: 600;
-  margin: 0 !important;
+  margin: 0;
 }
 
 h3 {
@@ -25,7 +25,7 @@ h3 {
   font-size: 1.25rem;
   line-height: 1.75rem;
   font-weight: 500;
-  margin: 0 !important;
+  margin: 0;
 }
 
 h4 {
@@ -33,7 +33,7 @@ h4 {
   font-size: 1.15rem;
   line-height: 1.5rem;
   font-weight: 500;
-  margin: 0 !important;
+  margin: 0;
 }
 
 h5 {
@@ -41,23 +41,23 @@ h5 {
   font-size: 1.05rem;
   line-height: 1.4rem;
   font-weight: 500;
-  margin: 0 !important;
+  margin: 0;
 }
 
 p {
   line-height: 1.75;
   font-size: 1rem;
   color: var(--text-primary, #000000);
+  margin: 0;
 }
 
 a {
   font-size: 1rem;
   color: var(--link-color, #0387ed);
   text-decoration: none;
-}
-
-a:hover {
-  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 :root {

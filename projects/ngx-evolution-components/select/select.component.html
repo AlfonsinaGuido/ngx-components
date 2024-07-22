@@ -69,10 +69,10 @@
       </mat-select>
     }
   }
-  @if (control.hasError("required") && errorMessage) {
-    <mat-error>{{ errorMessage }}</mat-error>
-  }
   @if (detail) {
     <mat-hint>{{ detail }}</mat-hint>
+  }
+  @if (control.hasError("required") && requiredErrorMessage) {
+    <mat-error>{{ requiredErrorMessage }}</mat-error>
   }
 </mat-form-field>

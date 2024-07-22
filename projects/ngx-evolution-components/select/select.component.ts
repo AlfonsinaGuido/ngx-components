@@ -33,7 +33,7 @@ export class SelectComponent {
   @Input() items!: SelectInterface[];
   @Input() isMultiple?: boolean;
   @Input() isRequired?: boolean;
-  @Input() errorMessage?: string;
+  @Input() requiredErrorMessage?: string;
   @Input() detail?: string;
   @Output() valueChange = new EventEmitter<any>();
 

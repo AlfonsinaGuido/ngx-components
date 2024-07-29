@@ -7,7 +7,7 @@ import { ButtonTheme, IconInterface } from '../public-api';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './button.component.html',
-  styleUrl: './button.component.scss',
+  styleUrls: ['./button.component.scss', '../styles/output.scss'],
   encapsulation: ViewEncapsulation.None,
 })
 export class ButtonComponent {

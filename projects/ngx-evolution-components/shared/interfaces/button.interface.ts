@@ -4,7 +4,7 @@ export type ButtonType = 'xs' | 'md' | 'lg';
 export type ButtonTheme = 'default' | 'primary' | 'secondary' | 'warning';
 
 export interface ButtonInterface {
-  theme: ButtonTheme;
+  theme?: ButtonTheme;
   label: string;
   icon?: IconInterface;
   isFlat?: boolean;

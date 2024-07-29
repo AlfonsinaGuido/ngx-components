@@ -24,7 +24,7 @@ import { ButtonComponent, IconInterface, SelectInterface } from '../public-api';
     ButtonComponent,
   ],
   templateUrl: './select.component.html',
-  styleUrl: './select.component.scss',
+  styleUrls: ['./select.component.scss', '../styles/output.scss'],
   encapsulation: ViewEncapsulation.None,
 })
 export class SelectComponent {

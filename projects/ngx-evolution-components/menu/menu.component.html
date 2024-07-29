@@ -1,0 +1,17 @@
+<evo-button
+  mat-button
+  [matMenuTriggerFor]="menu"
+  [icon]="icon"
+  [withoutBorder]="true"
+></evo-button>
+<mat-menu #menu="matMenu" class="mt-2">
+  <h5 class="flex justify-center text-accent">{{ titleApps }}</h5>
+  @for (item of items; track $index) {
+    <evo-button
+      [label]="item.label"
+      [icon]="item.icon"
+      [withoutBorder]="true"
+      [theme]="'secondary'"
+    ></evo-button>
+  }
+</mat-menu>

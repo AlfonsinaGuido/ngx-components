@@ -1,5 +1,4 @@
 @import "button.component.mixins.scss";
-@import "../output.scss";
 
 $parent: '.evo-button';
 
@@ -64,6 +63,7 @@ $parent: '.evo-button';
     &:hover {
       border: 1.5px solid var(--dark-gray);
       color: var(--dark-gray);
+      background-color: var(--primary-50);
     }
     &:active {
       border: 1.5px solid var(--medium-gray);

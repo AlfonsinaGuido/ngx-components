@@ -3,6 +3,7 @@
   class="evo-button rounded-md outline-none border-none font-normal min-h-9 min-w-18 px-6 py-2 flex items-center justify-center"
   [attr.disabled]="disabled === true ? true : null"
   [class]="getClasses"
+  mat-menu-item
 >
   <div class="evo-button__content">
     @if (icon && icon.position === "left") {

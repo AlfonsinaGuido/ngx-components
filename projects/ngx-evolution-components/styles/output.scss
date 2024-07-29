@@ -1,7 +1,3 @@
-@use "@angular/material" as mat;
-
-@use "@angular/material/prebuilt-themes/deeppurple-amber.css";
-
 /*
 ! tailwindcss v3.4.6 | MIT License | https://tailwindcss.com
 */
@@ -450,7 +446,7 @@ video {
   display: none;
 }
 
-*, ::before, ::after{
+*, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
   --tw-translate-x: 0;
@@ -504,7 +500,7 @@ video {
   --tw-contain-style:  ;
 }
 
-::backdrop{
+::backdrop {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
   --tw-translate-x: 0;
@@ -558,57 +554,93 @@ video {
   --tw-contain-style:  ;
 }
 
-.flex{
+.mt-2 {
+  margin-top: 10px;
+}
+
+.flex {
   display: flex;
 }
 
-.min-h-9{
+.hidden {
+  display: none;
+}
+
+.min-h-9 {
   min-height: 2.25rem;
 }
 
-.w-full{
+.w-full {
   width: 100%;
 }
 
-.min-w-\[150px\]{
+.min-w-\[150px\] {
   min-width: 150px;
 }
 
-.max-w-\[500px\]{
+.max-w-\[500px\] {
   max-width: 500px;
 }
 
-.items-center{
+.max-w-xs {
+  max-width: 20rem;
+}
+
+.items-center {
   align-items: center;
 }
 
-.justify-center{
+.justify-center {
   justify-content: center;
 }
 
-.rounded-md{
+.gap-4 {
+  gap: 20px;
+}
+
+.rounded-md {
   border-radius: 0.375rem;
 }
 
-.border-none{
+.border-r {
+  border-right-width: 1px;
+}
+
+.border-none {
   border-style: none;
 }
 
-.px-6{
+.border-primary {
+  border-color: var(--primary-500);
+}
+
+.p-2 {
+  padding: 10px;
+}
+
+.px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
 
-.py-2{
+.py-2 {
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
-.font-normal{
+.pr-3 {
+  padding-right: 15px;
+}
+
+.font-normal {
   font-weight: 400;
 }
 
-.outline-none{
+.text-accent {
+  color: var(--accent-500);
+}
+
+.outline-none {
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
@@ -700,4 +732,10 @@ a {
   --dark-gray: #6b7280;
   --inverted-box-shadow: -0.6725px 1.345px 6.0525px -1.345px rgba(0, 0, 0, 0.2);
   --standard-box-shadow: 2px 2px 2px rgba(22, 22, 22, 0.15);
+}
+
+@media (min-width: 640px) {
+  .sm\:flex {
+    display: flex;
+  }
 }

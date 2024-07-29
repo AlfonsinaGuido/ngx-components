@@ -24,7 +24,7 @@ import { CustomErrorStateMatcher } from '../shared/custom-error-state-matcher';
     ReactiveFormsModule,
   ],
   templateUrl: './input.component.html',
-  styleUrl: './input.component.scss',
+  styleUrls: ['./input.component.scss', '../styles/output.scss'],
   encapsulation: ViewEncapsulation.None,
 })
 export class InputComponent implements OnInit, OnDestroy {

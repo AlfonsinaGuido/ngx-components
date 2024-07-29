@@ -4,7 +4,7 @@ import {
   type Meta,
   type StoryObj,
 } from '@storybook/angular';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async'
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { FormBuilder, FormControl } from '@angular/forms';
 
 const meta: Meta<SelectComponent> = {

@@ -1,4 +1,4 @@
-import { HeaderComponent } from '@aseinfo/ngx-evolution-components/public-api';
+import { MenuComponent } from '@aseinfo/ngx-evolution-components/public-api';
 import {
   applicationConfig,
   type Meta,
@@ -6,9 +6,9 @@ import {
 } from '@storybook/angular';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
-const meta: Meta<HeaderComponent> = {
-  title: 'Evolution Components/Header',
-  component: HeaderComponent,
+const meta: Meta<MenuComponent> = {
+  title: 'Evolution Components/Menu',
+  component: MenuComponent,
   decorators: [
     applicationConfig({
       providers: [provideAnimationsAsync()],
@@ -18,12 +18,12 @@ const meta: Meta<HeaderComponent> = {
 };
 
 export default meta;
-type Story = StoryObj<HeaderComponent>;
+type Story = StoryObj<MenuComponent>;
 
 export const Default: Story = {
   args: {
-    titleMenu: 'Tus aplicaciones',
-    itemsMenu: [
+    titleApps: 'Tus aplicaciones',
+    items: [
       {
         label: 'Evo Wave',
         icon: {
@@ -41,8 +41,5 @@ export const Default: Story = {
         },
       },
     ],
-    imgCompany:
-      'https://proyectosaseinfo.atlassian.net/s/278rlr/b/7/3da8742e15d2b46ad1d6f999062048c7/_/jira-logo-scaled.png',
-    nameCompany: 'ASEINFO',
   },
 };

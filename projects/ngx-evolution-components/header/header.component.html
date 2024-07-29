@@ -1,1 +1,7 @@
-<p>header works!</p>
+<header class="flex gap-4 items-center p-2">
+  <evo-menu [titleApps]="titleMenu" [items]="itemsMenu"></evo-menu>
+  <div class="sm:flex items-center gap-4 hidden">
+    <img class="max-w-xs" [src]="imgCompany" alt="Company Logo" />
+    <h5 class="border-r border-primary pr-3 text-accent">{{ nameCompany }}</h5>
+  </div>
+</header>

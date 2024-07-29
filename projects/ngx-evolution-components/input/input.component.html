@@ -1,1 +1,35 @@
-<p>input works!</p>
+<form class="min-w-[150px] max-w-[500px] w-full">
+  <mat-form-field class="w-full">
+    <mat-label>{{ label }}</mat-label>
+    <input
+      type="{{ inputType }}"
+      matInput
+      [formControl]="control"
+      [errorStateMatcher]="matcher"
+      placeholder="{{ inputPlaceholder }}"
+    />
+    @if (detail) {
+      <mat-hint>{{ detail }}</mat-hint>
+    }
+    @if (control.hasError("required") && requiredErrorMessage) {
+      <mat-error>{{ requiredErrorMessage }}</mat-error>
+    }
+    @if (
+      !control.hasError("required") &&
+      control.hasError("email") &&
+      emailErrorMessage
+    ) {
+      <mat-error>{{ emailErrorMessage }}</mat-error>
+    }
+    @if (
+      !control.hasError("required") &&
+      control.hasError("pattern") &&
+      patternErrorMessage
+    ) {
+      <mat-error>{{ patternErrorMessage }}</mat-error>
+    }
+    @if (!control.hasError("required") && anotherErrorMessage) {
+      <mat-error>{{ anotherErrorMessage }}</mat-error>
+    }
+  </mat-form-field>
+</form>

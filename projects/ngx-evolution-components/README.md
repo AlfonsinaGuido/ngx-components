@@ -40,4 +40,4 @@ Ejecutar `npm run storybook` para compilar el proyecto y ver los componentes en 
 
 ## Tailwind
 
-Ejecutar `npm run tailwind` para actualizar el archivo `projects/ngx-evolution-components/output.scss` y escuchar los cambios de los archivos fuente.
+Ejecutar `npm run tailwind` para actualizar el archivo `projects/ngx-evolution-components/styles/output.scss` y escuchar los cambios de los archivos fuente.

@@ -24,7 +24,7 @@ import { ButtonComponent, IconInterface, SelectInterface } from '../public-api';
     ButtonComponent,
   ],
   templateUrl: './select.component.html',
-  styleUrl: './select.component.scss',
+  styleUrls: ['./select.component.scss', '../styles/output.scss'],
   encapsulation: ViewEncapsulation.None,
 })
 export class SelectComponent {
@@ -33,7 +33,7 @@ export class SelectComponent {
   @Input() items!: SelectInterface[];
   @Input() isMultiple?: boolean;
   @Input() isRequired?: boolean;
-  @Input() errorMessage?: string;
+  @Input() requiredErrorMessage?: string;
   @Input() detail?: string;
   @Output() valueChange = new EventEmitter<any>();
 

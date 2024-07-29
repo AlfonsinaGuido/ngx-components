@@ -1,17 +1,8 @@
 @import "button.component.mixins.scss";
-@import "../output.scss";
+
+$parent: '.evo-button';
 
 .evo-button {
-  outline: none;
-  border: none;
-  font-style: normal;
-  $parent: &;
-  min-height: 36px;
-  min-width: 73px;
-  padding: 8px 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   @include transition-button();
 
   &.without-border {
@@ -72,6 +63,7 @@
     &:hover {
       border: 1.5px solid var(--dark-gray);
       color: var(--dark-gray);
+      background-color: var(--primary-50);
     }
     &:active {
       border: 1.5px solid var(--medium-gray);

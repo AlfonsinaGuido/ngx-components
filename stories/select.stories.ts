@@ -4,7 +4,7 @@ import {
   type Meta,
   type StoryObj,
 } from '@storybook/angular';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async'
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { FormBuilder, FormControl } from '@angular/forms';
 
 const meta: Meta<SelectComponent> = {
@@ -81,6 +81,6 @@ export const Required: Story = {
     control: formControlRequiredSelect,
     isRequired: true,
     isMultiple: false,
-    errorMessage: 'Este campo es requerido',
+    requiredErrorMessage: 'Este campo es requerido',
   },
 };

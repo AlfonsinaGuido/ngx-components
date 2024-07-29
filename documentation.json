@@ -24,6 +24,36 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "stories/header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    titleMenu: 'Tus aplicaciones',\n    itemsMenu: [\n      {\n        label: 'Evo Wave',\n        icon: {\n          icon: 'https://pic.onlinewebfonts.com/thumbnails/icons_428993.svg',\n          type: 'svg',\n          position: 'left',\n        },\n      },\n      {\n        label: 'Evo Chart',\n        icon: {\n          icon: 'https://pic.onlinewebfonts.com/thumbnails/icons_572317.svg',\n          type: 'svg',\n          position: 'left',\n        },\n      },\n    ],\n    imgCompany:\n      'https://proyectosaseinfo.atlassian.net/s/278rlr/b/7/3da8742e15d2b46ad1d6f999062048c7/_/jira-logo-scaled.png',\n    nameCompany: 'ASEINFO',\n  },\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    control: formControlDefaultInput,\r\n    label: 'Input',\r\n    inputType: 'text',\r\n    detail: '',\r\n  },\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/menu.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    titleApps: 'Tus aplicaciones',\r\n    items: [\r\n      {\r\n        label: 'Evo Wave',\r\n        icon: {\r\n          icon: 'https://pic.onlinewebfonts.com/thumbnails/icons_428993.svg',\r\n          type: 'svg',\r\n          position: 'left',\r\n        },\r\n      },\r\n      {\r\n        label: 'Evo Chart',\r\n        icon: {\r\n          icon: 'https://pic.onlinewebfonts.com/thumbnails/icons_572317.svg',\r\n          type: 'svg',\r\n          position: 'left',\r\n        },\r\n      },\r\n    ],\r\n  },\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "stories/select.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -41,6 +71,36 @@
                 "defaultValue": "{\n  args: {\n    ...Default.args,\n    disabled: true,\n  },\n}"
             },
             {
+                "name": "ErrorEmail",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    inputType: 'email',\r\n    control: formControlEmailInput,\r\n    requiredErrorMessage: 'Este campo es requerido',\r\n    emailErrorMessage:\r\n      'Por favor, introduce una dirección de correo electrónico válida',\r\n  },\r\n}"
+            },
+            {
+                "name": "ErrorPattern",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    inputType: 'tel',\r\n    control: formControlPatternInput,\r\n    requiredErrorMessage: 'Este campo es requerido',\r\n    patternErrorMessage: 'Formato requerido (123) 456-7890',\r\n  },\r\n}"
+            },
+            {
+                "name": "form",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "new FormBuilder().group({\r\n  defaultFieldInput: new FormControl('', []),\r\n  requiredFieldInput: new FormControl('', [Validators.required]),\r\n  emailFieldInput: new FormControl('', [Validators.required, Validators.email]),\r\n  patternFieldInput: new FormControl('', [\r\n    Validators.required,\r\n    Validators.pattern(/^\\(\\d{3}\\) \\d{3}-\\d{4}$/),\r\n  ]),\r\n})"
+            },
+            {
                 "name": "form",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -49,6 +109,16 @@
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "new FormBuilder().group({\r\n  defaultFieldSelect: new FormControl('', []),\r\n  multipleFieldSelect: new FormControl([], []),\r\n  requiredFieldSelect: new FormControl('', []),\r\n})"
+            },
+            {
+                "name": "formControlDefaultInput",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "form.controls['defaultFieldInput']"
             },
             {
                 "name": "formControlDefaultSelect",
@@ -61,6 +131,16 @@
                 "defaultValue": "form.controls['defaultFieldSelect']"
             },
             {
+                "name": "formControlEmailInput",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "form.controls['emailFieldInput']"
+            },
+            {
                 "name": "formControlMultipleSelect",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -69,6 +149,26 @@
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "form.controls['multipleFieldSelect']"
+            },
+            {
+                "name": "formControlPatternInput",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "form.controls['patternFieldInput']"
+            },
+            {
+                "name": "formControlRequiredInput",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "form.controls['requiredFieldInput']"
             },
             {
                 "name": "formControlRequiredSelect",
@@ -101,46 +201,6 @@
                 "defaultValue": "{\n  args: {\n    ...Default.args,\n    isFluid: true,\n  },\n}"
             },
             {
-                "name": "LoggedIn",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "stories/header.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    user: {\n      name: 'Jane Doe',\n    },\n  },\n}"
-            },
-            {
-                "name": "LoggedIn",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "stories/page.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const loginButton = canvas.getByRole('button', { name: /Log in/i });\n    await expect(loginButton).toBeInTheDocument();\n    await userEvent.click(loginButton);\n    await expect(loginButton).not.toBeInTheDocument();\n\n    const logoutButton = canvas.getByRole('button', { name: /Log out/i });\n    await expect(logoutButton).toBeInTheDocument();\n  },\n}"
-            },
-            {
-                "name": "LoggedOut",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "stories/header.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{}"
-            },
-            {
-                "name": "LoggedOut",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "stories/page.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{}"
-            },
-            {
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -158,17 +218,27 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<HeaderComponent>",
-                "defaultValue": "{\n  title: 'Evolution Components/Header',\n  component: HeaderComponent,\n  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs\n  tags: ['autodocs'],\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\n    layout: 'fullscreen',\n  },\n  args: {\n    onLogin: fn(),\n    onLogout: fn(),\n    onCreateAccount: fn(),\n  },\n}"
+                "defaultValue": "{\n  title: 'Evolution Components/Header',\n  component: HeaderComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
             },
             {
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/page.stories.ts",
+                "file": "stories/input.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<PageComponent>",
-                "defaultValue": "{\n  title: 'Evolution Components/Page',\n  component: PageComponent,\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\n    layout: 'fullscreen',\n  },\n}"
+                "type": "Meta<InputComponent>",
+                "defaultValue": "{\r\n  title: 'Evolution Components/Input',\r\n  component: InputComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideAnimationsAsync()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/menu.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<MenuComponent>",
+                "defaultValue": "{\r\n  title: 'Evolution Components/Menu',\r\n  component: MenuComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideAnimationsAsync()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
             },
             {
                 "name": "meta",
@@ -208,7 +278,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Preview",
-                "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n}"
+                "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n  decorators: [\n    componentWrapperDecorator(\n      (story) => `<div style=\"margin: 3em\">${story}</div>`,\n    ),\n  ],\n}"
             },
             {
                 "name": "Primary",
@@ -224,11 +294,21 @@
                 "name": "Required",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "stories/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    control: formControlRequiredInput,\r\n    requiredErrorMessage: 'Este campo es requerido',\r\n  },\r\n}"
+            },
+            {
+                "name": "Required",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "stories/select.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    control: formControlRequiredSelect,\r\n    isRequired: true,\r\n    isMultiple: false,\r\n    errorMessage: 'Este campo es requerido',\r\n  },\r\n}"
+                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    control: formControlRequiredSelect,\r\n    isRequired: true,\r\n    isMultiple: false,\r\n    requiredErrorMessage: 'Este campo es requerido',\r\n  },\r\n}"
             },
             {
                 "name": "Secondary",
@@ -272,6 +352,34 @@
             }
         ],
         "functions": [
+            {
+                "name": "addCircularSafeProperties",
+                "file": "stories/input.stories.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "args": [
+                    {
+                        "name": "formControl",
+                        "type": "FormControl",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "formControl",
+                        "type": "FormControl",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
             {
                 "name": "addCircularSafeProperties",
                 "file": "stories/select.stories.ts",
@@ -328,8 +436,19 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<PageComponent>",
-                "file": "stories/page.stories.ts",
+                "rawtype": "StoryObj<InputComponent>",
+                "file": "stories/input.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<MenuComponent>",
+                "file": "stories/menu.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -461,6 +580,152 @@
                     "defaultValue": "{\n  args: {\n    ...Default.args,\n    withoutBorder: true,\n  },\n}"
                 }
             ],
+            "stories/header.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    titleMenu: 'Tus aplicaciones',\n    itemsMenu: [\n      {\n        label: 'Evo Wave',\n        icon: {\n          icon: 'https://pic.onlinewebfonts.com/thumbnails/icons_428993.svg',\n          type: 'svg',\n          position: 'left',\n        },\n      },\n      {\n        label: 'Evo Chart',\n        icon: {\n          icon: 'https://pic.onlinewebfonts.com/thumbnails/icons_572317.svg',\n          type: 'svg',\n          position: 'left',\n        },\n      },\n    ],\n    imgCompany:\n      'https://proyectosaseinfo.atlassian.net/s/278rlr/b/7/3da8742e15d2b46ad1d6f999062048c7/_/jira-logo-scaled.png',\n    nameCompany: 'ASEINFO',\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<HeaderComponent>",
+                    "defaultValue": "{\n  title: 'Evolution Components/Header',\n  component: HeaderComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+                }
+            ],
+            "stories/input.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    control: formControlDefaultInput,\r\n    label: 'Input',\r\n    inputType: 'text',\r\n    detail: '',\r\n  },\r\n}"
+                },
+                {
+                    "name": "ErrorEmail",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    inputType: 'email',\r\n    control: formControlEmailInput,\r\n    requiredErrorMessage: 'Este campo es requerido',\r\n    emailErrorMessage:\r\n      'Por favor, introduce una dirección de correo electrónico válida',\r\n  },\r\n}"
+                },
+                {
+                    "name": "ErrorPattern",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    inputType: 'tel',\r\n    control: formControlPatternInput,\r\n    requiredErrorMessage: 'Este campo es requerido',\r\n    patternErrorMessage: 'Formato requerido (123) 456-7890',\r\n  },\r\n}"
+                },
+                {
+                    "name": "form",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "new FormBuilder().group({\r\n  defaultFieldInput: new FormControl('', []),\r\n  requiredFieldInput: new FormControl('', [Validators.required]),\r\n  emailFieldInput: new FormControl('', [Validators.required, Validators.email]),\r\n  patternFieldInput: new FormControl('', [\r\n    Validators.required,\r\n    Validators.pattern(/^\\(\\d{3}\\) \\d{3}-\\d{4}$/),\r\n  ]),\r\n})"
+                },
+                {
+                    "name": "formControlDefaultInput",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "form.controls['defaultFieldInput']"
+                },
+                {
+                    "name": "formControlEmailInput",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "form.controls['emailFieldInput']"
+                },
+                {
+                    "name": "formControlPatternInput",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "form.controls['patternFieldInput']"
+                },
+                {
+                    "name": "formControlRequiredInput",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "form.controls['requiredFieldInput']"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<InputComponent>",
+                    "defaultValue": "{\r\n  title: 'Evolution Components/Input',\r\n  component: InputComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideAnimationsAsync()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
+                },
+                {
+                    "name": "Required",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    control: formControlRequiredInput,\r\n    requiredErrorMessage: 'Este campo es requerido',\r\n  },\r\n}"
+                }
+            ],
+            "stories/menu.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/menu.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    titleApps: 'Tus aplicaciones',\r\n    items: [\r\n      {\r\n        label: 'Evo Wave',\r\n        icon: {\r\n          icon: 'https://pic.onlinewebfonts.com/thumbnails/icons_428993.svg',\r\n          type: 'svg',\r\n          position: 'left',\r\n        },\r\n      },\r\n      {\r\n        label: 'Evo Chart',\r\n        icon: {\r\n          icon: 'https://pic.onlinewebfonts.com/thumbnails/icons_572317.svg',\r\n          type: 'svg',\r\n          position: 'left',\r\n        },\r\n      },\r\n    ],\r\n  },\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/menu.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<MenuComponent>",
+                    "defaultValue": "{\r\n  title: 'Evolution Components/Menu',\r\n  component: MenuComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideAnimationsAsync()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
+                }
+            ],
             "stories/select.stories.ts": [
                 {
                     "name": "Default",
@@ -540,71 +805,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    control: formControlRequiredSelect,\r\n    isRequired: true,\r\n    isMultiple: false,\r\n    errorMessage: 'Este campo es requerido',\r\n  },\r\n}"
-                }
-            ],
-            "stories/header.stories.ts": [
-                {
-                    "name": "LoggedIn",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/header.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  args: {\n    user: {\n      name: 'Jane Doe',\n    },\n  },\n}"
-                },
-                {
-                    "name": "LoggedOut",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/header.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/header.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<HeaderComponent>",
-                    "defaultValue": "{\n  title: 'Evolution Components/Header',\n  component: HeaderComponent,\n  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs\n  tags: ['autodocs'],\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\n    layout: 'fullscreen',\n  },\n  args: {\n    onLogin: fn(),\n    onLogout: fn(),\n    onCreateAccount: fn(),\n  },\n}"
-                }
-            ],
-            "stories/page.stories.ts": [
-                {
-                    "name": "LoggedIn",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/page.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const loginButton = canvas.getByRole('button', { name: /Log in/i });\n    await expect(loginButton).toBeInTheDocument();\n    await userEvent.click(loginButton);\n    await expect(loginButton).not.toBeInTheDocument();\n\n    const logoutButton = canvas.getByRole('button', { name: /Log out/i });\n    await expect(logoutButton).toBeInTheDocument();\n  },\n}"
-                },
-                {
-                    "name": "LoggedOut",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/page.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/page.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<PageComponent>",
-                    "defaultValue": "{\n  title: 'Evolution Components/Page',\n  component: PageComponent,\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\n    layout: 'fullscreen',\n  },\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    control: formControlRequiredSelect,\r\n    isRequired: true,\r\n    isMultiple: false,\r\n    requiredErrorMessage: 'Este campo es requerido',\r\n  },\r\n}"
                 }
             ],
             ".storybook/preview.ts": [
@@ -616,11 +817,41 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Preview",
-                    "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n}"
+                    "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n  decorators: [\n    componentWrapperDecorator(\n      (story) => `<div style=\"margin: 3em\">${story}</div>`,\n    ),\n  ],\n}"
                 }
             ]
         },
         "groupedFunctions": {
+            "stories/input.stories.ts": [
+                {
+                    "name": "addCircularSafeProperties",
+                    "file": "stories/input.stories.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "formControl",
+                            "type": "FormControl",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "formControl",
+                            "type": "FormControl",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
             "stories/select.stories.ts": [
                 {
                     "name": "addCircularSafeProperties",
@@ -680,13 +911,26 @@
                     "kind": 183
                 }
             ],
-            "stories/page.stories.ts": [
+            "stories/input.stories.ts": [
                 {
                     "name": "Story",
                     "ctype": "miscellaneous",
                     "subtype": "typealias",
-                    "rawtype": "StoryObj<PageComponent>",
-                    "file": "stories/page.stories.ts",
+                    "rawtype": "StoryObj<InputComponent>",
+                    "file": "stories/input.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "stories/menu.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<MenuComponent>",
+                    "file": "stories/menu.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -838,17 +1082,7 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "LoggedIn",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "stories/header.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "LoggedOut",
+                "name": "Default",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -864,27 +1098,127 @@
                 "status": "low"
             },
             {
-                "filePath": "stories/page.stories.ts",
-                "type": "variable",
+                "filePath": "stories/input.stories.ts",
+                "type": "function",
                 "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "LoggedIn",
+                "linksubtype": "function",
+                "name": "addCircularSafeProperties",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
             },
             {
-                "filePath": "stories/page.stories.ts",
+                "filePath": "stories/input.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "LoggedOut",
+                "name": "Default",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
             },
             {
-                "filePath": "stories/page.stories.ts",
+                "filePath": "stories/input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ErrorEmail",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ErrorPattern",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "form",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "formControlDefaultInput",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "formControlEmailInput",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "formControlPatternInput",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "formControlRequiredInput",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/input.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Required",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/menu.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/menu.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",

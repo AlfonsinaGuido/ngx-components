@@ -15,7 +15,7 @@ module.exports = {
       },
       fontSize: {
         small: "0.875rem",
-        tiny: "0.75rem",
+        tiny: "0.65rem",
       },
       borderRadius: {
         default: "15px",

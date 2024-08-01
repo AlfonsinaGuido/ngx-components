@@ -36,13 +36,13 @@ describe('TagComponent', () => {
     expect(tagClass).toContain('tag_size-md');
   });
 
-  it('should have "high" css class when priority set to high', () => {
+  it('should have "Alta" css class when priority set to high', () => {
     component.prioridad = Prioridad.High;
     fixture.detectChanges();
     const tagEl: HTMLElement = fixture.nativeElement;
     const tag = tagEl.querySelector('p');
     const tagClass = tag?.className;
-    expect(tagClass).toContain('high');
+    expect(tagClass).toContain('Alta');
   });
 
   it('should render text label', () => {

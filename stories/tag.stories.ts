@@ -14,12 +14,12 @@ export default {
     },
     prioridad: {
       type: 'string',
-      control: { type: 'radio' },
+      control: { type: 'inline-radio' },
       options: [Prioridad.High, Prioridad.Medium, Prioridad.Low],
     },
     size: {
       type: 'string',
-      control: { type: 'radio' },
+      control: { type: 'inline-radio' },
       options: ['sm', 'md', 'lg'],
     },
   },

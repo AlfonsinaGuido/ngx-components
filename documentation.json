@@ -14,7 +14,7 @@
                 "name": "actividad",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/carta.stories.ts",
+                "file": "stories/carta-actividad.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "IActividad",
@@ -34,7 +34,7 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/carta.stories.ts",
+                "file": "stories/carta-actividad.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -529,12 +529,12 @@
         ],
         "enumerations": [],
         "groupedVariables": {
-            "stories/carta.stories.ts": [
+            "stories/carta-actividad.stories.ts": [
                 {
                     "name": "actividad",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "stories/carta.stories.ts",
+                    "file": "stories/carta-actividad.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "IActividad",
@@ -544,7 +544,7 @@
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "stories/carta.stories.ts",
+                    "file": "stories/carta-actividad.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -1206,7 +1206,7 @@
                 "status": "low"
             },
             {
-                "filePath": "stories/carta.stories.ts",
+                "filePath": "stories/carta-actividad.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -1216,7 +1216,7 @@
                 "status": "low"
             },
             {
-                "filePath": "stories/carta.stories.ts",
+                "filePath": "stories/carta-actividad.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",

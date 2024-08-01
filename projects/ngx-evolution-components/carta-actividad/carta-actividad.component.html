@@ -1,0 +1,30 @@
+<div
+  class="relative cursor-pointer rounded-xl bg-white px-3 py-2 text-black shadow-md hover:text-primary hover:shadow-lg transition-all max-w-80 min-w-fit"
+  tabindex="0"
+>
+  <evo-tag
+    [prioridad]="actividad.prioridad"
+    [label]="actividad.prioridad"
+  ></evo-tag>
+  <p class="mb-1 text-md font-bold">
+    {{ actividad.titulo }}
+  </p>
+  <p class="text-xs font-light text-gray-500 mb-3">
+    {{ actividad.descripcion }}
+  </p>
+  <div
+    id="cart-actividad-footer"
+    class="flex flex-row flex-wrap justify-between items-center"
+  >
+    <div
+      id="text-avatar"
+      class="h-8 w-8 bg-emerald-50 rounded-full flex items-center justify-center"
+    >
+      <p class="text-emerald-700 font-semibold">OJ</p>
+    </div>
+    <span class="text-base flex items-center"
+      >📅
+      <p class="text-xs font-light">26/07/2024</p>
+    </span>
+  </div>
+</div>

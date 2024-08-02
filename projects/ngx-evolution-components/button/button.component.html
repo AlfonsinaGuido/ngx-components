@@ -9,7 +9,7 @@
     @if (icon && icon.position === "left") {
       <div [class]="{ left: icon.position === 'left' && label }" class="icon">
         @if (icon.type === "svg") {
-          <img [src]="icon.icon" />
+          <div [innerHTML]="svgContent"></div>
         }
         @if (icon.type == "class") {
           <span [class]="icon.class">
@@ -26,7 +26,7 @@
     @if (icon && icon.position === "right") {
       <div [class]="{ right: icon.position === 'right' && label }" class="icon">
         @if (icon.type === "svg") {
-          <img [src]="icon.icon" />
+          <div [innerHTML]="svgContent"></div>
         }
         @if (icon.type == "class") {
           <span [class]="icon.class">
@@ -38,7 +38,7 @@
     @if (icon && !icon.position && !label) {
       <div class="icon">
         @if (icon.type === "svg") {
-          <img [src]="icon.icon" />
+          <div [innerHTML]="svgContent"></div>
         }
         @if (icon.type == "class") {
           <span [class]="icon.class">

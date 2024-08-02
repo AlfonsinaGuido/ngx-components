@@ -18,7 +18,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "IActividad",
-                "defaultValue": "{\n  titulo: 'Inducción a la empresa',\n  tipo: 'Reunión',\n  fase: 'Antes del primer día',\n  descripcion:\n    'Día de inducción a la empresa. Es necesario asistir presencialmente a las oficinas.',\n  objetivos:\n    'Procurar que el empleado pueda asociarse con los valores de la empresa',\n  prioridad: Prioridad.High,\n  responsable: 'Miguel Perez',\n  duracion: 8,\n  tipoDuracion: Duracion.Horas,\n  realizaEvaluacion: false,\n  status: EstadoActividad.Abierta,\n}"
+                "defaultValue": "{\r\n  titulo: 'Inducción a la empresa',\r\n  tipo: 'Reunión',\r\n  fase: 'Antes del primer día',\r\n  descripcion:\r\n    'Día de inducción a la empresa. Es necesario asistir presencialmente a las oficinas.',\r\n  objetivos:\r\n    'Procurar que el empleado pueda asociarse con los valores de la empresa',\r\n  prioridad: Prioridad.High,\r\n  responsable: 'Miguel Perez',\r\n  duracion: 8,\r\n  tipoDuracion: Duracion.Horas,\r\n  realizaEvaluacion: false,\r\n  status: EstadoActividad.Abierta,\r\n}"
             },
             {
                 "name": "Default",
@@ -38,7 +38,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
-                "defaultValue": "{\n  argTypes: {\n    actividad: {\n      control: { type: 'object' },\n    },\n  },\n  args: {\n    actividad,\n  },\n} as StoryObj<CartaActividadComponent>"
+                "defaultValue": "{\r\n  argTypes: {\r\n    actividad: {\r\n      control: { type: 'object' },\r\n    },\r\n  },\r\n  args: {\r\n    actividad,\r\n  },\r\n} as StoryObj<CartaActividadComponent>"
             },
             {
                 "name": "Default",
@@ -208,7 +208,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  // args: {\n  //   label: 'Baja',\n  //   prioridad: Prioridad.Low,\n  //   size: 'sm',\n  // },\n}"
+                "defaultValue": "{\r\n  args: {\r\n    size: 'lg',\r\n    isPriority: true,\r\n    imgUrl: 'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n  },\r\n}"
             },
             {
                 "name": "iniciales",
@@ -218,7 +218,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  // args: {\n  //   label: 'Media',\n  //   prioridad: Prioridad.Medium,\n  //   size: 'md',\n  // },\n}"
+                "defaultValue": "{\r\n  args: {\r\n    size: 'lg',\r\n    name: 'Alfonso Gonzalez',\r\n    color: 'green',\r\n  },\r\n}"
             },
             {
                 "name": "IsFlat",
@@ -308,7 +308,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    icon: {\r\n      icon: 'http://cdn.onlinewebfonts.com/svg/img_572138.png',\r\n      type: 'svg',\r\n    },\r\n  },\r\n}"
+                "defaultValue": "{\r\n  args: {\r\n    icon: {\r\n      icon: '/add-user.svg',\r\n      type: 'svg',\r\n    },\r\n    theme: 'primary',\r\n  },\r\n}"
             },
             {
                 "name": "preview",
@@ -338,7 +338,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    label: 'Alta',\n    prioridad: Prioridad.High,\n    size: 'lg',\n  },\n}"
+                "defaultValue": "{\r\n  args: {\r\n    label: 'Alta',\r\n    prioridad: Prioridad.High,\r\n    size: 'lg',\r\n  },\r\n}"
             },
             {
                 "name": "prioridadBaja",
@@ -348,7 +348,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    label: 'Baja',\n    prioridad: Prioridad.Low,\n    size: 'sm',\n  },\n}"
+                "defaultValue": "{\r\n  args: {\r\n    label: 'Baja',\r\n    prioridad: Prioridad.Low,\r\n    size: 'sm',\r\n  },\r\n}"
             },
             {
                 "name": "prioridadMedia",
@@ -358,7 +358,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    label: 'Media',\n    prioridad: Prioridad.Medium,\n    size: 'md',\n  },\n}"
+                "defaultValue": "{\r\n  args: {\r\n    label: 'Media',\r\n    prioridad: Prioridad.Medium,\r\n    size: 'md',\r\n  },\r\n}"
             },
             {
                 "name": "Required",
@@ -408,7 +408,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    icon: {\r\n      icon: 'http://cdn.onlinewebfonts.com/svg/img_572138.png',\r\n      type: 'svg',\r\n      position: 'left'\r\n    },\r\n  },\r\n}"
+                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    icon: {\r\n      icon: '/add-user.svg',\r\n      type: 'svg',\r\n      position: 'left',\r\n    },\r\n    theme: 'primary',\r\n  },\r\n}"
             },
             {
                 "name": "WithoutBorder",
@@ -569,7 +569,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "IActividad",
-                    "defaultValue": "{\n  titulo: 'Inducción a la empresa',\n  tipo: 'Reunión',\n  fase: 'Antes del primer día',\n  descripcion:\n    'Día de inducción a la empresa. Es necesario asistir presencialmente a las oficinas.',\n  objetivos:\n    'Procurar que el empleado pueda asociarse con los valores de la empresa',\n  prioridad: Prioridad.High,\n  responsable: 'Miguel Perez',\n  duracion: 8,\n  tipoDuracion: Duracion.Horas,\n  realizaEvaluacion: false,\n  status: EstadoActividad.Abierta,\n}"
+                    "defaultValue": "{\r\n  titulo: 'Inducción a la empresa',\r\n  tipo: 'Reunión',\r\n  fase: 'Antes del primer día',\r\n  descripcion:\r\n    'Día de inducción a la empresa. Es necesario asistir presencialmente a las oficinas.',\r\n  objetivos:\r\n    'Procurar que el empleado pueda asociarse con los valores de la empresa',\r\n  prioridad: Prioridad.High,\r\n  responsable: 'Miguel Perez',\r\n  duracion: 8,\r\n  tipoDuracion: Duracion.Horas,\r\n  realizaEvaluacion: false,\r\n  status: EstadoActividad.Abierta,\r\n}"
                 },
                 {
                     "name": "Default",
@@ -579,7 +579,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
-                    "defaultValue": "{\n  argTypes: {\n    actividad: {\n      control: { type: 'object' },\n    },\n  },\n  args: {\n    actividad,\n  },\n} as StoryObj<CartaActividadComponent>"
+                    "defaultValue": "{\r\n  argTypes: {\r\n    actividad: {\r\n      control: { type: 'object' },\r\n    },\r\n  },\r\n  args: {\r\n    actividad,\r\n  },\r\n} as StoryObj<CartaActividadComponent>"
                 }
             ],
             "stories/button.stories.ts": [
@@ -641,7 +641,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    icon: {\r\n      icon: 'http://cdn.onlinewebfonts.com/svg/img_572138.png',\r\n      type: 'svg',\r\n    },\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    icon: {\r\n      icon: '/add-user.svg',\r\n      type: 'svg',\r\n    },\r\n    theme: 'primary',\r\n  },\r\n}"
                 },
                 {
                     "name": "Primary",
@@ -681,7 +681,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    icon: {\r\n      icon: 'http://cdn.onlinewebfonts.com/svg/img_572138.png',\r\n      type: 'svg',\r\n      position: 'left'\r\n    },\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    icon: {\r\n      icon: '/add-user.svg',\r\n      type: 'svg',\r\n      position: 'left',\r\n    },\r\n    theme: 'primary',\r\n  },\r\n}"
                 },
                 {
                     "name": "WithoutBorder",
@@ -931,7 +931,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  // args: {\n  //   label: 'Baja',\n  //   prioridad: Prioridad.Low,\n  //   size: 'sm',\n  // },\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    size: 'lg',\r\n    isPriority: true,\r\n    imgUrl: 'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n  },\r\n}"
                 },
                 {
                     "name": "iniciales",
@@ -941,7 +941,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  // args: {\n  //   label: 'Media',\n  //   prioridad: Prioridad.Medium,\n  //   size: 'md',\n  // },\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    size: 'lg',\r\n    name: 'Alfonso Gonzalez',\r\n    color: 'green',\r\n  },\r\n}"
                 }
             ],
             ".storybook/preview.ts": [
@@ -965,7 +965,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    label: 'Alta',\n    prioridad: Prioridad.High,\n    size: 'lg',\n  },\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    label: 'Alta',\r\n    prioridad: Prioridad.High,\r\n    size: 'lg',\r\n  },\r\n}"
                 },
                 {
                     "name": "prioridadBaja",
@@ -975,7 +975,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    label: 'Baja',\n    prioridad: Prioridad.Low,\n    size: 'sm',\n  },\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    label: 'Baja',\r\n    prioridad: Prioridad.Low,\r\n    size: 'sm',\r\n  },\r\n}"
                 },
                 {
                     "name": "prioridadMedia",
@@ -985,7 +985,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    label: 'Media',\n    prioridad: Prioridad.Medium,\n    size: 'md',\n  },\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    label: 'Media',\r\n    prioridad: Prioridad.Medium,\r\n    size: 'md',\r\n  },\r\n}"
                 }
             ]
         },

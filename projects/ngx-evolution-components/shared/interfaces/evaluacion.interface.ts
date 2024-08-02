@@ -1,3 +1,3 @@
-export interface IEvauacion {
+export interface IEvaluacion {
   nombre: string;
 }

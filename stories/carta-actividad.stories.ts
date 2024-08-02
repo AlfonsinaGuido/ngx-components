@@ -26,6 +26,7 @@ const actividad: IActividad = {
   tipoDuracion: Duracion.Horas,
   realizaEvaluacion: false,
   status: EstadoActividad.Abierta,
+  fechaFin: new Date(2024, 7, 20),
 };
 
 export const Default = {

@@ -16,10 +16,10 @@
     id="cart-actividad-footer"
     class="flex flex-row flex-wrap justify-between items-center"
   >
-    <evo-avatar [size]="'sm'" [name]="actividad.responsable"></evo-avatar>
+    <evo-avatar size="sm" [name]="actividad.responsable"></evo-avatar>
     <span class="text-base flex items-center"
       >📅
-      <p class="text-xs font-light">26/07/2024</p>
+      <p class="text-xs font-light">{{ actividad.fechaFin | date: 'dd/MM/yyyy' }}</p>
     </span>
   </div>
 </div>

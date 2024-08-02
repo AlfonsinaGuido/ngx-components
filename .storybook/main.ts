@@ -12,5 +12,6 @@ const config: StorybookConfig = {
     name: '@storybook/angular',
     options: {},
   },
+  staticDirs: ['../stories/assets/svg'],
 };
 export default config;

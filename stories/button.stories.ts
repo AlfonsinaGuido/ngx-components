@@ -1,4 +1,3 @@
-
 import { ButtonComponent } from '@aseinfo/ngx-evolution-components/public-api';
 import type { Meta, StoryObj } from '@storybook/angular';
 
@@ -44,19 +43,21 @@ export const WithIcon: Story = {
   args: {
     ...Default.args,
     icon: {
-      icon: 'http://cdn.onlinewebfonts.com/svg/img_572138.png',
+      icon: '/add-user.svg',
       type: 'svg',
-      position: 'left'
+      position: 'left',
     },
+    theme: 'primary',
   },
 };
 
 export const OnlyIcon: Story = {
   args: {
     icon: {
-      icon: 'http://cdn.onlinewebfonts.com/svg/img_572138.png',
+      icon: '/add-user.svg',
       type: 'svg',
     },
+    theme: 'primary',
   },
 };
 

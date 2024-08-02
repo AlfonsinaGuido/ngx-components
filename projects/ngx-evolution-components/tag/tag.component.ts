@@ -11,5 +11,5 @@ import { Prioridad } from '../enums/prioridad.enum';
 export class TagComponent {
   @Input() label!: string;
   @Input() prioridad!: Prioridad;
-  @Input() size: string = 'sm';
+  @Input() size: 'sm' | 'md' | 'lg' = 'sm';
 }

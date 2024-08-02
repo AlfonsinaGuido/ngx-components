@@ -14,11 +14,11 @@
                 "name": "actividad",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/carta.stories.ts",
+                "file": "stories/carta-actividad.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "IActividad",
-                "defaultValue": "{\n  titulo: 'Inducción a la empresa',\n  tipo: 'a',\n  fase: 'b',\n  descripcion: 'Día de inducción presencial.',\n  objetivos: 'd',\n  prioridad: Prioridad.High,\n  responsable: 'e',\n  duracion: 0,\n  tipoDuracion: Duracion.Horas,\n  realizaEvaluacion: false,\n  evaluaciones: [],\n  Prerequisitos: [],\n  status: EstadoActividad.Abierta,\n}"
+                "defaultValue": "{\r\n  titulo: 'Inducción a la empresa',\r\n  tipo: 'Reunión',\r\n  fase: 'Antes del primer día',\r\n  descripcion:\r\n    'Día de inducción a la empresa. Es necesario asistir presencialmente a las oficinas.',\r\n  objetivos:\r\n    'Procurar que el empleado pueda asociarse con los valores de la empresa',\r\n  prioridad: Prioridad.High,\r\n  responsable: 'Miguel Perez',\r\n  duracion: 8,\r\n  tipoDuracion: Duracion.Horas,\r\n  realizaEvaluacion: false,\r\n  status: EstadoActividad.Abierta,\r\n}"
             },
             {
                 "name": "Default",
@@ -34,11 +34,11 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/carta.stories.ts",
+                "file": "stories/carta-actividad.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
-                "defaultValue": "{\n  args: {\n    actividad,\n  },\n} as StoryObj<CartaActividadComponent>"
+                "defaultValue": "{\r\n  argTypes: {\r\n    actividad: {\r\n      control: { type: 'object' },\r\n    },\r\n  },\r\n  args: {\r\n    actividad,\r\n  },\r\n} as StoryObj<CartaActividadComponent>"
             },
             {
                 "name": "Default",
@@ -201,6 +201,26 @@
                 "defaultValue": "form.controls['requiredFieldSelect']"
             },
             {
+                "name": "fotoDePerfil",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/avatar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    size: 'lg',\r\n    isPriority: true,\r\n    imgUrl: 'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n  },\r\n}"
+            },
+            {
+                "name": "iniciales",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/avatar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    size: 'lg',\r\n    name: 'Alfonso Gonzalez',\r\n    color: 'green',\r\n  },\r\n}"
+            },
+            {
                 "name": "IsFlat",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -288,7 +308,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    icon: {\r\n      icon: 'http://cdn.onlinewebfonts.com/svg/img_572138.png',\r\n      type: 'svg',\r\n    },\r\n  },\r\n}"
+                "defaultValue": "{\r\n  args: {\r\n    icon: {\r\n      icon: '/add-user.svg',\r\n      type: 'svg',\r\n    },\r\n    theme: 'primary',\r\n  },\r\n}"
             },
             {
                 "name": "preview",
@@ -318,7 +338,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    label: 'Alta',\n    prioridad: Prioridad.High,\n    size: 'lg',\n  },\n}"
+                "defaultValue": "{\r\n  args: {\r\n    label: 'Alta',\r\n    prioridad: Prioridad.High,\r\n    size: 'lg',\r\n  },\r\n}"
             },
             {
                 "name": "prioridadBaja",
@@ -328,7 +348,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    label: 'Baja',\n    prioridad: Prioridad.Low,\n    size: 'sm',\n  },\n}"
+                "defaultValue": "{\r\n  args: {\r\n    label: 'Baja',\r\n    prioridad: Prioridad.Low,\r\n    size: 'sm',\r\n  },\r\n}"
             },
             {
                 "name": "prioridadMedia",
@@ -338,7 +358,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    label: 'Media',\n    prioridad: Prioridad.Medium,\n    size: 'md',\n  },\n}"
+                "defaultValue": "{\r\n  args: {\r\n    label: 'Media',\r\n    prioridad: Prioridad.Medium,\r\n    size: 'md',\r\n  },\r\n}"
             },
             {
                 "name": "Required",
@@ -388,7 +408,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    icon: {\r\n      icon: 'http://cdn.onlinewebfonts.com/svg/img_572138.png',\r\n      type: 'svg',\r\n      position: 'left'\r\n    },\r\n  },\r\n}"
+                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    icon: {\r\n      icon: '/add-user.svg',\r\n      type: 'svg',\r\n      position: 'left',\r\n    },\r\n    theme: 'primary',\r\n  },\r\n}"
             },
             {
                 "name": "WithoutBorder",
@@ -464,6 +484,17 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<AvatarComponent>",
+                "file": "stories/avatar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<ButtonComponent>",
                 "file": "stories/button.stories.ts",
                 "deprecated": false,
@@ -529,26 +560,26 @@
         ],
         "enumerations": [],
         "groupedVariables": {
-            "stories/carta.stories.ts": [
+            "stories/carta-actividad.stories.ts": [
                 {
                     "name": "actividad",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "stories/carta.stories.ts",
+                    "file": "stories/carta-actividad.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "IActividad",
-                    "defaultValue": "{\n  titulo: 'Inducción a la empresa',\n  tipo: 'a',\n  fase: 'b',\n  descripcion: 'Día de inducción presencial.',\n  objetivos: 'd',\n  prioridad: Prioridad.High,\n  responsable: 'e',\n  duracion: 0,\n  tipoDuracion: Duracion.Horas,\n  realizaEvaluacion: false,\n  evaluaciones: [],\n  Prerequisitos: [],\n  status: EstadoActividad.Abierta,\n}"
+                    "defaultValue": "{\r\n  titulo: 'Inducción a la empresa',\r\n  tipo: 'Reunión',\r\n  fase: 'Antes del primer día',\r\n  descripcion:\r\n    'Día de inducción a la empresa. Es necesario asistir presencialmente a las oficinas.',\r\n  objetivos:\r\n    'Procurar que el empleado pueda asociarse con los valores de la empresa',\r\n  prioridad: Prioridad.High,\r\n  responsable: 'Miguel Perez',\r\n  duracion: 8,\r\n  tipoDuracion: Duracion.Horas,\r\n  realizaEvaluacion: false,\r\n  status: EstadoActividad.Abierta,\r\n}"
                 },
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "stories/carta.stories.ts",
+                    "file": "stories/carta-actividad.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
-                    "defaultValue": "{\n  args: {\n    actividad,\n  },\n} as StoryObj<CartaActividadComponent>"
+                    "defaultValue": "{\r\n  argTypes: {\r\n    actividad: {\r\n      control: { type: 'object' },\r\n    },\r\n  },\r\n  args: {\r\n    actividad,\r\n  },\r\n} as StoryObj<CartaActividadComponent>"
                 }
             ],
             "stories/button.stories.ts": [
@@ -610,7 +641,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    icon: {\r\n      icon: 'http://cdn.onlinewebfonts.com/svg/img_572138.png',\r\n      type: 'svg',\r\n    },\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    icon: {\r\n      icon: '/add-user.svg',\r\n      type: 'svg',\r\n    },\r\n    theme: 'primary',\r\n  },\r\n}"
                 },
                 {
                     "name": "Primary",
@@ -650,7 +681,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    icon: {\r\n      icon: 'http://cdn.onlinewebfonts.com/svg/img_572138.png',\r\n      type: 'svg',\r\n      position: 'left'\r\n    },\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    icon: {\r\n      icon: '/add-user.svg',\r\n      type: 'svg',\r\n      position: 'left',\r\n    },\r\n    theme: 'primary',\r\n  },\r\n}"
                 },
                 {
                     "name": "WithoutBorder",
@@ -891,6 +922,28 @@
                     "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    control: formControlRequiredSelect,\r\n    isRequired: true,\r\n    isMultiple: false,\r\n    requiredErrorMessage: 'Este campo es requerido',\r\n  },\r\n}"
                 }
             ],
+            "stories/avatar.stories.ts": [
+                {
+                    "name": "fotoDePerfil",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    size: 'lg',\r\n    isPriority: true,\r\n    imgUrl: 'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n  },\r\n}"
+                },
+                {
+                    "name": "iniciales",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    size: 'lg',\r\n    name: 'Alfonso Gonzalez',\r\n    color: 'green',\r\n  },\r\n}"
+                }
+            ],
             ".storybook/preview.ts": [
                 {
                     "name": "preview",
@@ -912,7 +965,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    label: 'Alta',\n    prioridad: Prioridad.High,\n    size: 'lg',\n  },\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    label: 'Alta',\r\n    prioridad: Prioridad.High,\r\n    size: 'lg',\r\n  },\r\n}"
                 },
                 {
                     "name": "prioridadBaja",
@@ -922,7 +975,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    label: 'Baja',\n    prioridad: Prioridad.Low,\n    size: 'sm',\n  },\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    label: 'Baja',\r\n    prioridad: Prioridad.Low,\r\n    size: 'sm',\r\n  },\r\n}"
                 },
                 {
                     "name": "prioridadMedia",
@@ -932,7 +985,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    label: 'Media',\n    prioridad: Prioridad.Medium,\n    size: 'md',\n  },\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    label: 'Media',\r\n    prioridad: Prioridad.Medium,\r\n    size: 'md',\r\n  },\r\n}"
                 }
             ]
         },
@@ -1000,6 +1053,19 @@
         },
         "groupedEnumerations": {},
         "groupedTypeAliases": {
+            "stories/avatar.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<AvatarComponent>",
+                    "file": "stories/avatar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
             "stories/button.stories.ts": [
                 {
                     "name": "Story",
@@ -1091,6 +1157,26 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "preview",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/avatar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "fotoDePerfil",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/avatar.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "iniciales",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -1206,7 +1292,7 @@
                 "status": "low"
             },
             {
-                "filePath": "stories/carta.stories.ts",
+                "filePath": "stories/carta-actividad.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
@@ -1216,7 +1302,7 @@
                 "status": "low"
             },
             {
-                "filePath": "stories/carta.stories.ts",
+                "filePath": "stories/carta-actividad.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",

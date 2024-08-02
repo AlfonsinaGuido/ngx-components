@@ -10,6 +10,8 @@ export * from './menu/menu.component';
 export * from './header/header.component';
 export * from './footer/footer.component';
 export * from './tag/tag.component';
+export * from './carta-actividad/carta-actividad.component';
+export * from './avatar/avatar.component';
 
 // Interfaces
 export * from './shared/interfaces/button.interface';

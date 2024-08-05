@@ -10,9 +10,10 @@
         (selectionChange)="onValueChange($event)"
       >
         <evo-button
-          [icon]="icon"
+          [icon]="buttonIcon"
           [isFluid]="true"
           (click)="clean($event)"
+          theme="secondary"
         ></evo-button>
         @for (item of items; track item) {
           <mat-option [value]="item.key">{{ item.value }}</mat-option>
@@ -26,9 +27,10 @@
         (selectionChange)="onValueChange($event)"
       >
         <evo-button
-          [icon]="icon"
+          [icon]="buttonIcon"
           [isFluid]="true"
           (click)="clean($event)"
+          theme="secondary"
         ></evo-button>
         @for (item of items; track item) {
           <mat-option [value]="item.key">{{ item.value }}</mat-option>
@@ -44,9 +46,10 @@
         (selectionChange)="onValueChange($event)"
       >
         <evo-button
-          [icon]="icon"
+          [icon]="buttonIcon"
           [isFluid]="true"
           (click)="clean($event)"
+          theme="secondary"
         ></evo-button>
         @for (item of items; track item) {
           <mat-option [value]="item.key">{{ item.value }}</mat-option>
@@ -59,9 +62,10 @@
         (selectionChange)="onValueChange($event)"
       >
         <evo-button
-          [icon]="icon"
+          [icon]="buttonIcon"
           [isFluid]="true"
           (click)="clean($event)"
+          theme="secondary"
         ></evo-button>
         @for (item of items; track item) {
           <mat-option [value]="item.key">{{ item.value }}</mat-option>

@@ -47,7 +47,6 @@ export const WithIcon: Story = {
       type: 'svg',
       position: 'left',
     },
-    theme: 'primary',
   },
 };
 
@@ -57,7 +56,6 @@ export const OnlyIcon: Story = {
       icon: '/add-user.svg',
       type: 'svg',
     },
-    theme: 'primary',
   },
 };
 

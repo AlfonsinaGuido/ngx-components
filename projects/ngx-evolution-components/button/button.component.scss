@@ -65,6 +65,7 @@ $parent: ".evo-button";
     &:hover:disabled {
       border: 1.5px solid var(--light-gray);
       color: var(--light-gray);
+      background-color: transparent;
     }
   }
 
@@ -141,7 +142,7 @@ $parent: ".evo-button";
       svg {
         max-width: 24px;
         max-height: 24px;
-        color: var(--white-smoke);
+        color: var(--accent-500);
       }
 
       &.right {
@@ -150,36 +151,6 @@ $parent: ".evo-button";
 
       &.left {
         margin-right: 8px;
-      }
-    }
-  }
-
-  &:disabled {
-    cursor: not-allowed;
-    pointer-events: none;
-
-    &.disabled-default {
-      background-color: var(--medium-gray);
-      color: var(--light-gray) !important;
-      border: 1px solid var(--light-gray);
-      padding: 0;
-
-      &:hover {
-        background-color: var(--light-gray);
-        color: var(--medium-gray);
-        cursor: not-allowed;
-      }
-    }
-
-    &.disabled-white {
-      background-color: var(--white-smoke);
-      color: var(--medium-gray) !important;
-      border: 1px solid var(--medium-gray);
-      padding: 0;
-      &:hover {
-        background-color: var(--light-gray);
-        color: var(--medium-gray);
-        cursor: not-allowed;
       }
     }
   }

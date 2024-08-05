@@ -63,6 +63,10 @@ export const Default: Story = {
       },
     ],
     control: formControlDefaultSelect,
+    buttonIcon: {
+      icon: '/clean.svg',
+      type: 'svg',
+    },
     detail: '',
   },
 };

@@ -19,6 +19,7 @@ const actividadMockData: IActividad = {
   tipoDuracion: Duracion.Horas,
   realizaEvaluacion: false,
   status: EstadoActividad.Abierta,
+  fechaFin: new Date(2024, 8, 20),
 };
 
 describe('CartaComponent', () => {

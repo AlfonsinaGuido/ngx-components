@@ -18,7 +18,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "IActividad",
-                "defaultValue": "{\r\n  titulo: 'Inducción a la empresa',\r\n  tipo: 'Reunión',\r\n  fase: 'Antes del primer día',\r\n  descripcion:\r\n    'Día de inducción a la empresa. Es necesario asistir presencialmente a las oficinas.',\r\n  objetivos:\r\n    'Procurar que el empleado pueda asociarse con los valores de la empresa',\r\n  prioridad: Prioridad.High,\r\n  responsable: 'Miguel Perez',\r\n  duracion: 8,\r\n  tipoDuracion: Duracion.Horas,\r\n  realizaEvaluacion: false,\r\n  status: EstadoActividad.Abierta,\r\n}"
+                "defaultValue": "{\r\n  titulo: 'Inducción a la empresa',\r\n  tipo: 'Reunión',\r\n  fase: 'Antes del primer día',\r\n  descripcion:\r\n    'Día de inducción a la empresa. Es necesario asistir presencialmente a las oficinas.',\r\n  objetivos:\r\n    'Procurar que el empleado pueda asociarse con los valores de la empresa',\r\n  prioridad: Prioridad.High,\r\n  responsable: 'Miguel Perez',\r\n  duracion: 8,\r\n  tipoDuracion: Duracion.Horas,\r\n  realizaEvaluacion: false,\r\n  status: EstadoActividad.Abierta,\r\n  fechaFin: new Date(2024, 7, 20),\r\n}"
             },
             {
                 "name": "Default",
@@ -78,7 +78,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    label: 'Select',\r\n    items: [\r\n      {\r\n        key: 1,\r\n        value: 'Option 1',\r\n      },\r\n      {\r\n        key: 2,\r\n        value: 'Option 2',\r\n      },\r\n      {\r\n        key: 3,\r\n        value: 'Option 3',\r\n      },\r\n    ],\r\n    control: formControlDefaultSelect,\r\n    detail: '',\r\n  },\r\n}"
+                "defaultValue": "{\r\n  args: {\r\n    label: 'Select',\r\n    items: [\r\n      {\r\n        key: 1,\r\n        value: 'Option 1',\r\n      },\r\n      {\r\n        key: 2,\r\n        value: 'Option 2',\r\n      },\r\n      {\r\n        key: 3,\r\n        value: 'Option 3',\r\n      },\r\n    ],\r\n    control: formControlDefaultSelect,\r\n    buttonIcon: {\r\n      icon: '/clean.svg',\r\n      type: 'svg',\r\n    },\r\n    detail: '',\r\n  },\r\n}"
             },
             {
                 "name": "Disabled",
@@ -308,7 +308,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    icon: {\r\n      icon: '/add-user.svg',\r\n      type: 'svg',\r\n    },\r\n    theme: 'primary',\r\n  },\r\n}"
+                "defaultValue": "{\r\n  args: {\r\n    icon: {\r\n      icon: '/add-user.svg',\r\n      type: 'svg',\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "preview",
@@ -408,7 +408,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    icon: {\r\n      icon: '/add-user.svg',\r\n      type: 'svg',\r\n      position: 'left',\r\n    },\r\n    theme: 'primary',\r\n  },\r\n}"
+                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    icon: {\r\n      icon: '/add-user.svg',\r\n      type: 'svg',\r\n      position: 'left',\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "WithoutBorder",
@@ -569,7 +569,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "IActividad",
-                    "defaultValue": "{\r\n  titulo: 'Inducción a la empresa',\r\n  tipo: 'Reunión',\r\n  fase: 'Antes del primer día',\r\n  descripcion:\r\n    'Día de inducción a la empresa. Es necesario asistir presencialmente a las oficinas.',\r\n  objetivos:\r\n    'Procurar que el empleado pueda asociarse con los valores de la empresa',\r\n  prioridad: Prioridad.High,\r\n  responsable: 'Miguel Perez',\r\n  duracion: 8,\r\n  tipoDuracion: Duracion.Horas,\r\n  realizaEvaluacion: false,\r\n  status: EstadoActividad.Abierta,\r\n}"
+                    "defaultValue": "{\r\n  titulo: 'Inducción a la empresa',\r\n  tipo: 'Reunión',\r\n  fase: 'Antes del primer día',\r\n  descripcion:\r\n    'Día de inducción a la empresa. Es necesario asistir presencialmente a las oficinas.',\r\n  objetivos:\r\n    'Procurar que el empleado pueda asociarse con los valores de la empresa',\r\n  prioridad: Prioridad.High,\r\n  responsable: 'Miguel Perez',\r\n  duracion: 8,\r\n  tipoDuracion: Duracion.Horas,\r\n  realizaEvaluacion: false,\r\n  status: EstadoActividad.Abierta,\r\n  fechaFin: new Date(2024, 7, 20),\r\n}"
                 },
                 {
                     "name": "Default",
@@ -641,7 +641,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    icon: {\r\n      icon: '/add-user.svg',\r\n      type: 'svg',\r\n    },\r\n    theme: 'primary',\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    icon: {\r\n      icon: '/add-user.svg',\r\n      type: 'svg',\r\n    },\r\n  },\r\n}"
                 },
                 {
                     "name": "Primary",
@@ -681,7 +681,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    icon: {\r\n      icon: '/add-user.svg',\r\n      type: 'svg',\r\n      position: 'left',\r\n    },\r\n    theme: 'primary',\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    icon: {\r\n      icon: '/add-user.svg',\r\n      type: 'svg',\r\n      position: 'left',\r\n    },\r\n  },\r\n}"
                 },
                 {
                     "name": "WithoutBorder",
@@ -849,7 +849,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    label: 'Select',\r\n    items: [\r\n      {\r\n        key: 1,\r\n        value: 'Option 1',\r\n      },\r\n      {\r\n        key: 2,\r\n        value: 'Option 2',\r\n      },\r\n      {\r\n        key: 3,\r\n        value: 'Option 3',\r\n      },\r\n    ],\r\n    control: formControlDefaultSelect,\r\n    detail: '',\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    label: 'Select',\r\n    items: [\r\n      {\r\n        key: 1,\r\n        value: 'Option 1',\r\n      },\r\n      {\r\n        key: 2,\r\n        value: 'Option 2',\r\n      },\r\n      {\r\n        key: 3,\r\n        value: 'Option 3',\r\n      },\r\n    ],\r\n    control: formControlDefaultSelect,\r\n    buttonIcon: {\r\n      icon: '/clean.svg',\r\n      type: 'svg',\r\n    },\r\n    detail: '',\r\n  },\r\n}"
                 },
                 {
                     "name": "form",

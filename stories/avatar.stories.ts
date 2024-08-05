@@ -28,8 +28,19 @@ export default {
     },
     color: {
       type: 'string',
-      control: { type: 'color' },
-      description: 'Alguno de los colores de tailwind',
+      options: [
+        'red',
+        'purple',
+        'blue',
+        'green',
+        'gray',
+        'stone',
+        'pink',
+        'yellow',
+        'orange',
+      ],
+      control: { type: 'select' },
+      description: 'Colores disponbiles (de tailwind) para seleccionar',
     },
   },
   args: {

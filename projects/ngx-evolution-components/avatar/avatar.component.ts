@@ -9,14 +9,23 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./avatar.component.scss', '../styles/output.scss'],
 })
 export class AvatarComponent implements OnInit {
-  private iniciales!: string;
-  private textColor!: string;
-  private bgColor!: string;
+  public iniciales!: string;
+  public textColor!: string;
+  public bgColor!: string;
   @Input() size: 'sm' | 'md' | 'lg' = 'md';
   @Input() name!: string;
-  @Input() imgUrl!: string;
+  @Input() imgUrl?: string;
   @Input() isPriority: boolean = false;
-  @Input() color: string = 'green';
+  @Input() color:
+    | 'red'
+    | 'purple'
+    | 'blue'
+    | 'green'
+    | 'gray'
+    | 'stone'
+    | 'yellow'
+    | 'orange'
+    | 'pink' = 'green';
 
   ngOnInit(): void {
     this.setIniciales();

@@ -6,6 +6,7 @@
 export * from './button/button.component';
 export * from './input/input.component';
 export * from './select/select.component';
+export * from './highlight/highlight.component';
 export * from './menu/menu.component';
 export * from './header/header.component';
 export * from './footer/footer.component';

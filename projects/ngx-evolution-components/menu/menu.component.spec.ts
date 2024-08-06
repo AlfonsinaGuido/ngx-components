@@ -49,6 +49,6 @@ describe('MenuComponent', () => {
     buttonElement.click();
 
     const menuItems = fixture.debugElement.queryAll(By.css('evo-button'));
-    expect(menuItems.length).toBe(items.length + 1);
+    expect(menuItems.length).toBe(items.length + 2);
   });
 });

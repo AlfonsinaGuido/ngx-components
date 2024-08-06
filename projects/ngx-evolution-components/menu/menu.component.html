@@ -1,17 +1,22 @@
 <evo-button
   mat-button
   [matMenuTriggerFor]="menu"
-  [icon]="icon"
+  [icon]="buttonIcon"
   [withoutBorder]="true"
 ></evo-button>
-<mat-menu #menu="matMenu" class="mt-2">
-  <h5 class="flex justify-center text-accent">{{ titleApps }}</h5>
+<mat-menu #menu="matMenu" class="sm:!min-w-80 p-[16px] mt-[{{ matMenuPosition }}px]">
+  <div class="flex items-center justify-between p-[8px]">
+    <h5 class="flex font-bold text-sm text-dark-gray">{{ appTitle }}</h5>
+    <evo-button class="close-button" [icon]="closeIcon" [withoutBorder]="true"></evo-button>
+  </div>
   @for (item of items; track $index) {
+    <mat-divider></mat-divider>
     <evo-button
       [label]="item.label"
       [icon]="item.icon"
       [withoutBorder]="true"
       [theme]="'secondary'"
+      [isFluid]="true"
     ></evo-button>
   }
 </mat-menu>

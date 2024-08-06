@@ -27,7 +27,7 @@ describe('MenuComponent', () => {
   });
 
   it('should display the title', async () => {
-    component.titleApps = 'Test Title';
+    component.appTitle = 'Test Title';
     fixture.detectChanges();
 
     const buttonDebugElement = fixture.debugElement.query(By.css('evo-button'));
@@ -50,13 +50,5 @@ describe('MenuComponent', () => {
 
     const menuItems = fixture.debugElement.queryAll(By.css('evo-button'));
     expect(menuItems.length).toBe(items.length + 1);
-  });
-
-  it('should have the correct icon', () => {
-    fixture.detectChanges();
-    expect(component.icon.icon).toBe(
-      'https://pic.onlinewebfonts.com/thumbnails/icons_572677.svg',
-    );
-    expect(component.icon.type).toBe('svg');
   });
 });

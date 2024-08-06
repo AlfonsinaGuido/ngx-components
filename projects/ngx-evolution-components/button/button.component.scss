@@ -1,18 +1,9 @@
 @import "button.component.mixins.scss";
 
-$parent: '.evo-button';
+$parent: ".evo-button";
 
 .evo-button {
   @include transition-button();
-
-  &.without-border {
-    border: 1.5px solid var(--white) !important;
-    &:hover,
-    &:disabled,
-    &:active {
-      border: 1.5px solid var(--white) !important;
-    }
-  }
 
   &.theme-default {
     background-color: var(--white-smoke);
@@ -74,6 +65,7 @@ $parent: '.evo-button';
     &:hover:disabled {
       border: 1.5px solid var(--light-gray);
       color: var(--light-gray);
+      background-color: transparent;
     }
   }
 
@@ -105,6 +97,15 @@ $parent: '.evo-button';
     height: 30px;
   }
 
+  &.without-border {
+    border: 1.5px solid var(--white) !important;
+    &:hover,
+    &:disabled,
+    &:active {
+      border: 1.5px solid var(--white) !important;
+    }
+  }
+
   &.is-flat {
     font-size: 12px;
     font-weight: 400;
@@ -133,14 +134,15 @@ $parent: '.evo-button';
     }
 
     .icon {
-      width: 26px;
-      height: 26px;
+      width: 24px;
+      height: 24px;
       display: flex;
       align-items: center;
       justify-content: center;
-      img {
-        width: 16px;
-        height: 16px;
+      svg {
+        max-width: 24px;
+        max-height: 24px;
+        color: var(--accent-500);
       }
 
       &.right {
@@ -149,36 +151,6 @@ $parent: '.evo-button';
 
       &.left {
         margin-right: 8px;
-      }
-    }
-  }
-
-  &:disabled {
-    cursor: not-allowed;
-    pointer-events: none;
-
-    &.disabled-default {
-      background-color: var(--medium-gray);
-      color: var(--light-gray) !important;
-      border: 1px solid var(--light-gray);
-      padding: 0;
-
-      &:hover {
-        background-color: var(--light-gray);
-        color: var(--medium-gray);
-        cursor: not-allowed;
-      }
-    }
-
-    &.disabled-white {
-      background-color: var(--white-smoke);
-      color: var(--medium-gray) !important;
-      border: 1px solid var(--medium-gray);
-      padding: 0;
-      &:hover {
-        background-color: var(--light-gray);
-        color: var(--medium-gray);
-        cursor: not-allowed;
       }
     }
   }

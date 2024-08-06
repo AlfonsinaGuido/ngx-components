@@ -35,12 +35,8 @@ export class SelectComponent {
   @Input() isRequired?: boolean;
   @Input() requiredErrorMessage?: string;
   @Input() detail?: string;
+  @Input() buttonIcon!: IconInterface;
   @Output() valueChange = new EventEmitter<any>();
-
-  icon: IconInterface = {
-    icon: 'https://pic.onlinewebfonts.com/thumbnails/icons_320714.svg',
-    type: 'svg',
-  };
 
   @ViewChild('selectControl') selectControl!: MatSelect;
 

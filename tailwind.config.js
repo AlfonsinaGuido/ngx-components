@@ -7,15 +7,14 @@ module.exports = {
         primary: "var(--primary-500)",
         accent: "var(--accent-500)",
         warn: "var(--warn)",
-        "on-primary": "var(--on-primary)",
-        "on-accent": "var(--on-accent)",
+       "white-smoke": "var(--white-smoke)",
       },
       fontFamily: {
         sans: ["Roboto", "Helvetica Neue", "sans-serif"],
       },
       fontSize: {
         small: "0.875rem",
-        tiny: "0.75rem",
+        tiny: "0.65rem",
       },
       borderRadius: {
         default: "15px",

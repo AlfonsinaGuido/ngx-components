@@ -1,0 +1,25 @@
+<div
+  class="relative cursor-pointer rounded-xl bg-white px-3 py-2 text-black shadow-md hover:text-primary hover:shadow-lg transition-all max-w-80 min-w-fit"
+  tabindex="0"
+>
+  <evo-tag
+    [prioridad]="actividad.prioridad"
+    [label]="actividad.prioridad"
+  ></evo-tag>
+  <p class="mb-1 text-md font-bold">
+    {{ actividad.titulo }}
+  </p>
+  <p class="text-xs font-light text-gray-500 mb-3">
+    {{ actividad.descripcion }}
+  </p>
+  <div
+    id="cart-actividad-footer"
+    class="flex flex-row flex-wrap justify-between items-center"
+  >
+    <evo-avatar size="sm" [name]="actividad.responsable"></evo-avatar>
+    <span class="text-base flex items-center"
+      >📅
+      <p class="text-xs font-light">{{ actividad.fechaFin | date: 'dd/MM/yyyy' }}</p>
+    </span>
+  </div>
+</div>

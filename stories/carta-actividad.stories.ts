@@ -1,9 +1,5 @@
-import { CartaActividadComponent } from '@aseinfo/ngx-evolution-components/public-api';
-import { Duracion } from '@aseinfo/ngx-evolution-components/enums/duracion.enum';
-import { EstadoActividad } from '@aseinfo/ngx-evolution-components/enums/estado.enum';
-import { IActividad } from '@aseinfo/ngx-evolution-components/shared/interfaces/actividad.interface';
+import { CartaActividadComponent, Duracion, EstadoActividad, IActividad, Prioridad } from '@aseinfo/ngx-evolution-components/public-api';
 import { Meta, StoryObj } from '@storybook/angular';
-import { Prioridad } from '@aseinfo/ngx-evolution-components/enums/prioridad.enum';
 
 export default {
   component: CartaActividadComponent,

@@ -1,8 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { IActividad } from '../shared/interfaces/actividad.interface';
-import { TagComponent } from '../tag/tag.component';
 import { MatIconModule } from '@angular/material/icon';
-import { AvatarComponent } from '../public-api';
+import { AvatarComponent, IActividad, TagComponent } from '../public-api';
 import { DatePipe } from '@angular/common';
 
 @Component({

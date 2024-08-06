@@ -12,6 +12,11 @@ const meta: Meta<ButtonComponent> = {
 export default meta;
 type Story = StoryObj<ButtonComponent>;
 
+const Testing = (a:number,b:number): any => {
+  let res = a + b;
+  console.log('res => ', res);
+};
+
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Default: Story = {
   args: {
@@ -85,5 +90,21 @@ export const IsFluid: Story = {
   args: {
     ...Default.args,
     isFluid: true,
+  },
+};
+
+
+const Testing2 = () => {
+  console.log('Funciono!');
+};
+
+const functionTest = {
+  action: Testing2
+}
+
+export const onClick: Story = {
+  args: {
+    ...Default.args,
+    onClick: Testing2,
   },
 };

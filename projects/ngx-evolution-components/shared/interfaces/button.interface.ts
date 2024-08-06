@@ -1,6 +1,5 @@
 import { IconInterface } from '../../public-api';
 
-export type ButtonType = 'xs' | 'md' | 'lg';
 export type ButtonTheme = 'default' | 'primary' | 'secondary' | 'warning';
 
 export interface ButtonInterface {
@@ -9,4 +8,5 @@ export interface ButtonInterface {
   icon?: IconInterface;
   isFlat?: boolean;
   isFluid?: boolean;
+  onClick?: (param?: any) => any | void | {};
 }

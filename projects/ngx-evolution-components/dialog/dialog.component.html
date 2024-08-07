@@ -12,14 +12,17 @@
 
 @if (buttonsItems.length! > 0) {
     <mat-dialog-actions align="end">
-        @for (item of buttonsItems; track item; let idx = $index, l = $last) {
-          @if ( l ) { <div class="mx-1"></div> }
-            <evo-button
-            [label]="item.label"
-            [icon]="item.icon"
-            [theme]="item.theme!"
-            [onClick]="this.buttonsFunctions[idx].action"
-          ></evo-button>
+        @for (item of buttonsItems; track item; let idx = $index, last = $last, first = $first) {
+          <div [ngStyle]="{
+            'margin-left': buttonsItems.length === 2 && !first ? '0.5em' : (!first && !last ? '0.5em':'0')
+          }">
+              <evo-button
+              [label]="item.label"
+              [icon]="item.icon"
+              [theme]="item.theme!"
+              [onClick]="this.buttonsFunctions[idx].action"
+            ></evo-button>
+          </div>
         }
     </mat-dialog-actions>
     }

@@ -25,9 +25,5 @@ export class DialogComponent {
     this.simpleContent = this.data?.simpleContent || '';
     this.buttonsItems = this.data?.buttonsItems?.map(x => x) || [];
     this.buttonsFunctions = this.data?.buttonsFunctions?.map(x => x) || [];
-
-    console.log('data ', this.data);
-    console.log('button items  ', this.buttonsItems);
-    console.log('button functions ', this.buttonsFunctions);
   }
 }

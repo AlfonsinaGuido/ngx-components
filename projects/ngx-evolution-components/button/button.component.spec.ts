@@ -29,7 +29,7 @@ describe('ButtonComponent', () => {
 
   it('should calculate classes correctly, get getClasses()', () => {
     component.label = '';
-    component.icon = { icon: 'test-icon', type: 'svg' };
+    component.icon = { icon: 'test-icon.svg', type: 'svg' };
     component.theme = 'primary';
     component.disabled = true;
     component.classes = 'extra-class';

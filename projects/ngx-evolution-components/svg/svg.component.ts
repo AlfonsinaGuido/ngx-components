@@ -1,6 +1,13 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnDestroy,
+  OnInit,
+  ViewEncapsulation,
+} from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'evo-svg',
@@ -10,29 +17,38 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
   styleUrls: ['./svg.component.scss', '../styles/output.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class SvgComponent implements OnInit {
+export class SvgComponent implements OnInit, OnDestroy {
   @Input() svgPath!: string;
   svgContent: SafeHtml | null = null;
+  private svgSubscription!: Subscription;
 
   constructor(
     private http: HttpClient,
     private sanitizer: DomSanitizer,
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.loadSvg();
   }
 
-  private loadSvg() {
+  ngOnDestroy(): void {
+    if (this.svgSubscription) {
+      this.svgSubscription.unsubscribe();
+    }
+  }
+
+  private loadSvg(): void {
     if (this.svgPath) {
-      this.http.get(this.svgPath, { responseType: 'text' }).subscribe({
-        next: (svg) => {
-          this.svgContent = this.sanitizer.bypassSecurityTrustHtml(svg);
-        },
-        error: (err) => {
-          console.error('Error loading SVG', err);
-        },
-      });
+      this.svgSubscription = this.http
+        .get(this.svgPath, { responseType: 'text' })
+        .subscribe({
+          next: (svg) => {
+            this.svgContent = this.sanitizer.bypassSecurityTrustHtml(svg);
+          },
+          error: (err) => {
+            console.error('Error loading SVG', err);
+          },
+        });
     }
   }
 }

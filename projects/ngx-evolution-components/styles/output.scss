@@ -1,6 +1,5 @@
 /*
 ! tailwindcss v3.4.6 | MIT License | https://tailwindcss.com
-! tailwindcss v3.4.6 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -633,12 +632,12 @@ video {
   justify-content: space-between;
 }
 
-.gap-\[25px\] {
-  gap: 25px;
-}
-
 .gap-\[12px\] {
   gap: 12px;
+}
+
+.gap-\[25px\] {
+  gap: 25px;
 }
 
 .overflow-hidden {
@@ -669,9 +668,9 @@ video {
   border-color: var(--white-smoke);
 }
 
-.bg-green-50 {
+.bg-white {
   --tw-bg-opacity: 1;
-  background-color: rgb(240 253 244 / var(--tw-bg-opacity));
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .p-\[16px\] {
@@ -746,9 +745,9 @@ video {
   color: var(--dark-gray);
 }
 
-.text-green-700 {
+.text-gray-500 {
   --tw-text-opacity: 1;
-  color: rgb(21 128 61 / var(--tw-text-opacity));
+  color: rgb(107 114 128 / var(--tw-text-opacity));
 }
 
 .text-white-smoke {

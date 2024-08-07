@@ -308,7 +308,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    icon: {\r\n      icon: '/add-user.svg',\r\n      type: 'svg',\r\n    },\r\n  },\r\n}"
+                "defaultValue": "{\r\n  args: {\r\n    icon: {\r\n      icon: 'add-user.svg',\r\n      type: 'svg',\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "preview",
@@ -418,7 +418,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    icon: {\r\n      icon: '/add-user.svg',\r\n      type: 'svg',\r\n      position: 'left',\r\n    },\r\n  },\r\n}"
+                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    icon: {\r\n      icon: 'add-user.svg',\r\n      type: 'svg',\r\n      position: 'left',\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "WithoutBorder",
@@ -651,7 +651,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    icon: {\r\n      icon: '/add-user.svg',\r\n      type: 'svg',\r\n    },\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    icon: {\r\n      icon: 'add-user.svg',\r\n      type: 'svg',\r\n    },\r\n  },\r\n}"
                 },
                 {
                     "name": "Primary",
@@ -691,7 +691,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    icon: {\r\n      icon: '/add-user.svg',\r\n      type: 'svg',\r\n      position: 'left',\r\n    },\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    icon: {\r\n      icon: 'add-user.svg',\r\n      type: 'svg',\r\n      position: 'left',\r\n    },\r\n  },\r\n}"
                 },
                 {
                     "name": "WithoutBorder",

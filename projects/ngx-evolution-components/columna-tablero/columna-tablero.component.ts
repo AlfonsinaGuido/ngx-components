@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { CartaActividadComponent } from '../public-api';
+import { CartaActividadComponent, IActividad } from '../public-api';
 import { CommonModule } from '@angular/common';
 import {
   DragDropModule,
@@ -7,7 +7,6 @@ import {
   moveItemInArray,
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
-import { IActividad } from '../shared/interfaces/actividad.interface';
 
 @Component({
   selector: 'evo-columna-tablero',
@@ -18,6 +17,7 @@ import { IActividad } from '../shared/interfaces/actividad.interface';
 })
 export class ColumnaTableroComponent {
   @Input() actividades!: IActividad[];
+  @Input() name!: string;
 
   drop(event: CdkDragDrop<IActividad[]>) {
     if (event.previousContainer === event.container) {

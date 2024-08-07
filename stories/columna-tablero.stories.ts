@@ -41,18 +41,48 @@ const actividades: IActividad[] = [
       'Curso de una semana para el aprendizaje básico del sistema Evolution.',
     objetivos:
       'El participante debe llegar a familiarizarse con todos los módulos de Evolution.',
-    prioridad: Prioridad.Low,
-    responsable: 'Andres Urizar',
+    prioridad: Prioridad.Medium,
+    responsable: 'Ricardo Hernandez',
     duracion: 5,
     tipoDuracion: Duracion.Dias,
     realizaEvaluacion: true,
     status: EstadoActividad.EnProgreso,
     fechaFin: new Date(2024, 7, 20),
   },
+  {
+    id: 3,
+    titulo: 'Visita Guiada',
+    tipo: 'Reunión',
+    fase: 'Antes del primer día',
+    descripcion: 'Realizar una visita guiada sobre las instalaciones.',
+    objetivos: 'Asignar parqueo y conocer el edificio.',
+    prioridad: Prioridad.Low,
+    responsable: 'Hugo Maldonado',
+    duracion: 2,
+    tipoDuracion: Duracion.Horas,
+    realizaEvaluacion: false,
+    status: EstadoActividad.EnProgreso,
+    fechaFin: new Date(2024, 7, 20),
+  },
 ];
 
-export const fotoDePerfil: Story = {
+export const Default: Story = {
   args: {
+    name: 'En progreso',
+    actividades: actividades,
+  },
+};
+
+export const sinActividadeds: Story = {
+  args: {
+    name: 'Done',
+    actividades: [],
+  },
+};
+
+export const nombreDeColumnaLargo: Story = {
+  args: {
+    name: 'Las actividades que no hemos iniciado aún',
     actividades: actividades,
   },
 };

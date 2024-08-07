@@ -19,3 +19,5 @@ export * from './shared/interfaces/button.interface';
 export * from './shared/interfaces/icon.interface';
 export * from './shared/interfaces/input.interface';
 export * from './shared/interfaces/select.interface';
+export * from './shared/interfaces/actividad.interface';
+export * from './shared/interfaces/columna.interface';

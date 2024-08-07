@@ -4,6 +4,7 @@ import { IEvaluacion } from './evaluacion.interface';
 import { EstadoActividad } from '@aseinfo/ngx-evolution-components/enums/estado.enum';
 
 export interface IActividad {
+  id: string | number;
   prerequisitos?: IActividad[];
   descripcion?: string;
   duracion: number;

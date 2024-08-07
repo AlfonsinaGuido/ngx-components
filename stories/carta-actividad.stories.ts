@@ -13,6 +13,7 @@ export default {
 } as Meta<CartaActividadComponent>;
 
 const actividad: IActividad = {
+  id: 1,
   titulo: 'Inducción a la empresa',
   tipo: 'Reunión',
   fase: 'Antes del primer día',

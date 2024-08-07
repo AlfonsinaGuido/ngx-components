@@ -18,7 +18,17 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "IActividad",
-                "defaultValue": "{\r\n  titulo: 'Inducción a la empresa',\r\n  tipo: 'Reunión',\r\n  fase: 'Antes del primer día',\r\n  descripcion:\r\n    'Día de inducción a la empresa. Es necesario asistir presencialmente a las oficinas.',\r\n  objetivos:\r\n    'Procurar que el empleado pueda asociarse con los valores de la empresa',\r\n  prioridad: Prioridad.High,\r\n  responsable: 'Miguel Perez',\r\n  duracion: 8,\r\n  tipoDuracion: Duracion.Horas,\r\n  realizaEvaluacion: false,\r\n  status: EstadoActividad.Abierta,\r\n  fechaFin: new Date(2024, 7, 20),\r\n}"
+                "defaultValue": "{\r\n  id: 1,\r\n  titulo: 'Inducción a la empresa',\r\n  tipo: 'Reunión',\r\n  fase: 'Antes del primer día',\r\n  descripcion:\r\n    'Día de inducción a la empresa. Es necesario asistir presencialmente a las oficinas.',\r\n  objetivos:\r\n    'Procurar que el empleado pueda asociarse con los valores de la empresa',\r\n  prioridad: Prioridad.High,\r\n  responsable: 'Miguel Perez',\r\n  duracion: 8,\r\n  tipoDuracion: Duracion.Horas,\r\n  realizaEvaluacion: false,\r\n  status: EstadoActividad.Abierta,\r\n  fechaFin: new Date(2024, 7, 20),\r\n}"
+            },
+            {
+                "name": "actividades",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/columna-tablero.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "IActividad[]",
+                "defaultValue": "[\n  {\n    id: 1,\n    titulo: 'Inducción a la empresa',\n    tipo: 'Reunión',\n    fase: 'Antes del primer día',\n    descripcion:\n      'Día de inducción a la empresa. Es necesario asistir presencialmente a las oficinas.',\n    objetivos:\n      'Procurar que el empleado pueda asociarse con los valores de la empresa',\n    prioridad: Prioridad.High,\n    responsable: 'Miguel Perez',\n    duracion: 8,\n    tipoDuracion: Duracion.Horas,\n    realizaEvaluacion: false,\n    status: EstadoActividad.Abierta,\n    fechaFin: new Date(2024, 7, 20),\n  },\n  {\n    id: 2,\n    titulo: 'Curso de Evolution',\n    tipo: 'Capacitación',\n    fase: 'La primera semana',\n    descripcion:\n      'Curso de una semana para el aprendizaje básico del sistema Evolution.',\n    objetivos:\n      'El participante debe llegar a familiarizarse con todos los módulos de Evolution.',\n    prioridad: Prioridad.Low,\n    responsable: 'Andres Urizar',\n    duracion: 5,\n    tipoDuracion: Duracion.Dias,\n    realizaEvaluacion: true,\n    status: EstadoActividad.EnProgreso,\n    fechaFin: new Date(2024, 7, 20),\n  },\n]"
             },
             {
                 "name": "Default",
@@ -38,7 +48,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
-                "defaultValue": "{\r\n  argTypes: {\r\n    actividad: {\r\n      control: { type: 'object' },\r\n    },\r\n  },\r\n  args: {\r\n    actividad,\r\n  },\r\n} as StoryObj<CartaActividadComponent>"
+                "defaultValue": "{\r\n  argTypes: {\r\n    priority: {\r\n      control: { type: 'select' },\r\n      options: ['Alta', 'Media', 'Baja'],\r\n    },\r\n  },\r\n  args: {\r\n    title: actividad.titulo,\r\n    description: actividad.descripcion,\r\n    priority: actividad.prioridad,\r\n    responsible: actividad.responsable,\r\n    endDate: actividad.fechaFin,\r\n  },\r\n} as StoryObj<CartaActividadComponent>"
             },
             {
                 "name": "Default",
@@ -209,6 +219,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  args: {\r\n    size: 'lg',\r\n    isPriority: true,\r\n    imgUrl: 'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n  },\r\n}"
+            },
+            {
+                "name": "fotoDePerfil",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/columna-tablero.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    actividades: actividades,\n  },\n}"
             },
             {
                 "name": "iniciales",
@@ -391,6 +411,56 @@
                 "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    theme: 'secondary',\r\n  },\r\n}"
             },
             {
+                "name": "sinAvatar",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/carta-actividad.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "{\r\n  args: {\r\n    title: actividad.titulo,\r\n    description: actividad.descripcion,\r\n    priority: actividad.prioridad,\r\n    endDate: actividad.fechaFin,\r\n  },\r\n} as StoryObj<CartaActividadComponent>"
+            },
+            {
+                "name": "sinFechaFin",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/carta-actividad.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "{\r\n  args: {\r\n    title: actividad.titulo,\r\n    description: actividad.descripcion,\r\n    priority: actividad.prioridad,\r\n    responsible: actividad.responsable,\r\n  },\r\n} as StoryObj<CartaActividadComponent>"
+            },
+            {
+                "name": "sinFooter",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/carta-actividad.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "{\r\n  args: {\r\n    title: actividad.titulo,\r\n    description: actividad.descripcion,\r\n    priority: actividad.prioridad,\r\n  },\r\n} as StoryObj<CartaActividadComponent>"
+            },
+            {
+                "name": "sinTagDePrioridad",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/carta-actividad.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "{\r\n  args: {\r\n    title: actividad.titulo,\r\n    description: actividad.descripcion,\r\n    responsible: actividad.responsable,\r\n    endDate: actividad.fechaFin,\r\n  },\r\n} as StoryObj<CartaActividadComponent>"
+            },
+            {
+                "name": "soloTituloYDescripcion",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/carta-actividad.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "{\r\n  args: {\r\n    title: actividad.titulo,\r\n    description: actividad.descripcion,\r\n  },\r\n} as StoryObj<CartaActividadComponent>"
+            },
+            {
                 "name": "Warning",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -506,6 +576,17 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<ColumnaTableroComponent>",
+                "file": "stories/columna-tablero.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<HeaderComponent>",
                 "file": "stories/header.stories.ts",
                 "deprecated": false,
@@ -569,7 +650,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "IActividad",
-                    "defaultValue": "{\r\n  titulo: 'Inducción a la empresa',\r\n  tipo: 'Reunión',\r\n  fase: 'Antes del primer día',\r\n  descripcion:\r\n    'Día de inducción a la empresa. Es necesario asistir presencialmente a las oficinas.',\r\n  objetivos:\r\n    'Procurar que el empleado pueda asociarse con los valores de la empresa',\r\n  prioridad: Prioridad.High,\r\n  responsable: 'Miguel Perez',\r\n  duracion: 8,\r\n  tipoDuracion: Duracion.Horas,\r\n  realizaEvaluacion: false,\r\n  status: EstadoActividad.Abierta,\r\n  fechaFin: new Date(2024, 7, 20),\r\n}"
+                    "defaultValue": "{\r\n  id: 1,\r\n  titulo: 'Inducción a la empresa',\r\n  tipo: 'Reunión',\r\n  fase: 'Antes del primer día',\r\n  descripcion:\r\n    'Día de inducción a la empresa. Es necesario asistir presencialmente a las oficinas.',\r\n  objetivos:\r\n    'Procurar que el empleado pueda asociarse con los valores de la empresa',\r\n  prioridad: Prioridad.High,\r\n  responsable: 'Miguel Perez',\r\n  duracion: 8,\r\n  tipoDuracion: Duracion.Horas,\r\n  realizaEvaluacion: false,\r\n  status: EstadoActividad.Abierta,\r\n  fechaFin: new Date(2024, 7, 20),\r\n}"
                 },
                 {
                     "name": "Default",
@@ -579,7 +660,79 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
-                    "defaultValue": "{\r\n  argTypes: {\r\n    actividad: {\r\n      control: { type: 'object' },\r\n    },\r\n  },\r\n  args: {\r\n    actividad,\r\n  },\r\n} as StoryObj<CartaActividadComponent>"
+                    "defaultValue": "{\r\n  argTypes: {\r\n    priority: {\r\n      control: { type: 'select' },\r\n      options: ['Alta', 'Media', 'Baja'],\r\n    },\r\n  },\r\n  args: {\r\n    title: actividad.titulo,\r\n    description: actividad.descripcion,\r\n    priority: actividad.prioridad,\r\n    responsible: actividad.responsable,\r\n    endDate: actividad.fechaFin,\r\n  },\r\n} as StoryObj<CartaActividadComponent>"
+                },
+                {
+                    "name": "sinAvatar",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/carta-actividad.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "{\r\n  args: {\r\n    title: actividad.titulo,\r\n    description: actividad.descripcion,\r\n    priority: actividad.prioridad,\r\n    endDate: actividad.fechaFin,\r\n  },\r\n} as StoryObj<CartaActividadComponent>"
+                },
+                {
+                    "name": "sinFechaFin",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/carta-actividad.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "{\r\n  args: {\r\n    title: actividad.titulo,\r\n    description: actividad.descripcion,\r\n    priority: actividad.prioridad,\r\n    responsible: actividad.responsable,\r\n  },\r\n} as StoryObj<CartaActividadComponent>"
+                },
+                {
+                    "name": "sinFooter",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/carta-actividad.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "{\r\n  args: {\r\n    title: actividad.titulo,\r\n    description: actividad.descripcion,\r\n    priority: actividad.prioridad,\r\n  },\r\n} as StoryObj<CartaActividadComponent>"
+                },
+                {
+                    "name": "sinTagDePrioridad",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/carta-actividad.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "{\r\n  args: {\r\n    title: actividad.titulo,\r\n    description: actividad.descripcion,\r\n    responsible: actividad.responsable,\r\n    endDate: actividad.fechaFin,\r\n  },\r\n} as StoryObj<CartaActividadComponent>"
+                },
+                {
+                    "name": "soloTituloYDescripcion",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/carta-actividad.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "{\r\n  args: {\r\n    title: actividad.titulo,\r\n    description: actividad.descripcion,\r\n  },\r\n} as StoryObj<CartaActividadComponent>"
+                }
+            ],
+            "stories/columna-tablero.stories.ts": [
+                {
+                    "name": "actividades",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/columna-tablero.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "IActividad[]",
+                    "defaultValue": "[\n  {\n    id: 1,\n    titulo: 'Inducción a la empresa',\n    tipo: 'Reunión',\n    fase: 'Antes del primer día',\n    descripcion:\n      'Día de inducción a la empresa. Es necesario asistir presencialmente a las oficinas.',\n    objetivos:\n      'Procurar que el empleado pueda asociarse con los valores de la empresa',\n    prioridad: Prioridad.High,\n    responsable: 'Miguel Perez',\n    duracion: 8,\n    tipoDuracion: Duracion.Horas,\n    realizaEvaluacion: false,\n    status: EstadoActividad.Abierta,\n    fechaFin: new Date(2024, 7, 20),\n  },\n  {\n    id: 2,\n    titulo: 'Curso de Evolution',\n    tipo: 'Capacitación',\n    fase: 'La primera semana',\n    descripcion:\n      'Curso de una semana para el aprendizaje básico del sistema Evolution.',\n    objetivos:\n      'El participante debe llegar a familiarizarse con todos los módulos de Evolution.',\n    prioridad: Prioridad.Low,\n    responsable: 'Andres Urizar',\n    duracion: 5,\n    tipoDuracion: Duracion.Dias,\n    realizaEvaluacion: true,\n    status: EstadoActividad.EnProgreso,\n    fechaFin: new Date(2024, 7, 20),\n  },\n]"
+                },
+                {
+                    "name": "fotoDePerfil",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/columna-tablero.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    actividades: actividades,\n  },\n}"
                 }
             ],
             "stories/button.stories.ts": [
@@ -1079,6 +1232,19 @@
                     "kind": 183
                 }
             ],
+            "stories/columna-tablero.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ColumnaTableroComponent>",
+                    "file": "stories/columna-tablero.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
             "stories/header.stories.ts": [
                 {
                     "name": "Story",
@@ -1307,6 +1473,76 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/carta-actividad.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "sinAvatar",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/carta-actividad.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "sinFechaFin",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/carta-actividad.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "sinFooter",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/carta-actividad.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "sinTagDePrioridad",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/carta-actividad.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "soloTituloYDescripcion",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/columna-tablero.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "actividades",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/columna-tablero.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "fotoDePerfil",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

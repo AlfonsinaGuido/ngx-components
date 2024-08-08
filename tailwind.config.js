@@ -7,7 +7,8 @@ module.exports = {
         primary: "var(--primary-500)",
         accent: "var(--accent-500)",
         warn: "var(--warn)",
-       "white-smoke": "var(--white-smoke)",
+        "white-smoke": "var(--white-smoke)",
+        "dark-gray": "var(--dark-gray)",
       },
       fontFamily: {
         sans: ["Roboto", "Helvetica Neue", "sans-serif"],

@@ -22,12 +22,20 @@ type Story = StoryObj<HeaderComponent>;
 
 export const Default: Story = {
   args: {
-    titleMenu: 'Tus aplicaciones',
-    itemsMenu: [
+    menuIcon: {
+      icon: 'menu.svg',
+      type: 'svg',
+    },
+    closeMenuIcon: {
+      icon: 'close.svg',
+      type: 'svg',
+    },
+    menuTitle: 'Tus aplicaciones',
+    menuItems: [
       {
         label: 'Evo Wave',
         icon: {
-          icon: 'https://pic.onlinewebfonts.com/thumbnails/icons_428993.svg',
+          icon: 'company-logo.svg',
           type: 'svg',
           position: 'left',
         },
@@ -35,14 +43,31 @@ export const Default: Story = {
       {
         label: 'Evo Chart',
         icon: {
-          icon: 'https://pic.onlinewebfonts.com/thumbnails/icons_572317.svg',
+          icon: 'company-logo.svg',
           type: 'svg',
           position: 'left',
         },
       },
     ],
-    imgCompany:
-      'https://proyectosaseinfo.atlassian.net/s/278rlr/b/7/3da8742e15d2b46ad1d6f999062048c7/_/jira-logo-scaled.png',
-    nameCompany: 'ASEINFO',
+    companyImage: 'company-logo.svg',
+    notificationIcon: {
+      icon: 'bell.svg',
+      type: 'svg',
+    },
+    box: [
+      {
+        label: 'Cambiar Perfil',
+        action: () => {
+          console.log('funciona')
+        }
+      },
+    ],
+  },
+};
+
+export const WithCompanyName: Story = {
+  args: {
+    ...Default.args,
+    companyName: 'ASEINFO',
   },
 };

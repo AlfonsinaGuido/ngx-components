@@ -22,12 +22,20 @@ type Story = StoryObj<MenuComponent>;
 
 export const Default: Story = {
   args: {
-    titleApps: 'Tus aplicaciones',
+    buttonIcon: {
+      icon: 'menu.svg',
+      type: 'svg',
+    },
+    closeIcon: {
+      icon: 'close.svg',
+      type: 'svg',
+    },
+    appTitle: 'Tus aplicaciones',
     items: [
       {
         label: 'Evo Wave',
         icon: {
-          icon: 'https://pic.onlinewebfonts.com/thumbnails/icons_428993.svg',
+          icon: 'company-logo.svg',
           type: 'svg',
           position: 'left',
         },
@@ -35,7 +43,7 @@ export const Default: Story = {
       {
         label: 'Evo Chart',
         icon: {
-          icon: 'https://pic.onlinewebfonts.com/thumbnails/icons_572317.svg',
+          icon: 'company-logo.svg',
           type: 'svg',
           position: 'left',
         },

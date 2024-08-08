@@ -88,7 +88,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    titleMenu: 'Tus aplicaciones',\r\n    itemsMenu: [\r\n      {\r\n        label: 'Evo Wave',\r\n        icon: {\r\n          icon: 'https://pic.onlinewebfonts.com/thumbnails/icons_428993.svg',\r\n          type: 'svg',\r\n          position: 'left',\r\n        },\r\n      },\r\n      {\r\n        label: 'Evo Chart',\r\n        icon: {\r\n          icon: 'https://pic.onlinewebfonts.com/thumbnails/icons_572317.svg',\r\n          type: 'svg',\r\n          position: 'left',\r\n        },\r\n      },\r\n    ],\r\n    imgCompany:\r\n      'https://proyectosaseinfo.atlassian.net/s/278rlr/b/7/3da8742e15d2b46ad1d6f999062048c7/_/jira-logo-scaled.png',\r\n    nameCompany: 'ASEINFO',\r\n  },\r\n}"
+                "defaultValue": "{\r\n  args: {\r\n    menuIcon: {\r\n      icon: 'menu.svg',\r\n      type: 'svg',\r\n    },\r\n    closeMenuIcon: {\r\n      icon: 'close.svg',\r\n      type: 'svg',\r\n    },\r\n    menuTitle: 'Tus aplicaciones',\r\n    menuItems: [\r\n      {\r\n        label: 'Evo Wave',\r\n        icon: {\r\n          icon: 'company-logo.svg',\r\n          type: 'svg',\r\n          position: 'left',\r\n        },\r\n      },\r\n      {\r\n        label: 'Evo Chart',\r\n        icon: {\r\n          icon: 'company-logo.svg',\r\n          type: 'svg',\r\n          position: 'left',\r\n        },\r\n      },\r\n    ],\r\n    companyImage: 'company-logo.svg',\r\n    notificationIcon: {\r\n      icon: 'bell.svg',\r\n      type: 'svg',\r\n    },\r\n    box: [\r\n      {\r\n        label: 'Cambiar Perfil',\r\n        action: () => {\r\n          console.log('funciona')\r\n        }\r\n      },\r\n    ],\r\n  },\r\n}"
             },
             {
                 "name": "Default",
@@ -118,7 +118,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    titleApps: 'Tus aplicaciones',\r\n    items: [\r\n      {\r\n        label: 'Evo Wave',\r\n        icon: {\r\n          icon: 'https://pic.onlinewebfonts.com/thumbnails/icons_428993.svg',\r\n          type: 'svg',\r\n          position: 'left',\r\n        },\r\n      },\r\n      {\r\n        label: 'Evo Chart',\r\n        icon: {\r\n          icon: 'https://pic.onlinewebfonts.com/thumbnails/icons_572317.svg',\r\n          type: 'svg',\r\n          position: 'left',\r\n        },\r\n      },\r\n    ],\r\n  },\r\n}"
+                "defaultValue": "{\r\n  args: {\r\n    buttonIcon: {\r\n      icon: 'menu.svg',\r\n      type: 'svg',\r\n    },\r\n    closeIcon: {\r\n      icon: 'close.svg',\r\n      type: 'svg',\r\n    },\r\n    appTitle: 'Tus aplicaciones',\r\n    items: [\r\n      {\r\n        label: 'Evo Wave',\r\n        icon: {\r\n          icon: 'company-logo.svg',\r\n          type: 'svg',\r\n          position: 'left',\r\n        },\r\n      },\r\n      {\r\n        label: 'Evo Chart',\r\n        icon: {\r\n          icon: 'company-logo.svg',\r\n          type: 'svg',\r\n          position: 'left',\r\n        },\r\n      },\r\n    ],\r\n  },\r\n}"
             },
             {
                 "name": "Default",
@@ -129,6 +129,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  args: {\r\n    label: 'Select',\r\n    items: [\r\n      {\r\n        key: 1,\r\n        value: 'Option 1',\r\n      },\r\n      {\r\n        key: 2,\r\n        value: 'Option 2',\r\n      },\r\n      {\r\n        key: 3,\r\n        value: 'Option 3',\r\n      },\r\n    ],\r\n    control: formControlDefaultSelect,\r\n    buttonIcon: {\r\n      icon: '/clean.svg',\r\n      type: 'svg',\r\n    },\r\n    detail: '',\r\n  },\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/svg.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    svgPath: 'bell.svg',\r\n  },\r\n}"
             },
             {
                 "name": "Disabled",
@@ -371,6 +381,16 @@
                 "defaultValue": "{\r\n  title: 'Evolution Components/Select',\r\n  component: SelectComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideAnimationsAsync()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
             },
             {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/svg.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<SvgComponent>",
+                "defaultValue": "{\r\n  title: 'Evolution Components/Svg',\r\n  component: SvgComponent,\r\n  tags: ['autodocs'],\r\n}"
+            },
+            {
                 "name": "Multiple",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -398,7 +418,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    icon: {\r\n      icon: '/add-user.svg',\r\n      type: 'svg',\r\n    },\r\n  },\r\n}"
+                "defaultValue": "{\r\n  args: {\r\n    icon: {\r\n      icon: 'add-user.svg',\r\n      type: 'svg',\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "preview",
@@ -561,6 +581,16 @@
                 "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    theme: 'warning',\r\n  },\r\n}"
             },
             {
+                "name": "WithCompanyName",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    companyName: 'ASEINFO',\r\n  },\r\n}"
+            },
+            {
                 "name": "WithIcon",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -568,7 +598,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    icon: {\r\n      icon: '/add-user.svg',\r\n      type: 'svg',\r\n      position: 'left',\r\n    },\r\n  },\r\n}"
+                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    icon: {\r\n      icon: 'add-user.svg',\r\n      type: 'svg',\r\n      position: 'left',\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "WithoutBorder",
@@ -723,6 +753,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<SelectComponent>",
                 "file": "stories/select.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<SvgComponent>",
+                "file": "stories/svg.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -967,7 +1008,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    icon: {\r\n      icon: '/add-user.svg',\r\n      type: 'svg',\r\n    },\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    icon: {\r\n      icon: 'add-user.svg',\r\n      type: 'svg',\r\n    },\r\n  },\r\n}"
                 },
                 {
                     "name": "Primary",
@@ -1027,7 +1068,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    icon: {\r\n      icon: '/add-user.svg',\r\n      type: 'svg',\r\n      position: 'left',\r\n    },\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    icon: {\r\n      icon: 'add-user.svg',\r\n      type: 'svg',\r\n      position: 'left',\r\n    },\r\n  },\r\n}"
                 },
                 {
                     "name": "WithoutBorder",
@@ -1049,7 +1090,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    titleMenu: 'Tus aplicaciones',\r\n    itemsMenu: [\r\n      {\r\n        label: 'Evo Wave',\r\n        icon: {\r\n          icon: 'https://pic.onlinewebfonts.com/thumbnails/icons_428993.svg',\r\n          type: 'svg',\r\n          position: 'left',\r\n        },\r\n      },\r\n      {\r\n        label: 'Evo Chart',\r\n        icon: {\r\n          icon: 'https://pic.onlinewebfonts.com/thumbnails/icons_572317.svg',\r\n          type: 'svg',\r\n          position: 'left',\r\n        },\r\n      },\r\n    ],\r\n    imgCompany:\r\n      'https://proyectosaseinfo.atlassian.net/s/278rlr/b/7/3da8742e15d2b46ad1d6f999062048c7/_/jira-logo-scaled.png',\r\n    nameCompany: 'ASEINFO',\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    menuIcon: {\r\n      icon: 'menu.svg',\r\n      type: 'svg',\r\n    },\r\n    closeMenuIcon: {\r\n      icon: 'close.svg',\r\n      type: 'svg',\r\n    },\r\n    menuTitle: 'Tus aplicaciones',\r\n    menuItems: [\r\n      {\r\n        label: 'Evo Wave',\r\n        icon: {\r\n          icon: 'company-logo.svg',\r\n          type: 'svg',\r\n          position: 'left',\r\n        },\r\n      },\r\n      {\r\n        label: 'Evo Chart',\r\n        icon: {\r\n          icon: 'company-logo.svg',\r\n          type: 'svg',\r\n          position: 'left',\r\n        },\r\n      },\r\n    ],\r\n    companyImage: 'company-logo.svg',\r\n    notificationIcon: {\r\n      icon: 'bell.svg',\r\n      type: 'svg',\r\n    },\r\n    box: [\r\n      {\r\n        label: 'Cambiar Perfil',\r\n        action: () => {\r\n          console.log('funciona')\r\n        }\r\n      },\r\n    ],\r\n  },\r\n}"
                 },
                 {
                     "name": "meta",
@@ -1060,6 +1101,16 @@
                     "deprecationMessage": "",
                     "type": "Meta<HeaderComponent>",
                     "defaultValue": "{\r\n  title: 'Evolution Components/Header',\r\n  component: HeaderComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideAnimationsAsync()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
+                },
+                {
+                    "name": "WithCompanyName",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    companyName: 'ASEINFO',\r\n  },\r\n}"
                 }
             ],
             "stories/input.stories.ts": [
@@ -1173,7 +1224,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    titleApps: 'Tus aplicaciones',\r\n    items: [\r\n      {\r\n        label: 'Evo Wave',\r\n        icon: {\r\n          icon: 'https://pic.onlinewebfonts.com/thumbnails/icons_428993.svg',\r\n          type: 'svg',\r\n          position: 'left',\r\n        },\r\n      },\r\n      {\r\n        label: 'Evo Chart',\r\n        icon: {\r\n          icon: 'https://pic.onlinewebfonts.com/thumbnails/icons_572317.svg',\r\n          type: 'svg',\r\n          position: 'left',\r\n        },\r\n      },\r\n    ],\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    buttonIcon: {\r\n      icon: 'menu.svg',\r\n      type: 'svg',\r\n    },\r\n    closeIcon: {\r\n      icon: 'close.svg',\r\n      type: 'svg',\r\n    },\r\n    appTitle: 'Tus aplicaciones',\r\n    items: [\r\n      {\r\n        label: 'Evo Wave',\r\n        icon: {\r\n          icon: 'company-logo.svg',\r\n          type: 'svg',\r\n          position: 'left',\r\n        },\r\n      },\r\n      {\r\n        label: 'Evo Chart',\r\n        icon: {\r\n          icon: 'company-logo.svg',\r\n          type: 'svg',\r\n          position: 'left',\r\n        },\r\n      },\r\n    ],\r\n  },\r\n}"
                 },
                 {
                     "name": "meta",
@@ -1266,6 +1317,28 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    control: formControlRequiredSelect,\r\n    isRequired: true,\r\n    isMultiple: false,\r\n    requiredErrorMessage: 'Este campo es requerido',\r\n  },\r\n}"
+                }
+            ],
+            "stories/svg.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/svg.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    svgPath: 'bell.svg',\r\n  },\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/svg.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<SvgComponent>",
+                    "defaultValue": "{\r\n  title: 'Evolution Components/Svg',\r\n  component: SvgComponent,\r\n  tags: ['autodocs'],\r\n}"
                 }
             ],
             "stories/avatar.stories.ts": [
@@ -1497,6 +1570,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<SelectComponent>",
                     "file": "stories/select.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "stories/svg.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<SvgComponent>",
+                    "file": "stories/svg.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -1824,6 +1910,16 @@
                 "status": "low"
             },
             {
+                "filePath": "stories/header.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithCompanyName",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "stories/highlight.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -2079,6 +2175,26 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Required",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/svg.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/svg.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

@@ -1,7 +1,34 @@
-<header class="flex gap-4 items-center p-2">
-  <evo-menu [titleApps]="titleMenu" [items]="itemsMenu"></evo-menu>
-  <div class="sm:flex items-center gap-4 hidden">
-    <img class="max-w-xs" [src]="imgCompany" alt="Company Logo" />
-    <h5 class="border-r border-primary pr-3 text-accent">{{ nameCompany }}</h5>
+<header class="flex justify-between items-center sm:px-[25px] px-[16px] py-2">
+  <div class="flex gap-[25px] items-center">
+    <evo-menu
+      class="sm:flex hidden"
+      [buttonIcon]="menuIcon"
+      [closeIcon]="closeMenuIcon"
+      [appTitle]="menuTitle"
+      [items]="menuItems"
+    ></evo-menu>
+    <div class="flex items-center gap-[25px]">
+      @if (companyImage) {
+        <evo-svg [svgPath]="companyImage"></evo-svg>
+      }
+      @if (companyName) {
+        <h5
+          class="sm:flex hidden border-r border-white-smoke pr-[25px] text-white-smoke"
+        >
+          {{ companyName }}
+        </h5>
+      }
+    </div>
+  </div>
+  <div class="sm:flex gap-[12px] items-center hidden">
+    @if (box) {
+      @for (button of box; track $index) {
+        <div (click)="button.action()" class="font-bold text-sm text-white-smoke cursor-pointer">{{ button.label }}</div>
+      }
+    }
+    <evo-menu
+      [buttonIcon]="notificationIcon"
+      [closeIcon]="closeMenuIcon"
+    ></evo-menu>
   </div>
 </header>

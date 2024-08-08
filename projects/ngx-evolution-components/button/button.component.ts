@@ -1,18 +1,18 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
-import { ButtonTheme, IconInterface } from '../public-api';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { ButtonTheme, IconInterface, SvgComponent } from '../public-api';
+import { HttpClient } from '@angular/common/http';
+import { SafeHtml, DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'evo-button',
   standalone: true,
-  imports: [CommonModule, HttpClientModule],
+  imports: [CommonModule, SvgComponent],
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss', '../styles/output.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class ButtonComponent implements OnInit {
+export class ButtonComponent {
   @Input() label!: string;
   @Input() icon?: IconInterface;
   @Input() theme: ButtonTheme = 'default';

@@ -21,23 +21,29 @@ const meta: Meta<HighlightComponent> = {
 export default meta;
 type Story = StoryObj<HighlightComponent>;
 
+const title = 'Te apoyamos en cada paso hacia tu éxito profesional';
+const subtitle = 'Nuestra plataforma te permite llevar el control de tu progreso en las fases del onboarding de la manera más eficiente.'
+const cardtext = 'Inicia sesión para acceder a tu cuenta, revisa tu tablero con el resumen de actividades y su estado actual.';
+
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Default: Story = {
     args: {
-      title: 'Te apoyamos en cada paso hacia tu éxito profesional',
+      title: title,
+      subtitle: subtitle,
+      cardtext: cardtext
     },
 };
 
 export const Subtitle: Story = {
     args: {
-        ...Default.args,
-        subtitle: 'Nuestra plataforma te permite llevar el control de tu progreso en las fases del onboarding de la manera más eficiente.',
+        title: title,
+        subtitle: subtitle,
     },
 };
 
 export const CardText: Story = {
     args: {
-        ...Default.args,
-        cardtext: 'Inicia sesión para acceder a tu cuenta, revisa tu tablero con el resumen de actividades y su estado actual.',
+        title: title,
+        cardtext: cardtext,
     },
 };

@@ -1,8 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { ButtonTheme, IconInterface, SvgComponent } from '../public-api';
-import { HttpClient } from '@angular/common/http';
-import { SafeHtml, DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'evo-button',
@@ -23,30 +21,7 @@ export class ButtonComponent {
   @Input() withoutBorder: boolean = false;
   @Input() onClick?: (param?: any) => any | void | {};
 
- 
-  svgContent: SafeHtml | null = null;
-
-  constructor(
-    private http: HttpClient,
-    private sanitizer: DomSanitizer,
-  ) {}
-
-  ngOnInit() {
-    this.loadSvg();
-  }
-
-  private loadSvg() {
-    if (this.icon && this.icon.type === 'svg') {
-      this.http.get(this.icon.icon, { responseType: 'text' }).subscribe({
-        next: (svg) => {
-          this.svgContent = this.sanitizer.bypassSecurityTrustHtml(svg);
-        },
-        error: (err) => {
-          console.error('Error loading SVG', err);
-        },
-      });
-    }
-  }
+  constructor() {}
 
   get getClasses() {
     return {

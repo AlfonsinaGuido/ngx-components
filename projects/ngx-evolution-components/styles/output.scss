@@ -687,6 +687,10 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-accent {
+  background-color: var(--accent-500);
+}
+
 .p-6 {
   padding: 1.5rem;
 }
@@ -949,11 +953,25 @@ a {
   .max-lg\:hidden {
     display: none;
   }
+
+  .max-lg\:bg-transparent {
+    background-color: transparent;
+  }
+}
+
+@media not all and (min-width: 640px) {
+  .max-sm\:hidden {
+    display: none;
+  }
 }
 
 @media (min-width: 640px) {
   .sm\:flex {
     display: flex;
+  }
+
+  .sm\:hidden {
+    display: none;
   }
 
   .sm\:\!min-w-80 {
@@ -963,5 +981,11 @@ a {
   .sm\:px-\[25px\] {
     padding-left: 25px;
     padding-right: 25px;
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:hidden {
+    display: none;
   }
 }

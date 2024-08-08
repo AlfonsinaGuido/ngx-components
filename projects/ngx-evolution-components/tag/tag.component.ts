@@ -10,6 +10,7 @@ import { Prioridad } from '../enums/prioridad.enum';
 })
 export class TagComponent {
   @Input() label!: string;
-  @Input() prioridad!: Prioridad;
+  @Input() prioridad?: Prioridad;
   @Input() size: 'sm' | 'md' | 'lg' = 'sm';
+  @Input() twClass?: string;
 }

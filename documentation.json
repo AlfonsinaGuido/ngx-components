@@ -28,7 +28,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "IActividad[]",
-                "defaultValue": "[\n  {\n    id: 1,\n    titulo: 'Inducción a la empresa',\n    tipo: 'Reunión',\n    fase: 'Antes del primer día',\n    descripcion:\n      'Día de inducción a la empresa. Es necesario asistir presencialmente a las oficinas.',\n    objetivos:\n      'Procurar que el empleado pueda asociarse con los valores de la empresa',\n    prioridad: Prioridad.High,\n    responsable: 'Miguel Perez',\n    duracion: 8,\n    tipoDuracion: Duracion.Horas,\n    realizaEvaluacion: false,\n    status: EstadoActividad.Abierta,\n    fechaFin: new Date(2024, 7, 20),\n  },\n  {\n    id: 2,\n    titulo: 'Curso de Evolution',\n    tipo: 'Capacitación',\n    fase: 'La primera semana',\n    descripcion:\n      'Curso de una semana para el aprendizaje básico del sistema Evolution.',\n    objetivos:\n      'El participante debe llegar a familiarizarse con todos los módulos de Evolution.',\n    prioridad: Prioridad.Low,\n    responsable: 'Andres Urizar',\n    duracion: 5,\n    tipoDuracion: Duracion.Dias,\n    realizaEvaluacion: true,\n    status: EstadoActividad.EnProgreso,\n    fechaFin: new Date(2024, 7, 20),\n  },\n]"
+                "defaultValue": "[\n  {\n    id: 1,\n    titulo: 'Inducción a la empresa',\n    tipo: 'Reunión',\n    fase: 'Antes del primer día',\n    descripcion:\n      'Día de inducción a la empresa. Es necesario asistir presencialmente a las oficinas.',\n    objetivos:\n      'Procurar que el empleado pueda asociarse con los valores de la empresa',\n    prioridad: Prioridad.High,\n    responsable: 'Miguel Perez',\n    duracion: 8,\n    tipoDuracion: Duracion.Horas,\n    realizaEvaluacion: false,\n    status: EstadoActividad.Abierta,\n    fechaFin: new Date(2024, 7, 20),\n  },\n  {\n    id: 2,\n    titulo: 'Curso de Evolution',\n    tipo: 'Capacitación',\n    fase: 'La primera semana',\n    descripcion:\n      'Curso de una semana para el aprendizaje básico del sistema Evolution.',\n    objetivos:\n      'El participante debe llegar a familiarizarse con todos los módulos de Evolution.',\n    prioridad: Prioridad.Medium,\n    responsable: 'Ricardo Hernandez',\n    duracion: 5,\n    tipoDuracion: Duracion.Dias,\n    realizaEvaluacion: true,\n    status: EstadoActividad.EnProgreso,\n    fechaFin: new Date(2024, 7, 20),\n  },\n  {\n    id: 3,\n    titulo: 'Visita Guiada',\n    tipo: 'Reunión',\n    fase: 'Antes del primer día',\n    descripcion: 'Realizar una visita guiada sobre las instalaciones.',\n    objetivos: 'Asignar parqueo y conocer el edificio.',\n    prioridad: Prioridad.Low,\n    responsable: 'Hugo Maldonado',\n    duracion: 2,\n    tipoDuracion: Duracion.Horas,\n    realizaEvaluacion: false,\n    status: EstadoActividad.EnProgreso,\n    fechaFin: new Date(2024, 7, 20),\n  },\n]"
             },
             {
                 "name": "Default",
@@ -49,6 +49,16 @@
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "{\r\n  argTypes: {\r\n    priority: {\r\n      control: { type: 'select' },\r\n      options: ['Alta', 'Media', 'Baja'],\r\n    },\r\n  },\r\n  args: {\r\n    title: actividad.titulo,\r\n    description: actividad.descripcion,\r\n    priority: actividad.prioridad,\r\n    responsible: actividad.responsable,\r\n    endDate: actividad.fechaFin,\r\n  },\r\n} as StoryObj<CartaActividadComponent>"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/columna-tablero.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    name: 'En progreso',\n    actividades: actividades,\n  },\n}"
             },
             {
                 "name": "Default",
@@ -221,16 +231,6 @@
                 "defaultValue": "{\r\n  args: {\r\n    size: 'lg',\r\n    isPriority: true,\r\n    imgUrl: 'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n  },\r\n}"
             },
             {
-                "name": "fotoDePerfil",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "stories/columna-tablero.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\n  args: {\n    actividades: actividades,\n  },\n}"
-            },
-            {
                 "name": "iniciales",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -321,6 +321,16 @@
                 "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    control: formControlMultipleSelect,\r\n    isMultiple: true,\r\n  },\r\n}"
             },
             {
+                "name": "nombreDeColumnaLargo",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/columna-tablero.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    name: 'Las actividades que no hemos iniciado aún',\n    actividades: actividades,\n  },\n}"
+            },
+            {
                 "name": "OnlyIcon",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -409,6 +419,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    theme: 'secondary',\r\n  },\r\n}"
+            },
+            {
+                "name": "sinActividadeds",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/columna-tablero.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    name: 'Done',\n    actividades: [],\n  },\n}"
             },
             {
                 "name": "sinAvatar",
@@ -722,17 +742,37 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "IActividad[]",
-                    "defaultValue": "[\n  {\n    id: 1,\n    titulo: 'Inducción a la empresa',\n    tipo: 'Reunión',\n    fase: 'Antes del primer día',\n    descripcion:\n      'Día de inducción a la empresa. Es necesario asistir presencialmente a las oficinas.',\n    objetivos:\n      'Procurar que el empleado pueda asociarse con los valores de la empresa',\n    prioridad: Prioridad.High,\n    responsable: 'Miguel Perez',\n    duracion: 8,\n    tipoDuracion: Duracion.Horas,\n    realizaEvaluacion: false,\n    status: EstadoActividad.Abierta,\n    fechaFin: new Date(2024, 7, 20),\n  },\n  {\n    id: 2,\n    titulo: 'Curso de Evolution',\n    tipo: 'Capacitación',\n    fase: 'La primera semana',\n    descripcion:\n      'Curso de una semana para el aprendizaje básico del sistema Evolution.',\n    objetivos:\n      'El participante debe llegar a familiarizarse con todos los módulos de Evolution.',\n    prioridad: Prioridad.Low,\n    responsable: 'Andres Urizar',\n    duracion: 5,\n    tipoDuracion: Duracion.Dias,\n    realizaEvaluacion: true,\n    status: EstadoActividad.EnProgreso,\n    fechaFin: new Date(2024, 7, 20),\n  },\n]"
+                    "defaultValue": "[\n  {\n    id: 1,\n    titulo: 'Inducción a la empresa',\n    tipo: 'Reunión',\n    fase: 'Antes del primer día',\n    descripcion:\n      'Día de inducción a la empresa. Es necesario asistir presencialmente a las oficinas.',\n    objetivos:\n      'Procurar que el empleado pueda asociarse con los valores de la empresa',\n    prioridad: Prioridad.High,\n    responsable: 'Miguel Perez',\n    duracion: 8,\n    tipoDuracion: Duracion.Horas,\n    realizaEvaluacion: false,\n    status: EstadoActividad.Abierta,\n    fechaFin: new Date(2024, 7, 20),\n  },\n  {\n    id: 2,\n    titulo: 'Curso de Evolution',\n    tipo: 'Capacitación',\n    fase: 'La primera semana',\n    descripcion:\n      'Curso de una semana para el aprendizaje básico del sistema Evolution.',\n    objetivos:\n      'El participante debe llegar a familiarizarse con todos los módulos de Evolution.',\n    prioridad: Prioridad.Medium,\n    responsable: 'Ricardo Hernandez',\n    duracion: 5,\n    tipoDuracion: Duracion.Dias,\n    realizaEvaluacion: true,\n    status: EstadoActividad.EnProgreso,\n    fechaFin: new Date(2024, 7, 20),\n  },\n  {\n    id: 3,\n    titulo: 'Visita Guiada',\n    tipo: 'Reunión',\n    fase: 'Antes del primer día',\n    descripcion: 'Realizar una visita guiada sobre las instalaciones.',\n    objetivos: 'Asignar parqueo y conocer el edificio.',\n    prioridad: Prioridad.Low,\n    responsable: 'Hugo Maldonado',\n    duracion: 2,\n    tipoDuracion: Duracion.Horas,\n    realizaEvaluacion: false,\n    status: EstadoActividad.EnProgreso,\n    fechaFin: new Date(2024, 7, 20),\n  },\n]"
                 },
                 {
-                    "name": "fotoDePerfil",
+                    "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "stories/columna-tablero.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    actividades: actividades,\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    name: 'En progreso',\n    actividades: actividades,\n  },\n}"
+                },
+                {
+                    "name": "nombreDeColumnaLargo",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/columna-tablero.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    name: 'Las actividades que no hemos iniciado aún',\n    actividades: actividades,\n  },\n}"
+                },
+                {
+                    "name": "sinActividadeds",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/columna-tablero.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    name: 'Done',\n    actividades: [],\n  },\n}"
                 }
             ],
             "stories/button.stories.ts": [
@@ -1542,7 +1582,27 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "fotoDePerfil",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/columna-tablero.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "nombreDeColumnaLargo",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/columna-tablero.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "sinActividadeds",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

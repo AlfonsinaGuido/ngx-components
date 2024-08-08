@@ -43,7 +43,7 @@ export const WithIcon: Story = {
   args: {
     ...Default.args,
     icon: {
-      icon: '/add-user.svg',
+      icon: 'add-user.svg',
       type: 'svg',
       position: 'left',
     },
@@ -53,7 +53,7 @@ export const WithIcon: Story = {
 export const OnlyIcon: Story = {
   args: {
     icon: {
-      icon: '/add-user.svg',
+      icon: 'add-user.svg',
       type: 'svg',
     },
   },

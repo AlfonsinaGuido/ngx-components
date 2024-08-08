@@ -3,6 +3,7 @@
  */
 
 // Components
+export * from './svg/svg.component';
 export * from './button/button.component';
 export * from './input/input.component';
 export * from './select/select.component';
@@ -21,3 +22,4 @@ export * from './shared/interfaces/input.interface';
 export * from './shared/interfaces/select.interface';
 export * from './shared/interfaces/actividad.interface';
 export * from './shared/interfaces/columna.interface';
+export * from './shared/interfaces/header.interface';

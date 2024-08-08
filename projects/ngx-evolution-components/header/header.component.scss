@@ -1,5 +1,27 @@
 @import "../styles/output.scss";
 
 header {
-  background-color: var(--primary-200);
+  background-color: var(--accent-500);
+  .evo-button {
+    &.without-border {
+      border: none !important;
+      background-color: transparent;
+      box-shadow: none;
+      .evo-button__content .icon svg {
+        color: var(--white-smoke);
+      }
+      &:hover,
+      &:focus {
+        background-color: var(--white-smoke);
+        .evo-button__content .icon svg {
+          color: var(--accent-500);
+        }
+      }
+    }
+  }
+  svg {
+    max-width: 60px;
+    max-height: 50px;
+    color: var(--white-smoke);
+  }
 }

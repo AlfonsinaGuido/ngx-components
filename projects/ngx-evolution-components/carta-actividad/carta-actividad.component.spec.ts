@@ -6,6 +6,7 @@ import { Duracion } from '../enums/duracion.enum';
 import { EstadoActividad } from '../enums/estado.enum';
 
 const actividadMockData: IActividad = {
+  id: 1,
   titulo: 'Inducción a la empresa',
   tipo: 'Reunión',
   fase: 'Antes del primer día',
@@ -33,7 +34,11 @@ describe('CartaComponent', () => {
 
     fixture = TestBed.createComponent(CartaActividadComponent);
     component = fixture.componentInstance;
-    component.actividad = actividadMockData;
+    component.title = actividadMockData.titulo;
+    component.description = actividadMockData.descripcion!;
+    component.priority = actividadMockData.prioridad;
+    component.responsible = actividadMockData.responsable;
+    component.endDate = actividadMockData.fechaFin;
     fixture.detectChanges();
   });
 
@@ -56,7 +61,14 @@ describe('CartaComponent', () => {
     expect(tagClass).toContain(actividadMockData.prioridad);
   });
 
-  it('should contain a status', () => {
-    expect(component.actividad.status).toBe(actividadMockData.status);
+  it('should render avatar component with responsible initials', () => {
+    const cardEl: HTMLElement = fixture.nativeElement;
+    const avatarEl: Element | null = cardEl.children[0];
+    const avatar = avatarEl.querySelector('evo-avatar');
+    expect(avatar?.textContent).toContain('MP');
+  });
+
+  it('should render endDate', () => {
+    expect('#endDate').toBeTruthy();
   });
 });

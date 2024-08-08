@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { IActividad } from '../shared/interfaces/actividad.interface';
 import { TagComponent } from '../tag/tag.component';
 import { MatIconModule } from '@angular/material/icon';
 import { AvatarComponent } from '../public-api';
@@ -18,5 +17,5 @@ export class CartaActividadComponent {
   @Input() title!: string;
   @Input() responsible?: string;
   @Input() priority!: Prioridad;
-  @Input() endDate?: Date;
+  @Input() endDate?: Date | string;
 }

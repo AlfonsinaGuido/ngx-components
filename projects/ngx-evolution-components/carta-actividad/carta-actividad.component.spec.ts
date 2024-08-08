@@ -6,6 +6,7 @@ import { Duracion } from '../enums/duracion.enum';
 import { EstadoActividad } from '../enums/estado.enum';
 
 const actividadMockData: IActividad = {
+  id: 1,
   titulo: 'Inducción a la empresa',
   tipo: 'Reunión',
   fase: 'Antes del primer día',

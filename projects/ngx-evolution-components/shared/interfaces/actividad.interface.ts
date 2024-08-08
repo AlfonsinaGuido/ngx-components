@@ -18,5 +18,5 @@ export interface IActividad {
   tipo: string;
   tipoDuracion: Duracion;
   titulo: string;
-  fechaFin: Date;
+  fechaFin: Date | string;
 }

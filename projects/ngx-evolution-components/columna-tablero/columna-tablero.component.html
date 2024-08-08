@@ -12,6 +12,7 @@
     [cdkDropListData]="actividades"
     (cdkDropListDropped)="drop($event)"
     class="flex min-h-[500px] flex-col gap-2"
+    [id]="'column-'+name.replace(' ', '')"
   >
   @for (actividad of actividades; track actividad.id) {
     <evo-carta-actividad

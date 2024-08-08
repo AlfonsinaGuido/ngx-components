@@ -23,3 +23,8 @@ export * from './shared/interfaces/select.interface';
 export * from './shared/interfaces/actividad.interface';
 export * from './shared/interfaces/columna.interface';
 export * from './shared/interfaces/header.interface';
+
+// Enums
+export * from './enums/duracion.enum';
+export * from './enums/estado.enum';
+export * from './enums/prioridad.enum';

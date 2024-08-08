@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CartaActividadComponent, IActividad } from '../public-api';
 import { CommonModule } from '@angular/common';
 import {
@@ -18,25 +18,29 @@ import {
 export class ColumnaTableroComponent {
   @Input() actividades!: IActividad[];
   @Input() name!: string;
+  @Output('ordenActividad')
+  public ordenActividad: EventEmitter<any> = new EventEmitter();
+  @Output('actualizarActividad')
+  public actualizarActividad: EventEmitter<any> = new EventEmitter();
 
   drop(event: CdkDragDrop<IActividad[]>) {
+    // Cambio de orden
     if (event.previousContainer === event.container) {
-      console.log('Drag and drop - Ordenar');
       moveItemInArray(
         event.container.data,
         event.previousIndex,
         event.currentIndex,
       );
-      // TODO: Emitir evento desde el board (?) para re ordenar tarjeta
+      this.ordenActividad.emit(this.actividades);
+      // Cambio de columna (array)
     } else {
-      console.log('Drag and drop - Columna');
       transferArrayItem(
         event.previousContainer.data,
         event.container.data,
         event.previousIndex,
         event.currentIndex,
       );
-      // TODO: Emitir evento desde el board (?) para cambiar de columna
+      this.actualizarActividad.emit(this.actividades);
     }
   }
 }

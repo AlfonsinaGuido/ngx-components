@@ -5,7 +5,13 @@ import {
   OnDestroy,
   ViewEncapsulation,
 } from '@angular/core';
-import { ButtonComponent, ButtonInterface, IconInterface } from '../public-api';
+import {
+  AvatarComponent,
+  ButtonComponent,
+  ButtonInterface,
+  IconInterface,
+  UserDataInterface,
+} from '../public-api';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
@@ -20,17 +26,24 @@ import { MatDividerModule } from '@angular/material/divider';
     MatMenuModule,
     MatDividerModule,
     ButtonComponent,
+    AvatarComponent,
   ],
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss', '../styles/output.scss'],
   encapsulation: ViewEncapsulation.None,
 })
 export class MenuComponent implements AfterViewInit, OnDestroy {
-  @Input() appTitle!: string;
+  @Input() title?: string;
   @Input() items!: ButtonInterface[];
-  @Input() buttonIcon!: IconInterface;
-  @Input() closeIcon!: IconInterface;
-  matMenuPosition!: number;
+  @Input() buttonIcon?: IconInterface = {
+    icon: 'expand_more',
+    type: 'class',
+  };
+  @Input() closeIcon?: IconInterface;
+  @Input() notificationsNumber?: number;
+  @Input() userData?: UserDataInterface;
+  @Input() classes?: string;
+  matMenuPosition: number = 5;
   private resizeObserver!: ResizeObserver;
 
   ngAfterViewInit(): void {
@@ -51,6 +64,24 @@ export class MenuComponent implements AfterViewInit, OnDestroy {
         this.matMenuPosition = headerRect.height * 0.35;
       });
       this.resizeObserver.observe(header);
+    }
+  }
+
+  onMenuOpen(): void {
+    if (this.userData) {
+      this.buttonIcon = {
+        icon: 'expand_less',
+        type: 'class',
+      };
+    }
+  }
+
+  onMenuClose(): void {
+    if (this.userData) {
+      this.buttonIcon = {
+        icon: 'expand_more',
+        type: 'class',
+      };
     }
   }
 }

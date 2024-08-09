@@ -1,4 +1,4 @@
 export interface HeaderButtonInterface {
   label: string;
-  action: () => void;
+  action: (param?: any) => any | void | {};
 }

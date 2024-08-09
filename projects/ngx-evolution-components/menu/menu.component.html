@@ -1,22 +1,63 @@
 <evo-button
-  mat-button
   [matMenuTriggerFor]="menu"
   [icon]="buttonIcon"
   [withoutBorder]="true"
+  class="flex w-fit"
+  (menuOpened)="onMenuOpen()"
+  (menuClosed)="onMenuClose()"
 ></evo-button>
-<mat-menu #menu="matMenu" class="sm:!min-w-80 p-[16px] mt-[{{matMenuPosition}}px]">
+<mat-menu
+  #menu="matMenu"
+  class="sm:!min-w-80 p-[16px] max-h-[50vh] mt-[{{ matMenuPosition }}px] {{
+    classes
+  }}"
+>
   <div class="flex items-center justify-between p-[8px]">
-    <h5 class="flex font-bold text-sm text-dark-gray">{{ appTitle }}</h5>
-    <evo-button class="close-button" [icon]="closeIcon" [withoutBorder]="true"></evo-button>
+    <div class="user-data-container flex items-center gap-[8px]">
+      @if (userData) {
+        <evo-avatar
+          size="md"
+          [name]="userData.fullName"
+          [imgUrl]="userData.imgUrl"
+        ></evo-avatar>
+        <div>
+          <h5 class="font-bold text-dark-gray text-base">
+            {{ userData.fullName }}
+          </h5>
+          <h5 class="font-medium text-medium-gray text-sm">
+            {{ userData.email }}
+          </h5>
+        </div>
+      } @else if (title) {
+        <h5 class="flex font-bold text-sm text-dark-gray">{{ title }}</h5>
+        @if (notificationsNumber) {
+          <h5 class="flex font-semibold text-xs text-primary">
+            {{ notificationsNumber }}
+          </h5>
+        }
+      }
+    </div>
+    @if (closeIcon) {
+      <evo-button
+        class="close-button"
+        [icon]="closeIcon"
+        [withoutBorder]="true"
+      ></evo-button>
+    }
   </div>
   @for (item of items; track $index) {
     <mat-divider></mat-divider>
     <evo-button
+      [classes]="userData ? 'userFont' : ''"
       [label]="item.label"
       [icon]="item.icon"
       [withoutBorder]="true"
       [theme]="'secondary'"
       [isFluid]="true"
+      [url]="item.url"
+      [avatarName]="item.avatarName"
+      [avatarImgUrl]="item.avatarImgUrl"
+      [onClick]="item.onClick"
     ></evo-button>
   }
 </mat-menu>

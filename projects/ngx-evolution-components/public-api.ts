@@ -15,6 +15,7 @@ export * from './dialog/dialog.component';
 export * from './tag/tag.component';
 export * from './avatar/avatar.component';
 export * from './carta-actividad/carta-actividad.component';
+export * from './columna-tablero/columna-tablero.component';
 
 // Interfaces
 export * from './shared/interfaces/button.interface';
@@ -24,6 +25,7 @@ export * from './shared/interfaces/select.interface';
 export * from './shared/interfaces/dialog.interface';
 export * from './shared/interfaces/evaluacion.interface';
 export * from './shared/interfaces/actividad.interface';
+export * from './shared/interfaces/columna.interface';
 export * from './shared/interfaces/header.interface';
 
 // Enums

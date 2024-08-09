@@ -1,6 +1,7 @@
 import { Duracion, Prioridad, IEvaluacion, EstadoActividad } from '../../public-api'
 
 export interface IActividad {
+  id: string | number;
   prerequisitos?: IActividad[];
   descripcion?: string;
   duracion: number;
@@ -14,5 +15,5 @@ export interface IActividad {
   tipo: string;
   tipoDuracion: Duracion;
   titulo: string;
-  fechaFin: Date;
+  fechaFin: Date | string;
 }

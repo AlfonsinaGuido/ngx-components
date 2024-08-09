@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { AvatarComponent, IActividad, TagComponent } from '../public-api';
 import { DatePipe } from '@angular/common';
+import { Prioridad } from '../enums/prioridad.enum';
 
 @Component({
   selector: 'evo-carta-actividad',
@@ -11,5 +12,9 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./carta-actividad.component.scss', '../styles/output.scss'],
 })
 export class CartaActividadComponent {
-  @Input() actividad!: IActividad;
+  @Input() description!: string;
+  @Input() title!: string;
+  @Input() responsible?: string;
+  @Input() priority!: Prioridad;
+  @Input() endDate?: Date | string;
 }

@@ -18,7 +18,17 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "IActividad",
-                "defaultValue": "{\r\n  titulo: 'Inducción a la empresa',\r\n  tipo: 'Reunión',\r\n  fase: 'Antes del primer día',\r\n  descripcion:\r\n    'Día de inducción a la empresa. Es necesario asistir presencialmente a las oficinas.',\r\n  objetivos:\r\n    'Procurar que el empleado pueda asociarse con los valores de la empresa',\r\n  prioridad: Prioridad.High,\r\n  responsable: 'Miguel Perez',\r\n  duracion: 8,\r\n  tipoDuracion: Duracion.Horas,\r\n  realizaEvaluacion: false,\r\n  status: EstadoActividad.Abierta,\r\n  fechaFin: new Date(2024, 7, 20),\r\n}"
+                "defaultValue": "{\r\n  id: 1,\r\n  titulo: 'Inducción a la empresa',\r\n  tipo: 'Reunión',\r\n  fase: 'Antes del primer día',\r\n  descripcion:\r\n    'Día de inducción a la empresa. Es necesario asistir presencialmente a las oficinas.',\r\n  objetivos:\r\n    'Procurar que el empleado pueda asociarse con los valores de la empresa',\r\n  prioridad: Prioridad.High,\r\n  responsable: 'Miguel Perez',\r\n  duracion: 8,\r\n  tipoDuracion: Duracion.Horas,\r\n  realizaEvaluacion: false,\r\n  status: EstadoActividad.Abierta,\r\n  fechaFin: '20/08/2024',\r\n}"
+            },
+            {
+                "name": "actividades",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/columna-tablero.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "IActividad[]",
+                "defaultValue": "[\r\n  {\r\n    id: 1,\r\n    titulo: 'Inducción a la empresa',\r\n    tipo: 'Reunión',\r\n    fase: 'Antes del primer día',\r\n    descripcion:\r\n      'Día de inducción a la empresa. Es necesario asistir presencialmente a las oficinas.',\r\n    objetivos:\r\n      'Procurar que el empleado pueda asociarse con los valores de la empresa',\r\n    prioridad: Prioridad.High,\r\n    responsable: 'Miguel Perez',\r\n    duracion: 8,\r\n    tipoDuracion: Duracion.Horas,\r\n    realizaEvaluacion: false,\r\n    status: EstadoActividad.Abierta,\r\n    fechaFin: new Date(2024, 7, 20),\r\n  },\r\n  {\r\n    id: 2,\r\n    titulo: 'Curso de Evolution',\r\n    tipo: 'Capacitación',\r\n    fase: 'La primera semana',\r\n    descripcion:\r\n      'Curso de una semana para el aprendizaje básico del sistema Evolution.',\r\n    objetivos:\r\n      'El participante debe llegar a familiarizarse con todos los módulos de Evolution.',\r\n    prioridad: Prioridad.Medium,\r\n    responsable: 'Ricardo Hernandez',\r\n    duracion: 5,\r\n    tipoDuracion: Duracion.Dias,\r\n    realizaEvaluacion: true,\r\n    status: EstadoActividad.EnProgreso,\r\n    fechaFin: new Date(2024, 7, 20),\r\n  },\r\n  {\r\n    id: 3,\r\n    titulo: 'Visita Guiada',\r\n    tipo: 'Reunión',\r\n    fase: 'Antes del primer día',\r\n    descripcion: 'Realizar una visita guiada sobre las instalaciones.',\r\n    objetivos: 'Asignar parqueo y conocer el edificio.',\r\n    prioridad: Prioridad.Low,\r\n    responsable: 'Hugo Maldonado',\r\n    duracion: 2,\r\n    tipoDuracion: Duracion.Horas,\r\n    realizaEvaluacion: false,\r\n    status: EstadoActividad.EnProgreso,\r\n    fechaFin: new Date(2024, 7, 20),\r\n  },\r\n]"
             },
             {
                 "name": "buttonsItemsScrollable",
@@ -41,6 +51,16 @@
                 "defaultValue": "{\r\n    args: {\r\n        title: 'Dialogo de testing',\r\n        simpleContent: 'Testing de prueba para dialogo',\r\n        buttonsItems: [{ label: 'Item 1', theme: 'warning' }, { label: 'Item 2', theme: 'primary' }],\r\n        buttonsFunctions: [{action: Testing1}, {action: Testing2}]\r\n    }\r\n}"
             },
             {
+                "name": "cardtext",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/highlight.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "string",
+                "defaultValue": "'Inicia sesión para acceder a tu cuenta, revisa tu tablero con el resumen de actividades y su estado actual.'"
+            },
+            {
                 "name": "CardText",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -48,7 +68,27 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n    args: {\r\n        ...Default.args,\r\n        cardtext: 'Inicia sesión para acceder a tu cuenta, revisa tu tablero con el resumen de actividades y su estado actual.',\r\n    },\r\n}"
+                "defaultValue": "{\r\n    args: {\r\n        title: title,\r\n        cardtext: cardtext,\r\n    },\r\n}"
+            },
+            {
+                "name": "closeButton",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/dialog.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n      title: 'Dialogo de testing',\r\n      simpleContent: 'Testing de prueba para dialogo',\r\n      buttonsItems: [{ label: 'Item 1', theme: 'warning' }, { label: 'Item 2', theme: 'primary' }],\r\n      buttonsFunctions: [{action: Testing1}, {action: Testing2}],\r\n      closeButton: true\r\n  }\r\n}"
+            },
+            {
+                "name": "colorPersonalizado",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/tag.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    label: 'Custom',\r\n    size: 'md',\r\n    twClass: 'bg-green-50 text-green-700',\r\n  },\r\n}"
             },
             {
                 "name": "Default",
@@ -68,7 +108,17 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
-                "defaultValue": "{\r\n  argTypes: {\r\n    actividad: {\r\n      control: { type: 'object' },\r\n    },\r\n  },\r\n  args: {\r\n    actividad,\r\n  },\r\n} as StoryObj<CartaActividadComponent>"
+                "defaultValue": "{\r\n  argTypes: {\r\n    priority: {\r\n      control: { type: 'select' },\r\n      options: ['Alta', 'Media', 'Baja'],\r\n    },\r\n  },\r\n  args: {\r\n    title: actividad.titulo,\r\n    description: actividad.descripcion,\r\n    priority: actividad.prioridad,\r\n    responsible: actividad.responsable,\r\n    endDate: actividad.fechaFin,\r\n  },\r\n} as StoryObj<CartaActividadComponent>"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/columna-tablero.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    name: 'En progreso',\r\n    actividades: actividades,\r\n  },\r\n}"
             },
             {
                 "name": "Default",
@@ -98,7 +148,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n    args: {\r\n      title: 'Te apoyamos en cada paso hacia tu éxito profesional',\r\n    },\r\n}"
+                "defaultValue": "{\r\n    args: {\r\n      title: title,\r\n      subtitle: subtitle,\r\n      cardtext: cardtext\r\n    },\r\n}"
             },
             {
                 "name": "Default",
@@ -401,6 +451,16 @@
                 "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    control: formControlMultipleSelect,\r\n    isMultiple: true,\r\n  },\r\n}"
             },
             {
+                "name": "nombreDeColumnaLargo",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/columna-tablero.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    name: 'Las actividades que no hemos iniciado aún',\r\n    actividades: actividades,\r\n  },\r\n}"
+            },
+            {
                 "name": "onClick",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -521,6 +581,76 @@
                 "defaultValue": "{\r\n    args: {\r\n        title: 'Dialogo de testing',\r\n        simpleContent: 'Testing de prueba para dialogo'\r\n    }\r\n}"
             },
             {
+                "name": "sinActividadeds",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/columna-tablero.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    name: 'Done',\r\n    actividades: [],\r\n  },\r\n}"
+            },
+            {
+                "name": "sinAvatar",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/carta-actividad.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "{\r\n  args: {\r\n    title: actividad.titulo,\r\n    description: actividad.descripcion,\r\n    priority: actividad.prioridad,\r\n    endDate: actividad.fechaFin,\r\n  },\r\n} as StoryObj<CartaActividadComponent>"
+            },
+            {
+                "name": "sinFechaFin",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/carta-actividad.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "{\r\n  args: {\r\n    title: actividad.titulo,\r\n    description: actividad.descripcion,\r\n    priority: actividad.prioridad,\r\n    responsible: actividad.responsable,\r\n  },\r\n} as StoryObj<CartaActividadComponent>"
+            },
+            {
+                "name": "sinFooter",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/carta-actividad.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "{\r\n  args: {\r\n    title: actividad.titulo,\r\n    description: actividad.descripcion,\r\n    priority: actividad.prioridad,\r\n  },\r\n} as StoryObj<CartaActividadComponent>"
+            },
+            {
+                "name": "sinTagDePrioridad",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/carta-actividad.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "{\r\n  args: {\r\n    title: actividad.titulo,\r\n    description: actividad.descripcion,\r\n    responsible: actividad.responsable,\r\n    endDate: actividad.fechaFin,\r\n  },\r\n} as StoryObj<CartaActividadComponent>"
+            },
+            {
+                "name": "soloTituloYDescripcion",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/carta-actividad.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "{\r\n  args: {\r\n    title: actividad.titulo,\r\n    description: actividad.descripcion,\r\n  },\r\n} as StoryObj<CartaActividadComponent>"
+            },
+            {
+                "name": "subtitle",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/highlight.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "string",
+                "defaultValue": "'Nuestra plataforma te permite llevar el control de tu progreso en las fases del onboarding de la manera más eficiente.'"
+            },
+            {
                 "name": "Subtitle",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -528,7 +658,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n    args: {\r\n        ...Default.args,\r\n        subtitle: 'Nuestra plataforma te permite llevar el control de tu progreso en las fases del onboarding de la manera más eficiente.',\r\n    },\r\n}"
+                "defaultValue": "{\r\n    args: {\r\n        title: title,\r\n        subtitle: subtitle,\r\n    },\r\n}"
             },
             {
                 "name": "Testing",
@@ -569,6 +699,16 @@
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "(): void => {\r\n  console.log('Funcion 2');\r\n}"
+            },
+            {
+                "name": "title",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/highlight.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "string",
+                "defaultValue": "'Te apoyamos en cada paso hacia tu éxito profesional'"
             },
             {
                 "name": "Warning",
@@ -696,6 +836,17 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<ColumnaTableroComponent>",
+                "file": "stories/columna-tablero.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<DialogButtonComponent>",
                 "file": "stories/dialog.stories.ts",
                 "deprecated": false,
@@ -792,7 +943,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "IActividad",
-                    "defaultValue": "{\r\n  titulo: 'Inducción a la empresa',\r\n  tipo: 'Reunión',\r\n  fase: 'Antes del primer día',\r\n  descripcion:\r\n    'Día de inducción a la empresa. Es necesario asistir presencialmente a las oficinas.',\r\n  objetivos:\r\n    'Procurar que el empleado pueda asociarse con los valores de la empresa',\r\n  prioridad: Prioridad.High,\r\n  responsable: 'Miguel Perez',\r\n  duracion: 8,\r\n  tipoDuracion: Duracion.Horas,\r\n  realizaEvaluacion: false,\r\n  status: EstadoActividad.Abierta,\r\n  fechaFin: new Date(2024, 7, 20),\r\n}"
+                    "defaultValue": "{\r\n  id: 1,\r\n  titulo: 'Inducción a la empresa',\r\n  tipo: 'Reunión',\r\n  fase: 'Antes del primer día',\r\n  descripcion:\r\n    'Día de inducción a la empresa. Es necesario asistir presencialmente a las oficinas.',\r\n  objetivos:\r\n    'Procurar que el empleado pueda asociarse con los valores de la empresa',\r\n  prioridad: Prioridad.High,\r\n  responsable: 'Miguel Perez',\r\n  duracion: 8,\r\n  tipoDuracion: Duracion.Horas,\r\n  realizaEvaluacion: false,\r\n  status: EstadoActividad.Abierta,\r\n  fechaFin: '20/08/2024',\r\n}"
                 },
                 {
                     "name": "Default",
@@ -802,7 +953,99 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
-                    "defaultValue": "{\r\n  argTypes: {\r\n    actividad: {\r\n      control: { type: 'object' },\r\n    },\r\n  },\r\n  args: {\r\n    actividad,\r\n  },\r\n} as StoryObj<CartaActividadComponent>"
+                    "defaultValue": "{\r\n  argTypes: {\r\n    priority: {\r\n      control: { type: 'select' },\r\n      options: ['Alta', 'Media', 'Baja'],\r\n    },\r\n  },\r\n  args: {\r\n    title: actividad.titulo,\r\n    description: actividad.descripcion,\r\n    priority: actividad.prioridad,\r\n    responsible: actividad.responsable,\r\n    endDate: actividad.fechaFin,\r\n  },\r\n} as StoryObj<CartaActividadComponent>"
+                },
+                {
+                    "name": "sinAvatar",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/carta-actividad.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "{\r\n  args: {\r\n    title: actividad.titulo,\r\n    description: actividad.descripcion,\r\n    priority: actividad.prioridad,\r\n    endDate: actividad.fechaFin,\r\n  },\r\n} as StoryObj<CartaActividadComponent>"
+                },
+                {
+                    "name": "sinFechaFin",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/carta-actividad.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "{\r\n  args: {\r\n    title: actividad.titulo,\r\n    description: actividad.descripcion,\r\n    priority: actividad.prioridad,\r\n    responsible: actividad.responsable,\r\n  },\r\n} as StoryObj<CartaActividadComponent>"
+                },
+                {
+                    "name": "sinFooter",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/carta-actividad.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "{\r\n  args: {\r\n    title: actividad.titulo,\r\n    description: actividad.descripcion,\r\n    priority: actividad.prioridad,\r\n  },\r\n} as StoryObj<CartaActividadComponent>"
+                },
+                {
+                    "name": "sinTagDePrioridad",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/carta-actividad.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "{\r\n  args: {\r\n    title: actividad.titulo,\r\n    description: actividad.descripcion,\r\n    responsible: actividad.responsable,\r\n    endDate: actividad.fechaFin,\r\n  },\r\n} as StoryObj<CartaActividadComponent>"
+                },
+                {
+                    "name": "soloTituloYDescripcion",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/carta-actividad.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "{\r\n  args: {\r\n    title: actividad.titulo,\r\n    description: actividad.descripcion,\r\n  },\r\n} as StoryObj<CartaActividadComponent>"
+                }
+            ],
+            "stories/columna-tablero.stories.ts": [
+                {
+                    "name": "actividades",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/columna-tablero.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "IActividad[]",
+                    "defaultValue": "[\r\n  {\r\n    id: 1,\r\n    titulo: 'Inducción a la empresa',\r\n    tipo: 'Reunión',\r\n    fase: 'Antes del primer día',\r\n    descripcion:\r\n      'Día de inducción a la empresa. Es necesario asistir presencialmente a las oficinas.',\r\n    objetivos:\r\n      'Procurar que el empleado pueda asociarse con los valores de la empresa',\r\n    prioridad: Prioridad.High,\r\n    responsable: 'Miguel Perez',\r\n    duracion: 8,\r\n    tipoDuracion: Duracion.Horas,\r\n    realizaEvaluacion: false,\r\n    status: EstadoActividad.Abierta,\r\n    fechaFin: new Date(2024, 7, 20),\r\n  },\r\n  {\r\n    id: 2,\r\n    titulo: 'Curso de Evolution',\r\n    tipo: 'Capacitación',\r\n    fase: 'La primera semana',\r\n    descripcion:\r\n      'Curso de una semana para el aprendizaje básico del sistema Evolution.',\r\n    objetivos:\r\n      'El participante debe llegar a familiarizarse con todos los módulos de Evolution.',\r\n    prioridad: Prioridad.Medium,\r\n    responsable: 'Ricardo Hernandez',\r\n    duracion: 5,\r\n    tipoDuracion: Duracion.Dias,\r\n    realizaEvaluacion: true,\r\n    status: EstadoActividad.EnProgreso,\r\n    fechaFin: new Date(2024, 7, 20),\r\n  },\r\n  {\r\n    id: 3,\r\n    titulo: 'Visita Guiada',\r\n    tipo: 'Reunión',\r\n    fase: 'Antes del primer día',\r\n    descripcion: 'Realizar una visita guiada sobre las instalaciones.',\r\n    objetivos: 'Asignar parqueo y conocer el edificio.',\r\n    prioridad: Prioridad.Low,\r\n    responsable: 'Hugo Maldonado',\r\n    duracion: 2,\r\n    tipoDuracion: Duracion.Horas,\r\n    realizaEvaluacion: false,\r\n    status: EstadoActividad.EnProgreso,\r\n    fechaFin: new Date(2024, 7, 20),\r\n  },\r\n]"
+                },
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/columna-tablero.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    name: 'En progreso',\r\n    actividades: actividades,\r\n  },\r\n}"
+                },
+                {
+                    "name": "nombreDeColumnaLargo",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/columna-tablero.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    name: 'Las actividades que no hemos iniciado aún',\r\n    actividades: actividades,\r\n  },\r\n}"
+                },
+                {
+                    "name": "sinActividadeds",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/columna-tablero.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    name: 'Done',\r\n    actividades: [],\r\n  },\r\n}"
                 }
             ],
             "stories/dialog.stories.ts": [
@@ -825,6 +1068,16 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\r\n    args: {\r\n        title: 'Dialogo de testing',\r\n        simpleContent: 'Testing de prueba para dialogo',\r\n        buttonsItems: [{ label: 'Item 1', theme: 'warning' }, { label: 'Item 2', theme: 'primary' }],\r\n        buttonsFunctions: [{action: Testing1}, {action: Testing2}]\r\n    }\r\n}"
+                },
+                {
+                    "name": "closeButton",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/dialog.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n      title: 'Dialogo de testing',\r\n      simpleContent: 'Testing de prueba para dialogo',\r\n      buttonsItems: [{ label: 'Item 1', theme: 'warning' }, { label: 'Item 2', theme: 'primary' }],\r\n      buttonsFunctions: [{action: Testing1}, {action: Testing2}],\r\n      closeButton: true\r\n  }\r\n}"
                 },
                 {
                     "name": "Default",
@@ -889,6 +1142,16 @@
             ],
             "stories/highlight.stories.ts": [
                 {
+                    "name": "cardtext",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/highlight.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "defaultValue": "'Inicia sesión para acceder a tu cuenta, revisa tu tablero con el resumen de actividades y su estado actual.'"
+                },
+                {
                     "name": "CardText",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
@@ -896,7 +1159,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n    args: {\r\n        ...Default.args,\r\n        cardtext: 'Inicia sesión para acceder a tu cuenta, revisa tu tablero con el resumen de actividades y su estado actual.',\r\n    },\r\n}"
+                    "defaultValue": "{\r\n    args: {\r\n        title: title,\r\n        cardtext: cardtext,\r\n    },\r\n}"
                 },
                 {
                     "name": "Default",
@@ -906,7 +1169,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n    args: {\r\n      title: 'Te apoyamos en cada paso hacia tu éxito profesional',\r\n    },\r\n}"
+                    "defaultValue": "{\r\n    args: {\r\n      title: title,\r\n      subtitle: subtitle,\r\n      cardtext: cardtext\r\n    },\r\n}"
                 },
                 {
                     "name": "meta",
@@ -919,6 +1182,16 @@
                     "defaultValue": "{\r\n    title: 'Evolution Components/Highlight',\r\n    component: HighlightComponent,\r\n    decorators: [\r\n        applicationConfig({\r\n          providers: [provideAnimationsAsync()],\r\n        }),\r\n      ],\r\n    tags: ['autodocs'],\r\n}"
                 },
                 {
+                    "name": "subtitle",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/highlight.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "defaultValue": "'Nuestra plataforma te permite llevar el control de tu progreso en las fases del onboarding de la manera más eficiente.'"
+                },
+                {
                     "name": "Subtitle",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
@@ -926,7 +1199,59 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n    args: {\r\n        ...Default.args,\r\n        subtitle: 'Nuestra plataforma te permite llevar el control de tu progreso en las fases del onboarding de la manera más eficiente.',\r\n    },\r\n}"
+                    "defaultValue": "{\r\n    args: {\r\n        title: title,\r\n        subtitle: subtitle,\r\n    },\r\n}"
+                },
+                {
+                    "name": "title",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/highlight.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "defaultValue": "'Te apoyamos en cada paso hacia tu éxito profesional'"
+                }
+            ],
+            "stories/tag.stories.ts": [
+                {
+                    "name": "colorPersonalizado",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/tag.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    label: 'Custom',\r\n    size: 'md',\r\n    twClass: 'bg-green-50 text-green-700',\r\n  },\r\n}"
+                },
+                {
+                    "name": "prioridadAlta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/tag.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    label: 'Alta',\r\n    prioridad: Prioridad.High,\r\n    size: 'lg',\r\n  },\r\n}"
+                },
+                {
+                    "name": "prioridadBaja",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/tag.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    label: 'Baja',\r\n    prioridad: Prioridad.Low,\r\n    size: 'sm',\r\n  },\r\n}"
+                },
+                {
+                    "name": "prioridadMedia",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/tag.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    label: 'Media',\r\n    prioridad: Prioridad.Medium,\r\n    size: 'md',\r\n  },\r\n}"
                 }
             ],
             "stories/button.stories.ts": [
@@ -1374,38 +1699,6 @@
                     "type": "Preview",
                     "defaultValue": "{\r\n  parameters: {\r\n    controls: {\r\n      matchers: {\r\n        color: /(background|color)$/i,\r\n        date: /Date$/i,\r\n      },\r\n    },\r\n  },\r\n  decorators: [\r\n    componentWrapperDecorator(\r\n      (story) => `<div style=\"margin: 3em\">${story}</div>`,\r\n    ),\r\n  ],\r\n}"
                 }
-            ],
-            "stories/tag.stories.ts": [
-                {
-                    "name": "prioridadAlta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/tag.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    label: 'Alta',\r\n    prioridad: Prioridad.High,\r\n    size: 'lg',\r\n  },\r\n}"
-                },
-                {
-                    "name": "prioridadBaja",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/tag.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    label: 'Baja',\r\n    prioridad: Prioridad.Low,\r\n    size: 'sm',\r\n  },\r\n}"
-                },
-                {
-                    "name": "prioridadMedia",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/tag.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    label: 'Media',\r\n    prioridad: Prioridad.Medium,\r\n    size: 'md',\r\n  },\r\n}"
-                }
             ]
         },
         "groupedFunctions": {
@@ -1492,6 +1785,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<ButtonComponent>",
                     "file": "stories/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "stories/columna-tablero.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ColumnaTableroComponent>",
+                    "file": "stories/columna-tablero.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -1810,6 +2116,96 @@
                 "status": "low"
             },
             {
+                "filePath": "stories/carta-actividad.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "sinAvatar",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/carta-actividad.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "sinFechaFin",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/carta-actividad.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "sinFooter",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/carta-actividad.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "sinTagDePrioridad",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/carta-actividad.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "soloTituloYDescripcion",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/columna-tablero.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "actividades",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/columna-tablero.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/columna-tablero.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "nombreDeColumnaLargo",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/columna-tablero.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "sinActividadeds",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "stories/dialog.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -1825,6 +2221,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "buttonsItemsSimple",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/dialog.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "closeButton",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -1924,6 +2330,16 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
+                "name": "cardtext",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/highlight.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
                 "name": "CardText",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
@@ -1954,7 +2370,27 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
+                "name": "subtitle",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/highlight.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
                 "name": "Subtitle",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/highlight.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "title",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -2195,6 +2631,16 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/tag.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "colorPersonalizado",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

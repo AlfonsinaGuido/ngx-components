@@ -9,6 +9,7 @@ export default {
 } as Meta<CartaActividadComponent>;
 
 const actividad: IActividad = {
+  id: 1,
   titulo: 'Inducción a la empresa',
   tipo: 'Reunión',
   fase: 'Antes del primer día',
@@ -22,16 +23,63 @@ const actividad: IActividad = {
   tipoDuracion: Duracion.Horas,
   realizaEvaluacion: false,
   status: EstadoActividad.Abierta,
-  fechaFin: new Date(2024, 7, 20),
+  fechaFin: '20/08/2024',
 };
 
 export const Default = {
   argTypes: {
-    actividad: {
-      control: { type: 'object' },
+    priority: {
+      control: { type: 'select' },
+      options: ['Alta', 'Media', 'Baja'],
     },
   },
   args: {
-    actividad,
+    title: actividad.titulo,
+    description: actividad.descripcion,
+    priority: actividad.prioridad,
+    responsible: actividad.responsable,
+    endDate: actividad.fechaFin,
+  },
+} as StoryObj<CartaActividadComponent>;
+
+export const sinTagDePrioridad = {
+  args: {
+    title: actividad.titulo,
+    description: actividad.descripcion,
+    responsible: actividad.responsable,
+    endDate: actividad.fechaFin,
+  },
+} as StoryObj<CartaActividadComponent>;
+
+export const sinAvatar = {
+  args: {
+    title: actividad.titulo,
+    description: actividad.descripcion,
+    priority: actividad.prioridad,
+    endDate: actividad.fechaFin,
+  },
+} as StoryObj<CartaActividadComponent>;
+
+export const sinFechaFin = {
+  args: {
+    title: actividad.titulo,
+    description: actividad.descripcion,
+    priority: actividad.prioridad,
+    responsible: actividad.responsable,
+  },
+} as StoryObj<CartaActividadComponent>;
+
+export const sinFooter = {
+  args: {
+    title: actividad.titulo,
+    description: actividad.descripcion,
+    priority: actividad.prioridad,
+  },
+} as StoryObj<CartaActividadComponent>;
+
+export const soloTituloYDescripcion = {
+  args: {
+    title: actividad.titulo,
+    description: actividad.descripcion,
   },
 } as StoryObj<CartaActividadComponent>;

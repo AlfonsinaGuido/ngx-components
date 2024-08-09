@@ -22,6 +22,10 @@ export default {
       control: { type: 'inline-radio' },
       options: ['sm', 'md', 'lg'],
     },
+    twClass: {
+      type: 'string',
+      control: { type: 'text' },
+    },
   },
   args: {
     label: 'tag',
@@ -49,5 +53,13 @@ export const prioridadAlta: Story = {
     label: 'Alta',
     prioridad: Prioridad.High,
     size: 'lg',
+  },
+};
+
+export const colorPersonalizado: Story = {
+  args: {
+    label: 'Custom',
+    size: 'md',
+    twClass: 'bg-green-50 text-green-700',
   },
 };

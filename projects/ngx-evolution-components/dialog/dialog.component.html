@@ -1,3 +1,10 @@
+@if (closeButton) {
+  <div mat-dialog-title class="dialog-title">
+  <button mat-icon-button class="close-button" aria-label="close dialog" mat-dialog-close>
+    x
+  </button>
+</div>
+}
 <h2 mat-dialog-title>{{ title }}</h2>
 @if (scrollableContent !== '') {
     <mat-dialog-content class="mat-typography">

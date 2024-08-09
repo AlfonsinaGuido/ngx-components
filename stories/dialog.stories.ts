@@ -124,3 +124,14 @@ export const buttonsItemsScrollable: Story = {
         buttonsFunctions: [{action: Testing1}, {action: Testing2}]
     }
 }
+
+
+export const closeButton: Story = {
+  args: {
+      title: 'Dialogo de testing',
+      simpleContent: 'Testing de prueba para dialogo',
+      buttonsItems: [{ label: 'Item 1', theme: 'warning' }, { label: 'Item 2', theme: 'primary' }],
+      buttonsFunctions: [{action: Testing1}, {action: Testing2}],
+      closeButton: true
+  }
+}

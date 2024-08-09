@@ -6,4 +6,5 @@ export interface DialogInterface {
     simpleContent?: string;
     buttonsItems?: ButtonInterface[];
     buttonsFunctions?: {action: (param?: any) => any | void | {}}[];
+    closeButton?: boolean;
 }

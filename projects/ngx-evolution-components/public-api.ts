@@ -20,3 +20,4 @@ export * from './shared/interfaces/icon.interface';
 export * from './shared/interfaces/input.interface';
 export * from './shared/interfaces/select.interface';
 export * from './shared/interfaces/header.interface';
+export * from './shared/interfaces/user.interface';

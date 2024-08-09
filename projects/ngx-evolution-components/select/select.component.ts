@@ -36,6 +36,7 @@ export class SelectComponent {
   @Input() requiredErrorMessage?: string;
   @Input() detail?: string;
   @Input() buttonIcon!: IconInterface;
+  @Input() classes?: string;
   @Output() valueChange = new EventEmitter<any>();
 
   @ViewChild('selectControl') selectControl!: MatSelect;

@@ -68,6 +68,7 @@ export const Default: Story = {
       type: 'svg',
     },
     detail: '',
+    classes: '',
   },
 };
 

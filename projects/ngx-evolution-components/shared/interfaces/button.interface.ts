@@ -11,4 +11,12 @@ export interface ButtonInterface {
   isFluid?: boolean;
   withoutBorder?: boolean;
   classes?: string;
+  url?: string;
+  avatarName?: string;
+  avatarImgUrl?: string;
+  onClick?: ButtonActionInterface;
+}
+
+export interface ButtonActionInterface {
+  action: (param?: any) => any | void | {};
 }

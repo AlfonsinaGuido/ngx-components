@@ -31,6 +31,56 @@
                 "defaultValue": "[\r\n  {\r\n    id: 1,\r\n    titulo: 'Inducción a la empresa',\r\n    tipo: 'Reunión',\r\n    fase: 'Antes del primer día',\r\n    descripcion:\r\n      'Día de inducción a la empresa. Es necesario asistir presencialmente a las oficinas.',\r\n    objetivos:\r\n      'Procurar que el empleado pueda asociarse con los valores de la empresa',\r\n    prioridad: Prioridad.High,\r\n    responsable: 'Miguel Perez',\r\n    duracion: 8,\r\n    tipoDuracion: Duracion.Horas,\r\n    realizaEvaluacion: false,\r\n    status: EstadoActividad.Abierta,\r\n    fechaFin: new Date(2024, 7, 20),\r\n  },\r\n  {\r\n    id: 2,\r\n    titulo: 'Curso de Evolution',\r\n    tipo: 'Capacitación',\r\n    fase: 'La primera semana',\r\n    descripcion:\r\n      'Curso de una semana para el aprendizaje básico del sistema Evolution.',\r\n    objetivos:\r\n      'El participante debe llegar a familiarizarse con todos los módulos de Evolution.',\r\n    prioridad: Prioridad.Medium,\r\n    responsable: 'Ricardo Hernandez',\r\n    duracion: 5,\r\n    tipoDuracion: Duracion.Dias,\r\n    realizaEvaluacion: true,\r\n    status: EstadoActividad.EnProgreso,\r\n    fechaFin: new Date(2024, 7, 20),\r\n  },\r\n  {\r\n    id: 3,\r\n    titulo: 'Visita Guiada',\r\n    tipo: 'Reunión',\r\n    fase: 'Antes del primer día',\r\n    descripcion: 'Realizar una visita guiada sobre las instalaciones.',\r\n    objetivos: 'Asignar parqueo y conocer el edificio.',\r\n    prioridad: Prioridad.Low,\r\n    responsable: 'Hugo Maldonado',\r\n    duracion: 2,\r\n    tipoDuracion: Duracion.Horas,\r\n    realizaEvaluacion: false,\r\n    status: EstadoActividad.EnProgreso,\r\n    fechaFin: new Date(2024, 7, 20),\r\n  },\r\n]"
             },
             {
+                "name": "buttonsItemsScrollable",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/dialog.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n    args: {\r\n        title: 'Dialogo de testing',\r\n        scrollableContent: `\r\n        <h3>Develop across all platforms</h3>\r\n  <p>Learn one way to build applications with Angular and reuse your code and abilities to build\r\n    apps for any deployment target. For web, mobile web, native mobile and native desktop.</p>\r\n\r\n  <h3>Speed &amp; Performance</h3>\r\n  <p>Achieve the maximum speed possible on the Web Platform today, and take it further, via Web\r\n    Workers and server-side rendering. Angular puts you in control over scalability. Meet huge\r\n    data requirements by building data models on RxJS, Immutable.js or another push-model.</p>\r\n\r\n  <h3>Incredible tooling</h3>\r\n  <p>Build features quickly with simple, declarative templates. Extend the template language with\r\n    your own components and use a wide array of existing components. Get immediate Angular-specific\r\n    help and feedback with nearly every IDE and editor. All this comes together so you can focus\r\n    on building amazing apps rather than trying to make the code work.</p>\r\n\r\n  <h3>Loved by millions</h3>\r\n  <p>From prototype through global deployment, Angular delivers the productivity and scalable\r\n    infrastructure that supports Google's largest applications.</p>\r\n\r\n  <h3>What is Angular?</h3>\r\n\r\n  <p>Angular is a platform that makes it easy to build applications with the web. Angular\r\n    combines declarative templates, dependency injection, end to end tooling, and integrated\r\n    best practices to solve development challenges. Angular empowers developers to build\r\n    applications that live on the web, mobile, or the desktop</p>\r\n\r\n  <h3>Architecture overview</h3>\r\n        `,\r\n        buttonsItems: [{ label: 'Item 1', theme: 'warning' }, { label: 'Item 2', theme: 'primary' }],\r\n        buttonsFunctions: [{action: Testing1}, {action: Testing2}]\r\n    }\r\n}"
+            },
+            {
+                "name": "buttonsItemsSimple",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/dialog.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n    args: {\r\n        title: 'Dialogo de testing',\r\n        simpleContent: 'Testing de prueba para dialogo',\r\n        buttonsItems: [{ label: 'Item 1', theme: 'warning' }, { label: 'Item 2', theme: 'primary' }],\r\n        buttonsFunctions: [{action: Testing1}, {action: Testing2}]\r\n    }\r\n}"
+            },
+            {
+                "name": "cardtext",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/highlight.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "string",
+                "defaultValue": "'Inicia sesión para acceder a tu cuenta, revisa tu tablero con el resumen de actividades y su estado actual.'"
+            },
+            {
+                "name": "CardText",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/highlight.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n    args: {\r\n        title: title,\r\n        cardtext: cardtext,\r\n    },\r\n}"
+            },
+            {
+                "name": "closeButton",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/dialog.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n      title: 'Dialogo de testing',\r\n      simpleContent: 'Testing de prueba para dialogo',\r\n      buttonsItems: [{ label: 'Item 1', theme: 'warning' }, { label: 'Item 2', theme: 'primary' }],\r\n      buttonsFunctions: [{action: Testing1}, {action: Testing2}],\r\n      closeButton: true\r\n  }\r\n}"
+            },
+            {
                 "name": "colorPersonalizado",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -74,11 +124,31 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "stories/dialog.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n    args: {\r\n        title: 'Dialogo de testing'\r\n    }\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "stories/header.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  args: {\r\n    menuIcon: {\r\n      icon: 'menu.svg',\r\n      type: 'svg',\r\n    },\r\n    closeMenuIcon: {\r\n      icon: 'close.svg',\r\n      type: 'svg',\r\n    },\r\n    menuTitle: 'Tus aplicaciones',\r\n    menuItems: [\r\n      {\r\n        label: 'Evo Wave',\r\n        icon: {\r\n          icon: 'company-logo.svg',\r\n          type: 'svg',\r\n          position: 'left',\r\n        },\r\n      },\r\n      {\r\n        label: 'Evo Chart',\r\n        icon: {\r\n          icon: 'company-logo.svg',\r\n          type: 'svg',\r\n          position: 'left',\r\n        },\r\n      },\r\n    ],\r\n    companyImage: 'company-logo.svg',\r\n    notificationIcon: {\r\n      icon: 'bell.svg',\r\n      type: 'svg',\r\n    },\r\n    box: [\r\n      {\r\n        label: 'Cambiar Perfil',\r\n        action: () => {\r\n          console.log('funciona')\r\n        }\r\n      },\r\n    ],\r\n  },\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/highlight.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n    args: {\r\n      title: title,\r\n      subtitle: subtitle,\r\n      cardtext: cardtext\r\n    },\r\n}"
             },
             {
                 "name": "Default",
@@ -251,6 +321,16 @@
                 "defaultValue": "{\r\n  args: {\r\n    size: 'lg',\r\n    isPriority: true,\r\n    imgUrl: 'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n  },\r\n}"
             },
             {
+                "name": "functionTest",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\r\n  action: Testing2\r\n}"
+            },
+            {
                 "name": "iniciales",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -294,11 +374,31 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "stories/dialog.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<DialogButtonComponent>",
+                "defaultValue": "{\r\n    title: 'Evolution Components/Dialog',\r\n    component: DialogButtonComponent,\r\n    decorators: [\r\n        applicationConfig({\r\n          providers: [provideAnimationsAsync()],\r\n        }),\r\n      ],\r\n    tags: ['autodocs'],\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "stories/header.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<HeaderComponent>",
                 "defaultValue": "{\r\n  title: 'Evolution Components/Header',\r\n  component: HeaderComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideAnimationsAsync()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/highlight.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<HighlightComponent>",
+                "defaultValue": "{\r\n    title: 'Evolution Components/Highlight',\r\n    component: HighlightComponent,\r\n    decorators: [\r\n        applicationConfig({\r\n          providers: [provideAnimationsAsync()],\r\n        }),\r\n      ],\r\n    tags: ['autodocs'],\r\n}"
             },
             {
                 "name": "meta",
@@ -359,6 +459,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  args: {\r\n    name: 'Las actividades que no hemos iniciado aún',\r\n    actividades: actividades,\r\n  },\r\n}"
+            },
+            {
+                "name": "onClick",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    onClick: Testing2,\r\n  },\r\n}"
             },
             {
                 "name": "OnlyIcon",
@@ -441,6 +551,16 @@
                 "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    control: formControlRequiredSelect,\r\n    isRequired: true,\r\n    isMultiple: false,\r\n    requiredErrorMessage: 'Este campo es requerido',\r\n  },\r\n}"
             },
             {
+                "name": "ScrollableContent",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/dialog.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n    args: {\r\n        title: 'Dialogo de testing',\r\n        scrollableContent: `\r\n        <h3>Develop across all platforms</h3>\r\n  <p>Learn one way to build applications with Angular and reuse your code and abilities to build\r\n    apps for any deployment target. For web, mobile web, native mobile and native desktop.</p>\r\n\r\n  <h3>Speed &amp; Performance</h3>\r\n  <p>Achieve the maximum speed possible on the Web Platform today, and take it further, via Web\r\n    Workers and server-side rendering. Angular puts you in control over scalability. Meet huge\r\n    data requirements by building data models on RxJS, Immutable.js or another push-model.</p>\r\n\r\n  <h3>Incredible tooling</h3>\r\n  <p>Build features quickly with simple, declarative templates. Extend the template language with\r\n    your own components and use a wide array of existing components. Get immediate Angular-specific\r\n    help and feedback with nearly every IDE and editor. All this comes together so you can focus\r\n    on building amazing apps rather than trying to make the code work.</p>\r\n\r\n  <h3>Loved by millions</h3>\r\n  <p>From prototype through global deployment, Angular delivers the productivity and scalable\r\n    infrastructure that supports Google's largest applications.</p>\r\n\r\n  <h3>What is Angular?</h3>\r\n\r\n  <p>Angular is a platform that makes it easy to build applications with the web. Angular\r\n    combines declarative templates, dependency injection, end to end tooling, and integrated\r\n    best practices to solve development challenges. Angular empowers developers to build\r\n    applications that live on the web, mobile, or the desktop</p>\r\n\r\n  <h3>Architecture overview</h3>\r\n        `\r\n    }\r\n}"
+            },
+            {
                 "name": "Secondary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -449,6 +569,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    theme: 'secondary',\r\n  },\r\n}"
+            },
+            {
+                "name": "simpleContent",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/dialog.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n    args: {\r\n        title: 'Dialogo de testing',\r\n        simpleContent: 'Testing de prueba para dialogo'\r\n    }\r\n}"
             },
             {
                 "name": "sinActividadeds",
@@ -509,6 +639,76 @@
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "{\r\n  args: {\r\n    title: actividad.titulo,\r\n    description: actividad.descripcion,\r\n  },\r\n} as StoryObj<CartaActividadComponent>"
+            },
+            {
+                "name": "subtitle",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/highlight.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "string",
+                "defaultValue": "'Nuestra plataforma te permite llevar el control de tu progreso en las fases del onboarding de la manera más eficiente.'"
+            },
+            {
+                "name": "Subtitle",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/highlight.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n    args: {\r\n        title: title,\r\n        subtitle: subtitle,\r\n    },\r\n}"
+            },
+            {
+                "name": "Testing",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "(a:number,b:number): any => {\r\n  let res = a + b;\r\n  console.log('res => ', res);\r\n}"
+            },
+            {
+                "name": "Testing1",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/dialog.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "(): void => {\r\n  console.log('Funcion 1');\r\n}"
+            },
+            {
+                "name": "Testing2",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "() => {\r\n  console.log('Funciono!');\r\n}"
+            },
+            {
+                "name": "Testing2",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/dialog.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "(): void => {\r\n  console.log('Funcion 2');\r\n}"
+            },
+            {
+                "name": "title",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/highlight.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "string",
+                "defaultValue": "'Te apoyamos en cada paso hacia tu éxito profesional'"
             },
             {
                 "name": "Warning",
@@ -647,8 +847,30 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<DialogButtonComponent>",
+                "file": "stories/dialog.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<HeaderComponent>",
                 "file": "stories/header.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<HighlightComponent>",
+                "file": "stories/highlight.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -826,6 +1048,170 @@
                     "defaultValue": "{\r\n  args: {\r\n    name: 'Done',\r\n    actividades: [],\r\n  },\r\n}"
                 }
             ],
+            "stories/dialog.stories.ts": [
+                {
+                    "name": "buttonsItemsScrollable",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/dialog.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n    args: {\r\n        title: 'Dialogo de testing',\r\n        scrollableContent: `\r\n        <h3>Develop across all platforms</h3>\r\n  <p>Learn one way to build applications with Angular and reuse your code and abilities to build\r\n    apps for any deployment target. For web, mobile web, native mobile and native desktop.</p>\r\n\r\n  <h3>Speed &amp; Performance</h3>\r\n  <p>Achieve the maximum speed possible on the Web Platform today, and take it further, via Web\r\n    Workers and server-side rendering. Angular puts you in control over scalability. Meet huge\r\n    data requirements by building data models on RxJS, Immutable.js or another push-model.</p>\r\n\r\n  <h3>Incredible tooling</h3>\r\n  <p>Build features quickly with simple, declarative templates. Extend the template language with\r\n    your own components and use a wide array of existing components. Get immediate Angular-specific\r\n    help and feedback with nearly every IDE and editor. All this comes together so you can focus\r\n    on building amazing apps rather than trying to make the code work.</p>\r\n\r\n  <h3>Loved by millions</h3>\r\n  <p>From prototype through global deployment, Angular delivers the productivity and scalable\r\n    infrastructure that supports Google's largest applications.</p>\r\n\r\n  <h3>What is Angular?</h3>\r\n\r\n  <p>Angular is a platform that makes it easy to build applications with the web. Angular\r\n    combines declarative templates, dependency injection, end to end tooling, and integrated\r\n    best practices to solve development challenges. Angular empowers developers to build\r\n    applications that live on the web, mobile, or the desktop</p>\r\n\r\n  <h3>Architecture overview</h3>\r\n        `,\r\n        buttonsItems: [{ label: 'Item 1', theme: 'warning' }, { label: 'Item 2', theme: 'primary' }],\r\n        buttonsFunctions: [{action: Testing1}, {action: Testing2}]\r\n    }\r\n}"
+                },
+                {
+                    "name": "buttonsItemsSimple",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/dialog.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n    args: {\r\n        title: 'Dialogo de testing',\r\n        simpleContent: 'Testing de prueba para dialogo',\r\n        buttonsItems: [{ label: 'Item 1', theme: 'warning' }, { label: 'Item 2', theme: 'primary' }],\r\n        buttonsFunctions: [{action: Testing1}, {action: Testing2}]\r\n    }\r\n}"
+                },
+                {
+                    "name": "closeButton",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/dialog.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n      title: 'Dialogo de testing',\r\n      simpleContent: 'Testing de prueba para dialogo',\r\n      buttonsItems: [{ label: 'Item 1', theme: 'warning' }, { label: 'Item 2', theme: 'primary' }],\r\n      buttonsFunctions: [{action: Testing1}, {action: Testing2}],\r\n      closeButton: true\r\n  }\r\n}"
+                },
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/dialog.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n    args: {\r\n        title: 'Dialogo de testing'\r\n    }\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/dialog.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<DialogButtonComponent>",
+                    "defaultValue": "{\r\n    title: 'Evolution Components/Dialog',\r\n    component: DialogButtonComponent,\r\n    decorators: [\r\n        applicationConfig({\r\n          providers: [provideAnimationsAsync()],\r\n        }),\r\n      ],\r\n    tags: ['autodocs'],\r\n}"
+                },
+                {
+                    "name": "ScrollableContent",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/dialog.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n    args: {\r\n        title: 'Dialogo de testing',\r\n        scrollableContent: `\r\n        <h3>Develop across all platforms</h3>\r\n  <p>Learn one way to build applications with Angular and reuse your code and abilities to build\r\n    apps for any deployment target. For web, mobile web, native mobile and native desktop.</p>\r\n\r\n  <h3>Speed &amp; Performance</h3>\r\n  <p>Achieve the maximum speed possible on the Web Platform today, and take it further, via Web\r\n    Workers and server-side rendering. Angular puts you in control over scalability. Meet huge\r\n    data requirements by building data models on RxJS, Immutable.js or another push-model.</p>\r\n\r\n  <h3>Incredible tooling</h3>\r\n  <p>Build features quickly with simple, declarative templates. Extend the template language with\r\n    your own components and use a wide array of existing components. Get immediate Angular-specific\r\n    help and feedback with nearly every IDE and editor. All this comes together so you can focus\r\n    on building amazing apps rather than trying to make the code work.</p>\r\n\r\n  <h3>Loved by millions</h3>\r\n  <p>From prototype through global deployment, Angular delivers the productivity and scalable\r\n    infrastructure that supports Google's largest applications.</p>\r\n\r\n  <h3>What is Angular?</h3>\r\n\r\n  <p>Angular is a platform that makes it easy to build applications with the web. Angular\r\n    combines declarative templates, dependency injection, end to end tooling, and integrated\r\n    best practices to solve development challenges. Angular empowers developers to build\r\n    applications that live on the web, mobile, or the desktop</p>\r\n\r\n  <h3>Architecture overview</h3>\r\n        `\r\n    }\r\n}"
+                },
+                {
+                    "name": "simpleContent",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/dialog.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n    args: {\r\n        title: 'Dialogo de testing',\r\n        simpleContent: 'Testing de prueba para dialogo'\r\n    }\r\n}"
+                },
+                {
+                    "name": "Testing1",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/dialog.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "(): void => {\r\n  console.log('Funcion 1');\r\n}"
+                },
+                {
+                    "name": "Testing2",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/dialog.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "(): void => {\r\n  console.log('Funcion 2');\r\n}"
+                }
+            ],
+            "stories/highlight.stories.ts": [
+                {
+                    "name": "cardtext",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/highlight.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "defaultValue": "'Inicia sesión para acceder a tu cuenta, revisa tu tablero con el resumen de actividades y su estado actual.'"
+                },
+                {
+                    "name": "CardText",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/highlight.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n    args: {\r\n        title: title,\r\n        cardtext: cardtext,\r\n    },\r\n}"
+                },
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/highlight.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n    args: {\r\n      title: title,\r\n      subtitle: subtitle,\r\n      cardtext: cardtext\r\n    },\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/highlight.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<HighlightComponent>",
+                    "defaultValue": "{\r\n    title: 'Evolution Components/Highlight',\r\n    component: HighlightComponent,\r\n    decorators: [\r\n        applicationConfig({\r\n          providers: [provideAnimationsAsync()],\r\n        }),\r\n      ],\r\n    tags: ['autodocs'],\r\n}"
+                },
+                {
+                    "name": "subtitle",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/highlight.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "defaultValue": "'Nuestra plataforma te permite llevar el control de tu progreso en las fases del onboarding de la manera más eficiente.'"
+                },
+                {
+                    "name": "Subtitle",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/highlight.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n    args: {\r\n        title: title,\r\n        subtitle: subtitle,\r\n    },\r\n}"
+                },
+                {
+                    "name": "title",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/highlight.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "defaultValue": "'Te apoyamos en cada paso hacia tu éxito profesional'"
+                }
+            ],
             "stories/tag.stories.ts": [
                 {
                     "name": "colorPersonalizado",
@@ -890,6 +1276,16 @@
                     "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    disabled: true,\r\n  },\r\n}"
                 },
                 {
+                    "name": "functionTest",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\r\n  action: Testing2\r\n}"
+                },
+                {
                     "name": "IsFlat",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
@@ -920,6 +1316,16 @@
                     "defaultValue": "{\r\n  title: 'Evolution Components/Button',\r\n  component: ButtonComponent,\r\n  tags: ['autodocs'],\r\n}"
                 },
                 {
+                    "name": "onClick",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    onClick: Testing2,\r\n  },\r\n}"
+                },
+                {
                     "name": "OnlyIcon",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
@@ -948,6 +1354,26 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    theme: 'secondary',\r\n  },\r\n}"
+                },
+                {
+                    "name": "Testing",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "(a:number,b:number): any => {\r\n  let res = a + b;\r\n  console.log('res => ', res);\r\n}"
+                },
+                {
+                    "name": "Testing2",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "() => {\r\n  console.log('Funciono!');\r\n}"
                 },
                 {
                     "name": "Warning",
@@ -1378,6 +1804,19 @@
                     "kind": 183
                 }
             ],
+            "stories/dialog.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<DialogButtonComponent>",
+                    "file": "stories/dialog.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
             "stories/header.stories.ts": [
                 {
                     "name": "Story",
@@ -1385,6 +1824,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<HeaderComponent>",
                     "file": "stories/header.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "stories/highlight.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<HighlightComponent>",
+                    "file": "stories/highlight.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -1518,6 +1970,16 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
+                "name": "functionTest",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
                 "name": "IsFlat",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
@@ -1548,6 +2010,16 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
+                "name": "onClick",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
                 "name": "OnlyIcon",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
@@ -1569,6 +2041,26 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Secondary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Testing",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Testing2",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -1714,6 +2206,96 @@
                 "status": "low"
             },
             {
+                "filePath": "stories/dialog.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "buttonsItemsScrollable",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/dialog.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "buttonsItemsSimple",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/dialog.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "closeButton",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/dialog.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/dialog.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/dialog.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ScrollableContent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/dialog.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "simpleContent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/dialog.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Testing1",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/dialog.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Testing2",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "stories/header.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -1739,6 +2321,76 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "WithCompanyName",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/highlight.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "cardtext",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/highlight.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "CardText",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/highlight.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/highlight.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/highlight.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "subtitle",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/highlight.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Subtitle",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/highlight.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "title",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

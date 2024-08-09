@@ -19,6 +19,9 @@ export class ButtonComponent {
   @Input() isFlat: boolean = false;
   @Input() isFluid: boolean = false;
   @Input() withoutBorder: boolean = false;
+  @Input() onClick?: (param?: any) => any | void | {};
+
+  constructor() {}
 
   get getClasses() {
     return {
@@ -30,5 +33,13 @@ export class ButtonComponent {
       'only-icon': !this.label,
       'without-border': this.withoutBorder,
     };
+  }
+
+  onClickHandler(param?: any) {
+    if (this.onClick) {
+      this.onClick(param);
+    } else {
+      console.warn('onClick no esta definido');
+    }
   }
 }

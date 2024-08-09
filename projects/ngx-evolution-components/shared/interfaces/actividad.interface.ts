@@ -1,7 +1,4 @@
-import { Duracion } from '@aseinfo/ngx-evolution-components/enums/duracion.enum';
-import { Prioridad } from '@aseinfo/ngx-evolution-components/enums/prioridad.enum';
-import { IEvaluacion } from './evaluacion.interface';
-import { EstadoActividad } from '@aseinfo/ngx-evolution-components/enums/estado.enum';
+import { Duracion, Prioridad, IEvaluacion, EstadoActividad } from '../../public-api'
 
 export interface IActividad {
   id: string | number;

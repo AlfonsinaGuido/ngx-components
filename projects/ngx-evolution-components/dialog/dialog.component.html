@@ -1,8 +1,6 @@
-@if (closeButton) {
+@if (closeIcon) {
   <div mat-dialog-title class="dialog-title">
-  <button mat-icon-button class="close-button" aria-label="close dialog" mat-dialog-close>
-    x
-  </button>
+  <evo-button class="close-button" [onClick]="closeDialog" [icon]="closeIcon" [withoutBorder]="true"></evo-button>
 </div>
 }
 <h2 mat-dialog-title>{{ title }}</h2>
@@ -18,18 +16,14 @@
 }
 
 @if (buttonsItems.length! > 0) {
-    <mat-dialog-actions align="end">
-        @for (item of buttonsItems; track item; let idx = $index, last = $last, first = $first) {
-          <div [ngStyle]="{
-            'margin-left': buttonsItems.length === 2 && !first ? '0.5em' : (!first && !last ? '0.5em':'0')
-          }">
+    <mat-dialog-actions class="mx-2 flex flex-col justify-end gap-x-2 sm:flex-row gap-y-2" align="end">
+        @for (item of buttonsItems; track item; let idx = $index) {
               <evo-button
               [label]="item.label"
               [icon]="item.icon"
               [theme]="item.theme!"
               [onClick]="this.buttonsFunctions[idx].action"
             ></evo-button>
-          </div>
         }
     </mat-dialog-actions>
     }

@@ -3,3 +3,14 @@
     justify-content: flex-end;
     align-items: center;
   }
+
+
+  .close-button .evo-button {
+    &.without-border {
+      background-color: transparent;
+      box-shadow: none;
+      .evo-button__content .icon svg {
+        color: var(--light-gray);
+      }
+    }
+  }

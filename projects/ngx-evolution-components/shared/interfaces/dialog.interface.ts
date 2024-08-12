@@ -1,4 +1,4 @@
-import { ButtonInterface } from '../../public-api';
+import { ButtonInterface, IconInterface } from '../../public-api';
 
 export interface DialogInterface {
     title: string;
@@ -6,5 +6,5 @@ export interface DialogInterface {
     simpleContent?: string;
     buttonsItems?: ButtonInterface[];
     buttonsFunctions?: {action: (param?: any) => any | void | {}}[];
-    closeButton?: boolean;
+    closeIcon?: IconInterface;
 }

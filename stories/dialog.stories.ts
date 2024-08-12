@@ -130,8 +130,14 @@ export const closeButton: Story = {
   args: {
       title: 'Dialogo de testing',
       simpleContent: 'Testing de prueba para dialogo',
-      buttonsItems: [{ label: 'Item 1', theme: 'warning' }, { label: 'Item 2', theme: 'primary' }],
+      buttonsItems: [
+        { label: 'Item 1', theme: 'warning', isFlat: true }, 
+        { label: 'Item 2', theme: 'primary', isFlat: true }
+      ],
       buttonsFunctions: [{action: Testing1}, {action: Testing2}],
-      closeButton: true
+      closeIcon: {
+        icon: 'close.svg',
+        type: 'svg',
+      }
   }
 }

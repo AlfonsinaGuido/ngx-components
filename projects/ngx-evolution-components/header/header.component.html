@@ -1,5 +1,5 @@
 <header
-  class="flex justify-between items-center sm:px-[25px] px-[16px] py-2 {{
+  class="flex justify-between items-center sm:px-[25px] px-[16px] py-2 h-[60px] {{
     classes
   }}"
 >
@@ -10,6 +10,7 @@
       [closeIcon]="closeMenuIcon"
       [title]="appTitle"
       [items]="appItems"
+      classes="mt-4"
     ></evo-menu>
     <div class="flex items-center gap-[25px]">
       @if (companyImage) {
@@ -17,7 +18,7 @@
       }
       @if (companyName) {
         <h5
-          class="lg:flex hidden border-r border-white-smoke pr-[25px] text-white-smoke text-sm"
+          class="lg:flex hidden border-r border-white-smoke pr-[25px] !font-semibold text-white-smoke !text-sm"
         >
           {{ companyName }}
         </h5>
@@ -40,7 +41,8 @@
       [closeIcon]="closeMenuIcon"
       [title]="notificationTitle"
       [items]="notificationItems"
-      [notificationsNumber]="menuNotificationsNumber"
+      [notificationsNumber]="notificationItems.length"
+      classes="mt-4"
     ></evo-menu>
     <div class="flex items-center gap-[8px]">
       <evo-avatar
@@ -50,10 +52,10 @@
       >
       </evo-avatar>
       <div class="tracking-wider md:block hidden">
-        <h5 class="font-bold text-base text-white-smoke">
+        <h5 class="!font-bold !text-base text-white-smoke">
           {{ userData.fullName }}
         </h5>
-        <h5 class="font-medium text-sm text-white-smoke">
+        <h5 class="!font-medium !text-sm text-white-smoke">
           {{ userData.position }}
         </h5>
       </div>
@@ -61,6 +63,7 @@
         [closeIcon]="closeMenuIcon"
         [userData]="userData"
         [items]="userDataItems"
+        classes="mt-4"
       ></evo-menu>
     </div>
   </div>

@@ -24,8 +24,8 @@ header {
     }
   }
   evo-svg svg {
-    max-width: 60px;
-    max-height: 50px;
+    max-width: 45px;
+    height: max-content;
     color: var(--white-smoke);
   }
   evo-avatar #avatar-wrapper {

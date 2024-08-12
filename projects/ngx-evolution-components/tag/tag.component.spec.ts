@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TagComponent } from './tag.component';
-import { Prioridad } from '../enums/prioridad.enum';
+import { Prioridad } from '../public-api';
 
 describe('TagComponent', () => {
   let component: TagComponent;

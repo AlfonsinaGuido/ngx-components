@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Prioridad } from '../enums/prioridad.enum';
+import { Prioridad } from '../public-api';
 
 @Component({
   selector: 'evo-tag',

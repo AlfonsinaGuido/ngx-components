@@ -10,9 +10,8 @@ import {
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatNativeControlInputType } from '../public-api';
+import { CustomErrorStateMatcher, MatNativeControlInputType } from '../public-api';
 import { Subscription } from 'rxjs';
-import { CustomErrorStateMatcher } from '../shared/custom-error-state-matcher';
 
 @Component({
   selector: 'evo-input',

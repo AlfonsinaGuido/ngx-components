@@ -29,7 +29,6 @@ export class HeaderComponent {
   @Input() userDataItems!: ButtonInterface[];
   @Input() companyImage?: string;
   @Input() companyName?: string;
-  @Input() menuNotificationsNumber!: number;
   @Input() box?: HeaderButtonInterface[];
   @Input() userData!: UserDataInterface;
   @Input() classes?: string;

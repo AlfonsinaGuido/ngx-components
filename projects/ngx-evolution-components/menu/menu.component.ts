@@ -1,10 +1,4 @@
-import {
-  AfterViewInit,
-  Component,
-  Input,
-  OnDestroy,
-  ViewEncapsulation,
-} from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import {
   AvatarComponent,
   ButtonComponent,
@@ -32,7 +26,7 @@ import { MatDividerModule } from '@angular/material/divider';
   styleUrls: ['./menu.component.scss', '../styles/output.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class MenuComponent implements AfterViewInit, OnDestroy {
+export class MenuComponent {
   @Input() title?: string;
   @Input() items!: ButtonInterface[];
   @Input() buttonIcon?: IconInterface = {
@@ -43,29 +37,6 @@ export class MenuComponent implements AfterViewInit, OnDestroy {
   @Input() notificationsNumber?: number;
   @Input() userData?: UserDataInterface;
   @Input() classes?: string;
-  matMenuPosition: number = 5;
-  private resizeObserver!: ResizeObserver;
-
-  ngAfterViewInit(): void {
-    this.observeHeaderResize();
-  }
-
-  ngOnDestroy(): void {
-    if (this.resizeObserver) {
-      this.resizeObserver.disconnect();
-    }
-  }
-
-  observeHeaderResize(): void {
-    const header = document.querySelector('evo-header header') as HTMLElement;
-    if (header) {
-      this.resizeObserver = new ResizeObserver(() => {
-        const headerRect = header.getBoundingClientRect();
-        this.matMenuPosition = headerRect.height * 0.35;
-      });
-      this.resizeObserver.observe(header);
-    }
-  }
 
   onMenuOpen(): void {
     if (this.userData) {

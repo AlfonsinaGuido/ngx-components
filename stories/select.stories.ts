@@ -64,7 +64,7 @@ export const Default: Story = {
     ],
     control: formControlDefaultSelect,
     buttonIcon: {
-      icon: '/clean.svg',
+      icon: 'clean.svg',
       type: 'svg',
     },
     detail: '',

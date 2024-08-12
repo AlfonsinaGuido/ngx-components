@@ -1,4 +1,4 @@
-import { IActividad } from './actividad.interface';
+import { IActividad } from '../../public-api';
 
 export interface IColumna {
   nombre: string;

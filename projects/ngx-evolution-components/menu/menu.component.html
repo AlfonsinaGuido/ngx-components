@@ -8,9 +8,7 @@
 ></evo-button>
 <mat-menu
   #menu="matMenu"
-  class="sm:!min-w-80 p-[16px] max-h-[50vh] mt-[{{ matMenuPosition }}px] {{
-    classes
-  }}"
+  class="sm:!min-w-80 p-[16px] max-h-[50vh] mt-1 {{ classes }}"
 >
   <div class="flex items-center justify-between p-[8px]">
     <div class="user-data-container flex items-center gap-[8px]">
@@ -21,17 +19,17 @@
           [imgUrl]="userData.imgUrl"
         ></evo-avatar>
         <div>
-          <h5 class="font-bold text-dark-gray text-base">
+          <h5 class="!font-bold text-dark-gray !text-base">
             {{ userData.fullName }}
           </h5>
-          <h5 class="font-medium text-medium-gray text-sm">
+          <h5 class="!font-medium text-medium-gray !text-sm">
             {{ userData.email }}
           </h5>
         </div>
       } @else if (title) {
-        <h5 class="flex font-bold text-sm text-dark-gray">{{ title }}</h5>
+        <h5 class="flex !font-bold !text-sm text-dark-gray">{{ title }}</h5>
         @if (notificationsNumber) {
-          <h5 class="flex font-semibold text-xs text-primary">
+          <h5 class="flex !font-semibold !text-xs text-primary">
             {{ notificationsNumber }}
           </h5>
         }
@@ -48,6 +46,7 @@
   @for (item of items; track $index) {
     <mat-divider></mat-divider>
     <evo-button
+      class="buttons-in-menu"
       [classes]="userData ? 'userFont' : ''"
       [label]="item.label"
       [icon]="item.icon"

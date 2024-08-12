@@ -4,14 +4,14 @@
 
 // Components
 export * from './svg/svg.component';
-export * from './button/button.component';
+export * from './avatar/avatar.component';
 export * from './input/input.component';
+export * from './button/button.component';
 export * from './select/select.component';
 export * from './menu/menu.component';
 export * from './header/header.component';
 export * from './footer/footer.component';
 export * from './tag/tag.component';
-export * from './avatar/avatar.component';
 export * from './carta-actividad/carta-actividad.component';
 export * from './columna-tablero/columna-tablero.component';
 
@@ -24,8 +24,12 @@ export * from './shared/interfaces/actividad.interface';
 export * from './shared/interfaces/columna.interface';
 export * from './shared/interfaces/header.interface';
 export * from './shared/interfaces/user.interface';
+export * from './shared/interfaces/evaluacion.interface';
+
+// Validators
+export * from './shared/validators/custom-error-state-matcher';
 
 // Enums
-export * from './enums/duracion.enum';
-export * from './enums/estado.enum';
-export * from './enums/prioridad.enum';
+export * from './shared/enums/duracion.enum';
+export * from './shared/enums/estado.enum';
+export * from './shared/enums/prioridad.enum';

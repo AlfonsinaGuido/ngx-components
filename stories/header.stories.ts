@@ -83,7 +83,6 @@ export const Default: Story = {
         },
       },
     ],
-    menuNotificationsNumber: 3,
     companyImage: 'company-logo.svg',
     notificationIcon: {
       icon: 'bell.svg',

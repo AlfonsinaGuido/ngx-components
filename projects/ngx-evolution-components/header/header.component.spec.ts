@@ -8,12 +8,17 @@ describe('HeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HeaderComponent]
-    })
-    .compileComponents();
-    
+      imports: [HeaderComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
+    component.notificationItems = [];
+    component.userData = {
+      fullName: '',
+      email: '',
+      position: '',
+    };
     fixture.detectChanges();
   });
 

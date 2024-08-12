@@ -26,8 +26,8 @@ describe('MenuComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should display the title', async () => {
-    component.appTitle = 'Test Title';
+  it('should display the title', () => {
+    component.title = 'Test Title';
     fixture.detectChanges();
 
     const buttonDebugElement = fixture.debugElement.query(By.css('evo-button'));
@@ -39,7 +39,7 @@ describe('MenuComponent', () => {
     expect(titleElement.nativeElement.textContent).toContain('Test Title');
   });
 
-  it('should display the correct number of items', async () => {
+  it('should display the correct number of items', () => {
     const items: ButtonInterface[] = [{ label: 'Item 1' }, { label: 'Item 2' }];
     component.items = items;
     fixture.detectChanges();
@@ -48,7 +48,7 @@ describe('MenuComponent', () => {
     const buttonElement = buttonDebugElement.nativeElement as HTMLElement;
     buttonElement.click();
 
-    const menuItems = fixture.debugElement.queryAll(By.css('evo-button'));
-    expect(menuItems.length).toBe(items.length + 2);
+    const menuItems = fixture.debugElement.queryAll(By.css('.buttons-in-menu'));
+    expect(menuItems.length).toBe(items.length);
   });
 });

@@ -30,7 +30,9 @@ export const Default: Story = {
     args: {
       title: title,
       subtitle: subtitle,
-      cardtext: cardtext
+      cardtext: cardtext,
+      asideClass: 'bg-[#50d71e]',
+      cardClass: 'bg-slate-600'
     },
 };
 

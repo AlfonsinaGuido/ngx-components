@@ -103,6 +103,8 @@ const functionTest = {
 export const onClick: Story = {
   args: {
     ...Default.args,
-    onClick: Testing2,
+    onClick: {
+      action: Testing2
+    },
   },
 };

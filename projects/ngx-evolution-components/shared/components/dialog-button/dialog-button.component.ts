@@ -16,6 +16,7 @@ export class DialogButtonComponent {
   @Input() buttonsItems?: ButtonInterface[] = [];
   @Input() buttonsFunctions?: any[] = [];
   @Input() closeIcon?: IconInterface;
+  @Input() disableClosing?: boolean;
 
   constructor(public dialog: MatDialog) {}
 
@@ -27,7 +28,8 @@ export class DialogButtonComponent {
         simpleContent: this.simpleContent,
         buttonsItems: this.buttonsItems,
         buttonsFunctions: this.buttonsFunctions,
-        closeIcon: this.closeIcon
+        closeIcon: this.closeIcon,
+        disableClosing: this.disableClosing
       },
     });
   }

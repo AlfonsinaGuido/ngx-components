@@ -7,4 +7,5 @@ export interface DialogInterface {
     buttonsItems?: ButtonInterface[];
     buttonsFunctions?: {action: (param?: any) => any | void | {}}[];
     closeIcon?: IconInterface;
+    disableClosing?: boolean;
 }

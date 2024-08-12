@@ -9,7 +9,11 @@ export interface ButtonInterface {
   disabled?: boolean;
   isFlat?: boolean;
   isFluid?: boolean;
-  onClick?: (param?: any) => any | void | {};
+  onClick?: ButtonActionInterface;
   withoutBorder?: boolean;
   classes?: string;
+}
+
+export interface ButtonActionInterface {
+  action: (param?: any) => any | void | {};
 }

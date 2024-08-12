@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, ViewEncapsulation } from '@angular/core';
-import { ButtonTheme, IconInterface, SvgComponent } from '../public-api';
+import { ButtonActionInterface, ButtonTheme, IconInterface, SvgComponent } from '../public-api';
 
 @Component({
   selector: 'evo-button',
@@ -19,7 +19,7 @@ export class ButtonComponent {
   @Input() isFlat: boolean = false;
   @Input() isFluid: boolean = false;
   @Input() withoutBorder: boolean = false;
-  @Input() onClick?: (param?: any) => any | void | {};
+  @Input() onClick?: ButtonActionInterface;
 
   constructor() {}
 
@@ -37,7 +37,7 @@ export class ButtonComponent {
 
   onClickHandler(param?: any) {
     if (this.onClick) {
-      this.onClick(param);
+      this.onClick.action(param);
     } else {
       console.warn('onClick no esta definido');
     }

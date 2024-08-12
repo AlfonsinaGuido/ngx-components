@@ -138,6 +138,7 @@ export const closeButton: Story = {
       closeIcon: {
         icon: 'close.svg',
         type: 'svg',
-      }
+      },
+      disableClosing: true
   }
 }

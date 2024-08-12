@@ -22,7 +22,8 @@
               [label]="item.label"
               [icon]="item.icon"
               [theme]="item.theme!"
-              [onClick]="this.buttonsFunctions[idx].action"
+              [onClick]="buttonsFunctions[idx]"
+              matDialogClose
             ></evo-button>
         }
     </mat-dialog-actions>

@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { IActividad, Prioridad, Duracion, EstadoActividad } from '../public-api'
 import { CartaActividadComponent } from './carta-actividad.component';
-import { Duracion, EstadoActividad, IActividad, Prioridad } from '../public-api';
 
 const actividadMockData: IActividad = {
   id: 1,

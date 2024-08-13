@@ -18,7 +18,7 @@
       }
       @if (companyName) {
         <h5
-          class="lg:flex hidden border-r border-white-smoke pr-[25px] !font-semibold text-white-smoke !text-sm"
+          class="test-company-name lg:flex hidden border-r border-white-smoke pr-[25px] !font-semibold text-white-smoke !text-sm"
         >
           {{ companyName }}
         </h5>
@@ -30,7 +30,7 @@
       @for (button of box; track $index) {
         <button
           (click)="button.action()"
-          class="font-bold text-sm text-white-smoke lg:flex hidden"
+          class="test-box-button font-bold text-sm text-white-smoke lg:flex hidden"
         >
           {{ button.label }}
         </button>

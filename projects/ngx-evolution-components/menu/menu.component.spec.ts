@@ -19,10 +19,10 @@ describe('MenuComponent', () => {
 
     fixture = TestBed.createComponent(MenuComponent);
     component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
   it('should create', () => {
-    fixture.detectChanges();
     expect(component).toBeTruthy();
   });
 
@@ -50,5 +50,41 @@ describe('MenuComponent', () => {
 
     const menuItems = fixture.debugElement.queryAll(By.css('.buttons-in-menu'));
     expect(menuItems.length).toBe(items.length);
+  });
+
+  it('should not change buttonIcon on menu open if userData is undefined, onMenuOpen()', () => {
+    component.userData = undefined;
+    const initialIcon = component.buttonIcon;
+    component.onMenuOpen();
+
+    expect(component.buttonIcon).toEqual(initialIcon);
+  });
+
+  it('should set buttonIcon to expand_less on menu open if userData is defined, onMenuOpen()', () => {
+    component.userData = {
+      fullName: 'test',
+      email: 'test',
+      position: 'test',
+    };
+    component.onMenuOpen();
+
+    expect(component.buttonIcon).toEqual({
+      icon: 'expand_less',
+      type: 'class',
+    });
+  });
+
+  it('should set buttonIcon to expand_more on menu close if userData is defined, onMenuClose()', () => {
+    component.userData = {
+      fullName: 'test',
+      email: 'test',
+      position: 'test',
+    };
+    component.onMenuClose();
+
+    expect(component.buttonIcon).toEqual({
+      icon: 'expand_more',
+      type: 'class',
+    });
   });
 });

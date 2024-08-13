@@ -1,27 +1,38 @@
 @import "../styles/output.scss";
 
 header {
+  height: 60px;
   background-color: var(--accent-500);
   .evo-button {
     &.without-border {
       border: none !important;
       background-color: transparent;
       box-shadow: none;
-      .evo-button__content .icon svg {
-        color: var(--white-smoke);
+      .evo-button__content .icon {
+        mat-icon, svg {
+          color: var(--white-smoke);
+        }
       }
       &:hover,
       &:focus {
         background-color: var(--white-smoke);
-        .evo-button__content .icon svg {
-          color: var(--accent-500);
+        .evo-button__content .icon {
+          mat-icon, svg {
+            color: var(--accent-500);
+          }
         }
       }
     }
   }
-  svg {
-    max-width: 60px;
-    max-height: 50px;
+  evo-svg svg {
+    max-width: 45px;
+    height: max-content;
     color: var(--white-smoke);
+  }
+  evo-avatar #avatar-wrapper {
+    background-color: var(--primary-50);
+    span {
+      color: var(--primary-700);
+    }
   }
 }

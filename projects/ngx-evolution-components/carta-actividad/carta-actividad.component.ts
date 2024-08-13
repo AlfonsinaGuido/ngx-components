@@ -1,9 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { TagComponent } from '../tag/tag.component';
 import { MatIconModule } from '@angular/material/icon';
-import { AvatarComponent } from '../public-api';
+import { AvatarComponent, Prioridad, TagComponent } from '../public-api';
 import { DatePipe } from '@angular/common';
-import { Prioridad } from '../enums/prioridad.enum';
 
 @Component({
   selector: 'evo-carta-actividad',

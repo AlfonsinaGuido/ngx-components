@@ -1,0 +1,37 @@
+@if (closeButton) {
+  <div mat-dialog-title class="dialog-title">
+    <button class="mt-1" mat-icon-button aria-label="close dialog" mat-dialog-close>
+      <mat-icon
+        aria-hidden="false"
+        aria-label="close dialog icon"
+        fontIcon="close"
+      ></mat-icon>
+    </button>
+  </div>
+}
+<h2 mat-dialog-title>{{ title }}</h2>
+@if (scrollableContent !== "") {
+  <mat-dialog-content class="mat-typography">
+    <div [innerHTML]="scrollableContent"></div>
+  </mat-dialog-content>
+}
+@if (simpleContent !== "") {
+  <mat-dialog-content>
+    {{ simpleContent }}
+  </mat-dialog-content>
+}
+
+@if (buttonsItems.length! > 0) {
+  <mat-dialog-actions align="end" class="px-[24px] flex-col justify-end gap-x-2 sm:flex-row gap-y-2">
+    @for (item of buttonsItems; track item;) {
+        <evo-button
+        class="function-button"
+          [label]="item.label"
+          [icon]="item.icon"
+          [theme]="item.theme!"
+          [onClick]="item.onClick"
+          matDialogClose
+        ></evo-button>
+    }
+  </mat-dialog-actions>
+}

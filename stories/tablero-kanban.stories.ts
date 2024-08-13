@@ -3,10 +3,10 @@ import {
   TableroKanbanComponent,
   IActividad,
   IColumna,
+  EstadoActividad,
+  Duracion,
+  Prioridad,
 } from '@aseinfo/ngx-evolution-components/public-api';
-import { Prioridad } from '@aseinfo/ngx-evolution-components/enums/prioridad.enum';
-import { Duracion } from '@aseinfo/ngx-evolution-components/enums/duracion.enum';
-import { EstadoActividad } from '@aseinfo/ngx-evolution-components/enums/estado.enum';
 
 type Story = StoryObj<TableroKanbanComponent>;
 export default {

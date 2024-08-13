@@ -1,22 +1,63 @@
 <evo-button
-  mat-button
   [matMenuTriggerFor]="menu"
   [icon]="buttonIcon"
   [withoutBorder]="true"
+  class="flex w-fit"
+  (menuOpened)="onMenuOpen()"
+  (menuClosed)="onMenuClose()"
 ></evo-button>
-<mat-menu #menu="matMenu" class="sm:!min-w-80 p-[16px] mt-[{{ matMenuPosition }}px]">
-  <div class="flex items-center justify-between p-[8px]">
-    <h5 class="flex font-bold text-sm text-dark-gray">{{ appTitle }}</h5>
-    <evo-button class="close-button" [icon]="closeIcon" [withoutBorder]="true"></evo-button>
+<mat-menu
+  #menu="matMenu"
+  class="sm:!min-w-80 p-3 max-h-[50vh] mt-1 {{ classes }}"
+>
+  <div class="flex items-center justify-between p-2">
+    <div class="user-data-container flex items-center gap-2">
+      @if (userData) {
+        <evo-avatar
+          size="md"
+          [name]="userData.fullName"
+          [imgUrl]="userData.imgUrl"
+          [isPriority]="true"
+        ></evo-avatar>
+        <div>
+          <div class="font-bold text-dark-gray text-base">
+            {{ userData.fullName }}
+          </div>
+          <div class="font-medium text-medium-gray text-sm">
+            {{ userData.email }}
+          </div>
+        </div>
+      } @else if (title) {
+        <div class="test-title flex font-bold text-sm text-dark-gray">{{ title }}</div>
+        @if (notificationsNumber) {
+          <div class="flex font-semibold text-xs text-primary">
+            {{ notificationsNumber }}
+          </div>
+        }
+      }
+    </div>
+    @if (closeIcon) {
+      <evo-button
+        class="close-button"
+        [icon]="closeIcon"
+        [withoutBorder]="true"
+      ></evo-button>
+    }
   </div>
   @for (item of items; track $index) {
     <mat-divider></mat-divider>
     <evo-button
+      class="buttons-in-menu"
+      [classes]="userData ? 'userFont' : ''"
       [label]="item.label"
       [icon]="item.icon"
       [withoutBorder]="true"
       [theme]="'secondary'"
       [isFluid]="true"
+      [url]="item.url"
+      [avatarName]="item.avatarName"
+      [avatarImgUrl]="item.avatarImgUrl"
+      [onClick]="item.onClick"
     ></evo-button>
   }
 </mat-menu>

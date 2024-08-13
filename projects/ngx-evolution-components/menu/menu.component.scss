@@ -1,3 +1,10 @@
+.user-data-container evo-avatar #avatar-wrapper {
+  background-color: var(--primary-50);
+  span {
+    color: var(--primary-700);
+  }
+}
+
 .close-button .evo-button {
   &.without-border {
     background-color: transparent;
@@ -7,17 +14,31 @@
     }
   }
 }
-.evo-button {
+
+.buttons-in-menu .evo-button {
   &.theme-secondary {
-    justify-content: start;
+    justify-content: left;
     padding: 8px;
     color: var(--medium-gray) !important;
     .evo-button__content {
+      justify-content: left;
       .icon svg {
         color: var(--medium-gray);
       }
       .label {
+        text-align: left;
         font-size: 12px;
+      }
+    }
+    &.userFont {
+      padding-left: 25px;
+      .evo-button__content {
+        .icon {
+          margin-inline-end: 18px;
+        }
+        .label {
+          font-size: 16px;
+        }
       }
     }
   }

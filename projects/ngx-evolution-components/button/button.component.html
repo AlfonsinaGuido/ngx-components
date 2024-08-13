@@ -3,20 +3,44 @@
   class="evo-button rounded-md outline-none border-none font-normal min-h-9 min-w-18 px-6 py-2 flex items-center justify-center"
   [attr.disabled]="disabled === true ? true : null"
   [class]="getClasses"
-  mat-menu-item
+  (click)="onClickHandler()"
 >
-  <div class="evo-button__content">
+  @if (url) {
+    <a class="w-full" [href]="url" target="_blank">
+      <div class="evo-button__content">
+        <ng-container *ngTemplateOutlet="contentTemplate"></ng-container>
+      </div>
+    </a>
+  } @else {
+    <div class="evo-button__content">
+      <ng-container *ngTemplateOutlet="contentTemplate"></ng-container>
+    </div>
+  }
+  <ng-template #contentTemplate>
     @if (icon && icon.position === "left") {
-      <div [class]="{ left: icon.position === 'left' && label }" class="icon">
+      <div
+        [class]="{ 'me-2': icon.position === 'left' && label }"
+        class="icon"
+      >
         @if (icon.type === "svg") {
           <evo-svg [svgPath]="icon.icon"></evo-svg>
         }
-        @if (icon.type == "class") {
-          <span [class]="icon.class">
-            {{ icon.icon }}
-          </span>
+        @if (icon.type === "class") {
+          <mat-icon
+            aria-hidden="false"
+            aria-label="icon"
+            [fontIcon]="icon.icon"
+          ></mat-icon>
         }
       </div>
+    }
+    @if (avatarName) {
+      <evo-avatar
+        [class]="{ 'me-2': label }"
+        size="sm"
+        [name]="avatarName"
+        [imgUrl]="avatarImgUrl"
+      ></evo-avatar>
     }
     @if (label) {
       <div class="label">
@@ -24,14 +48,19 @@
       </div>
     }
     @if (icon && icon.position === "right") {
-      <div [class]="{ right: icon.position === 'right' && label }" class="icon">
+      <div
+        [class]="{ 'ms-2': icon.position === 'right' && label }"
+        class="icon"
+      >
         @if (icon.type === "svg") {
           <evo-svg [svgPath]="icon.icon"></evo-svg>
         }
-        @if (icon.type == "class") {
-          <span [class]="icon.class">
-            {{ icon.icon }}
-          </span>
+        @if (icon.type === "class") {
+          <mat-icon
+            aria-hidden="false"
+            aria-label="icon"
+            [fontIcon]="icon.icon"
+          ></mat-icon>
         }
       </div>
     }
@@ -40,12 +69,14 @@
         @if (icon.type === "svg") {
           <evo-svg [svgPath]="icon.icon"></evo-svg>
         }
-        @if (icon.type == "class") {
-          <span [class]="icon.class">
-            {{ icon.icon }}
-          </span>
+        @if (icon.type === "class") {
+          <mat-icon
+            aria-hidden="false"
+            aria-label="icon"
+            [fontIcon]="icon.icon"
+          ></mat-icon>
         }
       </div>
     }
-  </div>
+  </ng-template>
 </button>

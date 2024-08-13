@@ -19,27 +19,27 @@ describe('MenuComponent', () => {
 
     fixture = TestBed.createComponent(MenuComponent);
     component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
   it('should create', () => {
-    fixture.detectChanges();
     expect(component).toBeTruthy();
   });
 
-  it('should display the title', async () => {
-    component.appTitle = 'Test Title';
+  it('should display the title', () => {
+    component.title = 'Test Title';
     fixture.detectChanges();
 
     const buttonDebugElement = fixture.debugElement.query(By.css('evo-button'));
     const buttonElement = buttonDebugElement.nativeElement as HTMLElement;
     buttonElement.click();
 
-    const titleElement = fixture.debugElement.query(By.css('h5'));
+    const titleElement = fixture.debugElement.query(By.css('.test-title'));
     expect(titleElement).toBeTruthy();
     expect(titleElement.nativeElement.textContent).toContain('Test Title');
   });
 
-  it('should display the correct number of items', async () => {
+  it('should display the correct number of items', () => {
     const items: ButtonInterface[] = [{ label: 'Item 1' }, { label: 'Item 2' }];
     component.items = items;
     fixture.detectChanges();
@@ -48,7 +48,43 @@ describe('MenuComponent', () => {
     const buttonElement = buttonDebugElement.nativeElement as HTMLElement;
     buttonElement.click();
 
-    const menuItems = fixture.debugElement.queryAll(By.css('evo-button'));
-    expect(menuItems.length).toBe(items.length + 2);
+    const menuItems = fixture.debugElement.queryAll(By.css('.buttons-in-menu'));
+    expect(menuItems.length).toBe(items.length);
+  });
+
+  it('should not change buttonIcon on menu open if userData is undefined, onMenuOpen()', () => {
+    component.userData = undefined;
+    const initialIcon = component.buttonIcon;
+    component.onMenuOpen();
+
+    expect(component.buttonIcon).toEqual(initialIcon);
+  });
+
+  it('should set buttonIcon to expand_less on menu open if userData is defined, onMenuOpen()', () => {
+    component.userData = {
+      fullName: 'test',
+      email: 'test',
+      position: 'test',
+    };
+    component.onMenuOpen();
+
+    expect(component.buttonIcon).toEqual({
+      icon: 'expand_less',
+      type: 'class',
+    });
+  });
+
+  it('should set buttonIcon to expand_more on menu close if userData is defined, onMenuClose()', () => {
+    component.userData = {
+      fullName: 'test',
+      email: 'test',
+      position: 'test',
+    };
+    component.onMenuClose();
+
+    expect(component.buttonIcon).toEqual({
+      icon: 'expand_more',
+      type: 'class',
+    });
   });
 });

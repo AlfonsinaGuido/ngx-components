@@ -19,6 +19,7 @@ import { Subscription } from 'rxjs';
 })
 export class SvgComponent implements OnInit, OnDestroy {
   @Input() svgPath!: string;
+  @Input() classes?: string;
   svgContent: SafeHtml | null = null;
   private svgSubscription!: Subscription;
 

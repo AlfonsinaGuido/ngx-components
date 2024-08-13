@@ -32,6 +32,9 @@ export const Default = {
       control: { type: 'select' },
       options: ['Alta', 'Media', 'Baja'],
     },
+    twClass: {
+      control: { type: 'text' },
+    },
   },
   args: {
     title: actividad.titulo,

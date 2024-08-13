@@ -16,6 +16,7 @@ export * from './dialog/dialog.component';
 export * from './tag/tag.component';
 export * from './carta-actividad/carta-actividad.component';
 export * from './columna-tablero/columna-tablero.component';
+export * from './tablero-kanban/tablero-kanban.component';
 
 // Interfaces
 export * from './shared/interfaces/button.interface';

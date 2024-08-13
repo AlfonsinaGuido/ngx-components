@@ -15,7 +15,9 @@ import { Prioridad } from '../enums/prioridad.enum';
 export class CartaActividadComponent {
   @Input() description!: string;
   @Input() title!: string;
+  @Input() id!: string | number;
   @Input() responsible?: string;
   @Input() priority!: Prioridad;
   @Input() endDate?: Date | string;
+  @Input() twClass?: string;
 }

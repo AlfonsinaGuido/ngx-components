@@ -34,7 +34,7 @@ describe('MenuComponent', () => {
     const buttonElement = buttonDebugElement.nativeElement as HTMLElement;
     buttonElement.click();
 
-    const titleElement = fixture.debugElement.query(By.css('h5'));
+    const titleElement = fixture.debugElement.query(By.css('.test-title'));
     expect(titleElement).toBeTruthy();
     expect(titleElement.nativeElement.textContent).toContain('Test Title');
   });

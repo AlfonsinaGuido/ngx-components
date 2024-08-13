@@ -1,9 +1,7 @@
 <header
-  class="flex justify-between items-center sm:px-[25px] px-[16px] py-2 h-[60px] {{
-    classes
-  }}"
+  class="flex justify-between items-center sm:px-5 px-3 py-2 {{ classes }}"
 >
-  <div class="flex gap-[25px] items-center">
+  <div class="flex gap-5 items-center">
     <evo-menu
       class="sm:flex hidden"
       [buttonIcon]="appIcon"
@@ -12,20 +10,20 @@
       [items]="appItems"
       classes="mt-4"
     ></evo-menu>
-    <div class="flex items-center gap-[25px]">
+    <div class="flex items-center gap-5">
       @if (companyImage) {
         <evo-svg [svgPath]="companyImage"></evo-svg>
       }
       @if (companyName) {
-        <h5
-          class="test-company-name lg:flex hidden border-r border-white-smoke pr-[25px] !font-semibold text-white-smoke !text-sm"
+        <div
+          class="test-company-name lg:flex hidden border-r border-white-smoke pr-5 font-semibold text-white-smoke text-sm"
         >
           {{ companyName }}
-        </h5>
+        </div>
       }
     </div>
   </div>
-  <div class="sm:flex gap-[12px] items-center hidden">
+  <div class="sm:flex gap-3 items-center hidden">
     @if (box) {
       @for (button of box; track $index) {
         <button
@@ -44,20 +42,21 @@
       [notificationsNumber]="notificationItems.length"
       classes="mt-4"
     ></evo-menu>
-    <div class="flex items-center gap-[8px]">
+    <div class="flex items-center gap-2">
       <evo-avatar
         size="sm"
         [name]="userData.fullName"
         [imgUrl]="userData.imgUrl"
+        [isPriority]="true"
       >
       </evo-avatar>
       <div class="tracking-wider md:block hidden">
-        <h5 class="!font-bold !text-base text-white-smoke">
+        <div class="font-bold text-base text-white-smoke">
           {{ userData.fullName }}
-        </h5>
-        <h5 class="!font-medium !text-sm text-white-smoke">
+        </div>
+        <div class="font-medium text-sm text-white-smoke">
           {{ userData.position }}
-        </h5>
+        </div>
       </div>
       <evo-menu
         [closeIcon]="closeMenuIcon"

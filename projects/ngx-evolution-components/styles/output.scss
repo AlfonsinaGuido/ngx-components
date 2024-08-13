@@ -592,11 +592,6 @@ video {
   position: relative;
 }
 
-.mx-\[24px\] {
-  margin-left: 24px;
-  margin-right: 24px;
-}
-
 .mb-1 {
   margin-bottom: 5px;
 }
@@ -605,16 +600,16 @@ video {
   margin-bottom: 20px;
 }
 
-.me-\[8px\] {
-  margin-inline-end: 8px;
+.me-2 {
+  margin-inline-end: 10px;
 }
 
 .mr-2 {
   margin-right: 10px;
 }
 
-.ms-\[8px\] {
-  margin-inline-start: 8px;
+.ms-2 {
+  margin-inline-start: 10px;
 }
 
 .mt-1 {
@@ -647,10 +642,6 @@ video {
 
 .h-36 {
   height: 9rem;
-}
-
-.h-\[60px\] {
-  height: 60px;
 }
 
 .max-h-\[50vh\] {
@@ -726,16 +717,12 @@ video {
   gap: 10px;
 }
 
-.gap-\[12px\] {
-  gap: 12px;
+.gap-3 {
+  gap: 15px;
 }
 
-.gap-\[25px\] {
+.gap-5 {
   gap: 25px;
-}
-
-.gap-\[8px\] {
-  gap: 8px;
 }
 
 .overflow-hidden {
@@ -797,16 +784,16 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.p-2 {
+  padding: 10px;
+}
+
+.p-3 {
+  padding: 15px;
+}
+
 .p-6 {
   padding: 1.5rem;
-}
-
-.p-\[16px\] {
-  padding: 16px;
-}
-
-.p-\[8px\] {
-  padding: 8px;
 }
 
 .px-3 {
@@ -824,9 +811,9 @@ video {
   padding-right: 1.5rem;
 }
 
-.px-\[16px\] {
-  padding-left: 16px;
-  padding-right: 16px;
+.px-\[24px\] {
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 .py-2 {
@@ -844,12 +831,7 @@ video {
   padding-bottom: 1.5rem;
 }
 
-.px-\[24px\] {
-  padding-left: 24px;
-  padding-right: 24px;
-}
-
-.pr-\[25px\] {
+.pr-5 {
   padding-right: 25px;
 }
 
@@ -859,21 +841,6 @@ video {
 
 .text-left {
   text-align: left;
-}
-
-.\!text-base {
-  font-size: 1rem !important;
-  line-height: 1.5rem !important;
-}
-
-.\!text-sm {
-  font-size: 0.875rem !important;
-  line-height: 1.25rem !important;
-}
-
-.\!text-xs {
-  font-size: 0.75rem !important;
-  line-height: 1rem !important;
 }
 
 .text-4xl {
@@ -901,24 +868,16 @@ video {
   line-height: 1rem;
 }
 
-.\!font-bold {
-  font-weight: 700 !important;
-}
-
-.\!font-medium {
-  font-weight: 500 !important;
-}
-
-.\!font-semibold {
-  font-weight: 600 !important;
-}
-
 .font-bold {
   font-weight: 700;
 }
 
 .font-light {
   font-weight: 300;
+}
+
+.font-medium {
+  font-weight: 500;
 }
 
 .font-normal {
@@ -1139,7 +1098,7 @@ a {
     min-width: 20rem !important;
   }
 
-  .sm\:px-\[25px\] {
+  .sm\:px-5 {
     padding-left: 25px;
     padding-right: 25px;
   }

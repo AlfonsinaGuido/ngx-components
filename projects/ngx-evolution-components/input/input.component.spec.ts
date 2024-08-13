@@ -9,7 +9,7 @@ import {
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { CustomErrorStateMatcher } from '../shared/custom-error-state-matcher';
+import { CustomErrorStateMatcher } from '../public-api';
 
 describe('InputComponent', () => {
   let component: InputComponent;

@@ -2,7 +2,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DialogComponent } from './dialog.component';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { ScrollableContent } from 'stories/dialog.stories';
 import { By } from '@angular/platform-browser';
 
 const Testing1 = (): void => {
@@ -32,20 +31,17 @@ const mockDataSingleContent = {
   title: title,
   simpleContent: simpleContent,
   buttonsItems: [{ label: 'Item 1', theme: 'warning' }, { label: 'Item 2', theme: 'primary' }],
-  buttonsFunctions: [{action: Testing1}, {action: Testing2}]
 };
 
 const mockDataScrollableContent = {
   title: title,
   scrollableContent: scrollableMockData,
   buttonsItems: [{ label: 'Item 1', theme: 'warning' }],
-  buttonsFunctions: [{action: Testing1}]
 };
 
 describe('DialogComponent have simple content with action buttons', () => {
   let component: DialogComponent;
   let fixture: ComponentFixture<DialogComponent>;
-
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -71,7 +67,6 @@ describe('DialogComponent have simple content with action buttons', () => {
     expect(component.scrollableContent).toBe('');
     expect(component.simpleContent).toBe(simpleContent);
     expect(component.buttonsItems.length).toEqual(2);
-    expect(component.buttonsFunctions.length).toEqual(2);
   })
 
   it('should have 2 buttons in the dialog ', async() => {
@@ -111,7 +106,6 @@ describe('DialogComponent have scrollable content with action buttons', () => {
     expect(component.scrollableContent).toBe(scrollableMockData);
     expect(component.simpleContent).toBe('');
     expect(component.buttonsItems.length).toEqual(1);
-    expect(component.buttonsFunctions.length).toEqual(1);
   });
 
   it('should have 1 buttons in the dialog ', async() => {
@@ -151,7 +145,6 @@ describe('DialogComponent have not data, and should use default data', () => {
     expect(component.scrollableContent).toBe('');
     expect(component.simpleContent).toBe('');
     expect(component.buttonsItems.length).toEqual(0);
-    expect(component.buttonsFunctions.length).toEqual(0);
   });
 
   it('should have 1 buttons in the dialog ', async() => {

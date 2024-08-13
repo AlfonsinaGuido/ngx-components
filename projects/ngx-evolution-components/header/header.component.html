@@ -1,11 +1,16 @@
-<header class="flex justify-between items-center sm:px-[25px] px-[16px] py-2">
+<header
+  class="flex justify-between items-center sm:px-[25px] px-[16px] py-2 h-[60px] {{
+    classes
+  }}"
+>
   <div class="flex gap-[25px] items-center">
     <evo-menu
       class="sm:flex hidden"
-      [buttonIcon]="menuIcon"
+      [buttonIcon]="appIcon"
       [closeIcon]="closeMenuIcon"
-      [appTitle]="menuTitle"
-      [items]="menuItems"
+      [title]="appTitle"
+      [items]="appItems"
+      classes="mt-4"
     ></evo-menu>
     <div class="flex items-center gap-[25px]">
       @if (companyImage) {
@@ -13,7 +18,7 @@
       }
       @if (companyName) {
         <h5
-          class="sm:flex hidden border-r border-white-smoke pr-[25px] text-white-smoke"
+          class="test-company-name lg:flex hidden border-r border-white-smoke pr-[25px] !font-semibold text-white-smoke !text-sm"
         >
           {{ companyName }}
         </h5>
@@ -23,12 +28,43 @@
   <div class="sm:flex gap-[12px] items-center hidden">
     @if (box) {
       @for (button of box; track $index) {
-        <div (click)="button.action()" class="font-bold text-sm text-white-smoke cursor-pointer">{{ button.label }}</div>
+        <button
+          (click)="button.action()"
+          class="test-box-button font-bold text-sm text-white-smoke lg:flex hidden"
+        >
+          {{ button.label }}
+        </button>
       }
     }
     <evo-menu
       [buttonIcon]="notificationIcon"
       [closeIcon]="closeMenuIcon"
+      [title]="notificationTitle"
+      [items]="notificationItems"
+      [notificationsNumber]="notificationItems.length"
+      classes="mt-4"
     ></evo-menu>
+    <div class="flex items-center gap-[8px]">
+      <evo-avatar
+        size="sm"
+        [name]="userData.fullName"
+        [imgUrl]="userData.imgUrl"
+      >
+      </evo-avatar>
+      <div class="tracking-wider md:block hidden">
+        <h5 class="!font-bold !text-base text-white-smoke">
+          {{ userData.fullName }}
+        </h5>
+        <h5 class="!font-medium !text-sm text-white-smoke">
+          {{ userData.position }}
+        </h5>
+      </div>
+      <evo-menu
+        [closeIcon]="closeMenuIcon"
+        [userData]="userData"
+        [items]="userDataItems"
+        classes="mt-4"
+      ></evo-menu>
+    </div>
   </div>
 </header>

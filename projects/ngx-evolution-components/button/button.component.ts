@@ -1,11 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, ViewEncapsulation } from '@angular/core';
-import { ButtonActionInterface, ButtonTheme, IconInterface, SvgComponent } from '../public-api';
+import {
+  AvatarComponent,
+  ButtonActionInterface,
+  ButtonTheme,
+  IconInterface,
+  SvgComponent,
+} from '../public-api';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'evo-button',
   standalone: true,
-  imports: [CommonModule, SvgComponent],
+  imports: [CommonModule, SvgComponent, MatIconModule, AvatarComponent],
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss', '../styles/output.scss'],
   encapsulation: ViewEncapsulation.None,
@@ -19,13 +26,21 @@ export class ButtonComponent {
   @Input() isFlat: boolean = false;
   @Input() isFluid: boolean = false;
   @Input() withoutBorder: boolean = false;
+  @Input() url?: string;
+  @Input() avatarName?: string;
+  @Input() avatarImgUrl?: string;
   @Input() onClick?: ButtonActionInterface;
 
-  constructor() {}
-
   get getClasses() {
+    const classes = this.classes ? this.classes.split(' ') : [];
     return {
-      [this.classes as string]: !!this.classes,
+      ...classes.reduce(
+        (acc, cls) => {
+          acc[cls] = true;
+          return acc;
+        },
+        {} as { [key: string]: boolean },
+      ),
       ['theme-' + this.theme]: true,
       disabled: this.disabled === true,
       'is-flat': this.isFlat,
@@ -35,11 +50,9 @@ export class ButtonComponent {
     };
   }
 
-  onClickHandler(param?: any) {
+  onClickHandler() {
     if (this.onClick) {
-      this.onClick.action(param);
-    } else {
-      console.warn('onClick no esta definido');
+      this.onClick.action();
     }
   }
 }

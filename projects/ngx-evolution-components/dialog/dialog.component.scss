@@ -1,23 +1,5 @@
-  .dialog-title {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-  }
-
-
-  .close-button .evo-button {
-    &.without-border {
-      background-color: transparent;
-      box-shadow: none;
-      .evo-button__content .icon svg {
-        color: var(--light-gray);
-      }
-    }
-  }
-
-  .function-button {
-    @apply w-full sm:w-auto
-  }
-  .function-button .evo-button {
-    @apply rounded-full w-full;
-  }
+.dialog-title {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}

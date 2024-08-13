@@ -20,6 +20,7 @@ const Testing = (a:number,b:number): any => {
 export const Default: Story = {
   args: {
     label: 'Button',
+    classes: '',
   },
 };
 
@@ -44,7 +45,41 @@ export const Warning: Story = {
   },
 };
 
-export const WithIcon: Story = {
+export const WithFunction: Story = {
+  args: {
+    ...Default.args,
+    onClick: {
+      action: (param = ' con param') => {
+        console.log('funciona' + param);
+      },
+    },
+  },
+};
+
+export const WithMatIcon: Story = {
+  args: {
+    icon: {
+      icon: 'home',
+      type: 'class',
+    },
+  },
+};
+
+export const WithAvatarName: Story = {
+  args: {
+    avatarName: 'Carlos Sanchez',
+    withoutBorder: true,
+  },
+};
+
+export const WithAvatarImg: Story = {
+  args: {
+    avatarName: 'Carlos Sanchez',
+    avatarImgUrl: 'https://material.angular.io/assets/img/examples/shiba1.jpg',
+  },
+};
+
+export const WithSvgIcon: Story = {
   args: {
     ...Default.args,
     icon: {
@@ -55,7 +90,7 @@ export const WithIcon: Story = {
   },
 };
 
-export const OnlyIcon: Story = {
+export const OnlySvgIcon: Story = {
   args: {
     icon: {
       icon: 'add-user.svg',

@@ -1,6 +1,7 @@
 @import "../styles/output.scss";
 
 header {
+  height: 60px;
   background-color: var(--accent-500);
   .evo-button {
     &.without-border {

@@ -19,7 +19,7 @@
   <ng-template #contentTemplate>
     @if (icon && icon.position === "left") {
       <div
-        [class]="{ 'me-[8px]': icon.position === 'left' && label }"
+        [class]="{ 'me-2': icon.position === 'left' && label }"
         class="icon"
       >
         @if (icon.type === "svg") {
@@ -36,7 +36,7 @@
     }
     @if (avatarName) {
       <evo-avatar
-        [class]="{ 'me-[8px]': label }"
+        [class]="{ 'me-2': label }"
         size="sm"
         [name]="avatarName"
         [imgUrl]="avatarImgUrl"
@@ -49,7 +49,7 @@
     }
     @if (icon && icon.position === "right") {
       <div
-        [class]="{ 'ms-[8px]': icon.position === 'right' && label }"
+        [class]="{ 'ms-2': icon.position === 'right' && label }"
         class="icon"
       >
         @if (icon.type === "svg") {

@@ -8,30 +8,31 @@
 ></evo-button>
 <mat-menu
   #menu="matMenu"
-  class="sm:!min-w-80 p-[16px] max-h-[50vh] mt-1 {{ classes }}"
+  class="sm:!min-w-80 p-3 max-h-[50vh] mt-1 {{ classes }}"
 >
-  <div class="flex items-center justify-between p-[8px]">
-    <div class="user-data-container flex items-center gap-[8px]">
+  <div class="flex items-center justify-between p-2">
+    <div class="user-data-container flex items-center gap-2">
       @if (userData) {
         <evo-avatar
           size="md"
           [name]="userData.fullName"
           [imgUrl]="userData.imgUrl"
+          [isPriority]="true"
         ></evo-avatar>
         <div>
-          <h5 class="!font-bold text-dark-gray !text-base">
+          <div class="font-bold text-dark-gray text-base">
             {{ userData.fullName }}
-          </h5>
-          <h5 class="!font-medium text-medium-gray !text-sm">
+          </div>
+          <div class="font-medium text-medium-gray text-sm">
             {{ userData.email }}
-          </h5>
+          </div>
         </div>
       } @else if (title) {
-        <h5 class="flex !font-bold !text-sm text-dark-gray">{{ title }}</h5>
+        <div class="test-title flex font-bold text-sm text-dark-gray">{{ title }}</div>
         @if (notificationsNumber) {
-          <h5 class="flex !font-semibold !text-xs text-primary">
+          <div class="flex font-semibold text-xs text-primary">
             {{ notificationsNumber }}
-          </h5>
+          </div>
         }
       }
     </div>

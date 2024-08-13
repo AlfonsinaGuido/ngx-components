@@ -12,4 +12,6 @@ export class HighlightComponent {
   @Input() title?: string = '';
   @Input() subtitle?: string = '';
   @Input() cardtext?: string = '';
+  @Input() asideClass?: string = '';
+  @Input() cardClass?: string = '';
 }

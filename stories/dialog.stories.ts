@@ -172,6 +172,7 @@ export const closeButton: Story = {
         },
       },
     ],
+    disableClosing: true,
     closeButton: true,
   },
 };

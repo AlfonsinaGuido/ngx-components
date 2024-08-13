@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ButtonInterface, DialogComponent } from '@aseinfo/ngx-evolution-components/public-api';
+import { ButtonInterface, DialogComponent, IconInterface } from '@aseinfo/ngx-evolution-components/public-api';
+import { closeButton } from 'stories/dialog.stories';
 
 @Component({
   selector: 'evo-dialog-button',
@@ -15,7 +16,8 @@ export class DialogButtonComponent {
   @Input() simpleContent?: string = '';
   @Input() buttonsItems?: ButtonInterface[] = [];
   @Input() buttonsFunctions?: any[] = [];
-  @Input() closeButton?: boolean = false;
+  @Input() closeButton?: boolean;
+  @Input() disableClosing?: boolean;
 
   constructor(public dialog: MatDialog) {}
 
@@ -27,7 +29,8 @@ export class DialogButtonComponent {
         simpleContent: this.simpleContent,
         buttonsItems: this.buttonsItems,
         buttonsFunctions: this.buttonsFunctions,
-        closeButton: this.closeButton
+        closeButton: this.closeButton,
+        disableClosing: this.disableClosing
       },
     });
   }

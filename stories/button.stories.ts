@@ -126,3 +126,20 @@ export const IsFluid: Story = {
     isFluid: true,
   },
 };
+
+const Testing2 = () => {
+  console.log('Funciono!');
+};
+
+const functionTest = {
+  action: Testing2
+}
+
+export const onClick: Story = {
+  args: {
+    ...Default.args,
+    onClick: {
+      action: Testing2
+    },
+  },
+};

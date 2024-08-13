@@ -5,6 +5,7 @@ import {
   MatDialogClose,
   MatDialogContent,
   MatDialogModule,
+  MatDialogRef,
   MatDialogTitle,
 } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
@@ -40,12 +41,24 @@ export class DialogComponent {
   public simpleContent: string;
   public buttonsItems: ButtonInterface[];
   public closeButton: boolean;
+  public disableClosing: boolean;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogInterface) {
+  constructor(
+    public dialogRef: MatDialogRef<DialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogInterface
+  ) {
     this.title = this.data?.title || '';
     this.scrollableContent = this.data?.scrollableContent || '';
     this.simpleContent = this.data?.simpleContent || '';
     this.buttonsItems = this.data?.buttonsItems?.map((x) => x) || [];
     this.closeButton = this.data?.closeButton || false;
+    this.disableClosing = this.data?.disableClosing || false;
+    dialogRef.disableClose = this.disableClosing;
   }
+
+  closeDialog = {
+    action: () => {
+      this.dialogRef.close();
+    }
+  } 
 }

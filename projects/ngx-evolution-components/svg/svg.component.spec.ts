@@ -16,9 +16,7 @@ describe('SvgComponent', () => {
         { provide: DomSanitizer, useValue: mockSanitizer }
       ],
     }).compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(SvgComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -1,4 +1,4 @@
-import { Duracion, Prioridad, IEvaluacion, EstadoActividad } from '../../public-api'
+import { Duracion, EstadoActividad, IEvaluacion, Prioridad } from '../../public-api';
 
 export interface IActividad {
   id: string | number;

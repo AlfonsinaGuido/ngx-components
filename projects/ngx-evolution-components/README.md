@@ -6,7 +6,15 @@ Esta librería fue generada con [Angular CLI](https://github.com/angular/angular
 
 Dentro de la ruta `projects/ngx-evolution-components` ejecuta `ng generate component component-name` para generar un nuevo componente. También puedes utilizar `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-> Nota: Si tiene más de una librería, no olvide agregar `--project library-name` o se agregará al proyecto predeterminado en su archivo `angular.json`.
+> Nota: Si tienes más de una librería, no olvides agregar `--project library-name` o se agregará al proyecto predeterminado en tu archivo `angular.json`.
+
+## Uso de los componentes y otros elementos
+
+Para poder ser implementados primero deben exportarse en el archivo `public-api.ts` de manera tal que los que son utilizados por otros se exporten primero.
+
+Por ejemplo exportar primero `button.component` y después `menu.component` donde es utilizado el primero.
+
+Asimismo verificar que si la importación ocurre en algún archivo dentro de la carpeta de la librería, la ruta de `public-api.ts` debe ser relativa, si ocurre en las stories, absoluta. Esto nos evita errores en la construcción (ng build).
 
 ## Construcción
 

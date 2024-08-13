@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'evo-footer',
@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   imports: [],
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss', '../styles/output.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
-export class FooterComponent {}
+export class FooterComponent {
+  @Input() classes?: string;
+}

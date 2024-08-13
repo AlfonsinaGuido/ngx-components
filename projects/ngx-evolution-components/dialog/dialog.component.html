@@ -1,36 +1,46 @@
 @if (closeButton) {
   <div mat-dialog-title class="dialog-title">
-  <button mat-icon-button class="close-button" aria-label="close dialog" mat-dialog-close>
-    x
-  </button>
-</div>
+    <button class="mt-1" mat-icon-button aria-label="close dialog" mat-dialog-close>
+      <mat-icon
+        aria-hidden="false"
+        aria-label="close dialog icon"
+        fontIcon="close"
+      ></mat-icon>
+    </button>
+  </div>
 }
 <h2 mat-dialog-title>{{ title }}</h2>
-@if (scrollableContent !== '') {
-    <mat-dialog-content class="mat-typography">
-        <div [innerHTML]="scrollableContent"></div>
-    </mat-dialog-content>
+@if (scrollableContent !== "") {
+  <mat-dialog-content class="mat-typography">
+    <div [innerHTML]="scrollableContent"></div>
+  </mat-dialog-content>
 }
-@if (simpleContent !== '') {
-    <mat-dialog-content>
-        {{ simpleContent }}
-    </mat-dialog-content>
+@if (simpleContent !== "") {
+  <mat-dialog-content>
+    {{ simpleContent }}
+  </mat-dialog-content>
 }
 
 @if (buttonsItems.length! > 0) {
-    <mat-dialog-actions align="end">
-        @for (item of buttonsItems; track item; let idx = $index, last = $last, first = $first) {
-          <div [ngStyle]="{
-            'margin-left': buttonsItems.length === 2 && !first ? '0.5em' : (!first && !last ? '0.5em':'0')
-          }">
-              <evo-button
-              [label]="item.label"
-              [icon]="item.icon"
-              [theme]="item.theme!"
-              [onClick]="this.buttonsFunctions[idx].action"
-            ></evo-button>
-          </div>
-        }
-    </mat-dialog-actions>
+  <mat-dialog-actions align="end" class="px-[24px]">
+    @for (item of buttonsItems; track item; let last = $last, first = $first) {
+      <div
+        [ngStyle]="{
+          'margin-left':
+            buttonsItems.length === 2 && !first
+              ? '0.5em'
+              : !first && !last
+                ? '0.5em'
+                : '0',
+        }"
+      >
+        <evo-button
+          [label]="item.label"
+          [icon]="item.icon"
+          [theme]="item.theme!"
+          [onClick]="item.onClick"
+        ></evo-button>
+      </div>
     }
-
+  </mat-dialog-actions>
+}

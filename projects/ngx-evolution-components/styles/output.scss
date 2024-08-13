@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.4.7 | MIT License | https://tailwindcss.com
+! tailwindcss v3.4.6 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -592,6 +592,11 @@ video {
   position: relative;
 }
 
+.mx-\[24px\] {
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
 .mb-1 {
   margin-bottom: 5px;
 }
@@ -600,12 +605,28 @@ video {
   margin-bottom: 20px;
 }
 
+.me-\[8px\] {
+  margin-inline-end: 8px;
+}
+
 .mr-2 {
   margin-right: 10px;
 }
 
+.ms-\[8px\] {
+  margin-inline-start: 8px;
+}
+
+.mt-1 {
+  margin-top: 5px;
+}
+
 .mt-2 {
   margin-top: 10px;
+}
+
+.mt-4 {
+  margin-top: 20px;
 }
 
 .block {
@@ -626,6 +647,14 @@ video {
 
 .h-36 {
   height: 9rem;
+}
+
+.h-\[60px\] {
+  height: 60px;
+}
+
+.max-h-\[50vh\] {
+  max-height: 50vh;
 }
 
 .min-h-9 {
@@ -669,10 +698,6 @@ video {
   flex-shrink: 0;
 }
 
-.cursor-pointer {
-  cursor: pointer;
-}
-
 .flex-row {
   flex-direction: row;
 }
@@ -707,6 +732,10 @@ video {
 
 .gap-\[25px\] {
   gap: 25px;
+}
+
+.gap-\[8px\] {
+  gap: 8px;
 }
 
 .overflow-hidden {
@@ -815,6 +844,11 @@ video {
   padding-bottom: 1.5rem;
 }
 
+.px-\[24px\] {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
 .pr-\[25px\] {
   padding-right: 25px;
 }
@@ -825,6 +859,21 @@ video {
 
 .text-left {
   text-align: left;
+}
+
+.\!text-base {
+  font-size: 1rem !important;
+  line-height: 1.5rem !important;
+}
+
+.\!text-sm {
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+}
+
+.\!text-xs {
+  font-size: 0.75rem !important;
+  line-height: 1rem !important;
 }
 
 .text-4xl {
@@ -850,6 +899,18 @@ video {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+
+.\!font-bold {
+  font-weight: 700 !important;
+}
+
+.\!font-medium {
+  font-weight: 500 !important;
+}
+
+.\!font-semibold {
+  font-weight: 600 !important;
 }
 
 .font-bold {
@@ -906,6 +967,14 @@ video {
 .text-gray-700 {
   --tw-text-opacity: 1;
   color: rgb(55 65 81 / var(--tw-text-opacity));
+}
+
+.text-medium-gray {
+  color: var(--medium-gray);
+}
+
+.text-primary {
+  color: var(--primary-500);
 }
 
 .text-white {
@@ -1077,7 +1146,17 @@ a {
 }
 
 @media (min-width: 768px) {
+  .md\:block {
+    display: block;
+  }
+
   .md\:hidden {
     display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:flex {
+    display: flex;
   }
 }

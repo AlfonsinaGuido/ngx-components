@@ -14,3 +14,10 @@
       }
     }
   }
+
+  .function-button {
+    @apply w-full sm:w-auto
+  }
+  .function-button .evo-button {
+    @apply rounded-full w-full;
+  }

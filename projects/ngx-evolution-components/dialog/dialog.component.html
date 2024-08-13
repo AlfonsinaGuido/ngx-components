@@ -19,6 +19,7 @@
     <mat-dialog-actions class="mx-2 flex flex-col justify-end gap-x-2 sm:flex-row gap-y-2" align="end">
         @for (item of buttonsItems; track item; let idx = $index) {
               <evo-button
+              class="function-button"
               [label]="item.label"
               [icon]="item.icon"
               [theme]="item.theme!"

@@ -22,25 +22,16 @@
 }
 
 @if (buttonsItems.length! > 0) {
-  <mat-dialog-actions align="end" class="px-[24px]">
-    @for (item of buttonsItems; track item; let last = $last, first = $first) {
-      <div
-        [ngStyle]="{
-          'margin-left':
-            buttonsItems.length === 2 && !first
-              ? '0.5em'
-              : !first && !last
-                ? '0.5em'
-                : '0',
-        }"
-      >
+  <mat-dialog-actions align="end" class="px-[24px] flex-col justify-end gap-x-2 sm:flex-row gap-y-2">
+    @for (item of buttonsItems; track item;) {
         <evo-button
+        class="function-button"
           [label]="item.label"
           [icon]="item.icon"
           [theme]="item.theme!"
           [onClick]="item.onClick"
+          matDialogClose
         ></evo-button>
-      </div>
     }
   </mat-dialog-actions>
 }

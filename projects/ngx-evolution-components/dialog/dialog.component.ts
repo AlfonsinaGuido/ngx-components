@@ -41,6 +41,7 @@ export class DialogComponent {
   public simpleContent: string;
   public buttonsItems: ButtonInterface[];
   public closeButton: boolean;
+  public disableClosing: boolean;
 
   constructor(
     public dialogRef: MatDialogRef<DialogComponent>,
@@ -51,6 +52,8 @@ export class DialogComponent {
     this.simpleContent = this.data?.simpleContent || '';
     this.buttonsItems = this.data?.buttonsItems?.map((x) => x) || [];
     this.closeButton = this.data?.closeButton || false;
+    this.disableClosing = this.data?.disableClosing || false;
+    dialogRef.disableClose = this.disableClosing;
   }
 
   closeDialog = {

@@ -1,6 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ColumnaTableroComponent } from './columna-tablero.component';
-import { Duracion, EstadoActividad, IActividad, Prioridad } from '../public-api';
+import {
+  Duracion,
+  EstadoActividad,
+  IActividad,
+  Prioridad,
+} from '../public-api';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 

@@ -1,4 +1,10 @@
-import { CartaActividadComponent, Duracion, EstadoActividad, IActividad, Prioridad } from '@aseinfo/ngx-evolution-components/public-api';
+import {
+  CartaActividadComponent,
+  Duracion,
+  EstadoActividad,
+  IActividad,
+  Prioridad,
+} from '@aseinfo/ngx-evolution-components/public-api';
 import { Meta, StoryObj } from '@storybook/angular';
 
 export default {

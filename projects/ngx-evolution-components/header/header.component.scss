@@ -9,7 +9,8 @@ header {
       background-color: transparent;
       box-shadow: none;
       .evo-button__content .icon {
-        mat-icon, svg {
+        mat-icon,
+        svg {
           color: var(--white-smoke);
         }
       }
@@ -17,7 +18,8 @@ header {
       &:focus {
         background-color: var(--white-smoke);
         .evo-button__content .icon {
-          mat-icon, svg {
+          mat-icon,
+          svg {
             color: var(--accent-500);
           }
         }

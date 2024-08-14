@@ -1,18 +1,14 @@
-<div
-  class="board-layout"
-  id="board"
-  cdkDropListGroup
->
+<div class="board-layout" id="board" cdkDropListGroup>
   @for (columna of columnas; track columna.id) {
-  <div
-    class="inline-block min-w-72 max-w-72 whitespace-normal"
-    id="board-column"
-  >
-    <evo-columna-tablero
-      [name]="columna.nombre"
-      [actividades]="columna.actividades"
+    <div
+      class="inline-block min-w-72 max-w-72 whitespace-normal"
+      id="board-column"
     >
-    </evo-columna-tablero>
-  </div>
+      <evo-columna-tablero
+        [name]="columna.nombre"
+        [actividades]="columna.actividades"
+      >
+      </evo-columna-tablero>
+    </div>
   }
 </div>

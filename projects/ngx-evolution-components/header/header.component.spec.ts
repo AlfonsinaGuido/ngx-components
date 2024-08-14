@@ -67,7 +67,9 @@ describe('HeaderComponent', () => {
     component.companyName = 'Test Company';
 
     fixture.detectChanges();
-    const companyNameElement = fixture.debugElement.query(By.css('.test-company-name'));
+    const companyNameElement = fixture.debugElement.query(
+      By.css('.test-company-name'),
+    );
 
     expect(companyNameElement.nativeElement.textContent).toContain(
       'Test Company',

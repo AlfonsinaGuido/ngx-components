@@ -13,7 +13,9 @@ import { DatePipe } from '@angular/common';
 export class CartaActividadComponent {
   @Input() description!: string;
   @Input() title!: string;
+  @Input() id!: string | number;
   @Input() responsible?: string;
   @Input() priority!: Prioridad;
   @Input() endDate?: Date | string;
+  @Input() twClass?: string;
 }

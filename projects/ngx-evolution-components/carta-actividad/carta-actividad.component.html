@@ -1,5 +1,7 @@
 <div
-  class="relative rounded-xl bg-white px-3 py-2 text-black shadow-md hover:text-primary hover:shadow-lg transition-all"
+  class="flex flex-col justify-between relative rounded-xl bg-white px-2 py-2 text-black shadow-md hover:text-primary hover:shadow-lg transition-all"
+  [class]="twClass"
+  [id]="'activity-'+id"
   tabindex="0"
 >
 @if (priority) {
@@ -8,13 +10,14 @@
     [label]="priority"
   ></evo-tag>
 }
-  <p class="mb-1 text-base font-bold">
-    {{ title }}
-  </p>
-  <p class="text-xs font-light text-gray-500">
-    {{ description }}
-  </p>
-
+  <div>
+    <p class="mb-1 text-base font-bold overflow-hidden line-clamp-1 text-ellipsis">
+      {{ title }}
+    </p>
+    <p class="text-xs font-light text-gray-500 overflow-hidden line-clamp-2 text-ellipsis">
+      {{ description }}
+    </p>
+  </div>
 @if (responsible || endDate) {
   <div
     id="cart-actividad-footer"

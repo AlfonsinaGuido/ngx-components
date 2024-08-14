@@ -11,16 +11,22 @@
   ></evo-tag>
 }
   <div>
-    <p class="mb-1 text-base font-bold overflow-hidden line-clamp-1 text-ellipsis">
+    <p 
+      class="mb-1 text-base font-bold overflow-hidden line-clamp-1 text-ellipsis"
+      id="activity-title"
+    >
       {{ title }}
     </p>
-    <p class="text-xs font-light text-gray-500 overflow-hidden line-clamp-2 text-ellipsis">
+    <p
+      class="text-xs font-light text-gray-500 overflow-hidden line-clamp-2 text-ellipsis"
+      id="activity-description"
+    >
       {{ description }}
     </p>
   </div>
 @if (responsible || endDate) {
   <div
-    id="cart-actividad-footer"
+    id="activity-card-footer"
     class="flex flex-row flex-wrap justify-between items-center mt-2"
   >
   @if (responsible) {

@@ -38,7 +38,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "IActividad[]",
-                "defaultValue": "[\n  {\n    id: 1,\n    titulo: 'Inducción a la empresa',\n    tipo: 'Reunión',\n    fase: 'Antes del primer día',\n    descripcion:\n      'Día de inducción a la empresa. Es necesario asistir presencialmente.',\n    objetivos:\n      'Procurar que el empleado pueda asociarse con los valores de la empresa',\n    prioridad: Prioridad.High,\n    responsable: 'Miguel Perez',\n    duracion: 8,\n    tipoDuracion: Duracion.Horas,\n    realizaEvaluacion: false,\n    status: EstadoActividad.Abierta,\n    fechaFin: new Date(2024, 7, 20),\n  },\n  {\n    id: 2,\n    titulo: 'Curso de Evolution',\n    tipo: 'Capacitación',\n    fase: 'La primera semana',\n    descripcion:\n      'Curso de una semana para el aprendizaje básico del sistema Evolution.',\n    objetivos:\n      'El participante debe llegar a familiarizarse con todos los módulos de Evolution.',\n    prioridad: Prioridad.Medium,\n    responsable: 'Ricardo Hernandez',\n    duracion: 5,\n    tipoDuracion: Duracion.Dias,\n    realizaEvaluacion: true,\n    status: EstadoActividad.EnProgreso,\n    fechaFin: new Date(2024, 7, 20),\n  },\n  {\n    id: 3,\n    titulo: 'Visita Guiada',\n    tipo: 'Reunión',\n    fase: 'Antes del primer día',\n    descripcion: 'Realizar una visita guiada sobre las instalaciones.',\n    objetivos: 'Asignar parqueo y conocer el edificio.',\n    prioridad: Prioridad.Low,\n    responsable: 'Hugo Maldonado',\n    duracion: 2,\n    tipoDuracion: Duracion.Horas,\n    realizaEvaluacion: false,\n    status: EstadoActividad.Cerrada,\n    fechaFin: new Date(2024, 7, 20),\n  },\n  {\n    id: 4,\n    titulo: 'Revisión de documentos',\n    tipo: 'Revisión',\n    fase: 'La primera semana',\n    descripcion: 'Revisión de documentos y firma de contrato.',\n    objetivos: 'Asegurar que todos los documentos estén en orden.',\n    prioridad: Prioridad.High,\n    responsable: 'Miguel Perez',\n    duracion: 2,\n    tipoDuracion: Duracion.Horas,\n    realizaEvaluacion: false,\n    status: EstadoActividad.Abierta,\n    fechaFin: new Date(2024, 7, 20),\n  },\n]"
+                "defaultValue": "[\r\n  {\r\n    id: 1,\r\n    titulo: 'Inducción a la empresa',\r\n    tipo: 'Reunión',\r\n    fase: 'Antes del primer día',\r\n    descripcion:\r\n      'Día de inducción a la empresa. Es necesario asistir presencialmente.',\r\n    objetivos:\r\n      'Procurar que el empleado pueda asociarse con los valores de la empresa',\r\n    prioridad: Prioridad.High,\r\n    responsable: 'Miguel Perez',\r\n    duracion: 8,\r\n    tipoDuracion: Duracion.Horas,\r\n    realizaEvaluacion: false,\r\n    status: EstadoActividad.Abierta,\r\n    fechaFin: new Date(2024, 7, 20),\r\n  },\r\n  {\r\n    id: 2,\r\n    titulo: 'Curso de Evolution',\r\n    tipo: 'Capacitación',\r\n    fase: 'La primera semana',\r\n    descripcion:\r\n      'Curso de una semana para el aprendizaje básico del sistema Evolution.',\r\n    objetivos:\r\n      'El participante debe llegar a familiarizarse con todos los módulos de Evolution.',\r\n    prioridad: Prioridad.Medium,\r\n    responsable: 'Ricardo Hernandez',\r\n    duracion: 5,\r\n    tipoDuracion: Duracion.Dias,\r\n    realizaEvaluacion: true,\r\n    status: EstadoActividad.EnProgreso,\r\n    fechaFin: new Date(2024, 7, 20),\r\n  },\r\n  {\r\n    id: 3,\r\n    titulo: 'Visita Guiada',\r\n    tipo: 'Reunión',\r\n    fase: 'Antes del primer día',\r\n    descripcion: 'Realizar una visita guiada sobre las instalaciones.',\r\n    objetivos: 'Asignar parqueo y conocer el edificio.',\r\n    prioridad: Prioridad.Low,\r\n    responsable: 'Hugo Maldonado',\r\n    duracion: 2,\r\n    tipoDuracion: Duracion.Horas,\r\n    realizaEvaluacion: false,\r\n    status: EstadoActividad.Cerrada,\r\n    fechaFin: new Date(2024, 7, 20),\r\n  },\r\n  {\r\n    id: 4,\r\n    titulo: 'Revisión de documentos',\r\n    tipo: 'Revisión',\r\n    fase: 'La primera semana',\r\n    descripcion: 'Revisión de documentos y firma de contrato.',\r\n    objetivos: 'Asegurar que todos los documentos estén en orden.',\r\n    prioridad: Prioridad.High,\r\n    responsable: 'Miguel Perez',\r\n    duracion: 2,\r\n    tipoDuracion: Duracion.Horas,\r\n    realizaEvaluacion: false,\r\n    status: EstadoActividad.Abierta,\r\n    fechaFin: new Date(2024, 7, 20),\r\n  },\r\n]"
             },
             {
                 "name": "buttonsItemsScrollable",
@@ -108,7 +108,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "IColumna[]",
-                "defaultValue": "[\n  {\n    id: 1,\n    nombre: 'abiertas',\n    actividades: actividades.filter(\n      (act) => act.status === EstadoActividad.Abierta,\n    ),\n  },\n  {\n    id: 2,\n    nombre: 'en progreso',\n    actividades: actividades.filter(\n      (act) => act.status === EstadoActividad.EnProgreso,\n    ),\n  },\n  {\n    id: 3,\n    nombre: 'finalizadas',\n    actividades: actividades.filter(\n      (act) => act.status === EstadoActividad.Cerrada,\n    ),\n  },\n]"
+                "defaultValue": "[\r\n  {\r\n    id: 1,\r\n    nombre: 'abiertas',\r\n    actividades: actividades.filter(\r\n      (act) => act.status === EstadoActividad.Abierta,\r\n    ),\r\n  },\r\n  {\r\n    id: 2,\r\n    nombre: 'en progreso',\r\n    actividades: actividades.filter(\r\n      (act) => act.status === EstadoActividad.EnProgreso,\r\n    ),\r\n  },\r\n  {\r\n    id: 3,\r\n    nombre: 'finalizadas',\r\n    actividades: actividades.filter(\r\n      (act) => act.status === EstadoActividad.Cerrada,\r\n    ),\r\n  },\r\n]"
             },
             {
                 "name": "Default",
@@ -218,7 +218,17 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    columnas,\n  },\n}"
+                "defaultValue": "{\r\n  args: {\r\n    columnas,\r\n  },\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/tablero-skeleton.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    columns: 3,\n  },\n}"
             },
             {
                 "name": "Disabled",
@@ -389,6 +399,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    isFluid: true,\r\n  },\r\n}"
+            },
+            {
+                "name": "masColumnas",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/tablero-skeleton.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    columns: 5,\n  },\n}"
             },
             {
                 "name": "meta",
@@ -1035,6 +1055,17 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<TableroSkeletonComponent>",
+                "file": "stories/tablero-skeleton.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<TagComponent>",
                 "file": "stories/tag.stories.ts",
                 "deprecated": false,
@@ -1168,7 +1199,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "IActividad[]",
-                    "defaultValue": "[\n  {\n    id: 1,\n    titulo: 'Inducción a la empresa',\n    tipo: 'Reunión',\n    fase: 'Antes del primer día',\n    descripcion:\n      'Día de inducción a la empresa. Es necesario asistir presencialmente.',\n    objetivos:\n      'Procurar que el empleado pueda asociarse con los valores de la empresa',\n    prioridad: Prioridad.High,\n    responsable: 'Miguel Perez',\n    duracion: 8,\n    tipoDuracion: Duracion.Horas,\n    realizaEvaluacion: false,\n    status: EstadoActividad.Abierta,\n    fechaFin: new Date(2024, 7, 20),\n  },\n  {\n    id: 2,\n    titulo: 'Curso de Evolution',\n    tipo: 'Capacitación',\n    fase: 'La primera semana',\n    descripcion:\n      'Curso de una semana para el aprendizaje básico del sistema Evolution.',\n    objetivos:\n      'El participante debe llegar a familiarizarse con todos los módulos de Evolution.',\n    prioridad: Prioridad.Medium,\n    responsable: 'Ricardo Hernandez',\n    duracion: 5,\n    tipoDuracion: Duracion.Dias,\n    realizaEvaluacion: true,\n    status: EstadoActividad.EnProgreso,\n    fechaFin: new Date(2024, 7, 20),\n  },\n  {\n    id: 3,\n    titulo: 'Visita Guiada',\n    tipo: 'Reunión',\n    fase: 'Antes del primer día',\n    descripcion: 'Realizar una visita guiada sobre las instalaciones.',\n    objetivos: 'Asignar parqueo y conocer el edificio.',\n    prioridad: Prioridad.Low,\n    responsable: 'Hugo Maldonado',\n    duracion: 2,\n    tipoDuracion: Duracion.Horas,\n    realizaEvaluacion: false,\n    status: EstadoActividad.Cerrada,\n    fechaFin: new Date(2024, 7, 20),\n  },\n  {\n    id: 4,\n    titulo: 'Revisión de documentos',\n    tipo: 'Revisión',\n    fase: 'La primera semana',\n    descripcion: 'Revisión de documentos y firma de contrato.',\n    objetivos: 'Asegurar que todos los documentos estén en orden.',\n    prioridad: Prioridad.High,\n    responsable: 'Miguel Perez',\n    duracion: 2,\n    tipoDuracion: Duracion.Horas,\n    realizaEvaluacion: false,\n    status: EstadoActividad.Abierta,\n    fechaFin: new Date(2024, 7, 20),\n  },\n]"
+                    "defaultValue": "[\r\n  {\r\n    id: 1,\r\n    titulo: 'Inducción a la empresa',\r\n    tipo: 'Reunión',\r\n    fase: 'Antes del primer día',\r\n    descripcion:\r\n      'Día de inducción a la empresa. Es necesario asistir presencialmente.',\r\n    objetivos:\r\n      'Procurar que el empleado pueda asociarse con los valores de la empresa',\r\n    prioridad: Prioridad.High,\r\n    responsable: 'Miguel Perez',\r\n    duracion: 8,\r\n    tipoDuracion: Duracion.Horas,\r\n    realizaEvaluacion: false,\r\n    status: EstadoActividad.Abierta,\r\n    fechaFin: new Date(2024, 7, 20),\r\n  },\r\n  {\r\n    id: 2,\r\n    titulo: 'Curso de Evolution',\r\n    tipo: 'Capacitación',\r\n    fase: 'La primera semana',\r\n    descripcion:\r\n      'Curso de una semana para el aprendizaje básico del sistema Evolution.',\r\n    objetivos:\r\n      'El participante debe llegar a familiarizarse con todos los módulos de Evolution.',\r\n    prioridad: Prioridad.Medium,\r\n    responsable: 'Ricardo Hernandez',\r\n    duracion: 5,\r\n    tipoDuracion: Duracion.Dias,\r\n    realizaEvaluacion: true,\r\n    status: EstadoActividad.EnProgreso,\r\n    fechaFin: new Date(2024, 7, 20),\r\n  },\r\n  {\r\n    id: 3,\r\n    titulo: 'Visita Guiada',\r\n    tipo: 'Reunión',\r\n    fase: 'Antes del primer día',\r\n    descripcion: 'Realizar una visita guiada sobre las instalaciones.',\r\n    objetivos: 'Asignar parqueo y conocer el edificio.',\r\n    prioridad: Prioridad.Low,\r\n    responsable: 'Hugo Maldonado',\r\n    duracion: 2,\r\n    tipoDuracion: Duracion.Horas,\r\n    realizaEvaluacion: false,\r\n    status: EstadoActividad.Cerrada,\r\n    fechaFin: new Date(2024, 7, 20),\r\n  },\r\n  {\r\n    id: 4,\r\n    titulo: 'Revisión de documentos',\r\n    tipo: 'Revisión',\r\n    fase: 'La primera semana',\r\n    descripcion: 'Revisión de documentos y firma de contrato.',\r\n    objetivos: 'Asegurar que todos los documentos estén en orden.',\r\n    prioridad: Prioridad.High,\r\n    responsable: 'Miguel Perez',\r\n    duracion: 2,\r\n    tipoDuracion: Duracion.Horas,\r\n    realizaEvaluacion: false,\r\n    status: EstadoActividad.Abierta,\r\n    fechaFin: new Date(2024, 7, 20),\r\n  },\r\n]"
                 },
                 {
                     "name": "columnas",
@@ -1178,7 +1209,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "IColumna[]",
-                    "defaultValue": "[\n  {\n    id: 1,\n    nombre: 'abiertas',\n    actividades: actividades.filter(\n      (act) => act.status === EstadoActividad.Abierta,\n    ),\n  },\n  {\n    id: 2,\n    nombre: 'en progreso',\n    actividades: actividades.filter(\n      (act) => act.status === EstadoActividad.EnProgreso,\n    ),\n  },\n  {\n    id: 3,\n    nombre: 'finalizadas',\n    actividades: actividades.filter(\n      (act) => act.status === EstadoActividad.Cerrada,\n    ),\n  },\n]"
+                    "defaultValue": "[\r\n  {\r\n    id: 1,\r\n    nombre: 'abiertas',\r\n    actividades: actividades.filter(\r\n      (act) => act.status === EstadoActividad.Abierta,\r\n    ),\r\n  },\r\n  {\r\n    id: 2,\r\n    nombre: 'en progreso',\r\n    actividades: actividades.filter(\r\n      (act) => act.status === EstadoActividad.EnProgreso,\r\n    ),\r\n  },\r\n  {\r\n    id: 3,\r\n    nombre: 'finalizadas',\r\n    actividades: actividades.filter(\r\n      (act) => act.status === EstadoActividad.Cerrada,\r\n    ),\r\n  },\r\n]"
                 },
                 {
                     "name": "Default",
@@ -1188,7 +1219,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    columnas,\n  },\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    columnas,\r\n  },\r\n}"
                 }
             ],
             "stories/dialog.stories.ts": [
@@ -1879,6 +1910,28 @@
                     "defaultValue": "{\r\n  title: 'Evolution Components/Svg',\r\n  component: SvgComponent,\r\n  tags: ['autodocs'],\r\n}"
                 }
             ],
+            "stories/tablero-skeleton.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/tablero-skeleton.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    columns: 3,\n  },\n}"
+                },
+                {
+                    "name": "masColumnas",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/tablero-skeleton.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    columns: 5,\n  },\n}"
+                }
+            ],
             "stories/avatar.stories.ts": [
                 {
                     "name": "fotoDePerfil",
@@ -2115,6 +2168,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<TableroKanbanComponent>",
                     "file": "stories/tablero-kanban.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "stories/tablero-skeleton.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<TableroSkeletonComponent>",
+                    "file": "stories/tablero-skeleton.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -2957,6 +3023,26 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/tablero-skeleton.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/tablero-skeleton.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "masColumnas",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

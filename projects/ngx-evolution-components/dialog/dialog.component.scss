@@ -11,3 +11,31 @@
 .function-button .evo-button {
   @apply rounded-full w-full;
 }
+
+.function-button .evo-button__content .label {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.mat-dialog-container {
+  border-radius: 20px !important;
+}
+
+.mdc-dialog__title {
+  // font-weight: 600 !important;
+  --mdc-dialog-subhead-weight: 700;
+  --mdc-dialog-subhead-size: 20px;
+}
+
+.mdc-dialog__content {
+  --mdc-dialog-supporting-text-size: 15px;
+}
+
+
+.mat-mdc-dialog-container .mdc-dialog__title {
+  // font-weight: 600 !important;
+}
+
+.mat-mdc-dialog-container {
+  --mdc-dialog-container-shape: 20px;
+}

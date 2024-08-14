@@ -155,11 +155,11 @@ export const buttonsItemsScrollable: Story = {
 export const closeButton: Story = {
   args: {
     title: 'Dialogo de testing',
-    simpleContent: 'Testing de prueba para dialogo',
+    simpleContent: 'Testing de prueba para dialogo para comprobar que tanto se puede expandir el texto el dialogo',
     buttonsItems: [
       {
         label: 'Item 1',
-        theme: 'warning',
+        theme: 'secondary',
         onClick: {
           action: Testing1,
         },

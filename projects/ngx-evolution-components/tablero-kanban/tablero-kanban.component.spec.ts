@@ -124,7 +124,7 @@ describe('TableroKanbanComponent', () => {
 
     columnasEl.forEach((columna, index) => {
       const titleEl = columna.querySelector('#column-title');
-      expect(titleEl?.textContent).toEqual(columnas[index].nombre);
+      expect(titleEl?.textContent).toEqual(` ${columnas[index].nombre} `);
     });
   });
 

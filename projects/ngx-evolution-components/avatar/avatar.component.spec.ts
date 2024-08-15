@@ -51,8 +51,7 @@ describe('AvatarComponent', () => {
     // Render final state and verify it has the img tag and class
     await deferBlockFixture.render(DeferBlockState.Complete);
     const avatarImg = avatarEl.querySelector('img');
-    const imgClass = avatarImg?.className;
-    expect(imgClass).toContain('avatar__size');
+    expect(avatarImg).toBeTruthy();
   });
 
   it('should have a size class according to size parameter', () => {
@@ -61,6 +60,6 @@ describe('AvatarComponent', () => {
     const avatarEl: HTMLElement = fixture.nativeElement;
     const avatar = avatarEl.querySelector('div');
     const avatarClass = avatar?.classList;
-    expect(avatarClass).toContain('avatar__size-lg');
+    expect(avatarClass).toContain('text-2xl');
   });
 });

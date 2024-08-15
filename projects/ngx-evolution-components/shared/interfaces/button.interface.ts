@@ -20,7 +20,3 @@ export interface ButtonInterface {
 export interface ButtonActionInterface {
   action: (param?: any) => any | void | {};
 }
-
-export interface ButtonActionInterface {
-  action: (param?: any) => any | void | {};
-}

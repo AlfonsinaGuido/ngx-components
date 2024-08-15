@@ -44,7 +44,9 @@
             "compodoc": true,
             "compodocArgs": ["-e", "json", "-d", "."],
             "port": 6006,
-            "styles": ["projects/ngx-evolution-components/styles/storybook.scss"]
+            "styles": [
+              "projects/ngx-evolution-components/styles/storybook.scss"
+            ]
           }
         },
         "build-storybook": {

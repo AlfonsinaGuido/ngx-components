@@ -4,26 +4,18 @@
   [class]="bgColor + ' ' + avatarSizeClass"
 >
   @if (!imgUrl) {
-    <span
-      class="font-semibold"
-      [class]="textColor"
-      >{{ iniciales }}
-    </span>
+    <span class="font-semibold" [class]="textColor">{{ iniciales }} </span>
   } @else {
     @defer {
       <img
-        [class]="'avatar__size-'+size"
+        [class]="'avatar__size-' + size"
         [ngSrc]="imgUrl"
         [priority]="isPriority"
         alt="Avatar Icon"
         fill
-      >
+      />
     } @placeholder {
-      <span
-        class="font-semibold"
-        [class]="textColor"
-        >{{ iniciales }}
-      </span>
+      <span class="font-semibold" [class]="textColor">{{ iniciales }} </span>
     }
   }
 </div>

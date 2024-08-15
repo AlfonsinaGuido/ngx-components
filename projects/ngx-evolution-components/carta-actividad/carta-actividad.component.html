@@ -1,17 +1,14 @@
 <div
   class="flex flex-col justify-between relative rounded-xl bg-white px-2 py-2 text-black shadow-md hover:text-primary hover:shadow-lg transition-all"
   [class]="twClass"
-  [id]="'activity-'+id"
+  [id]="'activity-' + id"
   tabindex="0"
 >
-@if (priority) {
-  <evo-tag
-    [prioridad]="priority"
-    [label]="priority"
-  ></evo-tag>
-}
+  @if (priority) {
+    <evo-tag [prioridad]="priority" [label]="priority"></evo-tag>
+  }
   <div>
-    <p 
+    <p
       class="mb-1 text-base font-bold overflow-hidden line-clamp-1 text-ellipsis"
       id="activity-title"
     >
@@ -24,19 +21,20 @@
       {{ description }}
     </p>
   </div>
-@if (responsible || endDate) {
-  <div
-    id="activity-card-footer"
-    class="flex flex-row flex-wrap justify-between items-center mt-2"
-  >
-  @if (responsible) {
-    <evo-avatar size="sm" [name]="responsible"></evo-avatar>
+  @if (responsible || endDate) {
+    <div
+      id="activity-card-footer"
+      class="flex flex-row flex-wrap justify-between items-center mt-2"
+    >
+      @if (responsible) {
+        <evo-avatar size="sm" [name]="responsible"></evo-avatar>
+      }
+      @if (endDate) {
+        <span id="endDate" class="text-base flex items-center"
+          >📅
+          <p class="text-xs font-light">{{ endDate }}</p>
+        </span>
+      }
+    </div>
   }
-  @if (endDate) {
-    <span id="endDate" class="text-base flex items-center">📅
-      <p class="text-xs font-light">{{ endDate }}</p>
-    </span>
-  }
-  </div>
-}
 </div>

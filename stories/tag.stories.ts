@@ -1,5 +1,8 @@
 import { Meta, StoryObj } from '@storybook/angular';
-import { Prioridad, TagComponent } from '@aseinfo/ngx-evolution-components/public-api';
+import {
+  Prioridad,
+  TagComponent,
+} from '@aseinfo/ngx-evolution-components/public-api';
 
 type Story = StoryObj<TagComponent>;
 export default {

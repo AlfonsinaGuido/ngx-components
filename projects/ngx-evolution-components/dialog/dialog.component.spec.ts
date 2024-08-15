@@ -25,12 +25,15 @@ const scrollableMockData = `
   <p>Achieve the maximum speed possible on the Web Platform today, and take it further, via Web
     Workers and server-side rendering. Angular puts you in control over scalability. Meet huge
     data requirements by building data models on RxJS, Immutable.js or another push-model.</p>
-  `
+  `;
 
 const mockDataSingleContent = {
   title: title,
   simpleContent: simpleContent,
-  buttonsItems: [{ label: 'Item 1', theme: 'warning' }, { label: 'Item 2', theme: 'primary' }],
+  buttonsItems: [
+    { label: 'Item 1', theme: 'warning' },
+    { label: 'Item 2', theme: 'primary' },
+  ],
 };
 
 const mockDataScrollableContent = {
@@ -48,11 +51,10 @@ describe('DialogComponent have simple content with action buttons', () => {
       imports: [DialogComponent],
       providers: [
         { provide: MAT_DIALOG_DATA, useValue: mockDataSingleContent },
-        {provide: MatDialogRef, useValue: {}}
-      ]
-    })
-    .compileComponents();
-    
+        { provide: MatDialogRef, useValue: {} },
+      ],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(DialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -67,31 +69,29 @@ describe('DialogComponent have simple content with action buttons', () => {
     expect(component.scrollableContent).toBe('');
     expect(component.simpleContent).toBe(simpleContent);
     expect(component.buttonsItems.length).toEqual(2);
-  })
+  });
 
-  it('should have 2 buttons in the dialog ', async() => {
+  it('should have 2 buttons in the dialog ', async () => {
     fixture.detectChanges();
 
     const menuItems = fixture.debugElement.queryAll(By.css('evo-button'));
     expect(menuItems.length).toBe(2);
-  })
+  });
 });
 
 describe('DialogComponent have scrollable content with action buttons', () => {
   let component: DialogComponent;
   let fixture: ComponentFixture<DialogComponent>;
 
-
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [DialogComponent],
       providers: [
         { provide: MAT_DIALOG_DATA, useValue: mockDataScrollableContent },
-        {provide: MatDialogRef, useValue: {}}
-      ]
-    })
-    .compileComponents();
-    
+        { provide: MatDialogRef, useValue: {} },
+      ],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(DialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -108,29 +108,27 @@ describe('DialogComponent have scrollable content with action buttons', () => {
     expect(component.buttonsItems.length).toEqual(1);
   });
 
-  it('should have 1 buttons in the dialog ', async() => {
+  it('should have 1 buttons in the dialog ', async () => {
     fixture.detectChanges();
 
     const menuItems = fixture.debugElement.queryAll(By.css('evo-button'));
     expect(menuItems.length).toBe(1);
-  })
+  });
 });
 
 describe('DialogComponent have not data, and should use default data', () => {
   let component: DialogComponent;
   let fixture: ComponentFixture<DialogComponent>;
 
-
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [DialogComponent],
       providers: [
-        { provide: MAT_DIALOG_DATA, useValue: {}},
-        {provide: MatDialogRef, useValue: {}}
-      ]
-    })
-    .compileComponents();
-    
+        { provide: MAT_DIALOG_DATA, useValue: {} },
+        { provide: MatDialogRef, useValue: {} },
+      ],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(DialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -147,10 +145,10 @@ describe('DialogComponent have not data, and should use default data', () => {
     expect(component.buttonsItems.length).toEqual(0);
   });
 
-  it('should have 1 buttons in the dialog ', async() => {
+  it('should have 1 buttons in the dialog ', async () => {
     fixture.detectChanges();
 
     const menuItems = fixture.debugElement.queryAll(By.css('evo-button'));
     expect(menuItems.length).toBe(0);
-  })
+  });
 });

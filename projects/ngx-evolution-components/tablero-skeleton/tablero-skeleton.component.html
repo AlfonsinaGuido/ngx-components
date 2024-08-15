@@ -1,12 +1,6 @@
-<div
-  class="board-layout animate-pulse"
-  id="loading-board"
->
+<div class="board-layout animate-pulse" id="loading-board">
   @for (i of columnArray; track $index) {
-    <div
-      class="flex flex-col gap-4"
-      id="loading-board-column"
-    >
+    <div class="flex flex-col gap-4" id="loading-board-column">
       <div class="skeleton h-3 w-3/4"></div>
       <div
         class="flex flex-col justify-between gap-2 rounded-xl bg-gray-50 p-2 shadow-md h-36 w-72"

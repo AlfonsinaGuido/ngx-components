@@ -18,10 +18,7 @@
   }
   <ng-template #contentTemplate>
     @if (icon && icon.position === "left") {
-      <div
-        [class]="{ 'me-2': icon.position === 'left' && label }"
-        class="icon"
-      >
+      <div [class]="{ 'me-2': icon.position === 'left' && label }" class="icon">
         @if (icon.type === "svg") {
           <evo-svg [svgPath]="icon.icon"></evo-svg>
         }

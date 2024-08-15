@@ -45,7 +45,7 @@ export class DialogComponent {
 
   constructor(
     public dialogRef: MatDialogRef<DialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogInterface
+    @Inject(MAT_DIALOG_DATA) public data: DialogInterface,
   ) {
     this.title = this.data?.title || '';
     this.scrollableContent = this.data?.scrollableContent || '';
@@ -59,6 +59,6 @@ export class DialogComponent {
   closeDialog = {
     action: () => {
       this.dialogRef.close();
-    }
-  } 
+    },
+  };
 }

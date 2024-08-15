@@ -8,13 +8,13 @@ describe('SvgComponent', () => {
   let mockSanitizer: jasmine.SpyObj<DomSanitizer>;
 
   beforeEach(async () => {
-    mockSanitizer = jasmine.createSpyObj('DomSanitizer', ['bypassSecurityTrustHtml']);
+    mockSanitizer = jasmine.createSpyObj('DomSanitizer', [
+      'bypassSecurityTrustHtml',
+    ]);
 
     await TestBed.configureTestingModule({
       imports: [SvgComponent],
-      providers: [
-        { provide: DomSanitizer, useValue: mockSanitizer }
-      ],
+      providers: [{ provide: DomSanitizer, useValue: mockSanitizer }],
     }).compileComponents();
 
     fixture = TestBed.createComponent(SvgComponent);
@@ -32,15 +32,20 @@ describe('SvgComponent', () => {
 
   it('should sanitize SVG content correctly, loadSvg()', () => {
     const svgContent = '<svg>...</svg>';
-    mockSanitizer.bypassSecurityTrustHtml.and.returnValue(svgContent as SafeHtml);
+    mockSanitizer.bypassSecurityTrustHtml.and.returnValue(
+      svgContent as SafeHtml,
+    );
     component.svgPath = 'assets/test.svg';
-    
+
     component['loadSvg'] = () => {
-      component.svgContent = mockSanitizer.bypassSecurityTrustHtml('<svg>...</svg>');
+      component.svgContent =
+        mockSanitizer.bypassSecurityTrustHtml('<svg>...</svg>');
     };
     component['loadSvg']();
 
-    expect(mockSanitizer.bypassSecurityTrustHtml).toHaveBeenCalledWith('<svg>...</svg>');
+    expect(mockSanitizer.bypassSecurityTrustHtml).toHaveBeenCalledWith(
+      '<svg>...</svg>',
+    );
     expect(component.svgContent).toBe(svgContent);
   });
 

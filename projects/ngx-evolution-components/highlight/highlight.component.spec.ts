@@ -9,10 +9,9 @@ describe('HighlightComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HighlightComponent]
-    })
-    .compileComponents();
-    
+      imports: [HighlightComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(HighlightComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -56,5 +55,5 @@ describe('HighlightComponent', () => {
     expect(title.length).toBe(1);
     expect(subtitle.length).toBe(0);
     expect(cardtext.length).toBe(0);
-  })
+  });
 });

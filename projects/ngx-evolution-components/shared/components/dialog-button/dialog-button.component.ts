@@ -1,6 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ButtonInterface, DialogComponent, IconInterface } from '@aseinfo/ngx-evolution-components/public-api';
+import {
+  ButtonInterface,
+  DialogComponent,
+  IconInterface,
+} from '@aseinfo/ngx-evolution-components/public-api';
 import { closeButton } from 'stories/dialog.stories';
 
 @Component({
@@ -8,7 +12,7 @@ import { closeButton } from 'stories/dialog.stories';
   standalone: true,
   imports: [DialogComponent],
   templateUrl: './dialog-button.component.html',
-  styleUrl: './dialog-button.component.scss'
+  styleUrl: './dialog-button.component.scss',
 })
 export class DialogButtonComponent {
   @Input() title: string = '';
@@ -30,7 +34,7 @@ export class DialogButtonComponent {
         buttonsItems: this.buttonsItems,
         buttonsFunctions: this.buttonsFunctions,
         closeButton: this.closeButton,
-        disableClosing: this.disableClosing
+        disableClosing: this.disableClosing,
       },
     });
   }

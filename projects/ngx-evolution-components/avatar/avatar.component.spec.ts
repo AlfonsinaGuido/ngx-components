@@ -55,6 +55,9 @@ describe('AvatarComponent', () => {
   });
 
   it('should have a size class according to size parameter', () => {
+    const fixture = TestBed.createComponent(AvatarComponent);
+    const component = fixture.componentInstance;
+    component.name = mockName;
     component.size = 'lg';
     fixture.detectChanges();
     const avatarEl: HTMLElement = fixture.nativeElement;

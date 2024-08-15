@@ -1,7 +1,7 @@
 <div
   id="avatar-wrapper"
   class="relative rounded-full overflow-hidden flex items-center justify-center"
-  [class]="[bgColor, 'avatar__size-'+size]"
+  [class]="bgColor + ' ' + avatarSizeClass"
 >
   @if (!imgUrl) {
     <span

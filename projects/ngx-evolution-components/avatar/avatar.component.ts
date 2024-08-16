@@ -12,7 +12,6 @@ export class AvatarComponent implements OnInit {
   public iniciales!: string;
   public textColor!: string;
   public bgColor!: string;
-  public avatarSizeClass!: string;
   @Input() size: 'sm' | 'md' | 'lg' = 'md';
   @Input() name!: string;
   @Input() imgUrl?: string;
@@ -31,7 +30,6 @@ export class AvatarComponent implements OnInit {
   ngOnInit(): void {
     this.setIniciales();
     this.setColors();
-    this.avatarSizeClass = this.setAvatarSizeClass();
   }
 
   /**
@@ -58,16 +56,5 @@ export class AvatarComponent implements OnInit {
   private setColors() {
     this.textColor = `text-${this.color}-700`;
     this.bgColor = `bg-${this.color}-50`;
-  }
-
-  private setAvatarSizeClass() {
-    switch (this.size) {
-      case 'sm':
-        return 'size-8 text-sm';
-      case 'md':
-        return 'size-12 text-lg';
-      case 'lg':
-        return 'size-16 text-2xl';
-    }
   }
 }

@@ -1,10 +1,10 @@
 <div
   id="avatar-wrapper"
   class="relative rounded-full overflow-hidden flex items-center justify-center"
-  [class]="bgColor + ' ' + avatarSizeClass"
+  [class]="[bgColor, 'avatar__size-' + size]"
 >
   @if (!imgUrl) {
-    <span class="font-semibold" [class]="textColor">{{ iniciales }} </span>
+    <span class="font-semibold" [class]="textColor">{{ iniciales }}</span>
   } @else {
     @defer {
       <img
@@ -15,7 +15,7 @@
         fill
       />
     } @placeholder {
-      <span class="font-semibold" [class]="textColor">{{ iniciales }} </span>
+      <span class="font-semibold" [class]="textColor">{{ iniciales }}</span>
     }
   }
 </div>

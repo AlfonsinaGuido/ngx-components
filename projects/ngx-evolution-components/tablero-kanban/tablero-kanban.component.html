@@ -1,4 +1,9 @@
-<div class="board-layout" id="board" cdkDropListGroup>
+<div
+  class="flex flex-nowrap gap-4 h-screen overflow-auto bg-gray-50 px-4 py-6 sm:mt-8 sm:px-4"
+  [class]="twClass"
+  id="board"
+  cdkDropListGroup
+>
   @for (columna of columnas; track columna.id) {
     <div
       class="inline-block min-w-72 max-w-72 whitespace-normal"

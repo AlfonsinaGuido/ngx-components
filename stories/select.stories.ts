@@ -6,13 +6,14 @@ import {
 } from '@storybook/angular';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { FormBuilder, FormControl } from '@angular/forms';
+import { provideHttpClient } from '@angular/common/http';
 
 const meta: Meta<SelectComponent> = {
   title: 'Evolution Components/Select',
   component: SelectComponent,
   decorators: [
     applicationConfig({
-      providers: [provideAnimationsAsync()],
+      providers: [provideAnimationsAsync(), provideHttpClient()],
     }),
   ],
   tags: ['autodocs'],

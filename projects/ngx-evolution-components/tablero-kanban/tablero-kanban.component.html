@@ -4,7 +4,7 @@
   id="board"
   cdkDropListGroup
 >
-  @for (columna of columnas; track columna.id) {
+  @for (columna of columnas; track $index) {
     <div
       class="inline-block min-w-72 max-w-72 whitespace-normal"
       id="board-column"
@@ -12,6 +12,7 @@
       <evo-columna-tablero
         [name]="columna.nombre"
         [actividades]="columna.actividades"
+        [index]="$index"
       >
       </evo-columna-tablero>
     </div>

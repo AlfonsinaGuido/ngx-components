@@ -1,5 +1,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { CartaActividadComponent, IActividad } from '../public-api';
+import {
+  CartaActividadComponent,
+  HeaderColumnaComponent,
+  IActividad,
+} from '../public-api';
 import { CommonModule } from '@angular/common';
 import {
   DragDropModule,
@@ -11,13 +15,19 @@ import {
 @Component({
   selector: 'evo-columna-tablero',
   standalone: true,
-  imports: [CartaActividadComponent, CommonModule, DragDropModule],
+  imports: [
+    CartaActividadComponent,
+    CommonModule,
+    DragDropModule,
+    HeaderColumnaComponent,
+  ],
   templateUrl: './columna-tablero.component.html',
   styleUrls: ['./columna-tablero.component.scss', '../styles/output.scss'],
 })
 export class ColumnaTableroComponent {
   @Input() actividades!: IActividad[];
   @Input() name!: string;
+  @Input() index: number = 0;
   @Output('ordenActividad')
   public ordenActividad: EventEmitter<any> = new EventEmitter();
   @Output('actualizarActividad')

@@ -17,7 +17,12 @@ export default {
     prioridad: {
       type: 'string',
       control: { type: 'inline-radio' },
-      options: [Prioridad.High, Prioridad.Medium, Prioridad.Low],
+      options: [
+        Prioridad.High,
+        Prioridad.Medium,
+        Prioridad.Low,
+        Prioridad.None,
+      ],
     },
     size: {
       type: 'string',

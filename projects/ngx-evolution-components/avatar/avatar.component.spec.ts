@@ -25,32 +25,24 @@ describe('AvatarComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
   it('should have only the first two letters of a name', () => {
     const tagEl: HTMLElement = fixture.nativeElement;
     expect(tagEl.textContent).toContain('JP');
   });
 
-  it('should render initials in placeholder, then have img tag once loaded', async () => {
+  it('should render img when parameter is set', async () => {
     const fixture = TestBed.createComponent(AvatarComponent);
     const component = fixture.componentInstance;
     component.imgUrl = mockUrl;
     component.name = mockName;
     fixture.detectChanges();
 
-    // Retrieve the list of all defer block fixtures and get the first block.
-    const deferBlockFixture = (await fixture.getDeferBlocks())[0];
-
     // Renders placeholder state by default
     const avatarEl: HTMLElement = fixture.nativeElement;
-    expect(avatarEl.textContent).toContain('JP');
 
     // Render final state and verify it has the img tag and class
-    await deferBlockFixture.render(DeferBlockState.Complete);
     const avatarImg = avatarEl.querySelector('img');
+    expect(avatarImg).toBeTruthy();
     const imgClass = avatarImg?.className;
     expect(imgClass).toContain('avatar__size');
   });

@@ -29,7 +29,6 @@ describe('TableroSkeletonComponent', () => {
 
     const colEl: HTMLElement = fixture.nativeElement;
     const columnasEl = colEl.querySelectorAll('#loading-board-column');
-    console.log(columnasEl);
     expect(columnasEl.length).toEqual(5);
   });
 

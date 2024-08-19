@@ -20,20 +20,20 @@ describe('TagComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should have "tag_size-sm" css class by default', () => {
+  it('should have "tag__size-sm" css class by default', () => {
     const tagEl: HTMLElement = fixture.nativeElement;
     const tag = tagEl.querySelector('p');
     const tagClass = tag?.className;
-    expect(tagClass).toContain('tag_size-sm');
+    expect(tagClass).toContain('tag__size-sm');
   });
 
-  it('should have "tag_size-md" class when set on medium size', () => {
+  it('should have "tag__size-md" class when set on medium size', () => {
     component.size = 'md';
     fixture.detectChanges();
     const tagEl: HTMLElement = fixture.nativeElement;
     const tag = tagEl.querySelector('p');
     const tagClass = tag?.className;
-    expect(tagClass).toContain('tag_size-md');
+    expect(tagClass).toContain('tag__size-md');
   });
 
   it('should have "Alta" css class when priority set to high', () => {

@@ -208,7 +208,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    svgPath: 'company-logo.svg',\n    classes: '',\n  },\n}"
+        "defaultValue": "{\n  args: {\n    svgPath: 'bell.svg',\n    classes: '',\n  },\n}"
       },
       {
         "name": "Default",
@@ -1897,7 +1897,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    svgPath: 'company-logo.svg',\n    classes: '',\n  },\n}"
+          "defaultValue": "{\n  args: {\n    svgPath: 'bell.svg',\n    classes: '',\n  },\n}"
         },
         {
           "name": "meta",

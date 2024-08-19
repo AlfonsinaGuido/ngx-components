@@ -1,23 +1,23 @@
-.Alta {
+.tag__Alta {
   @apply bg-red-50 text-red-500;
 }
 
-.Media {
+.tag__Media {
   @apply bg-yellow-50 text-yellow-500;
 }
 
-.Baja {
+.tag__Baja {
   @apply bg-indigo-50 text-indigo-500;
 }
 
-.tag_size-sm {
+.tag__size-sm {
   @apply text-tiny font-bold px-1;
 }
 
-.tag_size-md {
+.tag__size-md {
   @apply text-sm p-1;
 }
 
-.tag_size-lg {
+.tag__size-lg {
   @apply text-lg py-1 px-2;
 }

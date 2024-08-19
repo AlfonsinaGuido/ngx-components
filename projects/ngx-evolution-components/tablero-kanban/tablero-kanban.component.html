@@ -9,6 +9,11 @@
       class="inline-block min-w-72 max-w-72 whitespace-normal"
       id="board-column"
     >
+      <evo-header-columna
+        [name]="columna.nombre"
+        [count]="columna.actividades.length"
+        [index]="$index"
+      ></evo-header-columna>
       <evo-columna-tablero
         [name]="columna.nombre"
         [actividades]="columna.actividades"

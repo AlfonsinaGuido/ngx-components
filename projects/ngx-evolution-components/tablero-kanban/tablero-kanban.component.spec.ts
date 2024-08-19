@@ -123,8 +123,9 @@ describe('TableroKanbanComponent', () => {
     const columnasEl = colEl.querySelectorAll('#board-column');
 
     columnasEl.forEach((columna, index) => {
-      const titleEl = columna.querySelector('#column-title');
-      expect(titleEl?.textContent).toEqual(` ${columnas[index].nombre} `);
+      const titleEl = columna.querySelector('#column-header');
+      const header = titleEl?.querySelector('p');
+      expect(header?.textContent).toEqual(columnas[index].nombre);
     });
   });
 

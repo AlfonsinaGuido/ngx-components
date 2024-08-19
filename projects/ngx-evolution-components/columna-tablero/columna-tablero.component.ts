@@ -15,12 +15,7 @@ import {
 @Component({
   selector: 'evo-columna-tablero',
   standalone: true,
-  imports: [
-    CartaActividadComponent,
-    CommonModule,
-    DragDropModule,
-    HeaderColumnaComponent,
-  ],
+  imports: [CartaActividadComponent, CommonModule, DragDropModule],
   templateUrl: './columna-tablero.component.html',
   styleUrls: ['./columna-tablero.component.scss', '../styles/output.scss'],
 })

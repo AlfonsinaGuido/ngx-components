@@ -11,7 +11,7 @@ const meta: Meta<ButtonComponent> = {
 export default meta;
 type Story = StoryObj<ButtonComponent>;
 
-const Testing = (a:number,b:number): any => {
+const Testing = (a: number, b: number): any => {
   let res = a + b;
   console.log('res => ', res);
 };
@@ -132,14 +132,14 @@ const Testing2 = () => {
 };
 
 const functionTest = {
-  action: Testing2
-}
+  action: Testing2,
+};
 
 export const onClick: Story = {
   args: {
     ...Default.args,
     onClick: {
-      action: Testing2
+      action: Testing2,
     },
   },
 };

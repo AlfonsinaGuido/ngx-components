@@ -8,10 +8,9 @@ describe('DialogButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DialogButtonComponent]
-    })
-    .compileComponents();
-    
+      imports: [DialogButtonComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(DialogButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

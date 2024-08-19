@@ -1,29 +1,21 @@
 <div
   id="avatar-wrapper"
   class="relative rounded-full overflow-hidden flex items-center justify-center"
-  [class]="[bgColor, 'avatar__size-'+size]"
+  [class]="[bgColor, 'avatar__size-' + size]"
 >
   @if (!imgUrl) {
-    <span
-      class="font-semibold"
-      [class]="textColor"
-      >{{ iniciales }}
-    </span>
+    <span class="font-semibold" [class]="textColor">{{ iniciales }}</span>
   } @else {
     @defer {
       <img
-        [class]="'avatar__size-'+size"
+        [class]="'avatar__size-' + size"
         [ngSrc]="imgUrl"
         [priority]="isPriority"
         alt="Avatar Icon"
         fill
-      >
+      />
     } @placeholder {
-      <span
-        class="font-semibold"
-        [class]="textColor"
-        >{{ iniciales }}
-      </span>
+      <span class="font-semibold" [class]="textColor">{{ iniciales }}</span>
     }
   }
 </div>

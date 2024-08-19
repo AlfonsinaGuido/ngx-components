@@ -1,5 +1,11 @@
 import { Meta, StoryObj } from '@storybook/angular';
-import { ColumnaTableroComponent, Duracion, EstadoActividad, IActividad, Prioridad } from '@aseinfo/ngx-evolution-components/public-api';
+import {
+  ColumnaTableroComponent,
+  Duracion,
+  EstadoActividad,
+  IActividad,
+  Prioridad,
+} from '@aseinfo/ngx-evolution-components/public-api';
 
 type Story = StoryObj<ColumnaTableroComponent>;
 export default {

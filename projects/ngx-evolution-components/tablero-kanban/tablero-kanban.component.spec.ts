@@ -1,7 +1,6 @@
 import {
   ComponentFixture,
   DeferBlockBehavior,
-  DeferBlockState,
   TestBed,
 } from '@angular/core/testing';
 import { TableroKanbanComponent } from './tablero-kanban.component';
@@ -119,56 +118,40 @@ describe('TableroKanbanComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
-  it('should render skeleton loader', async () => {
-    const fixture = TestBed.createComponent(TableroKanbanComponent);
-    const component = fixture.componentInstance;
-    component.columnas = columnas;
-    fixture.detectChanges();
-
-    // Retrieve the list of all defer block fixtures and get the first block.
-    const deferBlockFixture = (await fixture.getDeferBlocks())[0];
-    await deferBlockFixture.render(DeferBlockState.Loading);
-
-    const colEl: HTMLElement = fixture.nativeElement;
-    const columnasEl = colEl.querySelectorAll('#loading-board-column');
-    expect(columnasEl.length).toEqual(3);
-  });
-
-  it('should render the title of the column', async () => {
-    const fixture = TestBed.createComponent(TableroKanbanComponent);
-    const component = fixture.componentInstance;
-    component.columnas = columnas;
-    fixture.detectChanges();
-
-    // Retrieve the list of all defer block fixtures and get the first block.
-    const deferBlockFixture = (await fixture.getDeferBlocks())[0];
-    await deferBlockFixture.render(DeferBlockState.Complete);
-
+  it('should render the title of each column', () => {
     const colEl: HTMLElement = fixture.nativeElement;
     const columnasEl = colEl.querySelectorAll('#board-column');
 
     columnasEl.forEach((columna, index) => {
       const titleEl = columna.querySelector('#column-title');
-      expect(titleEl?.textContent).toEqual(columnas[index].nombre);
+      expect(titleEl?.textContent).toEqual(` ${columnas[index].nombre} `);
     });
   });
 
-  it('should render the amount of columns in the array', async () => {
-    const fixture = TestBed.createComponent(TableroKanbanComponent);
-    const component = fixture.componentInstance;
-    component.columnas = columnas;
-    fixture.detectChanges();
-
-    // Retrieve the list of all defer block fixtures and get the first block.
-    const deferBlockFixture = (await fixture.getDeferBlocks())[0];
-    await deferBlockFixture.render(DeferBlockState.Complete);
-
+  it('should render the amount of columns in the array', () => {
     const colEl: HTMLElement = fixture.nativeElement;
     const columnasEl = colEl.querySelectorAll('#board-column');
     expect(columnasEl.length).toEqual(columnas.length);
+  });
+
+  it('should render the activities with title and description in each column', () => {
+    const colEl: HTMLElement = fixture.nativeElement;
+    const columnasEl = colEl.querySelectorAll('#board-column');
+
+    columnasEl.forEach((columna, index) => {
+      const activitiesEl = columna.querySelectorAll('evo-carta-actividad');
+      expect(activitiesEl.length).toEqual(columnas[index].actividades.length);
+
+      columnas[index].actividades.forEach((actividad, actividadIndex) => {
+        const activityEl = activitiesEl[actividadIndex];
+        const titleEl = activityEl.querySelector('#activity-title');
+        const descriptionEl = activityEl.querySelector('#activity-description');
+
+        expect(titleEl?.textContent?.trim()).toEqual(actividad.titulo);
+        expect(descriptionEl?.textContent?.trim()).toEqual(
+          actividad.descripcion,
+        );
+      });
+    });
   });
 });

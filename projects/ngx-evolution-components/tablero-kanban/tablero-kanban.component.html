@@ -1,10 +1,5 @@
-@defer (on immediate) {
-  <div
-    class="board-layout"
-    id="board"
-    cdkDropListGroup
-  >
-    @for (columna of columnas; track columna.id) {
+<div class="board-layout" id="board" cdkDropListGroup>
+  @for (columna of columnas; track columna.id) {
     <div
       class="inline-block min-w-72 max-w-72 whitespace-normal"
       id="board-column"
@@ -15,34 +10,5 @@
       >
       </evo-columna-tablero>
     </div>
-    }
-  </div>
-} @loading (minimum 200ms) {
-  <div
-    class="board-layout animate-pulse"
-    id="loading-board"
-  >
-    <div
-      class="flex flex-col gap-4"
-      id="loading-board-column"
-      *ngFor="let i of [1, 2, 3]"
-    >
-      <div class="skeleton h-3 w-3/4"></div>
-      <div
-        class="flex flex-col justify-between gap-2 rounded-xl bg-gray-50 p-2 shadow-md h-36 w-72"
-        id="loading-card"
-      >
-        <div class="skeleton h-3 w-10"></div>
-        <div>
-          <div class="skeleton mb-2 h-4 w-full"></div>
-          <div class="skeleton mb-1 h-2 w-full"></div>
-          <div class="skeleton h-2 w-9/12"></div>
-        </div>
-        <div class="flex flex-row justify-between items-center">
-          <div class="rounded-full size-8 bg-gray-200"></div>
-          <div class="skeleton h-3 w-24"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-}
+  }
+</div>

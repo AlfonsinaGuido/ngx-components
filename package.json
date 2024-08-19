@@ -10,7 +10,10 @@
     "storybook": "ng run ngx-evolution-components:storybook",
     "tailwind": "npx tailwindcss -i ./projects/ngx-evolution-components/styles/styles.scss -o ./projects/ngx-evolution-components/styles/output.scss --watch",
     "build-storybook": "ng run ngx-evolution-components:build-storybook",
-    "publish-storybook": "ng build && cd ./dist/@aseinfo/ngx-evolution-components && npm pack && npm publish --registry https://npm.aseinfo.net/"
+    "publish-storybook": "ng build && cd ./dist/@aseinfo/ngx-evolution-components && npm pack && npm publish --registry https://npm.aseinfo.net/",
+    "prettier-check": "npx prettier --check .",
+    "prettier-write": "npx prettier --write .",
+    "prepare": "husky"
   },
   "private": true,
   "dependencies": {
@@ -43,6 +46,7 @@
     "@storybook/blocks": "^8.1.11",
     "@storybook/test": "^8.1.11",
     "@types/jasmine": "~5.1.0",
+    "husky": "^9.1.4",
     "jasmine-core": "~5.1.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
@@ -50,6 +54,7 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "ng-packagr": "^17.3.0",
+    "prettier": "3.3.3",
     "storybook": "^8.1.11",
     "tailwindcss": "^3.4.6",
     "typescript": "~5.4.2"

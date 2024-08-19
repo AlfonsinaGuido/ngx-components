@@ -1,4 +1,4 @@
 export interface SelectInterface {
-    key: any;
-    value: any;
+  key: any;
+  value: any;
 }

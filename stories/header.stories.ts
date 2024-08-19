@@ -5,13 +5,14 @@ import {
   type StoryObj,
 } from '@storybook/angular';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { provideHttpClient } from '@angular/common/http';
 
 const meta: Meta<HeaderComponent> = {
   title: 'Evolution Components/Header',
   component: HeaderComponent,
   decorators: [
     applicationConfig({
-      providers: [provideAnimationsAsync()],
+      providers: [provideAnimationsAsync(), provideHttpClient()],
     }),
   ],
   tags: ['autodocs'],

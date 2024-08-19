@@ -9,7 +9,7 @@
   &.without-border {
     background-color: transparent;
     box-shadow: none;
-    .evo-button__content .icon svg {
+    .evo-button__content .icon {
       color: var(--light-gray);
     }
   }
@@ -19,10 +19,10 @@
   &.theme-secondary {
     justify-content: left;
     padding: 8px;
-    color: var(--medium-gray) !important;
+    color: var(--medium-gray);
     .evo-button__content {
       justify-content: left;
-      .icon svg {
+      .icon {
         color: var(--medium-gray);
       }
       .label {

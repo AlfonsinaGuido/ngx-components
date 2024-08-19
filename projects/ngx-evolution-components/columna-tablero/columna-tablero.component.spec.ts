@@ -78,13 +78,6 @@ describe('ColumnaTableroComponent', () => {
     fixture.detectChanges();
   });
 
-  it('name should display column name in uppercase', () => {
-    const colEl: HTMLElement = fixture.nativeElement;
-    const colName = colEl.querySelector('p');
-    expect(colName?.textContent).toContain(mockName);
-    expect(colName?.classList).toContain('uppercase');
-  });
-
   it('should render all activity cards', () => {
     const colEl: HTMLElement = fixture.nativeElement;
     const cartasActividad = colEl.querySelectorAll('evo-carta-actividad');

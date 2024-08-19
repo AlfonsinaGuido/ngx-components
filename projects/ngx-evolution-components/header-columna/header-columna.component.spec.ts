@@ -8,16 +8,29 @@ describe('HeaderColumnaComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HeaderColumnaComponent]
-    })
-    .compileComponents();
-    
+      imports: [HeaderColumnaComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(HeaderColumnaComponent);
     component = fixture.componentInstance;
+    component.count = 10;
+    component.name = 'En Progreso';
+    component.index = 1;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should display the name of the column', () => {
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('p').textContent).toContain('En Progreso');
+  });
+
+  it('should display the count of activities in the column', () => {
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('span').textContent).toContain('10');
+  });
+
+  it('should have the color dependingt on the index', () => {
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('div').classList).toContain('bg-indigo-600');
   });
 });

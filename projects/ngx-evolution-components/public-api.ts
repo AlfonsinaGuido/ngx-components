@@ -31,6 +31,7 @@ export * from './shared/interfaces/columna.interface';
 export * from './shared/interfaces/header.interface';
 export * from './shared/interfaces/user.interface';
 export * from './shared/interfaces/evaluacion.interface';
+export * from './shared/interfaces/menu.interface';
 
 // Validators
 export * from './shared/validators/custom-error-state-matcher';

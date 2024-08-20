@@ -1,6 +1,6 @@
 <evo-button
   [matMenuTriggerFor]="menu"
-  [icon]="buttonIcon"
+  [icon]="icons.buttonIcon"
   [withoutBorder]="true"
   class="flex w-fit"
   (menuOpened)="onMenuOpen()"
@@ -38,10 +38,10 @@
         }
       }
     </div>
-    @if (closeIcon) {
+    @if (icons.closeIcon) {
       <evo-button
         class="close-button"
-        [icon]="closeIcon"
+        [icon]="icons.closeIcon"
         [withoutBorder]="true"
       ></evo-button>
     }

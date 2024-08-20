@@ -1,9 +1,10 @@
+import { NgIf } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'evo-header-columna',
   standalone: true,
-  imports: [],
+  imports: [NgIf],
   templateUrl: './header-columna.component.html',
   styleUrls: ['./header-columna.component.scss', '../styles/output.scss'],
 })
@@ -11,6 +12,7 @@ export class HeaderColumnaComponent implements OnInit {
   @Input() name!: string;
   @Input() count: number = 0;
   @Input() index: number = 0;
+  @Input() withCount: boolean = true;
   @Input() color!: string;
   @Input() twClass?: string;
   private colorArray: string[];

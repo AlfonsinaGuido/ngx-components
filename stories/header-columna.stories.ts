@@ -42,3 +42,12 @@ export const customTailwindClass: Story = {
     twClass: 'bg-red-500 text-red-500',
   },
 };
+
+export const withoutCount: Story = {
+  args: {
+    name: 'Desasignadas',
+    count: 0,
+    index: 1,
+    withCount: false,
+  },
+};

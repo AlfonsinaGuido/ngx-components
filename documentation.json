@@ -111,6 +111,16 @@
                 "defaultValue": "[\n  {\n    id: 1,\n    nombre: 'abiertas',\n    actividades: actividades.filter(\n      (act) => act.status === EstadoActividad.Abierta,\n    ),\n  },\n  {\n    id: 2,\n    nombre: 'en progreso',\n    actividades: actividades.filter(\n      (act) => act.status === EstadoActividad.EnProgreso,\n    ),\n  },\n  {\n    id: 3,\n    nombre: 'finalizadas',\n    actividades: actividades.filter(\n      (act) => act.status === EstadoActividad.Cerrada,\n    ),\n  },\n]"
             },
             {
+                "name": "customTailwindClass",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/header-columna.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    name: 'Canceladas',\n    count: 2,\n    index: 4,\n    twClass: 'bg-red-500 text-red-500',\n  },\n}"
+            },
+            {
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -149,6 +159,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    title: 'Dialogo de testing',\n  },\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/header-columna.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    name: 'Abiertas',\n    count: 3,\n    index: 0,\n  },\n}"
             },
             {
                 "name": "Default",
@@ -491,6 +511,16 @@
                 "defaultValue": "{\n  title: 'Evolution Components/Svg',\n  component: SvgComponent,\n  tags: ['autodocs'],\n}"
             },
             {
+                "name": "muchasActividades",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/header-columna.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    name: 'En Progreso',\n    count: 10000,\n    index: 1,\n  },\n}"
+            },
+            {
                 "name": "Multiple",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -499,6 +529,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    ...Default.args,\n    control: formControlMultipleSelect,\n    isMultiple: true,\n  },\n}"
+            },
+            {
+                "name": "nombreColumnaLargo",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/header-columna.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    name: 'Las actividades que aún no hemos empezado pero tenemos que empezar muy pronto de lo contrario nos quedaremos sin tiempo',\n    count: 25,\n    index: 2,\n  },\n}"
             },
             {
                 "name": "nombreDeColumnaLargo",
@@ -851,6 +891,16 @@
                 "defaultValue": "{\n  args: {\n    ...Default.args,\n    withoutBorder: true,\n  },\n}"
             },
             {
+                "name": "withoutCount",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/header-columna.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    name: 'Desasignadas',\n    count: 0,\n    index: 1,\n    withCount: false,\n  },\n}"
+            },
+            {
                 "name": "WithScroll",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -969,6 +1019,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<DialogButtonComponent>",
                 "file": "stories/dialog.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<HeaderColumnaComponent>",
+                "file": "stories/header-columna.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1426,6 +1487,58 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\n  args: {\n    label: 'Media',\n    prioridad: Prioridad.Medium,\n    size: 'md',\n  },\n}"
+                }
+            ],
+            "stories/header-columna.stories.ts": [
+                {
+                    "name": "customTailwindClass",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/header-columna.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    name: 'Canceladas',\n    count: 2,\n    index: 4,\n    twClass: 'bg-red-500 text-red-500',\n  },\n}"
+                },
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/header-columna.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    name: 'Abiertas',\n    count: 3,\n    index: 0,\n  },\n}"
+                },
+                {
+                    "name": "muchasActividades",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/header-columna.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    name: 'En Progreso',\n    count: 10000,\n    index: 1,\n  },\n}"
+                },
+                {
+                    "name": "nombreColumnaLargo",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/header-columna.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    name: 'Las actividades que aún no hemos empezado pero tenemos que empezar muy pronto de lo contrario nos quedaremos sin tiempo',\n    count: 25,\n    index: 2,\n  },\n}"
+                },
+                {
+                    "name": "withoutCount",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/header-columna.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    name: 'Desasignadas',\n    count: 0,\n    index: 1,\n    withCount: false,\n  },\n}"
                 }
             ],
             "stories/button.stories.ts": [
@@ -2083,6 +2196,19 @@
                     "kind": 183
                 }
             ],
+            "stories/header-columna.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<HeaderColumnaComponent>",
+                    "file": "stories/header-columna.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
             "stories/header.stories.ts": [
                 {
                     "name": "Story",
@@ -2623,6 +2749,56 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Testing2",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/header-columna.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "customTailwindClass",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/header-columna.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/header-columna.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "muchasActividades",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/header-columna.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "nombreColumnaLargo",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/header-columna.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "withoutCount",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

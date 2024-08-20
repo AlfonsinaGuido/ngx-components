@@ -12,4 +12,5 @@ import { CommonModule } from '@angular/common';
 })
 export class TableroKanbanComponent {
   @Input() columnas!: IColumna[];
+  @Input() twClass?: string;
 }

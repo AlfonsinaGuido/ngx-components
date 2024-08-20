@@ -1,10 +1,20 @@
+import { provideHttpClient } from '@angular/common/http';
 import { ButtonComponent } from '@aseinfo/ngx-evolution-components/public-api';
-import type { Meta, StoryObj } from '@storybook/angular';
+import {
+  applicationConfig,
+  type Meta,
+  type StoryObj,
+} from '@storybook/angular';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta: Meta<ButtonComponent> = {
   title: 'Evolution Components/Button',
   component: ButtonComponent,
+  decorators: [
+    applicationConfig({
+      providers: [provideHttpClient()],
+    }),
+  ],
   tags: ['autodocs'],
 };
 

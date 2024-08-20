@@ -418,7 +418,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<ButtonComponent>",
-        "defaultValue": "{\n  title: 'Evolution Components/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n}"
+        "defaultValue": "{\n  title: 'Evolution Components/Button',\n  component: ButtonComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
       },
       {
         "name": "meta",
@@ -438,7 +438,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<HeaderComponent>",
-        "defaultValue": "{\n  title: 'Evolution Components/Header',\n  component: HeaderComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+        "defaultValue": "{\n  title: 'Evolution Components/Header',\n  component: HeaderComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync(), provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
       },
       {
         "name": "meta",
@@ -468,7 +468,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<MenuComponent>",
-        "defaultValue": "{\n  title: 'Evolution Components/Menu',\n  component: MenuComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+        "defaultValue": "{\n  title: 'Evolution Components/Menu',\n  component: MenuComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync(), provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
       },
       {
         "name": "meta",
@@ -478,7 +478,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<SelectComponent>",
-        "defaultValue": "{\n  title: 'Evolution Components/Select',\n  component: SelectComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+        "defaultValue": "{\n  title: 'Evolution Components/Select',\n  component: SelectComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync(), provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
       },
       {
         "name": "meta",
@@ -488,7 +488,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<SvgComponent>",
-        "defaultValue": "{\n  title: 'Evolution Components/Svg',\n  component: SvgComponent,\n  tags: ['autodocs'],\n}"
+        "defaultValue": "{\n  title: 'Evolution Components/Svg',\n  component: SvgComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
       },
       {
         "name": "Multiple",
@@ -1487,7 +1487,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<ButtonComponent>",
-          "defaultValue": "{\n  title: 'Evolution Components/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n}"
+          "defaultValue": "{\n  title: 'Evolution Components/Button',\n  component: ButtonComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
         },
         {
           "name": "onClick",
@@ -1639,7 +1639,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<HeaderComponent>",
-          "defaultValue": "{\n  title: 'Evolution Components/Header',\n  component: HeaderComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+          "defaultValue": "{\n  title: 'Evolution Components/Header',\n  component: HeaderComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync(), provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
         },
         {
           "name": "WithCompanyName",
@@ -1773,7 +1773,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<MenuComponent>",
-          "defaultValue": "{\n  title: 'Evolution Components/Menu',\n  component: MenuComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+          "defaultValue": "{\n  title: 'Evolution Components/Menu',\n  component: MenuComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync(), provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
         },
         {
           "name": "NotificationsMenu",
@@ -1865,7 +1865,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<SelectComponent>",
-          "defaultValue": "{\n  title: 'Evolution Components/Select',\n  component: SelectComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+          "defaultValue": "{\n  title: 'Evolution Components/Select',\n  component: SelectComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync(), provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
         },
         {
           "name": "Multiple",
@@ -1907,7 +1907,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<SvgComponent>",
-          "defaultValue": "{\n  title: 'Evolution Components/Svg',\n  component: SvgComponent,\n  tags: ['autodocs'],\n}"
+          "defaultValue": "{\n  title: 'Evolution Components/Svg',\n  component: SvgComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
         }
       ],
       "stories/tablero-skeleton.stories.ts": [

@@ -2,7 +2,7 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   AvatarComponent,
-  HeaderBoxButtonsInterface,
+  HeaderBoxButtonInterface,
   HeaderButtonItemsInterface,
   HeaderCompanyDataInterface,
   HeaderIconsInterface,
@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit {
   @Input() titles!: HeaderTitlesInterface;
   @Input() buttonItems!: HeaderButtonItemsInterface;
   @Input() companyData!: HeaderCompanyDataInterface;
-  @Input() box?: HeaderBoxButtonsInterface[];
+  @Input() box?: HeaderBoxButtonInterface[];
   @Input() userData!: UserDataInterface;
   @Input() classes?: string;
   public appMenuIcons!: MenuIconsInterface;

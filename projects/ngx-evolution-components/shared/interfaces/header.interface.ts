@@ -9,12 +9,12 @@ export interface HeaderInterface {
   titles: HeaderTitlesInterface;
   buttonItems: HeaderButtonItemsInterface;
   companyData: HeaderCompanyDataInterface;
-  box?: HeaderBoxButtonsInterface[];
+  box?: HeaderBoxButtonInterface[];
   userData: UserDataInterface;
   classes?: string;
 }
 
-export interface HeaderBoxButtonsInterface {
+export interface HeaderBoxButtonInterface {
   label: string;
   action: (param?: any) => any | void | {};
 }

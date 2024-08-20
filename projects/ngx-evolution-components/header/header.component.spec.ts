@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HeaderComponent } from './header.component';
 import {
   ButtonInterface,
-  HeaderBoxButtonsInterface,
+  HeaderBoxButtonInterface,
   HeaderButtonItemsInterface,
   HeaderCompanyDataInterface,
   HeaderIconsInterface,
@@ -128,7 +128,7 @@ describe('HeaderComponent', () => {
   });
 
   it('should handle box buttons correctly', () => {
-    const boxButtons: HeaderBoxButtonsInterface[] = [
+    const boxButtons: HeaderBoxButtonInterface[] = [
       { label: 'Button 1', action: jasmine.createSpy('button1') },
       { label: 'Button 2', action: jasmine.createSpy('button2') },
     ];

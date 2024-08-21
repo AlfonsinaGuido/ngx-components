@@ -115,16 +115,16 @@ describe('TableroKanbanComponent', () => {
     fixture = TestBed.createComponent(TableroKanbanComponent);
     component = fixture.componentInstance;
     component.columnas = columnas;
+    component.isSingle = true;
     fixture.detectChanges();
   });
 
   it('should render the title of each column', () => {
     const colEl: HTMLElement = fixture.nativeElement;
-    const columnasEl = colEl.querySelectorAll('#board-column');
+    const columnHeader = colEl.querySelectorAll('#column-header');
 
-    columnasEl.forEach((columna, index) => {
-      const titleEl = columna.querySelector('#column-header');
-      const header = titleEl?.querySelector('p');
+    columnHeader.forEach((columna, index) => {
+      const header = columna.querySelector('p');
       expect(header?.textContent).toEqual(columnas[index].nombre);
     });
   });

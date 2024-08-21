@@ -94,7 +94,9 @@ describe('ColumnaTableroComponent', () => {
     ).nativeElement;
 
     // Get the column by id
-    const col = colDeb.query(By.css(`#column-${mockName.replace(' ', '')}`));
+    const col = colDeb.query(
+      By.css(`#board-column-${mockName.replace(' ', '-')}`),
+    );
 
     // Mock the event cdkDropListDropped of the column
     const mockEvent = {

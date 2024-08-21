@@ -1,11 +1,14 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   AvatarComponent,
-  ButtonInterface,
-  HeaderButtonInterface,
-  IconInterface,
+  HeaderBoxButtonInterface,
+  HeaderButtonItemsInterface,
+  HeaderCompanyDataInterface,
+  HeaderIconsInterface,
+  HeaderTitlesInterface,
   MenuComponent,
+  MenuIconsInterface,
   SvgComponent,
   UserDataInterface,
 } from '../public-api';
@@ -18,18 +21,29 @@ import {
   styleUrls: ['./header.component.scss', '../styles/output.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class HeaderComponent {
-  @Input() appIcon!: IconInterface;
-  @Input() notificationIcon!: IconInterface;
-  @Input() closeMenuIcon?: IconInterface;
-  @Input() appTitle!: string;
-  @Input() notificationTitle!: string;
-  @Input() appItems!: ButtonInterface[];
-  @Input() notificationItems!: ButtonInterface[];
-  @Input() userDataItems!: ButtonInterface[];
-  @Input() companyImage?: string;
-  @Input() companyName?: string;
-  @Input() box?: HeaderButtonInterface[];
+export class HeaderComponent implements OnInit {
+  @Input() icons!: HeaderIconsInterface;
+  @Input() titles!: HeaderTitlesInterface;
+  @Input() buttonItems!: HeaderButtonItemsInterface;
+  @Input() companyData!: HeaderCompanyDataInterface;
+  @Input() box?: HeaderBoxButtonInterface[];
   @Input() userData!: UserDataInterface;
   @Input() classes?: string;
+  public appMenuIcons!: MenuIconsInterface;
+  public notificationMenuIcons!: MenuIconsInterface;
+  public userMenuIcons!: MenuIconsInterface;
+
+  ngOnInit(): void {
+    this.appMenuIcons = {
+      buttonIcon: this.icons.appIcon,
+      closeIcon: this.icons.closeMenuIcon,
+    };
+    this.notificationMenuIcons = {
+      buttonIcon: this.icons.notificationIcon,
+      closeIcon: this.icons.closeMenuIcon,
+    };
+    this.userMenuIcons = {
+      closeIcon: this.icons.closeMenuIcon,
+    };
+  }
 }

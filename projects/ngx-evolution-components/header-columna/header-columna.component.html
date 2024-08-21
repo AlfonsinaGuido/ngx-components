@@ -1,6 +1,6 @@
 <div
   id="column-header"
-  class="flex rounded-3xl p-1.5 min-w-fit h-10 text-white items-center mb-2"
+  class="flex rounded-3xl p-1.5 min-w-fit h-10 text-white items-center mb-2 hover:scale-105 transition-transform"
   [class]="[textColor, bgColor, twClass].join(' ')"
   >
 @if (withCount) {
@@ -8,5 +8,5 @@
     class="flex items-center justify-center font-bold text-sm size-6 min-w-6 sm:size-7 sm:min-w-7 rounded-full bg-white"
     >{{ count }}</span>
 }
-  <p class="text-white capitalize font-semibold tracking-wide text-sm overflow-hidden text-ellipsis line-clamp-1 ml-1 sm:ml-1.5">{{ name }}</p>
+  <p class="text-white capitalize font-semibold tracking-wide text-sm overflow-hidden text-ellipsis line-clamp-1 ml-1 sm:ml-2">{{ name }}</p>
 </div>

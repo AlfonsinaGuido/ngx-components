@@ -9,7 +9,7 @@ import {
   Prioridad,
 } from '../public-api';
 import { CdkDropListGroup } from '@angular/cdk/drag-drop';
-import { CdkAccordion, CdkAccordionModule } from '@angular/cdk/accordion';
+import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { CommonModule } from '@angular/common';
 
 const actividadesMock: IActividad[] = [
@@ -96,7 +96,7 @@ export class TableroKanbanComponent implements OnInit {
   @Input() twClass?: string;
   public actividadesEmpleos = [
     {
-      nombreEmpleado: 'Empleado 1',
+      nombreEmpleado: 'Victor Hugo',
       count: actividadesMock.length,
       actividades: [
         {
@@ -120,7 +120,7 @@ export class TableroKanbanComponent implements OnInit {
       ],
     },
     {
-      nombreEmpleado: 'Empleado 2',
+      nombreEmpleado: 'Monica Guadalupe',
       count: actividadesMock.length,
       actividades: [
         {
@@ -144,14 +144,11 @@ export class TableroKanbanComponent implements OnInit {
       ],
     },
   ];
-  @ViewChild('accordion', { static: true }) accordion!: CdkAccordion;
+  public isSingle: boolean = true;
 
   ngOnInit() {}
 
-  ngAfterViewInit() {
-    console.log(this.accordion);
-    this.accordion.openAll();
-  }
+  ngAfterViewInit() {}
 
   constructor() {}
 }

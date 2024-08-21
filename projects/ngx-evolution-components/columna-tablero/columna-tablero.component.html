@@ -1,11 +1,11 @@
 <div
   cdkDropList
-  class="flex flex-col gap-2 h-full"
+  class="flex flex-col gap-1 h-full min-h-36"
   [cdkDropListData]="actividades"
   (cdkDropListDropped)="drop($event)"
   id="board-column"
   [ngClass]="{
-    'rounded-xl outline-dashed outline-gray-300 outline-2 min-h-full':
+    'rounded-xl outline-dashed outline-gray-300 outline-2 h-full':
       actividades.length === 0,
   }"
 >

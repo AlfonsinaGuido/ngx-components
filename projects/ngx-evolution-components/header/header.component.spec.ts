@@ -3,8 +3,11 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HeaderComponent } from './header.component';
 import {
   ButtonInterface,
-  HeaderButtonInterface,
-  IconInterface,
+  HeaderBoxButtonInterface,
+  HeaderButtonItemsInterface,
+  HeaderCompanyDataInterface,
+  HeaderIconsInterface,
+  HeaderTitlesInterface,
   UserDataInterface,
 } from '../public-api';
 import { By } from '@angular/platform-browser';
@@ -12,6 +15,7 @@ import { By } from '@angular/platform-browser';
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
+  let icons: HeaderIconsInterface;
   let userData: UserDataInterface;
 
   beforeEach(async () => {
@@ -22,11 +26,30 @@ describe('HeaderComponent', () => {
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
 
-    const notificationItems: ButtonInterface[] = [
-      { label: 'Notification 1' },
-      { label: 'Notification 2' },
-    ];
-    component.notificationItems = notificationItems;
+    const companyData: HeaderCompanyDataInterface = {};
+    component.companyData = companyData;
+
+    icons = {
+      appIcon: { icon: 'home', type: 'class' },
+      notificationIcon: { icon: 'test', type: 'class' },
+    };
+    component.icons = icons;
+
+    const titles: HeaderTitlesInterface = {
+      appTitle: 'title 1',
+      notificationTitle: 'title 2',
+    };
+    component.titles = titles;
+
+    const buttonItems: HeaderButtonItemsInterface = {
+      appItems: [{ label: 'App 1' }, { label: 'App 2' }],
+      notificationItems: [
+        { label: 'Notification 1' },
+        { label: 'Notification 2' },
+      ],
+      userDataItems: [{ label: 'Test' }],
+    };
+    component.buttonItems = buttonItems;
 
     userData = {
       fullName: 'test',
@@ -43,28 +66,28 @@ describe('HeaderComponent', () => {
   });
 
   it('should pass the correct inputs to the first evo-menu component', () => {
-    const appIcon: IconInterface = { icon: 'home', type: 'class' };
-    const closeMenuIcon: IconInterface = { icon: 'close', type: 'class' };
     const appTitle = 'App Menu';
     const appItems: ButtonInterface[] = [{ label: 'Item 1' }];
 
-    component.appIcon = appIcon;
-    component.closeMenuIcon = closeMenuIcon;
-    component.appTitle = appTitle;
-    component.appItems = appItems;
+    component.titles.appTitle = appTitle;
+    component.buttonItems.appItems = appItems;
 
     fixture.detectChanges();
 
     const menuDebugElement = fixture.debugElement.query(By.css('evo-menu'));
 
-    expect(menuDebugElement.componentInstance.buttonIcon).toEqual(appIcon);
-    expect(menuDebugElement.componentInstance.closeIcon).toEqual(closeMenuIcon);
+    expect(menuDebugElement.componentInstance.icons.buttonIcon).toEqual(
+      icons.appIcon,
+    );
+    expect(menuDebugElement.componentInstance.icons.closeIcon).toEqual(
+      icons.closeMenuIcon,
+    );
     expect(menuDebugElement.componentInstance.title).toBe(appTitle);
     expect(menuDebugElement.componentInstance.items).toBe(appItems);
   });
 
   it('should display companyName when defined', () => {
-    component.companyName = 'Test Company';
+    component.companyData.companyName = 'Test Company';
 
     fixture.detectChanges();
     const companyNameElement = fixture.debugElement.query(
@@ -77,7 +100,7 @@ describe('HeaderComponent', () => {
   });
 
   it('should not display companyName when not defined', () => {
-    component.companyName = undefined;
+    component.companyData.companyName = undefined;
 
     fixture.detectChanges();
     const companyNameElement = fixture.debugElement.query(
@@ -105,7 +128,7 @@ describe('HeaderComponent', () => {
   });
 
   it('should handle box buttons correctly', () => {
-    const boxButtons: HeaderButtonInterface[] = [
+    const boxButtons: HeaderBoxButtonInterface[] = [
       { label: 'Button 1', action: jasmine.createSpy('button1') },
       { label: 'Button 2', action: jasmine.createSpy('button2') },
     ];

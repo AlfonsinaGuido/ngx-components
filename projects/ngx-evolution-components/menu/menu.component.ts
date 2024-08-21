@@ -1,9 +1,9 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import {
   AvatarComponent,
   ButtonComponent,
   ButtonInterface,
-  IconInterface,
+  MenuIconsInterface,
   UserDataInterface,
 } from '../public-api';
 import { CommonModule } from '@angular/common';
@@ -26,21 +26,26 @@ import { MatDividerModule } from '@angular/material/divider';
   styleUrls: ['./menu.component.scss', '../styles/output.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class MenuComponent {
+export class MenuComponent implements OnInit {
   @Input() title?: string;
   @Input() items!: ButtonInterface[];
-  @Input() buttonIcon?: IconInterface = {
-    icon: 'expand_more',
-    type: 'class',
-  };
-  @Input() closeIcon?: IconInterface;
+  @Input() icons!: MenuIconsInterface;
   @Input() notificationsNumber?: number;
   @Input() userData?: UserDataInterface;
   @Input() classes?: string;
 
+  ngOnInit(): void {
+    if (!this.icons.buttonIcon) {
+      this.icons.buttonIcon = {
+        icon: 'expand_more',
+        type: 'class',
+      };
+    }
+  }
+
   onMenuOpen(): void {
     if (this.userData) {
-      this.buttonIcon = {
+      this.icons.buttonIcon = {
         icon: 'expand_less',
         type: 'class',
       };
@@ -49,7 +54,7 @@ export class MenuComponent {
 
   onMenuClose(): void {
     if (this.userData) {
-      this.buttonIcon = {
+      this.icons.buttonIcon = {
         icon: 'expand_more',
         type: 'class',
       };

@@ -1,7 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MenuComponent } from './menu.component';
-import { ButtonComponent, ButtonInterface } from '../public-api';
+import {
+  ButtonComponent,
+  ButtonInterface,
+  MenuIconsInterface,
+} from '../public-api';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { By } from '@angular/platform-browser';
@@ -19,6 +23,12 @@ describe('MenuComponent', () => {
 
     fixture = TestBed.createComponent(MenuComponent);
     component = fixture.componentInstance;
+
+    const icons: MenuIconsInterface = {
+      buttonIcon: { icon: 'test', type: 'class' },
+    };
+    component.icons = icons;
+
     fixture.detectChanges();
   });
 
@@ -54,10 +64,10 @@ describe('MenuComponent', () => {
 
   it('should not change buttonIcon on menu open if userData is undefined, onMenuOpen()', () => {
     component.userData = undefined;
-    const initialIcon = component.buttonIcon;
+    const initialIcon = component.icons.buttonIcon;
     component.onMenuOpen();
 
-    expect(component.buttonIcon).toEqual(initialIcon);
+    expect(component.icons.buttonIcon).toEqual(initialIcon);
   });
 
   it('should set buttonIcon to expand_less on menu open if userData is defined, onMenuOpen()', () => {
@@ -68,7 +78,7 @@ describe('MenuComponent', () => {
     };
     component.onMenuOpen();
 
-    expect(component.buttonIcon).toEqual({
+    expect(component.icons.buttonIcon).toEqual({
       icon: 'expand_less',
       type: 'class',
     });
@@ -82,7 +92,7 @@ describe('MenuComponent', () => {
     };
     component.onMenuClose();
 
-    expect(component.buttonIcon).toEqual({
+    expect(component.icons.buttonIcon).toEqual({
       icon: 'expand_more',
       type: 'class',
     });

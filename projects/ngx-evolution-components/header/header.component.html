@@ -4,21 +4,20 @@
   <div class="flex gap-5 items-center">
     <evo-menu
       class="sm:flex hidden app-menu"
-      [buttonIcon]="appIcon"
-      [closeIcon]="closeMenuIcon"
-      [title]="appTitle"
-      [items]="appItems"
+      [icons]="appMenuIcons"
+      [title]="titles.appTitle"
+      [items]="buttonItems.appItems"
       classes="mt-4"
     ></evo-menu>
     <div class="flex items-center gap-5">
-      @if (companyImage) {
-        <evo-svg [svgPath]="companyImage"></evo-svg>
+      @if (companyData.companyImage) {
+        <evo-svg [svgPath]="companyData.companyImage"></evo-svg>
       }
-      @if (companyName) {
+      @if (companyData.companyName) {
         <div
           class="test-company-name lg:flex hidden border-r border-white-smoke pr-5 font-semibold text-white-smoke text-sm"
         >
-          {{ companyName }}
+          {{ companyData.companyName }}
         </div>
       }
     </div>
@@ -35,11 +34,10 @@
       }
     }
     <evo-menu
-      [buttonIcon]="notificationIcon"
-      [closeIcon]="closeMenuIcon"
-      [title]="notificationTitle"
-      [items]="notificationItems"
-      [notificationsNumber]="notificationItems.length"
+      [icons]="notificationMenuIcons"
+      [title]="titles.notificationTitle"
+      [items]="buttonItems.notificationItems"
+      [notificationsNumber]="buttonItems.notificationItems.length"
       classes="mt-4"
     ></evo-menu>
     <div class="flex items-center gap-2">
@@ -59,9 +57,9 @@
         </div>
       </div>
       <evo-menu
-        [closeIcon]="closeMenuIcon"
+        [icons]="userMenuIcons"
         [userData]="userData"
-        [items]="userDataItems"
+        [items]="buttonItems.userDataItems"
         classes="mt-4"
       ></evo-menu>
     </div>

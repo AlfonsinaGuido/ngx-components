@@ -144,9 +144,11 @@ export class TableroKanbanComponent implements OnInit {
       ],
     },
   ];
-  public isSingle: boolean = true;
+  public isSingle: boolean = false;
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.actividadesEmpleos);
+  }
 
   ngAfterViewInit() {}
 

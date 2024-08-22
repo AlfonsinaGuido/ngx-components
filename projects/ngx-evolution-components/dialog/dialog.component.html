@@ -23,18 +23,18 @@
 
 @if (icon.icon !== '') {
   <mat-dialog-content align="center" class="dialog-icon-container">
-          @if (icon.type === "svg") {
-            <evo-svg [svgPath]="icon.icon"></evo-svg>
-          }
-          @if (icon.type === "class") {
-            <mat-icon
-              aria-hidden="false"
-              aria-label="icon"
-              [ngStyle]="{'color': icon.color }"
-              [fontIcon]="icon.icon"
-              class="icon-size"
-            ></mat-icon>
-          }
+    @if (icon.type === "svg") {
+      <evo-svg [svgPath]="icon.icon"></evo-svg>
+    }
+    @if (icon.type === "class") {
+      <mat-icon
+        aria-hidden="false"
+        aria-label="icon"
+        [ngStyle]="{'color': icon.color }"
+        [fontIcon]="icon.icon"
+        class="icon-size"
+      ></mat-icon>
+    }
   </mat-dialog-content>
 }
 
@@ -44,20 +44,19 @@
   </mat-dialog-content>
 }
 
-
 @if (buttonsItems.length! > 0) {
   <mat-dialog-actions 
     class="flex-col sm:flex-row !gap-y-2 !mx-5"
     [ngClass]="icon.icon !== '' ? '!justify-evenly' : '!justify-end !gap-x-2'"
   >
     @for (item of buttonsItems; track item;) {
-        <evo-button
-        class="function-button"
-        [label]="item.label"
-        [icon]="item.icon"
-        [theme]="item.theme!"
-        [onClick]="item.onClick"
-        matDialogClose
+      <evo-button
+      class="function-button"
+      [label]="item.label"
+      [icon]="item.icon"
+      [theme]="item.theme!"
+      [onClick]="item.onClick"
+      matDialogClose
       ></evo-button>
     }
   </mat-dialog-actions>

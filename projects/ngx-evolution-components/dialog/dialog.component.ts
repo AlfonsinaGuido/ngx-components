@@ -14,10 +14,10 @@ import {
   ButtonInterface,
   DialogInterface,
   IconInterface,
+  SvgComponent
 } from '../public-api';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
-import { SvgComponent } from "../svg/svg.component";
 
 @Component({
   selector: 'evo-dialog',

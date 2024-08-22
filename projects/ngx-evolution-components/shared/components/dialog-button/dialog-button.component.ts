@@ -1,6 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ButtonInterface, DialogComponent, IconInterface } from '@aseinfo/ngx-evolution-components/public-api';
+import { 
+  ButtonInterface, 
+  DialogComponent, 
+  IconInterface 
+} from '../../../public-api';
 
 @Component({
   selector: 'evo-dialog-button',

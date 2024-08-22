@@ -14,10 +14,10 @@
   justify-content: center;
 }
 
-.icon-size {
-  height: auto !important;
-  width: auto !important;
+.mat-icon.icon-size {
   font-size: 4em;
+  height: auto;
+  width: auto;
 }
 
 .mat-dialog-container {

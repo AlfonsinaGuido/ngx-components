@@ -46,5 +46,7 @@ module.exports = {
       "2xl": "1536px", // Computadoras grandes
     },
   },
-  plugins: [],
+  plugins: [
+    require("postcss-import"),
+  ],
 };

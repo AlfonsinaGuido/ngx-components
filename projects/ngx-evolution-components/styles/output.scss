@@ -1,3 +1,95 @@
+.avatar__size-sm {
+  width: 2rem;
+  height: 2rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.avatar__size-md {
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.avatar__size-lg {
+  width: 4rem;
+  height: 4rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.tag__Alta {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 242 242 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
+}
+
+.tag__Media {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 252 232 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(234 179 8 / var(--tw-text-opacity));
+}
+
+.tag__Baja {
+  --tw-bg-opacity: 1;
+  background-color: rgb(238 242 255 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(99 102 241 / var(--tw-text-opacity));
+}
+
+.tag__size-sm {
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 0.65rem;
+  font-weight: 700;
+}
+
+.tag__size-md {
+  padding: 5px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.tag__size-lg {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.header-column__green-column {
+  --tw-bg-opacity: 1;
+  background-color: rgb(22 163 74 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(22 163 74 / var(--tw-text-opacity));
+}
+
+.header-column__teal-column {
+  --tw-bg-opacity: 1;
+  background-color: rgb(13 148 136 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(13 148 136 / var(--tw-text-opacity));
+}
+
+.header-column__orange-column {
+  --tw-bg-opacity: 1;
+  background-color: rgb(234 88 12 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(234 88 12 / var(--tw-text-opacity));
+}
+
+.header-column__indigo-column {
+  --tw-bg-opacity: 1;
+  background-color: rgb(79 70 229 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(79 70 229 / var(--tw-text-opacity));
+}
+
 /*
 ! tailwindcss v3.4.6 | MIT License | https://tailwindcss.com
 */
@@ -697,10 +789,6 @@ video {
   height: 100vh;
 }
 
-.h-6 {
-  height: 1.5rem;
-}
-
 .max-h-\[50vh\] {
   max-height: 50vh;
 }
@@ -719,10 +807,6 @@ video {
 
 .w-24 {
   width: 6rem;
-}
-
-.w-3\/4 {
-  width: 75%;
 }
 
 .w-72 {
@@ -759,20 +843,12 @@ video {
   min-width: fit-content;
 }
 
-.min-w-\[900px\] {
-  min-width: 900px;
-}
-
 .max-w-72 {
   max-width: 18rem;
 }
 
 .max-w-\[500px\] {
   max-width: 500px;
-}
-
-.max-w-\[900px\] {
-  max-width: 900px;
 }
 
 @keyframes pulse {
@@ -904,10 +980,6 @@ video {
 
 .rounded-xl {
   border-radius: 0.75rem;
-}
-
-.rounded-2xl {
-  border-radius: 1rem;
 }
 
 .border-r {
@@ -1195,70 +1267,6 @@ video {
   grid-area: aside;
 }
 
-.avatar__size-sm {
-  width: 2rem;
-  height: 2rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.avatar__size-md {
-  width: 3rem;
-  height: 3rem;
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-}
-
-.avatar__size-lg {
-  width: 4rem;
-  height: 4rem;
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
-
-.tag__Alta {
-  --tw-bg-opacity: 1;
-  background-color: rgb(254 242 242 / var(--tw-bg-opacity));
-  --tw-text-opacity: 1;
-  color: rgb(239 68 68 / var(--tw-text-opacity));
-}
-
-.tag__Media {
-  --tw-bg-opacity: 1;
-  background-color: rgb(254 252 232 / var(--tw-bg-opacity));
-  --tw-text-opacity: 1;
-  color: rgb(234 179 8 / var(--tw-text-opacity));
-}
-
-.tag__Baja {
-  --tw-bg-opacity: 1;
-  background-color: rgb(238 242 255 / var(--tw-bg-opacity));
-  --tw-text-opacity: 1;
-  color: rgb(99 102 241 / var(--tw-text-opacity));
-}
-
-.tag__size-sm {
-  padding-left: 5px;
-  padding-right: 5px;
-  font-size: 0.65rem;
-  font-weight: 700;
-}
-
-.tag__size-md {
-  padding: 5px;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.tag__size-lg {
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 10px;
-  padding-right: 10px;
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-}
-
 h1 {
   color: var(--text-primary, #000000);
   font-size: 2.6rem;
@@ -1405,19 +1413,14 @@ a {
     flex-direction: row;
   }
 
-  .sm\:px-4 {
-    padding-left: 20px;
-    padding-right: 20px;
+  .sm\:px-2 {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
   .sm\:px-5 {
     padding-left: 25px;
     padding-right: 25px;
-  }
-
-  .sm\:px-2 {
-    padding-left: 10px;
-    padding-right: 10px;
   }
 }
 

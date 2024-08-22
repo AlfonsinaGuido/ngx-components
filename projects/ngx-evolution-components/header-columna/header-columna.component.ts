@@ -18,6 +18,7 @@ export class HeaderColumnaComponent implements OnInit {
   private colorArray: string[];
   public textColor!: string;
   public bgColor!: string;
+  public classColor!: string;
 
   constructor() {
     this.colorArray = ['teal', 'indigo', 'green', 'orange'];
@@ -28,15 +29,6 @@ export class HeaderColumnaComponent implements OnInit {
       this.count = 999;
     }
     this.color = this.colorArray[this.index % this.colorArray.length];
-    this.textColor = this.getTextColor();
-    this.bgColor = this.getbgColor();
-  }
-
-  getTextColor(): string {
-    return `text-${this.color}-600`;
-  }
-
-  getbgColor(): string {
-    return `bg-${this.color}-600`;
+    this.classColor = `header-column__${this.color}-column`;
   }
 }

@@ -18,6 +18,7 @@ export * from './carta-actividad/carta-actividad.component';
 export * from './columna-tablero/columna-tablero.component';
 export * from './tablero-kanban/tablero-kanban.component';
 export * from './tablero-skeleton/tablero-skeleton.component';
+export * from './sidebar/sidebar.component';
 
 // Interfaces
 export * from './shared/interfaces/button.interface';
@@ -32,6 +33,7 @@ export * from './shared/interfaces/header.interface';
 export * from './shared/interfaces/user.interface';
 export * from './shared/interfaces/evaluacion.interface';
 export * from './shared/interfaces/menu.interface';
+export * from './shared/interfaces/common-header-sidebar.interface';
 
 // Validators
 export * from './shared/validators/custom-error-state-matcher';

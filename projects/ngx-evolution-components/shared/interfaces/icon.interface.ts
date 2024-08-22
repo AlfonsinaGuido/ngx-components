@@ -5,4 +5,5 @@ export interface IconInterface {
   type: IconType;
   icon: string;
   position?: IconPosition;
+  color?: string;
 }

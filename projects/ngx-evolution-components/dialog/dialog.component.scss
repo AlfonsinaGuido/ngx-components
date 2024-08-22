@@ -4,10 +4,65 @@
   align-items: center;
 }
 
-.function-button {
-  @apply w-full sm:w-auto;
+
+.function-button .evo-button__content .label {
+  font-weight: 600;
+  font-size: 13px;
 }
 
+.flex {
+  justify-content: center;
+}
+
+.icon-size {
+  height: auto !important;
+  width: auto !important;
+  font-size: 4em;
+}
+
+.mat-dialog-container {
+  border-radius: 20px !important;
+}
+
+.mdc-dialog__title {
+  --mdc-dialog-subhead-weight: 700;
+  --mdc-dialog-subhead-size: 20px;
+}
+
+.mdc-dialog__content {
+  --mdc-dialog-supporting-text-size: 15px;
+}
+
+.mat-mdc-dialog-container {
+  --mdc-dialog-container-shape: 20px;
+}
+
+.dialog-icon-container.mat-mdc-dialog-content.mdc-dialog__content {
+    padding-bottom: 0 !important;
+  }
+
+evo-svg .mat-icon {
+    height: inherit;
+    width: inherit;
+    max-width: 100px;
+  }
+  
+evo-svg {
+    justify-content: center;
+}
+  
+
 .function-button .evo-button {
-  @apply rounded-full w-full;
+  border-radius: 9999px; 
+  width: 100%; 
+}
+
+.function-button {
+  width: 100%; 
+}
+
+@media (min-width: 640px) { 
+  .function-button {
+    width: auto; 
+  }
 }

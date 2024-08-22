@@ -5,6 +5,7 @@ import {
   type StoryObj,
 } from '@storybook/angular';
 import { DialogButtonComponent } from '@aseinfo/ngx-evolution-components/shared/components/dialog-button/dialog-button.component';
+import { provideHttpClient } from '@angular/common/http';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta: Meta<DialogButtonComponent> = {
@@ -12,7 +13,7 @@ const meta: Meta<DialogButtonComponent> = {
   component: DialogButtonComponent,
   decorators: [
     applicationConfig({
-      providers: [provideAnimationsAsync()],
+      providers: [provideAnimationsAsync(), provideHttpClient()],
     }),
   ],
   tags: ['autodocs'],
@@ -176,3 +177,60 @@ export const closeButton: Story = {
     closeButton: true,
   },
 };
+
+export const iconDialog: Story = {
+  args: {
+    title: 'Dialogo de testing',
+    icon: {
+      icon: 'warning',
+      type: 'class',
+      color: '#c91711'
+    },
+    buttonsItems: [
+      {
+        label: 'Item 1',
+        theme: 'secondary',
+        onClick: {
+          action: Testing1,
+        },
+      },
+      {
+        label: 'Item 2',
+        theme: 'primary',
+        onClick: {
+          action: Testing2,
+        },
+      },
+    ],
+    simpleContent: 'Testing de prueba para dialogo',
+  }
+
+};
+
+export const svgDialog: Story = {
+  args: {
+    title: 'Dialogo de testing',
+    icon: {
+      icon: 'company-logo.svg',
+      type: 'svg',
+      position: 'right',
+    },
+    buttonsItems: [
+      {
+        label: 'Item 1',
+        theme: 'secondary',
+        onClick: {
+          action: Testing1,
+        },
+      },
+      {
+        label: 'Item 2',
+        theme: 'primary',
+        onClick: {
+          action: Testing2,
+        },
+      },
+    ],
+    simpleContent: 'Testing de prueba para dialogo',
+  }
+}

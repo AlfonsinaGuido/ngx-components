@@ -5,7 +5,7 @@ import {
   HeaderTitlesInterface,
   HeaderButtonItemsInterface,
   HeaderCompanyDataInterface,
-  CommonHeaderSidebarInterface,
+  HeaderInterface,
   SidebarOptionInterface,
 } from '@aseinfo/ngx-evolution-components/public-api';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
@@ -108,7 +108,7 @@ const meta: Meta<SidebarComponent> = {
         email: 'slopez@empresa.com',
         position: 'Gerente Desarrollo',
       },
-    } as CommonHeaderSidebarInterface,
+    } as HeaderInterface,
     avatarName: 'Jonatan Elizalde Gómez',
     avatarImgUrl: 'https://material.angular.io/assets/img/examples/shiba1.jpg',
     options: [

@@ -33,7 +33,7 @@ export * from './shared/interfaces/header.interface';
 export * from './shared/interfaces/user.interface';
 export * from './shared/interfaces/evaluacion.interface';
 export * from './shared/interfaces/menu.interface';
-export * from './shared/interfaces/common-header-sidebar.interface';
+export * from './shared/interfaces/sidebar.interface';
 
 // Validators
 export * from './shared/validators/custom-error-state-matcher';

@@ -11,7 +11,7 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import {
   AvatarComponent,
   ButtonComponent,
-  CommonHeaderSidebarInterface,
+  HeaderInterface,
   HeaderComponent,
   IconInterface,
   SidebarOptionInterface,
@@ -35,7 +35,7 @@ import { ChangeDetectorRef } from '@angular/core';
   styleUrls: ['./sidebar.component.scss', '../styles/output.scss'],
 })
 export class SidebarComponent implements OnInit, AfterViewInit {
-  @Input() commonProps!: CommonHeaderSidebarInterface;
+  @Input() commonProps!: HeaderInterface;
   @Input() options!: SidebarOptionInterface[];
   @Input() additionalOptions!: SidebarOptionInterface[];
   @Input() avatarName!: string;

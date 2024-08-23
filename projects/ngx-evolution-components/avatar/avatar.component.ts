@@ -38,7 +38,6 @@ export class AvatarComponent implements OnInit {
   ngOnInit(): void {
     this.color = this.color || this.getAvatarColor();
     this.setIniciales();
-    console.log(this.color);
   }
 
   /**
@@ -59,6 +58,10 @@ export class AvatarComponent implements OnInit {
     }
   }
 
+  /**
+   * Método que, acorde a la longitud del nombre, obtiene un color de la paleta de colores.
+   * @returns Color del avatar
+   */
   private getAvatarColor() {
     return this.colorArray[this.name.length % this.colorArray.length];
   }

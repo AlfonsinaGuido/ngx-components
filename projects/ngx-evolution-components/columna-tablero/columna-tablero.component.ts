@@ -1,9 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import {
-  CartaActividadComponent,
-  HeaderColumnaComponent,
-  IActividad,
-} from '../public-api';
+import { CartaActividadComponent, IActividad } from '../public-api';
 import { CommonModule } from '@angular/common';
 import {
   DragDropModule,
@@ -21,7 +17,6 @@ import {
 })
 export class ColumnaTableroComponent {
   @Input() actividades!: IActividad[];
-  @Input() name!: string;
   @Output('ordenActividad')
   public ordenActividad: EventEmitter<any> = new EventEmitter();
   @Output('actualizarActividad')

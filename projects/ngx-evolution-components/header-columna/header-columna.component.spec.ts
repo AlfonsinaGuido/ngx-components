@@ -29,8 +29,10 @@ describe('HeaderColumnaComponent', () => {
     expect(compiled.querySelector('span').textContent).toContain('10');
   });
 
-  it('should have the color dependingt on the index', () => {
+  it('should have the color depending on the index', () => {
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('div').classList).toContain('bg-indigo-600');
+    expect(compiled.querySelector('div').classList).toContain(
+      'header-column__indigo-column',
+    );
   });
 });

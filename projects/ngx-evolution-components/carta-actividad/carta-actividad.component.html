@@ -4,12 +4,14 @@
   [id]="'activity-' + id"
   tabindex="0"
 >
-  @if (priority) {
-    <evo-tag [prioridad]="priority" [label]="priority"></evo-tag>
-  }
+  <div class="flex flex-start flex-nowrap gap-1.5">
+    @if (priority) {
+      <evo-tag [prioridad]="priority" [label]="priority" />
+    }
+  </div>
   <div>
     <p
-      class="mb-1 text-base font-bold overflow-hidden line-clamp-1 text-ellipsis"
+      class="my-1 text-base font-bold overflow-hidden line-clamp-1 text-ellipsis"
       id="activity-title"
     >
       {{ title }}
@@ -24,16 +26,33 @@
   @if (responsible || endDate) {
     <div
       id="activity-card-footer"
-      class="flex flex-row flex-wrap justify-between items-center mt-2"
+      class="flex flex-row-reverse gap-1 items-center mt-2"
     >
-      @if (responsible) {
-        <evo-avatar size="sm" [name]="responsible"></evo-avatar>
-      }
       @if (endDate) {
-        <span id="endDate" class="text-base flex items-center"
-          >📅
-          <p class="text-xs font-light">{{ endDate }}</p>
+        <span id="endDate" class="flex items-center text-slate-500">
+          <mat-icon
+            aria-hidden="false"
+            aria-label="calendar icon"
+            class="scale-75"
+            fontIcon="today"
+          ></mat-icon>
+          <p class="text-xs font-semibold text-slate-500">{{ endDate | date: "dd/MM/yy" }}</p>
         </span>
+      }
+      @if (isSoonToExpire && !expired) {
+        <evo-tag 
+        twClass="bg-orange-500 text-white uppercase"
+        label="por vencer" />
+      }
+      @if (expired) {
+        <evo-tag 
+        twClass="bg-red-500 text-white uppercase"
+        label="vencida" />
+      }
+      @if (responsible) {
+        <div class="flex flex-grow">
+          <evo-avatar size="sm" [name]="responsible"></evo-avatar>
+        </div>
       }
     </div>
   }

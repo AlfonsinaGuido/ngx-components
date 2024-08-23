@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {
   ColumnaTableroComponent,
   Duracion,
@@ -91,66 +91,58 @@ const actividadesMock: IActividad[] = [
   templateUrl: './tablero-kanban.component.html',
   styleUrls: ['./tablero-kanban.component.scss', '../styles/output.scss'],
 })
-export class TableroKanbanComponent implements OnInit {
+export class TableroKanbanComponent {
   @Input() columnas!: IColumna[];
   @Input() twClass?: string;
-  public actividadesEmpleos = [
-    {
-      nombreEmpleado: 'Victor Hugo',
-      count: actividadesMock.length,
-      actividades: [
-        {
-          status: EstadoActividad.Abierta,
-          actividades: actividadesMock.filter(
-            (act) => act.status === EstadoActividad.Abierta,
-          ),
-        },
-        {
-          status: EstadoActividad.EnProgreso,
-          actividades: actividadesMock.filter(
-            (act) => act.status === EstadoActividad.EnProgreso,
-          ),
-        },
-        {
-          status: EstadoActividad.Cerrada,
-          actividades: actividadesMock.filter(
-            (act) => act.status === EstadoActividad.Cerrada,
-          ),
-        },
-      ],
-    },
-    {
-      nombreEmpleado: 'Monica Guadalupe',
-      count: actividadesMock.length,
-      actividades: [
-        {
-          status: EstadoActividad.Abierta,
-          actividades: actividadesMock.filter(
-            (act) => act.status === EstadoActividad.Abierta,
-          ),
-        },
-        {
-          status: EstadoActividad.EnProgreso,
-          actividades: actividadesMock.filter(
-            (act) => act.status === EstadoActividad.EnProgreso,
-          ),
-        },
-        {
-          status: EstadoActividad.Cerrada,
-          actividades: actividadesMock.filter(
-            (act) => act.status === EstadoActividad.Cerrada,
-          ),
-        },
-      ],
-    },
-  ];
-  public isSingle: boolean = false;
-
-  ngOnInit() {
-    console.log(this.actividadesEmpleos);
-  }
-
-  ngAfterViewInit() {}
-
-  constructor() {}
+  // public actividadesEmpleos = [
+  //   {
+  //     nombreEmpleado: 'Victor Hugo',
+  //     count: actividadesMock.length,
+  //     actividades: [
+  //       {
+  //         status: EstadoActividad.Abierta,
+  //         actividades: actividadesMock.filter(
+  //           (act) => act.status === EstadoActividad.Abierta,
+  //         ),
+  //       },
+  //       {
+  //         status: EstadoActividad.EnProgreso,
+  //         actividades: actividadesMock.filter(
+  //           (act) => act.status === EstadoActividad.EnProgreso,
+  //         ),
+  //       },
+  //       {
+  //         status: EstadoActividad.Cerrada,
+  //         actividades: actividadesMock.filter(
+  //           (act) => act.status === EstadoActividad.Cerrada,
+  //         ),
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     nombreEmpleado: 'Monica Guadalupe',
+  //     count: actividadesMock.length,
+  //     actividades: [
+  //       {
+  //         status: EstadoActividad.Abierta,
+  //         actividades: actividadesMock.filter(
+  //           (act) => act.status === EstadoActividad.Abierta,
+  //         ),
+  //       },
+  //       {
+  //         status: EstadoActividad.EnProgreso,
+  //         actividades: actividadesMock.filter(
+  //           (act) => act.status === EstadoActividad.EnProgreso,
+  //         ),
+  //       },
+  //       {
+  //         status: EstadoActividad.Cerrada,
+  //         actividades: actividadesMock.filter(
+  //           (act) => act.status === EstadoActividad.Cerrada,
+  //         ),
+  //       },
+  //     ],
+  //   },
+  // ];
+  public isSingle: boolean = true;
 }

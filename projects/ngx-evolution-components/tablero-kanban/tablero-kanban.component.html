@@ -17,7 +17,6 @@
         ></evo-header-columna>
         @if (isSingle) {
           <evo-columna-tablero
-            [name]="columna.nombre"
             [actividades]="columna.actividades"
           >
           </evo-columna-tablero>
@@ -25,7 +24,7 @@
       </div>
     }
   </div>
-  @if (!isSingle) {
+  <!-- @if (!isSingle) {
     <cdk-accordion #accordion="cdkAccordion" [multi]="true">
       @for (empleo of actividadesEmpleos; track empleo; let index = $index) {
         <cdk-accordion-item
@@ -59,5 +58,5 @@
         </cdk-accordion-item>
       }
     </cdk-accordion>
-  }
+  } -->
 </div>

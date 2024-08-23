@@ -70,21 +70,18 @@ const actividades: IActividad[] = [
 
 export const Default: Story = {
   args: {
-    name: 'En progreso',
     actividades: actividades,
   },
 };
 
 export const sinActividadeds: Story = {
   args: {
-    name: 'Done',
     actividades: [],
   },
 };
 
 export const nombreDeColumnaLargo: Story = {
   args: {
-    name: 'Las actividades que no hemos iniciado aún',
     actividades: actividades,
   },
 };

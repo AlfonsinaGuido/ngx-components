@@ -5,13 +5,14 @@ import {
   type StoryObj,
 } from '@storybook/angular';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { provideHttpClient } from '@angular/common/http';
 
 const meta: Meta<MenuComponent> = {
   title: 'Evolution Components/Menu',
   component: MenuComponent,
   decorators: [
     applicationConfig({
-      providers: [provideAnimationsAsync()],
+      providers: [provideAnimationsAsync(), provideHttpClient()],
     }),
   ],
   tags: ['autodocs'],
@@ -22,13 +23,15 @@ type Story = StoryObj<MenuComponent>;
 
 export const Default: Story = {
   args: {
-    buttonIcon: {
-      icon: 'app-menu.svg',
-      type: 'svg',
-    },
-    closeIcon: {
-      icon: 'close.svg',
-      type: 'svg',
+    icons: {
+      buttonIcon: {
+        icon: 'app-menu.svg',
+        type: 'svg',
+      },
+      closeIcon: {
+        icon: 'close.svg',
+        type: 'svg',
+      },
     },
     title: 'Tus aplicaciones',
     items: [
@@ -57,13 +60,15 @@ export const Default: Story = {
 
 export const NotificationsMenu: Story = {
   args: {
-    buttonIcon: {
-      icon: 'bell.svg',
-      type: 'svg',
-    },
-    closeIcon: {
-      icon: 'close.svg',
-      type: 'svg',
+    icons: {
+      buttonIcon: {
+        icon: 'bell.svg',
+        type: 'svg',
+      },
+      closeIcon: {
+        icon: 'close.svg',
+        type: 'svg',
+      },
     },
     title: 'Notificaciones',
     notificationsNumber: 3,
@@ -282,9 +287,11 @@ export const WithScroll: Story = {
 
 export const UserMenu: Story = {
   args: {
-    closeIcon: {
-      icon: 'close.svg',
-      type: 'svg',
+    icons: {
+      closeIcon: {
+        icon: 'close.svg',
+        type: 'svg',
+      },
     },
     userData: {
       fullName: 'Stela Lopez',

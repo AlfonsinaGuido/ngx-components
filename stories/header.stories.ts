@@ -5,13 +5,14 @@ import {
   type StoryObj,
 } from '@storybook/angular';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { provideHttpClient } from '@angular/common/http';
 
 const meta: Meta<HeaderComponent> = {
   title: 'Evolution Components/Header',
   component: HeaderComponent,
   decorators: [
     applicationConfig({
-      providers: [provideAnimationsAsync()],
+      providers: [provideAnimationsAsync(), provideHttpClient()],
     }),
   ],
   tags: ['autodocs'],
@@ -22,71 +23,94 @@ type Story = StoryObj<HeaderComponent>;
 
 export const Default: Story = {
   args: {
-    appIcon: {
-      icon: 'app-menu.svg',
-      type: 'svg',
+    icons: {
+      appIcon: {
+        icon: 'app-menu.svg',
+        type: 'svg',
+      },
+      notificationIcon: {
+        icon: 'bell.svg',
+        type: 'svg',
+      },
     },
-    appTitle: 'Tus aplicaciones',
-    notificationTitle: 'Notificaciones',
-    appItems: [
-      {
-        label: 'Evo Wave',
-        icon: {
-          icon: 'company-logo.svg',
-          type: 'svg',
-          position: 'left',
+    titles: {
+      appTitle: 'Tus aplicaciones',
+      notificationTitle: 'Notificaciones',
+    },
+    buttonItems: {
+      appItems: [
+        {
+          label: 'Evo Wave',
+          icon: {
+            icon: 'company-logo.svg',
+            type: 'svg',
+            position: 'left',
+          },
+          url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoWave',
         },
-        url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoWave',
-      },
-      {
-        label: 'Evo Chart',
-        icon: {
-          icon: 'company-logo.svg',
-          type: 'svg',
-          position: 'left',
+        {
+          label: 'Evo Chart',
+          icon: {
+            icon: 'company-logo.svg',
+            type: 'svg',
+            position: 'left',
+          },
+          url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoChart',
         },
-        url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoChart',
-      },
-    ],
-    notificationItems: [
-      {
-        label: 'Carlos Sanchez finalizo Programa Recursos Humanos',
-        avatarName: 'Carlos Sanchez',
-        avatarImgUrl:
-          'https://material.angular.io/assets/img/examples/shiba1.jpg',
-        onClick: {
-          action: (param = ' con param') => {
-            console.log('funciona' + param);
+      ],
+      notificationItems: [
+        {
+          label: 'Carlos Sanchez finalizo Programa Recursos Humanos',
+          avatarName: 'Carlos Sanchez',
+          avatarImgUrl:
+            'https://material.angular.io/assets/img/examples/shiba1.jpg',
+          onClick: {
+            action: (param = ' con param') => {
+              console.log('funciona' + param);
+            },
           },
         },
-      },
-      {
-        label: 'Samuel Lopez finalizo Programa Desarrollo',
-        avatarName: 'Samuel Lopez',
-        avatarImgUrl:
-          'https://material.angular.io/assets/img/examples/shiba1.jpg',
-        onClick: {
-          action: () => {
-            console.log('funciona sin param');
+        {
+          label: 'Samuel Lopez finalizo Programa Desarrollo',
+          avatarName: 'Samuel Lopez',
+          avatarImgUrl:
+            'https://material.angular.io/assets/img/examples/shiba1.jpg',
+          onClick: {
+            action: () => {
+              console.log('funciona sin param');
+            },
           },
         },
-      },
-      {
-        label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',
-        avatarName: 'Ignacio Fernandez',
-        avatarImgUrl:
-          'https://material.angular.io/assets/img/examples/shiba1.jpg',
-        onClick: {
-          action: (name = 'Ignacio Fernandez') => {
-            console.log('Felicidades ' + name);
+        {
+          label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',
+          avatarName: 'Ignacio Fernandez',
+          avatarImgUrl:
+            'https://material.angular.io/assets/img/examples/shiba1.jpg',
+          onClick: {
+            action: (name = 'Ignacio Fernandez') => {
+              console.log('Felicidades ' + name);
+            },
           },
         },
-      },
-    ],
-    companyImage: 'company-logo.svg',
-    notificationIcon: {
-      icon: 'bell.svg',
-      type: 'svg',
+      ],
+      userDataItems: [
+        {
+          label: 'Cerrar Sesión',
+          icon: {
+            icon: 'logout.svg',
+            type: 'svg',
+            position: 'left',
+          },
+          onClick: {
+            action: (param = ' con param') => {
+              console.log('funciona' + param);
+            },
+          },
+        },
+      ],
+    },
+    companyData: {
+      companyImage: 'company-logo.svg',
     },
     box: [
       {
@@ -101,21 +125,6 @@ export const Default: Story = {
       email: 'slopez@empresa.com',
       position: 'Gerente Desarrollo',
     },
-    userDataItems: [
-      {
-        label: 'Cerrar Sesión',
-        icon: {
-          icon: 'logout.svg',
-          type: 'svg',
-          position: 'left',
-        },
-        onClick: {
-          action: (param = ' con param') => {
-            console.log('funciona' + param);
-          },
-        },
-      },
-    ],
     classes: '',
   },
 };
@@ -123,6 +132,9 @@ export const Default: Story = {
 export const WithCompanyName: Story = {
   args: {
     ...Default.args,
-    companyName: 'ASEINFO',
+    companyData: {
+      companyName: 'ASEINFO',
+      companyImage: 'company-logo.svg',
+    },
   },
 };

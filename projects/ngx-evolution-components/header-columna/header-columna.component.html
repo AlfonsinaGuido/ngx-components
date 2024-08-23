@@ -2,12 +2,17 @@
   id="column-header"
   class="flex rounded-3xl p-1.5 min-w-fit h-10 text-white items-center mb-2 hover:scale-105 transition-transform"
   [class]="[classColor, twClass]"
+>
+  @if (withCount) {
+    <span
+      class="flex items-center justify-center font-bold text-sm size-6 min-w-6 sm:size-7 sm:min-w-7 rounded-full bg-white"
+      [class]="[classColor]"
+      >{{ count }}</span
+    >
+  }
+  <p
+    class="text-white capitalize font-semibold tracking-wide text-sm overflow-hidden text-ellipsis line-clamp-1 ml-2"
   >
-@if (withCount) {
-  <span
-    class="flex items-center justify-center font-bold text-sm size-6 min-w-6 sm:size-7 sm:min-w-7 rounded-full bg-white"
-    [class]="[classColor]"
-    >{{ count }}</span>
-}
-  <p class="text-white capitalize font-semibold tracking-wide text-sm overflow-hidden text-ellipsis line-clamp-1 ml-2">{{ name }}</p>
+    {{ name }}
+  </p>
 </div>

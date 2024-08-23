@@ -16,15 +16,13 @@
           [withCount]="isSingle"
         ></evo-header-columna>
         @if (isSingle) {
-          <evo-columna-tablero
-            [actividades]="columna.actividades"
-          >
+          <evo-columna-tablero [actividades]="columna.actividades">
           </evo-columna-tablero>
         }
       </div>
     }
   </div>
-  <!-- @if (!isSingle) {
+  @if (!isSingle) {
     <cdk-accordion #accordion="cdkAccordion" [multi]="true">
       @for (empleo of actividadesEmpleos; track empleo; let index = $index) {
         <cdk-accordion-item
@@ -32,13 +30,16 @@
           tabindex="0"
           [expanded]="true"
         >
-          <div 
+          <div
             class="w-full overflow-hidden line-clamp-1 text-nowrap text-left rounded-md p-1.5 mb-0.5 cursor-pointer bg-black bg-opacity-5 hover:bg-black hover:bg-opacity-10 transition-colors"
             (click)="accordionItem.toggle()"
           >
             <p class="text-sm">
-              {{ accordionItem.expanded ? "⏬" : "⏩" }} {{ empleo.nombreEmpleado }}
-              <span class="text-tiny font-bold text-gray-400"> - {{ empleo.count }} actividades </span>
+              {{ accordionItem.expanded ? "⏬" : "⏩" }}
+              {{ empleo.nombreEmpleado }}
+              <span class="text-tiny font-bold text-gray-400">
+                - {{ empleo.count }} actividades
+              </span>
             </p>
           </div>
           <div
@@ -46,17 +47,19 @@
             [class]="accordionItem.expanded ? 'flex gap-4 my-2' : 'hidden'"
             cdkDropListGroup
           >
-          @for (actividades of empleo.actividades; track $index) {
-            <div class="inline-block min-w-72 max-w-72 whitespace-normal snap-center">
-              <evo-columna-tablero [actividades]="actividades.actividades">
-              </evo-columna-tablero>
-            </div>
-          } @empty {
-            <p class="self-center text-gray-400">No hay actividades</p>
-          }
+            @for (actividades of empleo.actividades; track $index) {
+              <div
+                class="inline-block min-w-72 max-w-72 whitespace-normal snap-center"
+              >
+                <evo-columna-tablero [actividades]="actividades.actividades">
+                </evo-columna-tablero>
+              </div>
+            } @empty {
+              <p class="self-center text-gray-400">No hay actividades</p>
+            }
           </div>
         </cdk-accordion-item>
       }
     </cdk-accordion>
-  } -->
+  }
 </div>

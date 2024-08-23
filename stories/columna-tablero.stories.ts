@@ -64,7 +64,7 @@ const actividades: IActividad[] = [
     tipoDuracion: Duracion.Horas,
     realizaEvaluacion: false,
     status: EstadoActividad.EnProgreso,
-    fechaFin: new Date(2024, 7, 20),
+    fechaFin: new Date(),
   },
 ];
 
@@ -77,11 +77,5 @@ export const Default: Story = {
 export const sinActividadeds: Story = {
   args: {
     actividades: [],
-  },
-};
-
-export const nombreDeColumnaLargo: Story = {
-  args: {
-    actividades: actividades,
   },
 };

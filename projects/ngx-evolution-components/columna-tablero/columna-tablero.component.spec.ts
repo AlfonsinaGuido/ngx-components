@@ -9,7 +9,6 @@ import {
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
-const mockName: string = 'en progreso';
 const mockActividades: IActividad[] = [
   {
     id: 1,
@@ -73,7 +72,6 @@ describe('ColumnaTableroComponent', () => {
 
     fixture = TestBed.createComponent(ColumnaTableroComponent);
     component = fixture.componentInstance;
-    component.name = mockName;
     component.actividades = mockActividades;
     fixture.detectChanges();
   });

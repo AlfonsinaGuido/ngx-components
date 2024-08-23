@@ -39,7 +39,7 @@
 }
 
 h1 {
-  color: var(--text-primary, #000000);
+  color: var(--text-primary);
   font-size: 2.6rem;
   line-height: 3rem;
   font-weight: 700;
@@ -47,7 +47,7 @@ h1 {
 }
 
 h2 {
-  color: var(--text-primary, #000000);
+  color: var(--text-primary);
   font-size: 1.75rem;
   line-height: 2.5rem;
   font-weight: 600;
@@ -55,7 +55,7 @@ h2 {
 }
 
 h3 {
-  color: var(--text-primary, #000000);
+  color: var(--text-primary);
   font-size: 1.25rem;
   line-height: 1.75rem;
   font-weight: 500;
@@ -63,7 +63,7 @@ h3 {
 }
 
 h4 {
-  color: var(--text-primary, #000000);
+  color: var(--text-primary);
   font-size: 1.15rem;
   line-height: 1.5rem;
   font-weight: 500;
@@ -71,7 +71,7 @@ h4 {
 }
 
 h5 {
-  color: var(--text-primary, #000000);
+  color: var(--text-primary);
   font-size: 1.05rem;
   line-height: 1.4rem;
   font-weight: 500;
@@ -81,13 +81,13 @@ h5 {
 p {
   line-height: 1.75;
   font-size: 1rem;
-  color: var(--text-primary, #000000);
+  color: var(--text-primary);
   margin: 0;
 }
 
 a {
   font-size: 1rem;
-  color: var(--link-color, #0387ed);
+  color: var(--text-primary);
   text-decoration: none;
   &:hover {
     text-decoration: none;
@@ -117,7 +117,6 @@ a {
   --accent-900: #0a2219;
   --warn: #fd0000;
   --text-primary: #000000;
-  --link-color: #06c;
   --white: #ffffff;
   --white-smoke: #fafafa;
   --light-gray: #d1d5db;

@@ -11,6 +11,7 @@ import {
 import { CdkDropListGroup } from '@angular/cdk/drag-drop';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { CommonModule } from '@angular/common';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'evo-tablero-kanban',
@@ -21,6 +22,7 @@ import { CommonModule } from '@angular/common';
     CommonModule,
     HeaderColumnaComponent,
     CdkAccordionModule,
+    MatIcon,
   ],
   templateUrl: './tablero-kanban.component.html',
   styleUrls: ['./tablero-kanban.component.scss', '../styles/output.scss'],

@@ -31,11 +31,13 @@
           [expanded]="true"
         >
           <div
-            class="w-full overflow-hidden line-clamp-1 text-nowrap text-left rounded-md p-1.5 mb-0.5 cursor-pointer bg-black bg-opacity-5 hover:bg-black hover:bg-opacity-10 transition-colors"
+            class="w-full flex items-center overflow-hidden line-clamp-1 text-nowrap rounded-md p-1.5 mb-0.5 cursor-pointer bg-black bg-opacity-5 hover:bg-black hover:bg-opacity-10 transition-colors"
             (click)="accordionItem.toggle()"
           >
+            <mat-icon class="flex items-center justify-center text-xl">
+              {{ accordionItem.expanded ? "chevron_right" : "expand_more" }}
+            </mat-icon>
             <p class="text-sm">
-              {{ accordionItem.expanded ? "⏬" : "⏩" }}
               {{ empleo.nombreEmpleado }}
               <span class="text-tiny font-bold text-gray-400">
                 - {{ empleo.count }} actividades

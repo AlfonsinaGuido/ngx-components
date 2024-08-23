@@ -1,14 +1,12 @@
 <div
   id="avatar-wrapper"
   class="relative rounded-full overflow-hidden flex items-center justify-center"
-  [class]="
-    [bgColor ? bgColor : 'bg-green-50', 'avatar__size-' + size].join(' ')
-  "
+  [class]="['avatar__' + color, 'avatar__size-' + size].join(' ')"
 >
   @if (!imgUrl) {
     <span
       class="font-semibold"
-      [class]="textColor ? textColor : 'text-green-700'"
+      [class]="'avatar__' + color"
       >{{ iniciales }}</span
     >
   } @else {

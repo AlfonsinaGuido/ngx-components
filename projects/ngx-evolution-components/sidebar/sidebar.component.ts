@@ -15,9 +15,9 @@ import {
   HeaderComponent,
   IconInterface,
   SidebarOptionInterface,
+  SvgComponent,
 } from '../public-api';
 import { Router, NavigationEnd } from '@angular/router';
-import { SvgComponent } from '../public-api';
 import { Subscription } from 'rxjs';
 import { ChangeDetectorRef } from '@angular/core';
 
@@ -40,7 +40,7 @@ export class SidebarComponent implements OnInit, AfterViewInit {
   @Input() additionalOptions!: SidebarOptionInterface[];
   @Input() avatarName!: string;
   @Input() avatarImgUrl?: string;
-  @Input() avatarIsPriority: boolean = false;
+  @Input() avatarIsPriority?: boolean = false;
 
   isMobile: boolean = false;
   isSidebarOpen: boolean = false;

@@ -18,7 +18,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "IActividad",
-        "defaultValue": "{\n  id: 1,\n  titulo: 'Inducción a la empresa',\n  tipo: 'Reunión',\n  fase: 'Antes del primer día',\n  descripcion:\n    'Día de inducción a la empresa. Es necesario asistir presencialmente a las oficinas.',\n  objetivos:\n    'Procurar que el empleado pueda asociarse con los valores de la empresa',\n  prioridad: Prioridad.High,\n  responsable: 'Miguel Perez',\n  duracion: 8,\n  tipoDuracion: Duracion.Horas,\n  realizaEvaluacion: false,\n  status: EstadoActividad.Abierta,\n  fechaFin: '20/08/2024',\n}"
+        "defaultValue": "{\n  id: 1,\n  titulo: 'Inducción a la empresa',\n  tipo: 'Reunión',\n  fase: 'Antes del primer día',\n  descripcion:\n    'Día de inducción a la empresa. Es necesario asistir presencialmente a las oficinas.',\n  objetivos:\n    'Procurar que el empleado pueda asociarse con los valores de la empresa',\n  prioridad: Prioridad.High,\n  responsable: 'Miguel Perez',\n  duracion: 8,\n  tipoDuracion: Duracion.Horas,\n  realizaEvaluacion: false,\n  status: EstadoActividad.Abierta,\n  fechaFin: new Date('08/20/2024'),\n}"
       },
       {
         "name": "actividades",
@@ -28,7 +28,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "IActividad[]",
-        "defaultValue": "[\n  {\n    id: 1,\n    titulo: 'Inducción a la empresa',\n    tipo: 'Reunión',\n    fase: 'Antes del primer día',\n    descripcion:\n      'Día de inducción a la empresa. Es necesario asistir presencialmente a las oficinas.',\n    objetivos:\n      'Procurar que el empleado pueda asociarse con los valores de la empresa',\n    prioridad: Prioridad.High,\n    responsable: 'Miguel Perez',\n    duracion: 8,\n    tipoDuracion: Duracion.Horas,\n    realizaEvaluacion: false,\n    status: EstadoActividad.Abierta,\n    fechaFin: new Date(2024, 7, 20),\n  },\n  {\n    id: 2,\n    titulo: 'Curso de Evolution',\n    tipo: 'Capacitación',\n    fase: 'La primera semana',\n    descripcion:\n      'Curso de una semana para el aprendizaje básico del sistema Evolution.',\n    objetivos:\n      'El participante debe llegar a familiarizarse con todos los módulos de Evolution.',\n    prioridad: Prioridad.Medium,\n    responsable: 'Ricardo Hernandez',\n    duracion: 5,\n    tipoDuracion: Duracion.Dias,\n    realizaEvaluacion: true,\n    status: EstadoActividad.EnProgreso,\n    fechaFin: new Date(2024, 7, 20),\n  },\n  {\n    id: 3,\n    titulo: 'Visita Guiada',\n    tipo: 'Reunión',\n    fase: 'Antes del primer día',\n    descripcion: 'Realizar una visita guiada sobre las instalaciones.',\n    objetivos: 'Asignar parqueo y conocer el edificio.',\n    prioridad: Prioridad.Low,\n    responsable: 'Hugo Maldonado',\n    duracion: 2,\n    tipoDuracion: Duracion.Horas,\n    realizaEvaluacion: false,\n    status: EstadoActividad.EnProgreso,\n    fechaFin: new Date(2024, 7, 20),\n  },\n]"
+        "defaultValue": "[\n  {\n    id: 1,\n    titulo: 'Inducción a la empresa',\n    tipo: 'Reunión',\n    fase: 'Antes del primer día',\n    descripcion:\n      'Día de inducción a la empresa. Es necesario asistir presencialmente a las oficinas.',\n    objetivos:\n      'Procurar que el empleado pueda asociarse con los valores de la empresa',\n    prioridad: Prioridad.High,\n    responsable: 'Miguel Perez',\n    duracion: 8,\n    tipoDuracion: Duracion.Horas,\n    realizaEvaluacion: false,\n    status: EstadoActividad.Abierta,\n    fechaFin: new Date(2024, 7, 20),\n  },\n  {\n    id: 2,\n    titulo: 'Curso de Evolution',\n    tipo: 'Capacitación',\n    fase: 'La primera semana',\n    descripcion:\n      'Curso de una semana para el aprendizaje básico del sistema Evolution.',\n    objetivos:\n      'El participante debe llegar a familiarizarse con todos los módulos de Evolution.',\n    prioridad: Prioridad.Medium,\n    responsable: 'Ricardo Hernandez',\n    duracion: 5,\n    tipoDuracion: Duracion.Dias,\n    realizaEvaluacion: true,\n    status: EstadoActividad.EnProgreso,\n    fechaFin: new Date(2024, 7, 20),\n  },\n  {\n    id: 3,\n    titulo: 'Visita Guiada',\n    tipo: 'Reunión',\n    fase: 'Antes del primer día',\n    descripcion: 'Realizar una visita guiada sobre las instalaciones.',\n    objetivos: 'Asignar parqueo y conocer el edificio.',\n    prioridad: Prioridad.Low,\n    responsable: 'Hugo Maldonado',\n    duracion: 2,\n    tipoDuracion: Duracion.Horas,\n    realizaEvaluacion: false,\n    status: EstadoActividad.EnProgreso,\n    fechaFin: new Date(),\n  },\n]"
       },
       {
         "name": "actividades",
@@ -111,6 +111,16 @@
         "defaultValue": "[\n  {\n    id: 1,\n    nombre: 'abiertas',\n    actividades: actividades.filter(\n      (act) => act.status === EstadoActividad.Abierta,\n    ),\n  },\n  {\n    id: 2,\n    nombre: 'en progreso',\n    actividades: actividades.filter(\n      (act) => act.status === EstadoActividad.EnProgreso,\n    ),\n  },\n  {\n    id: 3,\n    nombre: 'finalizadas',\n    actividades: actividades.filter(\n      (act) => act.status === EstadoActividad.Cerrada,\n    ),\n  },\n]"
       },
       {
+        "name": "customTailwindClass",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/header-columna.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    name: 'Canceladas',\n    count: 2,\n    index: 4,\n    twClass: 'bg-red-500 text-red-500',\n  },\n}"
+      },
+      {
         "name": "Default",
         "ctype": "miscellaneous",
         "subtype": "variable",
@@ -118,7 +128,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    label: 'Button',\n    classes: '',\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    label: 'Button',\r\n    classes: '',\r\n  },\r\n}"
       },
       {
         "name": "Default",
@@ -138,7 +148,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    name: 'En progreso',\n    actividades: actividades,\n  },\n}"
+        "defaultValue": "{\n  args: {\n    actividades: actividades,\n  },\n}"
       },
       {
         "name": "Default",
@@ -154,11 +164,21 @@
         "name": "Default",
         "ctype": "miscellaneous",
         "subtype": "variable",
+        "file": "stories/header-columna.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    name: 'Abiertas',\n    count: 3,\n    index: 0,\n  },\n}"
+      },
+      {
+        "name": "Default",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
         "file": "stories/header.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    icons: {\n      appIcon: {\n        icon: 'app-menu.svg',\n        type: 'svg',\n      },\n      notificationIcon: {\n        icon: 'bell.svg',\n        type: 'svg',\n      },\n    },\n    titles: {\n      appTitle: 'Tus aplicaciones',\n      notificationTitle: 'Notificaciones',\n    },\n    buttonItems: {\n      appItems: [\n        {\n          label: 'Evo Wave',\n          icon: {\n            icon: 'company-logo.svg',\n            type: 'svg',\n            position: 'left',\n          },\n          url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoWave',\n        },\n        {\n          label: 'Evo Chart',\n          icon: {\n            icon: 'company-logo.svg',\n            type: 'svg',\n            position: 'left',\n          },\n          url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoChart',\n        },\n      ],\n      notificationItems: [\n        {\n          label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\n          avatarName: 'Carlos Sanchez',\n          avatarImgUrl:\n            'https://material.angular.io/assets/img/examples/shiba1.jpg',\n          onClick: {\n            action: (param = ' con param') => {\n              console.log('funciona' + param);\n            },\n          },\n        },\n        {\n          label: 'Samuel Lopez finalizo Programa Desarrollo',\n          avatarName: 'Samuel Lopez',\n          avatarImgUrl:\n            'https://material.angular.io/assets/img/examples/shiba1.jpg',\n          onClick: {\n            action: () => {\n              console.log('funciona sin param');\n            },\n          },\n        },\n        {\n          label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',\n          avatarName: 'Ignacio Fernandez',\n          avatarImgUrl:\n            'https://material.angular.io/assets/img/examples/shiba1.jpg',\n          onClick: {\n            action: (name = 'Ignacio Fernandez') => {\n              console.log('Felicidades ' + name);\n            },\n          },\n        },\n      ],\n      userDataItems: [\n        {\n          label: 'Cerrar Sesión',\n          icon: {\n            icon: 'logout.svg',\n            type: 'svg',\n            position: 'left',\n          },\n          onClick: {\n            action: (param = ' con param') => {\n              console.log('funciona' + param);\n            },\n          },\n        },\n      ],\n    },\n    companyData: {\n      companyImage: 'company-logo.svg',\n    },\n    box: [\n      {\n        label: 'Cambiar Perfil',\n        action: (param = ' con param') => {\n          console.log('funciona' + param);\n        },\n      },\n    ],\n    userData: {\n      fullName: 'Stela Lopez',\n      email: 'slopez@empresa.com',\n      position: 'Gerente Desarrollo',\n    },\n    classes: '',\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    icons: {\r\n      appIcon: {\r\n        icon: 'app-menu.svg',\r\n        type: 'svg',\r\n      },\r\n      notificationIcon: {\r\n        icon: 'bell.svg',\r\n        type: 'svg',\r\n      },\r\n    },\r\n    titles: {\r\n      appTitle: 'Tus aplicaciones',\r\n      notificationTitle: 'Notificaciones',\r\n    },\r\n    buttonItems: {\r\n      appItems: [\r\n        {\r\n          label: 'Evo Wave',\r\n          icon: {\r\n            icon: 'company-logo.svg',\r\n            type: 'svg',\r\n            position: 'left',\r\n          },\r\n          url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoWave',\r\n        },\r\n        {\r\n          label: 'Evo Chart',\r\n          icon: {\r\n            icon: 'company-logo.svg',\r\n            type: 'svg',\r\n            position: 'left',\r\n          },\r\n          url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoChart',\r\n        },\r\n      ],\r\n      notificationItems: [\r\n        {\r\n          label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\r\n          avatarName: 'Carlos Sanchez',\r\n          avatarImgUrl:\r\n            'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n          onClick: {\r\n            action: (param = ' con param') => {\r\n              console.log('funciona' + param);\r\n            },\r\n          },\r\n        },\r\n        {\r\n          label: 'Samuel Lopez finalizo Programa Desarrollo',\r\n          avatarName: 'Samuel Lopez',\r\n          avatarImgUrl:\r\n            'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n          onClick: {\r\n            action: () => {\r\n              console.log('funciona sin param');\r\n            },\r\n          },\r\n        },\r\n        {\r\n          label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',\r\n          avatarName: 'Ignacio Fernandez',\r\n          avatarImgUrl:\r\n            'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n          onClick: {\r\n            action: (name = 'Ignacio Fernandez') => {\r\n              console.log('Felicidades ' + name);\r\n            },\r\n          },\r\n        },\r\n      ],\r\n      userDataItems: [\r\n        {\r\n          label: 'Cerrar Sesión',\r\n          icon: {\r\n            icon: 'logout.svg',\r\n            type: 'svg',\r\n            position: 'left',\r\n          },\r\n          onClick: {\r\n            action: (param = ' con param') => {\r\n              console.log('funciona' + param);\r\n            },\r\n          },\r\n        },\r\n      ],\r\n    },\r\n    companyData: {\r\n      companyImage: 'company-logo.svg',\r\n    },\r\n    box: [\r\n      {\r\n        label: 'Cambiar Perfil',\r\n        action: (param = ' con param') => {\r\n          console.log('funciona' + param);\r\n        },\r\n      },\r\n    ],\r\n    userData: {\r\n      fullName: 'Stela Lopez',\r\n      email: 'slopez@empresa.com',\r\n      position: 'Gerente Desarrollo',\r\n    },\r\n    classes: '',\r\n  },\r\n}"
       },
       {
         "name": "Default",
@@ -188,7 +208,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    icons: {\n      buttonIcon: {\n        icon: 'app-menu.svg',\n        type: 'svg',\n      },\n      closeIcon: {\n        icon: 'close.svg',\n        type: 'svg',\n      },\n    },\n    title: 'Tus aplicaciones',\n    items: [\n      {\n        label: 'Evo Wave',\n        icon: {\n          icon: 'company-logo.svg',\n          type: 'svg',\n          position: 'left',\n        },\n        url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoWave',\n      },\n      {\n        label: 'Evo Chart',\n        icon: {\n          icon: 'company-logo.svg',\n          type: 'svg',\n          position: 'left',\n        },\n        url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoChart',\n      },\n    ],\n    classes: '',\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    icons: {\r\n      buttonIcon: {\r\n        icon: 'app-menu.svg',\r\n        type: 'svg',\r\n      },\r\n      closeIcon: {\r\n        icon: 'close.svg',\r\n        type: 'svg',\r\n      },\r\n    },\r\n    title: 'Tus aplicaciones',\r\n    items: [\r\n      {\r\n        label: 'Evo Wave',\r\n        icon: {\r\n          icon: 'company-logo.svg',\r\n          type: 'svg',\r\n          position: 'left',\r\n        },\r\n        url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoWave',\r\n      },\r\n      {\r\n        label: 'Evo Chart',\r\n        icon: {\r\n          icon: 'company-logo.svg',\r\n          type: 'svg',\r\n          position: 'left',\r\n        },\r\n        url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoChart',\r\n      },\r\n    ],\r\n    classes: '',\r\n  },\r\n}"
       },
       {
         "name": "Default",
@@ -198,7 +218,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    label: 'Select',\n    items: [\n      {\n        key: 1,\n        value: 'Option 1',\n      },\n      {\n        key: 2,\n        value: 'Option 2',\n      },\n      {\n        key: 3,\n        value: 'Option 3',\n      },\n    ],\n    control: formControlDefaultSelect,\n    buttonIcon: {\n      icon: 'clean.svg',\n      type: 'svg',\n    },\n    detail: '',\n    classes: '',\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    label: 'Select',\r\n    items: [\r\n      {\r\n        key: 1,\r\n        value: 'Option 1',\r\n      },\r\n      {\r\n        key: 2,\r\n        value: 'Option 2',\r\n      },\r\n      {\r\n        key: 3,\r\n        value: 'Option 3',\r\n      },\r\n    ],\r\n    control: formControlDefaultSelect,\r\n    buttonIcon: {\r\n      icon: 'clean.svg',\r\n      type: 'svg',\r\n    },\r\n    detail: '',\r\n    classes: '',\r\n  },\r\n}"
       },
       {
         "name": "Default",
@@ -208,7 +228,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    svgPath: 'bell.svg',\n    classes: '',\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    svgPath: 'bell.svg',\r\n    classes: '',\r\n  },\r\n}"
       },
       {
         "name": "Default",
@@ -238,7 +258,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    ...Default.args,\n    disabled: true,\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    disabled: true,\r\n  },\r\n}"
       },
       {
         "name": "ErrorEmail",
@@ -278,7 +298,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "",
-        "defaultValue": "new FormBuilder().group({\n  defaultFieldSelect: new FormControl('', []),\n  multipleFieldSelect: new FormControl([], []),\n  requiredFieldSelect: new FormControl('', []),\n})"
+        "defaultValue": "new FormBuilder().group({\r\n  defaultFieldSelect: new FormControl('', []),\r\n  multipleFieldSelect: new FormControl([], []),\r\n  requiredFieldSelect: new FormControl('', []),\r\n})"
       },
       {
         "name": "formControlDefaultInput",
@@ -368,7 +388,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "object",
-        "defaultValue": "{\n  action: Testing2,\n}"
+        "defaultValue": "{\r\n  action: Testing2,\r\n}"
       },
       {
         "name": "iniciales",
@@ -388,7 +408,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    ...Default.args,\n    isFlat: true,\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    isFlat: true,\r\n  },\r\n}"
       },
       {
         "name": "IsFluid",
@@ -398,7 +418,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    ...Default.args,\n    isFluid: true,\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    isFluid: true,\r\n  },\r\n}"
       },
       {
         "name": "masColumnas",
@@ -418,7 +438,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<ButtonComponent>",
-        "defaultValue": "{\n  title: 'Evolution Components/Button',\n  component: ButtonComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+        "defaultValue": "{\r\n  title: 'Evolution Components/Button',\r\n  component: ButtonComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
       },
       {
         "name": "meta",
@@ -438,7 +458,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<HeaderComponent>",
-        "defaultValue": "{\n  title: 'Evolution Components/Header',\n  component: HeaderComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync(), provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+        "defaultValue": "{\r\n  title: 'Evolution Components/Header',\r\n  component: HeaderComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideAnimationsAsync(), provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
       },
       {
         "name": "meta",
@@ -468,7 +488,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<MenuComponent>",
-        "defaultValue": "{\n  title: 'Evolution Components/Menu',\n  component: MenuComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync(), provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+        "defaultValue": "{\r\n  title: 'Evolution Components/Menu',\r\n  component: MenuComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideAnimationsAsync(), provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
       },
       {
         "name": "meta",
@@ -478,7 +498,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<SelectComponent>",
-        "defaultValue": "{\n  title: 'Evolution Components/Select',\n  component: SelectComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync(), provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+        "defaultValue": "{\r\n  title: 'Evolution Components/Select',\r\n  component: SelectComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideAnimationsAsync(), provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
       },
       {
         "name": "meta",
@@ -488,7 +508,17 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<SvgComponent>",
-        "defaultValue": "{\n  title: 'Evolution Components/Svg',\n  component: SvgComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+        "defaultValue": "{\r\n  title: 'Evolution Components/Svg',\r\n  component: SvgComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
+      },
+      {
+        "name": "muchasActividades",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/header-columna.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    name: 'En Progreso',\n    count: 10000,\n    index: 1,\n  },\n}"
       },
       {
         "name": "Multiple",
@@ -498,17 +528,17 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    ...Default.args,\n    control: formControlMultipleSelect,\n    isMultiple: true,\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    control: formControlMultipleSelect,\r\n    isMultiple: true,\r\n  },\r\n}"
       },
       {
-        "name": "nombreDeColumnaLargo",
+        "name": "nombreColumnaLargo",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "stories/columna-tablero.stories.ts",
+        "file": "stories/header-columna.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    name: 'Las actividades que no hemos iniciado aún',\n    actividades: actividades,\n  },\n}"
+        "defaultValue": "{\n  args: {\n    name: 'Las actividades que aún no hemos empezado pero tenemos que empezar muy pronto de lo contrario nos quedaremos sin tiempo',\n    count: 25,\n    index: 2,\n  },\n}"
       },
       {
         "name": "NotificationsMenu",
@@ -518,7 +548,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    icons: {\n      buttonIcon: {\n        icon: 'bell.svg',\n        type: 'svg',\n      },\n      closeIcon: {\n        icon: 'close.svg',\n        type: 'svg',\n      },\n    },\n    title: 'Notificaciones',\n    notificationsNumber: 3,\n    items: [\n      {\n        label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\n        avatarName: 'Carlos Sanchez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (param = ' con param') => {\n            console.log('funciona' + param);\n          },\n        },\n      },\n      {\n        label: 'Samuel Lopez finalizo Programa Desarrollo',\n        avatarName: 'Samuel Lopez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: () => {\n            console.log('funciona sin param');\n          },\n        },\n      },\n      {\n        label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',\n        avatarName: 'Ignacio Fernandez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Ignacio Fernandez') => {\n            console.log('Felicidades ' + name);\n          },\n        },\n      },\n    ],\n    classes: '',\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    icons: {\r\n      buttonIcon: {\r\n        icon: 'bell.svg',\r\n        type: 'svg',\r\n      },\r\n      closeIcon: {\r\n        icon: 'close.svg',\r\n        type: 'svg',\r\n      },\r\n    },\r\n    title: 'Notificaciones',\r\n    notificationsNumber: 3,\r\n    items: [\r\n      {\r\n        label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\r\n        avatarName: 'Carlos Sanchez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: (param = ' con param') => {\r\n            console.log('funciona' + param);\r\n          },\r\n        },\r\n      },\r\n      {\r\n        label: 'Samuel Lopez finalizo Programa Desarrollo',\r\n        avatarName: 'Samuel Lopez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: () => {\r\n            console.log('funciona sin param');\r\n          },\r\n        },\r\n      },\r\n      {\r\n        label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',\r\n        avatarName: 'Ignacio Fernandez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: (name = 'Ignacio Fernandez') => {\r\n            console.log('Felicidades ' + name);\r\n          },\r\n        },\r\n      },\r\n    ],\r\n    classes: '',\r\n  },\r\n}"
       },
       {
         "name": "onClick",
@@ -528,7 +558,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    ...Default.args,\n    onClick: {\n      action: Testing2,\n    },\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    onClick: {\r\n      action: Testing2,\r\n    },\r\n  },\r\n}"
       },
       {
         "name": "OnlySvgIcon",
@@ -538,7 +568,27 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    icon: {\n      icon: 'add-user.svg',\n      type: 'svg',\n    },\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    icon: {\r\n      icon: 'add-user.svg',\r\n      type: 'svg',\r\n    },\r\n  },\r\n}"
+      },
+      {
+        "name": "pastToday",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/carta-actividad.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "new Date(today.setDate(today.getDate() + 5))"
+      },
+      {
+        "name": "porVencer",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/carta-actividad.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "{\n  args: {\n    title: actividad.titulo,\n    description: actividad.descripcion,\n    priority: actividad.prioridad,\n    responsible: actividad.responsable,\n    endDate: yesterday,\n  },\n} as StoryObj<CartaActividadComponent>"
       },
       {
         "name": "preview",
@@ -558,7 +608,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    ...Default.args,\n    theme: 'primary',\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    theme: 'primary',\r\n  },\r\n}"
       },
       {
         "name": "prioridadAlta",
@@ -608,7 +658,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    ...Default.args,\n    control: formControlRequiredSelect,\n    isRequired: true,\n    isMultiple: false,\n    requiredErrorMessage: 'Este campo es requerido',\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    control: formControlRequiredSelect,\r\n    isRequired: true,\r\n    isMultiple: false,\r\n    requiredErrorMessage: 'Este campo es requerido',\r\n  },\r\n}"
       },
       {
         "name": "ScrollableContent",
@@ -628,7 +678,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    ...Default.args,\n    theme: 'secondary',\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    theme: 'secondary',\r\n  },\r\n}"
       },
       {
         "name": "simpleContent",
@@ -648,7 +698,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    name: 'Done',\n    actividades: [],\n  },\n}"
+        "defaultValue": "{\n  args: {\n    actividades: [],\n  },\n}"
       },
       {
         "name": "sinAvatar",
@@ -728,7 +778,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "",
-        "defaultValue": "(a: number, b: number): any => {\n  let res = a + b;\n  console.log('res => ', res);\n}"
+        "defaultValue": "(a: number, b: number): any => {\r\n  let res = a + b;\r\n  console.log('res => ', res);\r\n}"
       },
       {
         "name": "Testing1",
@@ -748,7 +798,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "",
-        "defaultValue": "() => {\n  console.log('Funciono!');\n}"
+        "defaultValue": "() => {\r\n  console.log('Funciono!');\r\n}"
       },
       {
         "name": "Testing2",
@@ -771,6 +821,16 @@
         "defaultValue": "'Te apoyamos en cada paso hacia tu éxito profesional'"
       },
       {
+        "name": "today",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/carta-actividad.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "new Date()"
+      },
+      {
         "name": "UserMenu",
         "ctype": "miscellaneous",
         "subtype": "variable",
@@ -778,7 +838,17 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    icons: {\n      closeIcon: {\n        icon: 'close.svg',\n        type: 'svg',\n      },\n    },\n    userData: {\n      fullName: 'Stela Lopez',\n      email: 'slopez@empresa.com',\n      position: 'Gerente Desarrollo',\n    },\n    items: [\n      {\n        label: 'Cerrar Sesión',\n        icon: {\n          icon: 'logout.svg',\n          type: 'svg',\n          position: 'left',\n        },\n        onClick: {\n          action: (param = ' con param') => {\n            console.log('funciona' + param);\n          },\n        },\n      },\n    ],\n    classes: '',\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    icons: {\r\n      closeIcon: {\r\n        icon: 'close.svg',\r\n        type: 'svg',\r\n      },\r\n    },\r\n    userData: {\r\n      fullName: 'Stela Lopez',\r\n      email: 'slopez@empresa.com',\r\n      position: 'Gerente Desarrollo',\r\n    },\r\n    items: [\r\n      {\r\n        label: 'Cerrar Sesión',\r\n        icon: {\r\n          icon: 'logout.svg',\r\n          type: 'svg',\r\n          position: 'left',\r\n        },\r\n        onClick: {\r\n          action: (param = ' con param') => {\r\n            console.log('funciona' + param);\r\n          },\r\n        },\r\n      },\r\n    ],\r\n    classes: '',\r\n  },\r\n}"
+      },
+      {
+        "name": "vencida",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/carta-actividad.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "{\n  args: {\n    title: actividad.titulo,\n    description: actividad.descripcion,\n    priority: actividad.prioridad,\n    responsible: actividad.responsable,\n    endDate: pastToday,\n  },\n} as StoryObj<CartaActividadComponent>"
       },
       {
         "name": "Warning",
@@ -788,7 +858,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    ...Default.args,\n    theme: 'warning',\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    theme: 'warning',\r\n  },\r\n}"
       },
       {
         "name": "WithAvatarImg",
@@ -798,7 +868,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    avatarName: 'Carlos Sanchez',\n    avatarImgUrl: 'https://material.angular.io/assets/img/examples/shiba1.jpg',\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    avatarName: 'Carlos Sanchez',\r\n    avatarImgUrl: 'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n  },\r\n}"
       },
       {
         "name": "WithAvatarName",
@@ -808,7 +878,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    avatarName: 'Carlos Sanchez',\n    withoutBorder: true,\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    avatarName: 'Carlos Sanchez',\r\n    withoutBorder: true,\r\n  },\r\n}"
       },
       {
         "name": "WithCompanyName",
@@ -818,7 +888,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    ...Default.args,\n    companyData: {\n      companyName: 'ASEINFO',\n      companyImage: 'company-logo.svg',\n    },\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    companyData: {\r\n      companyName: 'ASEINFO',\r\n      companyImage: 'company-logo.svg',\r\n    },\r\n  },\r\n}"
       },
       {
         "name": "WithFunction",
@@ -828,7 +898,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    ...Default.args,\n    onClick: {\n      action: (param = ' con param') => {\n        console.log('funciona' + param);\n      },\n    },\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    onClick: {\r\n      action: (param = ' con param') => {\r\n        console.log('funciona' + param);\r\n      },\r\n    },\r\n  },\r\n}"
       },
       {
         "name": "WithMatIcon",
@@ -838,7 +908,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    icon: {\n      icon: 'home',\n      type: 'class',\n    },\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    icon: {\r\n      icon: 'home',\r\n      type: 'class',\r\n    },\r\n  },\r\n}"
       },
       {
         "name": "WithoutBorder",
@@ -848,7 +918,17 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    ...Default.args,\n    withoutBorder: true,\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    withoutBorder: true,\r\n  },\r\n}"
+      },
+      {
+        "name": "withoutCount",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/header-columna.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    name: 'Desasignadas',\n    count: 0,\n    index: 1,\n    withCount: false,\n  },\n}"
       },
       {
         "name": "WithScroll",
@@ -858,7 +938,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    ...NotificationsMenu.args,\n    notificationsNumber: 15,\n    items: [\n      {\n        label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\n        avatarName: 'Carlos Sanchez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (param = ' con param') => {\n            console.log('funciona' + param);\n          },\n        },\n      },\n      {\n        label: 'Samuel Lopez finalizo Programa Desarrollo',\n        avatarName: 'Samuel Lopez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: () => {\n            console.log('funciona sin param');\n          },\n        },\n      },\n      {\n        label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',\n        avatarName: 'Ignacio Fernandez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Ignacio Fernandez') => {\n            console.log('Felicidades ' + name);\n          },\n        },\n      },\n      {\n        label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\n        avatarName: 'Carlos Sanchez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (param = ' con param') => {\n            console.log('funciona' + param);\n          },\n        },\n      },\n      {\n        label: 'Samuel Lopez finalizo Programa Desarrollo',\n        avatarName: 'Samuel Lopez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: () => {\n            console.log('funciona sin param');\n          },\n        },\n      },\n      {\n        label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',\n        avatarName: 'Ignacio Fernandez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Ignacio Fernandez') => {\n            console.log('Felicidades ' + name);\n          },\n        },\n      },\n      {\n        label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\n        avatarName: 'Carlos Sanchez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (param = ' con param') => {\n            console.log('funciona' + param);\n          },\n        },\n      },\n      {\n        label: 'Samuel Lopez finalizo Programa Desarrollo',\n        avatarName: 'Samuel Lopez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: () => {\n            console.log('funciona sin param');\n          },\n        },\n      },\n      {\n        label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',\n        avatarName: 'Ignacio Fernandez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Ignacio Fernandez') => {\n            console.log('Felicidades ' + name);\n          },\n        },\n      },\n      {\n        label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\n        avatarName: 'Carlos Sanchez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (param = ' con param') => {\n            console.log('funciona' + param);\n          },\n        },\n      },\n      {\n        label: 'Samuel Lopez finalizo Programa Desarrollo',\n        avatarName: 'Samuel Lopez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: () => {\n            console.log('funciona sin param');\n          },\n        },\n      },\n      {\n        label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',\n        avatarName: 'Ignacio Fernandez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Ignacio Fernandez') => {\n            console.log('Felicidades ' + name);\n          },\n        },\n      },\n      {\n        label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\n        avatarName: 'Carlos Sanchez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (param = ' con param') => {\n            console.log('funciona' + param);\n          },\n        },\n      },\n      {\n        label: 'Samuel Lopez finalizo Programa Desarrollo',\n        avatarName: 'Samuel Lopez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: () => {\n            console.log('funciona sin param');\n          },\n        },\n      },\n      {\n        label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',\n        avatarName: 'Ignacio Fernandez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Ignacio Fernandez') => {\n            console.log('Felicidades ' + name);\n          },\n        },\n      },\n    ],\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    ...NotificationsMenu.args,\r\n    notificationsNumber: 15,\r\n    items: [\r\n      {\r\n        label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\r\n        avatarName: 'Carlos Sanchez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: (param = ' con param') => {\r\n            console.log('funciona' + param);\r\n          },\r\n        },\r\n      },\r\n      {\r\n        label: 'Samuel Lopez finalizo Programa Desarrollo',\r\n        avatarName: 'Samuel Lopez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: () => {\r\n            console.log('funciona sin param');\r\n          },\r\n        },\r\n      },\r\n      {\r\n        label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',\r\n        avatarName: 'Ignacio Fernandez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: (name = 'Ignacio Fernandez') => {\r\n            console.log('Felicidades ' + name);\r\n          },\r\n        },\r\n      },\r\n      {\r\n        label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\r\n        avatarName: 'Carlos Sanchez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: (param = ' con param') => {\r\n            console.log('funciona' + param);\r\n          },\r\n        },\r\n      },\r\n      {\r\n        label: 'Samuel Lopez finalizo Programa Desarrollo',\r\n        avatarName: 'Samuel Lopez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: () => {\r\n            console.log('funciona sin param');\r\n          },\r\n        },\r\n      },\r\n      {\r\n        label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',\r\n        avatarName: 'Ignacio Fernandez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: (name = 'Ignacio Fernandez') => {\r\n            console.log('Felicidades ' + name);\r\n          },\r\n        },\r\n      },\r\n      {\r\n        label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\r\n        avatarName: 'Carlos Sanchez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: (param = ' con param') => {\r\n            console.log('funciona' + param);\r\n          },\r\n        },\r\n      },\r\n      {\r\n        label: 'Samuel Lopez finalizo Programa Desarrollo',\r\n        avatarName: 'Samuel Lopez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: () => {\r\n            console.log('funciona sin param');\r\n          },\r\n        },\r\n      },\r\n      {\r\n        label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',\r\n        avatarName: 'Ignacio Fernandez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: (name = 'Ignacio Fernandez') => {\r\n            console.log('Felicidades ' + name);\r\n          },\r\n        },\r\n      },\r\n      {\r\n        label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\r\n        avatarName: 'Carlos Sanchez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: (param = ' con param') => {\r\n            console.log('funciona' + param);\r\n          },\r\n        },\r\n      },\r\n      {\r\n        label: 'Samuel Lopez finalizo Programa Desarrollo',\r\n        avatarName: 'Samuel Lopez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: () => {\r\n            console.log('funciona sin param');\r\n          },\r\n        },\r\n      },\r\n      {\r\n        label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',\r\n        avatarName: 'Ignacio Fernandez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: (name = 'Ignacio Fernandez') => {\r\n            console.log('Felicidades ' + name);\r\n          },\r\n        },\r\n      },\r\n      {\r\n        label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\r\n        avatarName: 'Carlos Sanchez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: (param = ' con param') => {\r\n            console.log('funciona' + param);\r\n          },\r\n        },\r\n      },\r\n      {\r\n        label: 'Samuel Lopez finalizo Programa Desarrollo',\r\n        avatarName: 'Samuel Lopez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: () => {\r\n            console.log('funciona sin param');\r\n          },\r\n        },\r\n      },\r\n      {\r\n        label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',\r\n        avatarName: 'Ignacio Fernandez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: (name = 'Ignacio Fernandez') => {\r\n            console.log('Felicidades ' + name);\r\n          },\r\n        },\r\n      },\r\n    ],\r\n  },\r\n}"
       },
       {
         "name": "WithSvgIcon",
@@ -868,7 +948,17 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    ...Default.args,\n    icon: {\n      icon: 'add-user.svg',\n      type: 'svg',\n      position: 'left',\n    },\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    icon: {\r\n      icon: 'add-user.svg',\r\n      type: 'svg',\r\n      position: 'left',\r\n    },\r\n  },\r\n}"
+      },
+      {
+        "name": "yesterday",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/carta-actividad.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "new Date(today.setDate(today.getDate() - 1))"
       }
     ],
     "functions": [
@@ -969,6 +1059,17 @@
         "subtype": "typealias",
         "rawtype": "StoryObj<DialogButtonComponent>",
         "file": "stories/dialog.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "description": "",
+        "kind": 183
+      },
+      {
+        "name": "Story",
+        "ctype": "miscellaneous",
+        "subtype": "typealias",
+        "rawtype": "StoryObj<HeaderColumnaComponent>",
+        "file": "stories/header-columna.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "description": "",
@@ -1085,7 +1186,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "IActividad",
-          "defaultValue": "{\n  id: 1,\n  titulo: 'Inducción a la empresa',\n  tipo: 'Reunión',\n  fase: 'Antes del primer día',\n  descripcion:\n    'Día de inducción a la empresa. Es necesario asistir presencialmente a las oficinas.',\n  objetivos:\n    'Procurar que el empleado pueda asociarse con los valores de la empresa',\n  prioridad: Prioridad.High,\n  responsable: 'Miguel Perez',\n  duracion: 8,\n  tipoDuracion: Duracion.Horas,\n  realizaEvaluacion: false,\n  status: EstadoActividad.Abierta,\n  fechaFin: '20/08/2024',\n}"
+          "defaultValue": "{\n  id: 1,\n  titulo: 'Inducción a la empresa',\n  tipo: 'Reunión',\n  fase: 'Antes del primer día',\n  descripcion:\n    'Día de inducción a la empresa. Es necesario asistir presencialmente a las oficinas.',\n  objetivos:\n    'Procurar que el empleado pueda asociarse con los valores de la empresa',\n  prioridad: Prioridad.High,\n  responsable: 'Miguel Perez',\n  duracion: 8,\n  tipoDuracion: Duracion.Horas,\n  realizaEvaluacion: false,\n  status: EstadoActividad.Abierta,\n  fechaFin: new Date('08/20/2024'),\n}"
         },
         {
           "name": "Default",
@@ -1096,6 +1197,26 @@
           "deprecationMessage": "",
           "type": "",
           "defaultValue": "{\n  argTypes: {\n    priority: {\n      control: { type: 'select' },\n      options: ['Alta', 'Media', 'Baja'],\n    },\n    twClass: {\n      control: { type: 'text' },\n    },\n  },\n  args: {\n    title: actividad.titulo,\n    description: actividad.descripcion,\n    priority: actividad.prioridad,\n    responsible: actividad.responsable,\n    endDate: actividad.fechaFin,\n  },\n} as StoryObj<CartaActividadComponent>"
+        },
+        {
+          "name": "pastToday",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/carta-actividad.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "new Date(today.setDate(today.getDate() + 5))"
+        },
+        {
+          "name": "porVencer",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/carta-actividad.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "{\n  args: {\n    title: actividad.titulo,\n    description: actividad.descripcion,\n    priority: actividad.prioridad,\n    responsible: actividad.responsable,\n    endDate: yesterday,\n  },\n} as StoryObj<CartaActividadComponent>"
         },
         {
           "name": "sinAvatar",
@@ -1146,6 +1267,36 @@
           "deprecationMessage": "",
           "type": "",
           "defaultValue": "{\n  args: {\n    title: actividad.titulo,\n    description: actividad.descripcion,\n  },\n} as StoryObj<CartaActividadComponent>"
+        },
+        {
+          "name": "today",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/carta-actividad.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "new Date()"
+        },
+        {
+          "name": "vencida",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/carta-actividad.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "{\n  args: {\n    title: actividad.titulo,\n    description: actividad.descripcion,\n    priority: actividad.prioridad,\n    responsible: actividad.responsable,\n    endDate: pastToday,\n  },\n} as StoryObj<CartaActividadComponent>"
+        },
+        {
+          "name": "yesterday",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/carta-actividad.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "new Date(today.setDate(today.getDate() - 1))"
         }
       ],
       "stories/columna-tablero.stories.ts": [
@@ -1157,7 +1308,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "IActividad[]",
-          "defaultValue": "[\n  {\n    id: 1,\n    titulo: 'Inducción a la empresa',\n    tipo: 'Reunión',\n    fase: 'Antes del primer día',\n    descripcion:\n      'Día de inducción a la empresa. Es necesario asistir presencialmente a las oficinas.',\n    objetivos:\n      'Procurar que el empleado pueda asociarse con los valores de la empresa',\n    prioridad: Prioridad.High,\n    responsable: 'Miguel Perez',\n    duracion: 8,\n    tipoDuracion: Duracion.Horas,\n    realizaEvaluacion: false,\n    status: EstadoActividad.Abierta,\n    fechaFin: new Date(2024, 7, 20),\n  },\n  {\n    id: 2,\n    titulo: 'Curso de Evolution',\n    tipo: 'Capacitación',\n    fase: 'La primera semana',\n    descripcion:\n      'Curso de una semana para el aprendizaje básico del sistema Evolution.',\n    objetivos:\n      'El participante debe llegar a familiarizarse con todos los módulos de Evolution.',\n    prioridad: Prioridad.Medium,\n    responsable: 'Ricardo Hernandez',\n    duracion: 5,\n    tipoDuracion: Duracion.Dias,\n    realizaEvaluacion: true,\n    status: EstadoActividad.EnProgreso,\n    fechaFin: new Date(2024, 7, 20),\n  },\n  {\n    id: 3,\n    titulo: 'Visita Guiada',\n    tipo: 'Reunión',\n    fase: 'Antes del primer día',\n    descripcion: 'Realizar una visita guiada sobre las instalaciones.',\n    objetivos: 'Asignar parqueo y conocer el edificio.',\n    prioridad: Prioridad.Low,\n    responsable: 'Hugo Maldonado',\n    duracion: 2,\n    tipoDuracion: Duracion.Horas,\n    realizaEvaluacion: false,\n    status: EstadoActividad.EnProgreso,\n    fechaFin: new Date(2024, 7, 20),\n  },\n]"
+          "defaultValue": "[\n  {\n    id: 1,\n    titulo: 'Inducción a la empresa',\n    tipo: 'Reunión',\n    fase: 'Antes del primer día',\n    descripcion:\n      'Día de inducción a la empresa. Es necesario asistir presencialmente a las oficinas.',\n    objetivos:\n      'Procurar que el empleado pueda asociarse con los valores de la empresa',\n    prioridad: Prioridad.High,\n    responsable: 'Miguel Perez',\n    duracion: 8,\n    tipoDuracion: Duracion.Horas,\n    realizaEvaluacion: false,\n    status: EstadoActividad.Abierta,\n    fechaFin: new Date(2024, 7, 20),\n  },\n  {\n    id: 2,\n    titulo: 'Curso de Evolution',\n    tipo: 'Capacitación',\n    fase: 'La primera semana',\n    descripcion:\n      'Curso de una semana para el aprendizaje básico del sistema Evolution.',\n    objetivos:\n      'El participante debe llegar a familiarizarse con todos los módulos de Evolution.',\n    prioridad: Prioridad.Medium,\n    responsable: 'Ricardo Hernandez',\n    duracion: 5,\n    tipoDuracion: Duracion.Dias,\n    realizaEvaluacion: true,\n    status: EstadoActividad.EnProgreso,\n    fechaFin: new Date(2024, 7, 20),\n  },\n  {\n    id: 3,\n    titulo: 'Visita Guiada',\n    tipo: 'Reunión',\n    fase: 'Antes del primer día',\n    descripcion: 'Realizar una visita guiada sobre las instalaciones.',\n    objetivos: 'Asignar parqueo y conocer el edificio.',\n    prioridad: Prioridad.Low,\n    responsable: 'Hugo Maldonado',\n    duracion: 2,\n    tipoDuracion: Duracion.Horas,\n    realizaEvaluacion: false,\n    status: EstadoActividad.EnProgreso,\n    fechaFin: new Date(),\n  },\n]"
         },
         {
           "name": "Default",
@@ -1167,17 +1318,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    name: 'En progreso',\n    actividades: actividades,\n  },\n}"
-        },
-        {
-          "name": "nombreDeColumnaLargo",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "stories/columna-tablero.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Story",
-          "defaultValue": "{\n  args: {\n    name: 'Las actividades que no hemos iniciado aún',\n    actividades: actividades,\n  },\n}"
+          "defaultValue": "{\n  args: {\n    actividades: actividades,\n  },\n}"
         },
         {
           "name": "sinActividadeds",
@@ -1187,7 +1328,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    name: 'Done',\n    actividades: [],\n  },\n}"
+          "defaultValue": "{\n  args: {\n    actividades: [],\n  },\n}"
         }
       ],
       "stories/tablero-kanban.stories.ts": [
@@ -1428,6 +1569,58 @@
           "defaultValue": "{\n  args: {\n    label: 'Media',\n    prioridad: Prioridad.Medium,\n    size: 'md',\n  },\n}"
         }
       ],
+      "stories/header-columna.stories.ts": [
+        {
+          "name": "customTailwindClass",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/header-columna.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    name: 'Canceladas',\n    count: 2,\n    index: 4,\n    twClass: 'bg-red-500 text-red-500',\n  },\n}"
+        },
+        {
+          "name": "Default",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/header-columna.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    name: 'Abiertas',\n    count: 3,\n    index: 0,\n  },\n}"
+        },
+        {
+          "name": "muchasActividades",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/header-columna.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    name: 'En Progreso',\n    count: 10000,\n    index: 1,\n  },\n}"
+        },
+        {
+          "name": "nombreColumnaLargo",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/header-columna.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    name: 'Las actividades que aún no hemos empezado pero tenemos que empezar muy pronto de lo contrario nos quedaremos sin tiempo',\n    count: 25,\n    index: 2,\n  },\n}"
+        },
+        {
+          "name": "withoutCount",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/header-columna.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    name: 'Desasignadas',\n    count: 0,\n    index: 1,\n    withCount: false,\n  },\n}"
+        }
+      ],
       "stories/button.stories.ts": [
         {
           "name": "Default",
@@ -1437,7 +1630,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    label: 'Button',\n    classes: '',\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    label: 'Button',\r\n    classes: '',\r\n  },\r\n}"
         },
         {
           "name": "Disabled",
@@ -1447,7 +1640,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    ...Default.args,\n    disabled: true,\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    disabled: true,\r\n  },\r\n}"
         },
         {
           "name": "functionTest",
@@ -1457,7 +1650,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "object",
-          "defaultValue": "{\n  action: Testing2,\n}"
+          "defaultValue": "{\r\n  action: Testing2,\r\n}"
         },
         {
           "name": "IsFlat",
@@ -1467,7 +1660,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    ...Default.args,\n    isFlat: true,\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    isFlat: true,\r\n  },\r\n}"
         },
         {
           "name": "IsFluid",
@@ -1477,7 +1670,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    ...Default.args,\n    isFluid: true,\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    isFluid: true,\r\n  },\r\n}"
         },
         {
           "name": "meta",
@@ -1487,7 +1680,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<ButtonComponent>",
-          "defaultValue": "{\n  title: 'Evolution Components/Button',\n  component: ButtonComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+          "defaultValue": "{\r\n  title: 'Evolution Components/Button',\r\n  component: ButtonComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
         },
         {
           "name": "onClick",
@@ -1497,7 +1690,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    ...Default.args,\n    onClick: {\n      action: Testing2,\n    },\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    onClick: {\r\n      action: Testing2,\r\n    },\r\n  },\r\n}"
         },
         {
           "name": "OnlySvgIcon",
@@ -1507,7 +1700,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    icon: {\n      icon: 'add-user.svg',\n      type: 'svg',\n    },\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    icon: {\r\n      icon: 'add-user.svg',\r\n      type: 'svg',\r\n    },\r\n  },\r\n}"
         },
         {
           "name": "Primary",
@@ -1517,7 +1710,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    ...Default.args,\n    theme: 'primary',\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    theme: 'primary',\r\n  },\r\n}"
         },
         {
           "name": "Secondary",
@@ -1527,7 +1720,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    ...Default.args,\n    theme: 'secondary',\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    theme: 'secondary',\r\n  },\r\n}"
         },
         {
           "name": "Testing",
@@ -1537,7 +1730,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "",
-          "defaultValue": "(a: number, b: number): any => {\n  let res = a + b;\n  console.log('res => ', res);\n}"
+          "defaultValue": "(a: number, b: number): any => {\r\n  let res = a + b;\r\n  console.log('res => ', res);\r\n}"
         },
         {
           "name": "Testing2",
@@ -1547,7 +1740,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "",
-          "defaultValue": "() => {\n  console.log('Funciono!');\n}"
+          "defaultValue": "() => {\r\n  console.log('Funciono!');\r\n}"
         },
         {
           "name": "Warning",
@@ -1557,7 +1750,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    ...Default.args,\n    theme: 'warning',\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    theme: 'warning',\r\n  },\r\n}"
         },
         {
           "name": "WithAvatarImg",
@@ -1567,7 +1760,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    avatarName: 'Carlos Sanchez',\n    avatarImgUrl: 'https://material.angular.io/assets/img/examples/shiba1.jpg',\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    avatarName: 'Carlos Sanchez',\r\n    avatarImgUrl: 'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n  },\r\n}"
         },
         {
           "name": "WithAvatarName",
@@ -1577,7 +1770,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    avatarName: 'Carlos Sanchez',\n    withoutBorder: true,\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    avatarName: 'Carlos Sanchez',\r\n    withoutBorder: true,\r\n  },\r\n}"
         },
         {
           "name": "WithFunction",
@@ -1587,7 +1780,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    ...Default.args,\n    onClick: {\n      action: (param = ' con param') => {\n        console.log('funciona' + param);\n      },\n    },\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    onClick: {\r\n      action: (param = ' con param') => {\r\n        console.log('funciona' + param);\r\n      },\r\n    },\r\n  },\r\n}"
         },
         {
           "name": "WithMatIcon",
@@ -1597,7 +1790,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    icon: {\n      icon: 'home',\n      type: 'class',\n    },\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    icon: {\r\n      icon: 'home',\r\n      type: 'class',\r\n    },\r\n  },\r\n}"
         },
         {
           "name": "WithoutBorder",
@@ -1607,7 +1800,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    ...Default.args,\n    withoutBorder: true,\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    withoutBorder: true,\r\n  },\r\n}"
         },
         {
           "name": "WithSvgIcon",
@@ -1617,7 +1810,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    ...Default.args,\n    icon: {\n      icon: 'add-user.svg',\n      type: 'svg',\n      position: 'left',\n    },\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    icon: {\r\n      icon: 'add-user.svg',\r\n      type: 'svg',\r\n      position: 'left',\r\n    },\r\n  },\r\n}"
         }
       ],
       "stories/header.stories.ts": [
@@ -1629,7 +1822,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    icons: {\n      appIcon: {\n        icon: 'app-menu.svg',\n        type: 'svg',\n      },\n      notificationIcon: {\n        icon: 'bell.svg',\n        type: 'svg',\n      },\n    },\n    titles: {\n      appTitle: 'Tus aplicaciones',\n      notificationTitle: 'Notificaciones',\n    },\n    buttonItems: {\n      appItems: [\n        {\n          label: 'Evo Wave',\n          icon: {\n            icon: 'company-logo.svg',\n            type: 'svg',\n            position: 'left',\n          },\n          url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoWave',\n        },\n        {\n          label: 'Evo Chart',\n          icon: {\n            icon: 'company-logo.svg',\n            type: 'svg',\n            position: 'left',\n          },\n          url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoChart',\n        },\n      ],\n      notificationItems: [\n        {\n          label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\n          avatarName: 'Carlos Sanchez',\n          avatarImgUrl:\n            'https://material.angular.io/assets/img/examples/shiba1.jpg',\n          onClick: {\n            action: (param = ' con param') => {\n              console.log('funciona' + param);\n            },\n          },\n        },\n        {\n          label: 'Samuel Lopez finalizo Programa Desarrollo',\n          avatarName: 'Samuel Lopez',\n          avatarImgUrl:\n            'https://material.angular.io/assets/img/examples/shiba1.jpg',\n          onClick: {\n            action: () => {\n              console.log('funciona sin param');\n            },\n          },\n        },\n        {\n          label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',\n          avatarName: 'Ignacio Fernandez',\n          avatarImgUrl:\n            'https://material.angular.io/assets/img/examples/shiba1.jpg',\n          onClick: {\n            action: (name = 'Ignacio Fernandez') => {\n              console.log('Felicidades ' + name);\n            },\n          },\n        },\n      ],\n      userDataItems: [\n        {\n          label: 'Cerrar Sesión',\n          icon: {\n            icon: 'logout.svg',\n            type: 'svg',\n            position: 'left',\n          },\n          onClick: {\n            action: (param = ' con param') => {\n              console.log('funciona' + param);\n            },\n          },\n        },\n      ],\n    },\n    companyData: {\n      companyImage: 'company-logo.svg',\n    },\n    box: [\n      {\n        label: 'Cambiar Perfil',\n        action: (param = ' con param') => {\n          console.log('funciona' + param);\n        },\n      },\n    ],\n    userData: {\n      fullName: 'Stela Lopez',\n      email: 'slopez@empresa.com',\n      position: 'Gerente Desarrollo',\n    },\n    classes: '',\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    icons: {\r\n      appIcon: {\r\n        icon: 'app-menu.svg',\r\n        type: 'svg',\r\n      },\r\n      notificationIcon: {\r\n        icon: 'bell.svg',\r\n        type: 'svg',\r\n      },\r\n    },\r\n    titles: {\r\n      appTitle: 'Tus aplicaciones',\r\n      notificationTitle: 'Notificaciones',\r\n    },\r\n    buttonItems: {\r\n      appItems: [\r\n        {\r\n          label: 'Evo Wave',\r\n          icon: {\r\n            icon: 'company-logo.svg',\r\n            type: 'svg',\r\n            position: 'left',\r\n          },\r\n          url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoWave',\r\n        },\r\n        {\r\n          label: 'Evo Chart',\r\n          icon: {\r\n            icon: 'company-logo.svg',\r\n            type: 'svg',\r\n            position: 'left',\r\n          },\r\n          url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoChart',\r\n        },\r\n      ],\r\n      notificationItems: [\r\n        {\r\n          label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\r\n          avatarName: 'Carlos Sanchez',\r\n          avatarImgUrl:\r\n            'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n          onClick: {\r\n            action: (param = ' con param') => {\r\n              console.log('funciona' + param);\r\n            },\r\n          },\r\n        },\r\n        {\r\n          label: 'Samuel Lopez finalizo Programa Desarrollo',\r\n          avatarName: 'Samuel Lopez',\r\n          avatarImgUrl:\r\n            'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n          onClick: {\r\n            action: () => {\r\n              console.log('funciona sin param');\r\n            },\r\n          },\r\n        },\r\n        {\r\n          label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',\r\n          avatarName: 'Ignacio Fernandez',\r\n          avatarImgUrl:\r\n            'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n          onClick: {\r\n            action: (name = 'Ignacio Fernandez') => {\r\n              console.log('Felicidades ' + name);\r\n            },\r\n          },\r\n        },\r\n      ],\r\n      userDataItems: [\r\n        {\r\n          label: 'Cerrar Sesión',\r\n          icon: {\r\n            icon: 'logout.svg',\r\n            type: 'svg',\r\n            position: 'left',\r\n          },\r\n          onClick: {\r\n            action: (param = ' con param') => {\r\n              console.log('funciona' + param);\r\n            },\r\n          },\r\n        },\r\n      ],\r\n    },\r\n    companyData: {\r\n      companyImage: 'company-logo.svg',\r\n    },\r\n    box: [\r\n      {\r\n        label: 'Cambiar Perfil',\r\n        action: (param = ' con param') => {\r\n          console.log('funciona' + param);\r\n        },\r\n      },\r\n    ],\r\n    userData: {\r\n      fullName: 'Stela Lopez',\r\n      email: 'slopez@empresa.com',\r\n      position: 'Gerente Desarrollo',\r\n    },\r\n    classes: '',\r\n  },\r\n}"
         },
         {
           "name": "meta",
@@ -1639,7 +1832,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<HeaderComponent>",
-          "defaultValue": "{\n  title: 'Evolution Components/Header',\n  component: HeaderComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync(), provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+          "defaultValue": "{\r\n  title: 'Evolution Components/Header',\r\n  component: HeaderComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideAnimationsAsync(), provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
         },
         {
           "name": "WithCompanyName",
@@ -1649,7 +1842,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    ...Default.args,\n    companyData: {\n      companyName: 'ASEINFO',\n      companyImage: 'company-logo.svg',\n    },\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    companyData: {\r\n      companyName: 'ASEINFO',\r\n      companyImage: 'company-logo.svg',\r\n    },\r\n  },\r\n}"
         }
       ],
       "stories/input.stories.ts": [
@@ -1763,7 +1956,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    icons: {\n      buttonIcon: {\n        icon: 'app-menu.svg',\n        type: 'svg',\n      },\n      closeIcon: {\n        icon: 'close.svg',\n        type: 'svg',\n      },\n    },\n    title: 'Tus aplicaciones',\n    items: [\n      {\n        label: 'Evo Wave',\n        icon: {\n          icon: 'company-logo.svg',\n          type: 'svg',\n          position: 'left',\n        },\n        url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoWave',\n      },\n      {\n        label: 'Evo Chart',\n        icon: {\n          icon: 'company-logo.svg',\n          type: 'svg',\n          position: 'left',\n        },\n        url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoChart',\n      },\n    ],\n    classes: '',\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    icons: {\r\n      buttonIcon: {\r\n        icon: 'app-menu.svg',\r\n        type: 'svg',\r\n      },\r\n      closeIcon: {\r\n        icon: 'close.svg',\r\n        type: 'svg',\r\n      },\r\n    },\r\n    title: 'Tus aplicaciones',\r\n    items: [\r\n      {\r\n        label: 'Evo Wave',\r\n        icon: {\r\n          icon: 'company-logo.svg',\r\n          type: 'svg',\r\n          position: 'left',\r\n        },\r\n        url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoWave',\r\n      },\r\n      {\r\n        label: 'Evo Chart',\r\n        icon: {\r\n          icon: 'company-logo.svg',\r\n          type: 'svg',\r\n          position: 'left',\r\n        },\r\n        url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoChart',\r\n      },\r\n    ],\r\n    classes: '',\r\n  },\r\n}"
         },
         {
           "name": "meta",
@@ -1773,7 +1966,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<MenuComponent>",
-          "defaultValue": "{\n  title: 'Evolution Components/Menu',\n  component: MenuComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync(), provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+          "defaultValue": "{\r\n  title: 'Evolution Components/Menu',\r\n  component: MenuComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideAnimationsAsync(), provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
         },
         {
           "name": "NotificationsMenu",
@@ -1783,7 +1976,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    icons: {\n      buttonIcon: {\n        icon: 'bell.svg',\n        type: 'svg',\n      },\n      closeIcon: {\n        icon: 'close.svg',\n        type: 'svg',\n      },\n    },\n    title: 'Notificaciones',\n    notificationsNumber: 3,\n    items: [\n      {\n        label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\n        avatarName: 'Carlos Sanchez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (param = ' con param') => {\n            console.log('funciona' + param);\n          },\n        },\n      },\n      {\n        label: 'Samuel Lopez finalizo Programa Desarrollo',\n        avatarName: 'Samuel Lopez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: () => {\n            console.log('funciona sin param');\n          },\n        },\n      },\n      {\n        label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',\n        avatarName: 'Ignacio Fernandez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Ignacio Fernandez') => {\n            console.log('Felicidades ' + name);\n          },\n        },\n      },\n    ],\n    classes: '',\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    icons: {\r\n      buttonIcon: {\r\n        icon: 'bell.svg',\r\n        type: 'svg',\r\n      },\r\n      closeIcon: {\r\n        icon: 'close.svg',\r\n        type: 'svg',\r\n      },\r\n    },\r\n    title: 'Notificaciones',\r\n    notificationsNumber: 3,\r\n    items: [\r\n      {\r\n        label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\r\n        avatarName: 'Carlos Sanchez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: (param = ' con param') => {\r\n            console.log('funciona' + param);\r\n          },\r\n        },\r\n      },\r\n      {\r\n        label: 'Samuel Lopez finalizo Programa Desarrollo',\r\n        avatarName: 'Samuel Lopez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: () => {\r\n            console.log('funciona sin param');\r\n          },\r\n        },\r\n      },\r\n      {\r\n        label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',\r\n        avatarName: 'Ignacio Fernandez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: (name = 'Ignacio Fernandez') => {\r\n            console.log('Felicidades ' + name);\r\n          },\r\n        },\r\n      },\r\n    ],\r\n    classes: '',\r\n  },\r\n}"
         },
         {
           "name": "UserMenu",
@@ -1793,7 +1986,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    icons: {\n      closeIcon: {\n        icon: 'close.svg',\n        type: 'svg',\n      },\n    },\n    userData: {\n      fullName: 'Stela Lopez',\n      email: 'slopez@empresa.com',\n      position: 'Gerente Desarrollo',\n    },\n    items: [\n      {\n        label: 'Cerrar Sesión',\n        icon: {\n          icon: 'logout.svg',\n          type: 'svg',\n          position: 'left',\n        },\n        onClick: {\n          action: (param = ' con param') => {\n            console.log('funciona' + param);\n          },\n        },\n      },\n    ],\n    classes: '',\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    icons: {\r\n      closeIcon: {\r\n        icon: 'close.svg',\r\n        type: 'svg',\r\n      },\r\n    },\r\n    userData: {\r\n      fullName: 'Stela Lopez',\r\n      email: 'slopez@empresa.com',\r\n      position: 'Gerente Desarrollo',\r\n    },\r\n    items: [\r\n      {\r\n        label: 'Cerrar Sesión',\r\n        icon: {\r\n          icon: 'logout.svg',\r\n          type: 'svg',\r\n          position: 'left',\r\n        },\r\n        onClick: {\r\n          action: (param = ' con param') => {\r\n            console.log('funciona' + param);\r\n          },\r\n        },\r\n      },\r\n    ],\r\n    classes: '',\r\n  },\r\n}"
         },
         {
           "name": "WithScroll",
@@ -1803,7 +1996,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    ...NotificationsMenu.args,\n    notificationsNumber: 15,\n    items: [\n      {\n        label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\n        avatarName: 'Carlos Sanchez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (param = ' con param') => {\n            console.log('funciona' + param);\n          },\n        },\n      },\n      {\n        label: 'Samuel Lopez finalizo Programa Desarrollo',\n        avatarName: 'Samuel Lopez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: () => {\n            console.log('funciona sin param');\n          },\n        },\n      },\n      {\n        label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',\n        avatarName: 'Ignacio Fernandez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Ignacio Fernandez') => {\n            console.log('Felicidades ' + name);\n          },\n        },\n      },\n      {\n        label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\n        avatarName: 'Carlos Sanchez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (param = ' con param') => {\n            console.log('funciona' + param);\n          },\n        },\n      },\n      {\n        label: 'Samuel Lopez finalizo Programa Desarrollo',\n        avatarName: 'Samuel Lopez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: () => {\n            console.log('funciona sin param');\n          },\n        },\n      },\n      {\n        label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',\n        avatarName: 'Ignacio Fernandez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Ignacio Fernandez') => {\n            console.log('Felicidades ' + name);\n          },\n        },\n      },\n      {\n        label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\n        avatarName: 'Carlos Sanchez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (param = ' con param') => {\n            console.log('funciona' + param);\n          },\n        },\n      },\n      {\n        label: 'Samuel Lopez finalizo Programa Desarrollo',\n        avatarName: 'Samuel Lopez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: () => {\n            console.log('funciona sin param');\n          },\n        },\n      },\n      {\n        label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',\n        avatarName: 'Ignacio Fernandez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Ignacio Fernandez') => {\n            console.log('Felicidades ' + name);\n          },\n        },\n      },\n      {\n        label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\n        avatarName: 'Carlos Sanchez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (param = ' con param') => {\n            console.log('funciona' + param);\n          },\n        },\n      },\n      {\n        label: 'Samuel Lopez finalizo Programa Desarrollo',\n        avatarName: 'Samuel Lopez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: () => {\n            console.log('funciona sin param');\n          },\n        },\n      },\n      {\n        label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',\n        avatarName: 'Ignacio Fernandez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Ignacio Fernandez') => {\n            console.log('Felicidades ' + name);\n          },\n        },\n      },\n      {\n        label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\n        avatarName: 'Carlos Sanchez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (param = ' con param') => {\n            console.log('funciona' + param);\n          },\n        },\n      },\n      {\n        label: 'Samuel Lopez finalizo Programa Desarrollo',\n        avatarName: 'Samuel Lopez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: () => {\n            console.log('funciona sin param');\n          },\n        },\n      },\n      {\n        label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',\n        avatarName: 'Ignacio Fernandez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Ignacio Fernandez') => {\n            console.log('Felicidades ' + name);\n          },\n        },\n      },\n    ],\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    ...NotificationsMenu.args,\r\n    notificationsNumber: 15,\r\n    items: [\r\n      {\r\n        label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\r\n        avatarName: 'Carlos Sanchez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: (param = ' con param') => {\r\n            console.log('funciona' + param);\r\n          },\r\n        },\r\n      },\r\n      {\r\n        label: 'Samuel Lopez finalizo Programa Desarrollo',\r\n        avatarName: 'Samuel Lopez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: () => {\r\n            console.log('funciona sin param');\r\n          },\r\n        },\r\n      },\r\n      {\r\n        label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',\r\n        avatarName: 'Ignacio Fernandez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: (name = 'Ignacio Fernandez') => {\r\n            console.log('Felicidades ' + name);\r\n          },\r\n        },\r\n      },\r\n      {\r\n        label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\r\n        avatarName: 'Carlos Sanchez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: (param = ' con param') => {\r\n            console.log('funciona' + param);\r\n          },\r\n        },\r\n      },\r\n      {\r\n        label: 'Samuel Lopez finalizo Programa Desarrollo',\r\n        avatarName: 'Samuel Lopez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: () => {\r\n            console.log('funciona sin param');\r\n          },\r\n        },\r\n      },\r\n      {\r\n        label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',\r\n        avatarName: 'Ignacio Fernandez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: (name = 'Ignacio Fernandez') => {\r\n            console.log('Felicidades ' + name);\r\n          },\r\n        },\r\n      },\r\n      {\r\n        label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\r\n        avatarName: 'Carlos Sanchez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: (param = ' con param') => {\r\n            console.log('funciona' + param);\r\n          },\r\n        },\r\n      },\r\n      {\r\n        label: 'Samuel Lopez finalizo Programa Desarrollo',\r\n        avatarName: 'Samuel Lopez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: () => {\r\n            console.log('funciona sin param');\r\n          },\r\n        },\r\n      },\r\n      {\r\n        label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',\r\n        avatarName: 'Ignacio Fernandez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: (name = 'Ignacio Fernandez') => {\r\n            console.log('Felicidades ' + name);\r\n          },\r\n        },\r\n      },\r\n      {\r\n        label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\r\n        avatarName: 'Carlos Sanchez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: (param = ' con param') => {\r\n            console.log('funciona' + param);\r\n          },\r\n        },\r\n      },\r\n      {\r\n        label: 'Samuel Lopez finalizo Programa Desarrollo',\r\n        avatarName: 'Samuel Lopez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: () => {\r\n            console.log('funciona sin param');\r\n          },\r\n        },\r\n      },\r\n      {\r\n        label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',\r\n        avatarName: 'Ignacio Fernandez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: (name = 'Ignacio Fernandez') => {\r\n            console.log('Felicidades ' + name);\r\n          },\r\n        },\r\n      },\r\n      {\r\n        label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\r\n        avatarName: 'Carlos Sanchez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: (param = ' con param') => {\r\n            console.log('funciona' + param);\r\n          },\r\n        },\r\n      },\r\n      {\r\n        label: 'Samuel Lopez finalizo Programa Desarrollo',\r\n        avatarName: 'Samuel Lopez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: () => {\r\n            console.log('funciona sin param');\r\n          },\r\n        },\r\n      },\r\n      {\r\n        label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',\r\n        avatarName: 'Ignacio Fernandez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: (name = 'Ignacio Fernandez') => {\r\n            console.log('Felicidades ' + name);\r\n          },\r\n        },\r\n      },\r\n    ],\r\n  },\r\n}"
         }
       ],
       "stories/select.stories.ts": [
@@ -1815,7 +2008,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    label: 'Select',\n    items: [\n      {\n        key: 1,\n        value: 'Option 1',\n      },\n      {\n        key: 2,\n        value: 'Option 2',\n      },\n      {\n        key: 3,\n        value: 'Option 3',\n      },\n    ],\n    control: formControlDefaultSelect,\n    buttonIcon: {\n      icon: 'clean.svg',\n      type: 'svg',\n    },\n    detail: '',\n    classes: '',\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    label: 'Select',\r\n    items: [\r\n      {\r\n        key: 1,\r\n        value: 'Option 1',\r\n      },\r\n      {\r\n        key: 2,\r\n        value: 'Option 2',\r\n      },\r\n      {\r\n        key: 3,\r\n        value: 'Option 3',\r\n      },\r\n    ],\r\n    control: formControlDefaultSelect,\r\n    buttonIcon: {\r\n      icon: 'clean.svg',\r\n      type: 'svg',\r\n    },\r\n    detail: '',\r\n    classes: '',\r\n  },\r\n}"
         },
         {
           "name": "form",
@@ -1825,7 +2018,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "",
-          "defaultValue": "new FormBuilder().group({\n  defaultFieldSelect: new FormControl('', []),\n  multipleFieldSelect: new FormControl([], []),\n  requiredFieldSelect: new FormControl('', []),\n})"
+          "defaultValue": "new FormBuilder().group({\r\n  defaultFieldSelect: new FormControl('', []),\r\n  multipleFieldSelect: new FormControl([], []),\r\n  requiredFieldSelect: new FormControl('', []),\r\n})"
         },
         {
           "name": "formControlDefaultSelect",
@@ -1865,7 +2058,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<SelectComponent>",
-          "defaultValue": "{\n  title: 'Evolution Components/Select',\n  component: SelectComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync(), provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+          "defaultValue": "{\r\n  title: 'Evolution Components/Select',\r\n  component: SelectComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideAnimationsAsync(), provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
         },
         {
           "name": "Multiple",
@@ -1875,7 +2068,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    ...Default.args,\n    control: formControlMultipleSelect,\n    isMultiple: true,\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    control: formControlMultipleSelect,\r\n    isMultiple: true,\r\n  },\r\n}"
         },
         {
           "name": "Required",
@@ -1885,7 +2078,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    ...Default.args,\n    control: formControlRequiredSelect,\n    isRequired: true,\n    isMultiple: false,\n    requiredErrorMessage: 'Este campo es requerido',\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    control: formControlRequiredSelect,\r\n    isRequired: true,\r\n    isMultiple: false,\r\n    requiredErrorMessage: 'Este campo es requerido',\r\n  },\r\n}"
         }
       ],
       "stories/svg.stories.ts": [
@@ -1897,7 +2090,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    svgPath: 'bell.svg',\n    classes: '',\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    svgPath: 'bell.svg',\r\n    classes: '',\r\n  },\r\n}"
         },
         {
           "name": "meta",
@@ -1907,7 +2100,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<SvgComponent>",
-          "defaultValue": "{\n  title: 'Evolution Components/Svg',\n  component: SvgComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+          "defaultValue": "{\r\n  title: 'Evolution Components/Svg',\r\n  component: SvgComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
         }
       ],
       "stories/tablero-skeleton.stories.ts": [
@@ -2077,6 +2270,19 @@
           "subtype": "typealias",
           "rawtype": "StoryObj<DialogButtonComponent>",
           "file": "stories/dialog.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "description": "",
+          "kind": 183
+        }
+      ],
+      "stories/header-columna.stories.ts": [
+        {
+          "name": "Story",
+          "ctype": "miscellaneous",
+          "subtype": "typealias",
+          "rawtype": "StoryObj<HeaderColumnaComponent>",
+          "file": "stories/header-columna.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "description": "",
@@ -2452,6 +2658,26 @@
         "type": "variable",
         "linktype": "miscellaneous",
         "linksubtype": "variable",
+        "name": "pastToday",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/carta-actividad.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "porVencer",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/carta-actividad.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
         "name": "sinAvatar",
         "coveragePercent": 0,
         "coverageCount": "0/1",
@@ -2498,6 +2724,36 @@
         "status": "low"
       },
       {
+        "filePath": "stories/carta-actividad.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "today",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/carta-actividad.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "vencida",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/carta-actividad.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "yesterday",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
         "filePath": "stories/columna-tablero.stories.ts",
         "type": "variable",
         "linktype": "miscellaneous",
@@ -2513,16 +2769,6 @@
         "linktype": "miscellaneous",
         "linksubtype": "variable",
         "name": "Default",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
-      },
-      {
-        "filePath": "stories/columna-tablero.stories.ts",
-        "type": "variable",
-        "linktype": "miscellaneous",
-        "linksubtype": "variable",
-        "name": "nombreDeColumnaLargo",
         "coveragePercent": 0,
         "coverageCount": "0/1",
         "status": "low"
@@ -2623,6 +2869,56 @@
         "linktype": "miscellaneous",
         "linksubtype": "variable",
         "name": "Testing2",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/header-columna.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "customTailwindClass",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/header-columna.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Default",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/header-columna.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "muchasActividades",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/header-columna.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "nombreColumnaLargo",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/header-columna.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "withoutCount",
         "coveragePercent": 0,
         "coverageCount": "0/1",
         "status": "low"

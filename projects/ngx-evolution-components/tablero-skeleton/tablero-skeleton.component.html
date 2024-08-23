@@ -1,10 +1,10 @@
 <div
-  class="flex flex-nowrap gap-4 h-screen mt-4 overflow-auto bg-gray-50 px-4 py-6 sm:mt-8 sm:px-4 animate-pulse"
+  class="flex flex-nowrap gap-4 h-screen mt-4 overflow-auto px-4 py-6 sm:mt-8 animate-pulse"
   id="loading-board"
 >
   @for (i of columnArray; track $index) {
     <div class="flex flex-col gap-4" id="loading-board-column">
-      <div class="rounded-md bg-gray-200 h-3 w-3/4"></div>
+      <div class="rounded-3xl bg-gray-200 h-10 w-full"></div>
       <div
         class="flex flex-col justify-between gap-2 rounded-xl bg-gray-50 p-2 shadow-md h-36 w-72"
         id="loading-card"
@@ -17,7 +17,7 @@
         </div>
         <div class="flex flex-row justify-between items-center">
           <div class="rounded-full size-8 bg-gray-200"></div>
-          <div class="rounded-md bg-gray-200 h-3 w-24"></div>
+          <div class="rounded-md bg-gray-200 h-4 w-24"></div>
         </div>
       </div>
     </div>

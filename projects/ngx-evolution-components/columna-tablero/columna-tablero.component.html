@@ -1,38 +1,28 @@
-<div class="flex flex-col">
-  <div class="mb-4 flex items-center">
-    <span class="flex-shrink-0 mr-2 h-2 w-2 rounded-full bg-green-600"></span>
-    <p
-      id="column-title"
-      class="uppercase leading-5 tracking-wider font-bold whitespace-nowrap overflow-hidden text-ellipsis text-gray-600"
+<div
+  cdkDropList
+  class="flex flex-col gap-1 h-full min-h-36"
+  [cdkDropListData]="actividades"
+  (cdkDropListDropped)="drop($event)"
+  id="board-activity-column"
+  [ngClass]="{
+    'rounded-xl outline-dashed outline-gray-300 outline-2 h-full':
+      actividades.length === 0,
+  }"
+>
+  @for (actividad of actividades; track actividad.id) {
+    <evo-carta-actividad
+      class="carta-actividad"
+      cdkDrag
+      cdkDragHandle
+      [cdkDragData]="actividad"
+      [title]="actividad.titulo"
+      [description]="actividad.descripcion!"
+      [priority]="actividad.prioridad"
+      [responsible]="actividad.responsable"
+      [endDate]="actividad.fechaFin"
+      [twClass]="'h-36'"
+      [id]="actividad.id"
     >
-      {{ name }}
-    </p>
-  </div>
-  <div
-    cdkDropList
-    class="flex min-h-96 flex-col gap-2"
-    [cdkDropListData]="actividades"
-    (cdkDropListDropped)="drop($event)"
-    [id]="'column-' + name.replace(' ', '')"
-    [ngClass]="{
-      'rounded-xl outline-dashed outline-gray-300 outline-2':
-        actividades.length === 0,
-    }"
-  >
-    @for (actividad of actividades; track actividad.id) {
-      <evo-carta-actividad
-        class="carta-actividad"
-        cdkDrag
-        cdkDragHandle
-        [cdkDragData]="actividad"
-        [title]="actividad.titulo"
-        [description]="actividad.descripcion!"
-        [priority]="actividad.prioridad"
-        [responsible]="actividad.responsable"
-        [twClass]="'h-36'"
-        [id]="actividad.id"
-      >
-      </evo-carta-actividad>
-    }
-  </div>
+    </evo-carta-actividad>
+  }
 </div>

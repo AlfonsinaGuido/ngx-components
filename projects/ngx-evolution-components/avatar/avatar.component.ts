@@ -9,6 +9,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./avatar.component.scss', '../styles/output.scss'],
 })
 export class AvatarComponent implements OnInit {
+  private colorArray: string[];
   public iniciales!: string;
   public textColor!: string;
   public bgColor!: string;
@@ -16,20 +17,27 @@ export class AvatarComponent implements OnInit {
   @Input() name!: string;
   @Input() imgUrl?: string;
   @Input() isPriority: boolean = false;
-  @Input() color:
-    | 'red'
-    | 'purple'
-    | 'blue'
-    | 'green'
-    | 'gray'
-    | 'stone'
-    | 'yellow'
-    | 'orange'
-    | 'pink' = 'green';
+  @Input() color?: string;
+
+  constructor() {
+    this.colorArray = [
+      'red',
+      'purple',
+      'blue',
+      'green',
+      'gray',
+      'stone',
+      'yellow',
+      'orange',
+      'pink',
+      'indigo',
+      'teal',
+    ];
+  }
 
   ngOnInit(): void {
+    this.color = this.color || this.getAvatarColor();
     this.setIniciales();
-    this.setColors();
   }
 
   /**
@@ -51,10 +59,10 @@ export class AvatarComponent implements OnInit {
   }
 
   /**
-   * Obtiene la clase de color de tailwind según el color del input
+   * Método que, acorde a la longitud del nombre, obtiene un color de la paleta de colores.
+   * @returns Color del avatar
    */
-  private setColors() {
-    this.textColor = `text-${this.color}-700`;
-    this.bgColor = `bg-${this.color}-50`;
+  private getAvatarColor() {
+    return this.colorArray[this.name.length % this.colorArray.length];
   }
 }

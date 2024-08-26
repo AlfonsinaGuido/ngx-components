@@ -5,6 +5,7 @@ export interface DialogInterface {
   scrollableContent?: string;
   simpleContent?: string;
   buttonsItems?: ButtonInterface[];
+  icon?: IconInterface;
   closeButton?: boolean;
   disableClosing?: boolean;
 }

@@ -17,7 +17,6 @@ import {
 })
 export class ColumnaTableroComponent {
   @Input() actividades!: IActividad[];
-  @Input() name!: string;
   @Output('ordenActividad')
   public ordenActividad: EventEmitter<any> = new EventEmitter();
   @Output('actualizarActividad')

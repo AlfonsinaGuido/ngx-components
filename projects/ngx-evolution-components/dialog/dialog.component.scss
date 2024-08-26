@@ -15,9 +15,27 @@
 }
 
 .mat-icon.icon-size {
-  font-size: 4em;
+  font-size: 3.5em;
   height: auto;
   width: auto;
+}
+
+.icon-title {
+  padding-bottom: 0;
+}
+
+.mat-mdc-dialog-content.mdc-dialog__content.icon-content {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+@media screen and (min-width: 768px) { 
+
+  .dialog-icon-container.mat-mdc-dialog-content.mdc-dialog__content {
+    padding-left: 8em;
+    padding-right: 8em;
+    max-width: 500px;
+  }
 }
 
 .mat-dialog-container {

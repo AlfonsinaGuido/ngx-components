@@ -3,7 +3,7 @@
   [class]="twClass"
   id="board"
 >
-  <div class="flex gap-4" cdkDropListGroup>
+  <div class="flex gap-3" cdkDropListGroup>
     @for (columna of columnas; track $index) {
       <div
         class="inline-block min-w-72 max-w-72 whitespace-normal snap-center"
@@ -31,7 +31,7 @@
           [expanded]="true"
         >
           <div
-            class="w-full flex items-center overflow-hidden line-clamp-1 text-nowrap rounded-md p-1.5 mb-0.5 cursor-pointer bg-black bg-opacity-5 hover:bg-black hover:bg-opacity-10 transition-colors"
+            class="w-full flex items-center overflow-hidden line-clamp-1 text-nowrap rounded-md p-1.5 mb-0.5 cursor-pointer bg-gray-100 hover:bg-gray-200 transition-colors"
             (click)="accordionItem.toggle()"
           >
             <mat-icon class="flex items-center justify-center text-xl">
@@ -46,7 +46,7 @@
           </div>
           <div
             role="region"
-            [class]="accordionItem.expanded ? 'flex gap-4 my-2' : 'hidden'"
+            [class]="accordionItem.expanded ? 'flex gap-3 my-2' : 'hidden'"
             cdkDropListGroup
           >
             @for (actividades of empleo.actividades; track $index) {

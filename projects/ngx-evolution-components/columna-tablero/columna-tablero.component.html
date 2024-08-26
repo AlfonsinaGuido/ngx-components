@@ -1,6 +1,6 @@
 <div
   cdkDropList
-  class="flex flex-col gap-1 h-full min-h-36"
+  class="flex flex-col gap-2 !h-full bg-gray-100 p-2 rounded-lg"
   [cdkDropListData]="actividades"
   (cdkDropListDropped)="drop($event)"
   id="board-activity-column"
@@ -15,10 +15,7 @@
       cdkDrag
       cdkDragHandle
       [cdkDragData]="actividad"
-      [title]="actividad.titulo"
-      [description]="actividad.descripcion!"
-      [priority]="actividad.prioridad"
-      [responsible]="actividad.responsable"
+      [actividad]="actividad"
       [endDate]="actividad.fechaFin"
       [twClass]="'h-36'"
       [id]="actividad.id"

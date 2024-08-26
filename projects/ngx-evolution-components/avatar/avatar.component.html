@@ -2,6 +2,8 @@
   id="avatar-wrapper"
   class="relative rounded-full overflow-hidden flex items-center justify-center"
   [class]="['avatar__' + color, 'avatar__size-' + size].join(' ')"
+  [matTooltip]="name"
+  [matTooltipDisabled]="tooltipDisabled"
 >
   @if (!imgUrl) {
     <span

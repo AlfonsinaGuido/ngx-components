@@ -19,6 +19,7 @@ export * from './header-columna/header-columna.component';
 export * from './columna-tablero/columna-tablero.component';
 export * from './tablero-kanban/tablero-kanban.component';
 export * from './tablero-skeleton/tablero-skeleton.component';
+export * from './dialogo-actividad/dialogo-actividad.component';
 
 // Interfaces
 export * from './shared/interfaces/button.interface';
@@ -33,6 +34,7 @@ export * from './shared/interfaces/header.interface';
 export * from './shared/interfaces/user.interface';
 export * from './shared/interfaces/evaluacion.interface';
 export * from './shared/interfaces/menu.interface';
+export * from './shared/interfaces/prioridad.interface';
 
 // Validators
 export * from './shared/validators/custom-error-state-matcher';
@@ -40,4 +42,5 @@ export * from './shared/validators/custom-error-state-matcher';
 // Enums
 export * from './shared/enums/duracion.enum';
 export * from './shared/enums/estado.enum';
-export * from './shared/enums/prioridad.enum';
+export * from './shared/enums/opcion-actividad.enum';
+export * from './shared/enums/etapas-programa.enum';

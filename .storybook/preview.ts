@@ -15,9 +15,7 @@ const preview: Preview = {
     deepControls: { enabled: true },
   },
   decorators: [
-    componentWrapperDecorator(
-      (story) => `<div style="margin: 1em">${story}</div>`,
-    ),
+    componentWrapperDecorator((story) => `<div style="">${story}</div>`),
   ],
 };
 

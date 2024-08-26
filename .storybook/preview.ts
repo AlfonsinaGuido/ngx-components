@@ -12,10 +12,11 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
+    deepControls: { enabled: true },
   },
   decorators: [
     componentWrapperDecorator(
-      (story) => `<div style="margin: 3em">${story}</div>`,
+      (story) => `<div style="margin: 1em">${story}</div>`,
     ),
   ],
 };

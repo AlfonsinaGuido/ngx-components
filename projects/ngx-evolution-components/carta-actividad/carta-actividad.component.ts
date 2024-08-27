@@ -64,6 +64,9 @@ export class CartaActividadComponent implements OnInit {
       : false;
   }
 
+  /**
+   * Abre el dialogo de detalle de la actividad y emite el evento de actualización de la actividad.
+   */
   public verDetalle(): void {
     const dialogRef = this.dialog.open(DialogoActividadComponent, {
       data: {
@@ -77,9 +80,7 @@ export class CartaActividadComponent implements OnInit {
       } else {
         const updateTask = {
           actividad: this.actividad,
-          // columnName: dialogRef.componentInstance.activeStatus.name,
         };
-
         this.taskUpdate.emit(updateTask);
       }
     });

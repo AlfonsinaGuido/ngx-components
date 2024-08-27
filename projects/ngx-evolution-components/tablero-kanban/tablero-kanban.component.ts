@@ -36,21 +36,21 @@ export class TableroKanbanComponent {
       count: this.actividadesMock.length,
       actividades: [
         {
-          status: EstadoActividad.Abierta,
+          status: EstadoActividad.abierta,
           actividades: this.actividadesMock.filter(
-            (act) => act.status === EstadoActividad.Abierta,
+            (act) => act.status === EstadoActividad.abierta,
           ),
         },
         {
-          status: EstadoActividad.EnProgreso,
+          status: EstadoActividad.enProgreso,
           actividades: this.actividadesMock.filter(
-            (act) => act.status === EstadoActividad.EnProgreso,
+            (act) => act.status === EstadoActividad.enProgreso,
           ),
         },
         {
-          status: EstadoActividad.Cerrada,
+          status: EstadoActividad.cerrada,
           actividades: this.actividadesMock.filter(
-            (act) => act.status === EstadoActividad.Cerrada,
+            (act) => act.status === EstadoActividad.cerrada,
           ),
         },
       ],
@@ -60,21 +60,21 @@ export class TableroKanbanComponent {
       count: this.actividadesMock.length,
       actividades: [
         {
-          status: EstadoActividad.Abierta,
+          status: EstadoActividad.abierta,
           actividades: this.actividadesMock.filter(
-            (act) => act.status === EstadoActividad.Abierta,
+            (act) => act.status === EstadoActividad.abierta,
           ),
         },
         {
-          status: EstadoActividad.EnProgreso,
+          status: EstadoActividad.enProgreso,
           actividades: this.actividadesMock.filter(
-            (act) => act.status === EstadoActividad.EnProgreso,
+            (act) => act.status === EstadoActividad.enProgreso,
           ),
         },
         {
-          status: EstadoActividad.Cerrada,
+          status: EstadoActividad.cerrada,
           actividades: this.actividadesMock.filter(
-            (act) => act.status === EstadoActividad.Cerrada,
+            (act) => act.status === EstadoActividad.cerrada,
           ),
         },
       ],

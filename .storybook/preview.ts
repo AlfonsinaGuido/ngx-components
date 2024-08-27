@@ -14,9 +14,7 @@ const preview: Preview = {
     },
     deepControls: { enabled: true },
   },
-  decorators: [
-    componentWrapperDecorator((story) => `<div style="">${story}</div>`),
-  ],
+  decorators: [componentWrapperDecorator((story) => `<div>${story}</div>`)],
 };
 
 export default preview;

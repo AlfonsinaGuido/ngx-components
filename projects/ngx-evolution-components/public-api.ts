@@ -27,14 +27,14 @@ export * from './shared/interfaces/icon.interface';
 export * from './shared/interfaces/input.interface';
 export * from './shared/interfaces/select.interface';
 export * from './shared/interfaces/dialog.interface';
-export * from './shared/interfaces/evaluacion.interface';
-export * from './shared/interfaces/actividad.interface';
-export * from './shared/interfaces/columna.interface';
+export * from './shared/interfaces/ievaluacion.interface';
+export * from './shared/interfaces/iactividad.interface';
+export * from './shared/interfaces/icolumna.interface';
 export * from './shared/interfaces/header.interface';
 export * from './shared/interfaces/user.interface';
-export * from './shared/interfaces/evaluacion.interface';
+export * from './shared/interfaces/ievaluacion.interface';
 export * from './shared/interfaces/menu.interface';
-export * from './shared/interfaces/prioridad.interface';
+export * from './shared/interfaces/iprioridad.interface';
 
 // Validators
 export * from './shared/validators/custom-error-state-matcher';

@@ -6,11 +6,9 @@
   [matTooltipDisabled]="tooltipDisabled"
 >
   @if (!imgUrl) {
-    <span
-      class="font-semibold"
-      [class]="'avatar__' + color"
-      >{{ iniciales }}</span
-    >
+    <span class="font-semibold" [class]="'avatar__' + color">{{
+      iniciales
+    }}</span>
   } @else {
     <img
       [class]="'avatar__size-' + size"

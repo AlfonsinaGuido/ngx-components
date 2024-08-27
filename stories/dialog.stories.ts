@@ -156,7 +156,8 @@ export const buttonsItemsScrollable: Story = {
 export const closeButton: Story = {
   args: {
     title: 'Dialogo de testing',
-    simpleContent: 'Testing de prueba para dialogo para comprobar que tanto se puede expandir el texto el dialogo',
+    simpleContent:
+      'Testing de prueba para dialogo para comprobar que tanto se puede expandir el texto el dialogo',
     buttonsItems: [
       {
         label: 'Item 1',
@@ -184,7 +185,7 @@ export const iconDialog: Story = {
     icon: {
       icon: 'warning',
       type: 'class',
-      color: '#c91711'
+      color: '#c91711',
     },
     buttonsItems: [
       {
@@ -203,8 +204,7 @@ export const iconDialog: Story = {
       },
     ],
     simpleContent: 'Testing de prueba para dialogo',
-  }
-
+  },
 };
 
 export const svgDialog: Story = {
@@ -232,5 +232,5 @@ export const svgDialog: Story = {
       },
     ],
     simpleContent: 'Testing de prueba para dialogo',
-  }
-}
+  },
+};

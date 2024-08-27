@@ -32,6 +32,8 @@ export class CartaActividadComponent implements OnInit {
   @Input() endDate?: Date;
   @Input() twClass?: string;
   @Input() actividad!: IActividad;
+  @Input() tooltipSoonToExpire?: string;
+  @Input() tooltipExpired?: string;
   @Output() taskUpdate = new EventEmitter<{ actividad: IActividad }>();
   @Output() taskUpdateModal = new EventEmitter<IActividad>();
   public isSoonToExpire: boolean = false;
@@ -40,8 +42,8 @@ export class CartaActividadComponent implements OnInit {
   constructor(private dialog: MatDialog) {}
 
   ngOnInit() {
-    this.isSoonToExpire = this.soonToExpire();
-    this.expired = this.hasExpired();
+    this.isSoonToExpire = !!this.tooltipSoonToExpire && this.soonToExpire();
+    this.expired = !!this.tooltipExpired && this.hasExpired();
   }
 
   /**

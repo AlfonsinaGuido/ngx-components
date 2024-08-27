@@ -22,6 +22,8 @@ export const Default = {
   args: {
     actividad,
     endDate: actividad.fechaFin,
+    tooltipSoonToExpire: 'Próxima a vencer',
+    tooltipExpired: 'Vencida',
   },
 } as StoryObj<CartaActividadComponent>;
 
@@ -29,6 +31,7 @@ export const porVencer = {
   args: {
     actividad,
     endDate: yesterday,
+    tooltipSoonToExpire: 'Próxima a vencer',
   },
 } as StoryObj<CartaActividadComponent>;
 
@@ -36,6 +39,7 @@ export const vencida = {
   args: {
     actividad,
     endDate: pastToday,
+    tooltipExpired: 'Vencida',
   },
 } as StoryObj<CartaActividadComponent>;
 

@@ -1344,6 +1344,46 @@ video {
   color: var(--white-smoke);
 }
 
+.mix-blend-multiply {
+  mix-blend-mode: multiply;
+}
+
+.mix-blend-screen {
+  mix-blend-mode: screen;
+}
+
+.mix-blend-overlay {
+  mix-blend-mode: overlay;
+}
+
+.mix-blend-darken {
+  mix-blend-mode: darken;
+}
+
+.mix-blend-lighten {
+  mix-blend-mode: lighten;
+}
+
+.mix-blend-color-dodge {
+  mix-blend-mode: color-dodge;
+}
+
+.mix-blend-difference {
+  mix-blend-mode: difference;
+}
+
+.mix-blend-exclusion {
+  mix-blend-mode: exclusion;
+}
+
+.mix-blend-color {
+  mix-blend-mode: color;
+}
+
+.mix-blend-plus-lighter {
+  mix-blend-mode: plus-lighter;
+}
+
 .shadow-\[4px_4px_4px_rgba\(0\2c 0\2c 0\2c 0\.1\)\] {
   --tw-shadow: 4px 4px 4px rgba(0,0,0,0.1);
   --tw-shadow-colored: 4px 4px 4px var(--tw-shadow-color);

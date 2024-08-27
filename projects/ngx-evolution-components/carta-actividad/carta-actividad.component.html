@@ -42,12 +42,16 @@
         </div>
       }
       @if (expired) {
-        <evo-tag twClass="bg-red-500 text-white uppercase" label="vencida" />
+        <evo-tag
+          twClass="bg-red-500 text-white uppercase"
+          label="vencida"
+          [matTooltip]="tooltipExpired!"
+        />
       } @else if (isSoonToExpire) {
         <evo-tag
           twClass="bg-orange-500 text-white uppercase"
           label="por vencer"
-          matTooltip="La actividad está por vencer"
+          [matTooltip]="tooltipSoonToExpire!"
         />
       }
       @if (endDate) {

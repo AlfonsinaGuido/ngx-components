@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { 
-  ButtonInterface, 
-  DialogComponent, 
-  IconInterface 
+import {
+  ButtonInterface,
+  DialogComponent,
+  IconInterface,
 } from '../../../public-api';
 
 @Component({
@@ -35,9 +35,9 @@ export class DialogButtonComponent {
         buttonsFunctions: this.buttonsFunctions,
         closeButton: this.closeButton,
         disableClosing: this.disableClosing,
-        icon: this.icon
+        icon: this.icon,
       },
-      panelClass: 'custom-dialog-container'
+      panelClass: 'custom-dialog-container',
     });
   }
 }

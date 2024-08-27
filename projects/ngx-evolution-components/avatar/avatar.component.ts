@@ -1,10 +1,11 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'evo-avatar',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage],
+  imports: [CommonModule, NgOptimizedImage, MatTooltipModule],
   templateUrl: './avatar.component.html',
   styleUrls: ['./avatar.component.scss', '../styles/output.scss'],
 })
@@ -18,6 +19,7 @@ export class AvatarComponent implements OnInit {
   @Input() imgUrl?: string;
   @Input() isPriority: boolean = false;
   @Input() color?: string;
+  @Input() tooltipDisabled?: boolean = true;
 
   constructor() {
     this.colorArray = [

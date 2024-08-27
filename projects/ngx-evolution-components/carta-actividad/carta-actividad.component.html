@@ -1,12 +1,16 @@
 <div
-  class="flex flex-col justify-between relative rounded-xl bg-white px-2 py-2 text-black shadow-md hover:shadow-lg transition-all"
+  class="flex flex-col justify-between relative rounded-xl bg-white px-2 py-2 text-black shadow-md hover:shadow-xl transition-shadow"
   [class]="twClass"
   [id]="'activity-' + id"
   tabindex="0"
+  (click)="verDetalle()"
 >
-  <div class="flex flex-start flex-nowrap gap-1.5">
-    @if (priority) {
-      <evo-tag [prioridad]="priority" [label]="priority" />
+  <div
+    class="flex flex-start flex-nowrap gap-1.5 items-center"
+    id="activity-card-header"
+  >
+    @if (actividad.prioridad) {
+      <evo-tag [prioridad]="actividad.prioridad" />
     }
   </div>
   <div>
@@ -14,20 +18,42 @@
       class="my-1 text-base font-bold overflow-hidden line-clamp-1 text-ellipsis"
       id="activity-title"
     >
-      {{ title }}
+      {{ actividad.nombre }}
     </p>
     <p
       class="text-xs font-light text-gray-500 overflow-hidden line-clamp-2 text-ellipsis"
       id="activity-description"
     >
-      {{ description }}
+      {{ actividad.descripcion }}
     </p>
   </div>
-  @if (responsible || endDate) {
+  @if (actividad.responsable || endDate) {
     <div
       id="activity-card-footer"
-      class="flex flex-row-reverse gap-1 items-center mt-2"
+      class="flex flex-row gap-1 items-center mt-2"
     >
+      @if (actividad.responsable) {
+        <div class="flex flex-grow">
+          <evo-avatar
+            size="sm"
+            [name]="actividad.responsable"
+            [tooltipDisabled]="false"
+          ></evo-avatar>
+        </div>
+      }
+      @if (expired) {
+        <evo-tag
+          twClass="bg-red-500 text-white uppercase"
+          label="vencida"
+          [matTooltip]="tooltipExpired!"
+        />
+      } @else if (isSoonToExpire) {
+        <evo-tag
+          twClass="bg-orange-500 text-white uppercase"
+          label="por vencer"
+          [matTooltip]="tooltipSoonToExpire!"
+        />
+      }
       @if (endDate) {
         <span id="endDate" class="flex items-center text-slate-500">
           <mat-icon
@@ -40,19 +66,6 @@
             {{ endDate | date: "dd/MM/yy" }}
           </p>
         </span>
-      }
-      @if (expired) {
-        <evo-tag twClass="bg-red-500 text-white uppercase" label="vencida" />
-      } @else if (isSoonToExpire) {
-        <evo-tag
-          twClass="bg-orange-500 text-white uppercase"
-          label="por vencer"
-        />
-      }
-      @if (responsible) {
-        <div class="flex flex-grow">
-          <evo-avatar size="sm" [name]="responsible"></evo-avatar>
-        </div>
       }
     </div>
   }

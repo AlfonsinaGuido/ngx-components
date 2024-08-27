@@ -2,23 +2,24 @@ import {
   Duracion,
   EstadoActividad,
   IEvaluacion,
-  Prioridad,
+  IPrioridad,
+  EtapaPrograma,
 } from '../../public-api';
 
 export interface IActividad {
-  id: string | number;
+  id: number;
   prerequisitos?: IActividad[];
   descripcion?: string;
   duracion: number;
   evaluaciones?: IEvaluacion[];
-  fase: string;
+  etapa: EtapaPrograma;
   objetivos: string;
-  prioridad: Prioridad;
   realizaEvaluacion: boolean;
   responsable: string;
   status: EstadoActividad;
   tipo: string;
   tipoDuracion: Duracion;
-  titulo: string;
+  nombre: string;
   fechaFin: Date;
+  prioridad?: IPrioridad;
 }

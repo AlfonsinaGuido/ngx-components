@@ -14,7 +14,7 @@ import {
   ButtonInterface,
   DialogInterface,
   IconInterface,
-  SvgComponent
+  SvgComponent,
 } from '../public-api';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
@@ -32,8 +32,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatDialogTitle,
     MatDialogContent,
     MatIconModule,
-    SvgComponent
-],
+    SvgComponent,
+  ],
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.scss', '../styles/output.scss'],
   encapsulation: ViewEncapsulation.None,
@@ -57,8 +57,7 @@ export class DialogComponent {
     this.buttonsItems = this.data?.buttonsItems?.map((x) => x) || [];
     this.closeButton = this.data?.closeButton || false;
     this.disableClosing = this.data?.disableClosing || false;
-    this.icon = this.data?.icon || 
-        {icon: '', type:'svg', position:'left'};
+    this.icon = this.data?.icon || { icon: '', type: 'svg', position: 'left' };
     dialogRef.disableClose = this.disableClosing;
     console.log('dialog icon ', this.data);
   }

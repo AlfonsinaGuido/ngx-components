@@ -14,11 +14,7 @@ const preview: Preview = {
     },
     deepControls: { enabled: true },
   },
-  decorators: [
-    componentWrapperDecorator(
-      (story) => `<div style="margin: 1em">${story}</div>`,
-    ),
-  ],
+  decorators: [componentWrapperDecorator((story) => `<div>${story}</div>`)],
 };
 
 export default preview;

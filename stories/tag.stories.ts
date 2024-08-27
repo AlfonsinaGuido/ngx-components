@@ -1,8 +1,6 @@
 import { Meta, StoryObj } from '@storybook/angular';
-import {
-  Prioridad,
-  TagComponent,
-} from '@aseinfo/ngx-evolution-components/public-api';
+import { TagComponent } from '@aseinfo/ngx-evolution-components/public-api';
+import { prioridadLowest } from './data/kanban/prioridades.data';
 
 type Story = StoryObj<TagComponent>;
 export default {
@@ -10,63 +8,57 @@ export default {
   title: 'Evolution Components/Tag Prioridad',
   tags: ['autodocs'],
   argTypes: {
-    label: {
-      type: 'string',
-      control: { type: 'text' },
-    },
-    prioridad: {
-      type: 'string',
-      control: { type: 'inline-radio' },
-      options: [
-        Prioridad.High,
-        Prioridad.Medium,
-        Prioridad.Low,
-        Prioridad.None,
-      ],
-    },
     size: {
-      type: 'string',
-      control: { type: 'inline-radio' },
+      control: 'inline-radio',
       options: ['sm', 'md', 'lg'],
     },
-    twClass: {
-      type: 'string',
-      control: { type: 'text' },
-    },
-  },
-  args: {
-    label: 'tag',
   },
 } as Meta<TagComponent>;
 
-export const prioridadBaja: Story = {
+export const Default: Story = {
+  args: {
+    label: 'Tag',
+    size: 'sm',
+    twClass: '',
+    prioridad: {
+      nombre: 'Alta',
+      color: '#FF0000',
+      icono: 'arrow_upward',
+      codigo: 0,
+      orden: 0,
+    },
+  },
+};
+
+export const prioridadMasBaja: Story = {
   args: {
     label: 'Baja',
-    prioridad: Prioridad.Low,
     size: 'sm',
+    prioridad: prioridadLowest,
   },
 };
 
 export const prioridadMedia: Story = {
   args: {
     label: 'Media',
-    prioridad: Prioridad.Medium,
     size: 'md',
+    twClass: 'bg-gray-300',
   },
 };
 
 export const prioridadAlta: Story = {
   args: {
     label: 'Alta',
-    prioridad: Prioridad.High,
     size: 'lg',
+    twClass: 'bg-gray-300',
   },
 };
 
-export const colorPersonalizado: Story = {
+export const conClasePersonalizada: Story = {
   args: {
     label: 'Custom',
     size: 'md',
-    twClass: 'bg-green-50 text-green-700',
+    twClass:
+      'bg-slate-600 text-white border-slate-700 font-bold cursor-pointer rounded-xl p-2',
   },
 };

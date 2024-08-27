@@ -46,52 +46,73 @@
         <nav class="sidebar__nav">
           <ul>
             @for (option of options; track option.title) {
-              <li (click)="selectOption(option)">
-                <evo-svg
-                  class="w-4"
-                  [svgPath]="option.icon.icon"
-                  [classes]="
-                    isActive(option.route)
-                      ? 'sidebar__evo-button active'
-                      : 'sidebar__evo-button'
-                  "
-                ></evo-svg>
-                <span class="ml-4">{{ option.title }}</span>
-              </li>
+              <evo-button
+                [label]="option.title"
+                [icon]="getIconWithLeftPosition(option.icon)"
+                [withoutBorder]="true"
+                [theme]="'secondary'"
+                [isFluid]="true"
+                [classes]="'sidebar__evo-button btn-justify-start align-start'"
+                (click)="selectOption(option)"
+              ></evo-button>
             }
           </ul>
         </nav>
         <div class="additional-options">
-          <hr />
+          <mat-divider></mat-divider>
           <nav class="sidebar__nav">
             <ul>
-              @for (option of additionalOptions; track option.title) {
-                <li (click)="selectOption(option)">
-                  <evo-svg
-                    class="w-4"
-                    [svgPath]="option.icon.icon"
-                    [classes]="
-                      isActive(option.route)
-                        ? 'sidebar__evo-button active'
-                        : 'sidebar__evo-button'
-                    "
-                  ></evo-svg>
-                  <span class="ml-4">{{ option.title }}</span>
-                </li>
+              @if (commonProps.buttonItems.appItems) {
+                @for (
+                  option of commonProps.buttonItems.appItems;
+                  track option.label
+                ) {
+                  @if (option.icon) {
+                    <evo-button
+                      [label]="option.label"
+                      [icon]="getIconWithLeftPosition(option.icon)"
+                      [withoutBorder]="true"
+                      [theme]="'secondary'"
+                      [isFluid]="true"
+                      [classes]="'sidebar__evo-button'"
+                      [url]="option.url"
+                    ></evo-button>
+                  }
+                }
               }
             </ul>
           </nav>
-          <hr />
-          <div class="logout" (click)="logout()">
-            <div class="flex p-2">
-              <evo-svg
-                class="w-4"
-                [svgPath]="'close.svg'"
+          <mat-divider></mat-divider>
+          @if (additionalOptions) {
+            @for (option of additionalOptions; track option.title) {
+              <evo-button
+                [label]="option.title"
+                [icon]="getIconWithLeftPosition(option.icon)"
+                [withoutBorder]="true"
+                [theme]="'secondary'"
+                [isFluid]="true"
                 classes="sidebar__evo-button"
-              ></evo-svg>
-              <span class="ml-4">Cerrar sesión</span>
-            </div>
-          </div>
+                (click)="option.action()"
+              ></evo-button>
+            }
+            <mat-divider></mat-divider>
+          }
+          @for (
+            option of commonProps.buttonItems.userDataItems;
+            track option.label
+          ) {
+            @if (option.icon) {
+              <evo-button
+                [label]="option.label"
+                [icon]="getIconWithLeftPosition(option.icon)"
+                [withoutBorder]="true"
+                [theme]="'secondary'"
+                [isFluid]="true"
+                classes="sidebar__evo-button"
+                (click)="option.onClick?.action()"
+              ></evo-button>
+            }
+          }
         </div>
       </div>
       <div class="sidebar__overlay" (click)="closeSidebar()"></div>
@@ -108,12 +129,8 @@
                 mat-button
                 [icon]="option.icon"
                 [withoutBorder]="true"
-                (click)="selectOption(option)"
-                [classes]="
-                  isActive(option.route)
-                    ? 'sidebar__evo-button active'
-                    : 'sidebar__evo-button'
-                "
+                (click)="option.action!()"
+                [classes]="isActive(option.route) ? 'active' : ''"
               ></evo-button>
             </div>
           }

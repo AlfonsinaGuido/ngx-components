@@ -6,6 +6,7 @@ import { PLATFORM_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
+import { IconInterface, IconPosition } from '../public-api';
 
 describe('SidebarComponent', () => {
   let component: SidebarComponent;
@@ -135,5 +136,18 @@ describe('SidebarComponent', () => {
   it('should return false for isActive if route does not match activeRoute', () => {
     component.activeRoute = '/test';
     expect(component.isActive('/not-test')).toBe(false);
+  });
+
+  it('should return an icon object with position set to left', () => {
+    const inputIcon: IconInterface = { icon: 'dashboard.svg', type: 'svg' };
+    const expectedIcon: IconInterface = {
+      ...inputIcon,
+      position: 'left' as IconPosition,
+    };
+
+    const result = component.getIconWithLeftPosition(inputIcon);
+
+    expect(result).toEqual(expectedIcon);
+    expect(result.position).toBe('left');
   });
 });

@@ -67,11 +67,21 @@ const meta: Meta<SidebarComponent> = {
         appItems: [
           {
             label: 'Evo Wave',
-            icon: { icon: 'company-logo.svg', type: 'svg', position: 'left' },
+            icon: {
+              icon: 'company-logo.svg',
+              type: 'svg',
+              position: 'left',
+            },
+            url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoWave',
           },
           {
             label: 'Evo Chart',
-            icon: { icon: 'company-logo.svg', type: 'svg', position: 'left' },
+            icon: {
+              icon: 'company-logo.svg',
+              type: 'svg',
+              position: 'left',
+            },
+            url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoChart',
           },
         ],
         notificationItems: [
@@ -133,7 +143,7 @@ const meta: Meta<SidebarComponent> = {
     ] as SidebarOptionInterface[],
     additionalOptions: [
       {
-        icon: { icon: 'dashboard.svg', type: 'svg' },
+        icon: { icon: 'company-logo.svg', type: 'svg' },
         action: () => alert('Dashboard'),
         route: '/dashboard',
         title: 'Dashboard',

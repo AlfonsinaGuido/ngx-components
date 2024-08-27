@@ -6,6 +6,7 @@ import {
   Inject,
   PLATFORM_ID,
   AfterViewInit,
+  ViewEncapsulation,
 } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import {
@@ -20,6 +21,7 @@ import {
 import { Router, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ChangeDetectorRef } from '@angular/core';
+import { MatDivider } from '@angular/material/divider';
 
 @Component({
   selector: 'evo-sidebar',
@@ -30,15 +32,17 @@ import { ChangeDetectorRef } from '@angular/core';
     HeaderComponent,
     AvatarComponent,
     SvgComponent,
+    MatDivider,
   ],
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss', '../styles/output.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class SidebarComponent implements OnInit, AfterViewInit {
   @Input() commonProps!: HeaderInterface;
   @Input() options!: SidebarOptionInterface[];
-  @Input() additionalOptions!: SidebarOptionInterface[];
   @Input() avatarName!: string;
+  @Input() additionalOptions?: SidebarOptionInterface[];
   @Input() avatarImgUrl?: string;
   @Input() avatarIsPriority?: boolean = false;
 
@@ -69,6 +73,16 @@ export class SidebarComponent implements OnInit, AfterViewInit {
     if (isPlatformBrowser(this.platformId)) {
       this.subscribeToRouteChanges();
     }
+  }
+
+  /**
+   * Retorna un nuevo objeto `IconInterface` con la posición del ícono ajustada a 'left'.
+   *
+   * @param {IconInterface} icon - El objeto `IconInterface` original.
+   * @returns {IconInterface} - Un nuevo objeto `IconInterface` con la propiedad `position` establecida en 'left'.
+   */
+  getIconWithLeftPosition(icon: IconInterface): IconInterface {
+    return { ...icon, position: 'left' };
   }
 
   /**

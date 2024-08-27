@@ -18,7 +18,7 @@ import { MatIconModule } from '@angular/material/icon';
   encapsulation: ViewEncapsulation.None,
 })
 export class ButtonComponent {
-  @Input() label!: string;
+  @Input() label?: string;
   @Input() icon?: IconInterface;
   @Input() theme: ButtonTheme = 'default';
   @Input() disabled?: boolean;

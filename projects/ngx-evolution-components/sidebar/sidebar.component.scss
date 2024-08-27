@@ -5,6 +5,13 @@
   }
 }
 
+header .evo-button.without-border.active .evo-button__content .icon svg {
+  color: var(--accent-500);
+}
+header button.evo-button.without-border.active {
+  background-color: var(--white);
+}
+
 .sidebar__evo-button {
   height: 50px;
 }
@@ -16,6 +23,47 @@
   height: 100vh;
   overflow: hidden;
 
+  button.evo-button.is-fluid.sidebar__evo-button.theme-secondary.without-border {
+    justify-content: flex-start;
+    padding-left: 15px;
+    color: black;
+    border-radius: 0;
+    border: 0 !important;
+
+    &:hover {
+      background-color: var(--light-gray);
+    }
+    svg {
+      width: 20px;
+      height: 20px;
+      color: black;
+    }
+    a {
+      color: black;
+      gap: 0;
+      div {
+        padding-left: 1px;
+        justify-content: start;
+
+        div {
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+
+  button.evo-button.is-fluid.sidebar__evo-button.theme-secondary.without-border {
+    justify-content: flex-start;
+    padding-left: 15px;
+    color: black;
+    border-radius: 0;
+    border: 0 !important;
+
+    &:hover {
+      background-color: var(--light-gray);
+    }
+  }
+
   .content__header {
     background-color: var(--accent-500);
     position: fixed;
@@ -24,9 +72,9 @@
     left: 0;
     z-index: 20;
     display: flex;
-    justify-content: space-between; /* Asegura que los elementos se distribuyan correctamente */
+    justify-content: space-between;
 
-    align-items: center; /* Alinea los elementos verticalmente al centro */
+    align-items: center;
   }
 
   .content__header-left {
@@ -144,7 +192,7 @@
     .mobile-header {
       display: flex;
       align-items: center;
-      padding: 10px;
+      padding: 10px 5px;
       background-color: var(--accent-500);
       color: var(--white);
 
@@ -154,11 +202,15 @@
         border-radius: 50%;
         overflow: hidden;
         margin-right: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       .profile-info {
         display: flex;
         flex-direction: column;
+        justify-content: center; /* Centra verticalmente el contenido */
 
         .name {
           font-weight: bold;

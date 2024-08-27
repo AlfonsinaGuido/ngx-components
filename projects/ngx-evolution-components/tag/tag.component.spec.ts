@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TagComponent } from './tag.component';
-import { Prioridad } from '../public-api';
+import { prioridadHigh } from 'stories/data/kanban/prioridades.data';
 
 describe('TagComponent', () => {
   let component: TagComponent;
@@ -13,6 +13,7 @@ describe('TagComponent', () => {
 
     fixture = TestBed.createComponent(TagComponent);
     component = fixture.componentInstance;
+    component.prioridad = prioridadHigh;
     fixture.detectChanges();
   });
 
@@ -36,17 +37,9 @@ describe('TagComponent', () => {
     expect(tagClass).toContain('tag__size-md');
   });
 
-  it('should have "Alta" css class when priority set to high', () => {
-    component.prioridad = Prioridad.High;
-    fixture.detectChanges();
-    const tagEl: HTMLElement = fixture.nativeElement;
-    const tag = tagEl.querySelector('p');
-    const tagClass = tag?.className;
-    expect(tagClass).toContain('Alta');
-  });
-
   it('should render text label', () => {
-    component.label = 'TagTest';
+    const prioridadMock = { ...prioridadHigh, nombre: 'TagTest' };
+    component.prioridad = prioridadMock;
     fixture.detectChanges();
     const tagEl: HTMLElement = fixture.nativeElement;
     expect(tagEl.textContent).toContain('TagTest');

@@ -1,0 +1,28 @@
+<div class="flex flex-col p-5 gap-2">
+  <div class="flex justify-between items-center">
+    <p class="text-xl font-bold">
+      {{ data.actividad.nombre }}
+    </p>
+    <button
+      class="flex justify-center items-center cursor-pointer p-2 rounded-full bg-gray-10 hover:bg-gray-100 transition-colors"
+      mat-dialog-close
+    >
+      <mat-icon
+        class="cursor-pointer"
+        aria-hidden="false"
+        aria-label="close dialog icon"
+        fontIcon="close"
+      />
+    </button>
+  </div>
+  <evo-tag
+    [prioridad]="data.actividad.prioridad"
+    size="md"
+    [label]="data.actividad.prioridad!.nombre"
+    twClass="rounded-md px-6 font-bold"
+  >
+  </evo-tag>
+  <p class="text-base">
+    {{ data.actividad.descripcion }}
+  </p>
+</div>

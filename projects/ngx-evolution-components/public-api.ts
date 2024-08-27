@@ -20,6 +20,7 @@ export * from './columna-tablero/columna-tablero.component';
 export * from './tablero-kanban/tablero-kanban.component';
 export * from './tablero-skeleton/tablero-skeleton.component';
 export * from './sidebar/sidebar.component';
+export * from './dialogo-actividad/dialogo-actividad.component';
 
 // Interfaces
 export * from './shared/interfaces/button.interface';
@@ -27,14 +28,15 @@ export * from './shared/interfaces/icon.interface';
 export * from './shared/interfaces/input.interface';
 export * from './shared/interfaces/select.interface';
 export * from './shared/interfaces/dialog.interface';
-export * from './shared/interfaces/evaluacion.interface';
-export * from './shared/interfaces/actividad.interface';
-export * from './shared/interfaces/columna.interface';
+export * from './shared/interfaces/ievaluacion.interface';
+export * from './shared/interfaces/iactividad.interface';
+export * from './shared/interfaces/icolumna.interface';
 export * from './shared/interfaces/header.interface';
 export * from './shared/interfaces/user.interface';
-export * from './shared/interfaces/evaluacion.interface';
+export * from './shared/interfaces/ievaluacion.interface';
 export * from './shared/interfaces/menu.interface';
 export * from './shared/interfaces/sidebar.interface';
+export * from './shared/interfaces/iprioridad.interface';
 
 // Validators
 export * from './shared/validators/custom-error-state-matcher';
@@ -42,4 +44,5 @@ export * from './shared/validators/custom-error-state-matcher';
 // Enums
 export * from './shared/enums/duracion.enum';
 export * from './shared/enums/estado.enum';
-export * from './shared/enums/prioridad.enum';
+export * from './shared/enums/opcion-actividad.enum';
+export * from './shared/enums/etapas-programa.enum';

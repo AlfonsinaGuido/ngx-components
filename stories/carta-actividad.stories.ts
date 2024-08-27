@@ -14,6 +14,10 @@ export default {
   excludeStories: /.*Data$/,
 } as Meta<CartaActividadComponent>;
 
+const today = new Date();
+const yesterday = new Date(today.setDate(today.getDate() - 1));
+const pastToday = new Date(today.setDate(today.getDate() + 5));
+
 const actividad: IActividad = {
   id: 1,
   titulo: 'Inducción a la empresa',
@@ -29,7 +33,7 @@ const actividad: IActividad = {
   tipoDuracion: Duracion.Horas,
   realizaEvaluacion: false,
   status: EstadoActividad.Abierta,
-  fechaFin: '20/08/2024',
+  fechaFin: new Date('08/20/2024'),
 };
 
 export const Default = {
@@ -48,6 +52,26 @@ export const Default = {
     priority: actividad.prioridad,
     responsible: actividad.responsable,
     endDate: actividad.fechaFin,
+  },
+} as StoryObj<CartaActividadComponent>;
+
+export const porVencer = {
+  args: {
+    title: actividad.titulo,
+    description: actividad.descripcion,
+    priority: actividad.prioridad,
+    responsible: actividad.responsable,
+    endDate: yesterday,
+  },
+} as StoryObj<CartaActividadComponent>;
+
+export const vencida = {
+  args: {
+    title: actividad.titulo,
+    description: actividad.descripcion,
+    priority: actividad.prioridad,
+    responsible: actividad.responsable,
+    endDate: pastToday,
   },
 } as StoryObj<CartaActividadComponent>;
 

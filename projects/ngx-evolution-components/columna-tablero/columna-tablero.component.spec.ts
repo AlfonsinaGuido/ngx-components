@@ -9,7 +9,6 @@ import {
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
-const mockName: string = 'en progreso';
 const mockActividades: IActividad[] = [
   {
     id: 1,
@@ -73,16 +72,8 @@ describe('ColumnaTableroComponent', () => {
 
     fixture = TestBed.createComponent(ColumnaTableroComponent);
     component = fixture.componentInstance;
-    component.name = mockName;
     component.actividades = mockActividades;
     fixture.detectChanges();
-  });
-
-  it('name should display column name in uppercase', () => {
-    const colEl: HTMLElement = fixture.nativeElement;
-    const colName = colEl.querySelector('p');
-    expect(colName?.textContent).toContain(mockName);
-    expect(colName?.classList).toContain('uppercase');
   });
 
   it('should render all activity cards', () => {
@@ -101,7 +92,7 @@ describe('ColumnaTableroComponent', () => {
     ).nativeElement;
 
     // Get the column by id
-    const col = colDeb.query(By.css(`#column-${mockName.replace(' ', '')}`));
+    const col = colDeb.query(By.css('#board-activity-column'));
 
     // Mock the event cdkDropListDropped of the column
     const mockEvent = {

@@ -14,31 +14,59 @@
     </button>
   </div>
 }
-<h2 mat-dialog-title>{{ title }}</h2>
+
+@if (icon.icon === '') {
+  <span mat-dialog-title class="title-text font-extrabold">{{ title }}</span>
+}
+
 @if (scrollableContent !== "") {
   <mat-dialog-content class="mat-typography">
     <div [innerHTML]="scrollableContent"></div>
   </mat-dialog-content>
 }
+
+@if (icon.icon !== '') {
+  <mat-dialog-content align="center" class="dialog-icon-container">
+    @if (icon.type === "svg") {
+      <evo-svg class="svg-size" [svgPath]="icon.icon"></evo-svg>
+    }
+    @if (icon.type === "class") {
+      <mat-icon
+        aria-hidden="false"
+        aria-label="icon"
+        [ngStyle]="{'color': icon.color }"
+        [fontIcon]="icon.icon"
+        class="icon-size"
+      ></mat-icon>
+    }
+    <span mat-dialog-title class="title-text font-extrabold class icon-title">{{ title }}</span>
+  </mat-dialog-content>
+}
+
 @if (simpleContent !== "") {
-  <mat-dialog-content>
+  <mat-dialog-content
+    [ngClass]="icon.icon !== '' ? 'icon-content' : ''"
+  >
+  <div
+    [ngClass]="icon.icon !== '' ? 'text-center' : ''"
+  >
     {{ simpleContent }}
+  </div>
   </mat-dialog-content>
 }
 
 @if (buttonsItems.length! > 0) {
-  <mat-dialog-actions
-    align="end"
-    class="px-[24px] flex-col justify-end gap-x-2 sm:flex-row gap-y-2"
+  <mat-dialog-actions 
+    class="flex-col !justify-end !gap-x-2 sm:flex-row !gap-y-2 !mx-5 !my-5"
   >
-    @for (item of buttonsItems; track item) {
+    @for (item of buttonsItems; track item;) {
       <evo-button
-        class="function-button"
-        [label]="item.label"
-        [icon]="item.icon"
-        [theme]="item.theme!"
-        [onClick]="item.onClick"
-        matDialogClose
+      class="function-button"
+      [label]="item.label"
+      [icon]="item.icon"
+      [theme]="item.theme!"
+      [onClick]="item.onClick"
+      matDialogClose
       ></evo-button>
     }
   </mat-dialog-actions>

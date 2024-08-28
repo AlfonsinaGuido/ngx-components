@@ -1,0 +1,147 @@
+<div class="layout">
+  <header class="content__header">
+    <div class="content__header-left">
+      <evo-header
+        classes="w-full"
+        [icons]="commonProps.icons"
+        [titles]="commonProps.titles"
+        [buttonItems]="commonProps.buttonItems"
+        [companyData]="commonProps.companyData"
+        [box]="commonProps.box"
+        [userData]="commonProps.userData"
+      ></evo-header>
+    </div>
+
+    @if (isMobile) {
+      <div
+        class="content__header-right w-8 flex align-center justify-center items-center"
+      >
+        <evo-button
+          mat-button
+          [icon]="commonProps.icons.appIcon"
+          [withoutBorder]="true"
+          (click)="toggleSidebar()"
+        ></evo-button>
+      </div>
+    }
+  </header>
+
+  @if (isSidebarOpen) {
+    @if (isMobile) {
+      <div class="sidebar sidebar--mobile sidebar--open">
+        <div class="mobile-header">
+          <div class="profile-img">
+            <evo-avatar
+              size="sm"
+              [name]="avatarName"
+              [imgUrl]="avatarImgUrl"
+              [isPriority]="true"
+            ></evo-avatar>
+          </div>
+          <div class="profile-info">
+            <div class="name">Jonatan Elizalde Gómez</div>
+            <div>Desarrollador Web</div>
+          </div>
+        </div>
+        <nav class="sidebar__nav">
+          <ul>
+            @for (option of options; track option.title) {
+              <evo-button
+                [label]="option.title"
+                [icon]="getIconWithLeftPosition(option.icon)"
+                [withoutBorder]="true"
+                [theme]="'secondary'"
+                [isFluid]="true"
+                [classes]="'sidebar__evo-button btn-justify-start align-start'"
+                (click)="selectOption(option)"
+              ></evo-button>
+            }
+          </ul>
+        </nav>
+        <div class="additional-options">
+          <mat-divider></mat-divider>
+          <nav class="sidebar__nav">
+            <ul>
+              @if (commonProps.buttonItems.appItems) {
+                @for (
+                  option of commonProps.buttonItems.appItems;
+                  track option.label
+                ) {
+                  @if (option.icon) {
+                    <evo-button
+                      [label]="option.label"
+                      [icon]="getIconWithLeftPosition(option.icon)"
+                      [withoutBorder]="true"
+                      [theme]="'secondary'"
+                      [isFluid]="true"
+                      [classes]="'sidebar__evo-button'"
+                      [url]="option.url"
+                    ></evo-button>
+                  }
+                }
+              }
+            </ul>
+          </nav>
+          <mat-divider></mat-divider>
+          @if (additionalOptions) {
+            @for (option of additionalOptions; track option.title) {
+              <evo-button
+                [label]="option.title"
+                [icon]="getIconWithLeftPosition(option.icon)"
+                [withoutBorder]="true"
+                [theme]="'secondary'"
+                [isFluid]="true"
+                classes="sidebar__evo-button"
+                (click)="option.action()"
+              ></evo-button>
+            }
+            <mat-divider></mat-divider>
+          }
+          @for (
+            option of commonProps.buttonItems.userDataItems;
+            track option.label
+          ) {
+            @if (option.icon) {
+              <evo-button
+                [label]="option.label"
+                [icon]="getIconWithLeftPosition(option.icon)"
+                [withoutBorder]="true"
+                [theme]="'secondary'"
+                [isFluid]="true"
+                classes="sidebar__evo-button"
+                (click)="option.onClick?.action()"
+              ></evo-button>
+            }
+          }
+        </div>
+      </div>
+      <div class="sidebar__overlay" (click)="closeSidebar()"></div>
+    }
+  }
+
+  @if (!isMobile) {
+    <div class="sidebar sidebar--open items-center">
+      <nav class="sidebar__nav">
+        <header>
+          @for (option of options; track option.title) {
+            <div class="sidebar__options">
+              <evo-button
+                mat-button
+                [icon]="option.icon"
+                [withoutBorder]="true"
+                (click)="option.action!()"
+                [classes]="isActive(option.route) ? 'active' : ''"
+              ></evo-button>
+            </div>
+          }
+        </header>
+      </nav>
+    </div>
+  }
+
+  <div class="content">
+    <main class="content__main">
+      <ng-content></ng-content>
+    </main>
+  </div>
+</div>

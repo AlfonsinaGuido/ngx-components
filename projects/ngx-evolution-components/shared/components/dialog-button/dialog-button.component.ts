@@ -4,8 +4,7 @@ import {
   ButtonInterface,
   DialogComponent,
   IconInterface,
-} from '@aseinfo/ngx-evolution-components/public-api';
-import { closeButton } from 'stories/dialog.stories';
+} from '../../../public-api';
 
 @Component({
   selector: 'evo-dialog-button',
@@ -22,6 +21,7 @@ export class DialogButtonComponent {
   @Input() buttonsFunctions?: any[] = [];
   @Input() closeButton?: boolean;
   @Input() disableClosing?: boolean;
+  @Input() icon?: IconInterface;
 
   constructor(public dialog: MatDialog) {}
 
@@ -35,7 +35,9 @@ export class DialogButtonComponent {
         buttonsFunctions: this.buttonsFunctions,
         closeButton: this.closeButton,
         disableClosing: this.disableClosing,
+        icon: this.icon,
       },
+      panelClass: 'custom-dialog-container',
     });
   }
 }

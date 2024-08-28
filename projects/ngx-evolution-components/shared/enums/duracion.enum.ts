@@ -1,6 +1,8 @@
 export enum Duracion {
-  Horas = 'Horas',
-  Dias = 'Días',
-  Semanas = 'Semanas',
-  Meses = 'Meses',
+  minutos = 'Minutos',
+  horas = 'Horas',
+  dias = 'Días',
+  semanas = 'Semanas',
+  meses = 'Meses',
+  anios = 'Años',
 }

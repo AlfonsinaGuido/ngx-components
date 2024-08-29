@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { DialogoActividadComponent } from './dialogo-actividad.component';
-import { actividad1 as actividad } from 'stories/data/kanban/actividades.data';
+import { actividad1 as actividad } from '../data/kanban/actividades.data';
 
 describe('DialogoActividadComponent', () => {
   let component: DialogoActividadComponent;

@@ -3,8 +3,8 @@ import {
   TableroKanbanComponent,
   IColumna,
   EstadoActividad,
+  actividades,
 } from '@aseinfo/ngx-evolution-components/public-api';
-import { actividades } from './data/kanban/actividades.data';
 
 type Story = StoryObj<TableroKanbanComponent>;
 export default {

@@ -1,4 +1,4 @@
-import { IPrioridad } from '@aseinfo/ngx-evolution-components/public-api';
+import { IPrioridad } from '../../public-api';
 
 export const prioridadHighest: IPrioridad = {
   codigo: 10,

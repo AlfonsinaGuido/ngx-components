@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ColumnaTableroComponent } from './columna-tablero.component';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { actividades as mockActividades } from 'stories/data/kanban/actividades.data';
+import { actividades as mockActividades } from '../data/kanban/actividades.data';
 
 describe('ColumnaTableroComponent', () => {
   let component: ColumnaTableroComponent;

@@ -44,3 +44,7 @@ export * from './shared/enums/duracion.enum';
 export * from './shared/enums/estado.enum';
 export * from './shared/enums/opcion-actividad.enum';
 export * from './shared/enums/etapas-programa.enum';
+
+// Data
+export * from './data/kanban/actividades.data';
+export * from './data/kanban/prioridades.data';

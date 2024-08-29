@@ -19,6 +19,7 @@ export * from './header-columna/header-columna.component';
 export * from './columna-tablero/columna-tablero.component';
 export * from './tablero-kanban/tablero-kanban.component';
 export * from './tablero-skeleton/tablero-skeleton.component';
+export * from './sidebar/sidebar.component';
 export * from './dialogo-actividad/dialogo-actividad.component';
 
 // Interfaces
@@ -34,6 +35,7 @@ export * from './shared/interfaces/header.interface';
 export * from './shared/interfaces/user.interface';
 export * from './shared/interfaces/ievaluacion.interface';
 export * from './shared/interfaces/menu.interface';
+export * from './shared/interfaces/sidebar.interface';
 export * from './shared/interfaces/iprioridad.interface';
 
 // Validators
@@ -45,6 +47,6 @@ export * from './shared/enums/estado.enum';
 export * from './shared/enums/opcion-actividad.enum';
 export * from './shared/enums/etapas-programa.enum';
 
-// Data
+// Data & Mock Data
 export * from './data/kanban/actividades.data';
 export * from './data/kanban/prioridades.data';

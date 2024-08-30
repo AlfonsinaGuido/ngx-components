@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CartaActividadComponent } from './carta-actividad.component';
-import { actividad1 as actividadMockData } from 'stories/data/kanban/actividades.data';
+import { actividad1 as actividadMockData } from '../data/kanban/actividades.data';
 
 describe('CartaComponent', () => {
   let component: CartaActividadComponent;

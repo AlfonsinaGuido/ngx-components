@@ -1,8 +1,6 @@
 import { Meta, StoryObj } from '@storybook/angular';
-import {
-  TagComponent,
-  prioridadLowest,
-} from '@aseinfo/ngx-evolution-components/public-api';
+import { TagComponent } from '@aseinfo/ngx-evolution-components/public-api';
+import { prioridadLowest } from './data/kanban/prioridades.data';
 
 type Story = StoryObj<TagComponent>;
 export default {

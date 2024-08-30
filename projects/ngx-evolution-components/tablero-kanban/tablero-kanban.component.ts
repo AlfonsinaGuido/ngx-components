@@ -5,12 +5,13 @@ import {
   HeaderColumnaComponent,
   IActividad,
   IColumna,
-  actividades,
 } from '../public-api';
 import { CdkDropListGroup } from '@angular/cdk/drag-drop';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { CommonModule } from '@angular/common';
 import { MatIcon } from '@angular/material/icon';
+import { actividades } from '../data/kanban/actividades.data';
+
 @Component({
   selector: 'evo-tablero-kanban',
   standalone: true,

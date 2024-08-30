@@ -1,5 +1,5 @@
 import { CartaActividadComponent } from '@aseinfo/ngx-evolution-components/public-api';
-import { actividad1 as actividad } from './data/kanban/actividades.data';
+import { actividad1 as actividad } from '@aseinfo/ngx-evolution-components/shared/data/kanban/actividades.data';
 import { Meta, StoryObj } from '@storybook/angular';
 
 export default {

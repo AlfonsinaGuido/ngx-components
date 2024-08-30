@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { TagComponent, prioridadHigh } from '../public-api';
+import { TagComponent } from '../public-api';
+import { prioridadHigh } from '../shared/data/kanban/prioridades.data';
 
 describe('TagComponent', () => {
   let component: TagComponent;

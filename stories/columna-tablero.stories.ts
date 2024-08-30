@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/angular';
 import { ColumnaTableroComponent } from '@aseinfo/ngx-evolution-components/public-api';
-import { actividades } from './data/kanban/actividades.data';
+import { actividades } from '@aseinfo/ngx-evolution-components/shared/data/kanban/actividades.data';
 
 type Story = StoryObj<ColumnaTableroComponent>;
 export default {

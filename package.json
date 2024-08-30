@@ -10,7 +10,7 @@
     "storybook": "ng run ngx-evolution-components:storybook",
     "tailwind": "npx tailwindcss -i ./projects/ngx-evolution-components/styles/styles.scss -o ./projects/ngx-evolution-components/styles/output.scss --watch",
     "build-storybook": "ng run ngx-evolution-components:build-storybook",
-    "publish-storybook": "ng build && cd ./dist/@aseinfo/ngx-evolution-components && npm pack && npm publish --registry https://npm.aseinfo.net/",
+    "publish-storybook": "ng build && cd ./dist/@aseinfo/ngx-evolution-components && npm pack && npm publish --registry http://localhost:4873",
     "prettier-check": "npx prettier --check .",
     "prettier-write": "npx prettier --write .",
     "prepare": "husky"

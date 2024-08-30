@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/angular';
 import { ColumnaTableroComponent } from '@aseinfo/ngx-evolution-components/public-api';
+import { actividades } from './data/kanban/actividades.data';
 
 type Story = StoryObj<ColumnaTableroComponent>;
 export default {
@@ -7,7 +8,6 @@ export default {
   title: 'Evolution Components/Kanban/Columna Tablero',
   tags: ['autodocs'],
 } as Meta<ColumnaTableroComponent>;
-import { actividades } from './data/kanban/actividades.data';
 
 export const Default: Story = {
   args: {

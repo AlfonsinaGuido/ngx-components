@@ -2,21 +2,21 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeaderComponent } from './header.component';
 import {
-  ButtonInterface,
-  HeaderBoxButtonInterface,
-  HeaderButtonItemsInterface,
-  HeaderCompanyDataInterface,
-  HeaderIconsInterface,
-  HeaderTitlesInterface,
-  UserDataInterface,
+  IButton,
+  IHeaderBoxButton,
+  IHeaderButtonItems,
+  IHeaderCompanyData,
+  IHeaderIcons,
+  IHeaderTitles,
+  IUserData,
 } from '../public-api';
 import { By } from '@angular/platform-browser';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
-  let icons: HeaderIconsInterface;
-  let userData: UserDataInterface;
+  let icons: IHeaderIcons;
+  let userData: IUserData;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -26,7 +26,7 @@ describe('HeaderComponent', () => {
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
 
-    const companyData: HeaderCompanyDataInterface = {};
+    const companyData: IHeaderCompanyData = {};
     component.companyData = companyData;
 
     icons = {
@@ -35,13 +35,13 @@ describe('HeaderComponent', () => {
     };
     component.icons = icons;
 
-    const titles: HeaderTitlesInterface = {
+    const titles: IHeaderTitles = {
       appTitle: 'title 1',
       notificationTitle: 'title 2',
     };
     component.titles = titles;
 
-    const buttonItems: HeaderButtonItemsInterface = {
+    const buttonItems: IHeaderButtonItems = {
       appItems: [{ label: 'App 1' }, { label: 'App 2' }],
       notificationItems: [
         { label: 'Notification 1' },
@@ -67,7 +67,7 @@ describe('HeaderComponent', () => {
 
   it('should pass the correct inputs to the first evo-menu component', () => {
     const appTitle = 'App Menu';
-    const appItems: ButtonInterface[] = [{ label: 'Item 1' }];
+    const appItems: IButton[] = [{ label: 'Item 1' }];
 
     component.titles.appTitle = appTitle;
     component.buttonItems.appItems = appItems;
@@ -128,7 +128,7 @@ describe('HeaderComponent', () => {
   });
 
   it('should handle box buttons correctly', () => {
-    const boxButtons: HeaderBoxButtonInterface[] = [
+    const boxButtons: IHeaderBoxButton[] = [
       { label: 'Button 1', action: jasmine.createSpy('button1') },
       { label: 'Button 2', action: jasmine.createSpy('button2') },
     ];

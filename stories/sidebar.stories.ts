@@ -1,12 +1,12 @@
 import { Meta, StoryObj, applicationConfig } from '@storybook/angular';
 import {
   SidebarComponent,
-  HeaderIconsInterface,
-  HeaderTitlesInterface,
-  HeaderButtonItemsInterface,
-  HeaderCompanyDataInterface,
-  HeaderInterface,
-  SidebarOptionInterface,
+  IHeaderIcons,
+  IHeaderTitles,
+  IHeaderButtonItems,
+  IHeaderCompanyData,
+  IHeader,
+  ISidebarOption,
 } from '@aseinfo/ngx-evolution-components/public-api';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideHttpClient } from '@angular/common/http';
@@ -58,11 +58,11 @@ const meta: Meta<SidebarComponent> = {
         appIcon: { icon: 'app-menu.svg', type: 'svg' },
         notificationIcon: { icon: 'bell.svg', type: 'svg' },
         closeMenuIcon: { icon: 'close.svg', type: 'svg' },
-      } as HeaderIconsInterface,
+      } as IHeaderIcons,
       titles: {
         appTitle: 'Tus aplicaciones',
         notificationTitle: 'Notificaciones',
-      } as HeaderTitlesInterface,
+      } as IHeaderTitles,
       buttonItems: {
         appItems: [
           {
@@ -108,17 +108,17 @@ const meta: Meta<SidebarComponent> = {
             },
           },
         ],
-      } as HeaderButtonItemsInterface,
+      } as IHeaderButtonItems,
       companyData: {
         companyImage: 'company-logo.svg',
         companyName: 'ASEINFO',
-      } as HeaderCompanyDataInterface,
+      } as IHeaderCompanyData,
       userData: {
         fullName: 'Stela Lopez',
         email: 'slopez@empresa.com',
         position: 'Gerente Desarrollo',
       },
-    } as HeaderInterface,
+    } as IHeader,
     avatarName: 'Jonatan Elizalde Gómez',
     avatarImgUrl: 'https://material.angular.io/assets/img/examples/shiba1.jpg',
     options: [
@@ -140,7 +140,7 @@ const meta: Meta<SidebarComponent> = {
         route: '/settings',
         title: 'Settings',
       },
-    ] as SidebarOptionInterface[],
+    ] as ISidebarOption[],
     additionalOptions: [
       {
         icon: { icon: 'company-logo.svg', type: 'svg' },
@@ -148,7 +148,7 @@ const meta: Meta<SidebarComponent> = {
         route: '/dashboard',
         title: 'Dashboard',
       },
-    ] as SidebarOptionInterface[],
+    ] as ISidebarOption[],
   },
 };
 

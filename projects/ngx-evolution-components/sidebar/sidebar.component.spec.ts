@@ -1,12 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SidebarComponent } from './sidebar.component';
 import { Router, NavigationEnd } from '@angular/router';
-import { of, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { PLATFORM_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
-import { IconInterface, IconPosition } from '../public-api';
+import { IIcon, IconPosition } from '../public-api';
 
 describe('SidebarComponent', () => {
   let component: SidebarComponent;
@@ -139,8 +139,8 @@ describe('SidebarComponent', () => {
   });
 
   it('should return an icon object with position set to left', () => {
-    const inputIcon: IconInterface = { icon: 'dashboard.svg', type: 'svg' };
-    const expectedIcon: IconInterface = {
+    const inputIcon: IIcon = { icon: 'dashboard.svg', type: 'svg' };
+    const expectedIcon: IIcon = {
       ...inputIcon,
       position: 'left' as IconPosition,
     };

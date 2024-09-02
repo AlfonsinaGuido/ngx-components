@@ -12,10 +12,10 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import {
   AvatarComponent,
   ButtonComponent,
-  HeaderInterface,
+  IHeader,
   HeaderComponent,
-  IconInterface,
-  SidebarOptionInterface,
+  IIcon,
+  ISidebarOption,
   SvgComponent,
 } from '../public-api';
 import { Router, NavigationEnd } from '@angular/router';
@@ -39,10 +39,10 @@ import { MatDivider } from '@angular/material/divider';
   encapsulation: ViewEncapsulation.None,
 })
 export class SidebarComponent implements OnInit, AfterViewInit {
-  @Input() commonProps!: HeaderInterface;
-  @Input() options!: SidebarOptionInterface[];
+  @Input() commonProps!: IHeader;
+  @Input() options!: ISidebarOption[];
   @Input() avatarName!: string;
-  @Input() additionalOptions?: SidebarOptionInterface[];
+  @Input() additionalOptions?: ISidebarOption[];
   @Input() avatarImgUrl?: string;
   @Input() avatarIsPriority?: boolean = false;
 
@@ -78,10 +78,10 @@ export class SidebarComponent implements OnInit, AfterViewInit {
   /**
    * Retorna un nuevo objeto `IconInterface` con la posición del ícono ajustada a 'left'.
    *
-   * @param {IconInterface} icon - El objeto `IconInterface` original.
-   * @returns {IconInterface} - Un nuevo objeto `IconInterface` con la propiedad `position` establecida en 'left'.
+   * @param {IIcon} icon - El objeto `IconInterface` original.
+   * @returns {IIcon} - Un nuevo objeto `IconInterface` con la propiedad `position` establecida en 'left'.
    */
-  getIconWithLeftPosition(icon: IconInterface): IconInterface {
+  getIconWithLeftPosition(icon: IIcon): IIcon {
     return { ...icon, position: 'left' };
   }
 
@@ -110,11 +110,7 @@ export class SidebarComponent implements OnInit, AfterViewInit {
    * si estamos del lado del cliente.
    * @param option Opción seleccionada
    */
-  selectOption(option: {
-    icon: IconInterface;
-    action: () => void;
-    route: string;
-  }) {
+  selectOption(option: { icon: IIcon; action: () => void; route: string }) {
     if (isPlatformBrowser(this.platformId)) {
       this.router.navigate([option.route]);
       option.action();

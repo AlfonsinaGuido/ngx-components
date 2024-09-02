@@ -1,11 +1,11 @@
-import { IconInterface } from '../../public-api';
+import { IIcon } from '../../public-api';
 
 export type ButtonTheme = 'default' | 'primary' | 'secondary' | 'warning';
 
-export interface ButtonInterface {
+export interface IButton {
   theme?: ButtonTheme;
   label: string;
-  icon?: IconInterface;
+  icon?: IIcon;
   disabled?: boolean;
   isFlat?: boolean;
   isFluid?: boolean;
@@ -14,9 +14,9 @@ export interface ButtonInterface {
   url?: string;
   avatarName?: string;
   avatarImgUrl?: string;
-  onClick?: ButtonActionInterface;
+  onClick?: IButtonAction;
 }
 
-export interface ButtonActionInterface {
+export interface IButtonAction {
   action: (param?: any) => any | void | {};
 }

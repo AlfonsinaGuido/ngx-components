@@ -32,7 +32,7 @@ export class MenuComponent implements OnInit {
   @Input() icons!: IMenuIcons;
   @Input() notificationsNumber?: number;
   @Input() userData?: IUserData;
-  @Input() classes?: string;
+  @Input() twClass?: string;
 
   ngOnInit(): void {
     if (!this.icons.buttonIcon) {

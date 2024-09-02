@@ -54,7 +54,7 @@ export const Default: Story = {
         url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoChart',
       },
     ],
-    classes: '',
+    twClass: '',
   },
 };
 
@@ -107,7 +107,7 @@ export const NotificationsMenu: Story = {
         },
       },
     ],
-    classes: '',
+    twClass: '',
   },
 };
 
@@ -313,6 +313,6 @@ export const UserMenu: Story = {
         },
       },
     ],
-    classes: '',
+    twClass: '',
   },
 };

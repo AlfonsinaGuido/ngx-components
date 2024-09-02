@@ -10,7 +10,7 @@ export interface IButton {
   isFlat?: boolean;
   isFluid?: boolean;
   withoutBorder?: boolean;
-  classes?: string;
+  twClass?: string;
   url?: string;
   avatarName?: string;
   avatarImgUrl?: string;

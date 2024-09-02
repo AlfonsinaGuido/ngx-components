@@ -2,7 +2,7 @@
   <header class="content__header">
     <div class="content__header-left">
       <evo-header
-        classes="w-full"
+        twClass="w-full"
         [icons]="commonProps.icons"
         [titles]="commonProps.titles"
         [buttonItems]="commonProps.buttonItems"
@@ -52,7 +52,7 @@
                 [withoutBorder]="true"
                 [theme]="'secondary'"
                 [isFluid]="true"
-                [classes]="'sidebar__evo-button btn-justify-start align-start'"
+                [twClass]="'sidebar__evo-button btn-justify-start align-start'"
                 (click)="selectOption(option)"
               ></evo-button>
             }
@@ -74,7 +74,7 @@
                       [withoutBorder]="true"
                       [theme]="'secondary'"
                       [isFluid]="true"
-                      [classes]="'sidebar__evo-button'"
+                      [twClass]="'sidebar__evo-button'"
                       [url]="option.url"
                     ></evo-button>
                   }
@@ -91,7 +91,7 @@
                 [withoutBorder]="true"
                 [theme]="'secondary'"
                 [isFluid]="true"
-                classes="sidebar__evo-button"
+                twClass="sidebar__evo-button"
                 (click)="option.action()"
               ></evo-button>
             }
@@ -108,7 +108,7 @@
                 [withoutBorder]="true"
                 [theme]="'secondary'"
                 [isFluid]="true"
-                classes="sidebar__evo-button"
+                twClass="sidebar__evo-button"
                 (click)="option.onClick?.action()"
               ></evo-button>
             }
@@ -130,7 +130,7 @@
                 [icon]="option.icon"
                 [withoutBorder]="true"
                 (click)="option.action!()"
-                [classes]="isActive(option.route) ? 'active' : ''"
+                [twClass]="isActive(option.route) ? 'active' : ''"
               ></evo-button>
             </div>
           }

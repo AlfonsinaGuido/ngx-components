@@ -98,7 +98,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    label: 'Button',\n    classes: '',\n  },\n}"
+        "defaultValue": "{\n  args: {\n    label: 'Button',\n    twClass: '',\n  },\n}"
       },
       {
         "name": "Default",
@@ -148,7 +148,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    icons: {\n      appIcon: {\n        icon: 'app-menu.svg',\n        type: 'svg',\n      },\n      notificationIcon: {\n        icon: 'bell.svg',\n        type: 'svg',\n      },\n    },\n    titles: {\n      appTitle: 'Tus aplicaciones',\n      notificationTitle: 'Notificaciones',\n    },\n    buttonItems: {\n      appItems: [\n        {\n          label: 'Evo Wave',\n          icon: {\n            icon: 'company-logo.svg',\n            type: 'svg',\n            position: 'left',\n          },\n          url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoWave',\n        },\n        {\n          label: 'Evo Chart',\n          icon: {\n            icon: 'company-logo.svg',\n            type: 'svg',\n            position: 'left',\n          },\n          url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoChart',\n        },\n      ],\n      notificationItems: [\n        {\n          label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\n          avatarName: 'Carlos Sanchez',\n          avatarImgUrl:\n            'https://material.angular.io/assets/img/examples/shiba1.jpg',\n          onClick: {\n            action: (param = ' con param') => {\n              console.log('funciona' + param);\n            },\n          },\n        },\n        {\n          label: 'Samuel Lopez finalizo Programa Desarrollo',\n          avatarName: 'Samuel Lopez',\n          avatarImgUrl:\n            'https://material.angular.io/assets/img/examples/shiba1.jpg',\n          onClick: {\n            action: () => {\n              console.log('funciona sin param');\n            },\n          },\n        },\n        {\n          label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',\n          avatarName: 'Ignacio Fernandez',\n          avatarImgUrl:\n            'https://material.angular.io/assets/img/examples/shiba1.jpg',\n          onClick: {\n            action: (name = 'Ignacio Fernandez') => {\n              console.log('Felicidades ' + name);\n            },\n          },\n        },\n      ],\n      userDataItems: [\n        {\n          label: 'Cerrar Sesión',\n          icon: {\n            icon: 'logout.svg',\n            type: 'svg',\n            position: 'left',\n          },\n          onClick: {\n            action: (param = ' con param') => {\n              console.log('funciona' + param);\n            },\n          },\n        },\n      ],\n    },\n    companyData: {\n      companyImage: 'company-logo.svg',\n    },\n    box: [\n      {\n        label: 'Cambiar Perfil',\n        action: (param = ' con param') => {\n          console.log('funciona' + param);\n        },\n      },\n    ],\n    userData: {\n      fullName: 'Stela Lopez',\n      email: 'slopez@empresa.com',\n      position: 'Gerente Desarrollo',\n    },\n    classes: '',\n  },\n}"
+        "defaultValue": "{\n  args: {\n    icons: {\n      appIcon: {\n        icon: 'app-menu.svg',\n        type: 'svg',\n      },\n      notificationIcon: {\n        icon: 'bell.svg',\n        type: 'svg',\n      },\n    },\n    titles: {\n      appTitle: 'Tus aplicaciones',\n      notificationTitle: 'Notificaciones',\n    },\n    buttonItems: {\n      appItems: [\n        {\n          label: 'Evo Wave',\n          icon: {\n            icon: 'company-logo.svg',\n            type: 'svg',\n            position: 'left',\n          },\n          url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoWave',\n        },\n        {\n          label: 'Evo Chart',\n          icon: {\n            icon: 'company-logo.svg',\n            type: 'svg',\n            position: 'left',\n          },\n          url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoChart',\n        },\n      ],\n      notificationItems: [\n        {\n          label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\n          avatarName: 'Carlos Sanchez',\n          avatarImgUrl:\n            'https://material.angular.io/assets/img/examples/shiba1.jpg',\n          onClick: {\n            action: (param = ' con param') => {\n              console.log('funciona' + param);\n            },\n          },\n        },\n        {\n          label: 'Samuel Lopez finalizo Programa Desarrollo',\n          avatarName: 'Samuel Lopez',\n          avatarImgUrl:\n            'https://material.angular.io/assets/img/examples/shiba1.jpg',\n          onClick: {\n            action: () => {\n              console.log('funciona sin param');\n            },\n          },\n        },\n        {\n          label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',\n          avatarName: 'Ignacio Fernandez',\n          avatarImgUrl:\n            'https://material.angular.io/assets/img/examples/shiba1.jpg',\n          onClick: {\n            action: (name = 'Ignacio Fernandez') => {\n              console.log('Felicidades ' + name);\n            },\n          },\n        },\n      ],\n      userDataItems: [\n        {\n          label: 'Cerrar Sesión',\n          icon: {\n            icon: 'logout.svg',\n            type: 'svg',\n            position: 'left',\n          },\n          onClick: {\n            action: (param = ' con param') => {\n              console.log('funciona' + param);\n            },\n          },\n        },\n      ],\n    },\n    companyData: {\n      companyImage: 'company-logo.svg',\n    },\n    box: [\n      {\n        label: 'Cambiar Perfil',\n        action: (param = ' con param') => {\n          console.log('funciona' + param);\n        },\n      },\n    ],\n    userData: {\n      fullName: 'Stela Lopez',\n      email: 'slopez@empresa.com',\n      position: 'Gerente Desarrollo',\n    },\n    twClass: '',\n  },\n}"
       },
       {
         "name": "Default",
@@ -168,7 +168,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    control: formControlDefaultInput,\n    label: 'Input',\n    inputType: 'text',\n    detail: '',\n    classes: '',\n  },\n}"
+        "defaultValue": "{\n  args: {\n    control: formControlDefaultInput,\n    label: 'Input',\n    inputType: 'text',\n    detail: '',\n    twClass: '',\n  },\n}"
       },
       {
         "name": "Default",
@@ -178,7 +178,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    icons: {\n      buttonIcon: {\n        icon: 'app-menu.svg',\n        type: 'svg',\n      },\n      closeIcon: {\n        icon: 'close.svg',\n        type: 'svg',\n      },\n    },\n    title: 'Tus aplicaciones',\n    items: [\n      {\n        label: 'Evo Wave',\n        icon: {\n          icon: 'company-logo.svg',\n          type: 'svg',\n          position: 'left',\n        },\n        url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoWave',\n      },\n      {\n        label: 'Evo Chart',\n        icon: {\n          icon: 'company-logo.svg',\n          type: 'svg',\n          position: 'left',\n        },\n        url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoChart',\n      },\n    ],\n    classes: '',\n  },\n}"
+        "defaultValue": "{\n  args: {\n    icons: {\n      buttonIcon: {\n        icon: 'app-menu.svg',\n        type: 'svg',\n      },\n      closeIcon: {\n        icon: 'close.svg',\n        type: 'svg',\n      },\n    },\n    title: 'Tus aplicaciones',\n    items: [\n      {\n        label: 'Evo Wave',\n        icon: {\n          icon: 'company-logo.svg',\n          type: 'svg',\n          position: 'left',\n        },\n        url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoWave',\n      },\n      {\n        label: 'Evo Chart',\n        icon: {\n          icon: 'company-logo.svg',\n          type: 'svg',\n          position: 'left',\n        },\n        url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoChart',\n      },\n    ],\n    twClass: '',\n  },\n}"
       },
       {
         "name": "Default",
@@ -188,7 +188,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    label: 'Select',\n    items: [\n      {\n        key: 1,\n        value: 'Option 1',\n      },\n      {\n        key: 2,\n        value: 'Option 2',\n      },\n      {\n        key: 3,\n        value: 'Option 3',\n      },\n    ],\n    control: formControlDefaultSelect,\n    buttonIcon: {\n      icon: 'clean.svg',\n      type: 'svg',\n    },\n    detail: '',\n    classes: '',\n  },\n}"
+        "defaultValue": "{\n  args: {\n    label: 'Select',\n    items: [\n      {\n        key: 1,\n        value: 'Option 1',\n      },\n      {\n        key: 2,\n        value: 'Option 2',\n      },\n      {\n        key: 3,\n        value: 'Option 3',\n      },\n    ],\n    control: formControlDefaultSelect,\n    buttonIcon: {\n      icon: 'clean.svg',\n      type: 'svg',\n    },\n    detail: '',\n    twClass: '',\n  },\n}"
       },
       {
         "name": "Default",
@@ -208,7 +208,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    svgPath: 'bell.svg',\n    classes: '',\n  },\n}"
+        "defaultValue": "{\n  args: {\n    svgPath: 'bell.svg',\n    twClass: '',\n  },\n}"
       },
       {
         "name": "Default",
@@ -558,7 +558,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    icons: {\n      buttonIcon: {\n        icon: 'bell.svg',\n        type: 'svg',\n      },\n      closeIcon: {\n        icon: 'close.svg',\n        type: 'svg',\n      },\n    },\n    title: 'Notificaciones',\n    notificationsNumber: 3,\n    items: [\n      {\n        label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\n        avatarName: 'Carlos Sanchez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (param = ' con param') => {\n            console.log('funciona' + param);\n          },\n        },\n      },\n      {\n        label: 'Samuel Lopez finalizo Programa Desarrollo',\n        avatarName: 'Samuel Lopez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: () => {\n            console.log('funciona sin param');\n          },\n        },\n      },\n      {\n        label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',\n        avatarName: 'Ignacio Fernandez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Ignacio Fernandez') => {\n            console.log('Felicidades ' + name);\n          },\n        },\n      },\n    ],\n    classes: '',\n  },\n}"
+        "defaultValue": "{\n  args: {\n    icons: {\n      buttonIcon: {\n        icon: 'bell.svg',\n        type: 'svg',\n      },\n      closeIcon: {\n        icon: 'close.svg',\n        type: 'svg',\n      },\n    },\n    title: 'Notificaciones',\n    notificationsNumber: 3,\n    items: [\n      {\n        label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\n        avatarName: 'Carlos Sanchez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (param = ' con param') => {\n            console.log('funciona' + param);\n          },\n        },\n      },\n      {\n        label: 'Samuel Lopez finalizo Programa Desarrollo',\n        avatarName: 'Samuel Lopez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: () => {\n            console.log('funciona sin param');\n          },\n        },\n      },\n      {\n        label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',\n        avatarName: 'Ignacio Fernandez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Ignacio Fernandez') => {\n            console.log('Felicidades ' + name);\n          },\n        },\n      },\n    ],\n    twClass: '',\n  },\n}"
       },
       {
         "name": "onClick",
@@ -858,7 +858,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    icons: {\n      closeIcon: {\n        icon: 'close.svg',\n        type: 'svg',\n      },\n    },\n    userData: {\n      fullName: 'Stela Lopez',\n      email: 'slopez@empresa.com',\n      position: 'Gerente Desarrollo',\n    },\n    items: [\n      {\n        label: 'Cerrar Sesión',\n        icon: {\n          icon: 'logout.svg',\n          type: 'svg',\n          position: 'left',\n        },\n        onClick: {\n          action: (param = ' con param') => {\n            console.log('funciona' + param);\n          },\n        },\n      },\n    ],\n    classes: '',\n  },\n}"
+        "defaultValue": "{\n  args: {\n    icons: {\n      closeIcon: {\n        icon: 'close.svg',\n        type: 'svg',\n      },\n    },\n    userData: {\n      fullName: 'Stela Lopez',\n      email: 'slopez@empresa.com',\n      position: 'Gerente Desarrollo',\n    },\n    items: [\n      {\n        label: 'Cerrar Sesión',\n        icon: {\n          icon: 'logout.svg',\n          type: 'svg',\n          position: 'left',\n        },\n        onClick: {\n          action: (param = ' con param') => {\n            console.log('funciona' + param);\n          },\n        },\n      },\n    ],\n    twClass: '',\n  },\n}"
       },
       {
         "name": "vencida",
@@ -1527,7 +1527,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    label: 'Button',\n    classes: '',\n  },\n}"
+          "defaultValue": "{\n  args: {\n    label: 'Button',\n    twClass: '',\n  },\n}"
         },
         {
           "name": "Disabled",
@@ -1853,7 +1853,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    icons: {\n      appIcon: {\n        icon: 'app-menu.svg',\n        type: 'svg',\n      },\n      notificationIcon: {\n        icon: 'bell.svg',\n        type: 'svg',\n      },\n    },\n    titles: {\n      appTitle: 'Tus aplicaciones',\n      notificationTitle: 'Notificaciones',\n    },\n    buttonItems: {\n      appItems: [\n        {\n          label: 'Evo Wave',\n          icon: {\n            icon: 'company-logo.svg',\n            type: 'svg',\n            position: 'left',\n          },\n          url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoWave',\n        },\n        {\n          label: 'Evo Chart',\n          icon: {\n            icon: 'company-logo.svg',\n            type: 'svg',\n            position: 'left',\n          },\n          url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoChart',\n        },\n      ],\n      notificationItems: [\n        {\n          label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\n          avatarName: 'Carlos Sanchez',\n          avatarImgUrl:\n            'https://material.angular.io/assets/img/examples/shiba1.jpg',\n          onClick: {\n            action: (param = ' con param') => {\n              console.log('funciona' + param);\n            },\n          },\n        },\n        {\n          label: 'Samuel Lopez finalizo Programa Desarrollo',\n          avatarName: 'Samuel Lopez',\n          avatarImgUrl:\n            'https://material.angular.io/assets/img/examples/shiba1.jpg',\n          onClick: {\n            action: () => {\n              console.log('funciona sin param');\n            },\n          },\n        },\n        {\n          label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',\n          avatarName: 'Ignacio Fernandez',\n          avatarImgUrl:\n            'https://material.angular.io/assets/img/examples/shiba1.jpg',\n          onClick: {\n            action: (name = 'Ignacio Fernandez') => {\n              console.log('Felicidades ' + name);\n            },\n          },\n        },\n      ],\n      userDataItems: [\n        {\n          label: 'Cerrar Sesión',\n          icon: {\n            icon: 'logout.svg',\n            type: 'svg',\n            position: 'left',\n          },\n          onClick: {\n            action: (param = ' con param') => {\n              console.log('funciona' + param);\n            },\n          },\n        },\n      ],\n    },\n    companyData: {\n      companyImage: 'company-logo.svg',\n    },\n    box: [\n      {\n        label: 'Cambiar Perfil',\n        action: (param = ' con param') => {\n          console.log('funciona' + param);\n        },\n      },\n    ],\n    userData: {\n      fullName: 'Stela Lopez',\n      email: 'slopez@empresa.com',\n      position: 'Gerente Desarrollo',\n    },\n    classes: '',\n  },\n}"
+          "defaultValue": "{\n  args: {\n    icons: {\n      appIcon: {\n        icon: 'app-menu.svg',\n        type: 'svg',\n      },\n      notificationIcon: {\n        icon: 'bell.svg',\n        type: 'svg',\n      },\n    },\n    titles: {\n      appTitle: 'Tus aplicaciones',\n      notificationTitle: 'Notificaciones',\n    },\n    buttonItems: {\n      appItems: [\n        {\n          label: 'Evo Wave',\n          icon: {\n            icon: 'company-logo.svg',\n            type: 'svg',\n            position: 'left',\n          },\n          url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoWave',\n        },\n        {\n          label: 'Evo Chart',\n          icon: {\n            icon: 'company-logo.svg',\n            type: 'svg',\n            position: 'left',\n          },\n          url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoChart',\n        },\n      ],\n      notificationItems: [\n        {\n          label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\n          avatarName: 'Carlos Sanchez',\n          avatarImgUrl:\n            'https://material.angular.io/assets/img/examples/shiba1.jpg',\n          onClick: {\n            action: (param = ' con param') => {\n              console.log('funciona' + param);\n            },\n          },\n        },\n        {\n          label: 'Samuel Lopez finalizo Programa Desarrollo',\n          avatarName: 'Samuel Lopez',\n          avatarImgUrl:\n            'https://material.angular.io/assets/img/examples/shiba1.jpg',\n          onClick: {\n            action: () => {\n              console.log('funciona sin param');\n            },\n          },\n        },\n        {\n          label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',\n          avatarName: 'Ignacio Fernandez',\n          avatarImgUrl:\n            'https://material.angular.io/assets/img/examples/shiba1.jpg',\n          onClick: {\n            action: (name = 'Ignacio Fernandez') => {\n              console.log('Felicidades ' + name);\n            },\n          },\n        },\n      ],\n      userDataItems: [\n        {\n          label: 'Cerrar Sesión',\n          icon: {\n            icon: 'logout.svg',\n            type: 'svg',\n            position: 'left',\n          },\n          onClick: {\n            action: (param = ' con param') => {\n              console.log('funciona' + param);\n            },\n          },\n        },\n      ],\n    },\n    companyData: {\n      companyImage: 'company-logo.svg',\n    },\n    box: [\n      {\n        label: 'Cambiar Perfil',\n        action: (param = ' con param') => {\n          console.log('funciona' + param);\n        },\n      },\n    ],\n    userData: {\n      fullName: 'Stela Lopez',\n      email: 'slopez@empresa.com',\n      position: 'Gerente Desarrollo',\n    },\n    twClass: '',\n  },\n}"
         },
         {
           "name": "meta",
@@ -1885,7 +1885,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    control: formControlDefaultInput,\n    label: 'Input',\n    inputType: 'text',\n    detail: '',\n    classes: '',\n  },\n}"
+          "defaultValue": "{\n  args: {\n    control: formControlDefaultInput,\n    label: 'Input',\n    inputType: 'text',\n    detail: '',\n    twClass: '',\n  },\n}"
         },
         {
           "name": "ErrorEmail",
@@ -1987,7 +1987,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    icons: {\n      buttonIcon: {\n        icon: 'app-menu.svg',\n        type: 'svg',\n      },\n      closeIcon: {\n        icon: 'close.svg',\n        type: 'svg',\n      },\n    },\n    title: 'Tus aplicaciones',\n    items: [\n      {\n        label: 'Evo Wave',\n        icon: {\n          icon: 'company-logo.svg',\n          type: 'svg',\n          position: 'left',\n        },\n        url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoWave',\n      },\n      {\n        label: 'Evo Chart',\n        icon: {\n          icon: 'company-logo.svg',\n          type: 'svg',\n          position: 'left',\n        },\n        url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoChart',\n      },\n    ],\n    classes: '',\n  },\n}"
+          "defaultValue": "{\n  args: {\n    icons: {\n      buttonIcon: {\n        icon: 'app-menu.svg',\n        type: 'svg',\n      },\n      closeIcon: {\n        icon: 'close.svg',\n        type: 'svg',\n      },\n    },\n    title: 'Tus aplicaciones',\n    items: [\n      {\n        label: 'Evo Wave',\n        icon: {\n          icon: 'company-logo.svg',\n          type: 'svg',\n          position: 'left',\n        },\n        url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoWave',\n      },\n      {\n        label: 'Evo Chart',\n        icon: {\n          icon: 'company-logo.svg',\n          type: 'svg',\n          position: 'left',\n        },\n        url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoChart',\n      },\n    ],\n    twClass: '',\n  },\n}"
         },
         {
           "name": "meta",
@@ -2007,7 +2007,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    icons: {\n      buttonIcon: {\n        icon: 'bell.svg',\n        type: 'svg',\n      },\n      closeIcon: {\n        icon: 'close.svg',\n        type: 'svg',\n      },\n    },\n    title: 'Notificaciones',\n    notificationsNumber: 3,\n    items: [\n      {\n        label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\n        avatarName: 'Carlos Sanchez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (param = ' con param') => {\n            console.log('funciona' + param);\n          },\n        },\n      },\n      {\n        label: 'Samuel Lopez finalizo Programa Desarrollo',\n        avatarName: 'Samuel Lopez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: () => {\n            console.log('funciona sin param');\n          },\n        },\n      },\n      {\n        label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',\n        avatarName: 'Ignacio Fernandez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Ignacio Fernandez') => {\n            console.log('Felicidades ' + name);\n          },\n        },\n      },\n    ],\n    classes: '',\n  },\n}"
+          "defaultValue": "{\n  args: {\n    icons: {\n      buttonIcon: {\n        icon: 'bell.svg',\n        type: 'svg',\n      },\n      closeIcon: {\n        icon: 'close.svg',\n        type: 'svg',\n      },\n    },\n    title: 'Notificaciones',\n    notificationsNumber: 3,\n    items: [\n      {\n        label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\n        avatarName: 'Carlos Sanchez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (param = ' con param') => {\n            console.log('funciona' + param);\n          },\n        },\n      },\n      {\n        label: 'Samuel Lopez finalizo Programa Desarrollo',\n        avatarName: 'Samuel Lopez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: () => {\n            console.log('funciona sin param');\n          },\n        },\n      },\n      {\n        label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',\n        avatarName: 'Ignacio Fernandez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Ignacio Fernandez') => {\n            console.log('Felicidades ' + name);\n          },\n        },\n      },\n    ],\n    twClass: '',\n  },\n}"
         },
         {
           "name": "UserMenu",
@@ -2017,7 +2017,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    icons: {\n      closeIcon: {\n        icon: 'close.svg',\n        type: 'svg',\n      },\n    },\n    userData: {\n      fullName: 'Stela Lopez',\n      email: 'slopez@empresa.com',\n      position: 'Gerente Desarrollo',\n    },\n    items: [\n      {\n        label: 'Cerrar Sesión',\n        icon: {\n          icon: 'logout.svg',\n          type: 'svg',\n          position: 'left',\n        },\n        onClick: {\n          action: (param = ' con param') => {\n            console.log('funciona' + param);\n          },\n        },\n      },\n    ],\n    classes: '',\n  },\n}"
+          "defaultValue": "{\n  args: {\n    icons: {\n      closeIcon: {\n        icon: 'close.svg',\n        type: 'svg',\n      },\n    },\n    userData: {\n      fullName: 'Stela Lopez',\n      email: 'slopez@empresa.com',\n      position: 'Gerente Desarrollo',\n    },\n    items: [\n      {\n        label: 'Cerrar Sesión',\n        icon: {\n          icon: 'logout.svg',\n          type: 'svg',\n          position: 'left',\n        },\n        onClick: {\n          action: (param = ' con param') => {\n            console.log('funciona' + param);\n          },\n        },\n      },\n    ],\n    twClass: '',\n  },\n}"
         },
         {
           "name": "WithScroll",
@@ -2039,7 +2039,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    label: 'Select',\n    items: [\n      {\n        key: 1,\n        value: 'Option 1',\n      },\n      {\n        key: 2,\n        value: 'Option 2',\n      },\n      {\n        key: 3,\n        value: 'Option 3',\n      },\n    ],\n    control: formControlDefaultSelect,\n    buttonIcon: {\n      icon: 'clean.svg',\n      type: 'svg',\n    },\n    detail: '',\n    classes: '',\n  },\n}"
+          "defaultValue": "{\n  args: {\n    label: 'Select',\n    items: [\n      {\n        key: 1,\n        value: 'Option 1',\n      },\n      {\n        key: 2,\n        value: 'Option 2',\n      },\n      {\n        key: 3,\n        value: 'Option 3',\n      },\n    ],\n    control: formControlDefaultSelect,\n    buttonIcon: {\n      icon: 'clean.svg',\n      type: 'svg',\n    },\n    detail: '',\n    twClass: '',\n  },\n}"
         },
         {
           "name": "form",
@@ -2143,7 +2143,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    svgPath: 'bell.svg',\n    classes: '',\n  },\n}"
+          "defaultValue": "{\n  args: {\n    svgPath: 'bell.svg',\n    twClass: '',\n  },\n}"
         },
         {
           "name": "meta",

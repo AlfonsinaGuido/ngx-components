@@ -22,7 +22,7 @@ export class ButtonComponent {
   @Input() icon?: IIcon;
   @Input() theme: ButtonTheme = 'default';
   @Input() disabled?: boolean;
-  @Input() classes?: string;
+  @Input() twClass?: string;
   @Input() isFlat: boolean = false;
   @Input() isFluid: boolean = false;
   @Input() withoutBorder: boolean = false;
@@ -32,7 +32,7 @@ export class ButtonComponent {
   @Input() onClick?: IButtonAction;
 
   get getClasses() {
-    const classes = this.classes ? this.classes.split(' ') : [];
+    const classes = this.twClass ? this.twClass.split(' ') : [];
     return {
       ...classes.reduce(
         (acc, cls) => {

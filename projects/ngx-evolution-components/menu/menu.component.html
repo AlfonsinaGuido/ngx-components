@@ -8,7 +8,7 @@
 ></evo-button>
 <mat-menu
   #menu="matMenu"
-  class="sm:!min-w-80 p-3 max-h-[50vh] mt-1 {{ classes }}"
+  class="sm:!min-w-80 p-3 max-h-[50vh] mt-1 {{ twClass }}"
 >
   <div class="flex items-center justify-between p-2">
     <div class="user-data-container flex items-center gap-2">
@@ -50,7 +50,7 @@
     <mat-divider></mat-divider>
     <evo-button
       class="buttons-in-menu"
-      [classes]="userData ? 'userFont' : ''"
+      [twClass]="userData ? 'userFont' : ''"
       [label]="item.label"
       [icon]="item.icon"
       [withoutBorder]="true"

@@ -30,7 +30,7 @@ const Testing = (a: number, b: number): any => {
 export const Default: Story = {
   args: {
     label: 'Button',
-    classes: '',
+    twClass: '',
   },
 };
 

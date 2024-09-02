@@ -7,7 +7,7 @@ export interface IHeader {
   companyData: IHeaderCompanyData;
   box?: IHeaderBoxButton[];
   userData: IUserData;
-  classes?: string;
+  twClass?: string;
 }
 
 export interface IHeaderBoxButton {

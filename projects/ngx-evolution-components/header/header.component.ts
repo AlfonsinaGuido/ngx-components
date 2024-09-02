@@ -28,7 +28,7 @@ export class HeaderComponent implements OnInit {
   @Input() companyData!: IHeaderCompanyData;
   @Input() box?: IHeaderBoxButton[];
   @Input() userData!: IUserData;
-  @Input() classes?: string;
+  @Input() twClass?: string;
   public appMenuIcons!: IMenuIcons;
   public notificationMenuIcons!: IMenuIcons;
   public userMenuIcons!: IMenuIcons;

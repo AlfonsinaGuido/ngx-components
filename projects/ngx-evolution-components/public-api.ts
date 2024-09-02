@@ -38,6 +38,9 @@ export * from './shared/interfaces/imenu.interface';
 export * from './shared/interfaces/isidebar.interface';
 export * from './shared/interfaces/iprioridad.interface';
 
+// Api Interfaces
+export * from './shared/interfaces/api/iempleado.interface';
+
 // Validators
 export * from './shared/validators/custom-error-state-matcher';
 

@@ -12,7 +12,7 @@ module.exports = {
         "dark-gray": "var(--dark-gray)",
       },
       fontFamily: {
-        sans: ["Roboto", "Helvetica Neue", "sans-serif"],
+        sans: ["Plus Jakarta Sans", "sans-serif"],
       },
       fontSize: {
         small: "0.875rem",

@@ -98,7 +98,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    label: 'Button',\n    twClass: '',\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    label: 'Button',\r\n    twClass: '',\r\n  },\r\n}"
       },
       {
         "name": "Default",
@@ -248,7 +248,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    ...Default.args,\n    disabled: true,\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    disabled: true,\r\n  },\r\n}"
       },
       {
         "name": "ErrorEmail",
@@ -378,7 +378,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "object",
-        "defaultValue": "{\n  action: Testing2,\n}"
+        "defaultValue": "{\r\n  action: Testing2,\r\n}"
       },
       {
         "name": "iconDialog",
@@ -408,7 +408,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    ...Default.args,\n    isFlat: true,\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    isFlat: true,\r\n  },\r\n}"
       },
       {
         "name": "IsFluid",
@@ -418,7 +418,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    ...Default.args,\n    isFluid: true,\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    isFluid: true,\r\n  },\r\n}"
       },
       {
         "name": "masColumnas",
@@ -438,7 +438,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<ButtonComponent>",
-        "defaultValue": "{\n  title: 'Evolution Components/Button',\n  component: ButtonComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+        "defaultValue": "{\r\n  title: 'Evolution Components/Button',\r\n  component: ButtonComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
       },
       {
         "name": "meta",
@@ -568,7 +568,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    ...Default.args,\n    onClick: {\n      action: Testing2,\n    },\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    onClick: {\r\n      action: Testing2,\r\n    },\r\n  },\r\n}"
       },
       {
         "name": "OnlySvgIcon",
@@ -578,7 +578,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    icon: {\n      icon: 'add-user.svg',\n      type: 'svg',\n    },\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    icon: {\r\n      icon: 'add-user.svg',\r\n      type: 'svg',\r\n    },\r\n  },\r\n}"
       },
       {
         "name": "pastToday",
@@ -618,7 +618,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    ...Default.args,\n    theme: 'primary',\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    theme: 'primary',\r\n  },\r\n}"
       },
       {
         "name": "prioridadAlta",
@@ -688,7 +688,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    ...Default.args,\n    theme: 'secondary',\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    theme: 'secondary',\r\n  },\r\n}"
       },
       {
         "name": "simpleContent",
@@ -798,7 +798,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "",
-        "defaultValue": "(a: number, b: number): any => {\n  let res = a + b;\n  console.log('res => ', res);\n}"
+        "defaultValue": "(a: number, b: number): any => {\r\n  let res = a + b;\r\n  console.log('res => ', res);\r\n}"
       },
       {
         "name": "Testing1",
@@ -818,7 +818,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "",
-        "defaultValue": "() => {\n  console.log('Funciono!');\n}"
+        "defaultValue": "() => {\r\n  console.log('Funciono!');\r\n}"
       },
       {
         "name": "Testing2",
@@ -878,7 +878,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    ...Default.args,\n    theme: 'warning',\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    theme: 'warning',\r\n  },\r\n}"
       },
       {
         "name": "WithAvatarImg",
@@ -888,7 +888,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    avatarName: 'Carlos Sanchez',\n    avatarImgUrl: 'https://material.angular.io/assets/img/examples/shiba1.jpg',\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    avatarName: 'Carlos Sanchez',\r\n    avatarImgUrl: 'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n  },\r\n}"
       },
       {
         "name": "WithAvatarName",
@@ -898,7 +898,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    avatarName: 'Carlos Sanchez',\n    withoutBorder: true,\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    avatarName: 'Carlos Sanchez',\r\n    withoutBorder: true,\r\n  },\r\n}"
       },
       {
         "name": "WithCompanyName",
@@ -918,7 +918,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    ...Default.args,\n    onClick: {\n      action: (param = ' con param') => {\n        console.log('funciona' + param);\n      },\n    },\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    onClick: {\r\n      action: (param = ' con param') => {\r\n        console.log('funciona' + param);\r\n      },\r\n    },\r\n  },\r\n}"
       },
       {
         "name": "WithMatIcon",
@@ -928,7 +928,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    icon: {\n      icon: 'home',\n      type: 'class',\n    },\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    icon: {\r\n      icon: 'home',\r\n      type: 'class',\r\n    },\r\n  },\r\n}"
       },
       {
         "name": "WithoutBorder",
@@ -938,7 +938,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    ...Default.args,\n    withoutBorder: true,\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    withoutBorder: true,\r\n  },\r\n}"
       },
       {
         "name": "withoutCount",
@@ -968,7 +968,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    ...Default.args,\n    icon: {\n      icon: 'add-user.svg',\n      type: 'svg',\n      position: 'left',\n    },\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    icon: {\r\n      icon: 'add-user.svg',\r\n      type: 'svg',\r\n      position: 'left',\r\n    },\r\n  },\r\n}"
       },
       {
         "name": "yesterday",
@@ -1527,7 +1527,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    label: 'Button',\n    twClass: '',\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    label: 'Button',\r\n    twClass: '',\r\n  },\r\n}"
         },
         {
           "name": "Disabled",
@@ -1537,7 +1537,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    ...Default.args,\n    disabled: true,\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    disabled: true,\r\n  },\r\n}"
         },
         {
           "name": "functionTest",
@@ -1547,7 +1547,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "object",
-          "defaultValue": "{\n  action: Testing2,\n}"
+          "defaultValue": "{\r\n  action: Testing2,\r\n}"
         },
         {
           "name": "IsFlat",
@@ -1557,7 +1557,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    ...Default.args,\n    isFlat: true,\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    isFlat: true,\r\n  },\r\n}"
         },
         {
           "name": "IsFluid",
@@ -1567,7 +1567,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    ...Default.args,\n    isFluid: true,\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    isFluid: true,\r\n  },\r\n}"
         },
         {
           "name": "meta",
@@ -1577,7 +1577,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<ButtonComponent>",
-          "defaultValue": "{\n  title: 'Evolution Components/Button',\n  component: ButtonComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+          "defaultValue": "{\r\n  title: 'Evolution Components/Button',\r\n  component: ButtonComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
         },
         {
           "name": "onClick",
@@ -1587,7 +1587,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    ...Default.args,\n    onClick: {\n      action: Testing2,\n    },\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    onClick: {\r\n      action: Testing2,\r\n    },\r\n  },\r\n}"
         },
         {
           "name": "OnlySvgIcon",
@@ -1597,7 +1597,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    icon: {\n      icon: 'add-user.svg',\n      type: 'svg',\n    },\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    icon: {\r\n      icon: 'add-user.svg',\r\n      type: 'svg',\r\n    },\r\n  },\r\n}"
         },
         {
           "name": "Primary",
@@ -1607,7 +1607,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    ...Default.args,\n    theme: 'primary',\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    theme: 'primary',\r\n  },\r\n}"
         },
         {
           "name": "Secondary",
@@ -1617,7 +1617,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    ...Default.args,\n    theme: 'secondary',\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    theme: 'secondary',\r\n  },\r\n}"
         },
         {
           "name": "Testing",
@@ -1627,7 +1627,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "",
-          "defaultValue": "(a: number, b: number): any => {\n  let res = a + b;\n  console.log('res => ', res);\n}"
+          "defaultValue": "(a: number, b: number): any => {\r\n  let res = a + b;\r\n  console.log('res => ', res);\r\n}"
         },
         {
           "name": "Testing2",
@@ -1637,7 +1637,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "",
-          "defaultValue": "() => {\n  console.log('Funciono!');\n}"
+          "defaultValue": "() => {\r\n  console.log('Funciono!');\r\n}"
         },
         {
           "name": "Warning",
@@ -1647,7 +1647,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    ...Default.args,\n    theme: 'warning',\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    theme: 'warning',\r\n  },\r\n}"
         },
         {
           "name": "WithAvatarImg",
@@ -1657,7 +1657,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    avatarName: 'Carlos Sanchez',\n    avatarImgUrl: 'https://material.angular.io/assets/img/examples/shiba1.jpg',\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    avatarName: 'Carlos Sanchez',\r\n    avatarImgUrl: 'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n  },\r\n}"
         },
         {
           "name": "WithAvatarName",
@@ -1667,7 +1667,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    avatarName: 'Carlos Sanchez',\n    withoutBorder: true,\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    avatarName: 'Carlos Sanchez',\r\n    withoutBorder: true,\r\n  },\r\n}"
         },
         {
           "name": "WithFunction",
@@ -1677,7 +1677,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    ...Default.args,\n    onClick: {\n      action: (param = ' con param') => {\n        console.log('funciona' + param);\n      },\n    },\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    onClick: {\r\n      action: (param = ' con param') => {\r\n        console.log('funciona' + param);\r\n      },\r\n    },\r\n  },\r\n}"
         },
         {
           "name": "WithMatIcon",
@@ -1687,7 +1687,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    icon: {\n      icon: 'home',\n      type: 'class',\n    },\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    icon: {\r\n      icon: 'home',\r\n      type: 'class',\r\n    },\r\n  },\r\n}"
         },
         {
           "name": "WithoutBorder",
@@ -1697,7 +1697,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    ...Default.args,\n    withoutBorder: true,\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    withoutBorder: true,\r\n  },\r\n}"
         },
         {
           "name": "WithSvgIcon",
@@ -1707,7 +1707,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    ...Default.args,\n    icon: {\n      icon: 'add-user.svg',\n      type: 'svg',\n      position: 'left',\n    },\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    icon: {\r\n      icon: 'add-user.svg',\r\n      type: 'svg',\r\n      position: 'left',\r\n    },\r\n  },\r\n}"
         }
       ],
       "stories/carta-actividad.stories.ts": [

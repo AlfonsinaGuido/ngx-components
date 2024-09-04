@@ -2,7 +2,7 @@
   id="login-aside"
   [className]="
     asideClass +
-    ' [grid-area:aside] flex-row rounded-lg shadow-[4px_4px_4px_rgba(0,0,0,0.1)] p-6 max-lg:hidden'
+    ' [grid-area:aside] h-full flex-row rounded-lg shadow-[4px_4px_4px_rgba(0,0,0,0.1)] p-6 max-lg:hidden'
   "
 >
   @if (title !== "") {
@@ -13,9 +13,7 @@
     </p>
   }
   @if (subtitle !== "") {
-    <p class="aside-subtitle py-20 text-lg text-gray-700">
-      {{ subtitle }}
-    </p>
+    <p class="aside-subtitle py-20 text-lg text-gray-700">{{ subtitle }}</p>
   }
   @if (cardtext !== "") {
     <div

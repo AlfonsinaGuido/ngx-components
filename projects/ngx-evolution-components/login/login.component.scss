@@ -1,0 +1,30 @@
+evo-svg {
+  justify-content: center;
+}
+
+evo-svg .mat-icon {
+  height: inherit;
+  width: inherit;
+  max-width: 175px;
+}
+
+evo-button {
+  display: flex;
+  justify-content: center;
+}
+
+evo-button button {
+  width: 100%;
+  padding-bottom: 1em;
+  padding-top: 1em;
+}
+
+evo-button .evo-button.theme-primary {
+  border: 1.5px solid transparent;
+}
+
+@media (max-width: 768px) {
+  evo-svg .mat-icon {
+    max-width: 150px;
+  }
+}

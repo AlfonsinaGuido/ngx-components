@@ -21,6 +21,7 @@ export * from './tablero-kanban/tablero-kanban.component';
 export * from './tablero-skeleton/tablero-skeleton.component';
 export * from './sidebar/sidebar.component';
 export * from './dialogo-actividad/dialogo-actividad.component';
+export * from './login/login.component';
 
 // Interfaces
 export * from './shared/interfaces/ibutton.interface';

@@ -1,0 +1,17 @@
+<div
+  class="w-auto flex flex-col justify-self-center self-center m-0 text-center"
+>
+  @if (svg?.icon && svg?.icon !== "") {
+    <evo-svg class="mb-6" [svgPath]="svg!.icon"></evo-svg>
+  }
+  <h1 class="mt-2">{{ title }}</h1>
+  <p class="pt-2 pb-8 text-lg text-gray-500">
+    {{ subtitle }}
+  </p>
+  <evo-button
+    [label]="button?.label!"
+    [icon]="iconTest"
+    [theme]="button?.theme!"
+    [onClick]="button?.onClick"
+  ></evo-button>
+</div>

@@ -1,0 +1,45 @@
+<div
+  class="evo-card rounded-2xl shadow-box p-4 min-w-[160px]"
+  [ngClass]="getClasses"
+>
+  <h3 class="text-lg font-bold truncate" [title]="cardData.title">
+    {{ cardData.title }}
+  </h3>
+
+  <p class="text-base text-medium-gray mt-2" [title]="cardData.subtitle">
+    {{ cardData.subtitle }}
+  </p>
+
+  <div class="flex flex-col sm:flex-row mt-3 text-medium-gray text-sm">
+    <div class="flex items-center mb-0 mr-3">
+      <mat-icon
+        class="small-icon"
+        aria-hidden="false"
+        aria-label="icon"
+        [fontIcon]="'workspace_premium'"
+      ></mat-icon>
+
+      <span class="mr-0.5">{{ cardData.activitiesCount }}</span>
+      <span>{{ cardData.activitiesText }}</span>
+    </div>
+    <div class="flex items-center">
+      <mat-icon
+        class="small-icon"
+        aria-hidden="false"
+        aria-label="icon"
+        [fontIcon]="'access_time'"
+      ></mat-icon>
+      <span class="mr-0.5">{{ cardData.weeksCount }}</span>
+      <span>{{ cardData.weeksText }}</span>
+    </div>
+  </div>
+
+  <div class="mt-3 flex justify-end">
+    <evo-button
+      [label]="cardData.buttonLabel"
+      [icon]="{ type: 'class', icon: 'person_add_alt_1', position: 'right' }"
+      [twClass]="cardData.buttonClasses"
+      [onClick]="cardData.onButtonClick"
+    ></evo-button>
+  </div>
+</div>

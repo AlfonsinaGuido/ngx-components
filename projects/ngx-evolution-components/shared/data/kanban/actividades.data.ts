@@ -3,7 +3,7 @@ import {
   EstadoActividad,
   EtapaPrograma,
   IActividad,
-} from '@aseinfo/ngx-evolution-components/public-api';
+} from '../../../public-api';
 import {
   prioridadHigh,
   prioridadHighest,
@@ -129,7 +129,7 @@ export const actividad7: IActividad = {
   prioridad: prioridadHighest,
 };
 
-export const actividades: IActividad[] = [
+export const actividades = [
   actividad1,
   actividad2,
   actividad4,

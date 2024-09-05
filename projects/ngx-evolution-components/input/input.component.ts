@@ -39,7 +39,7 @@ export class InputComponent implements OnInit, OnDestroy {
   @Input() patternErrorMessage?: string;
   @Input() anotherErrorMessage?: string;
   @Input() detail?: string;
-  @Input() classes?: string;
+  @Input() twClass?: string;
   @Output() valueChange = new EventEmitter<any>();
   private valueChangesSubscription: Subscription = new Subscription();
   matcher = new CustomErrorStateMatcher();

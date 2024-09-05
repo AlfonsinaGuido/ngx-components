@@ -1,11 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MenuComponent } from './menu.component';
-import {
-  ButtonComponent,
-  ButtonInterface,
-  MenuIconsInterface,
-} from '../public-api';
+import { ButtonComponent, IButton, IMenuIcons } from '../public-api';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { By } from '@angular/platform-browser';
@@ -24,7 +20,7 @@ describe('MenuComponent', () => {
     fixture = TestBed.createComponent(MenuComponent);
     component = fixture.componentInstance;
 
-    const icons: MenuIconsInterface = {
+    const icons: IMenuIcons = {
       buttonIcon: { icon: 'test', type: 'class' },
     };
     component.icons = icons;
@@ -50,7 +46,7 @@ describe('MenuComponent', () => {
   });
 
   it('should display the correct number of items', () => {
-    const items: ButtonInterface[] = [{ label: 'Item 1' }, { label: 'Item 2' }];
+    const items: IButton[] = [{ label: 'Item 1' }, { label: 'Item 2' }];
     component.items = items;
     fixture.detectChanges();
 

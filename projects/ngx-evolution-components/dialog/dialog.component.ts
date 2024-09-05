@@ -11,9 +11,9 @@ import {
 import { MatButtonModule } from '@angular/material/button';
 import {
   ButtonComponent,
-  ButtonInterface,
-  DialogInterface,
-  IconInterface,
+  IButton,
+  IDialog,
+  IIcon,
   SvgComponent,
 } from '../public-api';
 import { CommonModule } from '@angular/common';
@@ -42,14 +42,14 @@ export class DialogComponent {
   public title: string;
   public scrollableContent: string;
   public simpleContent: string;
-  public buttonsItems: ButtonInterface[];
+  public buttonsItems: IButton[];
   public closeButton: boolean;
   public disableClosing: boolean;
-  public icon: IconInterface;
+  public icon: IIcon;
 
   constructor(
     public dialogRef: MatDialogRef<DialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogInterface,
+    @Inject(MAT_DIALOG_DATA) public data: IDialog,
   ) {
     this.title = this.data?.title || '';
     this.scrollableContent = this.data?.scrollableContent || '';

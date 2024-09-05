@@ -1,10 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import {
-  ButtonInterface,
-  DialogComponent,
-  IconInterface,
-} from '../../../public-api';
+import { IButton, DialogComponent, IIcon } from '../../../public-api';
 
 @Component({
   selector: 'evo-dialog-button',
@@ -17,11 +13,11 @@ export class DialogButtonComponent {
   @Input() title: string = '';
   @Input() scrollableContent?: string = '';
   @Input() simpleContent?: string = '';
-  @Input() buttonsItems?: ButtonInterface[] = [];
+  @Input() buttonsItems?: IButton[] = [];
   @Input() buttonsFunctions?: any[] = [];
   @Input() closeButton?: boolean;
   @Input() disableClosing?: boolean;
-  @Input() icon?: IconInterface;
+  @Input() icon?: IIcon;
 
   constructor(public dialog: MatDialog) {}
 

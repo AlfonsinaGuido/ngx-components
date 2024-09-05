@@ -5,7 +5,7 @@ import {
 } from '@angular/core/testing';
 import { TableroKanbanComponent } from './tablero-kanban.component';
 import { EstadoActividad, IColumna } from '../public-api';
-import { actividades } from 'stories/data/kanban/actividades.data';
+import { actividades } from '../shared/data/kanban/actividades.data';
 
 const columnas: IColumna[] = [
   {

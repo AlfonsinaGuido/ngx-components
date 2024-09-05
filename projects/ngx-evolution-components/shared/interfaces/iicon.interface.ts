@@ -1,7 +1,7 @@
 export type IconType = 'svg' | 'class';
 export type IconPosition = 'left' | 'right';
 
-export interface IconInterface {
+export interface IIcon {
   type: IconType;
   icon: string;
   position?: IconPosition;

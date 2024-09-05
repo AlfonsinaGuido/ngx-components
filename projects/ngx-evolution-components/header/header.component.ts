@@ -2,15 +2,15 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   AvatarComponent,
-  HeaderBoxButtonInterface,
-  HeaderButtonItemsInterface,
-  HeaderCompanyDataInterface,
-  HeaderIconsInterface,
-  HeaderTitlesInterface,
+  IHeaderBoxButton,
+  IHeaderButtonItems,
+  IHeaderCompanyData,
+  IHeaderIcons,
+  IHeaderTitles,
   MenuComponent,
-  MenuIconsInterface,
+  IMenuIcons,
   SvgComponent,
-  UserDataInterface,
+  IUserData,
 } from '../public-api';
 
 @Component({
@@ -22,16 +22,16 @@ import {
   encapsulation: ViewEncapsulation.None,
 })
 export class HeaderComponent implements OnInit {
-  @Input() icons!: HeaderIconsInterface;
-  @Input() titles!: HeaderTitlesInterface;
-  @Input() buttonItems!: HeaderButtonItemsInterface;
-  @Input() companyData!: HeaderCompanyDataInterface;
-  @Input() box?: HeaderBoxButtonInterface[];
-  @Input() userData!: UserDataInterface;
-  @Input() classes?: string;
-  public appMenuIcons!: MenuIconsInterface;
-  public notificationMenuIcons!: MenuIconsInterface;
-  public userMenuIcons!: MenuIconsInterface;
+  @Input() icons!: IHeaderIcons;
+  @Input() titles!: IHeaderTitles;
+  @Input() buttonItems!: IHeaderButtonItems;
+  @Input() companyData!: IHeaderCompanyData;
+  @Input() box?: IHeaderBoxButton[];
+  @Input() userData!: IUserData;
+  @Input() twClass?: string;
+  public appMenuIcons!: IMenuIcons;
+  public notificationMenuIcons!: IMenuIcons;
+  public userMenuIcons!: IMenuIcons;
 
   ngOnInit(): void {
     this.appMenuIcons = {

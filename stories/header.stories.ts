@@ -125,7 +125,7 @@ export const Default: Story = {
       email: 'slopez@empresa.com',
       position: 'Gerente Desarrollo',
     },
-    classes: '',
+    twClass: '',
   },
 };
 

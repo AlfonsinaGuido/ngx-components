@@ -2,9 +2,9 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, ViewEncapsulation } from '@angular/core';
 import {
   AvatarComponent,
-  ButtonActionInterface,
+  IButtonAction,
   ButtonTheme,
-  IconInterface,
+  IIcon,
   SvgComponent,
 } from '../public-api';
 import { MatIconModule } from '@angular/material/icon';
@@ -19,20 +19,20 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class ButtonComponent {
   @Input() label?: string;
-  @Input() icon?: IconInterface;
+  @Input() icon?: IIcon;
   @Input() theme: ButtonTheme = 'default';
   @Input() disabled?: boolean;
-  @Input() classes?: string;
+  @Input() twClass?: string;
   @Input() isFlat: boolean = false;
   @Input() isFluid: boolean = false;
   @Input() withoutBorder: boolean = false;
   @Input() url?: string;
   @Input() avatarName?: string;
   @Input() avatarImgUrl?: string;
-  @Input() onClick?: ButtonActionInterface;
+  @Input() onClick?: IButtonAction;
 
   get getClasses() {
-    const classes = this.classes ? this.classes.split(' ') : [];
+    const classes = this.twClass ? this.twClass.split(' ') : [];
     return {
       ...classes.reduce(
         (acc, cls) => {

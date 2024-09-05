@@ -2,9 +2,9 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import {
   AvatarComponent,
   ButtonComponent,
-  ButtonInterface,
-  MenuIconsInterface,
-  UserDataInterface,
+  IButton,
+  IMenuIcons,
+  IUserData,
 } from '../public-api';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
@@ -28,11 +28,11 @@ import { MatDividerModule } from '@angular/material/divider';
 })
 export class MenuComponent implements OnInit {
   @Input() title?: string;
-  @Input() items!: ButtonInterface[];
-  @Input() icons!: MenuIconsInterface;
+  @Input() items!: IButton[];
+  @Input() icons!: IMenuIcons;
   @Input() notificationsNumber?: number;
-  @Input() userData?: UserDataInterface;
-  @Input() classes?: string;
+  @Input() userData?: IUserData;
+  @Input() twClass?: string;
 
   ngOnInit(): void {
     if (!this.icons.buttonIcon) {

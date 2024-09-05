@@ -58,7 +58,7 @@ export const Default: Story = {
     label: 'Input',
     inputType: 'text',
     detail: '',
-    classes: '',
+    twClass: '',
   },
 };
 

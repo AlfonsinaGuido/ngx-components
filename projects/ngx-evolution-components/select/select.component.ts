@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelect, MatSelectModule } from '@angular/material/select';
-import { ButtonComponent, IconInterface, SelectInterface } from '../public-api';
+import { ButtonComponent, IIcon, ISelect } from '../public-api';
 
 @Component({
   selector: 'evo-select',
@@ -30,13 +30,13 @@ import { ButtonComponent, IconInterface, SelectInterface } from '../public-api';
 export class SelectComponent {
   @Input() control!: FormControl;
   @Input() label!: string;
-  @Input() items!: SelectInterface[];
+  @Input() items!: ISelect[];
   @Input() isMultiple?: boolean;
   @Input() isRequired?: boolean;
   @Input() requiredErrorMessage?: string;
   @Input() detail?: string;
-  @Input() buttonIcon!: IconInterface;
-  @Input() classes?: string;
+  @Input() buttonIcon!: IIcon;
+  @Input() twClass?: string;
   @Output() valueChange = new EventEmitter<any>();
 
   @ViewChild('selectControl') selectControl!: MatSelect;

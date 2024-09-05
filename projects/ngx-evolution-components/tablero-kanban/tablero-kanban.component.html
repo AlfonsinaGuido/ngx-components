@@ -49,16 +49,14 @@
             [class]="accordionItem.expanded ? 'flex gap-3 my-2' : 'hidden'"
             cdkDropListGroup
           >
-            @for (actividades of empleo.actividades; track $index) {
-              <div
-                class="inline-block min-w-72 max-w-72 whitespace-normal snap-center"
+            <div
+              class="inline-block min-w-72 max-w-72 whitespace-normal snap-center"
+            >
+              <evo-columna-tablero
+                [actividades]="empleo.actividades.actividades"
               >
-                <evo-columna-tablero [actividades]="actividades.actividades">
-                </evo-columna-tablero>
-              </div>
-            } @empty {
-              <p class="self-center text-gray-400">No hay actividades</p>
-            }
+              </evo-columna-tablero>
+            </div>
           </div>
         </cdk-accordion-item>
       }

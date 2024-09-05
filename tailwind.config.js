@@ -8,6 +8,7 @@ module.exports = {
         accent: "var(--accent-500)",
         warn: "var(--warn)",
         "white-smoke": "var(--white-smoke)",
+        "light-gray": "var(--light-gray)",
         "medium-gray": "var(--medium-gray)",
         "dark-gray": "var(--dark-gray)",
       },

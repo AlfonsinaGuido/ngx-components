@@ -21,6 +21,7 @@ export * from './tablero-kanban/tablero-kanban.component';
 export * from './tablero-skeleton/tablero-skeleton.component';
 export * from './sidebar/sidebar.component';
 export * from './dialogo-actividad/dialogo-actividad.component';
+export * from './program-card/program-card.component';
 
 // Interfaces
 export * from './shared/interfaces/ibutton.interface';
@@ -37,6 +38,7 @@ export * from './shared/interfaces/ievaluacion.interface';
 export * from './shared/interfaces/imenu.interface';
 export * from './shared/interfaces/isidebar.interface';
 export * from './shared/interfaces/iprioridad.interface';
+export * from './shared/interfaces/iprogram-card.interface';
 
 // Api Interfaces
 export * from './shared/interfaces/api/iempleado.interface';

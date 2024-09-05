@@ -7,6 +7,7 @@ import {
   PLATFORM_ID,
   AfterViewInit,
   ViewEncapsulation,
+  ChangeDetectorRef,
 } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import {
@@ -20,7 +21,6 @@ import {
 } from '../public-api';
 import { Router, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { ChangeDetectorRef } from '@angular/core';
 import { MatDivider } from '@angular/material/divider';
 
 @Component({
@@ -41,10 +41,7 @@ import { MatDivider } from '@angular/material/divider';
 export class SidebarComponent implements OnInit, AfterViewInit {
   @Input() commonProps!: IHeader;
   @Input() options!: ISidebarOption[];
-  @Input() avatarName!: string;
   @Input() additionalOptions?: ISidebarOption[];
-  @Input() avatarImgUrl?: string;
-  @Input() avatarIsPriority?: boolean = false;
 
   isMobile: boolean = false;
   isSidebarOpen: boolean = false;
@@ -166,13 +163,5 @@ export class SidebarComponent implements OnInit, AfterViewInit {
    */
   isActive(optionRoute: string): boolean {
     return this.activeRoute === optionRoute;
-  }
-
-  /**
-   * Método placeholder para el logout
-   */
-  logout() {
-    // TODO: Añadir funcionalidad
-    console.log('logout');
   }
 }

@@ -24,7 +24,7 @@ export default {
     isPriority: {
       type: 'boolean',
       description:
-        'Se usa ngSrc priority para cargar la imagen con prioridad. De lo contrario, será lazy.',
+        'Se usa para cargar la imagen de manera diferida cuando no es prioridad. Caso contrario, la carga de img será inmediata.',
     },
     color: {
       type: 'string',

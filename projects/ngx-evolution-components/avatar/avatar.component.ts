@@ -1,11 +1,11 @@
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'evo-avatar',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, MatTooltipModule],
+  imports: [CommonModule, MatTooltipModule],
   templateUrl: './avatar.component.html',
   styleUrls: ['./avatar.component.scss', '../styles/output.scss'],
 })

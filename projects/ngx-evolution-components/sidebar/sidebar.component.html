@@ -33,14 +33,14 @@
           <div class="profile-img">
             <evo-avatar
               size="sm"
-              [name]="avatarName"
-              [imgUrl]="avatarImgUrl"
+              [name]="commonProps.userData.fullName"
+              [imgUrl]="commonProps.userData.imgUrl"
               [isPriority]="true"
             ></evo-avatar>
           </div>
           <div class="profile-info">
-            <div class="name">Jonatan Elizalde Gómez</div>
-            <div>Desarrollador Web</div>
+            <div class="name">{{ commonProps.userData.fullName }}</div>
+            <div>{{ commonProps.userData.position }}</div>
           </div>
         </div>
         <nav class="sidebar__nav">

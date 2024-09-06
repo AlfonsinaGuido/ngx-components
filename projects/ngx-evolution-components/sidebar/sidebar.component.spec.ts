@@ -39,13 +39,11 @@ describe('SidebarComponent', () => {
     component = fixture.componentInstance;
 
     // Proveer todos los inputs necesarios para SidebarComponent y sus componentes hijos
-    component.avatarName = 'User';
-    component.avatarImgUrl = 'path/to/avatar.png';
     component.commonProps = {
       icons: {
-        appIcon: { icon: 'dashboard.svg', type: 'svg' as 'svg' },
-        notificationIcon: { icon: 'bell.svg', type: 'svg' as 'svg' },
-        closeMenuIcon: { icon: 'close.svg', type: 'svg' as 'svg' },
+        appIcon: { icon: 'dashboard.svg', type: 'svg' },
+        notificationIcon: { icon: 'bell.svg', type: 'svg' },
+        closeMenuIcon: { icon: 'close.svg', type: 'svg' },
       },
       titles: {
         appTitle: 'Tus aplicaciones',
@@ -69,7 +67,7 @@ describe('SidebarComponent', () => {
     };
     component.options = [
       {
-        icon: { icon: 'dashboard.svg', type: 'svg' as 'svg' },
+        icon: { icon: 'dashboard.svg', type: 'svg' },
         action: () => {},
         route: '/dashboard',
         title: 'Dashboard',
@@ -112,7 +110,7 @@ describe('SidebarComponent', () => {
 
   it('should navigate to the selected route and execute action', () => {
     const mockOption = {
-      icon: { icon: 'dashboard.svg', type: 'svg' as 'svg' },
+      icon: { icon: 'dashboard.svg', type: 'svg' } as IIcon,
       action: jasmine.createSpy('action'),
       route: '/dashboard',
       title: 'dashboard',

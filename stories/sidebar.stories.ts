@@ -39,18 +39,6 @@ const meta: Meta<SidebarComponent> = {
         type: 'object',
       },
     },
-    avatarName: {
-      type: 'string',
-      description: 'Nombre del avatar',
-    },
-    avatarImgUrl: {
-      type: 'string',
-      description: 'URL de la imagen del avatar',
-    },
-    avatarIsPriority: {
-      type: 'boolean',
-      description: 'Si el avatar tiene prioridad',
-    },
   },
   args: {
     commonProps: {
@@ -119,8 +107,6 @@ const meta: Meta<SidebarComponent> = {
         position: 'Gerente Desarrollo',
       },
     } as IHeader,
-    avatarName: 'Jonatan Elizalde Gómez',
-    avatarImgUrl: 'https://material.angular.io/assets/img/examples/shiba1.jpg',
     options: [
       {
         icon: { icon: 'dashboard.svg', type: 'svg' },

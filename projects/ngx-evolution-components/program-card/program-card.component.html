@@ -13,22 +13,24 @@
   <div class="flex flex-col sm:flex-row mt-3 text-medium-gray text-sm">
     <div class="flex items-center mb-0 mr-3">
       <mat-icon
+        fontSet="material-symbols-outlined"
         class="small-icon"
         aria-hidden="false"
-        aria-label="icon"
-        [fontIcon]="'workspace_premium'"
-      ></mat-icon>
+        aria-label="workspace_premium icon"
+        >workspace_premium</mat-icon
+      >
 
       <span class="mr-0.5">{{ cardData.activitiesCount }}</span>
       <span>{{ cardData.activitiesText }}</span>
     </div>
     <div class="flex items-center">
       <mat-icon
+        fontSet="material-symbols-outlined"
         class="small-icon"
         aria-hidden="false"
-        aria-label="icon"
-        [fontIcon]="'access_time'"
-      ></mat-icon>
+        aria-label="access_time icon"
+        >access_time</mat-icon
+      >
       <span class="mr-0.5">{{ cardData.weeksCount }}</span>
       <span>{{ cardData.weeksText }}</span>
     </div>
@@ -37,7 +39,7 @@
   <div class="mt-3 flex justify-end">
     <evo-button
       [label]="cardData.buttonLabel"
-      [icon]="{ type: 'class', icon: 'person_add_alt_1', position: 'right' }"
+      [icon]="{ type: 'class', icon: 'person_add', position: 'right' }"
       [twClass]="cardData.buttonClasses"
       [onClick]="cardData.onButtonClick"
     ></evo-button>

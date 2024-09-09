@@ -968,7 +968,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    icon: {\n      icon: 'home',\n      type: 'class',\n    },\n  },\n}"
+        "defaultValue": "{\n  args: {\n    icon: {\n      icon: 'cleaning_services',\n      type: 'class',\n    },\n  },\n}"
       },
       {
         "name": "WithoutBorder",
@@ -1738,7 +1738,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    icon: {\n      icon: 'home',\n      type: 'class',\n    },\n  },\n}"
+          "defaultValue": "{\n  args: {\n    icon: {\n      icon: 'cleaning_services',\n      type: 'class',\n    },\n  },\n}"
         },
         {
           "name": "WithoutBorder",

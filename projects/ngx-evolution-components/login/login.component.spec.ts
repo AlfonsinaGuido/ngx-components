@@ -64,11 +64,11 @@ describe('LoginComponent', () => {
     fixture.detectChanges();
 
     const render: HTMLElement = fixture.nativeElement;
-    let icon = render.querySelector('svg');
+    let icon = render.querySelector('evo-svg');
     let button = render.querySelector('button');
     let title_render = render.querySelector('h1');
 
-    expect(icon).toBeFalsy();
+    expect(icon).toBeTruthy();
     expect(button).toBeTruthy();
     expect(title_render).toBeTruthy();
   });

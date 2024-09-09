@@ -1,7 +1,7 @@
 <aside
   id="login-aside"
-  class="[grid-area:aside] text-left h-full flex-row rounded-lg shadow-[4px_4px_4px_rgba(0,0,0,0.1)] p-6 max-lg:hidden"
   [class]="twClassAside"
+  class="[grid-area:aside] text-left h-full flex-row rounded-lg shadow-[4px_4px_4px_rgba(0,0,0,0.1)] p-6 max-lg:hidden"
 >
   @if (title !== "") {
     <p
@@ -15,8 +15,8 @@
   }
   @if (cardtext !== "") {
     <div
-      class="aside-cardtext w-full py-6 px-4 rounded-md text-lg"
       [class]="twClassCard"
+      class="aside-cardtext w-full py-6 px-4 rounded-md text-lg"
     >
       <span>{{ cardtext }}</span>
     </div>
@@ -24,8 +24,8 @@
 </aside>
 @if (cardtext !== "") {
   <div
-    class="aside-cardtext-mobile w-full py-6 px-4 rounded-md text-lg md:hidden text-center"
     [class]="twClassCard"
+    class="aside-cardtext-mobile w-full py-6 px-4 rounded-md text-lg md:hidden text-center"
   >
     <span>{{ cardtext }}</span>
   </div>

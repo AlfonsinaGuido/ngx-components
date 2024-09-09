@@ -16,10 +16,4 @@ export class LoginComponent {
   @Input() subtitle?: string = '';
   @Input() svg?: IIcon = { icon: '', type: 'svg', position: 'left' };
   @Input() button?: IButton;
-
-  public iconTest: IIcon = {
-    icon: 'input',
-    type: 'class',
-    position: 'right',
-  };
 }

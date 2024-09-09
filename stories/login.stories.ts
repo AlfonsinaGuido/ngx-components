@@ -23,7 +23,7 @@ export default meta;
 type Story = StoryObj<LoginComponent>;
 
 const LoginFunction = (): void => {
-  console.log('Logueado');
+  alert('Logueado');
 };
 
 export const simpleContent: Story = {
@@ -42,10 +42,9 @@ export const simpleContent: Story = {
         action: LoginFunction,
       },
       icon: {
-        icon: 'login.svg',
-        type: 'svg',
+        icon: 'input',
+        type: 'class',
         position: 'right',
-        color: '#000000',
       },
     },
   },

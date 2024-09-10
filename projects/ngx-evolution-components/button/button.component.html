@@ -25,9 +25,10 @@
         @if (icon.type === "class") {
           <mat-icon
             aria-hidden="false"
-            aria-label="icon"
-            [fontIcon]="icon.icon"
-          ></mat-icon>
+            [attr.aria-label]="icon.icon + ' icon'"
+            fontSet="material-symbols-outlined"
+            >{{ icon.icon }}</mat-icon
+          >
         }
       </div>
     }
@@ -55,9 +56,10 @@
         @if (icon.type === "class") {
           <mat-icon
             aria-hidden="false"
-            aria-label="icon"
-            [fontIcon]="icon.icon"
-          ></mat-icon>
+            [attr.aria-label]="icon.icon + ' icon'"
+            fontSet="material-symbols-outlined"
+            >{{ icon.icon }}</mat-icon
+          >
         }
       </div>
     }
@@ -69,9 +71,10 @@
         @if (icon.type === "class") {
           <mat-icon
             aria-hidden="false"
-            aria-label="icon"
-            [fontIcon]="icon.icon"
-          ></mat-icon>
+            [attr.aria-label]="icon.icon + ' icon'"
+            fontSet="material-symbols-outlined"
+            >{{ icon.icon }}</mat-icon
+          >
         }
       </div>
     }

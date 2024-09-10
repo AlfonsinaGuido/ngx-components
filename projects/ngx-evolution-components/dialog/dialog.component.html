@@ -9,8 +9,9 @@
       <mat-icon
         aria-hidden="false"
         aria-label="close dialog icon"
-        fontIcon="close"
-      ></mat-icon>
+        fontSet="material-symbols-outlined"
+        >close</mat-icon
+      >
     </button>
   </div>
 }
@@ -33,11 +34,12 @@
     @if (icon.type === "class") {
       <mat-icon
         aria-hidden="false"
-        aria-label="icon"
-        [ngStyle]="{ color: icon.color }"
-        [fontIcon]="icon.icon"
+        [attr.aria-label]="icon.icon + ' icon'"
+        fontSet="material-symbols-outlined"
         class="icon-size"
-      ></mat-icon>
+        [ngStyle]="{ color: icon.color }"
+        >{{ icon.icon }}</mat-icon
+      >
     }
     <span mat-dialog-title class="title-text font-extrabold class icon-title">{{
       title

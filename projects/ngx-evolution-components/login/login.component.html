@@ -1,17 +1,26 @@
-<div
-  class="w-auto flex flex-col justify-self-center self-center m-0 text-center"
->
+<div class="w-full">
   @if (svg?.icon && svg?.icon !== "") {
-    <evo-svg class="mb-6" [svgPath]="svg!.icon"></evo-svg>
+    <evo-svg class="flex justify-center mb-5" [svgPath]="svg!.icon"></evo-svg>
   }
-  <h1 class="mt-2">{{ title }}</h1>
-  <p class="pt-2 pb-8 text-lg text-gray-500">
-    {{ subtitle }}
-  </p>
-  <evo-button
-    [label]="button?.label!"
-    [icon]="button?.icon!"
-    [theme]="button?.theme!"
-    [onClick]="button?.onClick"
-  ></evo-button>
+  <div class="flex flex-col gap-11">
+    <div class="flex flex-col gap-2 text-center">
+      @if (title !== "") {
+        <div class="font-bold text-4xl text-dark-gray max-md:text-2xl">
+          {{ title }}
+        </div>
+      }
+      @if (subtitle !== "") {
+        <p class="text-lg text-medium-gray">
+          {{ subtitle }}
+        </p>
+      }
+    </div>
+    <evo-button
+      [label]="button.label"
+      [icon]="button.icon"
+      [theme]="button.theme"
+      [onClick]="button.onClick"
+      [isFluid]="true"
+    ></evo-button>
+  </div>
 </div>

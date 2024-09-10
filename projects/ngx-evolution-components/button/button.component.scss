@@ -32,8 +32,8 @@ $parent: ".evo-button";
     box-shadow: var(--inverted-box-shadow);
     color: var(--white);
     &:hover {
-      border: 1.5px solid var(--accent-400);
-      background-color: var(--accent-400);
+      border: 1.5px solid var(--primary-500);
+      background-color: var(--primary-500);
     }
     &:active {
       border: 1.5px solid var(--medium-gray);

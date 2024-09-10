@@ -88,7 +88,6 @@ const meta: Meta<SidebarComponent> = {
         userDataItems: [
           {
             label: 'Cerrar Sesión',
-            icon: { icon: 'logout.svg', type: 'svg', position: 'left' },
             onClick: {
               action: (param = ' con param') => {
                 console.log('funciona' + param);

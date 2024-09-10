@@ -22,11 +22,11 @@ const meta: Meta<LoginComponent> = {
 export default meta;
 type Story = StoryObj<LoginComponent>;
 
-const LoginFunction = (): void => {
+const loginFunction = (): void => {
   alert('Logueado');
 };
 
-export const simpleContent: Story = {
+export const SimpleContent: Story = {
   args: {
     title: 'Iniciar Sesión',
     subtitle: 'Ingresa a tu cuenta para acceder a la aplicación',
@@ -39,18 +39,13 @@ export const simpleContent: Story = {
       label: 'Ingresar',
       theme: 'primary',
       onClick: {
-        action: LoginFunction,
-      },
-      icon: {
-        icon: 'input',
-        type: 'class',
-        position: 'right',
+        action: loginFunction,
       },
     },
   },
 };
 
-export const noIconStory: Story = {
+export const NoIcon: Story = {
   args: {
     title: 'Iniciar Sesión',
     subtitle: 'Ingresa a tu cuenta para acceder a la aplicación',
@@ -58,30 +53,20 @@ export const noIconStory: Story = {
       label: 'Ingresar',
       theme: 'primary',
       onClick: {
-        action: LoginFunction,
-      },
-      icon: {
-        icon: 'login.svg',
-        type: 'svg',
-        position: 'right',
+        action: loginFunction,
       },
     },
   },
 };
 
-export const noSubtitle: Story = {
+export const NoSubtitle: Story = {
   args: {
     title: 'Iniciar Sesión',
     button: {
       label: 'Ingresar',
       theme: 'primary',
       onClick: {
-        action: LoginFunction,
-      },
-      icon: {
-        icon: 'login.svg',
-        type: 'svg',
-        position: 'right',
+        action: loginFunction,
       },
     },
   },

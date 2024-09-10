@@ -1,29 +1,28 @@
-evo-svg {
-  justify-content: center;
-}
-
-evo-svg .mat-icon {
-  height: auto;
-  width: 175px;
-}
-
-evo-button {
+evo-login {
   display: flex;
-  justify-content: center;
+  width: 480px;
+  margin: auto;
+  evo-svg .mat-icon {
+    height: auto;
+    width: auto;
+    max-width: 160px;
+  }
+
+  evo-button .evo-button.theme-primary {
+    border: 1.5px solid transparent;
+  }
 }
 
-evo-button button {
-  width: 100%;
-  padding-bottom: 1em;
-  padding-top: 1em;
-}
-
-evo-button .evo-button.theme-primary {
-  border: 1.5px solid transparent;
+@media (max-width: 640px) {
+  evo-login {
+    width: 100%;
+  }
 }
 
 @media (max-width: 768px) {
-  evo-svg .mat-icon {
-    max-width: 150px;
+  evo-login {
+    evo-svg .mat-icon {
+      max-width: 100px;
+    }
   }
 }

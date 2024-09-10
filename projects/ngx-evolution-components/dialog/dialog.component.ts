@@ -62,7 +62,7 @@ export class DialogComponent {
     console.log('dialog icon ', this.data);
   }
 
-  closeDialog = {
+  private closeDialog = {
     action: () => {
       this.dialogRef.close();
     },

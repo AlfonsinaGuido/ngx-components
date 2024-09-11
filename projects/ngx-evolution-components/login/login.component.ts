@@ -1,7 +1,5 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
-import { IButton, IIcon } from '../public-api';
-import { SvgComponent } from '../svg/svg.component';
-import { ButtonComponent } from '../button/button.component';
+import { ButtonComponent, IButton, IIcon, SvgComponent } from '../public-api';
 
 @Component({
   selector: 'evo-login',

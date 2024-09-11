@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnChanges, ViewEncapsulation } from '@angular/core';
 import {
   AvatarComponent,
   IButtonAction,
@@ -17,7 +17,7 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrls: ['./button.component.scss', '../styles/output.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class ButtonComponent implements OnInit {
+export class ButtonComponent implements OnChanges {
   @Input() label?: string;
   @Input() icon?: IIcon;
   @Input() theme: ButtonTheme = 'default';
@@ -31,7 +31,7 @@ export class ButtonComponent implements OnInit {
   @Input() avatarImgUrl?: string;
   @Input() onClick?: IButtonAction;
 
-  ngOnInit(): void {
+  ngOnChanges(): void {
     if (this.icon && !this.icon.position) {
       this.icon.position = 'left';
     }

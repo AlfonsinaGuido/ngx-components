@@ -14,7 +14,7 @@ import { ButtonComponent } from '../button/button.component';
 export class LoginComponent implements OnInit {
   @Input() title?: string = '';
   @Input() subtitle?: string = '';
-  @Input() svg?: IIcon = { icon: '', type: 'svg', position: 'left' };
+  @Input() svg?: IIcon = { icon: '', type: 'svg' };
   @Input() button!: IButton;
 
   ngOnInit(): void {

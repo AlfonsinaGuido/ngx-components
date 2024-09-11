@@ -58,7 +58,6 @@ const meta: Meta<SidebarComponent> = {
             icon: {
               icon: 'company-logo.svg',
               type: 'svg',
-              position: 'left',
             },
             url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoWave',
           },
@@ -67,7 +66,6 @@ const meta: Meta<SidebarComponent> = {
             icon: {
               icon: 'company-logo.svg',
               type: 'svg',
-              position: 'left',
             },
             url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoChart',
           },

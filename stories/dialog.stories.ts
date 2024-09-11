@@ -213,7 +213,6 @@ export const svgDialog: Story = {
     icon: {
       icon: 'company-logo.svg',
       type: 'svg',
-      position: 'right',
     },
     buttonsItems: [
       {

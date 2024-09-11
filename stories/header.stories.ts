@@ -44,7 +44,6 @@ export const Default: Story = {
           icon: {
             icon: 'company-logo.svg',
             type: 'svg',
-            position: 'left',
           },
           url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoWave',
         },
@@ -53,7 +52,6 @@ export const Default: Story = {
           icon: {
             icon: 'company-logo.svg',
             type: 'svg',
-            position: 'left',
           },
           url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoChart',
         },

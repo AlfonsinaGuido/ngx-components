@@ -57,7 +57,7 @@ export class DialogComponent {
     this.buttonsItems = this.data?.buttonsItems?.map((x) => x) || [];
     this.closeButton = this.data?.closeButton || false;
     this.disableClosing = this.data?.disableClosing || false;
-    this.icon = this.data?.icon || { icon: '', type: 'svg', position: 'left' };
+    this.icon = this.data?.icon || { icon: '', type: 'svg' };
     dialogRef.disableClose = this.disableClosing;
     console.log('dialog icon ', this.data);
   }

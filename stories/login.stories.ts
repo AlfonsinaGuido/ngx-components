@@ -33,7 +33,6 @@ export const SimpleContent: Story = {
     svg: {
       icon: 'company-logo.svg',
       type: 'svg',
-      position: 'right',
     },
     button: {
       label: 'Ingresar',

@@ -95,7 +95,6 @@ export const WithSvgIcon: Story = {
     icon: {
       icon: 'add-user.svg',
       type: 'svg',
-      position: 'left',
     },
   },
 };

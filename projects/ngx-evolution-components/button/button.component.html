@@ -63,20 +63,5 @@
         }
       </div>
     }
-    @if (icon && !icon.position && !label) {
-      <div class="icon">
-        @if (icon.type === "svg") {
-          <evo-svg [svgPath]="icon.icon"></evo-svg>
-        }
-        @if (icon.type === "class") {
-          <mat-icon
-            aria-hidden="false"
-            [attr.aria-label]="icon.icon + ' icon'"
-            fontSet="material-symbols-outlined"
-            >{{ icon.icon }}</mat-icon
-          >
-        }
-      </div>
-    }
   </ng-template>
 </button>

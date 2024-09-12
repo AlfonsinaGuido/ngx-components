@@ -6,7 +6,7 @@ import { PLATFORM_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
-import { IIcon, IconPosition } from '../public-api';
+import { IIcon } from '../public-api';
 
 describe('SidebarComponent', () => {
   let component: SidebarComponent;
@@ -50,9 +50,12 @@ describe('SidebarComponent', () => {
         notificationTitle: 'Notificaciones',
       },
       buttonItems: {
-        appItems: [],
-        notificationItems: [],
-        userDataItems: [],
+        appItems: [{ label: 'App 1' }, { label: 'App 2' }],
+        notificationItems: [
+          { label: 'Notification 1' },
+          { label: 'Notification 2' },
+        ],
+        userDataItems: [{ label: 'Test' }],
       },
       companyData: {
         companyImage: '',
@@ -134,18 +137,5 @@ describe('SidebarComponent', () => {
   it('should return false for isActive if route does not match activeRoute', () => {
     component.activeRoute = '/test';
     expect(component.isActive('/not-test')).toBe(false);
-  });
-
-  it('should return an icon object with position set to left', () => {
-    const inputIcon: IIcon = { icon: 'dashboard.svg', type: 'svg' };
-    const expectedIcon: IIcon = {
-      ...inputIcon,
-      position: 'left' as IconPosition,
-    };
-
-    const result = component.getIconWithLeftPosition(inputIcon);
-
-    expect(result).toEqual(expectedIcon);
-    expect(result.position).toBe('left');
   });
 });

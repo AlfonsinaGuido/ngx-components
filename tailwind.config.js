@@ -37,6 +37,7 @@ module.exports = {
       },
       boxShadow: {
         normal: "0 2px 10px rgba(0, 0, 0, 0.1)",
+        md: "0px 4px 8px -2px rgba(23, 23, 23, 0.1)",
       },
     },
     screens: {

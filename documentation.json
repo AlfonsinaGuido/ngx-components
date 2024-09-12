@@ -148,7 +148,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    icons: {\n      appIcon: {\n        icon: 'app-menu.svg',\n        type: 'svg',\n      },\n      notificationIcon: {\n        icon: 'bell.svg',\n        type: 'svg',\n      },\n    },\n    titles: {\n      appTitle: 'Tus aplicaciones',\n      notificationTitle: 'Notificaciones',\n    },\n    buttonItems: {\n      appItems: [\n        {\n          label: 'Evo Wave',\n          icon: {\n            icon: 'company-logo.svg',\n            type: 'svg',\n            position: 'left',\n          },\n          url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoWave',\n        },\n        {\n          label: 'Evo Chart',\n          icon: {\n            icon: 'company-logo.svg',\n            type: 'svg',\n            position: 'left',\n          },\n          url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoChart',\n        },\n      ],\n      notificationItems: [\n        {\n          label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\n          avatarName: 'Carlos Sanchez',\n          avatarImgUrl:\n            'https://material.angular.io/assets/img/examples/shiba1.jpg',\n          onClick: {\n            action: (param = ' con param') => {\n              console.log('funciona' + param);\n            },\n          },\n        },\n        {\n          label: 'Samuel Lopez finalizo Programa Desarrollo',\n          avatarName: 'Samuel Lopez',\n          avatarImgUrl:\n            'https://material.angular.io/assets/img/examples/shiba1.jpg',\n          onClick: {\n            action: () => {\n              console.log('funciona sin param');\n            },\n          },\n        },\n        {\n          label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',\n          avatarName: 'Ignacio Fernandez',\n          avatarImgUrl:\n            'https://material.angular.io/assets/img/examples/shiba1.jpg',\n          onClick: {\n            action: (name = 'Ignacio Fernandez') => {\n              console.log('Felicidades ' + name);\n            },\n          },\n        },\n      ],\n      userDataItems: [\n        {\n          label: 'Cerrar Sesión',\n          icon: {\n            icon: 'logout.svg',\n            type: 'svg',\n            position: 'left',\n          },\n          onClick: {\n            action: (param = ' con param') => {\n              console.log('funciona' + param);\n            },\n          },\n        },\n      ],\n    },\n    companyData: {\n      companyImage: 'company-logo.svg',\n    },\n    box: [\n      {\n        label: 'Cambiar Perfil',\n        action: (param = ' con param') => {\n          console.log('funciona' + param);\n        },\n      },\n    ],\n    userData: {\n      fullName: 'Stela Lopez',\n      email: 'slopez@empresa.com',\n      position: 'Gerente Desarrollo',\n    },\n    twClass: '',\n  },\n}"
+        "defaultValue": "{\n  args: {\n    icons: {\n      appIcon: {\n        icon: 'app-menu.svg',\n        type: 'svg',\n      },\n      notificationIcon: {\n        icon: 'bell.svg',\n        type: 'svg',\n      },\n    },\n    titles: {\n      appTitle: 'Tus aplicaciones',\n      notificationTitle: 'Notificaciones',\n    },\n    buttonItems: {\n      appItems: [\n        {\n          label: 'Evo Wave',\n          icon: {\n            icon: 'company-logo.svg',\n            type: 'svg',\n            position: 'left',\n          },\n          url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoWave',\n        },\n        {\n          label: 'Evo Chart',\n          icon: {\n            icon: 'company-logo.svg',\n            type: 'svg',\n            position: 'left',\n          },\n          url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoChart',\n        },\n      ],\n      notificationItems: [\n        {\n          label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\n          avatarName: 'Carlos Sanchez',\n          avatarImgUrl:\n            'https://material.angular.io/assets/img/examples/shiba1.jpg',\n          onClick: {\n            action: (param = ' con param') => {\n              console.log('funciona' + param);\n            },\n          },\n        },\n        {\n          label: 'Samuel Lopez finalizo Programa Desarrollo',\n          avatarName: 'Samuel Lopez',\n          avatarImgUrl:\n            'https://material.angular.io/assets/img/examples/shiba1.jpg',\n          onClick: {\n            action: () => {\n              console.log('funciona sin param');\n            },\n          },\n        },\n        {\n          label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',\n          avatarName: 'Ignacio Fernandez',\n          avatarImgUrl:\n            'https://material.angular.io/assets/img/examples/shiba1.jpg',\n          onClick: {\n            action: (name = 'Ignacio Fernandez') => {\n              console.log('Felicidades ' + name);\n            },\n          },\n        },\n      ],\n      userDataItems: [\n        {\n          label: 'Cerrar Sesión',\n          onClick: {\n            action: (param = ' con param') => {\n              console.log('funciona' + param);\n            },\n          },\n        },\n      ],\n    },\n    companyData: {\n      companyImage: 'company-logo.svg',\n    },\n    box: [\n      {\n        label: 'Cambiar Perfil',\n        action: (param = ' con param') => {\n          console.log('funciona' + param);\n        },\n      },\n    ],\n    userData: {\n      fullName: 'Stela Lopez',\n      email: 'slopez@empresa.com',\n      position: 'Gerente Desarrollo',\n    },\n    twClass: '',\n  },\n}"
       },
       {
         "name": "Default",
@@ -158,7 +158,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    title: title,\n    subtitle: subtitle,\n    cardtext: cardtext,\n    asideClass: 'bg-[#50d71e]',\n    cardClass: 'bg-slate-600',\n  },\n}"
+        "defaultValue": "{\n  args: {\n    title: title,\n    subtitle: subtitle,\n    cardtext: cardtext,\n    twClassAside: '',\n    twClassCard: 'text-medium-gray',\n  },\n}"
       },
       {
         "name": "Default",
@@ -441,6 +441,16 @@
         "defaultValue": "{\n  args: {\n    cardData: {\n      ...Default!.args!.cardData,\n      isFluid: false,\n      size: 'lg',\n      title: 'Large Program Title',\n    },\n  },\n}"
       },
       {
+        "name": "loginFunction",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/login.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "(): void => {\n  alert('Logueado');\n}"
+      },
+      {
         "name": "masColumnas",
         "ctype": "miscellaneous",
         "subtype": "variable",
@@ -514,6 +524,16 @@
         "name": "meta",
         "ctype": "miscellaneous",
         "subtype": "variable",
+        "file": "stories/login.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Meta<LoginComponent>",
+        "defaultValue": "{\n  title: 'Evolution Components/Login',\n  component: LoginComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync(), provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+      },
+      {
+        "name": "meta",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
         "file": "stories/menu.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
@@ -538,7 +558,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<SidebarComponent>",
-        "defaultValue": "{\n  title: 'Evolution Components/Sidebar',\n  component: SidebarComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync(), provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n  argTypes: {\n    commonProps: {\n      description: 'Propiedades comunes entre header y sidebar',\n      control: {\n        type: 'object',\n      },\n    },\n    options: {\n      description: 'Opciones del sidebar',\n      control: {\n        type: 'object',\n      },\n    },\n    additionalOptions: {\n      description: 'Opciones adicionales del sidebar',\n      control: {\n        type: 'object',\n      },\n    },\n  },\n  args: {\n    commonProps: {\n      icons: {\n        appIcon: { icon: 'app-menu.svg', type: 'svg' },\n        notificationIcon: { icon: 'bell.svg', type: 'svg' },\n        closeMenuIcon: { icon: 'close.svg', type: 'svg' },\n      } as IHeaderIcons,\n      titles: {\n        appTitle: 'Tus aplicaciones',\n        notificationTitle: 'Notificaciones',\n      } as IHeaderTitles,\n      buttonItems: {\n        appItems: [\n          {\n            label: 'Evo Wave',\n            icon: {\n              icon: 'company-logo.svg',\n              type: 'svg',\n              position: 'left',\n            },\n            url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoWave',\n          },\n          {\n            label: 'Evo Chart',\n            icon: {\n              icon: 'company-logo.svg',\n              type: 'svg',\n              position: 'left',\n            },\n            url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoChart',\n          },\n        ],\n        notificationItems: [\n          {\n            label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\n            avatarName: 'Carlos Sanchez',\n            avatarImgUrl:\n              'https://material.angular.io/assets/img/examples/shiba1.jpg',\n            onClick: {\n              action: (param = ' con param') => {\n                console.log('funciona' + param);\n              },\n            },\n          },\n        ],\n        userDataItems: [\n          {\n            label: 'Cerrar Sesión',\n            icon: { icon: 'logout.svg', type: 'svg', position: 'left' },\n            onClick: {\n              action: (param = ' con param') => {\n                console.log('funciona' + param);\n              },\n            },\n          },\n        ],\n      } as IHeaderButtonItems,\n      companyData: {\n        companyImage: 'company-logo.svg',\n        companyName: 'ASEINFO',\n      } as IHeaderCompanyData,\n      userData: {\n        fullName: 'Stela Lopez',\n        email: 'slopez@empresa.com',\n        position: 'Gerente Desarrollo',\n      },\n    } as IHeader,\n    options: [\n      {\n        icon: { icon: 'dashboard.svg', type: 'svg' },\n        action: () => alert('Dashboard'),\n        route: '/dashboard',\n        title: 'Dashboard',\n      },\n      {\n        icon: { icon: 'files.svg', type: 'svg' },\n        action: () => alert('Files'),\n        route: '/files',\n        title: 'Files',\n      },\n      {\n        icon: { icon: 'settings.svg', type: 'svg' },\n        action: () => alert('Settings'),\n        route: '/settings',\n        title: 'Settings',\n      },\n    ] as ISidebarOption[],\n    additionalOptions: [\n      {\n        icon: { icon: 'company-logo.svg', type: 'svg' },\n        action: () => alert('Dashboard'),\n        route: '/dashboard',\n        title: 'Dashboard',\n      },\n    ] as ISidebarOption[],\n  },\n}"
+        "defaultValue": "{\n  title: 'Evolution Components/Sidebar',\n  component: SidebarComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync(), provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n  argTypes: {\n    commonProps: {\n      description: 'Propiedades comunes entre header y sidebar',\n      control: {\n        type: 'object',\n      },\n    },\n    options: {\n      description: 'Opciones del sidebar',\n      control: {\n        type: 'object',\n      },\n    },\n    additionalOptions: {\n      description: 'Opciones adicionales del sidebar',\n      control: {\n        type: 'object',\n      },\n    },\n  },\n  args: {\n    commonProps: {\n      icons: {\n        appIcon: { icon: 'app-menu.svg', type: 'svg' },\n        notificationIcon: { icon: 'bell.svg', type: 'svg' },\n        closeMenuIcon: { icon: 'close.svg', type: 'svg' },\n      } as IHeaderIcons,\n      titles: {\n        appTitle: 'Tus aplicaciones',\n        notificationTitle: 'Notificaciones',\n      } as IHeaderTitles,\n      buttonItems: {\n        appItems: [\n          {\n            label: 'Evo Wave',\n            icon: {\n              icon: 'company-logo.svg',\n              type: 'svg',\n              position: 'left',\n            },\n            url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoWave',\n          },\n          {\n            label: 'Evo Chart',\n            icon: {\n              icon: 'company-logo.svg',\n              type: 'svg',\n              position: 'left',\n            },\n            url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoChart',\n          },\n        ],\n        notificationItems: [\n          {\n            label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\n            avatarName: 'Carlos Sanchez',\n            avatarImgUrl:\n              'https://material.angular.io/assets/img/examples/shiba1.jpg',\n            onClick: {\n              action: (param = ' con param') => {\n                console.log('funciona' + param);\n              },\n            },\n          },\n        ],\n        userDataItems: [\n          {\n            label: 'Cerrar Sesión',\n            onClick: {\n              action: (param = ' con param') => {\n                console.log('funciona' + param);\n              },\n            },\n          },\n        ],\n      } as IHeaderButtonItems,\n      companyData: {\n        companyImage: 'company-logo.svg',\n        companyName: 'ASEINFO',\n      } as IHeaderCompanyData,\n      userData: {\n        fullName: 'Stela Lopez',\n        email: 'slopez@empresa.com',\n        position: 'Gerente Desarrollo',\n      },\n    } as IHeader,\n    options: [\n      {\n        icon: { icon: 'dashboard.svg', type: 'svg' },\n        action: () => alert('Dashboard'),\n        route: '/dashboard',\n        title: 'Dashboard',\n      },\n      {\n        icon: { icon: 'files.svg', type: 'svg' },\n        action: () => alert('Files'),\n        route: '/files',\n        title: 'Files',\n      },\n      {\n        icon: { icon: 'settings.svg', type: 'svg' },\n        action: () => alert('Settings'),\n        route: '/settings',\n        title: 'Settings',\n      },\n    ] as ISidebarOption[],\n    additionalOptions: [\n      {\n        icon: { icon: 'company-logo.svg', type: 'svg' },\n        action: () => alert('Dashboard'),\n        route: '/dashboard',\n        title: 'Dashboard',\n      },\n    ] as ISidebarOption[],\n  },\n}"
       },
       {
         "name": "meta",
@@ -571,6 +591,16 @@
         "defaultValue": "{\n  args: {\n    ...Default.args,\n    control: formControlMultipleSelect,\n    isMultiple: true,\n  },\n}"
       },
       {
+        "name": "NoIcon",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/login.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    title: 'Iniciar Sesión',\n    subtitle: 'Ingresa a tu cuenta para acceder a la aplicación',\n    button: {\n      label: 'Ingresar',\n      theme: 'primary',\n      onClick: {\n        action: loginFunction,\n      },\n    },\n  },\n}"
+      },
+      {
         "name": "nombreColumnaLargo",
         "ctype": "miscellaneous",
         "subtype": "variable",
@@ -579,6 +609,16 @@
         "deprecationMessage": "",
         "type": "Story",
         "defaultValue": "{\n  args: {\n    name: 'Las actividades que aún no hemos empezado pero tenemos que empezar muy pronto de lo contrario nos quedaremos sin tiempo',\n    count: 25,\n    index: 2,\n  },\n}"
+      },
+      {
+        "name": "NoSubtitle",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/login.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    title: 'Iniciar Sesión',\n    button: {\n      label: 'Ingresar',\n      theme: 'primary',\n      onClick: {\n        action: loginFunction,\n      },\n    },\n  },\n}"
       },
       {
         "name": "NotificationsMenu",
@@ -729,6 +769,16 @@
         "deprecationMessage": "",
         "type": "Story",
         "defaultValue": "{\n  args: {\n    title: 'Dialogo de testing',\n    simpleContent: 'Testing de prueba para dialogo',\n  },\n}"
+      },
+      {
+        "name": "SimpleContent",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/login.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    title: 'Iniciar Sesión',\n    subtitle: 'Ingresa a tu cuenta para acceder a la aplicación',\n    svg: {\n      icon: 'company-logo.svg',\n      type: 'svg',\n    },\n    button: {\n      label: 'Ingresar',\n      theme: 'primary',\n      onClick: {\n        action: loginFunction,\n      },\n    },\n  },\n}"
       },
       {
         "name": "sinActividadeds",
@@ -898,7 +948,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    icons: {\n      closeIcon: {\n        icon: 'close.svg',\n        type: 'svg',\n      },\n    },\n    userData: {\n      fullName: 'Stela Lopez',\n      email: 'slopez@empresa.com',\n      position: 'Gerente Desarrollo',\n    },\n    items: [\n      {\n        label: 'Cerrar Sesión',\n        icon: {\n          icon: 'logout.svg',\n          type: 'svg',\n          position: 'left',\n        },\n        onClick: {\n          action: (param = ' con param') => {\n            console.log('funciona' + param);\n          },\n        },\n      },\n    ],\n    twClass: '',\n  },\n}"
+        "defaultValue": "{\n  args: {\n    icons: {\n      closeIcon: {\n        icon: 'close.svg',\n        type: 'svg',\n      },\n    },\n    userData: {\n      fullName: 'Stela Lopez',\n      email: 'slopez@empresa.com',\n      position: 'Gerente Desarrollo',\n    },\n    items: [\n      {\n        label: 'Cerrar Sesión',\n        onClick: {\n          action: (param = ' con param') => {\n            console.log('funciona' + param);\n          },\n        },\n      },\n    ],\n    twClass: '',\n  },\n}"
       },
       {
         "name": "vencida",
@@ -968,7 +1018,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    icon: {\n      icon: 'cleaning_services',\n      type: 'class',\n    },\n  },\n}"
+        "defaultValue": "{\n  args: {\n    icon: {\n      icon: 'home',\n      type: 'class',\n    },\n  },\n}"
       },
       {
         "name": "WithoutBorder",
@@ -1163,6 +1213,17 @@
         "subtype": "typealias",
         "rawtype": "StoryObj<InputComponent>",
         "file": "stories/input.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "description": "",
+        "kind": 183
+      },
+      {
+        "name": "Story",
+        "ctype": "miscellaneous",
+        "subtype": "typealias",
+        "rawtype": "StoryObj<LoginComponent>",
+        "file": "stories/login.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "description": "",
@@ -1400,7 +1461,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    title: title,\n    subtitle: subtitle,\n    cardtext: cardtext,\n    asideClass: 'bg-[#50d71e]',\n    cardClass: 'bg-slate-600',\n  },\n}"
+          "defaultValue": "{\n  args: {\n    title: title,\n    subtitle: subtitle,\n    cardtext: cardtext,\n    twClassAside: '',\n    twClassCard: 'text-medium-gray',\n  },\n}"
         },
         {
           "name": "meta",
@@ -1738,7 +1799,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    icon: {\n      icon: 'cleaning_services',\n      type: 'class',\n    },\n  },\n}"
+          "defaultValue": "{\n  args: {\n    icon: {\n      icon: 'home',\n      type: 'class',\n    },\n  },\n}"
         },
         {
           "name": "WithoutBorder",
@@ -1904,7 +1965,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    icons: {\n      appIcon: {\n        icon: 'app-menu.svg',\n        type: 'svg',\n      },\n      notificationIcon: {\n        icon: 'bell.svg',\n        type: 'svg',\n      },\n    },\n    titles: {\n      appTitle: 'Tus aplicaciones',\n      notificationTitle: 'Notificaciones',\n    },\n    buttonItems: {\n      appItems: [\n        {\n          label: 'Evo Wave',\n          icon: {\n            icon: 'company-logo.svg',\n            type: 'svg',\n            position: 'left',\n          },\n          url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoWave',\n        },\n        {\n          label: 'Evo Chart',\n          icon: {\n            icon: 'company-logo.svg',\n            type: 'svg',\n            position: 'left',\n          },\n          url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoChart',\n        },\n      ],\n      notificationItems: [\n        {\n          label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\n          avatarName: 'Carlos Sanchez',\n          avatarImgUrl:\n            'https://material.angular.io/assets/img/examples/shiba1.jpg',\n          onClick: {\n            action: (param = ' con param') => {\n              console.log('funciona' + param);\n            },\n          },\n        },\n        {\n          label: 'Samuel Lopez finalizo Programa Desarrollo',\n          avatarName: 'Samuel Lopez',\n          avatarImgUrl:\n            'https://material.angular.io/assets/img/examples/shiba1.jpg',\n          onClick: {\n            action: () => {\n              console.log('funciona sin param');\n            },\n          },\n        },\n        {\n          label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',\n          avatarName: 'Ignacio Fernandez',\n          avatarImgUrl:\n            'https://material.angular.io/assets/img/examples/shiba1.jpg',\n          onClick: {\n            action: (name = 'Ignacio Fernandez') => {\n              console.log('Felicidades ' + name);\n            },\n          },\n        },\n      ],\n      userDataItems: [\n        {\n          label: 'Cerrar Sesión',\n          icon: {\n            icon: 'logout.svg',\n            type: 'svg',\n            position: 'left',\n          },\n          onClick: {\n            action: (param = ' con param') => {\n              console.log('funciona' + param);\n            },\n          },\n        },\n      ],\n    },\n    companyData: {\n      companyImage: 'company-logo.svg',\n    },\n    box: [\n      {\n        label: 'Cambiar Perfil',\n        action: (param = ' con param') => {\n          console.log('funciona' + param);\n        },\n      },\n    ],\n    userData: {\n      fullName: 'Stela Lopez',\n      email: 'slopez@empresa.com',\n      position: 'Gerente Desarrollo',\n    },\n    twClass: '',\n  },\n}"
+          "defaultValue": "{\n  args: {\n    icons: {\n      appIcon: {\n        icon: 'app-menu.svg',\n        type: 'svg',\n      },\n      notificationIcon: {\n        icon: 'bell.svg',\n        type: 'svg',\n      },\n    },\n    titles: {\n      appTitle: 'Tus aplicaciones',\n      notificationTitle: 'Notificaciones',\n    },\n    buttonItems: {\n      appItems: [\n        {\n          label: 'Evo Wave',\n          icon: {\n            icon: 'company-logo.svg',\n            type: 'svg',\n            position: 'left',\n          },\n          url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoWave',\n        },\n        {\n          label: 'Evo Chart',\n          icon: {\n            icon: 'company-logo.svg',\n            type: 'svg',\n            position: 'left',\n          },\n          url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoChart',\n        },\n      ],\n      notificationItems: [\n        {\n          label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\n          avatarName: 'Carlos Sanchez',\n          avatarImgUrl:\n            'https://material.angular.io/assets/img/examples/shiba1.jpg',\n          onClick: {\n            action: (param = ' con param') => {\n              console.log('funciona' + param);\n            },\n          },\n        },\n        {\n          label: 'Samuel Lopez finalizo Programa Desarrollo',\n          avatarName: 'Samuel Lopez',\n          avatarImgUrl:\n            'https://material.angular.io/assets/img/examples/shiba1.jpg',\n          onClick: {\n            action: () => {\n              console.log('funciona sin param');\n            },\n          },\n        },\n        {\n          label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',\n          avatarName: 'Ignacio Fernandez',\n          avatarImgUrl:\n            'https://material.angular.io/assets/img/examples/shiba1.jpg',\n          onClick: {\n            action: (name = 'Ignacio Fernandez') => {\n              console.log('Felicidades ' + name);\n            },\n          },\n        },\n      ],\n      userDataItems: [\n        {\n          label: 'Cerrar Sesión',\n          onClick: {\n            action: (param = ' con param') => {\n              console.log('funciona' + param);\n            },\n          },\n        },\n      ],\n    },\n    companyData: {\n      companyImage: 'company-logo.svg',\n    },\n    box: [\n      {\n        label: 'Cambiar Perfil',\n        action: (param = ' con param') => {\n          console.log('funciona' + param);\n        },\n      },\n    ],\n    userData: {\n      fullName: 'Stela Lopez',\n      email: 'slopez@empresa.com',\n      position: 'Gerente Desarrollo',\n    },\n    twClass: '',\n  },\n}"
         },
         {
           "name": "meta",
@@ -2068,7 +2129,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    icons: {\n      closeIcon: {\n        icon: 'close.svg',\n        type: 'svg',\n      },\n    },\n    userData: {\n      fullName: 'Stela Lopez',\n      email: 'slopez@empresa.com',\n      position: 'Gerente Desarrollo',\n    },\n    items: [\n      {\n        label: 'Cerrar Sesión',\n        icon: {\n          icon: 'logout.svg',\n          type: 'svg',\n          position: 'left',\n        },\n        onClick: {\n          action: (param = ' con param') => {\n            console.log('funciona' + param);\n          },\n        },\n      },\n    ],\n    twClass: '',\n  },\n}"
+          "defaultValue": "{\n  args: {\n    icons: {\n      closeIcon: {\n        icon: 'close.svg',\n        type: 'svg',\n      },\n    },\n    userData: {\n      fullName: 'Stela Lopez',\n      email: 'slopez@empresa.com',\n      position: 'Gerente Desarrollo',\n    },\n    items: [\n      {\n        label: 'Cerrar Sesión',\n        onClick: {\n          action: (param = ' con param') => {\n            console.log('funciona' + param);\n          },\n        },\n      },\n    ],\n    twClass: '',\n  },\n}"
         },
         {
           "name": "WithScroll",
@@ -2224,7 +2285,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<SidebarComponent>",
-          "defaultValue": "{\n  title: 'Evolution Components/Sidebar',\n  component: SidebarComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync(), provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n  argTypes: {\n    commonProps: {\n      description: 'Propiedades comunes entre header y sidebar',\n      control: {\n        type: 'object',\n      },\n    },\n    options: {\n      description: 'Opciones del sidebar',\n      control: {\n        type: 'object',\n      },\n    },\n    additionalOptions: {\n      description: 'Opciones adicionales del sidebar',\n      control: {\n        type: 'object',\n      },\n    },\n  },\n  args: {\n    commonProps: {\n      icons: {\n        appIcon: { icon: 'app-menu.svg', type: 'svg' },\n        notificationIcon: { icon: 'bell.svg', type: 'svg' },\n        closeMenuIcon: { icon: 'close.svg', type: 'svg' },\n      } as IHeaderIcons,\n      titles: {\n        appTitle: 'Tus aplicaciones',\n        notificationTitle: 'Notificaciones',\n      } as IHeaderTitles,\n      buttonItems: {\n        appItems: [\n          {\n            label: 'Evo Wave',\n            icon: {\n              icon: 'company-logo.svg',\n              type: 'svg',\n              position: 'left',\n            },\n            url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoWave',\n          },\n          {\n            label: 'Evo Chart',\n            icon: {\n              icon: 'company-logo.svg',\n              type: 'svg',\n              position: 'left',\n            },\n            url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoChart',\n          },\n        ],\n        notificationItems: [\n          {\n            label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\n            avatarName: 'Carlos Sanchez',\n            avatarImgUrl:\n              'https://material.angular.io/assets/img/examples/shiba1.jpg',\n            onClick: {\n              action: (param = ' con param') => {\n                console.log('funciona' + param);\n              },\n            },\n          },\n        ],\n        userDataItems: [\n          {\n            label: 'Cerrar Sesión',\n            icon: { icon: 'logout.svg', type: 'svg', position: 'left' },\n            onClick: {\n              action: (param = ' con param') => {\n                console.log('funciona' + param);\n              },\n            },\n          },\n        ],\n      } as IHeaderButtonItems,\n      companyData: {\n        companyImage: 'company-logo.svg',\n        companyName: 'ASEINFO',\n      } as IHeaderCompanyData,\n      userData: {\n        fullName: 'Stela Lopez',\n        email: 'slopez@empresa.com',\n        position: 'Gerente Desarrollo',\n      },\n    } as IHeader,\n    options: [\n      {\n        icon: { icon: 'dashboard.svg', type: 'svg' },\n        action: () => alert('Dashboard'),\n        route: '/dashboard',\n        title: 'Dashboard',\n      },\n      {\n        icon: { icon: 'files.svg', type: 'svg' },\n        action: () => alert('Files'),\n        route: '/files',\n        title: 'Files',\n      },\n      {\n        icon: { icon: 'settings.svg', type: 'svg' },\n        action: () => alert('Settings'),\n        route: '/settings',\n        title: 'Settings',\n      },\n    ] as ISidebarOption[],\n    additionalOptions: [\n      {\n        icon: { icon: 'company-logo.svg', type: 'svg' },\n        action: () => alert('Dashboard'),\n        route: '/dashboard',\n        title: 'Dashboard',\n      },\n    ] as ISidebarOption[],\n  },\n}"
+          "defaultValue": "{\n  title: 'Evolution Components/Sidebar',\n  component: SidebarComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync(), provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n  argTypes: {\n    commonProps: {\n      description: 'Propiedades comunes entre header y sidebar',\n      control: {\n        type: 'object',\n      },\n    },\n    options: {\n      description: 'Opciones del sidebar',\n      control: {\n        type: 'object',\n      },\n    },\n    additionalOptions: {\n      description: 'Opciones adicionales del sidebar',\n      control: {\n        type: 'object',\n      },\n    },\n  },\n  args: {\n    commonProps: {\n      icons: {\n        appIcon: { icon: 'app-menu.svg', type: 'svg' },\n        notificationIcon: { icon: 'bell.svg', type: 'svg' },\n        closeMenuIcon: { icon: 'close.svg', type: 'svg' },\n      } as IHeaderIcons,\n      titles: {\n        appTitle: 'Tus aplicaciones',\n        notificationTitle: 'Notificaciones',\n      } as IHeaderTitles,\n      buttonItems: {\n        appItems: [\n          {\n            label: 'Evo Wave',\n            icon: {\n              icon: 'company-logo.svg',\n              type: 'svg',\n              position: 'left',\n            },\n            url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoWave',\n          },\n          {\n            label: 'Evo Chart',\n            icon: {\n              icon: 'company-logo.svg',\n              type: 'svg',\n              position: 'left',\n            },\n            url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoChart',\n          },\n        ],\n        notificationItems: [\n          {\n            label: 'Carlos Sanchez finalizo Programa Recursos Humanos',\n            avatarName: 'Carlos Sanchez',\n            avatarImgUrl:\n              'https://material.angular.io/assets/img/examples/shiba1.jpg',\n            onClick: {\n              action: (param = ' con param') => {\n                console.log('funciona' + param);\n              },\n            },\n          },\n        ],\n        userDataItems: [\n          {\n            label: 'Cerrar Sesión',\n            onClick: {\n              action: (param = ' con param') => {\n                console.log('funciona' + param);\n              },\n            },\n          },\n        ],\n      } as IHeaderButtonItems,\n      companyData: {\n        companyImage: 'company-logo.svg',\n        companyName: 'ASEINFO',\n      } as IHeaderCompanyData,\n      userData: {\n        fullName: 'Stela Lopez',\n        email: 'slopez@empresa.com',\n        position: 'Gerente Desarrollo',\n      },\n    } as IHeader,\n    options: [\n      {\n        icon: { icon: 'dashboard.svg', type: 'svg' },\n        action: () => alert('Dashboard'),\n        route: '/dashboard',\n        title: 'Dashboard',\n      },\n      {\n        icon: { icon: 'files.svg', type: 'svg' },\n        action: () => alert('Files'),\n        route: '/files',\n        title: 'Files',\n      },\n      {\n        icon: { icon: 'settings.svg', type: 'svg' },\n        action: () => alert('Settings'),\n        route: '/settings',\n        title: 'Settings',\n      },\n    ] as ISidebarOption[],\n    additionalOptions: [\n      {\n        icon: { icon: 'company-logo.svg', type: 'svg' },\n        action: () => alert('Dashboard'),\n        route: '/dashboard',\n        title: 'Dashboard',\n      },\n    ] as ISidebarOption[],\n  },\n}"
         }
       ],
       "stories/svg.stories.ts": [
@@ -2291,6 +2352,58 @@
           "deprecationMessage": "",
           "type": "Story",
           "defaultValue": "{\n  args: {\n    size: 'lg',\n    name: 'Alfonso Gonzalez',\n    color: 'green',\n  },\n}"
+        }
+      ],
+      "stories/login.stories.ts": [
+        {
+          "name": "loginFunction",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/login.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "(): void => {\n  alert('Logueado');\n}"
+        },
+        {
+          "name": "meta",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/login.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Meta<LoginComponent>",
+          "defaultValue": "{\n  title: 'Evolution Components/Login',\n  component: LoginComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync(), provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+        },
+        {
+          "name": "NoIcon",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/login.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    title: 'Iniciar Sesión',\n    subtitle: 'Ingresa a tu cuenta para acceder a la aplicación',\n    button: {\n      label: 'Ingresar',\n      theme: 'primary',\n      onClick: {\n        action: loginFunction,\n      },\n    },\n  },\n}"
+        },
+        {
+          "name": "NoSubtitle",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/login.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    title: 'Iniciar Sesión',\n    button: {\n      label: 'Ingresar',\n      theme: 'primary',\n      onClick: {\n        action: loginFunction,\n      },\n    },\n  },\n}"
+        },
+        {
+          "name": "SimpleContent",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/login.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    title: 'Iniciar Sesión',\n    subtitle: 'Ingresa a tu cuenta para acceder a la aplicación',\n    svg: {\n      icon: 'company-logo.svg',\n      type: 'svg',\n    },\n    button: {\n      label: 'Ingresar',\n      theme: 'primary',\n      onClick: {\n        action: loginFunction,\n      },\n    },\n  },\n}"
         }
       ],
       ".storybook/preview.ts": [
@@ -2468,6 +2581,19 @@
           "subtype": "typealias",
           "rawtype": "StoryObj<InputComponent>",
           "file": "stories/input.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "description": "",
+          "kind": 183
+        }
+      ],
+      "stories/login.stories.ts": [
+        {
+          "name": "Story",
+          "ctype": "miscellaneous",
+          "subtype": "typealias",
+          "rawtype": "StoryObj<LoginComponent>",
+          "file": "stories/login.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "description": "",
@@ -3301,6 +3427,56 @@
         "linktype": "miscellaneous",
         "linksubtype": "variable",
         "name": "Required",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/login.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "loginFunction",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/login.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "meta",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/login.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "NoIcon",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/login.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "NoSubtitle",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/login.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "SimpleContent",
         "coveragePercent": 0,
         "coverageCount": "0/1",
         "status": "low"

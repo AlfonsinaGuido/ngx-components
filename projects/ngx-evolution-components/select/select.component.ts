@@ -41,7 +41,7 @@ export class SelectComponent {
 
   @ViewChild('selectControl') selectControl!: MatSelect;
 
-  clean(event: any) {
+  public clean(event: any) {
     this.control.reset();
     this.valueChange.emit(event.target.value);
     if (this.selectControl) {
@@ -49,7 +49,7 @@ export class SelectComponent {
     }
   }
 
-  onValueChange(event: any) {
+  public onValueChange(event: any) {
     this.valueChange.emit(event.value);
   }
 }

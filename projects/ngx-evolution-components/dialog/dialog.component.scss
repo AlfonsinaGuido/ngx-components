@@ -1,83 +1,76 @@
-.dialog-title {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
+evo-dialog {
+  .dialog-title {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
 
-.function-button .evo-button__content .label {
-  font-weight: 600;
-  font-size: 13px;
-}
+  .function-button .evo-button__content .label {
+    font-weight: 600;
+    font-size: 13px;
+  }
 
-.flex {
-  justify-content: center;
-}
+  .mat-icon.icon-size {
+    font-size: 3.5em;
+    height: auto;
+    width: auto;
+  }
 
-.mat-icon.icon-size {
-  font-size: 3.5em;
-  height: auto;
-  width: auto;
-}
+  .mat-mdc-dialog-content.mdc-dialog__content.icon-content {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+  }
 
-.icon-title {
-  padding-bottom: 0;
-}
+  .mat-dialog-container {
+    border-radius: 20px !important;
+  }
 
-.mat-mdc-dialog-content.mdc-dialog__content.icon-content {
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-}
+  .mdc-dialog__title {
+    --mdc-dialog-subhead-weight: 700;
+  }
 
-@media screen and (min-width: 768px) {
+  .mdc-dialog__content {
+    max-width: 757px;
+  }
+
+  .mat-mdc-dialog-container {
+    --mdc-dialog-container-shape: 20px;
+  }
+
   .dialog-icon-container.mat-mdc-dialog-content.mdc-dialog__content {
-    padding-left: 8em;
-    padding-right: 8em;
-    max-width: 500px;
+    padding-bottom: 0 !important;
+  }
+
+  evo-svg .mat-icon {
+    height: inherit;
+    width: inherit;
+    max-width: 100px;
+  }
+
+  .function-button {
+    width: 100%;
+    .evo-button {
+      border-radius: 9999px;
+      width: 100%;
+    }
   }
 }
 
-.mat-dialog-container {
-  border-radius: 20px !important;
-}
-
-.mdc-dialog__title {
-  --mdc-dialog-subhead-weight: 700;
-  --mdc-dialog-subhead-size: 20px;
-}
-
-.mdc-dialog__content {
-  --mdc-dialog-supporting-text-size: 15px;
-}
-
-.mat-mdc-dialog-container {
-  --mdc-dialog-container-shape: 20px;
-}
-
-.dialog-icon-container.mat-mdc-dialog-content.mdc-dialog__content {
-  padding-bottom: 0 !important;
-}
-
-evo-svg .mat-icon {
-  height: inherit;
-  width: inherit;
-  max-width: 100px;
-}
-
-evo-svg {
-  justify-content: center;
-}
-
-.function-button .evo-button {
-  border-radius: 9999px;
-  width: 100%;
-}
-
-.function-button {
-  width: 100%;
+@media screen and (min-width: 768px) {
+  evo-dialog {
+    .dialog-icon-container.mat-mdc-dialog-content.mdc-dialog__content {
+      padding-left: 8em;
+      padding-right: 8em;
+      max-width: 500px;
+      margin: auto;
+    }
+  }
 }
 
 @media (min-width: 640px) {
-  .function-button {
-    width: auto;
+  evo-dialog {
+    .function-button {
+      width: auto;
+    }
   }
 }

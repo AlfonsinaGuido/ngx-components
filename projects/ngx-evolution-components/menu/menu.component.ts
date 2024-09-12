@@ -41,9 +41,18 @@ export class MenuComponent implements OnInit {
         type: 'class',
       };
     }
+    if (this.userData) {
+      const lastItem = this.items.length - 1;
+      if (!this.items[lastItem].icon) {
+        this.items[lastItem].icon = {
+          icon: 'logout',
+          type: 'class',
+        };
+      }
+    }
   }
 
-  onMenuOpen(): void {
+  public onMenuOpen(): void {
     if (this.userData) {
       this.icons.buttonIcon = {
         icon: 'expand_less',
@@ -52,7 +61,7 @@ export class MenuComponent implements OnInit {
     }
   }
 
-  onMenuClose(): void {
+  public onMenuClose(): void {
     if (this.userData) {
       this.icons.buttonIcon = {
         icon: 'expand_more',

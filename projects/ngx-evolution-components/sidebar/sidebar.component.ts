@@ -73,16 +73,6 @@ export class SidebarComponent implements OnInit, AfterViewInit {
   }
 
   /**
-   * Retorna un nuevo objeto `IconInterface` con la posición del ícono ajustada a 'left'.
-   *
-   * @param {IIcon} icon - El objeto `IconInterface` original.
-   * @returns {IIcon} - Un nuevo objeto `IconInterface` con la propiedad `position` establecida en 'left'.
-   */
-  getIconWithLeftPosition(icon: IIcon): IIcon {
-    return { ...icon, position: 'left' };
-  }
-
-  /**
    * Alterna el estado de apertura del sidebar
    */
   toggleSidebar() {

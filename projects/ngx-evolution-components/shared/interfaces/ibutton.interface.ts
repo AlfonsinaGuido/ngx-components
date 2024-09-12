@@ -1,10 +1,15 @@
 import { IIcon } from '../../public-api';
 
-export type ButtonTheme = 'default' | 'primary' | 'secondary' | 'warning';
+export type ButtonTheme =
+  | 'default'
+  | 'primary'
+  | 'secondary'
+  | 'warning'
+  | undefined;
 
 export interface IButton {
   theme?: ButtonTheme;
-  label: string;
+  label?: string;
   icon?: IIcon;
   disabled?: boolean;
   isFlat?: boolean;

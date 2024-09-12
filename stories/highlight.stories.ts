@@ -33,8 +33,8 @@ export const Default: Story = {
     title: title,
     subtitle: subtitle,
     cardtext: cardtext,
-    asideClass: 'bg-[#50d71e]',
-    cardClass: 'bg-slate-600',
+    twClassAside: '',
+    twClassCard: 'text-medium-gray',
   },
 };
 

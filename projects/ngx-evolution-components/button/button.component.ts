@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnChanges, ViewEncapsulation } from '@angular/core';
 import {
   AvatarComponent,
   IButtonAction,
@@ -17,7 +17,7 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrls: ['./button.component.scss', '../styles/output.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class ButtonComponent {
+export class ButtonComponent implements OnChanges {
   @Input() label?: string;
   @Input() icon?: IIcon;
   @Input() theme: ButtonTheme = 'default';
@@ -31,7 +31,13 @@ export class ButtonComponent {
   @Input() avatarImgUrl?: string;
   @Input() onClick?: IButtonAction;
 
-  get getClasses() {
+  ngOnChanges(): void {
+    if (this.icon && !this.icon.position) {
+      this.icon.position = 'left';
+    }
+  }
+
+  public get getClasses() {
     const classes = this.twClass ? this.twClass.split(' ') : [];
     return {
       ...classes.reduce(
@@ -50,7 +56,7 @@ export class ButtonComponent {
     };
   }
 
-  onClickHandler() {
+  public onClickHandler() {
     if (this.onClick) {
       this.onClick.action();
     }

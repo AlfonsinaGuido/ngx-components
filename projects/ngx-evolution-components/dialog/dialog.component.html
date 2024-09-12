@@ -17,11 +17,11 @@
 }
 
 @if (icon.icon === "") {
-  <span mat-dialog-title class="title-text font-extrabold">{{ title }}</span>
+  <span mat-dialog-title class="!text-dark-gray !font-sans">{{ title }}</span>
 }
 
 @if (scrollableContent !== "") {
-  <mat-dialog-content class="mat-typography">
+  <mat-dialog-content class="mat-typography !font-sans">
     <div [innerHTML]="scrollableContent"></div>
   </mat-dialog-content>
 }
@@ -29,7 +29,7 @@
 @if (icon.icon !== "") {
   <mat-dialog-content align="center" class="dialog-icon-container">
     @if (icon.type === "svg") {
-      <evo-svg class="svg-size" [svgPath]="icon.icon"></evo-svg>
+      <evo-svg class="justify-center" [svgPath]="icon.icon"></evo-svg>
     }
     @if (icon.type === "class") {
       <mat-icon
@@ -41,14 +41,17 @@
         >{{ icon.icon }}</mat-icon
       >
     }
-    <span mat-dialog-title class="title-text font-extrabold class icon-title">{{
+    <span mat-dialog-title class="!text-dark-gray !font-sans pb-0">{{
       title
     }}</span>
   </mat-dialog-content>
 }
 
 @if (simpleContent !== "") {
-  <mat-dialog-content [ngClass]="icon.icon !== '' ? 'icon-content' : ''">
+  <mat-dialog-content
+    class="!font-sans"
+    [ngClass]="icon.icon !== '' ? 'icon-content' : ''"
+  >
     <div [ngClass]="icon.icon !== '' ? 'text-center' : ''">
       {{ simpleContent }}
     </div>
@@ -56,9 +59,7 @@
 }
 
 @if (buttonsItems.length! > 0) {
-  <mat-dialog-actions
-    class="flex-col !justify-end !gap-x-2 sm:flex-row !gap-y-2 !mx-5 !my-5"
-  >
+  <mat-dialog-actions class="flex-col !justify-end sm:flex-row !gap-2 !m-5 p-0">
     @for (item of buttonsItems; track item) {
       <evo-button
         class="function-button"

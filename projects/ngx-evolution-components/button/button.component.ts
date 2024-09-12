@@ -1,5 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnChanges, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  SimpleChanges,
+  ViewEncapsulation,
+} from '@angular/core';
 import {
   AvatarComponent,
   IButtonAction,
@@ -31,8 +37,8 @@ export class ButtonComponent implements OnChanges {
   @Input() avatarImgUrl?: string;
   @Input() onClick?: IButtonAction;
 
-  ngOnChanges(): void {
-    if (this.icon && !this.icon.position) {
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['icon'] && this.icon && !this.icon.position) {
       this.icon.position = 'left';
     }
   }

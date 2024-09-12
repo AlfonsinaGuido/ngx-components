@@ -10,14 +10,14 @@
     </p>
   }
   @if (subtitle !== "") {
-    <p class="aside-subtitle text-justify py-20 text-lg text-medium-gray">
+    <p class="aside-subtitle py-20 text-lg text-medium-gray">
       {{ subtitle }}
     </p>
   }
   @if (cardtext !== "") {
     <div
       [class]="twClassCard"
-      class="aside-cardtext text-justify font-medium w-full py-6 px-4 rounded-md text-xl"
+      class="aside-cardtext font-medium w-full py-6 px-4 rounded-md text-xl"
     >
       <span>{{ cardtext }}</span>
     </div>
@@ -26,7 +26,7 @@
 @if (cardtext !== "") {
   <div
     [class]="twClassCard"
-    class="aside-cardtext-mobile text-justify font-medium w-full py-6 px-4 rounded-md text-lg md:hidden"
+    class="aside-cardtext-mobile font-medium w-full py-6 px-4 rounded-md text-lg md:hidden"
   >
     <span>{{ cardtext }}</span>
   </div>

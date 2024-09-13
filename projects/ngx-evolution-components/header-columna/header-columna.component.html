@@ -5,10 +5,13 @@
 >
   @if (withCount) {
     <span
-      class="flex items-center justify-center font-bold text-sm size-6 min-w-6 sm:size-7 sm:min-w-7 rounded-full bg-white"
-      [class]="[classColor]"
-      >{{ count }}</span
+      class="flex items-center justify-center font-bold text-sm rounded-full bg-white {{
+        classColor
+      }}"
+      [ngClass]="count === 999 ? 'size-8' : 'size-6 sm:size-7'"
     >
+      {{ count === 999 ? count + "+" : count }}
+    </span>
   }
   <p
     class="text-white capitalize font-semibold tracking-wide text-sm overflow-hidden text-ellipsis line-clamp-1 ml-2"

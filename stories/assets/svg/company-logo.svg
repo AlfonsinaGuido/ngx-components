@@ -7,10 +7,13 @@
         <path id="660r9h59pa" d="M0 0L113.04 0 113.04 102.326 0 102.326z"/>
     </defs>
     <g fill="none" fill-rule="evenodd">
+        <g transform="matrix(-1.57 0.01 0.01 1.57 64.56 67.85) scale(0.9)">
+            <polygon style="stroke: rgb(0,0,0); stroke-opacity: 0; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke" points="0,-42.5 50,42.5 -50,42.5" />
+        </g>
         <g>
             <g>
                 <g>
-                    <g transform="translate(-632 -393) translate(507 327) translate(125 66) translate(5.588 4.73)">
+                    <g transform="translate(-632 -393) translate(507 327) translate(125 66) translate(5.588 4.73) translate(5 10) scale(0.9)">
                         <mask id="dk2rba8gdc" fill="#fff">
                             <use xlink:href="#660r9h59pa"/>
                         </mask>

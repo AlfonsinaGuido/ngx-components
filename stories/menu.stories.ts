@@ -56,6 +56,59 @@ export const Default: Story = {
   },
 };
 
+export const AuthorizationsMenu: Story = {
+  args: {
+    icons: {
+      buttonIcon: {
+        icon: 'fact_check',
+        type: 'class',
+      },
+      closeIcon: {
+        icon: 'close.svg',
+        type: 'svg',
+      },
+    },
+    title: 'Autorizaciones',
+    lengthOfItems: 3,
+    items: [
+      {
+        label: 'Carlos Sanchez requiere autorización de acceso al Programa Recursos Humanos',
+        avatarName: 'Carlos Sanchez',
+        avatarImgUrl:
+          'https://material.angular.io/assets/img/examples/shiba1.jpg',
+        onClick: {
+          action: (name = 'Carlos Sanchez') => {
+            alert('Se autorizó a ' + name);
+          },
+        },
+      },
+      {
+        label: 'Samuel Lopez requiere autorización de acceso al Programa Desarrollo',
+        avatarName: 'Samuel Lopez',
+        avatarImgUrl:
+          'https://material.angular.io/assets/img/examples/shiba1.jpg',
+        onClick: {
+          action: () => {
+            alert('Se autorizó a Samuel Lopez');
+          },
+        },
+      },
+      {
+        label: 'Ignacio Fernandez requiere autorización de acceso al Programa Recursos Humanos',
+        avatarName: 'Ignacio Fernandez',
+        avatarImgUrl:
+          'https://material.angular.io/assets/img/examples/shiba1.jpg',
+        onClick: {
+          action: (name = 'Ignacio Fernandez') => {
+            alert('Se autorizó a ' + name);
+          },
+        },
+      },
+    ],
+    twClass: '',
+  },
+};
+
 export const NotificationsMenu: Story = {
   args: {
     icons: {
@@ -69,7 +122,7 @@ export const NotificationsMenu: Story = {
       },
     },
     title: 'Notificaciones',
-    notificationsNumber: 3,
+    lengthOfItems: 3,
     items: [
       {
         label: 'Carlos Sanchez finalizo Programa Recursos Humanos',
@@ -77,8 +130,8 @@ export const NotificationsMenu: Story = {
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
         onClick: {
-          action: (param = ' con param') => {
-            console.log('funciona' + param);
+          action: (name = 'Carlos Sanchez') => {
+            alert('Notificación de: ' + name);
           },
         },
       },
@@ -88,8 +141,8 @@ export const NotificationsMenu: Story = {
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
         onClick: {
-          action: () => {
-            console.log('funciona sin param');
+          action: (name = 'Samuel Lopez') => {
+            alert('Notificación de: ' + name);
           },
         },
       },
@@ -100,7 +153,7 @@ export const NotificationsMenu: Story = {
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
         onClick: {
           action: (name = 'Ignacio Fernandez') => {
-            console.log('Felicidades ' + name);
+            alert('Notificación de: ' + name);
           },
         },
       },
@@ -112,7 +165,7 @@ export const NotificationsMenu: Story = {
 export const WithScroll: Story = {
   args: {
     ...NotificationsMenu.args,
-    notificationsNumber: 15,
+    lengthOfItems: 15,
     items: [
       {
         label: 'Carlos Sanchez finalizo Programa Recursos Humanos',
@@ -120,8 +173,8 @@ export const WithScroll: Story = {
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
         onClick: {
-          action: (param = ' con param') => {
-            console.log('funciona' + param);
+          action: (name = 'Carlos Sanchez') => {
+            alert('Notificación de: ' + name);
           },
         },
       },
@@ -131,8 +184,8 @@ export const WithScroll: Story = {
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
         onClick: {
-          action: () => {
-            console.log('funciona sin param');
+          action: (name = 'Samuel Lopez') => {
+            alert('Notificación de: ' + name);
           },
         },
       },
@@ -143,7 +196,7 @@ export const WithScroll: Story = {
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
         onClick: {
           action: (name = 'Ignacio Fernandez') => {
-            console.log('Felicidades ' + name);
+            alert('Notificación de: ' + name);
           },
         },
       },
@@ -153,8 +206,8 @@ export const WithScroll: Story = {
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
         onClick: {
-          action: (param = ' con param') => {
-            console.log('funciona' + param);
+          action: (name = 'Carlos Sanchez') => {
+            alert('Notificación de: ' + name);
           },
         },
       },
@@ -164,8 +217,8 @@ export const WithScroll: Story = {
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
         onClick: {
-          action: () => {
-            console.log('funciona sin param');
+          action: (name = 'Samuel Lopez') => {
+            alert('Notificación de: ' + name);
           },
         },
       },
@@ -176,7 +229,7 @@ export const WithScroll: Story = {
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
         onClick: {
           action: (name = 'Ignacio Fernandez') => {
-            console.log('Felicidades ' + name);
+            alert('Notificación de: ' + name);
           },
         },
       },
@@ -186,8 +239,8 @@ export const WithScroll: Story = {
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
         onClick: {
-          action: (param = ' con param') => {
-            console.log('funciona' + param);
+          action: (name = 'Carlos Sanchez') => {
+            alert('Notificación de: ' + name);
           },
         },
       },
@@ -197,8 +250,8 @@ export const WithScroll: Story = {
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
         onClick: {
-          action: () => {
-            console.log('funciona sin param');
+          action: (name = 'Samuel Lopez') => {
+            alert('Notificación de: ' + name);
           },
         },
       },
@@ -209,7 +262,7 @@ export const WithScroll: Story = {
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
         onClick: {
           action: (name = 'Ignacio Fernandez') => {
-            console.log('Felicidades ' + name);
+            alert('Notificación de: ' + name);
           },
         },
       },
@@ -219,8 +272,8 @@ export const WithScroll: Story = {
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
         onClick: {
-          action: (param = ' con param') => {
-            console.log('funciona' + param);
+          action: (name = 'Carlos Sanchez') => {
+            alert('Notificación de: ' + name);
           },
         },
       },
@@ -230,8 +283,8 @@ export const WithScroll: Story = {
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
         onClick: {
-          action: () => {
-            console.log('funciona sin param');
+          action: (name = 'Samuel Lopez') => {
+            alert('Notificación de: ' + name);
           },
         },
       },
@@ -242,7 +295,7 @@ export const WithScroll: Story = {
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
         onClick: {
           action: (name = 'Ignacio Fernandez') => {
-            console.log('Felicidades ' + name);
+            alert('Notificación de: ' + name);
           },
         },
       },
@@ -252,8 +305,8 @@ export const WithScroll: Story = {
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
         onClick: {
-          action: (param = ' con param') => {
-            console.log('funciona' + param);
+          action: (name = 'Carlos Sanchez') => {
+            alert('Notificación de: ' + name);
           },
         },
       },
@@ -263,8 +316,8 @@ export const WithScroll: Story = {
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
         onClick: {
-          action: () => {
-            console.log('funciona sin param');
+          action: (name = 'Samuel Lopez') => {
+            alert('Notificación de: ' + name);
           },
         },
       },
@@ -275,7 +328,7 @@ export const WithScroll: Story = {
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
         onClick: {
           action: (name = 'Ignacio Fernandez') => {
-            console.log('Felicidades ' + name);
+            alert('Notificación de: ' + name);
           },
         },
       },
@@ -294,14 +347,42 @@ export const UserMenu: Story = {
     userData: {
       fullName: 'Stela Lopez',
       email: 'slopez@empresa.com',
-      position: 'Gerente Desarrollo',
+      jobPositions: [
+        {
+          Nombre: 'Gerente Desarrollo',
+        },
+        {
+          Nombre: 'Gerente Calidad',
+          onClick: {
+            action: (position = 'Gerente Calidad') => {
+              alert('Puesto elegido: ' + position);
+            },
+          },
+        },
+        {
+          Nombre: 'Community Manager',
+          onClick: {
+            action: (position = 'Community Manager') => {
+              alert('Puesto elegido: ' + position);
+            },
+          },
+        },
+      ],
     },
     items: [
       {
+        label: 'Administrar Cuenta',
+        icon: {
+          icon: 'manage_accounts',
+          type: 'class',
+        },
+        url: 'https://localhost:7002/identity/account/manage',
+      },
+      {
         label: 'Cerrar Sesión',
         onClick: {
-          action: (param = ' con param') => {
-            console.log('funciona' + param);
+          action: () => {
+            alert('Se ejecuta Logout');
           },
         },
       },

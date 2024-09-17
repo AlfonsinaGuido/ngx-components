@@ -1,6 +1,6 @@
 <evo-button
   [matMenuTriggerFor]="menu"
-  [icon]="icons.buttonIcon"
+  [icon]="icons.buttonIcon || defaultUserMenuIcons?.buttonIcon"
   [withoutBorder]="true"
   class="menu-button flex w-fit"
   (menuOpened)="onMenuOpen()"
@@ -31,14 +31,14 @@
         <div class="test-title flex font-bold text-sm text-dark-gray">
           {{ title }}
         </div>
-        @if (notificationsNumber) {
+        @if (lengthOfItems) {
           <div class="flex font-semibold text-xs text-primary">
-            {{ notificationsNumber }}
+            {{ lengthOfItems }}
           </div>
         }
       }
     </div>
-    @if (icons.closeIcon) {
+    @if (icons.closeIcon || defaultUserMenuIcons?.closeIcon) {
       <evo-button
         class="close-button"
         [icon]="icons.closeIcon"
@@ -46,6 +46,22 @@
       ></evo-button>
     }
   </div>
+  @if (userData) {
+    <div class="px-2">
+      @for (jobPosition of userData.jobPositions; track $index) {
+        <evo-button
+          [label]="jobPosition.Nombre"
+          [icon]="$index !== 0 ? jobPositionChangeIcon : undefined"
+          [theme]="'secondary'"
+          [withoutBorder]="true"
+          [disabled]="$index === 0"
+          class="buttons-in-menu"
+          [isFluid]="true"
+          [onClick]="jobPosition.onClick"
+        ></evo-button>
+      }
+    </div>
+  }
   @for (item of items; track $index) {
     <mat-divider></mat-divider>
     <evo-button

@@ -21,6 +21,6 @@ interface IPlaza {
   Puesto: IPuesto;
 }
 
-interface IPuesto {
+export interface IPuesto {
   Nombre: string;
 }

@@ -8,7 +8,6 @@ import {
   IHeaderIcons,
   IHeaderTitles,
   MenuComponent,
-  IMenuIcons,
   SvgComponent,
   IUserData,
 } from '../public-api';
@@ -21,7 +20,7 @@ import {
   styleUrls: ['./header.component.scss', '../styles/output.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   @Input() icons!: IHeaderIcons;
   @Input() titles!: IHeaderTitles;
   @Input() buttonItems!: IHeaderButtonItems;
@@ -29,21 +28,4 @@ export class HeaderComponent implements OnInit {
   @Input() box?: IHeaderBoxButton[];
   @Input() userData!: IUserData;
   @Input() twClass?: string;
-  public appMenuIcons!: IMenuIcons;
-  public notificationMenuIcons!: IMenuIcons;
-  public userMenuIcons!: IMenuIcons;
-
-  ngOnInit(): void {
-    this.appMenuIcons = {
-      buttonIcon: this.icons.appIcon,
-      closeIcon: this.icons.closeMenuIcon,
-    };
-    this.notificationMenuIcons = {
-      buttonIcon: this.icons.notificationIcon,
-      closeIcon: this.icons.closeMenuIcon,
-    };
-    this.userMenuIcons = {
-      closeIcon: this.icons.closeMenuIcon,
-    };
-  }
 }

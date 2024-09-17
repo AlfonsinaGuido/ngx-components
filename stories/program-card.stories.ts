@@ -95,7 +95,7 @@ export const Default: Story = {
       buttonClasses: 'theme-primary',
       onButtonClick: {
         action: () => {
-          console.log('Button clicked!');
+          alert('Button clicked!');
         },
       },
       twClass: 'custom-class',

@@ -24,17 +24,28 @@ type Story = StoryObj<HeaderComponent>;
 export const Default: Story = {
   args: {
     icons: {
-      appIcon: {
-        icon: 'app-menu.svg',
-        type: 'svg',
+      appMenuIcons: {
+        buttonIcon: {
+          icon: 'app-menu.svg',
+          type: 'svg',
+        },
       },
-      notificationIcon: {
-        icon: 'bell.svg',
-        type: 'svg',
+      authorizationMenuIcons: {
+        buttonIcon: {
+          icon: 'fact_check',
+          type: 'class',
+        },
+      },
+      notificationMenuIcons: {
+        buttonIcon: {
+          icon: 'bell.svg',
+          type: 'svg',
+        },
       },
     },
     titles: {
       appTitle: 'Tus aplicaciones',
+      authorizationTitle: 'Autorizaciones',
       notificationTitle: 'Notificaciones',
     },
     buttonItems: {
@@ -56,6 +67,44 @@ export const Default: Story = {
           url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoChart',
         },
       ],
+      authorizationItems: [
+        {
+          label:
+            'Carlos Sanchez requiere autorización de acceso al Programa Recursos Humanos',
+          avatarName: 'Carlos Sanchez',
+          avatarImgUrl:
+            'https://material.angular.io/assets/img/examples/shiba1.jpg',
+          onClick: {
+            action: (name = 'Carlos Sanchez') => {
+              alert('Se autorizó a ' + name);
+            },
+          },
+        },
+        {
+          label:
+            'Samuel Lopez requiere autorización de acceso al Programa Desarrollo',
+          avatarName: 'Samuel Lopez',
+          avatarImgUrl:
+            'https://material.angular.io/assets/img/examples/shiba1.jpg',
+          onClick: {
+            action: () => {
+              alert('Se autorizó a Samuel Lopez');
+            },
+          },
+        },
+        {
+          label:
+            'Ignacio Fernandez requiere autorización de acceso al Programa Recursos Humanos',
+          avatarName: 'Ignacio Fernandez',
+          avatarImgUrl:
+            'https://material.angular.io/assets/img/examples/shiba1.jpg',
+          onClick: {
+            action: (name = 'Ignacio Fernandez') => {
+              alert('Se autorizó a ' + name);
+            },
+          },
+        },
+      ],
       notificationItems: [
         {
           label: 'Carlos Sanchez finalizo Programa Recursos Humanos',
@@ -63,8 +112,8 @@ export const Default: Story = {
           avatarImgUrl:
             'https://material.angular.io/assets/img/examples/shiba1.jpg',
           onClick: {
-            action: (param = ' con param') => {
-              console.log('funciona' + param);
+            action: (name = 'Carlos Sanchez') => {
+              alert('Notificación de ' + name);
             },
           },
         },
@@ -75,7 +124,7 @@ export const Default: Story = {
             'https://material.angular.io/assets/img/examples/shiba1.jpg',
           onClick: {
             action: () => {
-              console.log('funciona sin param');
+              alert('Notificación de Samuel Lopez');
             },
           },
         },
@@ -86,17 +135,25 @@ export const Default: Story = {
             'https://material.angular.io/assets/img/examples/shiba1.jpg',
           onClick: {
             action: (name = 'Ignacio Fernandez') => {
-              console.log('Felicidades ' + name);
+              alert('Notificación de ' + name);
             },
           },
         },
       ],
       userDataItems: [
         {
+          label: 'Administrar Cuenta',
+          icon: {
+            icon: 'manage_accounts',
+            type: 'class',
+          },
+          url: 'https://localhost:7002/identity/account/manage',
+        },
+        {
           label: 'Cerrar Sesión',
           onClick: {
-            action: (param = ' con param') => {
-              console.log('funciona' + param);
+            action: () => {
+              alert('Se ejecuta Logout');
             },
           },
         },
@@ -107,16 +164,30 @@ export const Default: Story = {
     },
     box: [
       {
-        label: 'Cambiar Perfil',
-        action: (param = ' con param') => {
-          console.log('funciona' + param);
+        label: 'Alguna Acción',
+        onClick: {
+          action: () => {
+            alert('Se realiza alguna acción');
+          },
         },
       },
     ],
     userData: {
       fullName: 'Stela Lopez',
       email: 'slopez@empresa.com',
-      position: 'Gerente Desarrollo',
+      jobPositions: [
+        {
+          Nombre: 'Gerente Desarrollo',
+        },
+        {
+          Nombre: 'Gerente Calidad',
+          onClick: {
+            action: (position = 'Gerente Calidad') => {
+              alert('Puesto elegido: ' + position);
+            },
+          },
+        },
+      ],
     },
     twClass: '',
   },

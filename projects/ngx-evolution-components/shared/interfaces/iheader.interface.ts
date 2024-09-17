@@ -1,4 +1,9 @@
-import { IButton, IIcon, IUserData } from '../../public-api';
+import {
+  IButton,
+  IButtonAction,
+  IMenuIcons,
+  IUserData,
+} from '../../public-api';
 
 export interface IHeader {
   icons: IHeaderIcons;
@@ -12,22 +17,25 @@ export interface IHeader {
 
 export interface IHeaderBoxButton {
   label: string;
-  action: (param?: any) => any | void | {};
+  onClick: IButtonAction;
 }
 
 export interface IHeaderIcons {
-  appIcon: IIcon;
-  notificationIcon: IIcon;
-  closeMenuIcon?: IIcon;
+  appMenuIcons: IMenuIcons;
+  authorizationMenuIcons?: IMenuIcons;
+  notificationMenuIcons: IMenuIcons;
+  userMenuIcons?: IMenuIcons;
 }
 
 export interface IHeaderTitles {
   appTitle: string;
+  authorizationTitle?: string;
   notificationTitle: string;
 }
 
 export interface IHeaderButtonItems {
   appItems: IButton[];
+  authorizationItems?: IButton[];
   notificationItems: IButton[];
   userDataItems: IButton[];
 }

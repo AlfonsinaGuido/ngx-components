@@ -6,7 +6,7 @@
       class="sm:flex hidden app-menu"
       [icons]="icons.appMenuIcons"
       [title]="titles.appTitle"
-      [items]="buttonItems.appItems"
+      [items]="items.appItems"
       twClass="mt-4"
     ></evo-menu>
     <div class="flex items-center gap-5">
@@ -33,20 +33,26 @@
         </button>
       }
     }
-    @if (icons.authorizationMenuIcons && buttonItems.authorizationItems) {
+    @if (icons.authorizationMenuIcons && items.authorizationItems) {
       <evo-menu
         [icons]="icons.authorizationMenuIcons"
         [title]="titles.authorizationTitle"
-        [items]="buttonItems.authorizationItems"
-        [lengthOfItems]="buttonItems.authorizationItems.length"
+        [items]="items.authorizationItems"
+        [lengthOfItems]="items.authorizationItems.length"
         twClass="mt-4"
       ></evo-menu>
     }
     <evo-menu
       [icons]="icons.notificationMenuIcons"
       [title]="titles.notificationTitle"
-      [items]="buttonItems.notificationItems"
-      [lengthOfItems]="buttonItems.notificationItems.length"
+      [items]="items.notificationItems"
+      [lengthOfItems]="items.notificationItems.length"
+      twClass="mt-4"
+    ></evo-menu>
+    <evo-menu
+      [icons]="icons.settingMenuIcons"
+      [title]="titles.settingTitle"
+      [settingMenu]="items.settingMenu"
       twClass="mt-4"
     ></evo-menu>
     <div class="flex items-center gap-2">
@@ -68,7 +74,7 @@
       <evo-menu
         [icons]="icons.userMenuIcons || {}"
         [userData]="userData"
-        [items]="buttonItems.userDataItems"
+        [items]="items.userDataItems"
         twClass="mt-4"
       ></evo-menu>
     </div>

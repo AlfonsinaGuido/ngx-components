@@ -5,12 +5,14 @@ import {
   IButton,
   IIcon,
   IMenuIcons,
+  ISettingMenu,
   IUserData,
 } from '../public-api';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @Component({
   selector: 'evo-menu',
@@ -22,6 +24,7 @@ import { MatDividerModule } from '@angular/material/divider';
     MatDividerModule,
     ButtonComponent,
     AvatarComponent,
+    MatSlideToggleModule,
   ],
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss', '../styles/output.scss'],
@@ -32,12 +35,12 @@ export class MenuComponent implements OnInit {
   @Input() items!: IButton[];
   @Input() icons!: IMenuIcons;
   @Input() lengthOfItems?: number;
+  @Input() settingMenu?: ISettingMenu;
   @Input() userData?: IUserData;
   @Input() twClass?: string;
   public jobPositionChangeIcon: IIcon = {
     icon: 'swap_horiz',
     type: 'class',
-    position: 'right',
   };
   public defaultUserMenuIcons: IMenuIcons | undefined = undefined;
 

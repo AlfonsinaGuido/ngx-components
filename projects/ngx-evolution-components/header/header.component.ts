@@ -1,9 +1,9 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   AvatarComponent,
   IHeaderBoxButton,
-  IHeaderButtonItems,
+  IHeaderItems,
   IHeaderCompanyData,
   IHeaderIcons,
   IHeaderTitles,
@@ -23,7 +23,7 @@ import {
 export class HeaderComponent {
   @Input() icons!: IHeaderIcons;
   @Input() titles!: IHeaderTitles;
-  @Input() buttonItems!: IHeaderButtonItems;
+  @Input() items!: IHeaderItems;
   @Input() companyData!: IHeaderCompanyData;
   @Input() box?: IHeaderBoxButton[];
   @Input() userData!: IUserData;

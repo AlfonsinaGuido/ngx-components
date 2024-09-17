@@ -72,7 +72,8 @@ export const AuthorizationsMenu: Story = {
     lengthOfItems: 3,
     items: [
       {
-        label: 'Carlos Sanchez requiere autorización de acceso al Programa Recursos Humanos',
+        label:
+          'Carlos Sanchez requiere autorización de acceso al Programa Recursos Humanos',
         avatarName: 'Carlos Sanchez',
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
@@ -83,7 +84,8 @@ export const AuthorizationsMenu: Story = {
         },
       },
       {
-        label: 'Samuel Lopez requiere autorización de acceso al Programa Desarrollo',
+        label:
+          'Samuel Lopez requiere autorización de acceso al Programa Desarrollo',
         avatarName: 'Samuel Lopez',
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
@@ -94,7 +96,8 @@ export const AuthorizationsMenu: Story = {
         },
       },
       {
-        label: 'Ignacio Fernandez requiere autorización de acceso al Programa Recursos Humanos',
+        label:
+          'Ignacio Fernandez requiere autorización de acceso al Programa Recursos Humanos',
         avatarName: 'Ignacio Fernandez',
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
@@ -336,6 +339,33 @@ export const WithScroll: Story = {
   },
 };
 
+export const SettingsMenu: Story = {
+  args: {
+    icons: {
+      buttonIcon: {
+        icon: 'settings.svg',
+        type: 'svg',
+      },
+      closeIcon: {
+        icon: 'close.svg',
+        type: 'svg',
+      },
+    },
+    title: 'Ajustes',
+    settingMenu: {
+      options: [
+        {
+          name: 'Apellido primero',
+        },
+        {
+          name: 'Autorizaciones',
+        },
+      ],
+    },
+    twClass: '',
+  },
+};
+
 export const UserMenu: Story = {
   args: {
     icons: {
@@ -350,6 +380,7 @@ export const UserMenu: Story = {
       jobPositions: [
         {
           Nombre: 'Gerente Desarrollo',
+          disabled: true,
         },
         {
           Nombre: 'Gerente Calidad',

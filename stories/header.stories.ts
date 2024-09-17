@@ -42,13 +42,20 @@ export const Default: Story = {
           type: 'svg',
         },
       },
+      settingMenuIcons: {
+        buttonIcon: {
+          icon: 'settings.svg',
+          type: 'svg',
+        },
+      },
     },
     titles: {
       appTitle: 'Tus aplicaciones',
       authorizationTitle: 'Autorizaciones',
       notificationTitle: 'Notificaciones',
+      settingTitle: 'Ajustes',
     },
-    buttonItems: {
+    items: {
       appItems: [
         {
           label: 'Evo Wave',
@@ -140,6 +147,16 @@ export const Default: Story = {
           },
         },
       ],
+      settingMenu: {
+        options: [
+          {
+            name: 'Apellido primero',
+          },
+          {
+            name: 'Autorizaciones',
+          },
+        ],
+      },
       userDataItems: [
         {
           label: 'Administrar Cuenta',
@@ -178,6 +195,7 @@ export const Default: Story = {
       jobPositions: [
         {
           Nombre: 'Gerente Desarrollo',
+          disabled: true,
         },
         {
           Nombre: 'Gerente Calidad',

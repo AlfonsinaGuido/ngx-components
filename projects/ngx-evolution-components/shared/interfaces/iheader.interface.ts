@@ -2,13 +2,14 @@ import {
   IButton,
   IButtonAction,
   IMenuIcons,
+  ISettingMenu,
   IUserData,
 } from '../../public-api';
 
 export interface IHeader {
   icons: IHeaderIcons;
   titles: IHeaderTitles;
-  buttonItems: IHeaderButtonItems;
+  items: IHeaderItems;
   companyData: IHeaderCompanyData;
   box?: IHeaderBoxButton[];
   userData: IUserData;
@@ -24,6 +25,7 @@ export interface IHeaderIcons {
   appMenuIcons: IMenuIcons;
   authorizationMenuIcons?: IMenuIcons;
   notificationMenuIcons: IMenuIcons;
+  settingMenuIcons: IMenuIcons;
   userMenuIcons?: IMenuIcons;
 }
 
@@ -31,12 +33,14 @@ export interface IHeaderTitles {
   appTitle: string;
   authorizationTitle?: string;
   notificationTitle: string;
+  settingTitle: string;
 }
 
-export interface IHeaderButtonItems {
+export interface IHeaderItems {
   appItems: IButton[];
   authorizationItems?: IButton[];
   notificationItems: IButton[];
+  settingMenu: ISettingMenu;
   userDataItems: IButton[];
 }
 

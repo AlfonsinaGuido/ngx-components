@@ -23,6 +23,18 @@
   }
 }
 
+.mat-slide {
+  width: 100%;
+  .mdc-form-field {
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+    label {
+      margin-left: 0;
+    }
+  }
+}
+
 .buttons-in-menu .evo-button {
   &.theme-secondary {
     justify-content: left;
@@ -39,7 +51,6 @@
       }
     }
     &.userFont {
-      padding-left: 18px;
       .evo-button__content {
         .label {
           font-size: 16px;

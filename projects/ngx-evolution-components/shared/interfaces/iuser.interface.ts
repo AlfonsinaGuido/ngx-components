@@ -9,4 +9,5 @@ export interface IUserData {
 
 interface IJobPosition extends IPuesto {
   onClick?: IButtonAction;
+  disabled?: boolean;
 }

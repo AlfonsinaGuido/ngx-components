@@ -3,7 +3,7 @@ import {
   SidebarComponent,
   IHeaderIcons,
   IHeaderTitles,
-  IHeaderButtonItems,
+  IHeaderItems,
   IHeaderCompanyData,
   IHeader,
   ISidebarOption,
@@ -61,13 +61,20 @@ const meta: Meta<SidebarComponent> = {
             type: 'svg',
           },
         },
+        settingMenuIcons: {
+          buttonIcon: {
+            icon: 'settings.svg',
+            type: 'svg',
+          },
+        },
       } as IHeaderIcons,
       titles: {
         appTitle: 'Tus aplicaciones',
         authorizationTitle: 'Autorizaciones',
         notificationTitle: 'Notificaciones',
+        settingTitle: 'Ajustes',
       } as IHeaderTitles,
-      buttonItems: {
+      items: {
         appItems: [
           {
             label: 'Evo Wave',
@@ -137,6 +144,16 @@ const meta: Meta<SidebarComponent> = {
             },
           },
         ],
+        settingMenu: {
+          options: [
+            {
+              name: 'Apellido primero',
+            },
+            {
+              name: 'Autorizaciones',
+            },
+          ],
+        },
         userDataItems: [
           {
             label: 'Administrar Cuenta',
@@ -155,7 +172,7 @@ const meta: Meta<SidebarComponent> = {
             },
           },
         ],
-      } as IHeaderButtonItems,
+      } as IHeaderItems,
       companyData: {
         companyImage: 'company-logo.svg',
         companyName: 'ASEINFO',
@@ -166,6 +183,7 @@ const meta: Meta<SidebarComponent> = {
         jobPositions: [
           {
             Nombre: 'Gerente Desarrollo',
+            disabled: true,
           },
           {
             Nombre: 'Gerente Calidad',
@@ -190,12 +208,6 @@ const meta: Meta<SidebarComponent> = {
         action: () => alert('Files'),
         route: '/files',
         title: 'Files',
-      },
-      {
-        icon: { icon: 'settings.svg', type: 'svg' },
-        action: () => alert('Settings'),
-        route: '/settings',
-        title: 'Settings',
       },
     ] as ISidebarOption[],
     additionalOptions: [

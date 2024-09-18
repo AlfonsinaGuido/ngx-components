@@ -97,10 +97,7 @@
             }
             <mat-divider></mat-divider>
           }
-          @for (
-            option of commonProps.items.userDataItems;
-            track option.label
-          ) {
+          @for (option of commonProps.items.userDataItems; track option.label) {
             @if (option.icon) {
               <evo-button
                 [label]="option.label"

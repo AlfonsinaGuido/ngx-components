@@ -114,7 +114,7 @@ export const Default: Story = {
       ],
       notificationItems: [
         {
-          label: 'Carlos Sanchez finalizo Programa Recursos Humanos',
+          label: 'Carlos Sanchez finalizó Programa Recursos Humanos',
           avatarName: 'Carlos Sanchez',
           avatarImgUrl:
             'https://material.angular.io/assets/img/examples/shiba1.jpg',
@@ -125,7 +125,7 @@ export const Default: Story = {
           },
         },
         {
-          label: 'Samuel Lopez finalizo Programa Desarrollo',
+          label: 'Samuel Lopez finalizó Programa Desarrollo',
           avatarName: 'Samuel Lopez',
           avatarImgUrl:
             'https://material.angular.io/assets/img/examples/shiba1.jpg',
@@ -136,7 +136,7 @@ export const Default: Story = {
           },
         },
         {
-          label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',
+          label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',
           avatarName: 'Ignacio Fernandez',
           avatarImgUrl:
             'https://material.angular.io/assets/img/examples/shiba1.jpg',

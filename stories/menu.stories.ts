@@ -128,7 +128,7 @@ export const NotificationsMenu: Story = {
     lengthOfItems: 3,
     items: [
       {
-        label: 'Carlos Sanchez finalizo Programa Recursos Humanos',
+        label: 'Carlos Sanchez finalizó Programa Recursos Humanos',
         avatarName: 'Carlos Sanchez',
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
@@ -139,7 +139,7 @@ export const NotificationsMenu: Story = {
         },
       },
       {
-        label: 'Samuel Lopez finalizo Programa Desarrollo',
+        label: 'Samuel Lopez finalizó Programa Desarrollo',
         avatarName: 'Samuel Lopez',
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
@@ -150,7 +150,7 @@ export const NotificationsMenu: Story = {
         },
       },
       {
-        label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',
+        label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',
         avatarName: 'Ignacio Fernandez',
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
@@ -171,7 +171,7 @@ export const WithScroll: Story = {
     lengthOfItems: 15,
     items: [
       {
-        label: 'Carlos Sanchez finalizo Programa Recursos Humanos',
+        label: 'Carlos Sanchez finalizó Programa Recursos Humanos',
         avatarName: 'Carlos Sanchez',
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
@@ -182,7 +182,7 @@ export const WithScroll: Story = {
         },
       },
       {
-        label: 'Samuel Lopez finalizo Programa Desarrollo',
+        label: 'Samuel Lopez finalizó Programa Desarrollo',
         avatarName: 'Samuel Lopez',
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
@@ -193,7 +193,7 @@ export const WithScroll: Story = {
         },
       },
       {
-        label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',
+        label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',
         avatarName: 'Ignacio Fernandez',
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
@@ -204,7 +204,7 @@ export const WithScroll: Story = {
         },
       },
       {
-        label: 'Carlos Sanchez finalizo Programa Recursos Humanos',
+        label: 'Carlos Sanchez finalizó Programa Recursos Humanos',
         avatarName: 'Carlos Sanchez',
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
@@ -215,7 +215,7 @@ export const WithScroll: Story = {
         },
       },
       {
-        label: 'Samuel Lopez finalizo Programa Desarrollo',
+        label: 'Samuel Lopez finalizó Programa Desarrollo',
         avatarName: 'Samuel Lopez',
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
@@ -226,7 +226,7 @@ export const WithScroll: Story = {
         },
       },
       {
-        label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',
+        label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',
         avatarName: 'Ignacio Fernandez',
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
@@ -237,7 +237,7 @@ export const WithScroll: Story = {
         },
       },
       {
-        label: 'Carlos Sanchez finalizo Programa Recursos Humanos',
+        label: 'Carlos Sanchez finalizó Programa Recursos Humanos',
         avatarName: 'Carlos Sanchez',
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
@@ -248,7 +248,7 @@ export const WithScroll: Story = {
         },
       },
       {
-        label: 'Samuel Lopez finalizo Programa Desarrollo',
+        label: 'Samuel Lopez finalizó Programa Desarrollo',
         avatarName: 'Samuel Lopez',
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
@@ -259,7 +259,7 @@ export const WithScroll: Story = {
         },
       },
       {
-        label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',
+        label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',
         avatarName: 'Ignacio Fernandez',
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
@@ -270,7 +270,7 @@ export const WithScroll: Story = {
         },
       },
       {
-        label: 'Carlos Sanchez finalizo Programa Recursos Humanos',
+        label: 'Carlos Sanchez finalizó Programa Recursos Humanos',
         avatarName: 'Carlos Sanchez',
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
@@ -281,7 +281,7 @@ export const WithScroll: Story = {
         },
       },
       {
-        label: 'Samuel Lopez finalizo Programa Desarrollo',
+        label: 'Samuel Lopez finalizó Programa Desarrollo',
         avatarName: 'Samuel Lopez',
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
@@ -292,7 +292,7 @@ export const WithScroll: Story = {
         },
       },
       {
-        label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',
+        label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',
         avatarName: 'Ignacio Fernandez',
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
@@ -303,7 +303,7 @@ export const WithScroll: Story = {
         },
       },
       {
-        label: 'Carlos Sanchez finalizo Programa Recursos Humanos',
+        label: 'Carlos Sanchez finalizó Programa Recursos Humanos',
         avatarName: 'Carlos Sanchez',
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
@@ -314,7 +314,7 @@ export const WithScroll: Story = {
         },
       },
       {
-        label: 'Samuel Lopez finalizo Programa Desarrollo',
+        label: 'Samuel Lopez finalizó Programa Desarrollo',
         avatarName: 'Samuel Lopez',
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
@@ -325,7 +325,7 @@ export const WithScroll: Story = {
         },
       },
       {
-        label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',
+        label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',
         avatarName: 'Ignacio Fernandez',
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',

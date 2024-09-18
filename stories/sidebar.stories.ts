@@ -133,7 +133,7 @@ const meta: Meta<SidebarComponent> = {
         ],
         notificationItems: [
           {
-            label: 'Carlos Sanchez finalizo Programa Recursos Humanos',
+            label: 'Carlos Sanchez finalizó Programa Recursos Humanos',
             avatarName: 'Carlos Sanchez',
             avatarImgUrl:
               'https://material.angular.io/assets/img/examples/shiba1.jpg',

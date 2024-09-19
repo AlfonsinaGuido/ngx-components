@@ -1,14 +1,13 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   AvatarComponent,
   IHeaderBoxButton,
-  IHeaderButtonItems,
+  IHeaderItems,
   IHeaderCompanyData,
   IHeaderIcons,
   IHeaderTitles,
   MenuComponent,
-  IMenuIcons,
   SvgComponent,
   IUserData,
 } from '../public-api';
@@ -21,29 +20,12 @@ import {
   styleUrls: ['./header.component.scss', '../styles/output.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   @Input() icons!: IHeaderIcons;
   @Input() titles!: IHeaderTitles;
-  @Input() buttonItems!: IHeaderButtonItems;
+  @Input() items!: IHeaderItems;
   @Input() companyData!: IHeaderCompanyData;
   @Input() box?: IHeaderBoxButton[];
   @Input() userData!: IUserData;
   @Input() twClass?: string;
-  public appMenuIcons!: IMenuIcons;
-  public notificationMenuIcons!: IMenuIcons;
-  public userMenuIcons!: IMenuIcons;
-
-  ngOnInit(): void {
-    this.appMenuIcons = {
-      buttonIcon: this.icons.appIcon,
-      closeIcon: this.icons.closeMenuIcon,
-    };
-    this.notificationMenuIcons = {
-      buttonIcon: this.icons.notificationIcon,
-      closeIcon: this.icons.closeMenuIcon,
-    };
-    this.userMenuIcons = {
-      closeIcon: this.icons.closeMenuIcon,
-    };
-  }
 }

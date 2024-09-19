@@ -1,6 +1,6 @@
 <evo-button
   [matMenuTriggerFor]="menu"
-  [icon]="icons.buttonIcon"
+  [icon]="icons.buttonIcon || defaultUserMenuIcons?.buttonIcon"
   [withoutBorder]="true"
   class="menu-button flex w-fit"
   (menuOpened)="onMenuOpen()"
@@ -31,14 +31,14 @@
         <div class="test-title flex font-bold text-sm text-dark-gray">
           {{ title }}
         </div>
-        @if (notificationsNumber) {
+        @if (lengthOfItems) {
           <div class="flex font-semibold text-xs text-primary">
-            {{ notificationsNumber }}
+            {{ lengthOfItems }}
           </div>
         }
       }
     </div>
-    @if (icons.closeIcon) {
+    @if (icons.closeIcon || defaultUserMenuIcons?.closeIcon) {
       <evo-button
         class="close-button"
         [icon]="icons.closeIcon"
@@ -46,6 +46,38 @@
       ></evo-button>
     }
   </div>
+  @if (settingMenu) {
+    <ul (click)="$event.stopPropagation()">
+      @for (option of settingMenu.options; track $index) {
+        <mat-divider></mat-divider>
+        <li class="p-2">
+          <mat-slide-toggle
+            class="mat-slide"
+            [labelPosition]="settingMenu.labelPosition || 'after'"
+            [color]="settingMenu.color"
+            [checked]="option.checked"
+            [disabled]="option.disabled"
+          >
+            {{ option.name }}
+          </mat-slide-toggle>
+        </li>
+      }
+    </ul>
+  }
+  @if (userData) {
+    @for (jobPosition of userData.jobPositions; track $index) {
+      <evo-button
+        [label]="jobPosition.Nombre"
+        [icon]="!jobPosition.disabled ? jobPositionChangeIcon : undefined"
+        [theme]="'secondary'"
+        [withoutBorder]="true"
+        [disabled]="jobPosition.disabled"
+        class="buttons-in-menu"
+        [isFluid]="true"
+        [onClick]="jobPosition.onClick"
+      ></evo-button>
+    }
+  }
   @for (item of items; track $index) {
     <mat-divider></mat-divider>
     <evo-button
@@ -60,6 +92,7 @@
       [avatarName]="item.avatarName"
       [avatarImgUrl]="item.avatarImgUrl"
       [onClick]="item.onClick"
+      (click)="lengthOfItems && $event.stopPropagation()"
     ></evo-button>
   }
 </mat-menu>

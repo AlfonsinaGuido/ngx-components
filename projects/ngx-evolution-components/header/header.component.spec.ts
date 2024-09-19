@@ -4,7 +4,7 @@ import { HeaderComponent } from './header.component';
 import {
   IButton,
   IHeaderBoxButton,
-  IHeaderButtonItems,
+  IHeaderItems,
   IHeaderCompanyData,
   IHeaderIcons,
   IHeaderTitles,
@@ -30,31 +30,40 @@ describe('HeaderComponent', () => {
     component.companyData = companyData;
 
     icons = {
-      appIcon: { icon: 'home', type: 'class' },
-      notificationIcon: { icon: 'test', type: 'class' },
+      appMenuIcons: {},
+      notificationMenuIcons: {},
+      settingMenuIcons: {},
     };
     component.icons = icons;
 
     const titles: IHeaderTitles = {
       appTitle: 'title 1',
       notificationTitle: 'title 2',
+      settingTitle: 'title 3',
     };
     component.titles = titles;
 
-    const buttonItems: IHeaderButtonItems = {
+    const items: IHeaderItems = {
       appItems: [{ label: 'App 1' }, { label: 'App 2' }],
       notificationItems: [
         { label: 'Notification 1' },
         { label: 'Notification 2' },
       ],
+      settingMenu: {
+        options: [
+          {
+            name: 'Test',
+          },
+        ],
+      },
       userDataItems: [{ label: 'Test' }],
     };
-    component.buttonItems = buttonItems;
+    component.items = items;
 
     userData = {
       fullName: 'test',
       email: 'test',
-      position: 'test',
+      jobPositions: [{ Nombre: 'Test' }],
     };
     component.userData = userData;
 
@@ -70,17 +79,14 @@ describe('HeaderComponent', () => {
     const appItems: IButton[] = [{ label: 'Item 1' }];
 
     component.titles.appTitle = appTitle;
-    component.buttonItems.appItems = appItems;
+    component.items.appItems = appItems;
 
     fixture.detectChanges();
 
     const menuDebugElement = fixture.debugElement.query(By.css('evo-menu'));
 
     expect(menuDebugElement.componentInstance.icons.buttonIcon).toEqual(
-      icons.appIcon,
-    );
-    expect(menuDebugElement.componentInstance.icons.closeIcon).toEqual(
-      icons.closeMenuIcon,
+      icons.appMenuIcons.buttonIcon,
     );
     expect(menuDebugElement.componentInstance.title).toBe(appTitle);
     expect(menuDebugElement.componentInstance.items).toBe(appItems);
@@ -122,15 +128,15 @@ describe('HeaderComponent', () => {
       By.css('evo-menu'),
     )[1];
 
-    expect(
-      notificationMenuDebugElement.componentInstance.notificationsNumber,
-    ).toBe(2);
+    expect(notificationMenuDebugElement.componentInstance.lengthOfItems).toBe(
+      2,
+    );
   });
 
   it('should handle box buttons correctly', () => {
     const boxButtons: IHeaderBoxButton[] = [
-      { label: 'Button 1', action: jasmine.createSpy('button1') },
-      { label: 'Button 2', action: jasmine.createSpy('button2') },
+      { label: 'Button 1', onClick: { action: jasmine.createSpy('button1') } },
+      { label: 'Button 2', onClick: { action: jasmine.createSpy('button2') } },
     ];
     component.box = boxButtons;
 
@@ -141,7 +147,7 @@ describe('HeaderComponent', () => {
     buttons[0].nativeElement.click();
     buttons[1].nativeElement.click();
 
-    expect(boxButtons[0].action).toHaveBeenCalled();
-    expect(boxButtons[1].action).toHaveBeenCalled();
+    expect(boxButtons[0].onClick.action).toHaveBeenCalled();
+    expect(boxButtons[1].onClick.action).toHaveBeenCalled();
   });
 });

@@ -41,20 +41,28 @@ describe('SidebarComponent', () => {
     // Proveer todos los inputs necesarios para SidebarComponent y sus componentes hijos
     component.commonProps = {
       icons: {
-        appIcon: { icon: 'dashboard.svg', type: 'svg' },
-        notificationIcon: { icon: 'bell.svg', type: 'svg' },
-        closeMenuIcon: { icon: 'close.svg', type: 'svg' },
+        appMenuIcons: {},
+        notificationMenuIcons: {},
+        settingMenuIcons: {},
       },
       titles: {
         appTitle: 'Tus aplicaciones',
         notificationTitle: 'Notificaciones',
+        settingTitle: 'Ajustes',
       },
-      buttonItems: {
+      items: {
         appItems: [{ label: 'App 1' }, { label: 'App 2' }],
         notificationItems: [
           { label: 'Notification 1' },
           { label: 'Notification 2' },
         ],
+        settingMenu: {
+          options: [
+            {
+              name: 'Test',
+            },
+          ],
+        },
         userDataItems: [{ label: 'Test' }],
       },
       companyData: {
@@ -65,7 +73,7 @@ describe('SidebarComponent', () => {
       userData: {
         fullName: 'User',
         email: 'user@example.com',
-        position: 'position',
+        jobPositions: [{ Nombre: 'Test' }],
       },
     };
     component.options = [

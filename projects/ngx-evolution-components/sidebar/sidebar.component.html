@@ -5,7 +5,7 @@
         twClass="w-full"
         [icons]="commonProps.icons"
         [titles]="commonProps.titles"
-        [buttonItems]="commonProps.buttonItems"
+        [items]="commonProps.items"
         [companyData]="commonProps.companyData"
         [box]="commonProps.box"
         [userData]="commonProps.userData"
@@ -18,7 +18,7 @@
       >
         <evo-button
           mat-button
-          [icon]="commonProps.icons.appIcon"
+          [icon]="commonProps.icons.appMenuIcons.buttonIcon"
           [withoutBorder]="true"
           (click)="toggleSidebar()"
         ></evo-button>
@@ -40,7 +40,7 @@
           </div>
           <div class="profile-info">
             <div class="name">{{ commonProps.userData.fullName }}</div>
-            <div>{{ commonProps.userData.position }}</div>
+            <div>{{ commonProps.userData.jobPositions[0].Nombre }}</div>
           </div>
         </div>
         <nav class="sidebar__nav">
@@ -62,9 +62,9 @@
           <mat-divider></mat-divider>
           <nav class="sidebar__nav">
             <ul>
-              @if (commonProps.buttonItems.appItems) {
+              @if (commonProps.items.appItems) {
                 @for (
-                  option of commonProps.buttonItems.appItems;
+                  option of commonProps.items.appItems;
                   track option.label
                 ) {
                   @if (option.icon) {
@@ -97,10 +97,7 @@
             }
             <mat-divider></mat-divider>
           }
-          @for (
-            option of commonProps.buttonItems.userDataItems;
-            track option.label
-          ) {
+          @for (option of commonProps.items.userDataItems; track option.label) {
             @if (option.icon) {
               <evo-button
                 [label]="option.label"
@@ -110,6 +107,7 @@
                 [isFluid]="true"
                 twClass="sidebar__evo-button"
                 (click)="option.onClick?.action()"
+                [url]="option.url"
               ></evo-button>
             }
           }

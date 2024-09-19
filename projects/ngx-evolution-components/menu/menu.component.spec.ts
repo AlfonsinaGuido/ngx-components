@@ -21,10 +21,16 @@ describe('MenuComponent', () => {
     component = fixture.componentInstance;
 
     const icons: IMenuIcons = {
-      buttonIcon: { icon: 'test', type: 'class' },
+      closeIcon: { icon: 'test', type: 'class' },
     };
     component.icons = icons;
-
+    component.defaultUserMenuIcons = {
+      buttonIcon: {
+        icon: 'expand_more',
+        type: 'class',
+      },
+      ...icons,
+    };
     fixture.detectChanges();
   });
 
@@ -66,29 +72,31 @@ describe('MenuComponent', () => {
     expect(component.icons.buttonIcon).toEqual(initialIcon);
   });
 
-  it('should set buttonIcon to expand_less on menu open if userData is defined, onMenuOpen()', () => {
+  it('should set buttonIcon to expand_less on menu open if userData is defined and icons.buttonIcon is undefined, onMenuOpen()', () => {
     component.userData = {
       fullName: 'test',
       email: 'test',
-      position: 'test',
+      jobPositions: [{ Nombre: 'Test' }],
     };
+
     component.onMenuOpen();
 
-    expect(component.icons.buttonIcon).toEqual({
+    expect(component.defaultUserMenuIcons?.buttonIcon).toEqual({
       icon: 'expand_less',
       type: 'class',
     });
   });
 
-  it('should set buttonIcon to expand_more on menu close if userData is defined, onMenuClose()', () => {
+  it('should set buttonIcon to expand_more on menu close if userData is defined and icons.buttonIcon is undefined, onMenuClose()', () => {
     component.userData = {
       fullName: 'test',
       email: 'test',
-      position: 'test',
+      jobPositions: [{ Nombre: 'Test' }],
     };
+
     component.onMenuClose();
 
-    expect(component.icons.buttonIcon).toEqual({
+    expect(component.defaultUserMenuIcons?.buttonIcon).toEqual({
       icon: 'expand_more',
       type: 'class',
     });

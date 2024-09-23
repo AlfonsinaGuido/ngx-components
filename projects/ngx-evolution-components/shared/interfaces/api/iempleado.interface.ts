@@ -17,14 +17,14 @@ interface IFotografia {
   CodigoArchivo: string;
 }
 
-interface IPlaza {
+export interface IPlaza {
   Puesto: IPuesto;
   Unidad: IUnidad;
   Compania: ICompania;
   CentroTrabajo: ICentroTrabajo;
 }
 
-export interface IPuesto {
+interface IPuesto {
   Nombre: string;
 }
 

@@ -66,7 +66,7 @@
   }
   @if (userData) {
     <evo-button
-      [label]="userData.jobPositions[0].Nombre"
+      [label]="userData.jobPositions[0].Puesto.Nombre"
       [theme]="'secondary'"
       [withoutBorder]="true"
       class="buttons-in-menu"
@@ -74,13 +74,15 @@
       [disabled]="true"
       twClass="!pb-0 !min-h-max"
     ></evo-button>
-    <div class="text-sm text-medium-gray px-2 pb-2 whitespace-pre-wrap">
-      <span>{{ userData.detail }}</span>
+    <div class="text-sm text-medium-gray px-2 pb-2">
+      <div>{{ userData.jobPositions[0].Unidad.Descripcion }}</div>
+      <div>{{ userData.jobPositions[0].Compania.Descripcion }}</div>
+      <div>{{ userData.jobPositions[0].CentroTrabajo.Descripcion }}</div>
     </div>
     @for (jobPosition of userData.jobPositions; track $index) {
       @if ($index > 0) {
         <evo-button
-          [label]="jobPosition.Nombre"
+          [label]="jobPosition.Puesto.Nombre"
           [icon]="jobPositionChangeIcon"
           [theme]="'secondary'"
           [withoutBorder]="true"

@@ -405,10 +405,32 @@ export const UserMenu: Story = {
       email: 'slopez@empresa.com',
       jobPositions: [
         {
-          Nombre: 'Gerente Desarrollo',
+          Puesto: {
+            Nombre: 'Gerente Desarrollo',
+          },
+          Unidad: {
+            Descripcion: 'Unidad',
+          },
+          Compania: {
+            Descripcion: 'Compania',
+          },
+          CentroTrabajo: {
+            Descripcion: 'Centro de Trabajo',
+          },
         },
         {
-          Nombre: 'Gerente Calidad',
+          Puesto: {
+            Nombre: 'Gerente Calidad',
+          },
+          Unidad: {
+            Descripcion: 'Unidad',
+          },
+          Compania: {
+            Descripcion: 'Compania',
+          },
+          CentroTrabajo: {
+            Descripcion: 'Centro de Trabajo',
+          },
           onClick: {
             action: (position = 'Gerente Calidad') => {
               alert('Puesto elegido: ' + position);
@@ -416,7 +438,18 @@ export const UserMenu: Story = {
           },
         },
         {
-          Nombre: 'Community Manager',
+          Puesto: {
+            Nombre: 'Community Manager',
+          },
+          Unidad: {
+            Descripcion: 'Unidad',
+          },
+          Compania: {
+            Descripcion: 'Compania',
+          },
+          CentroTrabajo: {
+            Descripcion: 'Centro de Trabajo',
+          },
           onClick: {
             action: (position = 'Community Manager') => {
               alert('Puesto elegido: ' + position);
@@ -424,7 +457,6 @@ export const UserMenu: Story = {
           },
         },
       ],
-      detail: 'Unidad\nCompañía\nCentro de trabajo',
     },
     items: [
       {

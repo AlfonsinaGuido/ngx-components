@@ -203,7 +203,6 @@ const meta: Meta<SidebarComponent> = {
         jobPositions: [
           {
             Nombre: 'Gerente Desarrollo',
-            disabled: true,
           },
           {
             Nombre: 'Gerente Calidad',
@@ -214,6 +213,7 @@ const meta: Meta<SidebarComponent> = {
             },
           },
         ],
+        detail: 'Unidad\nCompañía\nCentro de trabajo',
       },
     } as IHeader,
     options: [

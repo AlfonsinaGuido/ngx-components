@@ -5,9 +5,9 @@ export interface IUserData {
   imgUrl?: string;
   email: string;
   jobPositions: IJobPosition[];
+  detail: string;
 }
 
 interface IJobPosition extends IPuesto {
   onClick?: IButtonAction;
-  disabled?: boolean;
 }

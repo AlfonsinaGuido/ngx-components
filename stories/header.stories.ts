@@ -226,7 +226,6 @@ export const Default: Story = {
       jobPositions: [
         {
           Nombre: 'Gerente Desarrollo',
-          disabled: true,
         },
         {
           Nombre: 'Gerente Calidad',
@@ -237,6 +236,7 @@ export const Default: Story = {
           },
         },
       ],
+      detail: 'Unidad\nCompañía\nCentro de trabajo',
     },
     twClass: '',
   },

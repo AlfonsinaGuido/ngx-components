@@ -917,6 +917,11 @@ video {
   min-height: 2.25rem;
 }
 
+.\!min-h-max {
+  min-height: -moz-max-content !important;
+  min-height: max-content !important;
+}
+
 .w-10 {
   width: 2.5rem;
 }
@@ -1095,6 +1100,10 @@ video {
   white-space: normal;
 }
 
+.whitespace-pre-wrap {
+  white-space: pre-wrap;
+}
+
 .text-nowrap {
   text-wrap: nowrap;
 }
@@ -1243,6 +1252,14 @@ video {
 
 .pt-20 {
   padding-top: 5rem;
+}
+
+.pb-2 {
+  padding-bottom: 10px;
+}
+
+.\!pb-0 {
+  padding-bottom: 0px !important;
 }
 
 .text-center {

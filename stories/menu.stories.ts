@@ -406,7 +406,6 @@ export const UserMenu: Story = {
       jobPositions: [
         {
           Nombre: 'Gerente Desarrollo',
-          disabled: true,
         },
         {
           Nombre: 'Gerente Calidad',
@@ -425,6 +424,7 @@ export const UserMenu: Story = {
           },
         },
       ],
+      detail: 'Unidad\nCompañía\nCentro de trabajo',
     },
     items: [
       {

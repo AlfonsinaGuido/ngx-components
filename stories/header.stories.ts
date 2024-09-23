@@ -161,7 +161,6 @@ export const Default: Story = {
       seeAllButton: {
         seeAllAuthorizations: {
           label: 'Ver todas',
-          withoutBorder: true,
           onClick: {
             action: (path = '/autorizaciones') => {
               alert('Redirige a pantalla: ' + path);
@@ -170,7 +169,6 @@ export const Default: Story = {
         },
         seeAllNotifications: {
           label: 'Ver todas',
-          withoutBorder: true,
           onClick: {
             action: (path = '/notificaciones') => {
               alert('Redirige a pantalla: ' + path);
@@ -236,6 +234,11 @@ export const Default: Story = {
           },
           CentroTrabajo: {
             Descripcion: 'Centro de Trabajo',
+          },
+          onClick: {
+            action: (position = 'Gerente Desarrollo') => {
+              alert('Puesto elegido: ' + position);
+            },
           },
         },
         {

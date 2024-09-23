@@ -8,5 +8,5 @@ export interface IUserData {
 }
 
 interface IJobPosition extends IPlaza {
-  onClick?: IButtonAction;
+  onClick: IButtonAction;
 }

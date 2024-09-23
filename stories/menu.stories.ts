@@ -75,7 +75,6 @@ export const AuthorizationsMenu: Story = {
     lengthOfItems: 3,
     seeAllButton: {
       label: 'Ver todas',
-      withoutBorder: true,
       onClick: {
         action: (path = '/autorizaciones') => {
           alert('Redirige a pantalla: ' + path);
@@ -140,7 +139,6 @@ export const NotificationsMenu: Story = {
     lengthOfItems: 3,
     seeAllButton: {
       label: 'Ver todas',
-      withoutBorder: true,
       onClick: {
         action: (path = '/notificaciones') => {
           alert('Redirige a pantalla: ' + path);
@@ -416,6 +414,11 @@ export const UserMenu: Story = {
           },
           CentroTrabajo: {
             Descripcion: 'Centro de Trabajo',
+          },
+          onClick: {
+            action: (position = 'Gerente Desarrollo') => {
+              alert('Puesto elegido: ' + position);
+            },
           },
         },
         {

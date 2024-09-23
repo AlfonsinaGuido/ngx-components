@@ -56,6 +56,11 @@ describe('SidebarComponent', () => {
           { label: 'Notification 1' },
           { label: 'Notification 2' },
         ],
+        seeAllButton: {
+          seeAllNotifications: {
+            label: 'Test',
+          },
+        },
         settingMenu: {
           options: [
             {
@@ -73,7 +78,27 @@ describe('SidebarComponent', () => {
       userData: {
         fullName: 'User',
         email: 'user@example.com',
-        jobPositions: [{ Nombre: 'Test' }],
+        jobPositions: [
+          {
+            Puesto: {
+              Nombre: 'Test Nombre',
+            },
+            Unidad: {
+              Descripcion: 'Test Descripción Unidad',
+            },
+            Compania: {
+              Descripcion: 'Test Descripción Compañía',
+            },
+            CentroTrabajo: {
+              Descripcion: 'Test Descripción Centro de Trabajo',
+            },
+            onClick: {
+              action: () => {
+                alert('Test');
+              },
+            },
+          },
+        ],
       },
     };
     component.options = [

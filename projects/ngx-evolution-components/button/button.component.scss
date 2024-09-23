@@ -107,11 +107,13 @@ $parent: ".evo-button";
   }
 
   &.is-flat {
-    font-size: 12px;
-    font-weight: 400;
     min-height: 22px;
     height: 22px;
     padding: 12px;
+    .label {
+      font-weight: 400;
+      font-size: 14px;
+    }
   }
 
   &.is-fluid {

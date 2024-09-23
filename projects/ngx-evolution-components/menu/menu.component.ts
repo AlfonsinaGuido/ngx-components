@@ -34,6 +34,7 @@ export class MenuComponent implements OnInit {
   @Input() title?: string;
   @Input() items!: IButton[];
   @Input() icons!: IMenuIcons;
+  @Input() seeAllButton?: IButton;
   @Input() lengthOfItems?: number;
   @Input() settingMenu?: ISettingMenu;
   @Input() userData?: IUserData;

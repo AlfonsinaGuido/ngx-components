@@ -146,7 +146,38 @@ export const Default: Story = {
             },
           },
         },
+        {
+          label: 'Ramiro Gomez finalizó Programa Desarrollo',
+          avatarName: 'Ramiro Gomez',
+          avatarImgUrl:
+            'https://material.angular.io/assets/img/examples/shiba1.jpg',
+          onClick: {
+            action: (name = 'Ramiro Gomez') => {
+              alert('Notificación de ' + name);
+            },
+          },
+        },
       ],
+      seeAllButton: {
+        seeAllAuthorizations: {
+          label: 'Ver todas',
+          withoutBorder: true,
+          onClick: {
+            action: (path = '/autorizaciones') => {
+              alert('Redirige a pantalla: ' + path);
+            },
+          },
+        },
+        seeAllNotifications: {
+          label: 'Ver todas',
+          withoutBorder: true,
+          onClick: {
+            action: (path = '/notificaciones') => {
+              alert('Redirige a pantalla: ' + path);
+            },
+          },
+        },
+      },
       settingMenu: {
         options: [
           {

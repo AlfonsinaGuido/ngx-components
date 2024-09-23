@@ -82,7 +82,6 @@
     <mat-divider></mat-divider>
     <evo-button
       class="buttons-in-menu"
-      [twClass]="userData ? 'userFont' : ''"
       [label]="item.label"
       [icon]="item.icon"
       [withoutBorder]="true"
@@ -93,6 +92,17 @@
       [avatarImgUrl]="item.avatarImgUrl"
       [onClick]="item.onClick"
       (click)="lengthOfItems && $event.stopPropagation()"
+    ></evo-button>
+  }
+  @if (seeAllButton && lengthOfItems && lengthOfItems > 3) {
+    <evo-button
+      class="see-all-button flex justify-end mt-2"
+      [label]="seeAllButton.label"
+      [icon]="seeAllButton.icon"
+      [onClick]="seeAllButton.onClick"
+      [withoutBorder]="seeAllButton.withoutBorder || true"
+      [theme]="seeAllButton.theme || 'default'"
+      [isFlat]="true"
     ></evo-button>
   }
 </mat-menu>

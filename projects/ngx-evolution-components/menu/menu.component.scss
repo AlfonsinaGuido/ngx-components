@@ -31,6 +31,7 @@
     gap: 10px;
     label {
       margin-left: 0;
+      color: var(--medium-gray);
     }
   }
 }
@@ -39,23 +40,21 @@
   &.theme-secondary {
     justify-content: left;
     padding: 8px;
-    color: var(--medium-gray);
     .evo-button__content {
       justify-content: left;
-      .icon {
-        color: var(--medium-gray);
-      }
+      color: var(--medium-gray);
       .label {
         text-align: left;
-        font-size: 12px;
+        font-size: 14px;
       }
     }
-    &.userFont {
-      .evo-button__content {
-        .label {
-          font-size: 16px;
-        }
-      }
+  }
+}
+
+.see-all-button .evo-button {
+  &.theme-default {
+    .evo-button__content {
+      color: var(--medium-gray);
     }
   }
 }

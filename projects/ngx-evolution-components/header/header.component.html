@@ -37,16 +37,18 @@
       <evo-menu
         [icons]="icons.authorizationMenuIcons"
         [title]="titles.authorizationTitle"
-        [items]="items.authorizationItems"
+        [items]="items.authorizationItems.slice(-3)"
         [lengthOfItems]="items.authorizationItems.length"
+        [seeAllButton]="items.seeAllButton.seeAllAuthorizations"
         twClass="mt-4"
       ></evo-menu>
     }
     <evo-menu
       [icons]="icons.notificationMenuIcons"
       [title]="titles.notificationTitle"
-      [items]="items.notificationItems"
+      [items]="items.notificationItems.slice(-3)"
       [lengthOfItems]="items.notificationItems.length"
+      [seeAllButton]="items.seeAllButton.seeAllNotifications"
       twClass="mt-4"
     ></evo-menu>
     <evo-menu

@@ -1,4 +1,7 @@
-import { MenuComponent } from '@aseinfo/ngx-evolution-components/public-api';
+import {
+  IButton,
+  MenuComponent,
+} from '@aseinfo/ngx-evolution-components/public-api';
 import {
   applicationConfig,
   type Meta,
@@ -70,6 +73,15 @@ export const AuthorizationsMenu: Story = {
     },
     title: 'Autorizaciones',
     lengthOfItems: 3,
+    seeAllButton: {
+      label: 'Ver todas',
+      withoutBorder: true,
+      onClick: {
+        action: (path = '/autorizaciones') => {
+          alert('Redirige a pantalla: ' + path);
+        },
+      },
+    },
     items: [
       {
         label:
@@ -126,6 +138,15 @@ export const NotificationsMenu: Story = {
     },
     title: 'Notificaciones',
     lengthOfItems: 3,
+    seeAllButton: {
+      label: 'Ver todas',
+      withoutBorder: true,
+      onClick: {
+        action: (path = '/notificaciones') => {
+          alert('Redirige a pantalla: ' + path);
+        },
+      },
+    },
     items: [
       {
         label: 'Carlos Sanchez finalizó Programa Recursos Humanos',
@@ -167,7 +188,12 @@ export const NotificationsMenu: Story = {
 
 export const WithScroll: Story = {
   args: {
-    ...NotificationsMenu.args,
+    ...(() => {
+      const { seeAllButton, ...rest } = NotificationsMenu.args as {
+        seeAllButton?: IButton;
+      };
+      return rest;
+    })(),
     lengthOfItems: 15,
     items: [
       {

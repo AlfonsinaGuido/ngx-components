@@ -146,7 +146,36 @@ export const Default: Story = {
             },
           },
         },
+        {
+          label: 'Ramiro Gomez finalizó Programa Desarrollo',
+          avatarName: 'Ramiro Gomez',
+          avatarImgUrl:
+            'https://material.angular.io/assets/img/examples/shiba1.jpg',
+          onClick: {
+            action: (name = 'Ramiro Gomez') => {
+              alert('Notificación de ' + name);
+            },
+          },
+        },
       ],
+      seeAllButton: {
+        seeAllAuthorizations: {
+          label: 'Ver todas',
+          onClick: {
+            action: (path = '/autorizaciones') => {
+              alert('Redirige a pantalla: ' + path);
+            },
+          },
+        },
+        seeAllNotifications: {
+          label: 'Ver todas',
+          onClick: {
+            action: (path = '/notificaciones') => {
+              alert('Redirige a pantalla: ' + path);
+            },
+          },
+        },
+      },
       settingMenu: {
         options: [
           {
@@ -194,11 +223,37 @@ export const Default: Story = {
       email: 'slopez@empresa.com',
       jobPositions: [
         {
-          Nombre: 'Gerente Desarrollo',
-          disabled: true,
+          Puesto: {
+            Nombre: 'Gerente Desarrollo',
+          },
+          Unidad: {
+            Descripcion: 'Unidad',
+          },
+          Compania: {
+            Descripcion: 'Compania',
+          },
+          CentroTrabajo: {
+            Descripcion: 'Centro de Trabajo',
+          },
+          onClick: {
+            action: (position = 'Gerente Desarrollo') => {
+              alert('Puesto elegido: ' + position);
+            },
+          },
         },
         {
-          Nombre: 'Gerente Calidad',
+          Puesto: {
+            Nombre: 'Gerente Calidad',
+          },
+          Unidad: {
+            Descripcion: 'Unidad',
+          },
+          Compania: {
+            Descripcion: 'Compania',
+          },
+          CentroTrabajo: {
+            Descripcion: 'Centro de Trabajo',
+          },
           onClick: {
             action: (position = 'Gerente Calidad') => {
               alert('Puesto elegido: ' + position);

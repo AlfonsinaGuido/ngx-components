@@ -1,4 +1,10 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  SimpleChanges,
+  ViewEncapsulation,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   AvatarComponent,
@@ -20,7 +26,7 @@ import {
   styleUrls: ['./header.component.scss', '../styles/output.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnChanges {
   @Input() icons!: IHeaderIcons;
   @Input() titles!: IHeaderTitles;
   @Input() items!: IHeaderItems;
@@ -28,4 +34,11 @@ export class HeaderComponent {
   @Input() box?: IHeaderBoxButton[];
   @Input() userData!: IUserData;
   @Input() twClass?: string;
+  public sessionJobPositionName!: string;
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['userData'] && this.userData?.jobPositions?.length) {
+      this.sessionJobPositionName = this.userData.jobPositions[0].Puesto.Nombre;
+    }
+  }
 }

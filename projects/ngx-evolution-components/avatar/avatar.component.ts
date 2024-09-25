@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
@@ -9,7 +9,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
   templateUrl: './avatar.component.html',
   styleUrls: ['./avatar.component.scss', '../styles/output.scss'],
 })
-export class AvatarComponent implements OnInit {
+export class AvatarComponent implements OnChanges {
   private colorArray: string[];
   public iniciales!: string;
   public textColor!: string;
@@ -37,9 +37,11 @@ export class AvatarComponent implements OnInit {
     ];
   }
 
-  ngOnInit(): void {
-    this.color = this.color || this.getAvatarColor();
-    this.setIniciales();
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['name']) {
+      this.color = this.color || this.getAvatarColor();
+      this.setIniciales();
+    }
   }
 
   /**

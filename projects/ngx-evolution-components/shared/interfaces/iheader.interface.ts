@@ -40,8 +40,14 @@ export interface IHeaderItems {
   appItems: IButton[];
   authorizationItems?: IButton[];
   notificationItems: IButton[];
+  seeAllButton: ISeeAllButton;
   settingMenu: ISettingMenu;
   userDataItems: IButton[];
+}
+
+interface ISeeAllButton {
+  seeAllAuthorizations?: IButton;
+  seeAllNotifications: IButton;
 }
 
 export interface IHeaderCompanyData {

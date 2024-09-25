@@ -1,4 +1,4 @@
-import { IButtonAction, IPuesto } from '../../public-api';
+import { IButtonAction, IPlaza } from '../../public-api';
 
 export interface IUserData {
   fullName: string;
@@ -7,7 +7,6 @@ export interface IUserData {
   jobPositions: IJobPosition[];
 }
 
-interface IJobPosition extends IPuesto {
-  onClick?: IButtonAction;
-  disabled?: boolean;
+interface IJobPosition extends IPlaza {
+  onClick: IButtonAction;
 }

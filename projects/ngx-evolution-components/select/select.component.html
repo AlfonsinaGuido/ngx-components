@@ -74,7 +74,7 @@
     }
   }
   @if (detail) {
-    <mat-hint>{{ detail }}</mat-hint>
+    <mat-hint class="whitespace-pre-wrap">{{ detail }}</mat-hint>
   }
   @if (control.hasError("required") && requiredErrorMessage) {
     <mat-error>{{ requiredErrorMessage }}</mat-error>

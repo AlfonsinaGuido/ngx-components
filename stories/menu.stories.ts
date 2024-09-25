@@ -1,4 +1,7 @@
-import { MenuComponent } from '@aseinfo/ngx-evolution-components/public-api';
+import {
+  IButton,
+  MenuComponent,
+} from '@aseinfo/ngx-evolution-components/public-api';
 import {
   applicationConfig,
   type Meta,
@@ -70,6 +73,14 @@ export const AuthorizationsMenu: Story = {
     },
     title: 'Autorizaciones',
     lengthOfItems: 3,
+    seeAllButton: {
+      label: 'Ver todas',
+      onClick: {
+        action: (path = '/autorizaciones') => {
+          alert('Redirige a pantalla: ' + path);
+        },
+      },
+    },
     items: [
       {
         label:
@@ -126,6 +137,14 @@ export const NotificationsMenu: Story = {
     },
     title: 'Notificaciones',
     lengthOfItems: 3,
+    seeAllButton: {
+      label: 'Ver todas',
+      onClick: {
+        action: (path = '/notificaciones') => {
+          alert('Redirige a pantalla: ' + path);
+        },
+      },
+    },
     items: [
       {
         label: 'Carlos Sanchez finalizó Programa Recursos Humanos',
@@ -167,7 +186,12 @@ export const NotificationsMenu: Story = {
 
 export const WithScroll: Story = {
   args: {
-    ...NotificationsMenu.args,
+    ...(() => {
+      const { seeAllButton, ...rest } = NotificationsMenu.args as {
+        seeAllButton?: IButton;
+      };
+      return rest;
+    })(),
     lengthOfItems: 15,
     items: [
       {
@@ -379,11 +403,37 @@ export const UserMenu: Story = {
       email: 'slopez@empresa.com',
       jobPositions: [
         {
-          Nombre: 'Gerente Desarrollo',
-          disabled: true,
+          Puesto: {
+            Nombre: 'Gerente Desarrollo',
+          },
+          Unidad: {
+            Descripcion: 'Unidad',
+          },
+          Compania: {
+            Descripcion: 'Compania',
+          },
+          CentroTrabajo: {
+            Descripcion: 'Centro de Trabajo',
+          },
+          onClick: {
+            action: (position = 'Gerente Desarrollo') => {
+              alert('Puesto elegido: ' + position);
+            },
+          },
         },
         {
-          Nombre: 'Gerente Calidad',
+          Puesto: {
+            Nombre: 'Gerente Calidad',
+          },
+          Unidad: {
+            Descripcion: 'Unidad',
+          },
+          Compania: {
+            Descripcion: 'Compania',
+          },
+          CentroTrabajo: {
+            Descripcion: 'Centro de Trabajo',
+          },
           onClick: {
             action: (position = 'Gerente Calidad') => {
               alert('Puesto elegido: ' + position);
@@ -391,7 +441,18 @@ export const UserMenu: Story = {
           },
         },
         {
-          Nombre: 'Community Manager',
+          Puesto: {
+            Nombre: 'Community Manager',
+          },
+          Unidad: {
+            Descripcion: 'Unidad',
+          },
+          Compania: {
+            Descripcion: 'Compania',
+          },
+          CentroTrabajo: {
+            Descripcion: 'Centro de Trabajo',
+          },
           onClick: {
             action: (position = 'Community Manager') => {
               alert('Puesto elegido: ' + position);

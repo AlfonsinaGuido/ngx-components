@@ -1,10 +1,18 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+  ViewEncapsulation,
+} from '@angular/core';
 import {
   AvatarComponent,
   ButtonComponent,
   IButton,
   IIcon,
   IMenuIcons,
+  IPlaza,
   ISettingMenu,
   IUserData,
 } from '../public-api';
@@ -30,7 +38,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
   styleUrls: ['./menu.component.scss', '../styles/output.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent implements OnInit, OnChanges {
   @Input() title?: string;
   @Input() items!: IButton[];
   @Input() icons!: IMenuIcons;
@@ -44,6 +52,7 @@ export class MenuComponent implements OnInit {
     type: 'class',
   };
   public defaultUserMenuIcons: IMenuIcons | undefined = undefined;
+  public sessionJobPosition!: IPlaza;
 
   ngOnInit(): void {
     if (this.userData) {
@@ -64,6 +73,12 @@ export class MenuComponent implements OnInit {
           type: 'class',
         };
       }
+    }
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['userData'] && this.userData?.jobPositions?.length) {
+      this.sessionJobPosition = this.userData.jobPositions[0];
     }
   }
 

@@ -8,6 +8,8 @@ import {
   AfterViewInit,
   ViewEncapsulation,
   ChangeDetectorRef,
+  OnChanges,
+  SimpleChanges,
 } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import {
@@ -38,7 +40,7 @@ import { MatDivider } from '@angular/material/divider';
   styleUrls: ['./sidebar.component.scss', '../styles/output.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class SidebarComponent implements OnInit, AfterViewInit {
+export class SidebarComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() commonProps!: IHeader;
   @Input() options!: ISidebarOption[];
   @Input() additionalOptions?: ISidebarOption[];
@@ -48,6 +50,8 @@ export class SidebarComponent implements OnInit, AfterViewInit {
   activeRoute: string = '';
 
   private routerSubscription!: Subscription;
+
+  public sessionJobPositionName!: string;
 
   constructor(
     private router: Router,
@@ -69,6 +73,16 @@ export class SidebarComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
       this.subscribeToRouteChanges();
+    }
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (
+      changes['commonProps'] &&
+      this.commonProps?.userData?.jobPositions?.length
+    ) {
+      this.sessionJobPositionName =
+        this.commonProps.userData.jobPositions[0].Puesto.Nombre;
     }
   }
 

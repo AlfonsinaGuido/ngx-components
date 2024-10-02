@@ -17,12 +17,15 @@ import { MatIcon } from '@angular/material/icon';
   encapsulation: ViewEncapsulation.None,
 })
 export class DialogoActividadComponent implements OnInit {
+  public actividad: IActividad;
+
   constructor(
     private dialogRef: MatDialogRef<DialogoActividadComponent>,
     @Inject(MAT_DIALOG_DATA)
     public data: { actividad: IActividad },
   ) {
     dialogRef.disableClose = false;
+    this.actividad = data.actividad;
   }
 
   ngOnInit(): void {}

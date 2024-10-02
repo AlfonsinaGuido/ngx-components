@@ -71,6 +71,7 @@ export class CartaActividadComponent implements OnInit {
    */
   public verDetalle(): void {
     const dialogRef = this.dialog.open(DialogoActividadComponent, {
+      maxHeight: '90vh',
       data: {
         actividad: this.actividad,
       },

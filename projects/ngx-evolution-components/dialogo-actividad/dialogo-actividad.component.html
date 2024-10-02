@@ -1,7 +1,7 @@
-<div class="flex flex-col p-5 gap-2">
+<div class="flex flex-col p-5 text-gray-700">
   <div class="flex justify-between items-center">
-    <p class="text-xl font-bold">
-      {{ data.actividad.nombre }}
+    <p class="text-2xl font-bold">
+      {{ actividad.nombre }}
     </p>
     <button
       class="flex justify-center items-center cursor-pointer p-2 rounded-full bg-gray-10 hover:bg-gray-100 transition-colors"
@@ -15,14 +15,57 @@
       />
     </button>
   </div>
-  <evo-tag
-    [prioridad]="data.actividad.prioridad"
-    size="md"
-    [label]="data.actividad.prioridad!.nombre"
-    twClass="rounded-md px-6 font-bold"
-  >
-  </evo-tag>
-  <p class="text-base">
-    {{ data.actividad.descripcion }}
+  <p id="program" class="text-small text-gray-500">
+    Programa
+    <span class="underline"> Gerente de Desarrollo </span>
   </p>
+  <div class="grid-container mt-3">
+    <div class="property">
+      <mat-icon>person</mat-icon>
+      Responsable
+    </div>
+    <div class="value">
+      {{ actividad.responsable }}
+    </div>
+
+    <div class="property">
+      <mat-icon>today</mat-icon>
+      Fecha Fin
+    </div>
+    <div class="value">
+      {{ actividad.fechaFin | date }}
+    </div>
+
+    <div class="property">
+      <mat-icon>timeline</mat-icon>
+      Etapa
+    </div>
+    <div class="value">{{ actividad.etapa }}</div>
+
+    <div class="property">
+      <mat-icon>fiber_manual_record</mat-icon>
+      Estado
+    </div>
+    <div class="value">{{ actividad.status }}</div>
+
+    <div class="property">
+      <mat-icon>label</mat-icon>
+      Prioridad
+    </div>
+    <div class="value">
+      <evo-tag size="sm" [prioridad]="actividad.prioridad" />
+    </div>
+
+    <div class="property">
+      <mat-icon>subtitles</mat-icon>
+      Descripción
+    </div>
+    <div class="text-area">{{ actividad.descripcion }}</div>
+
+    <div class="property">
+      <mat-icon>playlist_add_check</mat-icon>
+      Objetivos
+    </div>
+    <div class="text-area">{{ actividad.objetivos }}</div>
+  </div>
 </div>

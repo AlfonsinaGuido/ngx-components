@@ -1,4 +1,4 @@
-<div class="flex flex-col p-5 text-gray-700">
+<div id="dialogo-actividad" class="flex flex-col p-5 text-gray-700 max-w-[560px]">
   <div class="flex justify-between items-center">
     <p class="text-2xl font-bold">
       {{ actividad.nombre }}
@@ -19,53 +19,5 @@
     Programa
     <span class="underline"> Gerente de Desarrollo </span>
   </p>
-  <div class="grid-container mt-3">
-    <div class="property">
-      <mat-icon>person</mat-icon>
-      Responsable
-    </div>
-    <div class="value">
-      {{ actividad.responsable }}
-    </div>
-
-    <div class="property">
-      <mat-icon>today</mat-icon>
-      Fecha Fin
-    </div>
-    <div class="value">
-      {{ actividad.fechaFin | date }}
-    </div>
-
-    <div class="property">
-      <mat-icon>timeline</mat-icon>
-      Etapa
-    </div>
-    <div class="value">{{ actividad.etapa }}</div>
-
-    <div class="property">
-      <mat-icon>fiber_manual_record</mat-icon>
-      Estado
-    </div>
-    <div class="value">{{ actividad.status }}</div>
-
-    <div class="property">
-      <mat-icon>label</mat-icon>
-      Prioridad
-    </div>
-    <div class="value">
-      <evo-tag size="sm" [prioridad]="actividad.prioridad" />
-    </div>
-
-    <div class="property">
-      <mat-icon>subtitles</mat-icon>
-      Descripción
-    </div>
-    <div class="text-area">{{ actividad.descripcion }}</div>
-
-    <div class="property">
-      <mat-icon>playlist_add_check</mat-icon>
-      Objetivos
-    </div>
-    <div class="text-area">{{ actividad.objetivos }}</div>
-  </div>
+  <evo-data-grid [data]="dataGrid" />
 </div>

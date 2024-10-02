@@ -34,7 +34,12 @@
             class="w-full flex items-center overflow-hidden line-clamp-1 text-nowrap rounded-md p-1.5 mb-0.5 cursor-pointer bg-gray-100 hover:bg-gray-200 transition-colors"
             (click)="accordionItem.toggle()"
           >
-            <mat-icon class="flex items-center justify-center text-xl">
+            <mat-icon
+              class="flex items-center justify-center text-xl"
+              fontSet="material-symbols-outlined"
+              aria-hidden="false"
+              aria-label="icon"
+            >
               {{ accordionItem.expanded ? "chevron_right" : "expand_more" }}
             </mat-icon>
             <p class="text-sm">
@@ -52,7 +57,9 @@
             <div
               class="inline-block min-w-72 max-w-72 whitespace-normal snap-center"
             >
-              <evo-columna-tablero [actividades]="empleo.actividades.actividades">
+              <evo-columna-tablero
+                [actividades]="empleo.actividades.actividades"
+              >
               </evo-columna-tablero>
             </div>
           </div>

@@ -1,12 +1,12 @@
 import { Meta, StoryObj, applicationConfig } from '@storybook/angular';
 import {
   SidebarComponent,
-  HeaderIconsInterface,
-  HeaderTitlesInterface,
-  HeaderButtonItemsInterface,
-  HeaderCompanyDataInterface,
-  HeaderInterface,
-  SidebarOptionInterface,
+  IHeaderIcons,
+  IHeaderTitles,
+  IHeaderItems,
+  IHeaderCompanyData,
+  IHeader,
+  ISidebarOption,
 } from '@aseinfo/ngx-evolution-components/public-api';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideHttpClient } from '@angular/common/http';
@@ -39,38 +39,48 @@ const meta: Meta<SidebarComponent> = {
         type: 'object',
       },
     },
-    avatarName: {
-      type: 'string',
-      description: 'Nombre del avatar',
-    },
-    avatarImgUrl: {
-      type: 'string',
-      description: 'URL de la imagen del avatar',
-    },
-    avatarIsPriority: {
-      type: 'boolean',
-      description: 'Si el avatar tiene prioridad',
-    },
   },
   args: {
     commonProps: {
       icons: {
-        appIcon: { icon: 'app-menu.svg', type: 'svg' },
-        notificationIcon: { icon: 'bell.svg', type: 'svg' },
-        closeMenuIcon: { icon: 'close.svg', type: 'svg' },
-      } as HeaderIconsInterface,
+        appMenuIcons: {
+          buttonIcon: {
+            icon: 'app-menu.svg',
+            type: 'svg',
+          },
+        },
+        authorizationMenuIcons: {
+          buttonIcon: {
+            icon: 'fact_check',
+            type: 'class',
+          },
+        },
+        notificationMenuIcons: {
+          buttonIcon: {
+            icon: 'bell.svg',
+            type: 'svg',
+          },
+        },
+        settingMenuIcons: {
+          buttonIcon: {
+            icon: 'settings.svg',
+            type: 'svg',
+          },
+        },
+      } as IHeaderIcons,
       titles: {
         appTitle: 'Tus aplicaciones',
+        authorizationTitle: 'Autorizaciones',
         notificationTitle: 'Notificaciones',
-      } as HeaderTitlesInterface,
-      buttonItems: {
+        settingTitle: 'Ajustes',
+      } as IHeaderTitles,
+      items: {
         appItems: [
           {
             label: 'Evo Wave',
             icon: {
               icon: 'company-logo.svg',
               type: 'svg',
-              position: 'left',
             },
             url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoWave',
           },
@@ -79,48 +89,157 @@ const meta: Meta<SidebarComponent> = {
             icon: {
               icon: 'company-logo.svg',
               type: 'svg',
-              position: 'left',
             },
             url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoChart',
           },
         ],
-        notificationItems: [
+        authorizationItems: [
           {
-            label: 'Carlos Sanchez finalizo Programa Recursos Humanos',
+            label:
+              'Carlos Sanchez requiere autorización de acceso al Programa Recursos Humanos',
             avatarName: 'Carlos Sanchez',
             avatarImgUrl:
               'https://material.angular.io/assets/img/examples/shiba1.jpg',
             onClick: {
-              action: (param = ' con param') => {
-                console.log('funciona' + param);
+              action: (name = 'Carlos Sanchez') => {
+                alert('Se autorizó a ' + name);
+              },
+            },
+          },
+          {
+            label:
+              'Samuel Lopez requiere autorización de acceso al Programa Desarrollo',
+            avatarName: 'Samuel Lopez',
+            avatarImgUrl:
+              'https://material.angular.io/assets/img/examples/shiba1.jpg',
+            onClick: {
+              action: () => {
+                alert('Se autorizó a Samuel Lopez');
+              },
+            },
+          },
+          {
+            label:
+              'Ignacio Fernandez requiere autorización de acceso al Programa Recursos Humanos',
+            avatarName: 'Ignacio Fernandez',
+            avatarImgUrl:
+              'https://material.angular.io/assets/img/examples/shiba1.jpg',
+            onClick: {
+              action: (name = 'Ignacio Fernandez') => {
+                alert('Se autorizó a ' + name);
               },
             },
           },
         ],
+        notificationItems: [
+          {
+            label: 'Carlos Sanchez finalizó Programa Recursos Humanos',
+            avatarName: 'Carlos Sanchez',
+            avatarImgUrl:
+              'https://material.angular.io/assets/img/examples/shiba1.jpg',
+            onClick: {
+              action: (name = 'Carlos Sanchez') => {
+                alert('Notificación de: ' + name);
+              },
+            },
+          },
+        ],
+        seeAllButton: {
+          seeAllAuthorizations: {
+            label: 'Ver todas',
+            onClick: {
+              action: (path = '/autorizaciones') => {
+                alert('Redirige a pantalla: ' + path);
+              },
+            },
+          },
+          seeAllNotifications: {
+            label: 'Ver todas',
+            onClick: {
+              action: (path = '/notificaciones') => {
+                alert('Redirige a pantalla: ' + path);
+              },
+            },
+          },
+        },
+        settingMenu: {
+          options: [
+            {
+              name: 'Apellido primero',
+            },
+            {
+              name: 'Autorizaciones',
+            },
+          ],
+        },
         userDataItems: [
           {
+            label: 'Administrar Cuenta',
+            icon: {
+              icon: 'manage_accounts',
+              type: 'class',
+            },
+            url: 'https://localhost:7002/identity/account/manage',
+          },
+          {
             label: 'Cerrar Sesión',
-            icon: { icon: 'logout.svg', type: 'svg', position: 'left' },
             onClick: {
-              action: (param = ' con param') => {
-                console.log('funciona' + param);
+              action: () => {
+                alert('Se ejecuta Logout');
               },
             },
           },
         ],
-      } as HeaderButtonItemsInterface,
+      } as IHeaderItems,
       companyData: {
         companyImage: 'company-logo.svg',
         companyName: 'ASEINFO',
-      } as HeaderCompanyDataInterface,
+      } as IHeaderCompanyData,
       userData: {
         fullName: 'Stela Lopez',
         email: 'slopez@empresa.com',
-        position: 'Gerente Desarrollo',
+        jobPositions: [
+          {
+            Puesto: {
+              Nombre: 'Gerente Desarrollo',
+            },
+            Unidad: {
+              Descripcion: 'Unidad',
+            },
+            Compania: {
+              Descripcion: 'Compania',
+            },
+            CentroTrabajo: {
+              Descripcion: 'Centro de Trabajo',
+            },
+            onClick: {
+              action: (position = 'Gerente Desarrollo') => {
+                alert('Puesto elegido: ' + position);
+              },
+            },
+          },
+          {
+            Puesto: {
+              Nombre: 'Gerente Calidad',
+            },
+            Unidad: {
+              Descripcion: 'Unidad',
+            },
+            Compania: {
+              Descripcion: 'Compania',
+            },
+            CentroTrabajo: {
+              Descripcion: 'Centro de Trabajo',
+            },
+            onClick: {
+              action: (position = 'Gerente Calidad') => {
+                alert('Puesto elegido: ' + position);
+              },
+            },
+          },
+        ],
       },
-    } as HeaderInterface,
-    avatarName: 'Jonatan Elizalde Gómez',
-    avatarImgUrl: 'https://material.angular.io/assets/img/examples/shiba1.jpg',
+    } as IHeader,
     options: [
       {
         icon: { icon: 'dashboard.svg', type: 'svg' },
@@ -134,13 +253,7 @@ const meta: Meta<SidebarComponent> = {
         route: '/files',
         title: 'Files',
       },
-      {
-        icon: { icon: 'settings.svg', type: 'svg' },
-        action: () => alert('Settings'),
-        route: '/settings',
-        title: 'Settings',
-      },
-    ] as SidebarOptionInterface[],
+    ] as ISidebarOption[],
     additionalOptions: [
       {
         icon: { icon: 'company-logo.svg', type: 'svg' },
@@ -148,7 +261,7 @@ const meta: Meta<SidebarComponent> = {
         route: '/dashboard',
         title: 'Dashboard',
       },
-    ] as SidebarOptionInterface[],
+    ] as ISidebarOption[],
   },
 };
 

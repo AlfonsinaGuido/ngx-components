@@ -1,13 +1,13 @@
 <header
-  class="flex justify-between items-center sm:px-5 px-3 py-2 {{ classes }}"
+  class="flex justify-between items-center sm:px-5 px-3 py-2 {{ twClass }}"
 >
   <div class="flex gap-5 items-center">
     <evo-menu
       class="sm:flex hidden app-menu"
-      [icons]="appMenuIcons"
+      [icons]="icons.appMenuIcons"
       [title]="titles.appTitle"
-      [items]="buttonItems.appItems"
-      classes="mt-4"
+      [items]="items.appItems"
+      twClass="mt-4"
     ></evo-menu>
     <div class="flex items-center gap-5">
       @if (companyData.companyImage) {
@@ -26,19 +26,36 @@
     @if (box) {
       @for (button of box; track $index) {
         <button
-          (click)="button.action()"
+          (click)="button.onClick.action()"
           class="test-box-button font-bold text-sm text-white-smoke lg:flex hidden"
         >
           {{ button.label }}
         </button>
       }
     }
+    @if (icons.authorizationMenuIcons && items.authorizationItems) {
+      <evo-menu
+        [icons]="icons.authorizationMenuIcons"
+        [title]="titles.authorizationTitle"
+        [items]="items.authorizationItems.slice(-3)"
+        [lengthOfItems]="items.authorizationItems.length"
+        [seeAllButton]="items.seeAllButton.seeAllAuthorizations"
+        twClass="mt-4"
+      ></evo-menu>
+    }
     <evo-menu
-      [icons]="notificationMenuIcons"
+      [icons]="icons.notificationMenuIcons"
       [title]="titles.notificationTitle"
-      [items]="buttonItems.notificationItems"
-      [notificationsNumber]="buttonItems.notificationItems.length"
-      classes="mt-4"
+      [items]="items.notificationItems.slice(-3)"
+      [lengthOfItems]="items.notificationItems.length"
+      [seeAllButton]="items.seeAllButton.seeAllNotifications"
+      twClass="mt-4"
+    ></evo-menu>
+    <evo-menu
+      [icons]="icons.settingMenuIcons"
+      [title]="titles.settingTitle"
+      [settingMenu]="items.settingMenu"
+      twClass="mt-4"
     ></evo-menu>
     <div class="flex items-center gap-2">
       <evo-avatar
@@ -53,14 +70,14 @@
           {{ userData.fullName }}
         </div>
         <div class="font-medium text-sm text-white-smoke">
-          {{ userData.position }}
+          {{ sessionJobPositionName }}
         </div>
       </div>
       <evo-menu
-        [icons]="userMenuIcons"
+        [icons]="icons.userMenuIcons || {}"
         [userData]="userData"
-        [items]="buttonItems.userDataItems"
-        classes="mt-4"
+        [items]="items.userDataItems"
+        twClass="mt-4"
       ></evo-menu>
     </div>
   </div>

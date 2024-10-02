@@ -2,10 +2,10 @@
   <header class="content__header">
     <div class="content__header-left">
       <evo-header
-        classes="w-full"
+        twClass="w-full"
         [icons]="commonProps.icons"
         [titles]="commonProps.titles"
-        [buttonItems]="commonProps.buttonItems"
+        [items]="commonProps.items"
         [companyData]="commonProps.companyData"
         [box]="commonProps.box"
         [userData]="commonProps.userData"
@@ -18,7 +18,7 @@
       >
         <evo-button
           mat-button
-          [icon]="commonProps.icons.appIcon"
+          [icon]="commonProps.icons.appMenuIcons.buttonIcon"
           [withoutBorder]="true"
           (click)="toggleSidebar()"
         ></evo-button>
@@ -33,14 +33,14 @@
           <div class="profile-img">
             <evo-avatar
               size="sm"
-              [name]="avatarName"
-              [imgUrl]="avatarImgUrl"
+              [name]="commonProps.userData.fullName"
+              [imgUrl]="commonProps.userData.imgUrl"
               [isPriority]="true"
             ></evo-avatar>
           </div>
           <div class="profile-info">
-            <div class="name">Jonatan Elizalde Gómez</div>
-            <div>Desarrollador Web</div>
+            <div class="name">{{ commonProps.userData.fullName }}</div>
+            <div>{{ sessionJobPositionName }}</div>
           </div>
         </div>
         <nav class="sidebar__nav">
@@ -48,11 +48,11 @@
             @for (option of options; track option.title) {
               <evo-button
                 [label]="option.title"
-                [icon]="getIconWithLeftPosition(option.icon)"
+                [icon]="option.icon"
                 [withoutBorder]="true"
                 [theme]="'secondary'"
                 [isFluid]="true"
-                [classes]="'sidebar__evo-button btn-justify-start align-start'"
+                [twClass]="'sidebar__evo-button btn-justify-start align-start'"
                 (click)="selectOption(option)"
               ></evo-button>
             }
@@ -62,19 +62,19 @@
           <mat-divider></mat-divider>
           <nav class="sidebar__nav">
             <ul>
-              @if (commonProps.buttonItems.appItems) {
+              @if (commonProps.items.appItems) {
                 @for (
-                  option of commonProps.buttonItems.appItems;
+                  option of commonProps.items.appItems;
                   track option.label
                 ) {
                   @if (option.icon) {
                     <evo-button
                       [label]="option.label"
-                      [icon]="getIconWithLeftPosition(option.icon)"
+                      [icon]="option.icon"
                       [withoutBorder]="true"
                       [theme]="'secondary'"
                       [isFluid]="true"
-                      [classes]="'sidebar__evo-button'"
+                      [twClass]="'sidebar__evo-button'"
                       [url]="option.url"
                     ></evo-button>
                   }
@@ -87,29 +87,27 @@
             @for (option of additionalOptions; track option.title) {
               <evo-button
                 [label]="option.title"
-                [icon]="getIconWithLeftPosition(option.icon)"
+                [icon]="option.icon"
                 [withoutBorder]="true"
                 [theme]="'secondary'"
                 [isFluid]="true"
-                classes="sidebar__evo-button"
+                twClass="sidebar__evo-button"
                 (click)="option.action()"
               ></evo-button>
             }
             <mat-divider></mat-divider>
           }
-          @for (
-            option of commonProps.buttonItems.userDataItems;
-            track option.label
-          ) {
+          @for (option of commonProps.items.userDataItems; track option.label) {
             @if (option.icon) {
               <evo-button
                 [label]="option.label"
-                [icon]="getIconWithLeftPosition(option.icon)"
+                [icon]="option.icon"
                 [withoutBorder]="true"
                 [theme]="'secondary'"
                 [isFluid]="true"
-                classes="sidebar__evo-button"
+                twClass="sidebar__evo-button"
                 (click)="option.onClick?.action()"
+                [url]="option.url"
               ></evo-button>
             }
           }
@@ -130,7 +128,7 @@
                 [icon]="option.icon"
                 [withoutBorder]="true"
                 (click)="option.action!()"
-                [classes]="isActive(option.route) ? 'active' : ''"
+                [twClass]="isActive(option.route) ? 'active' : ''"
               ></evo-button>
             </div>
           }

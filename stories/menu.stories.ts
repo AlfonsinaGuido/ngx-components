@@ -1,4 +1,7 @@
-import { MenuComponent } from '@aseinfo/ngx-evolution-components/public-api';
+import {
+  IButton,
+  MenuComponent,
+} from '@aseinfo/ngx-evolution-components/public-api';
 import {
   applicationConfig,
   type Meta,
@@ -40,7 +43,6 @@ export const Default: Story = {
         icon: {
           icon: 'company-logo.svg',
           type: 'svg',
-          position: 'left',
         },
         url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoWave',
       },
@@ -49,12 +51,75 @@ export const Default: Story = {
         icon: {
           icon: 'company-logo.svg',
           type: 'svg',
-          position: 'left',
         },
         url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoChart',
       },
     ],
-    classes: '',
+    twClass: '',
+  },
+};
+
+export const AuthorizationsMenu: Story = {
+  args: {
+    icons: {
+      buttonIcon: {
+        icon: 'fact_check',
+        type: 'class',
+      },
+      closeIcon: {
+        icon: 'close.svg',
+        type: 'svg',
+      },
+    },
+    title: 'Autorizaciones',
+    lengthOfItems: 3,
+    seeAllButton: {
+      label: 'Ver todas',
+      onClick: {
+        action: (path = '/autorizaciones') => {
+          alert('Redirige a pantalla: ' + path);
+        },
+      },
+    },
+    items: [
+      {
+        label:
+          'Carlos Sanchez requiere autorización de acceso al Programa Recursos Humanos',
+        avatarName: 'Carlos Sanchez',
+        avatarImgUrl:
+          'https://material.angular.io/assets/img/examples/shiba1.jpg',
+        onClick: {
+          action: (name = 'Carlos Sanchez') => {
+            alert('Se autorizó a ' + name);
+          },
+        },
+      },
+      {
+        label:
+          'Samuel Lopez requiere autorización de acceso al Programa Desarrollo',
+        avatarName: 'Samuel Lopez',
+        avatarImgUrl:
+          'https://material.angular.io/assets/img/examples/shiba1.jpg',
+        onClick: {
+          action: () => {
+            alert('Se autorizó a Samuel Lopez');
+          },
+        },
+      },
+      {
+        label:
+          'Ignacio Fernandez requiere autorización de acceso al Programa Recursos Humanos',
+        avatarName: 'Ignacio Fernandez',
+        avatarImgUrl:
+          'https://material.angular.io/assets/img/examples/shiba1.jpg',
+        onClick: {
+          action: (name = 'Ignacio Fernandez') => {
+            alert('Se autorizó a ' + name);
+          },
+        },
+      },
+    ],
+    twClass: '',
   },
 };
 
@@ -71,217 +136,257 @@ export const NotificationsMenu: Story = {
       },
     },
     title: 'Notificaciones',
-    notificationsNumber: 3,
+    lengthOfItems: 3,
+    seeAllButton: {
+      label: 'Ver todas',
+      onClick: {
+        action: (path = '/notificaciones') => {
+          alert('Redirige a pantalla: ' + path);
+        },
+      },
+    },
     items: [
       {
-        label: 'Carlos Sanchez finalizo Programa Recursos Humanos',
+        label: 'Carlos Sanchez finalizó Programa Recursos Humanos',
         avatarName: 'Carlos Sanchez',
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
         onClick: {
-          action: (param = ' con param') => {
-            console.log('funciona' + param);
+          action: (name = 'Carlos Sanchez') => {
+            alert('Notificación de: ' + name);
           },
         },
       },
       {
-        label: 'Samuel Lopez finalizo Programa Desarrollo',
+        label: 'Samuel Lopez finalizó Programa Desarrollo',
         avatarName: 'Samuel Lopez',
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
         onClick: {
-          action: () => {
-            console.log('funciona sin param');
+          action: (name = 'Samuel Lopez') => {
+            alert('Notificación de: ' + name);
           },
         },
       },
       {
-        label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',
+        label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',
         avatarName: 'Ignacio Fernandez',
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
         onClick: {
           action: (name = 'Ignacio Fernandez') => {
-            console.log('Felicidades ' + name);
+            alert('Notificación de: ' + name);
           },
         },
       },
     ],
-    classes: '',
+    twClass: '',
   },
 };
 
 export const WithScroll: Story = {
   args: {
-    ...NotificationsMenu.args,
-    notificationsNumber: 15,
+    ...(() => {
+      const { seeAllButton, ...rest } = NotificationsMenu.args as {
+        seeAllButton?: IButton;
+      };
+      return rest;
+    })(),
+    lengthOfItems: 15,
     items: [
       {
-        label: 'Carlos Sanchez finalizo Programa Recursos Humanos',
+        label: 'Carlos Sanchez finalizó Programa Recursos Humanos',
         avatarName: 'Carlos Sanchez',
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
         onClick: {
-          action: (param = ' con param') => {
-            console.log('funciona' + param);
+          action: (name = 'Carlos Sanchez') => {
+            alert('Notificación de: ' + name);
           },
         },
       },
       {
-        label: 'Samuel Lopez finalizo Programa Desarrollo',
+        label: 'Samuel Lopez finalizó Programa Desarrollo',
         avatarName: 'Samuel Lopez',
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
         onClick: {
-          action: () => {
-            console.log('funciona sin param');
+          action: (name = 'Samuel Lopez') => {
+            alert('Notificación de: ' + name);
           },
         },
       },
       {
-        label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',
+        label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',
         avatarName: 'Ignacio Fernandez',
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
         onClick: {
           action: (name = 'Ignacio Fernandez') => {
-            console.log('Felicidades ' + name);
+            alert('Notificación de: ' + name);
           },
         },
       },
       {
-        label: 'Carlos Sanchez finalizo Programa Recursos Humanos',
+        label: 'Carlos Sanchez finalizó Programa Recursos Humanos',
         avatarName: 'Carlos Sanchez',
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
         onClick: {
-          action: (param = ' con param') => {
-            console.log('funciona' + param);
+          action: (name = 'Carlos Sanchez') => {
+            alert('Notificación de: ' + name);
           },
         },
       },
       {
-        label: 'Samuel Lopez finalizo Programa Desarrollo',
+        label: 'Samuel Lopez finalizó Programa Desarrollo',
         avatarName: 'Samuel Lopez',
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
         onClick: {
-          action: () => {
-            console.log('funciona sin param');
+          action: (name = 'Samuel Lopez') => {
+            alert('Notificación de: ' + name);
           },
         },
       },
       {
-        label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',
+        label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',
         avatarName: 'Ignacio Fernandez',
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
         onClick: {
           action: (name = 'Ignacio Fernandez') => {
-            console.log('Felicidades ' + name);
+            alert('Notificación de: ' + name);
           },
         },
       },
       {
-        label: 'Carlos Sanchez finalizo Programa Recursos Humanos',
+        label: 'Carlos Sanchez finalizó Programa Recursos Humanos',
         avatarName: 'Carlos Sanchez',
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
         onClick: {
-          action: (param = ' con param') => {
-            console.log('funciona' + param);
+          action: (name = 'Carlos Sanchez') => {
+            alert('Notificación de: ' + name);
           },
         },
       },
       {
-        label: 'Samuel Lopez finalizo Programa Desarrollo',
+        label: 'Samuel Lopez finalizó Programa Desarrollo',
         avatarName: 'Samuel Lopez',
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
         onClick: {
-          action: () => {
-            console.log('funciona sin param');
+          action: (name = 'Samuel Lopez') => {
+            alert('Notificación de: ' + name);
           },
         },
       },
       {
-        label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',
+        label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',
         avatarName: 'Ignacio Fernandez',
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
         onClick: {
           action: (name = 'Ignacio Fernandez') => {
-            console.log('Felicidades ' + name);
+            alert('Notificación de: ' + name);
           },
         },
       },
       {
-        label: 'Carlos Sanchez finalizo Programa Recursos Humanos',
+        label: 'Carlos Sanchez finalizó Programa Recursos Humanos',
         avatarName: 'Carlos Sanchez',
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
         onClick: {
-          action: (param = ' con param') => {
-            console.log('funciona' + param);
+          action: (name = 'Carlos Sanchez') => {
+            alert('Notificación de: ' + name);
           },
         },
       },
       {
-        label: 'Samuel Lopez finalizo Programa Desarrollo',
+        label: 'Samuel Lopez finalizó Programa Desarrollo',
         avatarName: 'Samuel Lopez',
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
         onClick: {
-          action: () => {
-            console.log('funciona sin param');
+          action: (name = 'Samuel Lopez') => {
+            alert('Notificación de: ' + name);
           },
         },
       },
       {
-        label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',
+        label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',
         avatarName: 'Ignacio Fernandez',
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
         onClick: {
           action: (name = 'Ignacio Fernandez') => {
-            console.log('Felicidades ' + name);
+            alert('Notificación de: ' + name);
           },
         },
       },
       {
-        label: 'Carlos Sanchez finalizo Programa Recursos Humanos',
+        label: 'Carlos Sanchez finalizó Programa Recursos Humanos',
         avatarName: 'Carlos Sanchez',
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
         onClick: {
-          action: (param = ' con param') => {
-            console.log('funciona' + param);
+          action: (name = 'Carlos Sanchez') => {
+            alert('Notificación de: ' + name);
           },
         },
       },
       {
-        label: 'Samuel Lopez finalizo Programa Desarrollo',
+        label: 'Samuel Lopez finalizó Programa Desarrollo',
         avatarName: 'Samuel Lopez',
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
         onClick: {
-          action: () => {
-            console.log('funciona sin param');
+          action: (name = 'Samuel Lopez') => {
+            alert('Notificación de: ' + name);
           },
         },
       },
       {
-        label: 'Ignacio Fernandez finalizo Programa Recursos Humanos',
+        label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',
         avatarName: 'Ignacio Fernandez',
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
         onClick: {
           action: (name = 'Ignacio Fernandez') => {
-            console.log('Felicidades ' + name);
+            alert('Notificación de: ' + name);
           },
         },
       },
     ],
+  },
+};
+
+export const SettingsMenu: Story = {
+  args: {
+    icons: {
+      buttonIcon: {
+        icon: 'settings.svg',
+        type: 'svg',
+      },
+      closeIcon: {
+        icon: 'close.svg',
+        type: 'svg',
+      },
+    },
+    title: 'Ajustes',
+    settingMenu: {
+      options: [
+        {
+          name: 'Apellido primero',
+        },
+        {
+          name: 'Autorizaciones',
+        },
+      ],
+    },
+    twClass: '',
   },
 };
 
@@ -296,23 +401,84 @@ export const UserMenu: Story = {
     userData: {
       fullName: 'Stela Lopez',
       email: 'slopez@empresa.com',
-      position: 'Gerente Desarrollo',
+      jobPositions: [
+        {
+          Puesto: {
+            Nombre: 'Gerente Desarrollo',
+          },
+          Unidad: {
+            Descripcion: 'Unidad',
+          },
+          Compania: {
+            Descripcion: 'Compania',
+          },
+          CentroTrabajo: {
+            Descripcion: 'Centro de Trabajo',
+          },
+          onClick: {
+            action: (position = 'Gerente Desarrollo') => {
+              alert('Puesto elegido: ' + position);
+            },
+          },
+        },
+        {
+          Puesto: {
+            Nombre: 'Gerente Calidad',
+          },
+          Unidad: {
+            Descripcion: 'Unidad',
+          },
+          Compania: {
+            Descripcion: 'Compania',
+          },
+          CentroTrabajo: {
+            Descripcion: 'Centro de Trabajo',
+          },
+          onClick: {
+            action: (position = 'Gerente Calidad') => {
+              alert('Puesto elegido: ' + position);
+            },
+          },
+        },
+        {
+          Puesto: {
+            Nombre: 'Community Manager',
+          },
+          Unidad: {
+            Descripcion: 'Unidad',
+          },
+          Compania: {
+            Descripcion: 'Compania',
+          },
+          CentroTrabajo: {
+            Descripcion: 'Centro de Trabajo',
+          },
+          onClick: {
+            action: (position = 'Community Manager') => {
+              alert('Puesto elegido: ' + position);
+            },
+          },
+        },
+      ],
     },
     items: [
       {
-        label: 'Cerrar Sesión',
+        label: 'Administrar Cuenta',
         icon: {
-          icon: 'logout.svg',
-          type: 'svg',
-          position: 'left',
+          icon: 'manage_accounts',
+          type: 'class',
         },
+        url: 'https://localhost:7002/identity/account/manage',
+      },
+      {
+        label: 'Cerrar Sesión',
         onClick: {
-          action: (param = ' con param') => {
-            console.log('funciona' + param);
+          action: () => {
+            alert('Se ejecuta Logout');
           },
         },
       },
     ],
-    classes: '',
+    twClass: '',
   },
 };

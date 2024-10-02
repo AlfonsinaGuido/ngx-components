@@ -1,16 +1,21 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  SimpleChanges,
+  ViewEncapsulation,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   AvatarComponent,
-  HeaderBoxButtonInterface,
-  HeaderButtonItemsInterface,
-  HeaderCompanyDataInterface,
-  HeaderIconsInterface,
-  HeaderTitlesInterface,
+  IHeaderBoxButton,
+  IHeaderItems,
+  IHeaderCompanyData,
+  IHeaderIcons,
+  IHeaderTitles,
   MenuComponent,
-  MenuIconsInterface,
   SvgComponent,
-  UserDataInterface,
+  IUserData,
 } from '../public-api';
 
 @Component({
@@ -21,29 +26,19 @@ import {
   styleUrls: ['./header.component.scss', '../styles/output.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class HeaderComponent implements OnInit {
-  @Input() icons!: HeaderIconsInterface;
-  @Input() titles!: HeaderTitlesInterface;
-  @Input() buttonItems!: HeaderButtonItemsInterface;
-  @Input() companyData!: HeaderCompanyDataInterface;
-  @Input() box?: HeaderBoxButtonInterface[];
-  @Input() userData!: UserDataInterface;
-  @Input() classes?: string;
-  public appMenuIcons!: MenuIconsInterface;
-  public notificationMenuIcons!: MenuIconsInterface;
-  public userMenuIcons!: MenuIconsInterface;
+export class HeaderComponent implements OnChanges {
+  @Input() icons!: IHeaderIcons;
+  @Input() titles!: IHeaderTitles;
+  @Input() items!: IHeaderItems;
+  @Input() companyData!: IHeaderCompanyData;
+  @Input() box?: IHeaderBoxButton[];
+  @Input() userData!: IUserData;
+  @Input() twClass?: string;
+  public sessionJobPositionName!: string;
 
-  ngOnInit(): void {
-    this.appMenuIcons = {
-      buttonIcon: this.icons.appIcon,
-      closeIcon: this.icons.closeMenuIcon,
-    };
-    this.notificationMenuIcons = {
-      buttonIcon: this.icons.notificationIcon,
-      closeIcon: this.icons.closeMenuIcon,
-    };
-    this.userMenuIcons = {
-      closeIcon: this.icons.closeMenuIcon,
-    };
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['userData'] && this.userData?.jobPositions?.length) {
+      this.sessionJobPositionName = this.userData.jobPositions[0].Puesto.Nombre;
+    }
   }
 }

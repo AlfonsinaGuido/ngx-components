@@ -23,11 +23,11 @@ export default meta;
 type Story = StoryObj<DialogButtonComponent>;
 
 const Testing1 = (): void => {
-  console.log('Funcion 1');
+  alert('Función 1');
 };
 
 const Testing2 = (): void => {
-  console.log('Funcion 2');
+  alert('Función 2');
 };
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
@@ -213,7 +213,6 @@ export const svgDialog: Story = {
     icon: {
       icon: 'company-logo.svg',
       type: 'svg',
-      position: 'right',
     },
     buttonsItems: [
       {

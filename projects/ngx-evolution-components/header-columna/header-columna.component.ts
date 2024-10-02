@@ -1,14 +1,20 @@
-import { NgIf } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { NgClass, NgIf } from '@angular/common';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 
 @Component({
   selector: 'evo-header-columna',
   standalone: true,
-  imports: [NgIf],
+  imports: [NgIf, NgClass],
   templateUrl: './header-columna.component.html',
   styleUrls: ['./header-columna.component.scss', '../styles/output.scss'],
 })
-export class HeaderColumnaComponent implements OnInit {
+export class HeaderColumnaComponent implements OnInit, OnChanges {
   @Input() name!: string;
   @Input() count: number = 0;
   @Input() index: number = 0;
@@ -25,10 +31,17 @@ export class HeaderColumnaComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.count > 999) {
-      this.count = 999;
-    }
     this.color = this.colorArray[this.index % this.colorArray.length];
     this.classColor = `header-column__${this.color}-column`;
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['count']) {
+      if (this.count > 999) {
+        this.count = 999;
+      } else if (this.count < 0) {
+        this.count = 0;
+      }
+    }
   }
 }

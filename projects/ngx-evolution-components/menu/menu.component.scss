@@ -1,3 +1,11 @@
+.menu-button .evo-button .evo-button__content .icon .material-symbols-outlined {
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
+}
+
 .user-data-container evo-avatar #avatar-wrapper {
   background-color: var(--primary-50);
   span {
@@ -15,31 +23,38 @@
   }
 }
 
+.mat-slide {
+  width: 100%;
+  .mdc-form-field {
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+    label {
+      margin-left: 0;
+      color: var(--medium-gray);
+    }
+  }
+}
+
 .buttons-in-menu .evo-button {
   &.theme-secondary {
     justify-content: left;
     padding: 8px;
-    color: var(--medium-gray);
     .evo-button__content {
       justify-content: left;
-      .icon {
-        color: var(--medium-gray);
-      }
+      color: var(--medium-gray);
       .label {
         text-align: left;
-        font-size: 12px;
+        font-size: 14px;
       }
     }
-    &.userFont {
-      padding-left: 25px;
-      .evo-button__content {
-        .icon {
-          margin-inline-end: 18px;
-        }
-        .label {
-          font-size: 16px;
-        }
-      }
+  }
+}
+
+.see-all-button .evo-button {
+  &.theme-secondary {
+    .evo-button__content {
+      color: var(--medium-gray);
     }
   }
 }

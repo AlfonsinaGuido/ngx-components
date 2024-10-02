@@ -11,11 +11,10 @@
     }}</span>
   } @else {
     <img
-      [class]="'avatar__size-' + size"
-      [ngSrc]="imgUrl"
-      [priority]="isPriority"
+      [class]="'avatar__size-' + size + ' object-cover'"
+      [src]="imgUrl"
+      [attr.loading]="!isPriority ? 'lazy' : null"
       alt="Avatar Icon"
-      fill
     />
   }
 </div>

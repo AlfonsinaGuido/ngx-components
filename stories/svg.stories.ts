@@ -23,6 +23,6 @@ type Story = StoryObj<SvgComponent>;
 export const Default: Story = {
   args: {
     svgPath: 'bell.svg',
-    classes: '',
+    twClass: '',
   },
 };

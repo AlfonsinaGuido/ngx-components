@@ -8,11 +8,12 @@ module.exports = {
         accent: "var(--accent-500)",
         warn: "var(--warn)",
         "white-smoke": "var(--white-smoke)",
+        "light-gray": "var(--light-gray)",
         "medium-gray": "var(--medium-gray)",
         "dark-gray": "var(--dark-gray)",
       },
       fontFamily: {
-        sans: ["Roboto", "Helvetica Neue", "sans-serif"],
+        sans: ["Plus Jakarta Sans", "sans-serif"],
       },
       fontSize: {
         small: "0.875rem",
@@ -36,6 +37,7 @@ module.exports = {
       },
       boxShadow: {
         normal: "0 2px 10px rgba(0, 0, 0, 0.1)",
+        md: "0px 4px 8px -2px rgba(23, 23, 23, 0.1)",
       },
     },
     screens: {

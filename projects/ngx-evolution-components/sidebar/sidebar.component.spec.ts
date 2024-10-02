@@ -1,12 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SidebarComponent } from './sidebar.component';
 import { Router, NavigationEnd } from '@angular/router';
-import { of, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { PLATFORM_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
-import { IconInterface, IconPosition } from '../public-api';
+import { IIcon } from '../public-api';
 
 describe('SidebarComponent', () => {
   let component: SidebarComponent;
@@ -39,22 +39,36 @@ describe('SidebarComponent', () => {
     component = fixture.componentInstance;
 
     // Proveer todos los inputs necesarios para SidebarComponent y sus componentes hijos
-    component.avatarName = 'User';
-    component.avatarImgUrl = 'path/to/avatar.png';
     component.commonProps = {
       icons: {
-        appIcon: { icon: 'dashboard.svg', type: 'svg' as 'svg' },
-        notificationIcon: { icon: 'bell.svg', type: 'svg' as 'svg' },
-        closeMenuIcon: { icon: 'close.svg', type: 'svg' as 'svg' },
+        appMenuIcons: {},
+        notificationMenuIcons: {},
+        settingMenuIcons: {},
       },
       titles: {
         appTitle: 'Tus aplicaciones',
         notificationTitle: 'Notificaciones',
+        settingTitle: 'Ajustes',
       },
-      buttonItems: {
-        appItems: [],
-        notificationItems: [],
-        userDataItems: [],
+      items: {
+        appItems: [{ label: 'App 1' }, { label: 'App 2' }],
+        notificationItems: [
+          { label: 'Notification 1' },
+          { label: 'Notification 2' },
+        ],
+        seeAllButton: {
+          seeAllNotifications: {
+            label: 'Test',
+          },
+        },
+        settingMenu: {
+          options: [
+            {
+              name: 'Test',
+            },
+          ],
+        },
+        userDataItems: [{ label: 'Test' }],
       },
       companyData: {
         companyImage: '',
@@ -64,12 +78,32 @@ describe('SidebarComponent', () => {
       userData: {
         fullName: 'User',
         email: 'user@example.com',
-        position: 'position',
+        jobPositions: [
+          {
+            Puesto: {
+              Nombre: 'Test Nombre',
+            },
+            Unidad: {
+              Descripcion: 'Test Descripción Unidad',
+            },
+            Compania: {
+              Descripcion: 'Test Descripción Compañía',
+            },
+            CentroTrabajo: {
+              Descripcion: 'Test Descripción Centro de Trabajo',
+            },
+            onClick: {
+              action: () => {
+                alert('Test');
+              },
+            },
+          },
+        ],
       },
     };
     component.options = [
       {
-        icon: { icon: 'dashboard.svg', type: 'svg' as 'svg' },
+        icon: { icon: 'dashboard.svg', type: 'svg' },
         action: () => {},
         route: '/dashboard',
         title: 'Dashboard',
@@ -112,7 +146,7 @@ describe('SidebarComponent', () => {
 
   it('should navigate to the selected route and execute action', () => {
     const mockOption = {
-      icon: { icon: 'dashboard.svg', type: 'svg' as 'svg' },
+      icon: { icon: 'dashboard.svg', type: 'svg' } as IIcon,
       action: jasmine.createSpy('action'),
       route: '/dashboard',
       title: 'dashboard',
@@ -136,18 +170,5 @@ describe('SidebarComponent', () => {
   it('should return false for isActive if route does not match activeRoute', () => {
     component.activeRoute = '/test';
     expect(component.isActive('/not-test')).toBe(false);
-  });
-
-  it('should return an icon object with position set to left', () => {
-    const inputIcon: IconInterface = { icon: 'dashboard.svg', type: 'svg' };
-    const expectedIcon: IconInterface = {
-      ...inputIcon,
-      position: 'left' as IconPosition,
-    };
-
-    const result = component.getIconWithLeftPosition(inputIcon);
-
-    expect(result).toEqual(expectedIcon);
-    expect(result.position).toBe('left');
   });
 });

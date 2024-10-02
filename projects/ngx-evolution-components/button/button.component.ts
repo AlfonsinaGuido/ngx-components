@@ -1,10 +1,16 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  SimpleChanges,
+  ViewEncapsulation,
+} from '@angular/core';
 import {
   AvatarComponent,
-  ButtonActionInterface,
+  IButtonAction,
   ButtonTheme,
-  IconInterface,
+  IIcon,
   SvgComponent,
 } from '../public-api';
 import { MatIconModule } from '@angular/material/icon';
@@ -17,22 +23,28 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrls: ['./button.component.scss', '../styles/output.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class ButtonComponent {
+export class ButtonComponent implements OnChanges {
   @Input() label?: string;
-  @Input() icon?: IconInterface;
+  @Input() icon?: IIcon;
   @Input() theme: ButtonTheme = 'default';
   @Input() disabled?: boolean;
-  @Input() classes?: string;
+  @Input() twClass?: string;
   @Input() isFlat: boolean = false;
   @Input() isFluid: boolean = false;
   @Input() withoutBorder: boolean = false;
   @Input() url?: string;
   @Input() avatarName?: string;
   @Input() avatarImgUrl?: string;
-  @Input() onClick?: ButtonActionInterface;
+  @Input() onClick?: IButtonAction;
 
-  get getClasses() {
-    const classes = this.classes ? this.classes.split(' ') : [];
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['icon'] && this.icon && !this.icon.position) {
+      this.icon.position = 'left';
+    }
+  }
+
+  public get getClasses() {
+    const classes = this.twClass ? this.twClass.split(' ') : [];
     return {
       ...classes.reduce(
         (acc, cls) => {
@@ -50,7 +62,7 @@ export class ButtonComponent {
     };
   }
 
-  onClickHandler() {
+  public onClickHandler() {
     if (this.onClick) {
       this.onClick.action();
     }

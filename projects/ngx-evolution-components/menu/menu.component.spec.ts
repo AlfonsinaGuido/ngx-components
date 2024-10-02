@@ -1,11 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MenuComponent } from './menu.component';
-import {
-  ButtonComponent,
-  ButtonInterface,
-  MenuIconsInterface,
-} from '../public-api';
+import { ButtonComponent, IButton, IMenuIcons } from '../public-api';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { By } from '@angular/platform-browser';
@@ -24,11 +20,17 @@ describe('MenuComponent', () => {
     fixture = TestBed.createComponent(MenuComponent);
     component = fixture.componentInstance;
 
-    const icons: MenuIconsInterface = {
-      buttonIcon: { icon: 'test', type: 'class' },
+    const icons: IMenuIcons = {
+      closeIcon: { icon: 'test', type: 'class' },
     };
     component.icons = icons;
-
+    component.defaultUserMenuIcons = {
+      buttonIcon: {
+        icon: 'expand_more',
+        type: 'class',
+      },
+      ...icons,
+    };
     fixture.detectChanges();
   });
 
@@ -50,7 +52,7 @@ describe('MenuComponent', () => {
   });
 
   it('should display the correct number of items', () => {
-    const items: ButtonInterface[] = [{ label: 'Item 1' }, { label: 'Item 2' }];
+    const items: IButton[] = [{ label: 'Item 1' }, { label: 'Item 2' }];
     component.items = items;
     fixture.detectChanges();
 
@@ -70,29 +72,71 @@ describe('MenuComponent', () => {
     expect(component.icons.buttonIcon).toEqual(initialIcon);
   });
 
-  it('should set buttonIcon to expand_less on menu open if userData is defined, onMenuOpen()', () => {
+  it('should set buttonIcon to expand_less on menu open if userData is defined and icons.buttonIcon is undefined, onMenuOpen()', () => {
     component.userData = {
       fullName: 'test',
       email: 'test',
-      position: 'test',
+      jobPositions: [
+        {
+          Puesto: {
+            Nombre: 'Test Nombre',
+          },
+          Unidad: {
+            Descripcion: 'Test Descripción Unidad',
+          },
+          Compania: {
+            Descripcion: 'Test Descripción Compañía',
+          },
+          CentroTrabajo: {
+            Descripcion: 'Test Descripción Centro de Trabajo',
+          },
+          onClick: {
+            action: () => {
+              alert('Test');
+            },
+          },
+        },
+      ],
     };
+
     component.onMenuOpen();
 
-    expect(component.icons.buttonIcon).toEqual({
+    expect(component.defaultUserMenuIcons?.buttonIcon).toEqual({
       icon: 'expand_less',
       type: 'class',
     });
   });
 
-  it('should set buttonIcon to expand_more on menu close if userData is defined, onMenuClose()', () => {
+  it('should set buttonIcon to expand_more on menu close if userData is defined and icons.buttonIcon is undefined, onMenuClose()', () => {
     component.userData = {
       fullName: 'test',
       email: 'test',
-      position: 'test',
+      jobPositions: [
+        {
+          Puesto: {
+            Nombre: 'Test Nombre',
+          },
+          Unidad: {
+            Descripcion: 'Test Descripción Unidad',
+          },
+          Compania: {
+            Descripcion: 'Test Descripción Compañía',
+          },
+          CentroTrabajo: {
+            Descripcion: 'Test Descripción Centro de Trabajo',
+          },
+          onClick: {
+            action: () => {
+              alert('Test');
+            },
+          },
+        },
+      ],
     };
+
     component.onMenuClose();
 
-    expect(component.icons.buttonIcon).toEqual({
+    expect(component.defaultUserMenuIcons?.buttonIcon).toEqual({
       icon: 'expand_more',
       type: 'class',
     });

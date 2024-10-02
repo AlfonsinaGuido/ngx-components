@@ -9,5 +9,5 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None,
 })
 export class FooterComponent {
-  @Input() classes?: string;
+  @Input() twClass?: string;
 }

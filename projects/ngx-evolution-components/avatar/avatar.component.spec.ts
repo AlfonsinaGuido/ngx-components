@@ -1,10 +1,6 @@
-import {
-  ComponentFixture,
-  DeferBlockBehavior,
-  DeferBlockState,
-  TestBed,
-} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AvatarComponent } from './avatar.component';
+import { SimpleChange } from '@angular/core';
 
 const mockName = 'Juan Perez';
 const mockUrl = 'https://material.angular.io/assets/img/examples/shiba1.jpg';
@@ -16,17 +12,19 @@ describe('AvatarComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AvatarComponent],
-      deferBlockBehavior: DeferBlockBehavior.Manual,
     }).compileComponents();
 
     fixture = TestBed.createComponent(AvatarComponent);
     component = fixture.componentInstance;
     component.name = mockName;
+    component.ngOnChanges({
+      name: new SimpleChange(null, component.name, false),
+    });
     fixture.detectChanges();
   });
 
   it('should have only the first two letters of a name', () => {
-    const tagEl: HTMLElement = fixture.nativeElement;
+    const tagEl: HTMLElement = fixture.nativeElement.querySelector('span');
     expect(tagEl.textContent).toContain('JP');
   });
 

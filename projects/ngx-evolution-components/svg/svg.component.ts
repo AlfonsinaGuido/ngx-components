@@ -12,7 +12,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class SvgComponent implements OnInit {
   @Input() svgPath!: string;
-  @Input() classes?: string;
+  @Input() twClass?: string;
 
   constructor(
     private matIconRegistry: MatIconRegistry,

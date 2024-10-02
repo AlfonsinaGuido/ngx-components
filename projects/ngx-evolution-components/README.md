@@ -28,7 +28,13 @@ Después de construir su biblioteca con `ng build ngx-evolution-components`, ve 
 
 Verdaccio es un registro privado de paquetes de código para npm. [Verdaccio (aseinfo.net)](https://npm.aseinfo.net/)
 
-Para registrar tu usuario ejecutar `npm adduser --registry https://npm.aseinfo.net`.
+Para registrar el usuario ejecuta `npm adduser --registry https://npm.aseinfo.net`. Se solicitarán los siguientes datos para el registro:
+
+Username: <ingresar nombre de usuario>
+
+Password: <ejecutar enter>
+
+Email: <ingresar cuenta de correo>
 
 Para construir y publicar la librería en Verdaccio en su última versión ejecuta `npm run publish-storybook`.
 

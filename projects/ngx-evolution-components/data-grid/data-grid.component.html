@@ -1,15 +1,16 @@
 <div class="grid-container mt-3">
 @for (item of data; track $index) {
   @if (!!item.propertyValue) {
-    <div id="grid-property" class="property">
+    <div id="data-grid-property" class="property">
       <mat-icon
+        id="property-icon"
         aria-hidden="true"
         fontSet="material-symbols-outlined"
         >{{ item.icon }}</mat-icon>
       {{ item.propertyTitle }}
     </div>
 
-    <div id="grid-value" [class]="item.valueType">
+    <div id="data-grid-value" [class]="item.valueType">
       @if (item.valueType === 'tag') {
         <evo-tag size="sm" [prioridad]="item.prioridad" />
       } @else {

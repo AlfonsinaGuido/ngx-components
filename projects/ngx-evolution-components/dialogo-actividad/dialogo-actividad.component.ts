@@ -36,7 +36,6 @@ export class DialogoActividadComponent {
   }
 
   private mapActividadToDataGrid(): IDataGrid[] {
-    console.log(this.actividad);
     return [
       {
         propertyTitle: 'Responsable',

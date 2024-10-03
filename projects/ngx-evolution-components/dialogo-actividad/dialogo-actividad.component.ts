@@ -1,7 +1,7 @@
 import { Component, Inject, ViewEncapsulation } from '@angular/core';
 import {
   IActividad,
-  IDataGrid,
+  IDataGridItem,
   DataGridComponent,
   IPrioridad,
 } from '../public-api';
@@ -23,7 +23,7 @@ import { MatIcon } from '@angular/material/icon';
 })
 export class DialogoActividadComponent {
   public actividad: IActividad;
-  public dataGrid: IDataGrid[];
+  public dataGrid: IDataGridItem[];
 
   constructor(
     private dialogRef: MatDialogRef<DialogoActividadComponent>,
@@ -35,7 +35,7 @@ export class DialogoActividadComponent {
     this.dataGrid = this.mapActividadToDataGrid();
   }
 
-  private mapActividadToDataGrid(): IDataGrid[] {
+  private mapActividadToDataGrid(): IDataGridItem[] {
     return [
       {
         propertyTitle: 'Responsable',

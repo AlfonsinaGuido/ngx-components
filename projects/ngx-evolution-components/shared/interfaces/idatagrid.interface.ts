@@ -2,7 +2,7 @@ import { IPrioridad } from './iprioridad.interface';
 
 export type DataGridValueType = 'single' | 'descriptive' | 'tag';
 
-export interface IDataGrid {
+export interface IDataGridItem {
   valueType: DataGridValueType;
   propertyTitle: string;
   propertyValue?: string;

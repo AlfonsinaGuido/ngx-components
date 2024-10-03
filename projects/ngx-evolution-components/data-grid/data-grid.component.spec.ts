@@ -2,9 +2,9 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { actividad1 as actividadMockData } from '../shared/data/kanban/actividades.data';
 
 import { DataGridComponent } from './data-grid.component';
-import { IDataGrid } from '../public-api';
+import { IDataGridItem } from '../public-api';
 
-const dataGridMockData: IDataGrid[] = [
+const dataGridMockData: IDataGridItem[] = [
   {
     propertyTitle: 'Responsable',
     propertyValue: actividadMockData.responsable,

@@ -5,7 +5,7 @@ import {
   OnInit,
   ViewEncapsulation,
 } from '@angular/core';
-import { IBreadCrumb, IHomeElement, SvgComponent } from '../public-api';
+import { IBreadcrumb, IHomeElement, SvgComponent } from '../public-api';
 import {
   ActivatedRoute,
   NavigationEnd,
@@ -25,14 +25,14 @@ import { distinctUntilChanged, filter, Subscription } from 'rxjs';
 export class BreadcrumbComponent implements OnInit, OnDestroy {
   @Input() twClass?: string;
   @Input() homeElement?: IHomeElement;
-  public breadcrumbs: IBreadCrumb[] = [];
+  public breadcrumbs: IBreadcrumb[] = [];
   private routerEventsSubscription!: Subscription;
 
   constructor(
     private readonly router: Router,
     private readonly activatedRoute: ActivatedRoute,
   ) {
-    this.breadcrumbs = this.buildBreadCrumb(this.activatedRoute.root);
+    this.breadcrumbs = this.buildBreadcrumb(this.activatedRoute.root);
   }
 
   ngOnInit(): void {
@@ -42,7 +42,7 @@ export class BreadcrumbComponent implements OnInit, OnDestroy {
         distinctUntilChanged(),
       )
       .subscribe(() => {
-        this.breadcrumbs = this.buildBreadCrumb(this.activatedRoute.root);
+        this.breadcrumbs = this.buildBreadcrumb(this.activatedRoute.root);
       });
   }
 
@@ -58,11 +58,11 @@ export class BreadcrumbComponent implements OnInit, OnDestroy {
    * @param url el URL de navegación completo
    * @param breadcrumbs Objeto tipo IBreadcrumb que contiene label y URL
    */
-  buildBreadCrumb(
+  buildBreadcrumb(
     route: ActivatedRoute,
     url = '',
-    breadcrumbs: IBreadCrumb[] = [],
-  ): IBreadCrumb[] {
+    breadcrumbs: IBreadcrumb[] = [],
+  ): IBreadcrumb[] {
     // ... implementation of buildBreadCrumb
     const label = route.routeConfig?.data
       ? this.capitalizeFirstLetter(route.routeConfig.data['breadcrumb'])
@@ -71,7 +71,7 @@ export class BreadcrumbComponent implements OnInit, OnDestroy {
 
     const nextURL = path ? `${url}/${path}` : url;
 
-    const breadcrumb: IBreadCrumb = {
+    const breadcrumb: IBreadcrumb = {
       label: label,
       url: nextURL,
     };
@@ -83,7 +83,7 @@ export class BreadcrumbComponent implements OnInit, OnDestroy {
     if (route.firstChild) {
       // Si el URL no coincide con el que estamos actualmente, significa que tenemos que seguir iterando
       // El resto de hijos
-      return this.buildBreadCrumb(route.firstChild, nextURL, newBreadcrumb);
+      return this.buildBreadcrumb(route.firstChild, nextURL, newBreadcrumb);
     }
 
     return newBreadcrumb;

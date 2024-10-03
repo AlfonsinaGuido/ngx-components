@@ -1,0 +1,24 @@
+@if (breadcrumbs.length > 1) {
+  <nav>
+    <ol
+      class="breadcrumb text-medium-gray font-semibold text-sm flex items-center"
+      [class]="twClass"
+    >
+      @if (homeElement) {
+        <li class="float-left flex items-center">
+          <evo-svg
+            [routerLink]="homeElement.path"
+            [svgPath]="homeElement.icon"
+          ></evo-svg>
+        </li>
+      }
+      @for (breadcrumb of breadcrumbs; track $index) {
+        <li class="float-left">
+          <span [routerLink]="breadcrumb.url" class="cursor-pointer">
+            {{ breadcrumb.label }}
+          </span>
+        </li>
+      }
+    </ol>
+  </nav>
+}

@@ -47,7 +47,7 @@ describe('BreadcrumbComponent', () => {
   });
 
   it('should build breadcrumb correctly', () => {
-    const breadcrumbs = component.buildBreadCrumb(
+    const breadcrumbs = component.buildBreadcrumb(
       component['activatedRoute'].root,
     );
     expect(breadcrumbs.length).toBe(3);

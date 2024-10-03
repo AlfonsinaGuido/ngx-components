@@ -14,6 +14,7 @@ export * from './header/header.component';
 export * from './footer/footer.component';
 export * from './dialog/dialog.component';
 export * from './tag/tag.component';
+export * from './data-grid/data-grid.component';
 export * from './carta-actividad/carta-actividad.component';
 export * from './header-columna/header-columna.component';
 export * from './columna-tablero/columna-tablero.component';
@@ -23,7 +24,6 @@ export * from './sidebar/sidebar.component';
 export * from './dialogo-actividad/dialogo-actividad.component';
 export * from './login/login.component';
 export * from './program-card/program-card.component';
-export * from './data-grid/data-grid.component';
 
 // Interfaces
 export * from './shared/interfaces/ibutton.interface';

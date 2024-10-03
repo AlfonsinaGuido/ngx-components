@@ -118,18 +118,6 @@ const meta: Meta<SidebarComponent> = {
               },
             },
           },
-          {
-            label:
-              'Ignacio Fernandez requiere autorización de acceso al Programa Recursos Humanos',
-            avatarName: 'Ignacio Fernandez',
-            avatarImgUrl:
-              'https://material.angular.io/assets/img/examples/shiba1.jpg',
-            onClick: {
-              action: (name = 'Ignacio Fernandez') => {
-                alert('Se autorizó a ' + name);
-              },
-            },
-          },
         ],
         notificationItems: [
           {
@@ -218,24 +206,141 @@ const meta: Meta<SidebarComponent> = {
               },
             },
           },
+        ],
+      },
+      moreOptions: {
+        label: 'Ver más',
+        insideLabel: 'Más opciones',
+        icon: {
+          icon: 'dashboard.svg',
+          type: 'svg',
+        },
+        options: [
           {
-            Puesto: {
-              Nombre: 'Gerente Calidad',
+            label: 'Opción 1',
+            icon: {
+              icon: 'dashboard.svg',
+              type: 'svg',
             },
-            Unidad: {
-              Descripcion: 'Unidad',
+            route: '/opcion1',
+            action: () => alert('Opción 1 seleccionada'),
+          },
+          {
+            label: 'Opción 2',
+            icon: {
+              icon: 'settings.svg',
+              type: 'svg',
             },
-            Compania: {
-              Descripcion: 'Compania',
+            route: '/opcion2',
+            action: () => alert('Opción 2 seleccionada'),
+          },
+          {
+            label: 'Opción 3',
+            icon: {
+              icon: 'files.svg',
+              type: 'svg',
             },
-            CentroTrabajo: {
-              Descripcion: 'Centro de Trabajo',
+            route: '/opcion3',
+            action: () => alert('Opción 3 seleccionada'),
+          },
+          {
+            label: 'Opción 4',
+            icon: {
+              icon: 'files.svg',
+              type: 'svg',
             },
-            onClick: {
-              action: (position = 'Gerente Calidad') => {
-                alert('Puesto elegido: ' + position);
-              },
+            route: '/opcion3',
+            action: () => alert('Opción 3 seleccionada'),
+          },
+          {
+            label: 'Opción 5',
+            icon: {
+              icon: 'files.svg',
+              type: 'svg',
             },
+            route: '/opcion3',
+            action: () => alert('Opción 3 seleccionada'),
+          },
+          {
+            label: 'Opción 6',
+            icon: {
+              icon: 'files.svg',
+              type: 'svg',
+            },
+            route: '/opcion3',
+            action: () => alert('Opción 3 seleccionada'),
+          },
+          {
+            label: 'Opción 7',
+            icon: {
+              icon: 'files.svg',
+              type: 'svg',
+            },
+            route: '/opcion3',
+            action: () => alert('Opción 3 seleccionada'),
+          },
+          {
+            label: 'Opción 8',
+            icon: {
+              icon: 'files.svg',
+              type: 'svg',
+            },
+            route: '/opcion3',
+            action: () => alert('Opción 3 seleccionada'),
+          },
+          {
+            label: 'Opción 9',
+            icon: {
+              icon: 'files.svg',
+              type: 'svg',
+            },
+            route: '/opcion3',
+            action: () => alert('Opción 3 seleccionada'),
+          },
+          {
+            label: 'Opción 9',
+            icon: {
+              icon: 'files.svg',
+              type: 'svg',
+            },
+            route: '/opcion3',
+            action: () => alert('Opción 3 seleccionada'),
+          },
+          {
+            label: 'Opción 9',
+            icon: {
+              icon: 'files.svg',
+              type: 'svg',
+            },
+            route: '/opcion3',
+            action: () => alert('Opción 3 seleccionada'),
+          },
+          {
+            label: 'Opción 9',
+            icon: {
+              icon: 'files.svg',
+              type: 'svg',
+            },
+            route: '/opcion3',
+            action: () => alert('Opción 3 seleccionada'),
+          },
+          {
+            label: 'Opción 9',
+            icon: {
+              icon: 'files.svg',
+              type: 'svg',
+            },
+            route: '/opcion3',
+            action: () => alert('Opción 3 seleccionada'),
+          },
+          {
+            label: 'Opción 9',
+            icon: {
+              icon: 'files.svg',
+              type: 'svg',
+            },
+            route: '/opcion3',
+            action: () => alert('Opción 3 seleccionada'),
           },
         ],
       },
@@ -260,6 +365,20 @@ const meta: Meta<SidebarComponent> = {
         action: () => alert('Dashboard'),
         route: '/dashboard',
         title: 'Dashboard',
+      },
+    ] as ISidebarOption[],
+    footerOptions: [
+      {
+        icon: { icon: 'settings.svg', type: 'svg' },
+        action: () => alert('settings'),
+        route: '/settings',
+        title: 'Settings',
+      },
+      {
+        icon: { icon: 'dashboard.svg', type: 'svg' },
+        action: () => alert('dashboard'),
+        route: '/dashboard',
+        title: 'dashboard',
       },
     ] as ISidebarOption[],
   },

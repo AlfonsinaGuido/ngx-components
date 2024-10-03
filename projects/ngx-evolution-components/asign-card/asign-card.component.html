@@ -1,0 +1,36 @@
+<div [ngClass]="getCardClasses()">
+  <h3 class="card-title mb-4">
+    <span>{{ config.titlep1 }}</span> {{ totalItems }} {{ config.titlep2 }}
+  </h3>
+
+  <ul class="names-list mb-4" [ngStyle]="{'max-height': config.items.length > 3 ? '150px' : 'auto', 'overflow-y': config.items.length > 3 ? 'auto' : 'visible'}" *ngIf="config.items.length > 0; else emptyState">
+    <li
+      *ngFor="let item of config.items"
+      class="name-item flex justify-between items-center"
+      (mouseenter)="hoveredItem = item.id"
+      (mouseleave)="hoveredItem = null"
+      [ngClass]="{ 'name-hovered': hoveredItem === item.id }"
+    >
+      <span class="name-title">{{ item.name }}</span>
+
+      <evo-button
+        mat-button
+        [icon]="{ type: 'class', icon: 'close' }"
+        [withoutBorder]="true"
+        (click)="remove(item)"
+      ></evo-button>
+    </li>
+  </ul>
+
+  <ng-template #emptyState>
+    <p class="empty-state">{{ config.emptyStateText }}</p>
+  </ng-template>
+
+  <evo-button
+    [label]="config.buttonText"
+    [twClass]="'action-button w-full'"
+    [theme]="'primary'"
+    (click)="onButtonClick()"
+    [disabled]="config.items.length === 0"
+  ></evo-button>
+</div>

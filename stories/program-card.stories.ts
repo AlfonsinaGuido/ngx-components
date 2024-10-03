@@ -36,10 +36,12 @@ export default {
       defaultValue: false,
     },
     'cardData.size': {
-      control: 'select',
+      control: {
+        type: 'select',
+        options: ['sm', 'md', 'lg'],
+      },
       name: 'Size',
       description: 'Defines the size of the card (sm, md, lg)',
-      options: ['sm', 'md', 'lg'],
       defaultValue: 'md',
     },
     'cardData.activitiesCount': {
@@ -78,29 +80,39 @@ export default {
       description: 'CSS classes for the button',
       defaultValue: 'theme-primary',
     },
+    'cardData.twClass': {
+      control: 'text',
+      name: 'Tailwind Class',
+      description: 'CSS Tailwind classes for the card',
+      defaultValue: 'custom-class',
+    },
   },
 } as Meta<ProgramCardComponent>;
+
+const defaultCardData = {
+  title: 'Program Title',
+  subtitle: 'Ejemplo de descripción',
+  activitiesCount: 5,
+  activitiesText: 'Actividades',
+  weeksCount: 3,
+  weeksText: 'Semanas',
+  buttonLabel: 'Asignar',
+  buttonIcon: 'add-user.svg',
+  buttonClasses: 'theme-primary',
+  onButtonClick: {
+    action: () => {
+      console.log('Button clicked!');
+    },
+  },
+  twClass: 'custom-class',
+  isFluid: true,
+  size: 'lg' as 'sm' | 'md' | 'lg',
+};
 
 export const Default: Story = {
   args: {
     cardData: {
-      title: 'Program Title',
-      subtitle: 'Ejemplo de descripción',
-      activitiesCount: 5,
-      activitiesText: 'Actividades',
-      weeksCount: 3,
-      weeksText: 'Semanas',
-      buttonLabel: 'Asignar',
-      buttonIcon: 'add-user.svg',
-      buttonClasses: 'theme-primary',
-      onButtonClick: {
-        action: () => {
-          alert('Button clicked!');
-        },
-      },
-      twClass: 'custom-class',
-      isFluid: true,
-      size: 'lg',
+      ...defaultCardData,
     },
   },
 };
@@ -108,7 +120,7 @@ export const Default: Story = {
 export const Small: Story = {
   args: {
     cardData: {
-      ...Default!.args!.cardData,
+      ...defaultCardData,
       isFluid: false,
       size: 'sm',
       title: 'Small Program Title',
@@ -121,7 +133,7 @@ export const Small: Story = {
 export const Medium: Story = {
   args: {
     cardData: {
-      ...Default!.args!.cardData,
+      ...defaultCardData,
       isFluid: false,
       size: 'md',
       title: 'Medium Program Title',
@@ -132,7 +144,7 @@ export const Medium: Story = {
 export const Large: Story = {
   args: {
     cardData: {
-      ...Default!.args!.cardData,
+      ...defaultCardData,
       isFluid: false,
       size: 'lg',
       title: 'Large Program Title',

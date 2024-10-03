@@ -23,6 +23,9 @@ export * from './sidebar/sidebar.component';
 export * from './dialogo-actividad/dialogo-actividad.component';
 export * from './login/login.component';
 export * from './program-card/program-card.component';
+export * from './program-table/program-table.component';
+export * from './asign-card/asign-card.component';
+export * from './search-bar/search-bar.component';
 
 // Interfaces
 export * from './shared/interfaces/ibutton.interface';
@@ -40,6 +43,9 @@ export * from './shared/interfaces/imenu.interface';
 export * from './shared/interfaces/isidebar.interface';
 export * from './shared/interfaces/iprioridad.interface';
 export * from './shared/interfaces/iprogram-card.interface';
+export * from './shared/interfaces/itable-config';
+export * from './shared/interfaces/icard-item.interface';
+export * from './shared/interfaces/icard-config.inteface';
 
 // Api Interfaces
 export * from './shared/interfaces/api/iempleado.interface';

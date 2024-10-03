@@ -1,0 +1,13 @@
+<div class="search-bar">
+  <mat-icon class="mr-2">search</mat-icon>
+  <input
+    class="w-full p-2 outline-none"
+    type="text"
+    [placeholder]="placeholder"
+    [(ngModel)]="inputValue"
+    (input)="onInput($event)"
+  />
+  <mat-icon *ngIf="inputValue" class="ml-2 clear-icon" (click)="clearInput()"
+    >clear</mat-icon
+  >
+</div>

@@ -14,7 +14,10 @@
       }
       @for (breadcrumb of breadcrumbs; track $index) {
         <li class="float-left">
-          <span [routerLink]="breadcrumb.url" class="cursor-pointer">
+          <span
+            [routerLink]="breadcrumb.url"
+            class="cursor-pointer first-letter:capitalize"
+          >
             {{ breadcrumb.label }}
           </span>
         </li>

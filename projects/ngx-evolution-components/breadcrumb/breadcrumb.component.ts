@@ -65,7 +65,7 @@ export class BreadcrumbComponent implements OnInit, OnDestroy {
   ): IBreadcrumb[] {
     // ... implementation of buildBreadCrumb
     const label = route.routeConfig?.data
-      ? this.capitalizeFirstLetter(route.routeConfig.data['breadcrumb'])
+      ? route.routeConfig.data['breadcrumb']
       : '';
     const path = route.routeConfig?.data ? route.routeConfig.path : '';
 
@@ -87,9 +87,5 @@ export class BreadcrumbComponent implements OnInit, OnDestroy {
     }
 
     return newBreadcrumb;
-  }
-
-  capitalizeFirstLetter(label: string): string {
-    return label.charAt(0).toUpperCase() + label.slice(1);
   }
 }

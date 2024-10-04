@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BreadcrumbComponent } from './breadcrumb.component';
 import { ActivatedRoute } from '@angular/router';
+import { By } from '@angular/platform-browser';
 
 describe('BreadcrumbComponent', () => {
   let component: BreadcrumbComponent;
@@ -51,15 +52,14 @@ describe('BreadcrumbComponent', () => {
       component['activatedRoute'].root,
     );
     expect(breadcrumbs.length).toBe(3);
-    expect(breadcrumbs[0].label).toBe('Home');
-    expect(breadcrumbs[1].label).toBe('Child');
-    expect(breadcrumbs[2].label).toBe('Grandchild');
+    expect(breadcrumbs[0].label).toBe('home');
+    expect(breadcrumbs[1].label).toBe('child');
+    expect(breadcrumbs[2].label).toBe('grandchild');
   });
 
-  it('should capitalize the first letter of the label, capitalizeFirstLetter(label: string): string', () => {
-    const label = 'test';
-    const capitalized = component.capitalizeFirstLetter(label);
-    expect(capitalized).toBe('Test');
+  it('should apply Tailwind first-letter:capitalize class to breadcrumb label', () => {
+    const labelElement = fixture.debugElement.query(By.css('span'));
+    expect(labelElement.classes['first-letter:capitalize']).toBeTrue();
   });
 
   it('should unsubscribe from router events on destroy, ngOnDestroy()', () => {

@@ -104,6 +104,16 @@
         "name": "Default",
         "ctype": "miscellaneous",
         "subtype": "variable",
+        "file": "stories/breadcrumb.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    twClass: '',\n    homeElement: {\n      path: '/dashboard',\n      icon: 'home.svg',\n    },\n    breadcrumbs: [\n      {\n        label: 'Notificaciones',\n        url: '/notificaciones',\n      },\n      {\n        label: 'Ver-detalles',\n        url: '/ver-detalles',\n      },\n    ],\n  },\n}"
+      },
+      {
+        "name": "Default",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
         "file": "stories/button.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
@@ -391,6 +401,16 @@
         "defaultValue": "{\n  args: {\n    size: 'lg',\n    isPriority: true,\n    imgUrl: 'https://material.angular.io/assets/img/examples/shiba1.jpg',\n  },\n}"
       },
       {
+        "name": "Hidden",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/breadcrumb.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    breadcrumbs: [\n      {\n        label: 'Notificaciones',\n        url: '/notificaciones',\n      },\n    ],\n  },\n}"
+      },
+      {
         "name": "iconDialog",
         "ctype": "miscellaneous",
         "subtype": "variable",
@@ -469,6 +489,16 @@
         "deprecationMessage": "",
         "type": "Story",
         "defaultValue": "{\n  args: {\n    cardData: {\n      ...Default!.args!.cardData,\n      isFluid: false,\n      size: 'md',\n      title: 'Medium Program Title',\n    },\n  },\n}"
+      },
+      {
+        "name": "meta",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/breadcrumb.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Meta<BreadcrumbComponent>",
+        "defaultValue": "{\n  title: 'Evolution Components/Breadcrumb',\n  component: BreadcrumbComponent,\n  decorators: [\n    applicationConfig({\n      providers: [\n        provideRouter([], withDisabledInitialNavigation()),\n        provideHttpClient(),\n      ],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
       },
       {
         "name": "meta",
@@ -1021,6 +1051,16 @@
         "defaultValue": "{\n  args: {\n    name: 'Desasignadas',\n    count: 0,\n    index: 1,\n    withCount: false,\n  },\n}"
       },
       {
+        "name": "WithoutHomePath",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/breadcrumb.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    ...Default.args,\n    homeElement: undefined,\n  },\n}"
+      },
+      {
         "name": "WithScroll",
         "ctype": "miscellaneous",
         "subtype": "variable",
@@ -1116,6 +1156,17 @@
         "subtype": "typealias",
         "rawtype": "StoryObj<AvatarComponent>",
         "file": "stories/avatar.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "description": "",
+        "kind": 183
+      },
+      {
+        "name": "Story",
+        "ctype": "miscellaneous",
+        "subtype": "typealias",
+        "rawtype": "StoryObj<BreadcrumbComponent>",
+        "file": "stories/breadcrumb.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "description": "",
@@ -1680,6 +1731,48 @@
           "deprecationMessage": "",
           "type": "Story",
           "defaultValue": "{\n  args: {\n    name: 'Desasignadas',\n    count: 0,\n    index: 1,\n    withCount: false,\n  },\n}"
+        }
+      ],
+      "stories/breadcrumb.stories.ts": [
+        {
+          "name": "Default",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/breadcrumb.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    twClass: '',\n    homeElement: {\n      path: '/dashboard',\n      icon: 'home.svg',\n    },\n    breadcrumbs: [\n      {\n        label: 'Notificaciones',\n        url: '/notificaciones',\n      },\n      {\n        label: 'Ver-detalles',\n        url: '/ver-detalles',\n      },\n    ],\n  },\n}"
+        },
+        {
+          "name": "Hidden",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/breadcrumb.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    breadcrumbs: [\n      {\n        label: 'Notificaciones',\n        url: '/notificaciones',\n      },\n    ],\n  },\n}"
+        },
+        {
+          "name": "meta",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/breadcrumb.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Meta<BreadcrumbComponent>",
+          "defaultValue": "{\n  title: 'Evolution Components/Breadcrumb',\n  component: BreadcrumbComponent,\n  decorators: [\n    applicationConfig({\n      providers: [\n        provideRouter([], withDisabledInitialNavigation()),\n        provideHttpClient(),\n      ],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+        },
+        {
+          "name": "WithoutHomePath",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/breadcrumb.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    ...Default.args,\n    homeElement: undefined,\n  },\n}"
         }
       ],
       "stories/button.stories.ts": [
@@ -2456,6 +2549,19 @@
           "kind": 183
         }
       ],
+      "stories/breadcrumb.stories.ts": [
+        {
+          "name": "Story",
+          "ctype": "miscellaneous",
+          "subtype": "typealias",
+          "rawtype": "StoryObj<BreadcrumbComponent>",
+          "file": "stories/breadcrumb.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "description": "",
+          "kind": 183
+        }
+      ],
       "stories/button.stories.ts": [
         {
           "name": "Story",
@@ -2697,6 +2803,46 @@
         "linktype": "miscellaneous",
         "linksubtype": "variable",
         "name": "iniciales",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/breadcrumb.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Default",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/breadcrumb.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Hidden",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/breadcrumb.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "meta",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/breadcrumb.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "WithoutHomePath",
         "coveragePercent": 0,
         "coverageCount": "0/1",
         "status": "low"

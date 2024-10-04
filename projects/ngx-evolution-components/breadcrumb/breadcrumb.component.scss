@@ -1,0 +1,32 @@
+.breadcrumb {
+  li {
+    evo-svg {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 30px;
+      width: 30px;
+      background-color: var(--primary-50);
+      border-radius: 50%;
+      margin-right: 5px;
+      cursor: pointer;
+      .mat-icon {
+        height: 18px;
+        width: 18px;
+        color: var(--primary-500);
+      }
+    }
+  }
+  li::after {
+    content: "\00a0/\00a0\00a0";
+  }
+  li:last-child::after {
+    content: "";
+  }
+  li:last-child {
+    color: var(--primary-500);
+    span {
+      cursor: default;
+    }
+  }
+}

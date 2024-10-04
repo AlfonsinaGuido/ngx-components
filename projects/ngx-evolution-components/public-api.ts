@@ -32,6 +32,7 @@ export * from './shared/interfaces/iinput.interface';
 export * from './shared/interfaces/iselect.interface';
 export * from './shared/interfaces/idialog.interface';
 export * from './shared/interfaces/ievaluacion.interface';
+export * from './shared/interfaces/iactividad-programa.interface';
 export * from './shared/interfaces/iactividad.interface';
 export * from './shared/interfaces/icolumna.interface';
 export * from './shared/interfaces/iheader.interface';

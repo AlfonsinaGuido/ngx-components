@@ -4,6 +4,7 @@ import {
   IEvaluacion,
   IPrioridad,
   EtapaPrograma,
+  IActividadPrograma,
 } from '../../public-api';
 
 export interface IActividad {
@@ -22,4 +23,5 @@ export interface IActividad {
   nombre: string;
   fechaFin: Date;
   prioridad?: IPrioridad;
+  actividadPrograma: IActividadPrograma;
 }

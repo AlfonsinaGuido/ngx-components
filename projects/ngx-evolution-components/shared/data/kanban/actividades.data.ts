@@ -28,6 +28,10 @@ export const actividad1: IActividad = {
   status: EstadoActividad.abierta,
   fechaFin: new Date(2024, 7, 20),
   prioridad: prioridadHigh,
+  actividadPrograma: {
+    codigo: 1,
+    nombre: 'Inducción General a la Empresa',
+  },
 };
 
 export const actividad2: IActividad = {
@@ -46,6 +50,10 @@ export const actividad2: IActividad = {
   status: EstadoActividad.enProgreso,
   fechaFin: new Date(2024, 7, 20),
   prioridad: prioridadMedium,
+  actividadPrograma: {
+    codigo: 2,
+    nombre: 'Orientación en el Uso del Sistema Evolution',
+  },
 };
 
 export const actividad3: IActividad = {
@@ -62,6 +70,10 @@ export const actividad3: IActividad = {
   status: EstadoActividad.abierta,
   fechaFin: new Date(),
   prioridad: prioridadLow,
+  actividadPrograma: {
+    codigo: 1,
+    nombre: 'Inducción General a la Empresa',
+  },
 };
 
 export const actividad4: IActividad = {
@@ -78,6 +90,10 @@ export const actividad4: IActividad = {
   status: EstadoActividad.abierta,
   fechaFin: new Date(2024, 7, 20),
   prioridad: prioridadMedium,
+  actividadPrograma: {
+    codigo: 1,
+    nombre: 'Inducción General a la Empresa',
+  },
 };
 
 export const actividad5: IActividad = {
@@ -94,6 +110,10 @@ export const actividad5: IActividad = {
   status: EstadoActividad.abierta,
   fechaFin: new Date(2024, 7, 20),
   prioridad: prioridadLowest,
+  actividadPrograma: {
+    codigo: 1,
+    nombre: 'Inducción General a la Empresa',
+  },
 };
 
 export const actividad6: IActividad = {
@@ -110,6 +130,10 @@ export const actividad6: IActividad = {
   status: EstadoActividad.enProgreso,
   fechaFin: new Date(2024, 7, 20),
   prioridad: prioridadLowest,
+  actividadPrograma: {
+    codigo: 3,
+    nombre: 'Taller de Liderazgo Regional',
+  },
 };
 
 export const actividad7: IActividad = {
@@ -127,6 +151,10 @@ export const actividad7: IActividad = {
   status: EstadoActividad.cerrada,
   fechaFin: new Date(2024, 7, 20),
   prioridad: prioridadHighest,
+  actividadPrograma: {
+    codigo: 1,
+    nombre: 'Inducción General a la Empresa',
+  },
 };
 
 export const actividades = [

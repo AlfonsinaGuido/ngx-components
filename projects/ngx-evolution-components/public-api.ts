@@ -14,6 +14,7 @@ export * from './header/header.component';
 export * from './footer/footer.component';
 export * from './dialog/dialog.component';
 export * from './tag/tag.component';
+export * from './data-grid/data-grid.component';
 export * from './carta-actividad/carta-actividad.component';
 export * from './header-columna/header-columna.component';
 export * from './columna-tablero/columna-tablero.component';
@@ -32,6 +33,7 @@ export * from './shared/interfaces/iinput.interface';
 export * from './shared/interfaces/iselect.interface';
 export * from './shared/interfaces/idialog.interface';
 export * from './shared/interfaces/ievaluacion.interface';
+export * from './shared/interfaces/iactividad-programa.interface';
 export * from './shared/interfaces/iactividad.interface';
 export * from './shared/interfaces/icolumna.interface';
 export * from './shared/interfaces/iheader.interface';
@@ -41,6 +43,7 @@ export * from './shared/interfaces/imenu.interface';
 export * from './shared/interfaces/isidebar.interface';
 export * from './shared/interfaces/iprioridad.interface';
 export * from './shared/interfaces/iprogram-card.interface';
+export * from './shared/interfaces/idatagrid.interface';
 export * from './shared/interfaces/ibreadcrumb.interface';
 
 // Api Interfaces

@@ -57,9 +57,9 @@ describe('BreadcrumbComponent', () => {
     expect(breadcrumbs[2].label).toBe('grandchild');
   });
 
-  it('should apply Tailwind first-letter:capitalize class to breadcrumb label', () => {
+  it('should apply Tailwind capitalize class to breadcrumb label', () => {
     const labelElement = fixture.debugElement.query(By.css('span'));
-    expect(labelElement.classes['first-letter:capitalize']).toBeTrue();
+    expect(labelElement.classes['capitalize']).toBeTrue();
   });
 
   it('should unsubscribe from router events on destroy, ngOnDestroy()', () => {

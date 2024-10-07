@@ -35,11 +35,11 @@ export const Default: Story = {
     },
     breadcrumbs: [
       {
-        label: 'Notificaciones',
+        label: 'notificaciones',
         url: '/notificaciones',
       },
       {
-        label: 'Ver-detalles',
+        label: 'ver-detalles',
         url: '/ver-detalles',
       },
     ],
@@ -57,7 +57,7 @@ export const Hidden: Story = {
   args: {
     breadcrumbs: [
       {
-        label: 'Notificaciones',
+        label: 'notificaciones',
         url: '/notificaciones',
       },
     ],

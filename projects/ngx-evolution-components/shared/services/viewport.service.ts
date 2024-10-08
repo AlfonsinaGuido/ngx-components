@@ -7,7 +7,9 @@ import { debounceTime, startWith } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class ViewportService {
-  private isMobileSubject: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  private isMobileSubject: BehaviorSubject<boolean> = new BehaviorSubject(
+    false,
+  );
 
   /**
    * Constructor del servicio ViewportService.
@@ -19,10 +21,7 @@ export class ViewportService {
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {
     if (isPlatformBrowser(this.platformId)) {
       fromEvent(window, 'resize')
-        .pipe(
-          debounceTime(200),
-          startWith(this.checkViewport())
-        )
+        .pipe(debounceTime(200), startWith(this.checkViewport()))
         .subscribe(() => this.checkViewport());
     }
   }

@@ -171,7 +171,6 @@ export class SmartListComponent implements OnInit, OnChanges {
       this.initializeTable();
     }
   }
-  
 
   /**
    * Inicializa la tabla y ajusta los elementos paginados.
@@ -222,11 +221,11 @@ export class SmartListComponent implements OnInit, OnChanges {
    */
   handleAction(item: ISmartListItem, actionCode: string) {
     if (!item) return;
-  
+
     const action = this.metadata?.Buttons?.find(
       (btn) => btn.Code === actionCode,
     );
-  
+
     if (action?.ConfirmationMessage) {
       if (confirm(action.ConfirmationMessage)) {
         this.rowAction.emit({ actionType: 'button', action: actionCode, item });
@@ -235,7 +234,6 @@ export class SmartListComponent implements OnInit, OnChanges {
       this.rowAction.emit({ actionType: 'button', action: actionCode, item });
     }
   }
-  
 
   /**
    * Verifica si todos los elementos están seleccionados.
@@ -296,7 +294,7 @@ export class SmartListComponent implements OnInit, OnChanges {
     if (this.page > 1) {
       this.goToPage(this.page - 1);
     }
-  }  
+  }
 
   /**
    * Navega a la página siguiente.
@@ -369,58 +367,57 @@ export class SmartListComponent implements OnInit, OnChanges {
     const columnIndex = this.metadata?.Columns.findIndex(
       (col) => col.FieldName === columnName,
     );
-  
+
     if (
       columnIndex === undefined ||
       !this.sortableColumns?.includes(columnIndex)
     ) {
       return;
     }
-  
+
     // Resetea la ordenación de otras columnas
     Object.keys(this.sortState).forEach((key) => {
       if (key !== columnName) {
         this.sortState[key] = null;
       }
     });
-  
+
     // Alterna el estado de la columna seleccionada
     this.sortState[columnName] =
       this.sortState[columnName] === 'asc' ? 'desc' : 'asc';
-  
+
     this.columnSort.emit({
       column: columnName,
       order: this.sortState[columnName],
       dataType: this.detectColumnType(columnName),
     });
   }
-  
 
   /**
    * Retorna el ícono correspondiente al estado de la ordenación de una columna si está habilitada para ordenar.
    * @param columnName El nombre del campo de la columna
    * @returns El nombre del ícono para esa columna
    */
-getSortIcon(columnName: string): string {
-  const columnIndex = this.metadata?.Columns.findIndex(
-    (col) => col.FieldName === columnName,
-  );
+  getSortIcon(columnName: string): string {
+    const columnIndex = this.metadata?.Columns.findIndex(
+      (col) => col.FieldName === columnName,
+    );
 
-  if (
-    columnIndex !== undefined &&
-    this.sortableColumns?.includes(columnIndex)
-  ) {
-    switch (this.sortState[columnName]) {
-      case 'asc':
-        return 'arrow_upward';
-      case 'desc':
-        return 'arrow_downward';
-      default:
-        return 'sort';
+    if (
+      columnIndex !== undefined &&
+      this.sortableColumns?.includes(columnIndex)
+    ) {
+      switch (this.sortState[columnName]) {
+        case 'asc':
+          return 'arrow_upward';
+        case 'desc':
+          return 'arrow_downward';
+        default:
+          return 'sort';
+      }
     }
+    return '';
   }
-  return '';
-}
 
   /**
    * Devuelve las clases CSS que se aplicarán al componente usando el servicio.

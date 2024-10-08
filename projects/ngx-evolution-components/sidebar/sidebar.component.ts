@@ -54,7 +54,7 @@ export class SidebarComponent implements OnInit, OnChanges {
     @Inject(PLATFORM_ID) private platformId: Object,
     private cdr: ChangeDetectorRef,
     private viewportService: ViewportService,
-    private classUtility: ClassUtilityService
+    private classUtility: ClassUtilityService,
   ) {}
 
   isMobile: boolean = false;
@@ -67,8 +67,6 @@ export class SidebarComponent implements OnInit, OnChanges {
   public sessionJobPositionName!: string;
 
   private viewportSubscription!: Subscription;
-
-
 
   /**
    * Alterna el estado del acordeón de ajustes.
@@ -164,14 +162,13 @@ export class SidebarComponent implements OnInit, OnChanges {
     }
   }
 
-
-    /**
+  /**
    * Devuelve las clases CSS que se aplicarán al componente usando el servicio.
    * @returns {string} Clases CSS aplicadas al componente.
    */
-    getClasses(): string {
-      return this.classUtility.getCombinedClasses('layout', this.twClass);
-    }
+  getClasses(): string {
+    return this.classUtility.getCombinedClasses('layout', this.twClass);
+  }
 
   /**
    * Se suscribe a los cambios de ruta para actualizar la opción activa

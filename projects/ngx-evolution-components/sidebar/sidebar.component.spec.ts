@@ -18,7 +18,9 @@ describe('SidebarComponent', () => {
   const routerEventsSubject = new Subject<any>();
 
   beforeEach(async () => {
-    mockClassUtilityService = jasmine.createSpyObj('ClassUtilityService', ['getCombinedClasses']);
+    mockClassUtilityService = jasmine.createSpyObj('ClassUtilityService', [
+      'getCombinedClasses',
+    ]);
 
     mockRouter = jasmine.createSpyObj('Router', ['navigate']);
     Object.defineProperty(mockRouter, 'events', {
@@ -36,7 +38,7 @@ describe('SidebarComponent', () => {
       providers: [
         { provide: Router, useValue: mockRouter },
         { provide: PLATFORM_ID, useValue: mockPlatformId },
-        { provide: ClassUtilityService, useValue: mockClassUtilityService }
+        { provide: ClassUtilityService, useValue: mockClassUtilityService },
       ],
     }).compileComponents();
 
@@ -127,7 +129,6 @@ describe('SidebarComponent', () => {
     expect(component.activeRoute).toBe('/test');
   });
 
-
   it('should toggle sidebar state', () => {
     component.isSidebarOpen = false;
     component.toggleSidebar();
@@ -149,22 +150,21 @@ describe('SidebarComponent', () => {
       route: '/dashboard',
       title: 'dashboard',
     };
-  
+
     component.selectOption(mockOption);
     expect(mockRouter.navigate).toHaveBeenCalledWith(['/dashboard']);
   });
-  
+
   it('should execute the action when no route is defined', () => {
     const mockOption = {
       icon: { icon: 'dashboard.svg', type: 'svg' } as IIcon,
       action: jasmine.createSpy('action'),
       title: 'dashboard',
     };
-  
+
     component.selectOption(mockOption);
     expect(mockOption.action).toHaveBeenCalled();
   });
-  
 
   it('should update activeRoute on navigation end', () => {
     routerEventsSubject.next(new NavigationEnd(1, '/test', '/test'));
@@ -184,11 +184,16 @@ describe('SidebarComponent', () => {
   it('should call getCombinedClasses on the ClassUtilityService with correct parameters', () => {
     const mockTwClass = 'custom-class';
     component.twClass = mockTwClass;
-    mockClassUtilityService.getCombinedClasses.and.returnValue('layout custom-class');
+    mockClassUtilityService.getCombinedClasses.and.returnValue(
+      'layout custom-class',
+    );
     fixture.detectChanges();
 
     const classes = component.getClasses();
-    expect(mockClassUtilityService.getCombinedClasses).toHaveBeenCalledWith('layout', mockTwClass);
+    expect(mockClassUtilityService.getCombinedClasses).toHaveBeenCalledWith(
+      'layout',
+      mockTwClass,
+    );
     expect(classes).toBe('layout custom-class');
   });
 });

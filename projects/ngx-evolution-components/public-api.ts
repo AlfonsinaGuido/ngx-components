@@ -34,6 +34,7 @@ export * from './breadcrumb/breadcrumb.component';
 
 // Services
 export * from './shared/services/viewport.service';
+export * from './shared/services/class-utility.service';
 
 // Interfaces
 export * from './shared/interfaces/ibutton.interface';

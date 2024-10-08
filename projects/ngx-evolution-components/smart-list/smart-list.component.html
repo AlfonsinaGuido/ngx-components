@@ -83,7 +83,7 @@
                     [config]="{
                       actions: currentItemActions,
                       isOpen: isActionsModalOpen && selectedItem === item,
-                      icons: actionIcons
+                      icons: actionIcons,
                     }"
                     (actionSelected)="handleAction(selectedItem!, $event)"
                     (menuClosed)="closeActionsMenu()"
@@ -134,7 +134,7 @@
               [config]="{
                 actions: currentItemActions,
                 isOpen: isActionsModalOpen && selectedItem === item,
-                icons: actionIcons
+                icons: actionIcons,
               }"
               (actionSelected)="handleAction(selectedItem!, $event)"
               (menuClosed)="closeActionsMenu()"

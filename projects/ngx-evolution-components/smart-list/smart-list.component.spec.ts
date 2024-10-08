@@ -300,56 +300,66 @@ describe('SmartListComponent', () => {
     const compiled = fixture.nativeElement;
     expect(compiled.textContent).toContain('No hay datos para mostrar');
   });
-  
+
   it('should update the metadata and reinitialize the table when smartlistConfig changes', () => {
     const newConfig: ISmartlistFullConfig = {
       ...mockConfig,
       Metadata: {
         ...mockConfig.Metadata,
-        Columns: [{
-            Code: 'newColumn', FieldName: 'newField', Header: 'New Column', Visible: true,
-            PropertyName: ''
-        }],
+        Columns: [
+          {
+            Code: 'newColumn',
+            FieldName: 'newField',
+            Header: 'New Column',
+            Visible: true,
+            PropertyName: '',
+          },
+        ],
       },
     };
     component.smartlistConfig = newConfig;
-    component.ngOnChanges({ smartlistConfig: { currentValue: newConfig, previousValue: null, firstChange: true, isFirstChange: () => true } });
+    component.ngOnChanges({
+      smartlistConfig: {
+        currentValue: newConfig,
+        previousValue: null,
+        firstChange: true,
+        isFirstChange: () => true,
+      },
+    });
     expect(component.metadata).toEqual(newConfig.Metadata);
     expect(component.totalItems).toBe(component.data.length);
   });
-  
+
   it('should return correct CSS classes based on context', () => {
     classUtilityServiceMock.getCombinedClasses.and.returnValue('base-classes');
-  
+
     const tableClasses = component.getClasses('table-container');
     expect(tableClasses).toContain('base-classes table-container-class');
-  
+
     const cardClasses = component.getClasses('card-container');
     expect(cardClasses).toContain('base-classes card-container-class');
-  
+
     const defaultClasses = component.getClasses('unknown-context');
     expect(defaultClasses).toContain('base-classes');
   });
-  
-  
+
   it('should not navigate beyond the first or last page', () => {
     component.page = 1;
     component.previousPage();
     expect(component.page).toBe(1); // No debe cambiar porque ya estamos en la primera página
-  
+
     component.page = component.totalPages;
     component.nextPage();
     expect(component.page).toBe(component.totalPages); // No debe cambiar porque ya estamos en la última página
   });
-  
+
   it('should adjust page size when viewport state changes to mobile', () => {
     viewportServiceMock.getIsMobile.and.returnValue(of(true));
     component.ngOnInit(); // Forzar a que se ejecute la suscripción y ajuste el tamaño de página
     expect(component.pageSize).toBe(1);
-  
+
     viewportServiceMock.getIsMobile.and.returnValue(of(false));
     component.ngOnInit(); // Forzar el cambio a no móvil
     expect(component.pageSize).toBe(component.initialPageSize);
   });
-  
 });

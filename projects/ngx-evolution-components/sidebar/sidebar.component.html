@@ -117,89 +117,55 @@
           }
 
           <!-- Acordeón de configuraciones -->
-          <div class="accordion">
-            <div class="accordion-item">
-              <div class="accordion-header" (click)="toggleAccordion()">
+          <evo-accordion
+            [config]="{
+              title: commonProps.titles.settingTitle,
+              icon: commonProps.icons?.settingMenuIcons?.buttonIcon || {
+                type: 'class',
+                icon: '',
+              },
+              height: '80px',
+            }"
+          >
+            <!-- Opciones dentro del acordeón de configuraciones -->
+            @for (
+              option of commonProps.items.settingMenu.options;
+              track option.name
+            ) {
+              <div class="option-item">
+                <span class="pl-4">{{ option.name }}</span>
+                <mat-slide-toggle></mat-slide-toggle>
+              </div>
+              <mat-divider></mat-divider>
+            }
+          </evo-accordion>
+
+          <!-- Segundo acordeón: Más Aplicaciones -->
+          <evo-accordion
+            [config]="{
+              title: 'Más Aplicaciones',
+              icon: commonProps.icons?.appMenuIcons?.buttonIcon || {
+                type: 'class',
+                icon: '',
+              },
+              height: '80px',
+            }"
+          >
+            <!-- Lista de aplicaciones adicionales -->
+            @for (app of commonProps.moreOptions?.options; track app.label) {
+              <div class="option-item" (click)="app.action!()">
                 <evo-button
-                  mat-button
-                  [label]="commonProps.titles.settingTitle"
-                  [icon]="commonProps.icons.settingMenuIcons.buttonIcon"
+                  [label]="app.label"
+                  [icon]="app.icon"
                   [withoutBorder]="true"
                   [theme]="'secondary'"
                   [isFluid]="true"
                   [twClass]="'sidebar__evo-button'"
                 ></evo-button>
-                <!-- Botón para abrir/cerrar el acordeón -->
-                <evo-button
-                  mat-button
-                  [icon]="{
-                    type: 'class',
-                    icon: accordionOpen ? 'expand_less' : 'expand_more',
-                  }"
-                  [withoutBorder]="true"
-                ></evo-button>
               </div>
-              <div
-                class="accordion-content"
-                [ngClass]="{ open: accordionOpen }"
-              >
-                <!-- Opciones dentro del acordeón de configuraciones -->
-                @for (
-                  option of commonProps.items.settingMenu.options;
-                  track option.name
-                ) {
-                  <div class="option-item">
-                    <span>{{ option.name }}</span>
-                    <mat-slide-toggle></mat-slide-toggle>
-                  </div>
-                  <mat-divider></mat-divider>
-                }
-              </div>
-            </div>
-          </div>
-
-          <!-- Segundo acordeón: Más Aplicaciones -->
-          <div class="accordion-item">
-            <div class="accordion-header" (click)="toggleAppAccordion()">
-              <evo-button
-                mat-button
-                [label]="'Más Aplicaciones'"
-                [icon]="commonProps.icons.appMenuIcons.buttonIcon"
-                [withoutBorder]="true"
-                [theme]="'secondary'"
-                [isFluid]="true"
-                [twClass]="'sidebar__evo-button'"
-              ></evo-button>
-              <!-- Botón para abrir/cerrar el acordeón de Más Aplicaciones -->
-              <evo-button
-                mat-button
-                [icon]="{
-                  type: 'class',
-                  icon: appAccordionOpen ? 'expand_less' : 'expand_more',
-                }"
-                [withoutBorder]="true"
-              ></evo-button>
-            </div>
-            <div
-              class="accordion-content moreOptions"
-              [ngClass]="{ open: appAccordionOpen }"
-            >
-              <!-- Lista de aplicaciones adicionales -->
-              @for (app of commonProps.moreOptions?.options; track app.label) {
-                <div class="option-item" (click)="app.action!()">
-                  <evo-button
-                    mat-button
-                    [label]="app.label"
-                    [icon]="app.icon"
-                    [withoutBorder]="true"
-                    [theme]="'secondary'"
-                    [isFluid]="true"
-                  ></evo-button>
-                </div>
-                <mat-divider></mat-divider>
-              }
-            </div>
-          </div>
+              <mat-divider></mat-divider>
+            }
+          </evo-accordion>
 
           <!-- Botones de opciones relacionadas con el usuario -->
           @for (option of commonProps.items.userDataItems; track option.label) {
@@ -276,7 +242,10 @@
                       option of commonProps.moreOptions?.options;
                       track option.label
                     ) {
-                      <div class="option-item" (click)="selectOption(option)">
+                      <div
+                        class="option-item__more-options"
+                        (click)="selectOption(option)"
+                      >
                         <evo-button
                           mat-button
                           [icon]="commonProps.moreOptions?.icon"

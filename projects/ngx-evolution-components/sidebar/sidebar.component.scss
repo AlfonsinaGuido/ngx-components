@@ -78,10 +78,17 @@ header button.evo-button.without-border.active {
   height: 100vh;
   overflow: hidden;
 
+  button.evo-button.without-border:hover {
+    border: none !important;
+  }
+
+  button.evo-button.without-border {
+    border: none !important;
+  }
+
   button.evo-button.is-fluid.sidebar__evo-button.theme-secondary.without-border {
     justify-content: flex-start;
     padding-left: 15px;
-    color: black;
     border-radius: 0;
     border: 0 !important;
 
@@ -336,6 +343,21 @@ header button.evo-button.without-border.active {
 
 .option-item {
   display: flex;
+  justify-content: space-between;
+  height: 40px;
+  color: black;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 5px;
+  padding-left: 5px;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.option-item__more-options {
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
@@ -349,11 +371,13 @@ header button.evo-button.without-border.active {
   cursor: pointer;
 }
 
-.option-item:hover {
+.option-item:hover,
+.option-item__more-options:hover {
   background-color: var(--light-gray);
 }
 
-.option-item p {
+.option-item p,
+.option-item__more-options p {
   overflow: hidden;
   width: 55px;
   text-align: center;
@@ -361,11 +385,13 @@ header button.evo-button.without-border.active {
   color: var(--accent-500);
 }
 
-.option-item mat-icon.mat-icon.notranslate.mat-icon-no-color {
+.option-item mat-icon.mat-icon.notranslate.mat-icon-no-color,
+.option-item__more-options mat-icon.mat-icon.notranslate.mat-icon-no-color {
   color: var(--accent-500);
 }
 
-.option-item {
+.option-item,
+.option-item__more-options {
   button.evo-button.rounded-md.outline-none.border-none.font-normal.min-h-9.min-w-18.px-6.py-2.flex.items-center.justify-center.only-icon.theme-default.without-border:hover {
     background-color: var(--light-gray);
     border: none !important;
@@ -464,18 +490,23 @@ header button.evo-button.without-border.active {
   max-height: 0px;
   overflow-y: auto;
   height: auto;
-  .option-item {
+  .option-item,
+  .option-item__more-options {
     padding-left: 10px;
     padding-bottom: 0px;
     padding-top: 0px;
   }
-  .option-item mat-icon.mat-icon.notranslate.mat-icon-no-color {
+  .option-item mat-icon.mat-icon.notranslate.mat-icon-no-color,
+  .option-item__more-options mat-icon.mat-icon.notranslate.mat-icon-no-color {
     color: black;
   }
-  .option-item div.label {
+  .option-item div.label,
+  .option-item__more-options div.label {
     color: black;
   }
   .option-item
+    button.evo-button.rounded-md.outline-none.border-none.font-normal.min-h-9.min-w-18.px-6.py-2.flex.items-center.justify-center.is-fluid.theme-secondary.without-border,
+  .option-item__more-options
     button.evo-button.rounded-md.outline-none.border-none.font-normal.min-h-9.min-w-18.px-6.py-2.flex.items-center.justify-center.is-fluid.theme-secondary.without-border {
     &:hover {
       border: none !important;

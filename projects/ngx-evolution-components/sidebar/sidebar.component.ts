@@ -19,6 +19,7 @@ import {
   ISidebarConfig,
   IMoreOptionItem,
   ViewportService,
+  AccordionComponent,
 } from '../public-api';
 import { Router, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -37,6 +38,7 @@ import { ClassUtilityService } from '../shared/services/class-utility.service';
     SvgComponent,
     MatDivider,
     MatSlideToggle,
+    AccordionComponent,
   ],
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],

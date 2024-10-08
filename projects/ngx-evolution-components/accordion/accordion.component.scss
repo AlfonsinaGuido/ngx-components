@@ -59,7 +59,8 @@
   }
 
   evo-button {
-    .evo-button.accordion__evo-button.without-border.theme-secondary {
+    button.evo-button.accordion__evo-button {
+      color: black;
       background-color: transparent;
       box-shadow: none;
       border: none !important;
@@ -112,6 +113,17 @@
     &::-webkit-scrollbar-thumb {
       background-color: var(--light-gray);
       border-radius: 10px;
+    }
+  }
+
+  evo-button {
+    .evo-button.without-border.accordion__evo-button-arrow {
+      background-color: transparent;
+      box-shadow: none;
+      border: none !important;
+      &:hover {
+        border: none !important;
+      }
     }
   }
 }

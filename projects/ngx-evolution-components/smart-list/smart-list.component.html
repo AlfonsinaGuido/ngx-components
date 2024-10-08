@@ -1,0 +1,170 @@
+<!-- Vista de tabla para escritorio -->
+@if (!isMobile) {
+  <div [ngClass]="getClasses('table-container')">
+    <table class="evo-table w-full border-collapse">
+      <thead>
+        <tr>
+          @if (metadata?.MultiSelect) {
+            <th>
+              <input
+                type="checkbox"
+                [checked]="areAllSelected()"
+                (change)="selectAllResults()"
+              />
+            </th>
+          }
+          @for (column of getVisibleColumns(); track column.Code) {
+            <th class="text-left px-2 py-1">
+              <div class="flex align-center items-center">
+                <!-- Columna con header y botón de ordenamiento -->
+                <span class="header-text">{{ column.Header }}</span>
+                <evo-button
+                  class="pl-2"
+                  [icon]="{
+                    type: 'class',
+                    icon: getSortIcon(column.FieldName),
+                  }"
+                  size="sm"
+                  [withoutBorder]="true"
+                  [twClass]="'sort-button card__evo-button'"
+                  (click)="toggleSort(column.FieldName)"
+                  [theme]="'secondary'"
+                ></evo-button>
+              </div>
+            </th>
+          }
+          @if (metadata?.Buttons?.length) {
+            <th class="text-left px-2 py-1">Acciones</th>
+          }
+        </tr>
+      </thead>
+      <tbody>
+        @for (item of paginatedItems; track item) {
+          <tr class="border-b border-gray-300 hover:bg-gray-100">
+            @if (metadata?.MultiSelect) {
+              <td>
+                <input
+                  type="checkbox"
+                  [checked]="item.selected"
+                  (change)="toggleSelect(item)"
+                />
+              </td>
+            }
+            @for (column of getVisibleColumns(); track column.Code) {
+              <td class="px-2 py-1 text-left">
+                @if (column.FieldName === "estado") {
+                  <evo-button
+                    [label]="getButtonLabel(item)"
+                    [twClass]="getButtonTheme(item)"
+                    (click)="handleAction(item, 'customAction')"
+                    size="sm"
+                  ></evo-button>
+                } @else {
+                  {{ item[column.FieldName] || "N/A" }}
+                }
+              </td>
+            }
+            @if (metadata?.Buttons?.length) {
+              <td class="px-2 py-1 text-left relative">
+                <div class="absolute center-content">
+                  <evo-button
+                    [icon]="{
+                      type: 'class',
+                      icon: 'more_vert',
+                    }"
+                    [withoutBorder]="true"
+                    (click)="toggleActionsMenu(item)"
+                    [twClass]="'card__evo-button'"
+                    [theme]="'secondary'"
+                    size="sm"
+                  ></evo-button>
+                  <!-- Reutilización del action-menu -->
+                  <action-menu
+                    [config]="{
+                      actions: currentItemActions,
+                      isOpen: isActionsModalOpen && selectedItem === item,
+                      icons: actionIcons
+                    }"
+                    (actionSelected)="handleAction(selectedItem!, $event)"
+                    (menuClosed)="closeActionsMenu()"
+                  ></action-menu>
+                </div>
+              </td>
+            }
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+}
+
+<!-- Vista de card para móvil -->
+@if (isMobile) {
+  <div [ngClass]="getClasses('card-container')">
+    @for (item of paginatedItems; track item) {
+      <div class="card">
+        <!-- Título general basado en 'smartlistConfig.Code' -->
+        <div class="my-4">
+          <h3 class="font-bold">
+            {{ getTitleFromCode(smartlistConfig?.Code || "") }}
+          </h3>
+        </div>
+
+        <!-- Datos de la tarjeta -->
+        @for (column of getVisibleColumns(); track column.Code) {
+          <p class="text-medium-gray">{{ column.Header }}</p>
+          <p>{{ item[column.FieldName] || "N/A" }}</p>
+
+          <!-- Margen entre cada conjunto de dato -->
+          <div class="mt-4"></div>
+        }
+        <div class="w-full h-8">
+          <div class="card-actions">
+            <evo-button
+              [icon]="{ type: 'class', icon: 'more_vert' }"
+              [withoutBorder]="true"
+              (click)="toggleActionsMenu(item)"
+              [twClass]="'card__evo-button'"
+              [theme]="'secondary'"
+              size="sm"
+            ></evo-button>
+
+            <!-- Reutilización del action-menu -->
+            <action-menu
+              [config]="{
+                actions: currentItemActions,
+                isOpen: isActionsModalOpen && selectedItem === item,
+                icons: actionIcons
+              }"
+              (actionSelected)="handleAction(selectedItem!, $event)"
+              (menuClosed)="closeActionsMenu()"
+            ></action-menu>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+}
+
+<!-- Mensaje cuando no hay datos -->
+@if (data.length === 0) {
+  <div class="text-center py-4">
+    {{ emptyStateText }}
+  </div>
+}
+
+<!-- Controles de paginación -->
+@if (totalPages >= 1) {
+  <pagination
+    [config]="{
+      currentPage: page,
+      totalPages: totalPages,
+      pageSize: pageSize,
+      totalItems: totalItems,
+      titles: titles,
+    }"
+    (nextPageClicked)="nextPage()"
+    (previousPageClicked)="previousPage()"
+    (pageSelected)="goToPage($event.page)"
+  ></pagination>
+}

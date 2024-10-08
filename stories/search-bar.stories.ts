@@ -19,6 +19,7 @@ type Story = StoryObj<SearchBarComponent>;
 export const Default: Story = {
   args: {
     placeholder: 'Buscar personas...',
+    twClass: '',
   },
   parameters: {
     actions: {

@@ -1,11 +1,16 @@
-<div class="search-bar">
+<!-- Contenedor principal del componente de barra de búsqueda -->
+<div [class]="getClasses()">
+  <!-- Icono de búsqueda -->
   <mat-icon
     class="mr-2"
     aria-hidden="false"
     [attr.aria-label]="'search'"
     fontSet="material-symbols-outlined"
-    >search</mat-icon
   >
+    search
+  </mat-icon>
+
+  <!-- Campo de entrada de texto para la búsqueda -->
   <input
     class="w-full p-2 outline-none"
     type="text"
@@ -13,13 +18,17 @@
     [(ngModel)]="inputValue"
     (input)="onInput($event)"
   />
-  <mat-icon
-    *ngIf="inputValue"
-    class="ml-2 clear-icon"
-    aria-hidden="false"
-    [attr.aria-label]="'clear'"
-    fontSet="material-symbols-outlined"
-    (click)="clearInput()"
-    >clear</mat-icon
-  >
+
+  <!-- Icono para limpiar el campo de entrada, visible solo si hay un valor en el input -->
+  @if (inputValue) {
+    <mat-icon
+      class="ml-2 clear-icon"
+      aria-hidden="false"
+      [attr.aria-label]="'clear'"
+      fontSet="material-symbols-outlined"
+      (click)="clearInput()"
+    >
+      clear
+    </mat-icon>
+  }
 </div>

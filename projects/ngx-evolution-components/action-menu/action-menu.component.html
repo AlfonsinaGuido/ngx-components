@@ -1,0 +1,21 @@
+<!-- Overlay para cerrar menú dando click fuera del menú -->
+@if (config.isOpen) {
+  <div class="overlay" (click)="closeActionsMenu()"></div>
+}
+<!-- Modal de opciones -->
+<div [ngClass]="getClasses()">
+  <ul>
+    @for (action of config.actions; track action.Code) {
+      <!-- Opciones -->
+      <li>
+        <evo-button
+          [label]="action.Text"
+          [icon]="getActionIcon(config.actions.indexOf(action))"
+          [attr.title]="shouldShowTooltip(action.Text) ? action.Text : ''"
+          (click)="onActionClick(action)"
+          size="sm"
+        ></evo-button>
+      </li>
+    }
+  </ul>
+</div>

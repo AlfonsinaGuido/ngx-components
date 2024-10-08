@@ -8,6 +8,7 @@ import {
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
+import { ClassUtilityService } from '../shared/services/class-utility.service';
 
 @Component({
   selector: 'evo-search-bar',
@@ -19,32 +20,49 @@ import { FormsModule } from '@angular/forms';
 })
 export class SearchBarComponent {
   @Input() placeholder: string = 'Buscar...';
+  @Input() twClass: string = '';
   @Output() searchQuery = new EventEmitter<string>();
+
+  constructor(private classUtility: ClassUtilityService) {}
 
   inputValue: string = '';
   private typingTimeout: any;
 
-  onInput(event: Event) {
+  /**
+   * Maneja el evento de entrada en el campo de búsqueda y emite la consulta de búsqueda después de un tiempo de espera.
+   * @param {Event} event - El evento de entrada del campo de búsqueda.
+   */
+  onInput(event: Event): void {
     const target = event.target as HTMLInputElement;
     this.inputValue = target.value;
-
-    // Limpiar el timeout anterior
     clearTimeout(this.typingTimeout);
-
-    // Iniciar un nuevo timeout
     this.typingTimeout = setTimeout(() => {
       this.emitSearch();
     }, 400);
   }
 
-  emitSearch() {
+  /**
+   * Emite el valor de la búsqueda si no está vacío.
+   */
+  emitSearch(): void {
     if (this.inputValue.trim() !== '') {
       this.searchQuery.emit(this.inputValue);
     }
   }
 
-  clearInput() {
+  /**
+   * Limpia el campo de entrada y emite un valor vacío.
+   */
+  clearInput(): void {
     this.inputValue = '';
     this.searchQuery.emit(this.inputValue);
+  }
+
+  /**
+   * Devuelve las clases CSS que se aplicarán al componente usando el servicio.
+   * @returns {string} Clases CSS aplicadas al componente.
+   */
+  getClasses(): string {
+    return this.classUtility.getCombinedClasses('search-bar', this.twClass);
   }
 }

@@ -5,7 +5,7 @@
 ></div>
 <!-- Capa de fondo que detecta clics fuera del modal para cerrarlo -->
 
-<div class="layout">
+<div [ngClass]="getClasses()">
   <header class="content__header">
     <div class="content__header-left">
       <!-- Componente de cabecera (header) personalizado -->
@@ -110,7 +110,7 @@
                 [theme]="'secondary'"
                 [isFluid]="true"
                 twClass="sidebar__evo-button"
-                (click)="option.action()"
+                (click)="selectOption(option)"
               ></evo-button>
             }
             <mat-divider></mat-divider>
@@ -144,15 +144,16 @@
                 [ngClass]="{ open: accordionOpen }"
               >
                 <!-- Opciones dentro del acordeón de configuraciones -->
-                <div
-                  *ngFor="let option of commonProps.items.settingMenu.options"
-                >
+                @for (
+                  option of commonProps.items.settingMenu.options;
+                  track option.name
+                ) {
                   <div class="option-item">
                     <span>{{ option.name }}</span>
                     <mat-slide-toggle></mat-slide-toggle>
                   </div>
                   <mat-divider></mat-divider>
-                </div>
+                }
               </div>
             </div>
           </div>
@@ -184,7 +185,7 @@
               [ngClass]="{ open: appAccordionOpen }"
             >
               <!-- Lista de aplicaciones adicionales -->
-              <div *ngFor="let app of commonProps.moreOptions?.options">
+              @for (app of commonProps.moreOptions?.options; track app.label) {
                 <div class="option-item" (click)="app.action!()">
                   <evo-button
                     mat-button
@@ -196,7 +197,7 @@
                   ></evo-button>
                 </div>
                 <mat-divider></mat-divider>
-              </div>
+              }
             </div>
           </div>
 
@@ -234,7 +235,9 @@
                   [icon]="option.icon"
                   [withoutBorder]="true"
                   (click)="option.action!()"
-                  [twClass]="isActive(option.route) ? 'active' : ''"
+                  [twClass]="
+                    option.route ? (isActive(option.route) ? 'active' : '') : ''
+                  "
                 ></evo-button>
                 <p class="truncate w-full">{{ option.title }}</p>
               </div>
@@ -263,13 +266,16 @@
                 <button class="close-button" (click)="closeMoreOptionsModal()">
                   &times;
                 </button>
-            
+
                 <div class="more-options-content">
                   <h3 class="text-center text-base">
                     {{ commonProps.moreOptions?.insideLabel }}
                   </h3>
                   <div class="more-options-grid">
-                    <ng-container *ngFor="let option of commonProps.moreOptions?.options">
+                    @for (
+                      option of commonProps.moreOptions?.options;
+                      track option.label
+                    ) {
                       <div class="option-item" (click)="selectOption(option)">
                         <evo-button
                           mat-button
@@ -280,12 +286,11 @@
                           {{ commonProps.moreOptions?.label }}
                         </p>
                       </div>
-                    </ng-container>
+                    }
                   </div>
                 </div>
               </div>
             </div>
-            
           </ul>
         </header>
       </nav>
@@ -303,7 +308,13 @@
                       [icon]="option.icon"
                       [withoutBorder]="true"
                       (click)="selectOption(option)"
-                      [twClass]="isActive(option.route) ? 'active' : ''"
+                      [twClass]="
+                        option.route
+                          ? isActive(option.route)
+                            ? 'active'
+                            : ''
+                          : ''
+                      "
                     ></evo-button>
                     <p class="truncate w-full">{{ option.title }}</p>
                   </div>

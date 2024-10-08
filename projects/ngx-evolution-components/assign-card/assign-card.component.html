@@ -1,0 +1,51 @@
+<!-- Carta para asignar programas -->
+<div [ngClass]="getClasses()">
+  <!-- Título del card con el texto de la acción y el número total de ítems -->
+  <h3 class="card-title mb-4">
+    <span>{{ config.assignActionText }}</span> {{ totalItems }}
+    {{ config.assignTargetText }}
+  </h3>
+
+  <!-- Lista de personas asignadas -->
+  @if (config.items.length > 0) {
+    <ul
+      class="names-list mb-4"
+      [ngStyle]="{
+        'max-height': config.items.length > 3 ? '150px' : 'auto',
+        'overflow-y': config.items.length > 3 ? 'auto' : 'visible',
+      }"
+    >
+      <!-- Personas -->
+      @for (item of config.items; track item.id) {
+        <li
+          class="name-item flex justify-between items-center"
+          (mouseenter)="hoveredItem = item.id"
+          (mouseleave)="hoveredItem = null"
+          [ngClass]="{ 'name-hovered': hoveredItem === item.id }"
+        >
+          <span class="name-title">{{ item.name }}</span>
+
+          <!-- Botón para remover el ítem de la lista -->
+          <evo-button
+            mat-button
+            [icon]="{ type: 'class', icon: 'close' }"
+            [withoutBorder]="true"
+            (click)="remove(item)"
+          ></evo-button>
+        </li>
+      }
+    </ul>
+  } @else {
+    <!-- Estado vacío cuando no hay ítems asignados -->
+    <p class="empty-state">{{ config.emptyStateText }}</p>
+  }
+
+  <!-- Botón de acción principal del componente Assign Card -->
+  <evo-button
+    [label]="config.buttonText"
+    [twClass]="'action-button w-full'"
+    [theme]="'primary'"
+    (click)="onButtonClick()"
+    [disabled]="config.items.length === 0"
+  ></evo-button>
+</div>

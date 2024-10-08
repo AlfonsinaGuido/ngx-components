@@ -1,11 +1,9 @@
 import {
   Component,
   Input,
-  HostListener,
   OnInit,
   Inject,
   PLATFORM_ID,
-  AfterViewInit,
   ViewEncapsulation,
   ChangeDetectorRef,
   OnChanges,
@@ -15,16 +13,18 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import {
   AvatarComponent,
   ButtonComponent,
-  IHeader,
   HeaderComponent,
-  IIcon,
   ISidebarOption,
   SvgComponent,
+  ISidebarConfig,
+  IMoreOptionItem,
+  ViewportService,
 } from '../public-api';
 import { Router, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { MatDivider } from '@angular/material/divider';
 import { MatSlideToggle } from '@angular/material/slide-toggle';
+import { ClassUtilityService } from '../shared/services/class-utility.service';
 
 @Component({
   selector: 'evo-sidebar',
@@ -39,14 +39,23 @@ import { MatSlideToggle } from '@angular/material/slide-toggle';
     MatSlideToggle,
   ],
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss',],
+  styleUrls: ['./sidebar.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class SidebarComponent implements OnInit, AfterViewInit, OnChanges {
-  @Input() commonProps!: IHeader;
-  @Input() options!: ISidebarOption[];
-  @Input() additionalOptions?: ISidebarOption[];
-  @Input() footerOptions?: ISidebarOption[];
+export class SidebarComponent implements OnInit, OnChanges {
+  @Input() commonProps!: ISidebarConfig['commonProps'];
+  @Input() options!: ISidebarConfig['options'];
+  @Input() additionalOptions?: ISidebarConfig['additionalOptions'];
+  @Input() footerOptions?: ISidebarConfig['footerOptions'];
+  @Input() twClass?: string;
+
+  constructor(
+    private router: Router,
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private cdr: ChangeDetectorRef,
+    private viewportService: ViewportService,
+    private classUtility: ClassUtilityService
+  ) {}
 
   isMobile: boolean = false;
   isSidebarOpen: boolean = false;
@@ -55,14 +64,11 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnChanges {
   accordionOpen: boolean = false;
   appAccordionOpen: boolean = false;
 
-  private routerSubscription!: Subscription;
   public sessionJobPositionName!: string;
 
-  constructor(
-    private router: Router,
-    @Inject(PLATFORM_ID) private platformId: Object,
-    private cdr: ChangeDetectorRef,
-  ) {}
+  private viewportSubscription!: Subscription;
+
+
 
   /**
    * Alterna el estado del acordeón de ajustes.
@@ -79,24 +85,30 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnChanges {
   }
 
   /**
-   * Método que se ejecuta después de la inicialización de la vista.
-   * Verifica si estamos en un navegador antes de realizar ajustes.
-   */
-  ngAfterViewInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      this.checkViewport();
-      this.cdr.detectChanges();
-    }
-  }
-
-  /**
    * Método que se ejecuta al inicializar el componente.
    * Verifica el viewport y se suscribe a cambios de ruta.
    */
   ngOnInit() {
+    this.viewportSubscription = this.viewportService
+      .getIsMobile()
+      .subscribe((isMobile) => {
+        this.isMobile = isMobile;
+        this.adjustSidebar();
+      });
+
     if (isPlatformBrowser(this.platformId)) {
       this.subscribeToRouteChanges();
     }
+  }
+
+  ngOnDestroy(): void {
+    if (this.viewportSubscription) {
+      this.viewportSubscription.unsubscribe();
+    }
+  }
+
+  adjustSidebar() {
+    this.isSidebarOpen = !this.isMobile;
   }
 
   /**
@@ -135,48 +147,31 @@ export class SidebarComponent implements OnInit, AfterViewInit, OnChanges {
       this.cdr.detectChanges();
     }
   }
-
   /**
    * Navega a la ruta seleccionada y ejecuta la acción asociada.
    * Si estamos en el lado del cliente, ejecuta la acción o navega a la ruta.
    * @param option Opción seleccionada con acción o ruta
    */
-  selectOption(option: { icon: IIcon; action?: () => void; route?: string }) {
+  selectOption(option: ISidebarOption | IMoreOptionItem) {
     if (isPlatformBrowser(this.platformId)) {
       if (option.route) {
         this.router.navigate([option.route]);
+      } else if (option.action) {
+        option.action!();
       }
-      if (option.action) {
-        option.action();
-      }
-      this.closeMoreOptionsModal(); // Cierra el modal al seleccionar una opción
+      this.closeMoreOptionsModal();
       this.cdr.detectChanges();
     }
   }
 
-  /**
-   * Listener para el evento de redimensionamiento de la ventana.
-   * Verifica si estamos del lado del cliente antes de checar el viewport.
-   * @param event Evento de redimensionamiento
-   */
-  @HostListener('window:resize', ['$event'])
-  onResize() {
-    if (isPlatformBrowser(this.platformId)) {
-      this.checkViewport();
-    }
-  }
 
-  /**
-   * Verifica el tamaño de la ventana para determinar si es móvil
-   * y ajusta la visibilidad del sidebar.
+    /**
+   * Devuelve las clases CSS que se aplicarán al componente usando el servicio.
+   * @returns {string} Clases CSS aplicadas al componente.
    */
-  checkViewport() {
-    if (isPlatformBrowser(this.platformId)) {
-      this.isMobile = window.innerWidth < 640;
-      this.isSidebarOpen = !this.isMobile;
-      this.cdr.detectChanges();
+    getClasses(): string {
+      return this.classUtility.getCombinedClasses('layout', this.twClass);
     }
-  }
 
   /**
    * Se suscribe a los cambios de ruta para actualizar la opción activa

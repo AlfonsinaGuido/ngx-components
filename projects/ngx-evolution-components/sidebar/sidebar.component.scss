@@ -343,7 +343,6 @@ header button.evo-button.without-border.active {
   align-items: center;
   overflow: hidden;
   width: 50px;
-  border: 1px solid var(--accent-500);
   border-radius: 4px;
   padding-top: 5px;
   transition: background-color 0.3s ease;
@@ -451,27 +450,6 @@ header button.evo-button.without-border.active {
   visibility: visible;
 }
 
-.accordion {
-  width: 100%;
-  background-color: var(--white);
-}
-
-.accordion-item {
-  border-bottom: 1px solid var(--light-gray);
-}
-
-.accordion-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-right: 10px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: var(--light-gray);
-  }
-}
-
 .accordion-content {
   max-height: 0;
   overflow: hidden;
@@ -482,25 +460,6 @@ header button.evo-button.without-border.active {
   max-height: 200px;
 }
 
-mat-divider {
-  margin: 0;
-  border-top: 1px solid var(--light-gray);
-}
-
-.accordion-content {
-  .option-item {
-    display: flex;
-    border: none;
-    flex-direction: row;
-    border-radius: 0px;
-    font-size: 16px;
-    justify-content: space-between;
-    padding: 10px;
-    padding-left: 40px;
-    width: 100%;
-    box-sizing: border-box;
-  }
-}
 
 .accordion-content.moreOptions {
   max-height: 0px;
@@ -524,28 +483,6 @@ mat-divider {
     }
   }
 }
-
-.accordion {
-  width: 100%;
-  background-color: var(--white);
-}
-
-.accordion-item {
-  border-bottom: 1px solid var(--light-gray);
-}
-
-.accordion-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-right: 10px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: var(--light-gray);
-  }
-}
-
 .accordion-content {
   max-height: 0;
   overflow: hidden;
@@ -556,10 +493,6 @@ mat-divider {
   max-height: 200px;
 }
 
-mat-divider {
-  margin: 0;
-  border-top: 1px solid var(--light-gray);
-}
 
 .close-button {
   position: absolute;

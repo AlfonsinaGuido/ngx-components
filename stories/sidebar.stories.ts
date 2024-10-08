@@ -21,20 +21,35 @@ const meta: Meta<SidebarComponent> = {
   ],
   tags: ['autodocs'],
   argTypes: {
+    twClass: {
+      control: {
+        type: 'text',
+      },
+    },
     commonProps: {
-      description: 'Propiedades comunes entre header y sidebar',
+      description:
+        'Common properties shared between the header and the sidebar, including icons, titles, and user data.',
       control: {
         type: 'object',
       },
     },
     options: {
-      description: 'Opciones del sidebar',
+      description:
+        'Sidebar navigation or action options with icons and titles.',
       control: {
         type: 'object',
       },
     },
     additionalOptions: {
-      description: 'Opciones adicionales del sidebar',
+      description:
+        'Additional options that will be displayed in the sidebar (only on mobile version).',
+      control: {
+        type: 'object',
+      },
+    },
+    footerOptions: {
+      description:
+        'Options specifically for the footer section of the sidebar.',
       control: {
         type: 'object',
       },
@@ -244,7 +259,25 @@ const meta: Meta<SidebarComponent> = {
             action: () => alert('Opción 3 seleccionada'),
           },
           {
-            label: 'Opción 4',
+            label: 'Opción 1',
+            icon: {
+              icon: 'dashboard.svg',
+              type: 'svg',
+            },
+            route: '/opcion1',
+            action: () => alert('Opción 1 seleccionada'),
+          },
+          {
+            label: 'Opción 2',
+            icon: {
+              icon: 'settings.svg',
+              type: 'svg',
+            },
+            route: '/opcion2',
+            action: () => alert('Opción 2 seleccionada'),
+          },
+          {
+            label: 'Opción 3',
             icon: {
               icon: 'files.svg',
               type: 'svg',
@@ -253,7 +286,25 @@ const meta: Meta<SidebarComponent> = {
             action: () => alert('Opción 3 seleccionada'),
           },
           {
-            label: 'Opción 5',
+            label: 'Opción 1',
+            icon: {
+              icon: 'dashboard.svg',
+              type: 'svg',
+            },
+            route: '/opcion1',
+            action: () => alert('Opción 1 seleccionada'),
+          },
+          {
+            label: 'Opción 2',
+            icon: {
+              icon: 'settings.svg',
+              type: 'svg',
+            },
+            route: '/opcion2',
+            action: () => alert('Opción 2 seleccionada'),
+          },
+          {
+            label: 'Opción 3',
             icon: {
               icon: 'files.svg',
               type: 'svg',
@@ -262,79 +313,7 @@ const meta: Meta<SidebarComponent> = {
             action: () => alert('Opción 3 seleccionada'),
           },
           {
-            label: 'Opción 6',
-            icon: {
-              icon: 'files.svg',
-              type: 'svg',
-            },
-            route: '/opcion3',
-            action: () => alert('Opción 3 seleccionada'),
-          },
-          {
-            label: 'Opción 7',
-            icon: {
-              icon: 'files.svg',
-              type: 'svg',
-            },
-            route: '/opcion3',
-            action: () => alert('Opción 3 seleccionada'),
-          },
-          {
-            label: 'Opción 8',
-            icon: {
-              icon: 'files.svg',
-              type: 'svg',
-            },
-            route: '/opcion3',
-            action: () => alert('Opción 3 seleccionada'),
-          },
-          {
-            label: 'Opción 9',
-            icon: {
-              icon: 'files.svg',
-              type: 'svg',
-            },
-            route: '/opcion3',
-            action: () => alert('Opción 3 seleccionada'),
-          },
-          {
-            label: 'Opción 9',
-            icon: {
-              icon: 'files.svg',
-              type: 'svg',
-            },
-            route: '/opcion3',
-            action: () => alert('Opción 3 seleccionada'),
-          },
-          {
-            label: 'Opción 9',
-            icon: {
-              icon: 'files.svg',
-              type: 'svg',
-            },
-            route: '/opcion3',
-            action: () => alert('Opción 3 seleccionada'),
-          },
-          {
-            label: 'Opción 9',
-            icon: {
-              icon: 'files.svg',
-              type: 'svg',
-            },
-            route: '/opcion3',
-            action: () => alert('Opción 3 seleccionada'),
-          },
-          {
-            label: 'Opción 9',
-            icon: {
-              icon: 'files.svg',
-              type: 'svg',
-            },
-            route: '/opcion3',
-            action: () => alert('Opción 3 seleccionada'),
-          },
-          {
-            label: 'Opción 9',
+            label: 'Opción 3',
             icon: {
               icon: 'files.svg',
               type: 'svg',
@@ -378,9 +357,10 @@ const meta: Meta<SidebarComponent> = {
         icon: { icon: 'dashboard.svg', type: 'svg' },
         action: () => alert('dashboard'),
         route: '/dashboard',
-        title: 'dashboard',
+        title: 'Dashboard',
       },
     ] as ISidebarOption[],
+    twClass: '',
   },
 };
 

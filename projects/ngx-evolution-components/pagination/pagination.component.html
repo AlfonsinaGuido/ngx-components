@@ -1,0 +1,38 @@
+<!-- Contenedor de paginación -->
+<div [ngClass]="getClasses()">
+  <!-- Botón para ir a la página anterior -->
+  <evo-button
+    (click)="previousPage()"
+    [disabled]="config.currentPage <= 1"
+    [icon]="{ type: 'class', icon: 'chevron_left' }"
+    size="sm"
+    [twClass]="'pagination__evo-button'"
+    [withoutBorder]="true"
+    [theme]="'secondary'"
+  ></evo-button>
+
+  <!-- Indicador de la página actual y el total de páginas -->
+  <span
+    >{{ config.titles.page }} {{ config.currentPage }} {{ config.titles.of }}
+    {{ config.totalPages }}</span
+  >
+
+  <!-- Botón para ir a la página siguiente -->
+  <evo-button
+    (click)="nextPage()"
+    [disabled]="config.currentPage >= config.totalPages"
+    [icon]="{ type: 'class', icon: 'chevron_right' }"
+    size="sm"
+    [withoutBorder]="true"
+    [twClass]="'pagination__evo-button'"
+    [theme]="'secondary'"
+  ></evo-button>
+
+  <!-- Información sobre el rango de ítems mostrados y el total de resultados -->
+  <span>
+    {{ config.titles.showing }}
+    {{ (config.currentPage - 1) * config.pageSize + 1 }} -
+    {{ getMinValue(config.currentPage * config.pageSize, config.totalItems) }}
+    {{ config.titles.results }}
+  </span>
+</div>

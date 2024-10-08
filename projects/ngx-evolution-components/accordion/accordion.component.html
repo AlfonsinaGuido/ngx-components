@@ -1,0 +1,35 @@
+<div [ngClass]="getClasses()">
+  <div class="accordion-item">
+    <div class="accordion-header" (click)="toggleAccordion()">
+      <evo-button
+        mat-button
+        [label]="config.title"
+        [icon]="config.icon"
+        [withoutBorder]="true"
+        [theme]="'secondary'"
+        [isFluid]="true"
+        [twClass]="'accordion__evo-button'"
+      ></evo-button>
+      <!-- Botón para abrir/cerrar el acordeón -->
+      <evo-button
+        mat-button
+        [icon]="{
+          type: 'class',
+          icon: isOpen ? 'expand_less' : 'expand_more',
+        }"
+        [withoutBorder]="true"
+      ></evo-button>
+    </div>
+    <div>
+      <!-- Opciones dentro del acordeón de configuraciones -->
+      <div
+        class="accordion-content"
+        [ngClass]="{ open: isOpen }"
+        [style.max-height]="isOpen ? maxHeight : '0'"
+        [style.overflow]="isOpen ? 'auto' : 'hidden'"
+      >
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </div>
+</div>

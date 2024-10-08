@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import {
   ButtonComponent,
   SvgComponent,
-  IProgramCardInterface,
+  IProgramCardConfigInterface,
 } from '../public-api';
 import { MatIconModule } from '@angular/material/icon';
+import { ClassUtilityService } from '../shared/services/class-utility.service';
 
 @Component({
   selector: 'evo-card',
@@ -16,43 +17,48 @@ import { MatIconModule } from '@angular/material/icon';
   encapsulation: ViewEncapsulation.None,
 })
 export class ProgramCardComponent {
-  @Input() cardData!: IProgramCardInterface;
+  @Input() config!: IProgramCardConfigInterface;
+
+  constructor(private classUtility: ClassUtilityService) {}
 
   /**
-   * Obtiene las clases dinámicas basadas en las propiedades de `cardData`.
-   * Retorna un objeto donde cada propiedad es una clase CSS y su valor es un booleano
-   * que indica si la clase debe ser aplicada o no.
+   * Devuelve las clases CSS que se aplicarán.
+   * Combina las clases base con las clases de Tailwind CSS especificadas en el parámetro `twClass`
+   * y las clases dinámicas definidas.
+   * @returns {string} Clases CSS aplicadas.
    */
-  get getClasses() {
-    const classes = this.cardData.twClass
-      ? this.cardData.twClass.split(' ')
-      : [];
+  getClasses(): string {
+    const defaultClasses = [
+      'evo-card',
+      'rounded-2xl',
+      'shadow-box',
+      'p-4',
+      'min-w-[160px]',
+    ];
 
-    const dynamicClasses = {
-      'is-fluid': this.cardData.isFluid !== false,
-      [`size-${this.cardData.size}`]: !!this.cardData.size,
-      'fixed-size': this.cardData.isFluid === false,
-    };
+    const dynamicClasses = [
+      this.config.isFluid !== false ? 'is-fluid' : '',
+      this.config.size ? `size-${this.config.size}` : '',
+      this.config.isFluid === false ? 'fixed-size' : '',
+    ];
 
-    return {
-      ...classes.reduce(
-        (acc, cls) => {
-          acc[cls] = true;
-          return acc;
-        },
-        {} as { [key: string]: boolean },
-      ),
-      ...dynamicClasses,
-    };
+    const combinedClasses = [...defaultClasses, ...dynamicClasses]
+      .join(' ')
+      .trim();
+
+    return this.classUtility.getCombinedClasses(
+      combinedClasses,
+      this.config.twClass,
+    );
   }
 
   /**
    * Manejador del evento de clic en el botón. Si la propiedad `onButtonClick` está definida
-   * en `cardData`, se ejecuta la acción definida en el objeto.
+   * en `config`, se ejecuta la acción definida en el objeto.
    */
   onButtonClickHandler() {
-    if (this.cardData.onButtonClick) {
-      this.cardData.onButtonClick.action();
+    if (this.config.onButtonClick) {
+      this.config.onButtonClick.action();
     }
   }
 }

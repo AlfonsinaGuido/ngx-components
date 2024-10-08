@@ -1,10 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./projects/ngx-evolution-components/**/*.{html,ts,scss}",
-    "./stories/**/*.{html,ts}",
-    "./src/**/*.{html,ts}",
-  ],
+  content: ["./projects/ngx-evolution-components/**/*.{html,ts}"],
   safelist: [
     {
       pattern: /.*/,

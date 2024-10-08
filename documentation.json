@@ -104,11 +104,41 @@
                 "name": "data",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/program-table.stories.ts",
+                "file": "stories/smart-list.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "ITableItem[]",
-                "defaultValue": "[{\"amo_codigo\":6,\"amo_fecha_infraccion\":\"2024-09-18T06:00:00\",\"cau_descripcion\":\"falta sin Causa Justificada dos dias completos y consecutivos\",\"cia_descripcion\":\"ASEINFO Guatemala.\",\"exp_apellidos_nombres1\":\"Abrego Labbe, Rene Armando\",\"exp_apellidos_nombres2\":\"Delgado de García, María del Rosario\",\"g_record_number\":\"1\",\"g_total_recs\":1,\"tam_descripcion\":\"Oral\"}]"
+                "type": "ISmartListItem[]",
+                "defaultValue": "[\r\n  {\r\n    amo_codigo: 6,\r\n    amo_fecha_infraccion: '2024-09-18T06:00:00',\r\n    cau_descripcion:\r\n      'Falta sin causa justificada dos días completos y consecutivos',\r\n    cia_descripcion: 'ASEINFO Guatemala.',\r\n    exp_apellidos_nombres1: 'Abrego Labbe, Rene Armando',\r\n    exp_apellidos_nombres2: 'Delgado de García, María del Rosario',\r\n    g_record_number: '1',\r\n    g_total_recs: 1,\r\n    tam_descripcion: 'Oral',\r\n  },\r\n  {\r\n    amo_codigo: 7,\r\n    amo_fecha_infraccion: '2024-09-19T06:00:00',\r\n    cau_descripcion:\r\n      'Falta sin causa justificada dos días completos y consecutivos',\r\n    cia_descripcion: 'ASEINFO Salvador.',\r\n    exp_apellidos_nombres1: 'Abrego Labbe, Rene Armando',\r\n    exp_apellidos_nombres2: 'Delgado de García, María del Rosario',\r\n    g_record_number: '2',\r\n    g_total_recs: 1,\r\n    tam_descripcion: 'Oral',\r\n  },\r\n]"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/accordion.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n        <evo-accordion [config]=\"config\">\r\n          <p>Este es el contenido dentro del acordeón.</p>\r\n          <p>Puedes colocar cualquier tipo de HTML o componentes aquí.</p>\r\n        </evo-accordion>\r\n      `,\r\n  }),\r\n  args: {\r\n    config: {\r\n      title: 'Mi Acordeón',\r\n      icon: {\r\n        icon: 'add-user.svg',\r\n        type: 'svg',\r\n      },\r\n      height: '200px',\r\n      twClass: '',\r\n    },\r\n  },\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/action-menu.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: (args) => {\r\n    const handleActionSelected = (actionCode: string) => {\r\n      console.log('Acción seleccionada:', actionCode);\r\n    };\r\n\r\n    const handleMenuClosed = () => {\r\n      console.log('Menú cerrado');\r\n    };\r\n\r\n    return {\r\n      template: `\r\n        <div class=\"w-full h-48 bg-gray-100 p-4 flex justify-center items-center\">\r\n          <div class=\"relative\">\r\n            <h3 class=\"text-lg font-bold mb-2\">Botón</h3>\r\n            <action-menu\r\n            [icons]=\"icons\"\r\n              [config]=\"config\"\r\n              (actionSelected)=\"actionSelected($event)\"\r\n              (menuClosed)=\"menuClosed()\"\r\n              [twClass]=\"twClass\"\r\n            ></action-menu>\r\n          </div>\r\n        </div>\r\n      `,\r\n      props: {\r\n        ...args,\r\n        actionSelected: handleActionSelected,\r\n        menuClosed: handleMenuClosed,\r\n      },\r\n    };\r\n  },\r\n  args: {\r\n    config: { ...defaultConfig },\r\n  },\r\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/assign-card.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    config: {\r\n      ...defaultConfig,\r\n    },\r\n  },\r\n  parameters: {\r\n    actions: {\r\n      handles: ['removeItem', 'buttonClick'],\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "Default",
@@ -119,16 +149,6 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  args: {\r\n    label: 'Button',\r\n    twClass: '',\r\n  },\r\n}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "stories/card.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    config: {\r\n      ...defaultConfig,\r\n    },\r\n  },\r\n  parameters: {\r\n    actions: {\r\n      handles: ['removeItem', 'buttonClick'],\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "Default",
@@ -224,21 +244,11 @@
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/program-table.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    smartlistConfig: smartlistConfig,\r\n    data: data,\r\n    page: 1,\r\n    totalPages: 1,\r\n    pageSize: 5,\r\n    hiddenColumns: [2],\r\n  },\r\n}"
-            },
-            {
-                "name": "Default",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "stories/search-bar.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    placeholder: 'Buscar personas...',\r\n  },\r\n  parameters: {\r\n    actions: {\r\n      handles: ['searchQuery'],\r\n    },\r\n  },\r\n}"
+                "defaultValue": "{\r\n  args: {\r\n    placeholder: 'Buscar personas...',\r\n    twClass: ''\r\n  },\r\n  parameters: {\r\n    actions: {\r\n      handles: ['searchQuery'],\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "Default",
@@ -259,6 +269,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/smart-list.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  args: {\r\n    smartlistConfig: smartlistConfig,\r\n    data: data,\r\n    titles: titles,\r\n    page: 1,\r\n    totalPages: 1,\r\n    pageSize: 5,\r\n    hiddenColumns: [2],\r\n    twClass: '',\r\n    sortableColumns: [1],\r\n    actionIcons: [\r\n      { type: 'class', icon: 'add' },\r\n      { type: 'class', icon: 'edit' },\r\n      { type: 'class', icon: 'delete' },\r\n      { type: 'class', icon: 'verified_user' },\r\n    ],\r\n  },\r\n}"
             },
             {
                 "name": "Default",
@@ -308,17 +328,37 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "object",
-                "defaultValue": "{\r\n  title: 'Program Title',\r\n  subtitle: 'Ejemplo de descripción',\r\n  activitiesCount: 5,\r\n  activitiesText: 'Actividades',\r\n  weeksCount: 3,\r\n  weeksText: 'Semanas',\r\n  buttonLabel: 'Asignar',\r\n  buttonIcon: 'add-user.svg',\r\n  buttonClasses: 'theme-primary',\r\n  onButtonClick: {\r\n    action: () => {\r\n      console.log('Button clicked!');\r\n    },\r\n  },\r\n  twClass: 'custom-class',\r\n  isFluid: true,\r\n  size: 'lg' as 'sm' | 'md' | 'lg', // Especificamos el tipo correcto\r\n}"
+                "defaultValue": "{\r\n  title: 'Program Title',\r\n  subtitle: 'Ejemplo de descripción',\r\n  activitiesCount: 5,\r\n  activitiesText: 'Actividades',\r\n  weeksCount: 3,\r\n  weeksText: 'Semanas',\r\n  buttonLabel: 'Asignar',\r\n  buttonIcon: 'add-user.svg',\r\n  buttonClasses: 'theme-primary',\r\n  onButtonClick: {\r\n    action: () => {\r\n      console.log('Button clicked!');\r\n    },\r\n  },\r\n  twClass: 'custom-class',\r\n  isFluid: true,\r\n  size: 'lg' as 'sm' | 'md' | 'lg',\r\n}"
             },
             {
                 "name": "defaultConfig",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/card.stories.ts",
+                "file": "stories/action-menu.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "IActionMenuConfig",
+                "defaultValue": "{\r\n  actions: [\r\n    {\r\n      Code: 'new',\r\n      Text: 'Esto es un texto un poco largo ',\r\n      Visible: true,\r\n      ShowText: true,\r\n      ShowImage: false,\r\n      ImageURL: '',\r\n      VisibleIndex: 2,\r\n      ActionURL: '/new',\r\n      ExecuteLinkAction: false,\r\n    },\r\n    {\r\n      Code: 'edit',\r\n      Text: 'Editar',\r\n      Visible: true,\r\n      ShowText: true,\r\n      ShowImage: false,\r\n      ImageURL: '',\r\n      VisibleIndex: 1,\r\n      ActionURL: '/edit',\r\n      ExecuteLinkAction: false,\r\n    },\r\n    {\r\n      Code: 'delete',\r\n      Text: 'Eliminar',\r\n      Visible: true,\r\n      ShowText: true,\r\n      ShowImage: false,\r\n      ImageURL: '',\r\n      VisibleIndex: 3,\r\n      ActionURL: '/delete',\r\n      ExecuteLinkAction: false,\r\n    },\r\n  ],\r\n  isOpen: true,\r\n  twClass: '',\r\n  icons: [\r\n    { type: 'class', icon: 'add' },\r\n    { type: 'class', icon: 'edit' },\r\n    { type: 'class', icon: 'delete' }\r\n  ]\r\n  ,\r\n}"
+            },
+            {
+                "name": "defaultConfig",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/assign-card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "ICardConfig",
-                "defaultValue": "{\r\n  titlep1: 'Asignar a',\r\n  titlep2: 'personas',\r\n  items: [\r\n    { id: '1', name: 'Oscar Esteban Juarez Paz' },\r\n    { id: '2', name: 'Julia Maria Fernandez Paredes' },\r\n    { id: '3', name: 'Isabella Maria Gonzales Clark' },\r\n  ],\r\n  buttonText: 'Asignar Programa',\r\n  emptyStateText: 'No hay personas asignadas',\r\n  twClass: '',\r\n}"
+                "defaultValue": "{\r\n  assignActionText: 'Asignar a',\r\n  assignTargetText: 'personas',\r\n  items: [\r\n    { id: '1', name: 'Oscar Esteban Juarez Paz' },\r\n    { id: '2', name: 'Julia Maria Fernandez Paredes' },\r\n    { id: '3', name: 'Isabella Maria Gonzales Clark' },\r\n  ],\r\n  buttonText: 'Asignar Programa',\r\n  emptyStateText: 'No hay personas asignadas',\r\n  twClass: '',\r\n}"
+            },
+            {
+                "name": "defaultConfig",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/pagination.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\r\n  currentPage: 1,\r\n  totalPages: 5,\r\n  pageSize: 10,\r\n  totalItems: 50,\r\n  titles: {\r\n    showing: 'Mostrando',\r\n    results: 'resultados',\r\n    page: 'Página',\r\n    of: 'de'\r\n  },\r\n  twClass: ''\r\n}"
             },
             {
                 "name": "Disabled",
@@ -471,6 +511,16 @@
                 "defaultValue": "{\r\n  args: {\r\n    size: 'lg',\r\n    name: 'Alfonso Gonzalez',\r\n    color: 'green',\r\n  },\r\n}"
             },
             {
+                "name": "InteractivePagination",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/pagination.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: (args) => {\r\n    const handleNextPage = () => {\r\n      if (args.config.currentPage < args.config.totalPages) {\r\n        args.config.currentPage += 1;\r\n      }\r\n    };\r\n\r\n    const handlePreviousPage = () => {\r\n      if (args.config.currentPage > 1) {\r\n        args.config.currentPage -= 1;\r\n      }\r\n    };\r\n\r\n    const handlePageSelected = (event: { page: number }) => {\r\n      args.config.currentPage = event.page;\r\n    };\r\n\r\n    return {\r\n      props: {\r\n        ...args,\r\n        nextPageClicked: handleNextPage,\r\n        previousPageClicked: handlePreviousPage,\r\n        pageSelected: handlePageSelected,\r\n      },\r\n    };\r\n  },\r\n  args: {\r\n    config: { ...defaultConfig },\r\n  },\r\n}"
+            },
+            {
                 "name": "IsFlat",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -498,7 +548,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    cardData: {\r\n      ...defaultCardData,\r\n      isFluid: false,\r\n      size: 'lg', // Ya está restringido al tipo correcto\r\n      title: 'Large Program Title',\r\n    },\r\n  },\r\n}"
+                "defaultValue": "{\r\n  args: {\r\n    cardData: {\r\n      ...defaultCardData,\r\n      size: 'lg',\r\n      title: 'Large Program Title',\r\n      isFluid: false,\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "loginFunction",
@@ -528,7 +578,37 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    cardData: {\r\n      ...defaultCardData,\r\n      isFluid: false,\r\n      size: 'md', // Ya está restringido al tipo correcto\r\n      title: 'Medium Program Title',\r\n    },\r\n  },\r\n}"
+                "defaultValue": "{\r\n  args: {\r\n    cardData: {\r\n      ...defaultCardData,\r\n      size: 'md',\r\n      title: 'Medium Program Title',\r\n      isFluid: false,\r\n    },\r\n  },\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/accordion.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<AccordionComponent>",
+                "defaultValue": "{\r\n  title: 'Evolution Components/Accordion',\r\n  component: AccordionComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideHttpClient()],\r\n    }),\r\n    moduleMetadata({\r\n      imports: [CommonModule],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    config: {\r\n      control: 'object',\r\n      description: 'Configuración del acordeón',\r\n      defaultValue: {\r\n        title: 'Mi Acordeón',\r\n        icon: {\r\n          icon: 'add-user.svg',\r\n          type: 'svg',\r\n        },\r\n        height: '200px',\r\n        twClass: '',\r\n      },\r\n      table: {\r\n        type: { summary: 'IAccordionConfig' },\r\n      },\r\n    },\r\n  },\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/action-menu.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ActionMenuComponent>",
+                "defaultValue": "{\r\n  title: 'Evolution Components/Action Menu',\r\n  component: ActionMenuComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/assign-card.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<AssignCardComponent>",
+                "defaultValue": "{\r\n  title: 'Evolution Components/Assign Card',\r\n  component: AssignCardComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
             },
             {
                 "name": "meta",
@@ -539,16 +619,6 @@
                 "deprecationMessage": "",
                 "type": "Meta<ButtonComponent>",
                 "defaultValue": "{\r\n  title: 'Evolution Components/Button',\r\n  component: ButtonComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
-            },
-            {
-                "name": "meta",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "stories/card.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Meta<CardComponent>",
-                "defaultValue": "{\r\n  title: 'Evolution Components/Card',\r\n  component: CardComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
             },
             {
                 "name": "meta",
@@ -614,11 +684,11 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/program-table.stories.ts",
+                "file": "stories/pagination.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "type": "Meta<ProgramTableComponent>",
-                "defaultValue": "{\r\n  title: 'Evolution Components/Program Table',\r\n  component: ProgramTableComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
+                "type": "Meta<PaginationComponent>",
+                "defaultValue": "{\r\n  title: 'Evolution Components/Pagination',\r\n  component: PaginationComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
             },
             {
                 "name": "meta",
@@ -648,7 +718,17 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<SidebarComponent>",
-                "defaultValue": "{\r\n  title: 'Evolution Components/Sidebar',\r\n  component: SidebarComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideAnimationsAsync(), provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    commonProps: {\r\n      description: 'Propiedades comunes entre header y sidebar',\r\n      control: {\r\n        type: 'object',\r\n      },\r\n    },\r\n    options: {\r\n      description: 'Opciones del sidebar',\r\n      control: {\r\n        type: 'object',\r\n      },\r\n    },\r\n    additionalOptions: {\r\n      description: 'Opciones adicionales del sidebar',\r\n      control: {\r\n        type: 'object',\r\n      },\r\n    },\r\n  },\r\n  args: {\r\n    commonProps: {\r\n      icons: {\r\n        appMenuIcons: {\r\n          buttonIcon: {\r\n            icon: 'app-menu.svg',\r\n            type: 'svg',\r\n          },\r\n        },\r\n        authorizationMenuIcons: {\r\n          buttonIcon: {\r\n            icon: 'fact_check',\r\n            type: 'class',\r\n          },\r\n        },\r\n        notificationMenuIcons: {\r\n          buttonIcon: {\r\n            icon: 'bell.svg',\r\n            type: 'svg',\r\n          },\r\n        },\r\n        settingMenuIcons: {\r\n          buttonIcon: {\r\n            icon: 'settings.svg',\r\n            type: 'svg',\r\n          },\r\n        },\r\n      } as IHeaderIcons,\r\n      titles: {\r\n        appTitle: 'Tus aplicaciones',\r\n        authorizationTitle: 'Autorizaciones',\r\n        notificationTitle: 'Notificaciones',\r\n        settingTitle: 'Ajustes',\r\n      } as IHeaderTitles,\r\n      items: {\r\n        appItems: [\r\n          {\r\n            label: 'Evo Wave',\r\n            icon: {\r\n              icon: 'company-logo.svg',\r\n              type: 'svg',\r\n            },\r\n            url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoWave',\r\n          },\r\n          {\r\n            label: 'Evo Chart',\r\n            icon: {\r\n              icon: 'company-logo.svg',\r\n              type: 'svg',\r\n            },\r\n            url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoChart',\r\n          },\r\n        ],\r\n        authorizationItems: [\r\n          {\r\n            label:\r\n              'Carlos Sanchez requiere autorización de acceso al Programa Recursos Humanos',\r\n            avatarName: 'Carlos Sanchez',\r\n            avatarImgUrl:\r\n              'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n            onClick: {\r\n              action: (name = 'Carlos Sanchez') => {\r\n                alert('Se autorizó a ' + name);\r\n              },\r\n            },\r\n          },\r\n          {\r\n            label:\r\n              'Samuel Lopez requiere autorización de acceso al Programa Desarrollo',\r\n            avatarName: 'Samuel Lopez',\r\n            avatarImgUrl:\r\n              'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n            onClick: {\r\n              action: () => {\r\n                alert('Se autorizó a Samuel Lopez');\r\n              },\r\n            },\r\n          },\r\n          {\r\n            label:\r\n              'Ignacio Fernandez requiere autorización de acceso al Programa Recursos Humanos',\r\n            avatarName: 'Ignacio Fernandez',\r\n            avatarImgUrl:\r\n              'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n            onClick: {\r\n              action: (name = 'Ignacio Fernandez') => {\r\n                alert('Se autorizó a ' + name);\r\n              },\r\n            },\r\n          },\r\n        ],\r\n        notificationItems: [\r\n          {\r\n            label: 'Carlos Sanchez finalizó Programa Recursos Humanos',\r\n            avatarName: 'Carlos Sanchez',\r\n            avatarImgUrl:\r\n              'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n            onClick: {\r\n              action: (name = 'Carlos Sanchez') => {\r\n                alert('Notificación de: ' + name);\r\n              },\r\n            },\r\n          },\r\n        ],\r\n        seeAllButton: {\r\n          seeAllAuthorizations: {\r\n            label: 'Ver todas',\r\n            onClick: {\r\n              action: (path = '/autorizaciones') => {\r\n                alert('Redirige a pantalla: ' + path);\r\n              },\r\n            },\r\n          },\r\n          seeAllNotifications: {\r\n            label: 'Ver todas',\r\n            onClick: {\r\n              action: (path = '/notificaciones') => {\r\n                alert('Redirige a pantalla: ' + path);\r\n              },\r\n            },\r\n          },\r\n        },\r\n        settingMenu: {\r\n          options: [\r\n            {\r\n              name: 'Apellido primero',\r\n            },\r\n            {\r\n              name: 'Autorizaciones',\r\n            },\r\n          ],\r\n        },\r\n        userDataItems: [\r\n          {\r\n            label: 'Administrar Cuenta',\r\n            icon: {\r\n              icon: 'manage_accounts',\r\n              type: 'class',\r\n            },\r\n            url: 'https://localhost:7002/identity/account/manage',\r\n          },\r\n          {\r\n            label: 'Cerrar Sesión',\r\n            onClick: {\r\n              action: () => {\r\n                alert('Se ejecuta Logout');\r\n              },\r\n            },\r\n          },\r\n        ],\r\n      } as IHeaderItems,\r\n      companyData: {\r\n        companyImage: 'company-logo.svg',\r\n        companyName: 'ASEINFO',\r\n      } as IHeaderCompanyData,\r\n      userData: {\r\n        fullName: 'Stela Lopez',\r\n        email: 'slopez@empresa.com',\r\n        jobPositions: [\r\n          {\r\n            Puesto: {\r\n              Nombre: 'Gerente Desarrollo',\r\n            },\r\n            Unidad: {\r\n              Descripcion: 'Unidad',\r\n            },\r\n            Compania: {\r\n              Descripcion: 'Compania',\r\n            },\r\n            CentroTrabajo: {\r\n              Descripcion: 'Centro de Trabajo',\r\n            },\r\n            onClick: {\r\n              action: (position = 'Gerente Desarrollo') => {\r\n                alert('Puesto elegido: ' + position);\r\n              },\r\n            },\r\n          },\r\n          {\r\n            Puesto: {\r\n              Nombre: 'Gerente Calidad',\r\n            },\r\n            Unidad: {\r\n              Descripcion: 'Unidad',\r\n            },\r\n            Compania: {\r\n              Descripcion: 'Compania',\r\n            },\r\n            CentroTrabajo: {\r\n              Descripcion: 'Centro de Trabajo',\r\n            },\r\n            onClick: {\r\n              action: (position = 'Gerente Calidad') => {\r\n                alert('Puesto elegido: ' + position);\r\n              },\r\n            },\r\n          },\r\n        ],\r\n      },\r\n    } as IHeader,\r\n    options: [\r\n      {\r\n        icon: { icon: 'dashboard.svg', type: 'svg' },\r\n        action: () => alert('Dashboard'),\r\n        route: '/dashboard',\r\n        title: 'Dashboard',\r\n      },\r\n      {\r\n        icon: { icon: 'files.svg', type: 'svg' },\r\n        action: () => alert('Files'),\r\n        route: '/files',\r\n        title: 'Files',\r\n      },\r\n    ] as ISidebarOption[],\r\n    additionalOptions: [\r\n      {\r\n        icon: { icon: 'company-logo.svg', type: 'svg' },\r\n        action: () => alert('Dashboard'),\r\n        route: '/dashboard',\r\n        title: 'Dashboard',\r\n      },\r\n    ] as ISidebarOption[],\r\n    footerOptions: [\r\n      {\r\n        icon: { icon: 'settings.svg', type: 'svg' },\r\n        action: () => alert('settings'),\r\n        route: '/settings',\r\n        title: 'Settings',\r\n      },\r\n      {\r\n        icon: { icon: 'dashboard.svg', type: 'svg' },\r\n        action: () => alert('dashboard'),\r\n        route: '/dashboard',\r\n        title: 'dashboard',\r\n      },\r\n    ] as ISidebarOption[],\r\n  },\r\n}"
+                "defaultValue": "{\r\n  title: 'Evolution Components/Sidebar',\r\n  component: SidebarComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideAnimationsAsync(), provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    twClass:{\r\n      control: {\r\n        type: 'text'\r\n      }\r\n    },\r\n    commonProps: {\r\n      description: 'Common properties shared between the header and the sidebar, including icons, titles, and user data.',\r\n      control: {\r\n        type: 'object',\r\n      },\r\n    },\r\n    options: {\r\n      description: 'Sidebar navigation or action options with icons and titles.',\r\n      control: {\r\n        type: 'object',\r\n      },\r\n    },\r\n    additionalOptions: {\r\n      description: 'Additional options that will be displayed in the sidebar (only on mobile version).',\r\n      control: {\r\n        type: 'object',\r\n      },\r\n    },\r\n    footerOptions: {\r\n      description: 'Options specifically for the footer section of the sidebar.',\r\n      control: {\r\n        type: 'object',\r\n      },\r\n    },\r\n  },\r\n  args: {\r\n    commonProps: {\r\n      icons: {\r\n        appMenuIcons: {\r\n          buttonIcon: {\r\n            icon: 'app-menu.svg',\r\n            type: 'svg',\r\n          },\r\n        },\r\n        authorizationMenuIcons: {\r\n          buttonIcon: {\r\n            icon: 'fact_check',\r\n            type: 'class',\r\n          },\r\n        },\r\n        notificationMenuIcons: {\r\n          buttonIcon: {\r\n            icon: 'bell.svg',\r\n            type: 'svg',\r\n          },\r\n        },\r\n        settingMenuIcons: {\r\n          buttonIcon: {\r\n            icon: 'settings.svg',\r\n            type: 'svg',\r\n          },\r\n        },\r\n      } as IHeaderIcons,\r\n      titles: {\r\n        appTitle: 'Tus aplicaciones',\r\n        authorizationTitle: 'Autorizaciones',\r\n        notificationTitle: 'Notificaciones',\r\n        settingTitle: 'Ajustes',\r\n      } as IHeaderTitles,\r\n      items: {\r\n        appItems: [\r\n          {\r\n            label: 'Evo Wave',\r\n            icon: {\r\n              icon: 'company-logo.svg',\r\n              type: 'svg',\r\n            },\r\n            url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoWave',\r\n          },\r\n          {\r\n            label: 'Evo Chart',\r\n            icon: {\r\n              icon: 'company-logo.svg',\r\n              type: 'svg',\r\n            },\r\n            url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoChart',\r\n          },\r\n        ],\r\n        authorizationItems: [\r\n          {\r\n            label: 'Carlos Sanchez requiere autorización de acceso al Programa Recursos Humanos',\r\n            avatarName: 'Carlos Sanchez',\r\n            avatarImgUrl:\r\n              'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n            onClick: {\r\n              action: (name = 'Carlos Sanchez') => {\r\n                alert('Se autorizó a ' + name);\r\n              },\r\n            },\r\n          },\r\n          {\r\n            label: 'Samuel Lopez requiere autorización de acceso al Programa Desarrollo',\r\n            avatarName: 'Samuel Lopez',\r\n            avatarImgUrl:\r\n              'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n            onClick: {\r\n              action: () => {\r\n                alert('Se autorizó a Samuel Lopez');\r\n              },\r\n            },\r\n          },\r\n        ],\r\n        notificationItems: [\r\n          {\r\n            label: 'Carlos Sanchez finalizó Programa Recursos Humanos',\r\n            avatarName: 'Carlos Sanchez',\r\n            avatarImgUrl:\r\n              'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n            onClick: {\r\n              action: (name = 'Carlos Sanchez') => {\r\n                alert('Notificación de: ' + name);\r\n              },\r\n            },\r\n          },\r\n        ],\r\n        seeAllButton: {\r\n          seeAllAuthorizations: {\r\n            label: 'Ver todas',\r\n            onClick: {\r\n              action: (path = '/autorizaciones') => {\r\n                alert('Redirige a pantalla: ' + path);\r\n              },\r\n            },\r\n          },\r\n          seeAllNotifications: {\r\n            label: 'Ver todas',\r\n            onClick: {\r\n              action: (path = '/notificaciones') => {\r\n                alert('Redirige a pantalla: ' + path);\r\n              },\r\n            },\r\n          },\r\n        },\r\n        settingMenu: {\r\n          options: [\r\n            {\r\n              name: 'Apellido primero',\r\n            },\r\n            {\r\n              name: 'Autorizaciones',\r\n            },\r\n          ],\r\n        },\r\n        userDataItems: [\r\n          {\r\n            label: 'Administrar Cuenta',\r\n            icon: {\r\n              icon: 'manage_accounts',\r\n              type: 'class',\r\n            },\r\n            url: 'https://localhost:7002/identity/account/manage',\r\n          },\r\n          {\r\n            label: 'Cerrar Sesión',\r\n            onClick: {\r\n              action: () => {\r\n                alert('Se ejecuta Logout');\r\n              },\r\n            },\r\n          },\r\n        ],\r\n      } as IHeaderItems,\r\n      companyData: {\r\n        companyImage: 'company-logo.svg',\r\n        companyName: 'ASEINFO',\r\n      } as IHeaderCompanyData,\r\n      userData: {\r\n        fullName: 'Stela Lopez',\r\n        email: 'slopez@empresa.com',\r\n        jobPositions: [\r\n          {\r\n            Puesto: {\r\n              Nombre: 'Gerente Desarrollo',\r\n            },\r\n            Unidad: {\r\n              Descripcion: 'Unidad',\r\n            },\r\n            Compania: {\r\n              Descripcion: 'Compania',\r\n            },\r\n            CentroTrabajo: {\r\n              Descripcion: 'Centro de Trabajo',\r\n            },\r\n            onClick: {\r\n              action: (position = 'Gerente Desarrollo') => {\r\n                alert('Puesto elegido: ' + position);\r\n              },\r\n            },\r\n          },\r\n        ],\r\n      },\r\n      moreOptions: {\r\n        label: 'Ver más',\r\n        insideLabel: 'Más opciones',\r\n        icon: {\r\n          icon: 'dashboard.svg',\r\n          type: 'svg',\r\n        },\r\n        options: [\r\n          {\r\n            label: 'Opción 1',\r\n            icon: {\r\n              icon: 'dashboard.svg',\r\n              type: 'svg',\r\n            },\r\n            route: '/opcion1',\r\n            action: () => alert('Opción 1 seleccionada'),\r\n          },\r\n          {\r\n            label: 'Opción 2',\r\n            icon: {\r\n              icon: 'settings.svg',\r\n              type: 'svg',\r\n            },\r\n            route: '/opcion2',\r\n            action: () => alert('Opción 2 seleccionada'),\r\n          },\r\n          {\r\n            label: 'Opción 3',\r\n            icon: {\r\n              icon: 'files.svg',\r\n              type: 'svg',\r\n            },\r\n            route: '/opcion3',\r\n            action: () => alert('Opción 3 seleccionada'),\r\n          },\r\n          {\r\n            label: 'Opción 1',\r\n            icon: {\r\n              icon: 'dashboard.svg',\r\n              type: 'svg',\r\n            },\r\n            route: '/opcion1',\r\n            action: () => alert('Opción 1 seleccionada'),\r\n          },\r\n          {\r\n            label: 'Opción 2',\r\n            icon: {\r\n              icon: 'settings.svg',\r\n              type: 'svg',\r\n            },\r\n            route: '/opcion2',\r\n            action: () => alert('Opción 2 seleccionada'),\r\n          },\r\n          {\r\n            label: 'Opción 3',\r\n            icon: {\r\n              icon: 'files.svg',\r\n              type: 'svg',\r\n            },\r\n            route: '/opcion3',\r\n            action: () => alert('Opción 3 seleccionada'),\r\n          },\r\n          {\r\n            label: 'Opción 1',\r\n            icon: {\r\n              icon: 'dashboard.svg',\r\n              type: 'svg',\r\n            },\r\n            route: '/opcion1',\r\n            action: () => alert('Opción 1 seleccionada'),\r\n          },\r\n          {\r\n            label: 'Opción 2',\r\n            icon: {\r\n              icon: 'settings.svg',\r\n              type: 'svg',\r\n            },\r\n            route: '/opcion2',\r\n            action: () => alert('Opción 2 seleccionada'),\r\n          },\r\n          {\r\n            label: 'Opción 3',\r\n            icon: {\r\n              icon: 'files.svg',\r\n              type: 'svg',\r\n            },\r\n            route: '/opcion3',\r\n            action: () => alert('Opción 3 seleccionada'),\r\n          },\r\n          {\r\n            label: 'Opción 3',\r\n            icon: {\r\n              icon: 'files.svg',\r\n              type: 'svg',\r\n            },\r\n            route: '/opcion3',\r\n            action: () => alert('Opción 3 seleccionada'),\r\n          },\r\n        ],\r\n      },\r\n    } as IHeader,\r\n    options: [\r\n      {\r\n        icon: { icon: 'dashboard.svg', type: 'svg' },\r\n        action: () => alert('Dashboard'),\r\n        route: '/dashboard',\r\n        title: 'Dashboard',\r\n      },\r\n      {\r\n        icon: { icon: 'files.svg', type: 'svg' },\r\n        action: () => alert('Files'),\r\n        route: '/files',\r\n        title: 'Files',\r\n      },\r\n    ] as ISidebarOption[],\r\n    additionalOptions: [\r\n      {\r\n        icon: { icon: 'company-logo.svg', type: 'svg' },\r\n        action: () => alert('Dashboard'),\r\n        route: '/dashboard',\r\n        title: 'Dashboard',\r\n      },\r\n    ] as ISidebarOption[],\r\n    footerOptions: [\r\n      {\r\n        icon: { icon: 'settings.svg', type: 'svg' },\r\n        action: () => alert('settings'),\r\n        route: '/settings',\r\n        title: 'Settings',\r\n      },\r\n      {\r\n        icon: { icon: 'dashboard.svg', type: 'svg' },\r\n        action: () => alert('dashboard'),\r\n        route: '/dashboard',\r\n        title: 'Dashboard',\r\n      },\r\n    ] as ISidebarOption[],\r\n    twClass: ''\r\n  },\r\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/smart-list.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<SmartListComponent>",
+                "defaultValue": "{\r\n  title: 'Evolution Components/Smart List',\r\n  component: SmartListComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
             },
             {
                 "name": "meta",
@@ -729,6 +809,16 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\r\n  args: {\r\n    icon: {\r\n      icon: 'add-user.svg',\r\n      type: 'svg',\r\n    },\r\n  },\r\n}"
+            },
+            {
+                "name": "OpenAccordion",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/accordion.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\r\n  render: (args) => ({\r\n    props: { ...args, isOpen: true },\r\n    template: `\r\n        <evo-accordion [config]=\"config\" [isOpen]=\"isOpen\">\r\n          <p>Contenido visible al abrir el acordeón.</p>\r\n          <p>Esto es útil para mostrar más detalles.</p>\r\n        </evo-accordion>\r\n      `,\r\n  }),\r\n  args: {\r\n    config: {\r\n      title: 'Acordeón Abierto',\r\n      icon: {\r\n        icon: 'arrow-down.svg',\r\n        type: 'svg',\r\n      },\r\n      height: 'auto',\r\n      twClass: '',\r\n    },\r\n    isOpen: true,\r\n  },\r\n}"
             },
             {
                 "name": "pastToday",
@@ -928,37 +1018,37 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    cardData: {\r\n      ...defaultCardData,\r\n      isFluid: false,\r\n      size: 'sm', // Ya está restringido al tipo correcto\r\n      title: 'Small Program Title',\r\n      subtitle:\r\n        'Se permite texto hasta dos líneas. Lorem ipsum dolor sit amet consectetur adipiscing elit.',\r\n    },\r\n  },\r\n}"
+                "defaultValue": "{\r\n  args: {\r\n    cardData: {\r\n      ...defaultCardData,\r\n      size: 'sm',\r\n      title: 'Small Program Title',\r\n      subtitle: 'Se permite texto hasta dos líneas.',\r\n      isFluid: false,\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "SmallSize",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/card.stories.ts",
+                "file": "stories/assign-card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    config: {\r\n      ...defaultConfig,\r\n      items: [\r\n        ...defaultConfig.items,\r\n        { id: '4', name: 'Oscar Esteban Juarez Paz' },\r\n      ],\r\n      twClass: 'w-80', // Pasando el valor personalizado\r\n    },\r\n  },\r\n  parameters: {\r\n    actions: {\r\n      handles: ['removeItem', 'buttonClick'],\r\n    },\r\n  },\r\n}"
+                "defaultValue": "{\r\n  args: {\r\n    config: {\r\n      ...defaultConfig,\r\n      items: [\r\n        ...defaultConfig.items,\r\n        { id: '4', name: 'Oscar Esteban Juarez Paz' },\r\n      ],\r\n      twClass: 'w-80',\r\n    },\r\n  },\r\n  parameters: {\r\n    actions: {\r\n      handles: ['removeItem', 'buttonClick'],\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "SmallSizeSmallOptions",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/card.stories.ts",
+                "file": "stories/assign-card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\r\n  args: {\r\n    config: {\r\n      ...defaultConfig,\r\n      twClass: 'w-80', // Pasando el valor personalizado\r\n    },\r\n  },\r\n  parameters: {\r\n    actions: {\r\n      handles: ['removeItem', 'buttonClick'],\r\n    },\r\n  },\r\n}"
+                "defaultValue": "{\r\n  args: {\r\n    config: {\r\n      ...defaultConfig,\r\n      twClass: 'w-80',\r\n    },\r\n  },\r\n  parameters: {\r\n    actions: {\r\n      handles: ['removeItem', 'buttonClick'],\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "smartlistConfig",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/program-table.stories.ts",
+                "file": "stories/smart-list.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "ISmartlistFullConfig",
-                "defaultValue": "{\r\n  \"Code\": \"evowave.SolicitudAmonestaciones\",\r\n  \"ClientControlID\": \"evowave.SolicitudAmonestaciones\",\r\n  \"Parameters\": {},\r\n  \"DatabaseDialect\": \"Microsoft.Data.SqlClient\",\r\n  \"UrlMetadata\": \"/api/configuracion/SmartList/evowave.SolicitudAmonestaciones\",\r\n  \"FormTagId\": \"evowave_SolicitudAmonestaciones_form\",\r\n  \"AlmacenaInformacionPersonalizacion\": false,\r\n  \"Height\": \"Auto\",\r\n  \"Metadata\": {\r\n      \"Code\": \"evowave.SolicitudAmonestaciones\",\r\n      \"MultiSelect\": true,\r\n      \"AutogenerateColumns\": false,\r\n      \"NewRecordButtonCode\": \"new\",\r\n      \"EditRecordButtonCode\": \"edit\",\r\n      \"DeleteRecordButtonCode\": \"delete\",\r\n      \"NewRecordButton\": {\r\n          \"Code\": \"new\",\r\n          \"ActionURL\": \"/Create\",\r\n          \"Text\": \"Nuevo\",\r\n          \"AlternateText\": \"Nueva Solicitud de Amonestación\",\r\n          \"ExecuteLinkAction\": true,\r\n          \"ConfirmationMessage\": \"\",\r\n          \"CompleteMessage\": \"\",\r\n          \"ShowText\": true,\r\n          \"ShowImage\": true,\r\n          \"ImageURL\": \"/Content/Images/Toolbar/add.png\",\r\n          \"VisibleIndex\": 10,\r\n          \"Visible\": true,\r\n          \"Visibility\": \"Visible\",\r\n          \"TextVisibility\": \"Visible\",\r\n          \"ImageVisibility\": \"Visible\",\r\n          \"IsExportToExcelButton\": false,\r\n          \"CheckForSelectedRecords\": false,\r\n          \"IsRouteUrl\": false,\r\n          \"ControllerArea\": \"\",\r\n          \"ControllerName\": \"\",\r\n          \"ControllerAction\": \"Create\"\r\n      },\r\n      \"EditRecordButton\": {\r\n          \"Code\": \"edit\",\r\n          \"ActionURL\": \"/Edit\",\r\n          \"Text\": \"Editar\",\r\n          \"AlternateText\": \"Editar la Solicitud de Amonestación\",\r\n          \"ExecuteLinkAction\": true,\r\n          \"ConfirmationMessage\": \"\",\r\n          \"CompleteMessage\": \"\",\r\n          \"ShowText\": true,\r\n          \"ShowImage\": true,\r\n          \"ImageURL\": \"/Content/Images/Toolbar/edit.png\",\r\n          \"VisibleIndex\": 20,\r\n          \"Visible\": true,\r\n          \"Visibility\": \"Visible\",\r\n          \"TextVisibility\": \"Visible\",\r\n          \"ImageVisibility\": \"Visible\",\r\n          \"IsExportToExcelButton\": false,\r\n          \"CheckForSelectedRecords\": true,\r\n          \"IsRouteUrl\": false,\r\n          \"ControllerArea\": \"\",\r\n          \"ControllerName\": \"\",\r\n          \"ControllerAction\": \"Edit\"\r\n      },\r\n      \"DeleteRecordButton\": {\r\n          \"Code\": \"delete\",\r\n          \"ActionURL\": \"/Delete\",\r\n          \"Text\": \"Eliminar\",\r\n          \"AlternateText\": \"Eliminar la Solicitud de Amonestación\",\r\n          \"ExecuteLinkAction\": false,\r\n          \"ConfirmationMessage\": \"¿Está seguro que desea eliminar la solicitud de Amonestación?\",\r\n          \"CompleteMessage\": \"\",\r\n          \"ShowText\": true,\r\n          \"ShowImage\": true,\r\n          \"ImageURL\": \"/Content/Images/Toolbar/delete.png\",\r\n          \"VisibleIndex\": 30,\r\n          \"Visible\": true,\r\n          \"Visibility\": \"Visible\",\r\n          \"TextVisibility\": \"Visible\",\r\n          \"ImageVisibility\": \"Visible\",\r\n          \"IsExportToExcelButton\": false,\r\n          \"CheckForSelectedRecords\": true,\r\n          \"IsRouteUrl\": false,\r\n          \"ControllerArea\": \"\",\r\n          \"ControllerName\": \"\",\r\n          \"ControllerAction\": \"Delete\"\r\n      },\r\n      \"AutomaticBinding\": true,\r\n      \"Height\": \"Auto\",\r\n      \"ShowFilter\": true,\r\n      \"ShowGroupPanel\": true,\r\n      \"ShowLargeDatasetWarning\": false,\r\n      \"Buttons\": [\r\n          {\r\n              \"Code\": \"new\",\r\n              \"ActionURL\": \"/Create\",\r\n              \"Text\": \"Nuevo\",\r\n              \"AlternateText\": \"Nueva Solicitud de Amonestación\",\r\n              \"ExecuteLinkAction\": true,\r\n              \"ConfirmationMessage\": \"\",\r\n              \"CompleteMessage\": \"\",\r\n              \"ShowText\": true,\r\n              \"ShowImage\": true,\r\n              \"ImageURL\": \"/Content/Images/Toolbar/add.png\",\r\n              \"VisibleIndex\": 10,\r\n              \"Visible\": true,\r\n              \"Visibility\": \"Visible\",\r\n              \"TextVisibility\": \"Visible\",\r\n              \"ImageVisibility\": \"Visible\",\r\n              \"IsExportToExcelButton\": false,\r\n              \"CheckForSelectedRecords\": false,\r\n              \"IsRouteUrl\": false,\r\n              \"ControllerArea\": \"\",\r\n              \"ControllerName\": \"\",\r\n              \"ControllerAction\": \"Create\"\r\n          },\r\n          {\r\n              \"Code\": \"edit\",\r\n              \"ActionURL\": \"/Edit\",\r\n              \"Text\": \"Editar\",\r\n              \"AlternateText\": \"Editar la Solicitud de Amonestación\",\r\n              \"ExecuteLinkAction\": true,\r\n              \"ConfirmationMessage\": \"\",\r\n              \"CompleteMessage\": \"\",\r\n              \"ShowText\": true,\r\n              \"ShowImage\": true,\r\n              \"ImageURL\": \"/Content/Images/Toolbar/edit.png\",\r\n              \"VisibleIndex\": 20,\r\n              \"Visible\": true,\r\n              \"Visibility\": \"Visible\",\r\n              \"TextVisibility\": \"Visible\",\r\n              \"ImageVisibility\": \"Visible\",\r\n              \"IsExportToExcelButton\": false,\r\n              \"CheckForSelectedRecords\": true,\r\n              \"IsRouteUrl\": false,\r\n              \"ControllerArea\": \"\",\r\n              \"ControllerName\": \"\",\r\n              \"ControllerAction\": \"Edit\"\r\n          },\r\n          {\r\n              \"Code\": \"delete\",\r\n              \"ActionURL\": \"/Delete\",\r\n              \"Text\": \"Eliminar\",\r\n              \"AlternateText\": \"Eliminar la Solicitud de Amonestación\",\r\n              \"ExecuteLinkAction\": false,\r\n              \"ConfirmationMessage\": \"¿Está seguro que desea eliminar la solicitud de Amonestación?\",\r\n              \"CompleteMessage\": \"\",\r\n              \"ShowText\": true,\r\n              \"ShowImage\": true,\r\n              \"ImageURL\": \"/Content/Images/Toolbar/delete.png\",\r\n              \"VisibleIndex\": 30,\r\n              \"Visible\": true,\r\n              \"Visibility\": \"Visible\",\r\n              \"TextVisibility\": \"Visible\",\r\n              \"ImageVisibility\": \"Visible\",\r\n              \"IsExportToExcelButton\": false,\r\n              \"CheckForSelectedRecords\": true,\r\n              \"IsRouteUrl\": false,\r\n              \"ControllerArea\": \"\",\r\n              \"ControllerName\": \"\",\r\n              \"ControllerAction\": \"Delete\"\r\n          },\r\n          {\r\n              \"Code\": \"initflujo\",\r\n              \"ActionURL\": \"/InicializaFlujoAutorizacion\",\r\n              \"Text\": \"Enviar a Autorización\",\r\n              \"AlternateText\": \"\",\r\n              \"ExecuteLinkAction\": false,\r\n              \"ConfirmationMessage\": \"¿Está seguro que desea enviar a autorización la solicitud de amonestación?\",\r\n              \"CompleteMessage\": \"\",\r\n              \"ShowText\": true,\r\n              \"ShowImage\": true,\r\n              \"ImageURL\": \"/Content/Images/Toolbar/send_authorize.png\",\r\n              \"VisibleIndex\": 40,\r\n              \"Visible\": true,\r\n              \"Visibility\": \"Visible\",\r\n              \"TextVisibility\": \"Visible\",\r\n              \"ImageVisibility\": \"Visible\",\r\n              \"IsExportToExcelButton\": false,\r\n              \"CheckForSelectedRecords\": true,\r\n              \"IsRouteUrl\": false,\r\n              \"ControllerArea\": \"\",\r\n              \"ControllerName\": \"\",\r\n              \"ControllerAction\": \"InicializaFlujoAutorizacion\"\r\n          }\r\n      ],\r\n      \"Columns\": [\r\n          {\r\n              \"Code\": \"amo_codigo\",\r\n              \"FieldName\": \"amo_codigo\",\r\n              \"PropertyName\": \"amo_codigo\",\r\n              \"Header\": \"amo_codigo\",\r\n              \"IsPrimaryKey\": true,\r\n              \"FieldDescriptor\": \"int\",\r\n              \"Visible\": false,\r\n              \"AlternateText\": \"\",\r\n              \"HorizontalAlign\": \"Left\",\r\n              \"VerticalAlign\": \"Automatic\",\r\n              \"VisibleIndex\": 10,\r\n              \"Width\": \"Auto\",\r\n              \"Wrap\": false,\r\n              \"Format\": \"N0\"\r\n          },\r\n          {\r\n              \"Code\": \"cia_descripcion\",\r\n              \"FieldName\": \"cia_descripcion\",\r\n              \"PropertyName\": \"cia_descripcion\",\r\n              \"Header\": \"Compañia\",\r\n              \"IsPrimaryKey\": false,\r\n              \"FieldDescriptor\": \"string\",\r\n              \"Visible\": true,\r\n              \"AlternateText\": \"\",\r\n              \"HorizontalAlign\": \"Left\",\r\n              \"VerticalAlign\": \"Automatic\",\r\n              \"VisibleIndex\": 20,\r\n              \"Width\": \"Auto\",\r\n              \"Wrap\": false\r\n          },\r\n          {\r\n              \"Code\": \"exp_apellidos_nombres1\",\r\n              \"FieldName\": \"exp_apellidos_nombres1\",\r\n              \"PropertyName\": \"exp_apellidos_nombres1\",\r\n              \"Header\": \"Empleado\",\r\n              \"IsPrimaryKey\": false,\r\n              \"FieldDescriptor\": \"string\",\r\n              \"Visible\": true,\r\n              \"AlternateText\": \"\",\r\n              \"HorizontalAlign\": \"Left\",\r\n              \"VerticalAlign\": \"Automatic\",\r\n              \"VisibleIndex\": 30,\r\n              \"Width\": \"Auto\",\r\n              \"Wrap\": false\r\n          },\r\n          {\r\n              \"Code\": \"amo_fecha_infraccion\",\r\n              \"FieldName\": \"amo_fecha_infraccion\",\r\n              \"PropertyName\": \"amo_fecha_infraccion\",\r\n              \"Header\": \"Fecha Infracción\",\r\n              \"IsPrimaryKey\": false,\r\n              \"FieldDescriptor\": \"date\",\r\n              \"Visible\": true,\r\n              \"AlternateText\": \"\",\r\n              \"HorizontalAlign\": \"Left\",\r\n              \"VerticalAlign\": \"Automatic\",\r\n              \"VisibleIndex\": 40,\r\n              \"Width\": \"Auto\",\r\n              \"Wrap\": false,\r\n              \"Format\": \"g\"\r\n          },\r\n          {\r\n              \"Code\": \"tam_descripcion\",\r\n              \"FieldName\": \"tam_descripcion\",\r\n              \"PropertyName\": \"tam_descripcion\",\r\n              \"Header\": \"Tipo\",\r\n              \"IsPrimaryKey\": false,\r\n              \"FieldDescriptor\": \"string\",\r\n              \"Visible\": true,\r\n              \"AlternateText\": \"\",\r\n              \"HorizontalAlign\": \"Left\",\r\n              \"VerticalAlign\": \"Automatic\",\r\n              \"VisibleIndex\": 50,\r\n              \"Width\": \"Auto\",\r\n              \"Wrap\": false\r\n          },\r\n          {\r\n              \"Code\": \"cau_descripcion\",\r\n              \"FieldName\": \"cau_descripcion\",\r\n              \"PropertyName\": \"cau_descripcion\",\r\n              \"Header\": \"Causa\",\r\n              \"IsPrimaryKey\": false,\r\n              \"FieldDescriptor\": \"string\",\r\n              \"Visible\": true,\r\n              \"AlternateText\": \"\",\r\n              \"HorizontalAlign\": \"Left\",\r\n              \"VerticalAlign\": \"Automatic\",\r\n              \"VisibleIndex\": 60,\r\n              \"Width\": \"Auto\",\r\n              \"Wrap\": false\r\n          },\r\n          {\r\n              \"Code\": \"exp_apellidos_nombres2\",\r\n              \"FieldName\": \"exp_apellidos_nombres2\",\r\n              \"PropertyName\": \"exp_apellidos_nombres2\",\r\n              \"Header\": \"Solicitante\",\r\n              \"IsPrimaryKey\": false,\r\n              \"FieldDescriptor\": \"string\",\r\n              \"Visible\": true,\r\n              \"AlternateText\": \"\",\r\n              \"HorizontalAlign\": \"Left\",\r\n              \"VerticalAlign\": \"Automatic\",\r\n              \"VisibleIndex\": 70,\r\n              \"Width\": \"Auto\",\r\n              \"Wrap\": false\r\n          }\r\n      ],\r\n      \"LocalizedStrings\": [\r\n          {\r\n              \"Key\": \"{EmptyDataSetMessage}\",\r\n              \"Translation\": \"No existen registros que mostrar de acuerdo al criterio de búsqueda especificado.\"\r\n          },\r\n          {\r\n              \"Key\": \"{EliminarCriterioBusqueda}\",\r\n              \"Translation\": \"Eliminar criterio de búsqueda especificado\"\r\n          },\r\n          {\r\n              \"Key\": \"{Buscar}\",\r\n              \"Translation\": \"Buscar\"\r\n          },\r\n          {\r\n              \"Key\": \"{NoRecordsSelectedMessage}\",\r\n              \"Translation\": \"Debe seleccionar al menos un registro para ejecutar la acción\"\r\n          },\r\n          {\r\n              \"Key\": \"{ExportaAExcelTooltip}\",\r\n              \"Translation\": \"Exportar a Microsoft Excel\"\r\n          },\r\n          {\r\n              \"Key\": \"{AdvancedSearchLocalizationKey}\",\r\n              \"Translation\": \"Búsqueda Avanzada\"\r\n          },\r\n          {\r\n              \"Key\": \"{QueryBuilderShowErrorsLocalizationKey}\",\r\n              \"Translation\": \"Existen errores en la especificación de los criterios de búsqueda\"\r\n          },\r\n          {\r\n              \"Key\": \"{Si}\",\r\n              \"Translation\": \"Sí\"\r\n          },\r\n          {\r\n              \"Key\": \"{No}\",\r\n              \"Translation\": \"No\"\r\n          }\r\n      ],\r\n      \"ShowExportToExcelButton\": true,\r\n      \"AlmacenaInformacionPersonalizacion\": false\r\n  },\r\n  \"HasQueryBuilder\": false,\r\n  \"UrlData\": \"/api/configuracion/SmartList/evowave.SolicitudAmonestaciones/Data\",\r\n  \"FormatoEntero\": \"{0:n0}\",\r\n  \"Checksum\": \"c3c0d2dfa2ca6048dd03942e9132c668d215ebb03e1eb0bee496f8eb857da3b7\",\r\n  \"Rows\": 1\r\n}"
+                "defaultValue": "{\r\n  Code: 'evowave.SolicitudAmonestaciones',\r\n  ClientControlID: 'evowave.SolicitudAmonestaciones',\r\n  Parameters: {},\r\n  DatabaseDialect: 'Microsoft.Data.SqlClient',\r\n  UrlMetadata: '/api/configuracion/SmartList/evowave.SolicitudAmonestaciones',\r\n  FormTagId: 'evowave_SolicitudAmonestaciones_form',\r\n  AlmacenaInformacionPersonalizacion: false,\r\n  Height: 'Auto',\r\n  Metadata: metaData,\r\n  HasQueryBuilder: false,\r\n  UrlData: '/api/configuracion/SmartList/evowave.SolicitudAmonestaciones/Data',\r\n  FormatoEntero: '{0:n0}',\r\n  Checksum: 'c3c0d2dfa2ca6048dd03942e9132c668d215ebb03e1eb0bee496f8eb857da3b7',\r\n  Rows: 1,\r\n}"
             },
             {
                 "name": "soloTituloYDescripcion",
@@ -1029,6 +1119,16 @@
                 "deprecationMessage": "",
                 "type": "string",
                 "defaultValue": "'Te apoyamos en cada paso hacia tu éxito profesional'"
+            },
+            {
+                "name": "titles",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/smart-list.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "ISmartListTitles",
+                "defaultValue": "{\r\n  showing: 'Mostrando',\r\n  results: 'resultados',\r\n  page: 'pag',\r\n  of: 'de'\r\n}"
             },
             {
                 "name": "today",
@@ -1234,6 +1334,39 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
+                "rawtype": "StoryObj<AccordionComponent>",
+                "file": "stories/accordion.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<ActionMenuComponent>",
+                "file": "stories/action-menu.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<AssignCardComponent>",
+                "file": "stories/assign-card.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
                 "rawtype": "StoryObj<AvatarComponent>",
                 "file": "stories/avatar.stories.ts",
                 "deprecated": false,
@@ -1247,17 +1380,6 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<ButtonComponent>",
                 "file": "stories/button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "description": "",
-                "kind": 183
-            },
-            {
-                "name": "Story",
-                "ctype": "miscellaneous",
-                "subtype": "typealias",
-                "rawtype": "StoryObj<CardComponent>",
-                "file": "stories/card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1355,8 +1477,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ProgramCardComponent>",
-                "file": "stories/program-card.stories.ts",
+                "rawtype": "StoryObj<PaginationComponent>",
+                "file": "stories/pagination.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1366,8 +1488,8 @@
                 "name": "Story",
                 "ctype": "miscellaneous",
                 "subtype": "typealias",
-                "rawtype": "StoryObj<ProgramTableComponent>",
-                "file": "stories/program-table.stories.ts",
+                "rawtype": "StoryObj<ProgramCardComponent>",
+                "file": "stories/program-card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1401,6 +1523,17 @@
                 "subtype": "typealias",
                 "rawtype": "StoryObj<SidebarComponent>",
                 "file": "stories/sidebar.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 183
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "StoryObj<SmartListComponent>",
+                "file": "stories/smart-list.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -1835,46 +1968,172 @@
                     "defaultValue": "{\r\n  args: {\r\n    name: 'Desasignadas',\r\n    count: 0,\r\n    index: 1,\r\n    withCount: false,\r\n  },\r\n}"
                 }
             ],
-            "stories/program-table.stories.ts": [
+            "stories/smart-list.stories.ts": [
                 {
                     "name": "data",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "stories/program-table.stories.ts",
+                    "file": "stories/smart-list.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "ITableItem[]",
-                    "defaultValue": "[{\"amo_codigo\":6,\"amo_fecha_infraccion\":\"2024-09-18T06:00:00\",\"cau_descripcion\":\"falta sin Causa Justificada dos dias completos y consecutivos\",\"cia_descripcion\":\"ASEINFO Guatemala.\",\"exp_apellidos_nombres1\":\"Abrego Labbe, Rene Armando\",\"exp_apellidos_nombres2\":\"Delgado de García, María del Rosario\",\"g_record_number\":\"1\",\"g_total_recs\":1,\"tam_descripcion\":\"Oral\"}]"
+                    "type": "ISmartListItem[]",
+                    "defaultValue": "[\r\n  {\r\n    amo_codigo: 6,\r\n    amo_fecha_infraccion: '2024-09-18T06:00:00',\r\n    cau_descripcion:\r\n      'Falta sin causa justificada dos días completos y consecutivos',\r\n    cia_descripcion: 'ASEINFO Guatemala.',\r\n    exp_apellidos_nombres1: 'Abrego Labbe, Rene Armando',\r\n    exp_apellidos_nombres2: 'Delgado de García, María del Rosario',\r\n    g_record_number: '1',\r\n    g_total_recs: 1,\r\n    tam_descripcion: 'Oral',\r\n  },\r\n  {\r\n    amo_codigo: 7,\r\n    amo_fecha_infraccion: '2024-09-19T06:00:00',\r\n    cau_descripcion:\r\n      'Falta sin causa justificada dos días completos y consecutivos',\r\n    cia_descripcion: 'ASEINFO Salvador.',\r\n    exp_apellidos_nombres1: 'Abrego Labbe, Rene Armando',\r\n    exp_apellidos_nombres2: 'Delgado de García, María del Rosario',\r\n    g_record_number: '2',\r\n    g_total_recs: 1,\r\n    tam_descripcion: 'Oral',\r\n  },\r\n]"
                 },
                 {
                     "name": "Default",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "stories/program-table.stories.ts",
+                    "file": "stories/smart-list.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    smartlistConfig: smartlistConfig,\r\n    data: data,\r\n    page: 1,\r\n    totalPages: 1,\r\n    pageSize: 5,\r\n    hiddenColumns: [2],\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    smartlistConfig: smartlistConfig,\r\n    data: data,\r\n    titles: titles,\r\n    page: 1,\r\n    totalPages: 1,\r\n    pageSize: 5,\r\n    hiddenColumns: [2],\r\n    twClass: '',\r\n    sortableColumns: [1],\r\n    actionIcons: [\r\n      { type: 'class', icon: 'add' },\r\n      { type: 'class', icon: 'edit' },\r\n      { type: 'class', icon: 'delete' },\r\n      { type: 'class', icon: 'verified_user' },\r\n    ],\r\n  },\r\n}"
                 },
                 {
                     "name": "meta",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "stories/program-table.stories.ts",
+                    "file": "stories/smart-list.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Meta<ProgramTableComponent>",
-                    "defaultValue": "{\r\n  title: 'Evolution Components/Program Table',\r\n  component: ProgramTableComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
+                    "type": "Meta<SmartListComponent>",
+                    "defaultValue": "{\r\n  title: 'Evolution Components/Smart List',\r\n  component: SmartListComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
                 },
                 {
                     "name": "smartlistConfig",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "stories/program-table.stories.ts",
+                    "file": "stories/smart-list.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "ISmartlistFullConfig",
-                    "defaultValue": "{\r\n  \"Code\": \"evowave.SolicitudAmonestaciones\",\r\n  \"ClientControlID\": \"evowave.SolicitudAmonestaciones\",\r\n  \"Parameters\": {},\r\n  \"DatabaseDialect\": \"Microsoft.Data.SqlClient\",\r\n  \"UrlMetadata\": \"/api/configuracion/SmartList/evowave.SolicitudAmonestaciones\",\r\n  \"FormTagId\": \"evowave_SolicitudAmonestaciones_form\",\r\n  \"AlmacenaInformacionPersonalizacion\": false,\r\n  \"Height\": \"Auto\",\r\n  \"Metadata\": {\r\n      \"Code\": \"evowave.SolicitudAmonestaciones\",\r\n      \"MultiSelect\": true,\r\n      \"AutogenerateColumns\": false,\r\n      \"NewRecordButtonCode\": \"new\",\r\n      \"EditRecordButtonCode\": \"edit\",\r\n      \"DeleteRecordButtonCode\": \"delete\",\r\n      \"NewRecordButton\": {\r\n          \"Code\": \"new\",\r\n          \"ActionURL\": \"/Create\",\r\n          \"Text\": \"Nuevo\",\r\n          \"AlternateText\": \"Nueva Solicitud de Amonestación\",\r\n          \"ExecuteLinkAction\": true,\r\n          \"ConfirmationMessage\": \"\",\r\n          \"CompleteMessage\": \"\",\r\n          \"ShowText\": true,\r\n          \"ShowImage\": true,\r\n          \"ImageURL\": \"/Content/Images/Toolbar/add.png\",\r\n          \"VisibleIndex\": 10,\r\n          \"Visible\": true,\r\n          \"Visibility\": \"Visible\",\r\n          \"TextVisibility\": \"Visible\",\r\n          \"ImageVisibility\": \"Visible\",\r\n          \"IsExportToExcelButton\": false,\r\n          \"CheckForSelectedRecords\": false,\r\n          \"IsRouteUrl\": false,\r\n          \"ControllerArea\": \"\",\r\n          \"ControllerName\": \"\",\r\n          \"ControllerAction\": \"Create\"\r\n      },\r\n      \"EditRecordButton\": {\r\n          \"Code\": \"edit\",\r\n          \"ActionURL\": \"/Edit\",\r\n          \"Text\": \"Editar\",\r\n          \"AlternateText\": \"Editar la Solicitud de Amonestación\",\r\n          \"ExecuteLinkAction\": true,\r\n          \"ConfirmationMessage\": \"\",\r\n          \"CompleteMessage\": \"\",\r\n          \"ShowText\": true,\r\n          \"ShowImage\": true,\r\n          \"ImageURL\": \"/Content/Images/Toolbar/edit.png\",\r\n          \"VisibleIndex\": 20,\r\n          \"Visible\": true,\r\n          \"Visibility\": \"Visible\",\r\n          \"TextVisibility\": \"Visible\",\r\n          \"ImageVisibility\": \"Visible\",\r\n          \"IsExportToExcelButton\": false,\r\n          \"CheckForSelectedRecords\": true,\r\n          \"IsRouteUrl\": false,\r\n          \"ControllerArea\": \"\",\r\n          \"ControllerName\": \"\",\r\n          \"ControllerAction\": \"Edit\"\r\n      },\r\n      \"DeleteRecordButton\": {\r\n          \"Code\": \"delete\",\r\n          \"ActionURL\": \"/Delete\",\r\n          \"Text\": \"Eliminar\",\r\n          \"AlternateText\": \"Eliminar la Solicitud de Amonestación\",\r\n          \"ExecuteLinkAction\": false,\r\n          \"ConfirmationMessage\": \"¿Está seguro que desea eliminar la solicitud de Amonestación?\",\r\n          \"CompleteMessage\": \"\",\r\n          \"ShowText\": true,\r\n          \"ShowImage\": true,\r\n          \"ImageURL\": \"/Content/Images/Toolbar/delete.png\",\r\n          \"VisibleIndex\": 30,\r\n          \"Visible\": true,\r\n          \"Visibility\": \"Visible\",\r\n          \"TextVisibility\": \"Visible\",\r\n          \"ImageVisibility\": \"Visible\",\r\n          \"IsExportToExcelButton\": false,\r\n          \"CheckForSelectedRecords\": true,\r\n          \"IsRouteUrl\": false,\r\n          \"ControllerArea\": \"\",\r\n          \"ControllerName\": \"\",\r\n          \"ControllerAction\": \"Delete\"\r\n      },\r\n      \"AutomaticBinding\": true,\r\n      \"Height\": \"Auto\",\r\n      \"ShowFilter\": true,\r\n      \"ShowGroupPanel\": true,\r\n      \"ShowLargeDatasetWarning\": false,\r\n      \"Buttons\": [\r\n          {\r\n              \"Code\": \"new\",\r\n              \"ActionURL\": \"/Create\",\r\n              \"Text\": \"Nuevo\",\r\n              \"AlternateText\": \"Nueva Solicitud de Amonestación\",\r\n              \"ExecuteLinkAction\": true,\r\n              \"ConfirmationMessage\": \"\",\r\n              \"CompleteMessage\": \"\",\r\n              \"ShowText\": true,\r\n              \"ShowImage\": true,\r\n              \"ImageURL\": \"/Content/Images/Toolbar/add.png\",\r\n              \"VisibleIndex\": 10,\r\n              \"Visible\": true,\r\n              \"Visibility\": \"Visible\",\r\n              \"TextVisibility\": \"Visible\",\r\n              \"ImageVisibility\": \"Visible\",\r\n              \"IsExportToExcelButton\": false,\r\n              \"CheckForSelectedRecords\": false,\r\n              \"IsRouteUrl\": false,\r\n              \"ControllerArea\": \"\",\r\n              \"ControllerName\": \"\",\r\n              \"ControllerAction\": \"Create\"\r\n          },\r\n          {\r\n              \"Code\": \"edit\",\r\n              \"ActionURL\": \"/Edit\",\r\n              \"Text\": \"Editar\",\r\n              \"AlternateText\": \"Editar la Solicitud de Amonestación\",\r\n              \"ExecuteLinkAction\": true,\r\n              \"ConfirmationMessage\": \"\",\r\n              \"CompleteMessage\": \"\",\r\n              \"ShowText\": true,\r\n              \"ShowImage\": true,\r\n              \"ImageURL\": \"/Content/Images/Toolbar/edit.png\",\r\n              \"VisibleIndex\": 20,\r\n              \"Visible\": true,\r\n              \"Visibility\": \"Visible\",\r\n              \"TextVisibility\": \"Visible\",\r\n              \"ImageVisibility\": \"Visible\",\r\n              \"IsExportToExcelButton\": false,\r\n              \"CheckForSelectedRecords\": true,\r\n              \"IsRouteUrl\": false,\r\n              \"ControllerArea\": \"\",\r\n              \"ControllerName\": \"\",\r\n              \"ControllerAction\": \"Edit\"\r\n          },\r\n          {\r\n              \"Code\": \"delete\",\r\n              \"ActionURL\": \"/Delete\",\r\n              \"Text\": \"Eliminar\",\r\n              \"AlternateText\": \"Eliminar la Solicitud de Amonestación\",\r\n              \"ExecuteLinkAction\": false,\r\n              \"ConfirmationMessage\": \"¿Está seguro que desea eliminar la solicitud de Amonestación?\",\r\n              \"CompleteMessage\": \"\",\r\n              \"ShowText\": true,\r\n              \"ShowImage\": true,\r\n              \"ImageURL\": \"/Content/Images/Toolbar/delete.png\",\r\n              \"VisibleIndex\": 30,\r\n              \"Visible\": true,\r\n              \"Visibility\": \"Visible\",\r\n              \"TextVisibility\": \"Visible\",\r\n              \"ImageVisibility\": \"Visible\",\r\n              \"IsExportToExcelButton\": false,\r\n              \"CheckForSelectedRecords\": true,\r\n              \"IsRouteUrl\": false,\r\n              \"ControllerArea\": \"\",\r\n              \"ControllerName\": \"\",\r\n              \"ControllerAction\": \"Delete\"\r\n          },\r\n          {\r\n              \"Code\": \"initflujo\",\r\n              \"ActionURL\": \"/InicializaFlujoAutorizacion\",\r\n              \"Text\": \"Enviar a Autorización\",\r\n              \"AlternateText\": \"\",\r\n              \"ExecuteLinkAction\": false,\r\n              \"ConfirmationMessage\": \"¿Está seguro que desea enviar a autorización la solicitud de amonestación?\",\r\n              \"CompleteMessage\": \"\",\r\n              \"ShowText\": true,\r\n              \"ShowImage\": true,\r\n              \"ImageURL\": \"/Content/Images/Toolbar/send_authorize.png\",\r\n              \"VisibleIndex\": 40,\r\n              \"Visible\": true,\r\n              \"Visibility\": \"Visible\",\r\n              \"TextVisibility\": \"Visible\",\r\n              \"ImageVisibility\": \"Visible\",\r\n              \"IsExportToExcelButton\": false,\r\n              \"CheckForSelectedRecords\": true,\r\n              \"IsRouteUrl\": false,\r\n              \"ControllerArea\": \"\",\r\n              \"ControllerName\": \"\",\r\n              \"ControllerAction\": \"InicializaFlujoAutorizacion\"\r\n          }\r\n      ],\r\n      \"Columns\": [\r\n          {\r\n              \"Code\": \"amo_codigo\",\r\n              \"FieldName\": \"amo_codigo\",\r\n              \"PropertyName\": \"amo_codigo\",\r\n              \"Header\": \"amo_codigo\",\r\n              \"IsPrimaryKey\": true,\r\n              \"FieldDescriptor\": \"int\",\r\n              \"Visible\": false,\r\n              \"AlternateText\": \"\",\r\n              \"HorizontalAlign\": \"Left\",\r\n              \"VerticalAlign\": \"Automatic\",\r\n              \"VisibleIndex\": 10,\r\n              \"Width\": \"Auto\",\r\n              \"Wrap\": false,\r\n              \"Format\": \"N0\"\r\n          },\r\n          {\r\n              \"Code\": \"cia_descripcion\",\r\n              \"FieldName\": \"cia_descripcion\",\r\n              \"PropertyName\": \"cia_descripcion\",\r\n              \"Header\": \"Compañia\",\r\n              \"IsPrimaryKey\": false,\r\n              \"FieldDescriptor\": \"string\",\r\n              \"Visible\": true,\r\n              \"AlternateText\": \"\",\r\n              \"HorizontalAlign\": \"Left\",\r\n              \"VerticalAlign\": \"Automatic\",\r\n              \"VisibleIndex\": 20,\r\n              \"Width\": \"Auto\",\r\n              \"Wrap\": false\r\n          },\r\n          {\r\n              \"Code\": \"exp_apellidos_nombres1\",\r\n              \"FieldName\": \"exp_apellidos_nombres1\",\r\n              \"PropertyName\": \"exp_apellidos_nombres1\",\r\n              \"Header\": \"Empleado\",\r\n              \"IsPrimaryKey\": false,\r\n              \"FieldDescriptor\": \"string\",\r\n              \"Visible\": true,\r\n              \"AlternateText\": \"\",\r\n              \"HorizontalAlign\": \"Left\",\r\n              \"VerticalAlign\": \"Automatic\",\r\n              \"VisibleIndex\": 30,\r\n              \"Width\": \"Auto\",\r\n              \"Wrap\": false\r\n          },\r\n          {\r\n              \"Code\": \"amo_fecha_infraccion\",\r\n              \"FieldName\": \"amo_fecha_infraccion\",\r\n              \"PropertyName\": \"amo_fecha_infraccion\",\r\n              \"Header\": \"Fecha Infracción\",\r\n              \"IsPrimaryKey\": false,\r\n              \"FieldDescriptor\": \"date\",\r\n              \"Visible\": true,\r\n              \"AlternateText\": \"\",\r\n              \"HorizontalAlign\": \"Left\",\r\n              \"VerticalAlign\": \"Automatic\",\r\n              \"VisibleIndex\": 40,\r\n              \"Width\": \"Auto\",\r\n              \"Wrap\": false,\r\n              \"Format\": \"g\"\r\n          },\r\n          {\r\n              \"Code\": \"tam_descripcion\",\r\n              \"FieldName\": \"tam_descripcion\",\r\n              \"PropertyName\": \"tam_descripcion\",\r\n              \"Header\": \"Tipo\",\r\n              \"IsPrimaryKey\": false,\r\n              \"FieldDescriptor\": \"string\",\r\n              \"Visible\": true,\r\n              \"AlternateText\": \"\",\r\n              \"HorizontalAlign\": \"Left\",\r\n              \"VerticalAlign\": \"Automatic\",\r\n              \"VisibleIndex\": 50,\r\n              \"Width\": \"Auto\",\r\n              \"Wrap\": false\r\n          },\r\n          {\r\n              \"Code\": \"cau_descripcion\",\r\n              \"FieldName\": \"cau_descripcion\",\r\n              \"PropertyName\": \"cau_descripcion\",\r\n              \"Header\": \"Causa\",\r\n              \"IsPrimaryKey\": false,\r\n              \"FieldDescriptor\": \"string\",\r\n              \"Visible\": true,\r\n              \"AlternateText\": \"\",\r\n              \"HorizontalAlign\": \"Left\",\r\n              \"VerticalAlign\": \"Automatic\",\r\n              \"VisibleIndex\": 60,\r\n              \"Width\": \"Auto\",\r\n              \"Wrap\": false\r\n          },\r\n          {\r\n              \"Code\": \"exp_apellidos_nombres2\",\r\n              \"FieldName\": \"exp_apellidos_nombres2\",\r\n              \"PropertyName\": \"exp_apellidos_nombres2\",\r\n              \"Header\": \"Solicitante\",\r\n              \"IsPrimaryKey\": false,\r\n              \"FieldDescriptor\": \"string\",\r\n              \"Visible\": true,\r\n              \"AlternateText\": \"\",\r\n              \"HorizontalAlign\": \"Left\",\r\n              \"VerticalAlign\": \"Automatic\",\r\n              \"VisibleIndex\": 70,\r\n              \"Width\": \"Auto\",\r\n              \"Wrap\": false\r\n          }\r\n      ],\r\n      \"LocalizedStrings\": [\r\n          {\r\n              \"Key\": \"{EmptyDataSetMessage}\",\r\n              \"Translation\": \"No existen registros que mostrar de acuerdo al criterio de búsqueda especificado.\"\r\n          },\r\n          {\r\n              \"Key\": \"{EliminarCriterioBusqueda}\",\r\n              \"Translation\": \"Eliminar criterio de búsqueda especificado\"\r\n          },\r\n          {\r\n              \"Key\": \"{Buscar}\",\r\n              \"Translation\": \"Buscar\"\r\n          },\r\n          {\r\n              \"Key\": \"{NoRecordsSelectedMessage}\",\r\n              \"Translation\": \"Debe seleccionar al menos un registro para ejecutar la acción\"\r\n          },\r\n          {\r\n              \"Key\": \"{ExportaAExcelTooltip}\",\r\n              \"Translation\": \"Exportar a Microsoft Excel\"\r\n          },\r\n          {\r\n              \"Key\": \"{AdvancedSearchLocalizationKey}\",\r\n              \"Translation\": \"Búsqueda Avanzada\"\r\n          },\r\n          {\r\n              \"Key\": \"{QueryBuilderShowErrorsLocalizationKey}\",\r\n              \"Translation\": \"Existen errores en la especificación de los criterios de búsqueda\"\r\n          },\r\n          {\r\n              \"Key\": \"{Si}\",\r\n              \"Translation\": \"Sí\"\r\n          },\r\n          {\r\n              \"Key\": \"{No}\",\r\n              \"Translation\": \"No\"\r\n          }\r\n      ],\r\n      \"ShowExportToExcelButton\": true,\r\n      \"AlmacenaInformacionPersonalizacion\": false\r\n  },\r\n  \"HasQueryBuilder\": false,\r\n  \"UrlData\": \"/api/configuracion/SmartList/evowave.SolicitudAmonestaciones/Data\",\r\n  \"FormatoEntero\": \"{0:n0}\",\r\n  \"Checksum\": \"c3c0d2dfa2ca6048dd03942e9132c668d215ebb03e1eb0bee496f8eb857da3b7\",\r\n  \"Rows\": 1\r\n}"
+                    "defaultValue": "{\r\n  Code: 'evowave.SolicitudAmonestaciones',\r\n  ClientControlID: 'evowave.SolicitudAmonestaciones',\r\n  Parameters: {},\r\n  DatabaseDialect: 'Microsoft.Data.SqlClient',\r\n  UrlMetadata: '/api/configuracion/SmartList/evowave.SolicitudAmonestaciones',\r\n  FormTagId: 'evowave_SolicitudAmonestaciones_form',\r\n  AlmacenaInformacionPersonalizacion: false,\r\n  Height: 'Auto',\r\n  Metadata: metaData,\r\n  HasQueryBuilder: false,\r\n  UrlData: '/api/configuracion/SmartList/evowave.SolicitudAmonestaciones/Data',\r\n  FormatoEntero: '{0:n0}',\r\n  Checksum: 'c3c0d2dfa2ca6048dd03942e9132c668d215ebb03e1eb0bee496f8eb857da3b7',\r\n  Rows: 1,\r\n}"
+                },
+                {
+                    "name": "titles",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/smart-list.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ISmartListTitles",
+                    "defaultValue": "{\r\n  showing: 'Mostrando',\r\n  results: 'resultados',\r\n  page: 'pag',\r\n  of: 'de'\r\n}"
+                }
+            ],
+            "stories/accordion.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/accordion.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n        <evo-accordion [config]=\"config\">\r\n          <p>Este es el contenido dentro del acordeón.</p>\r\n          <p>Puedes colocar cualquier tipo de HTML o componentes aquí.</p>\r\n        </evo-accordion>\r\n      `,\r\n  }),\r\n  args: {\r\n    config: {\r\n      title: 'Mi Acordeón',\r\n      icon: {\r\n        icon: 'add-user.svg',\r\n        type: 'svg',\r\n      },\r\n      height: '200px',\r\n      twClass: '',\r\n    },\r\n  },\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/accordion.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<AccordionComponent>",
+                    "defaultValue": "{\r\n  title: 'Evolution Components/Accordion',\r\n  component: AccordionComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideHttpClient()],\r\n    }),\r\n    moduleMetadata({\r\n      imports: [CommonModule],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    config: {\r\n      control: 'object',\r\n      description: 'Configuración del acordeón',\r\n      defaultValue: {\r\n        title: 'Mi Acordeón',\r\n        icon: {\r\n          icon: 'add-user.svg',\r\n          type: 'svg',\r\n        },\r\n        height: '200px',\r\n        twClass: '',\r\n      },\r\n      table: {\r\n        type: { summary: 'IAccordionConfig' },\r\n      },\r\n    },\r\n  },\r\n}"
+                },
+                {
+                    "name": "OpenAccordion",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/accordion.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: (args) => ({\r\n    props: { ...args, isOpen: true },\r\n    template: `\r\n        <evo-accordion [config]=\"config\" [isOpen]=\"isOpen\">\r\n          <p>Contenido visible al abrir el acordeón.</p>\r\n          <p>Esto es útil para mostrar más detalles.</p>\r\n        </evo-accordion>\r\n      `,\r\n  }),\r\n  args: {\r\n    config: {\r\n      title: 'Acordeón Abierto',\r\n      icon: {\r\n        icon: 'arrow-down.svg',\r\n        type: 'svg',\r\n      },\r\n      height: 'auto',\r\n      twClass: '',\r\n    },\r\n    isOpen: true,\r\n  },\r\n}"
+                }
+            ],
+            "stories/action-menu.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/action-menu.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: (args) => {\r\n    const handleActionSelected = (actionCode: string) => {\r\n      console.log('Acción seleccionada:', actionCode);\r\n    };\r\n\r\n    const handleMenuClosed = () => {\r\n      console.log('Menú cerrado');\r\n    };\r\n\r\n    return {\r\n      template: `\r\n        <div class=\"w-full h-48 bg-gray-100 p-4 flex justify-center items-center\">\r\n          <div class=\"relative\">\r\n            <h3 class=\"text-lg font-bold mb-2\">Botón</h3>\r\n            <action-menu\r\n            [icons]=\"icons\"\r\n              [config]=\"config\"\r\n              (actionSelected)=\"actionSelected($event)\"\r\n              (menuClosed)=\"menuClosed()\"\r\n              [twClass]=\"twClass\"\r\n            ></action-menu>\r\n          </div>\r\n        </div>\r\n      `,\r\n      props: {\r\n        ...args,\r\n        actionSelected: handleActionSelected,\r\n        menuClosed: handleMenuClosed,\r\n      },\r\n    };\r\n  },\r\n  args: {\r\n    config: { ...defaultConfig },\r\n  },\r\n}"
+                },
+                {
+                    "name": "defaultConfig",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/action-menu.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "IActionMenuConfig",
+                    "defaultValue": "{\r\n  actions: [\r\n    {\r\n      Code: 'new',\r\n      Text: 'Esto es un texto un poco largo ',\r\n      Visible: true,\r\n      ShowText: true,\r\n      ShowImage: false,\r\n      ImageURL: '',\r\n      VisibleIndex: 2,\r\n      ActionURL: '/new',\r\n      ExecuteLinkAction: false,\r\n    },\r\n    {\r\n      Code: 'edit',\r\n      Text: 'Editar',\r\n      Visible: true,\r\n      ShowText: true,\r\n      ShowImage: false,\r\n      ImageURL: '',\r\n      VisibleIndex: 1,\r\n      ActionURL: '/edit',\r\n      ExecuteLinkAction: false,\r\n    },\r\n    {\r\n      Code: 'delete',\r\n      Text: 'Eliminar',\r\n      Visible: true,\r\n      ShowText: true,\r\n      ShowImage: false,\r\n      ImageURL: '',\r\n      VisibleIndex: 3,\r\n      ActionURL: '/delete',\r\n      ExecuteLinkAction: false,\r\n    },\r\n  ],\r\n  isOpen: true,\r\n  twClass: '',\r\n  icons: [\r\n    { type: 'class', icon: 'add' },\r\n    { type: 'class', icon: 'edit' },\r\n    { type: 'class', icon: 'delete' }\r\n  ]\r\n  ,\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/action-menu.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<ActionMenuComponent>",
+                    "defaultValue": "{\r\n  title: 'Evolution Components/Action Menu',\r\n  component: ActionMenuComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
+                }
+            ],
+            "stories/assign-card.stories.ts": [
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/assign-card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    config: {\r\n      ...defaultConfig,\r\n    },\r\n  },\r\n  parameters: {\r\n    actions: {\r\n      handles: ['removeItem', 'buttonClick'],\r\n    },\r\n  },\r\n}"
+                },
+                {
+                    "name": "defaultConfig",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/assign-card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ICardConfig",
+                    "defaultValue": "{\r\n  assignActionText: 'Asignar a',\r\n  assignTargetText: 'personas',\r\n  items: [\r\n    { id: '1', name: 'Oscar Esteban Juarez Paz' },\r\n    { id: '2', name: 'Julia Maria Fernandez Paredes' },\r\n    { id: '3', name: 'Isabella Maria Gonzales Clark' },\r\n  ],\r\n  buttonText: 'Asignar Programa',\r\n  emptyStateText: 'No hay personas asignadas',\r\n  twClass: '',\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/assign-card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<AssignCardComponent>",
+                    "defaultValue": "{\r\n  title: 'Evolution Components/Assign Card',\r\n  component: AssignCardComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
+                },
+                {
+                    "name": "SmallSize",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/assign-card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    config: {\r\n      ...defaultConfig,\r\n      items: [\r\n        ...defaultConfig.items,\r\n        { id: '4', name: 'Oscar Esteban Juarez Paz' },\r\n      ],\r\n      twClass: 'w-80',\r\n    },\r\n  },\r\n  parameters: {\r\n    actions: {\r\n      handles: ['removeItem', 'buttonClick'],\r\n    },\r\n  },\r\n}"
+                },
+                {
+                    "name": "SmallSizeSmallOptions",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/assign-card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  args: {\r\n    config: {\r\n      ...defaultConfig,\r\n      twClass: 'w-80',\r\n    },\r\n  },\r\n  parameters: {\r\n    actions: {\r\n      handles: ['removeItem', 'buttonClick'],\r\n    },\r\n  },\r\n}"
                 }
             ],
             "stories/button.stories.ts": [
@@ -2027,58 +2286,6 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\r\n  args: {\r\n    ...Default.args,\r\n    icon: {\r\n      icon: 'add-user.svg',\r\n      type: 'svg',\r\n    },\r\n  },\r\n}"
-                }
-            ],
-            "stories/card.stories.ts": [
-                {
-                    "name": "Default",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/card.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    config: {\r\n      ...defaultConfig,\r\n    },\r\n  },\r\n  parameters: {\r\n    actions: {\r\n      handles: ['removeItem', 'buttonClick'],\r\n    },\r\n  },\r\n}"
-                },
-                {
-                    "name": "defaultConfig",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/card.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "ICardConfig",
-                    "defaultValue": "{\r\n  titlep1: 'Asignar a',\r\n  titlep2: 'personas',\r\n  items: [\r\n    { id: '1', name: 'Oscar Esteban Juarez Paz' },\r\n    { id: '2', name: 'Julia Maria Fernandez Paredes' },\r\n    { id: '3', name: 'Isabella Maria Gonzales Clark' },\r\n  ],\r\n  buttonText: 'Asignar Programa',\r\n  emptyStateText: 'No hay personas asignadas',\r\n  twClass: '',\r\n}"
-                },
-                {
-                    "name": "meta",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/card.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Meta<CardComponent>",
-                    "defaultValue": "{\r\n  title: 'Evolution Components/Card',\r\n  component: CardComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
-                },
-                {
-                    "name": "SmallSize",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/card.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    config: {\r\n      ...defaultConfig,\r\n      items: [\r\n        ...defaultConfig.items,\r\n        { id: '4', name: 'Oscar Esteban Juarez Paz' },\r\n      ],\r\n      twClass: 'w-80', // Pasando el valor personalizado\r\n    },\r\n  },\r\n  parameters: {\r\n    actions: {\r\n      handles: ['removeItem', 'buttonClick'],\r\n    },\r\n  },\r\n}"
-                },
-                {
-                    "name": "SmallSizeSmallOptions",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/card.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    config: {\r\n      ...defaultConfig,\r\n      twClass: 'w-80', // Pasando el valor personalizado\r\n    },\r\n  },\r\n  parameters: {\r\n    actions: {\r\n      handles: ['removeItem', 'buttonClick'],\r\n    },\r\n  },\r\n}"
                 }
             ],
             "stories/carta-actividad.stories.ts": [
@@ -2368,7 +2575,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "object",
-                    "defaultValue": "{\r\n  title: 'Program Title',\r\n  subtitle: 'Ejemplo de descripción',\r\n  activitiesCount: 5,\r\n  activitiesText: 'Actividades',\r\n  weeksCount: 3,\r\n  weeksText: 'Semanas',\r\n  buttonLabel: 'Asignar',\r\n  buttonIcon: 'add-user.svg',\r\n  buttonClasses: 'theme-primary',\r\n  onButtonClick: {\r\n    action: () => {\r\n      console.log('Button clicked!');\r\n    },\r\n  },\r\n  twClass: 'custom-class',\r\n  isFluid: true,\r\n  size: 'lg' as 'sm' | 'md' | 'lg', // Especificamos el tipo correcto\r\n}"
+                    "defaultValue": "{\r\n  title: 'Program Title',\r\n  subtitle: 'Ejemplo de descripción',\r\n  activitiesCount: 5,\r\n  activitiesText: 'Actividades',\r\n  weeksCount: 3,\r\n  weeksText: 'Semanas',\r\n  buttonLabel: 'Asignar',\r\n  buttonIcon: 'add-user.svg',\r\n  buttonClasses: 'theme-primary',\r\n  onButtonClick: {\r\n    action: () => {\r\n      console.log('Button clicked!');\r\n    },\r\n  },\r\n  twClass: 'custom-class',\r\n  isFluid: true,\r\n  size: 'lg' as 'sm' | 'md' | 'lg',\r\n}"
                 },
                 {
                     "name": "Large",
@@ -2378,7 +2585,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    cardData: {\r\n      ...defaultCardData,\r\n      isFluid: false,\r\n      size: 'lg', // Ya está restringido al tipo correcto\r\n      title: 'Large Program Title',\r\n    },\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    cardData: {\r\n      ...defaultCardData,\r\n      size: 'lg',\r\n      title: 'Large Program Title',\r\n      isFluid: false,\r\n    },\r\n  },\r\n}"
                 },
                 {
                     "name": "Medium",
@@ -2388,7 +2595,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    cardData: {\r\n      ...defaultCardData,\r\n      isFluid: false,\r\n      size: 'md', // Ya está restringido al tipo correcto\r\n      title: 'Medium Program Title',\r\n    },\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    cardData: {\r\n      ...defaultCardData,\r\n      size: 'md',\r\n      title: 'Medium Program Title',\r\n      isFluid: false,\r\n    },\r\n  },\r\n}"
                 },
                 {
                     "name": "Small",
@@ -2398,7 +2605,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    cardData: {\r\n      ...defaultCardData,\r\n      isFluid: false,\r\n      size: 'sm', // Ya está restringido al tipo correcto\r\n      title: 'Small Program Title',\r\n      subtitle:\r\n        'Se permite texto hasta dos líneas. Lorem ipsum dolor sit amet consectetur adipiscing elit.',\r\n    },\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    cardData: {\r\n      ...defaultCardData,\r\n      size: 'sm',\r\n      title: 'Small Program Title',\r\n      subtitle: 'Se permite texto hasta dos líneas.',\r\n      isFluid: false,\r\n    },\r\n  },\r\n}"
                 }
             ],
             "stories/search-bar.stories.ts": [
@@ -2410,7 +2617,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\r\n  args: {\r\n    placeholder: 'Buscar personas...',\r\n  },\r\n  parameters: {\r\n    actions: {\r\n      handles: ['searchQuery'],\r\n    },\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  args: {\r\n    placeholder: 'Buscar personas...',\r\n    twClass: ''\r\n  },\r\n  parameters: {\r\n    actions: {\r\n      handles: ['searchQuery'],\r\n    },\r\n  },\r\n}"
                 },
                 {
                     "name": "meta",
@@ -2524,7 +2731,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<SidebarComponent>",
-                    "defaultValue": "{\r\n  title: 'Evolution Components/Sidebar',\r\n  component: SidebarComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideAnimationsAsync(), provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    commonProps: {\r\n      description: 'Propiedades comunes entre header y sidebar',\r\n      control: {\r\n        type: 'object',\r\n      },\r\n    },\r\n    options: {\r\n      description: 'Opciones del sidebar',\r\n      control: {\r\n        type: 'object',\r\n      },\r\n    },\r\n    additionalOptions: {\r\n      description: 'Opciones adicionales del sidebar',\r\n      control: {\r\n        type: 'object',\r\n      },\r\n    },\r\n  },\r\n  args: {\r\n    commonProps: {\r\n      icons: {\r\n        appMenuIcons: {\r\n          buttonIcon: {\r\n            icon: 'app-menu.svg',\r\n            type: 'svg',\r\n          },\r\n        },\r\n        authorizationMenuIcons: {\r\n          buttonIcon: {\r\n            icon: 'fact_check',\r\n            type: 'class',\r\n          },\r\n        },\r\n        notificationMenuIcons: {\r\n          buttonIcon: {\r\n            icon: 'bell.svg',\r\n            type: 'svg',\r\n          },\r\n        },\r\n        settingMenuIcons: {\r\n          buttonIcon: {\r\n            icon: 'settings.svg',\r\n            type: 'svg',\r\n          },\r\n        },\r\n      } as IHeaderIcons,\r\n      titles: {\r\n        appTitle: 'Tus aplicaciones',\r\n        authorizationTitle: 'Autorizaciones',\r\n        notificationTitle: 'Notificaciones',\r\n        settingTitle: 'Ajustes',\r\n      } as IHeaderTitles,\r\n      items: {\r\n        appItems: [\r\n          {\r\n            label: 'Evo Wave',\r\n            icon: {\r\n              icon: 'company-logo.svg',\r\n              type: 'svg',\r\n            },\r\n            url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoWave',\r\n          },\r\n          {\r\n            label: 'Evo Chart',\r\n            icon: {\r\n              icon: 'company-logo.svg',\r\n              type: 'svg',\r\n            },\r\n            url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoChart',\r\n          },\r\n        ],\r\n        authorizationItems: [\r\n          {\r\n            label:\r\n              'Carlos Sanchez requiere autorización de acceso al Programa Recursos Humanos',\r\n            avatarName: 'Carlos Sanchez',\r\n            avatarImgUrl:\r\n              'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n            onClick: {\r\n              action: (name = 'Carlos Sanchez') => {\r\n                alert('Se autorizó a ' + name);\r\n              },\r\n            },\r\n          },\r\n          {\r\n            label:\r\n              'Samuel Lopez requiere autorización de acceso al Programa Desarrollo',\r\n            avatarName: 'Samuel Lopez',\r\n            avatarImgUrl:\r\n              'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n            onClick: {\r\n              action: () => {\r\n                alert('Se autorizó a Samuel Lopez');\r\n              },\r\n            },\r\n          },\r\n          {\r\n            label:\r\n              'Ignacio Fernandez requiere autorización de acceso al Programa Recursos Humanos',\r\n            avatarName: 'Ignacio Fernandez',\r\n            avatarImgUrl:\r\n              'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n            onClick: {\r\n              action: (name = 'Ignacio Fernandez') => {\r\n                alert('Se autorizó a ' + name);\r\n              },\r\n            },\r\n          },\r\n        ],\r\n        notificationItems: [\r\n          {\r\n            label: 'Carlos Sanchez finalizó Programa Recursos Humanos',\r\n            avatarName: 'Carlos Sanchez',\r\n            avatarImgUrl:\r\n              'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n            onClick: {\r\n              action: (name = 'Carlos Sanchez') => {\r\n                alert('Notificación de: ' + name);\r\n              },\r\n            },\r\n          },\r\n        ],\r\n        seeAllButton: {\r\n          seeAllAuthorizations: {\r\n            label: 'Ver todas',\r\n            onClick: {\r\n              action: (path = '/autorizaciones') => {\r\n                alert('Redirige a pantalla: ' + path);\r\n              },\r\n            },\r\n          },\r\n          seeAllNotifications: {\r\n            label: 'Ver todas',\r\n            onClick: {\r\n              action: (path = '/notificaciones') => {\r\n                alert('Redirige a pantalla: ' + path);\r\n              },\r\n            },\r\n          },\r\n        },\r\n        settingMenu: {\r\n          options: [\r\n            {\r\n              name: 'Apellido primero',\r\n            },\r\n            {\r\n              name: 'Autorizaciones',\r\n            },\r\n          ],\r\n        },\r\n        userDataItems: [\r\n          {\r\n            label: 'Administrar Cuenta',\r\n            icon: {\r\n              icon: 'manage_accounts',\r\n              type: 'class',\r\n            },\r\n            url: 'https://localhost:7002/identity/account/manage',\r\n          },\r\n          {\r\n            label: 'Cerrar Sesión',\r\n            onClick: {\r\n              action: () => {\r\n                alert('Se ejecuta Logout');\r\n              },\r\n            },\r\n          },\r\n        ],\r\n      } as IHeaderItems,\r\n      companyData: {\r\n        companyImage: 'company-logo.svg',\r\n        companyName: 'ASEINFO',\r\n      } as IHeaderCompanyData,\r\n      userData: {\r\n        fullName: 'Stela Lopez',\r\n        email: 'slopez@empresa.com',\r\n        jobPositions: [\r\n          {\r\n            Puesto: {\r\n              Nombre: 'Gerente Desarrollo',\r\n            },\r\n            Unidad: {\r\n              Descripcion: 'Unidad',\r\n            },\r\n            Compania: {\r\n              Descripcion: 'Compania',\r\n            },\r\n            CentroTrabajo: {\r\n              Descripcion: 'Centro de Trabajo',\r\n            },\r\n            onClick: {\r\n              action: (position = 'Gerente Desarrollo') => {\r\n                alert('Puesto elegido: ' + position);\r\n              },\r\n            },\r\n          },\r\n          {\r\n            Puesto: {\r\n              Nombre: 'Gerente Calidad',\r\n            },\r\n            Unidad: {\r\n              Descripcion: 'Unidad',\r\n            },\r\n            Compania: {\r\n              Descripcion: 'Compania',\r\n            },\r\n            CentroTrabajo: {\r\n              Descripcion: 'Centro de Trabajo',\r\n            },\r\n            onClick: {\r\n              action: (position = 'Gerente Calidad') => {\r\n                alert('Puesto elegido: ' + position);\r\n              },\r\n            },\r\n          },\r\n        ],\r\n      },\r\n    } as IHeader,\r\n    options: [\r\n      {\r\n        icon: { icon: 'dashboard.svg', type: 'svg' },\r\n        action: () => alert('Dashboard'),\r\n        route: '/dashboard',\r\n        title: 'Dashboard',\r\n      },\r\n      {\r\n        icon: { icon: 'files.svg', type: 'svg' },\r\n        action: () => alert('Files'),\r\n        route: '/files',\r\n        title: 'Files',\r\n      },\r\n    ] as ISidebarOption[],\r\n    additionalOptions: [\r\n      {\r\n        icon: { icon: 'company-logo.svg', type: 'svg' },\r\n        action: () => alert('Dashboard'),\r\n        route: '/dashboard',\r\n        title: 'Dashboard',\r\n      },\r\n    ] as ISidebarOption[],\r\n    footerOptions: [\r\n      {\r\n        icon: { icon: 'settings.svg', type: 'svg' },\r\n        action: () => alert('settings'),\r\n        route: '/settings',\r\n        title: 'Settings',\r\n      },\r\n      {\r\n        icon: { icon: 'dashboard.svg', type: 'svg' },\r\n        action: () => alert('dashboard'),\r\n        route: '/dashboard',\r\n        title: 'dashboard',\r\n      },\r\n    ] as ISidebarOption[],\r\n  },\r\n}"
+                    "defaultValue": "{\r\n  title: 'Evolution Components/Sidebar',\r\n  component: SidebarComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideAnimationsAsync(), provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    twClass:{\r\n      control: {\r\n        type: 'text'\r\n      }\r\n    },\r\n    commonProps: {\r\n      description: 'Common properties shared between the header and the sidebar, including icons, titles, and user data.',\r\n      control: {\r\n        type: 'object',\r\n      },\r\n    },\r\n    options: {\r\n      description: 'Sidebar navigation or action options with icons and titles.',\r\n      control: {\r\n        type: 'object',\r\n      },\r\n    },\r\n    additionalOptions: {\r\n      description: 'Additional options that will be displayed in the sidebar (only on mobile version).',\r\n      control: {\r\n        type: 'object',\r\n      },\r\n    },\r\n    footerOptions: {\r\n      description: 'Options specifically for the footer section of the sidebar.',\r\n      control: {\r\n        type: 'object',\r\n      },\r\n    },\r\n  },\r\n  args: {\r\n    commonProps: {\r\n      icons: {\r\n        appMenuIcons: {\r\n          buttonIcon: {\r\n            icon: 'app-menu.svg',\r\n            type: 'svg',\r\n          },\r\n        },\r\n        authorizationMenuIcons: {\r\n          buttonIcon: {\r\n            icon: 'fact_check',\r\n            type: 'class',\r\n          },\r\n        },\r\n        notificationMenuIcons: {\r\n          buttonIcon: {\r\n            icon: 'bell.svg',\r\n            type: 'svg',\r\n          },\r\n        },\r\n        settingMenuIcons: {\r\n          buttonIcon: {\r\n            icon: 'settings.svg',\r\n            type: 'svg',\r\n          },\r\n        },\r\n      } as IHeaderIcons,\r\n      titles: {\r\n        appTitle: 'Tus aplicaciones',\r\n        authorizationTitle: 'Autorizaciones',\r\n        notificationTitle: 'Notificaciones',\r\n        settingTitle: 'Ajustes',\r\n      } as IHeaderTitles,\r\n      items: {\r\n        appItems: [\r\n          {\r\n            label: 'Evo Wave',\r\n            icon: {\r\n              icon: 'company-logo.svg',\r\n              type: 'svg',\r\n            },\r\n            url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoWave',\r\n          },\r\n          {\r\n            label: 'Evo Chart',\r\n            icon: {\r\n              icon: 'company-logo.svg',\r\n              type: 'svg',\r\n            },\r\n            url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoChart',\r\n          },\r\n        ],\r\n        authorizationItems: [\r\n          {\r\n            label: 'Carlos Sanchez requiere autorización de acceso al Programa Recursos Humanos',\r\n            avatarName: 'Carlos Sanchez',\r\n            avatarImgUrl:\r\n              'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n            onClick: {\r\n              action: (name = 'Carlos Sanchez') => {\r\n                alert('Se autorizó a ' + name);\r\n              },\r\n            },\r\n          },\r\n          {\r\n            label: 'Samuel Lopez requiere autorización de acceso al Programa Desarrollo',\r\n            avatarName: 'Samuel Lopez',\r\n            avatarImgUrl:\r\n              'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n            onClick: {\r\n              action: () => {\r\n                alert('Se autorizó a Samuel Lopez');\r\n              },\r\n            },\r\n          },\r\n        ],\r\n        notificationItems: [\r\n          {\r\n            label: 'Carlos Sanchez finalizó Programa Recursos Humanos',\r\n            avatarName: 'Carlos Sanchez',\r\n            avatarImgUrl:\r\n              'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n            onClick: {\r\n              action: (name = 'Carlos Sanchez') => {\r\n                alert('Notificación de: ' + name);\r\n              },\r\n            },\r\n          },\r\n        ],\r\n        seeAllButton: {\r\n          seeAllAuthorizations: {\r\n            label: 'Ver todas',\r\n            onClick: {\r\n              action: (path = '/autorizaciones') => {\r\n                alert('Redirige a pantalla: ' + path);\r\n              },\r\n            },\r\n          },\r\n          seeAllNotifications: {\r\n            label: 'Ver todas',\r\n            onClick: {\r\n              action: (path = '/notificaciones') => {\r\n                alert('Redirige a pantalla: ' + path);\r\n              },\r\n            },\r\n          },\r\n        },\r\n        settingMenu: {\r\n          options: [\r\n            {\r\n              name: 'Apellido primero',\r\n            },\r\n            {\r\n              name: 'Autorizaciones',\r\n            },\r\n          ],\r\n        },\r\n        userDataItems: [\r\n          {\r\n            label: 'Administrar Cuenta',\r\n            icon: {\r\n              icon: 'manage_accounts',\r\n              type: 'class',\r\n            },\r\n            url: 'https://localhost:7002/identity/account/manage',\r\n          },\r\n          {\r\n            label: 'Cerrar Sesión',\r\n            onClick: {\r\n              action: () => {\r\n                alert('Se ejecuta Logout');\r\n              },\r\n            },\r\n          },\r\n        ],\r\n      } as IHeaderItems,\r\n      companyData: {\r\n        companyImage: 'company-logo.svg',\r\n        companyName: 'ASEINFO',\r\n      } as IHeaderCompanyData,\r\n      userData: {\r\n        fullName: 'Stela Lopez',\r\n        email: 'slopez@empresa.com',\r\n        jobPositions: [\r\n          {\r\n            Puesto: {\r\n              Nombre: 'Gerente Desarrollo',\r\n            },\r\n            Unidad: {\r\n              Descripcion: 'Unidad',\r\n            },\r\n            Compania: {\r\n              Descripcion: 'Compania',\r\n            },\r\n            CentroTrabajo: {\r\n              Descripcion: 'Centro de Trabajo',\r\n            },\r\n            onClick: {\r\n              action: (position = 'Gerente Desarrollo') => {\r\n                alert('Puesto elegido: ' + position);\r\n              },\r\n            },\r\n          },\r\n        ],\r\n      },\r\n      moreOptions: {\r\n        label: 'Ver más',\r\n        insideLabel: 'Más opciones',\r\n        icon: {\r\n          icon: 'dashboard.svg',\r\n          type: 'svg',\r\n        },\r\n        options: [\r\n          {\r\n            label: 'Opción 1',\r\n            icon: {\r\n              icon: 'dashboard.svg',\r\n              type: 'svg',\r\n            },\r\n            route: '/opcion1',\r\n            action: () => alert('Opción 1 seleccionada'),\r\n          },\r\n          {\r\n            label: 'Opción 2',\r\n            icon: {\r\n              icon: 'settings.svg',\r\n              type: 'svg',\r\n            },\r\n            route: '/opcion2',\r\n            action: () => alert('Opción 2 seleccionada'),\r\n          },\r\n          {\r\n            label: 'Opción 3',\r\n            icon: {\r\n              icon: 'files.svg',\r\n              type: 'svg',\r\n            },\r\n            route: '/opcion3',\r\n            action: () => alert('Opción 3 seleccionada'),\r\n          },\r\n          {\r\n            label: 'Opción 1',\r\n            icon: {\r\n              icon: 'dashboard.svg',\r\n              type: 'svg',\r\n            },\r\n            route: '/opcion1',\r\n            action: () => alert('Opción 1 seleccionada'),\r\n          },\r\n          {\r\n            label: 'Opción 2',\r\n            icon: {\r\n              icon: 'settings.svg',\r\n              type: 'svg',\r\n            },\r\n            route: '/opcion2',\r\n            action: () => alert('Opción 2 seleccionada'),\r\n          },\r\n          {\r\n            label: 'Opción 3',\r\n            icon: {\r\n              icon: 'files.svg',\r\n              type: 'svg',\r\n            },\r\n            route: '/opcion3',\r\n            action: () => alert('Opción 3 seleccionada'),\r\n          },\r\n          {\r\n            label: 'Opción 1',\r\n            icon: {\r\n              icon: 'dashboard.svg',\r\n              type: 'svg',\r\n            },\r\n            route: '/opcion1',\r\n            action: () => alert('Opción 1 seleccionada'),\r\n          },\r\n          {\r\n            label: 'Opción 2',\r\n            icon: {\r\n              icon: 'settings.svg',\r\n              type: 'svg',\r\n            },\r\n            route: '/opcion2',\r\n            action: () => alert('Opción 2 seleccionada'),\r\n          },\r\n          {\r\n            label: 'Opción 3',\r\n            icon: {\r\n              icon: 'files.svg',\r\n              type: 'svg',\r\n            },\r\n            route: '/opcion3',\r\n            action: () => alert('Opción 3 seleccionada'),\r\n          },\r\n          {\r\n            label: 'Opción 3',\r\n            icon: {\r\n              icon: 'files.svg',\r\n              type: 'svg',\r\n            },\r\n            route: '/opcion3',\r\n            action: () => alert('Opción 3 seleccionada'),\r\n          },\r\n        ],\r\n      },\r\n    } as IHeader,\r\n    options: [\r\n      {\r\n        icon: { icon: 'dashboard.svg', type: 'svg' },\r\n        action: () => alert('Dashboard'),\r\n        route: '/dashboard',\r\n        title: 'Dashboard',\r\n      },\r\n      {\r\n        icon: { icon: 'files.svg', type: 'svg' },\r\n        action: () => alert('Files'),\r\n        route: '/files',\r\n        title: 'Files',\r\n      },\r\n    ] as ISidebarOption[],\r\n    additionalOptions: [\r\n      {\r\n        icon: { icon: 'company-logo.svg', type: 'svg' },\r\n        action: () => alert('Dashboard'),\r\n        route: '/dashboard',\r\n        title: 'Dashboard',\r\n      },\r\n    ] as ISidebarOption[],\r\n    footerOptions: [\r\n      {\r\n        icon: { icon: 'settings.svg', type: 'svg' },\r\n        action: () => alert('settings'),\r\n        route: '/settings',\r\n        title: 'Settings',\r\n      },\r\n      {\r\n        icon: { icon: 'dashboard.svg', type: 'svg' },\r\n        action: () => alert('dashboard'),\r\n        route: '/dashboard',\r\n        title: 'Dashboard',\r\n      },\r\n    ] as ISidebarOption[],\r\n    twClass: ''\r\n  },\r\n}"
                 }
             ],
             "stories/svg.stories.ts": [
@@ -2569,6 +2776,38 @@
                     "deprecationMessage": "",
                     "type": "Story",
                     "defaultValue": "{\r\n  args: {\r\n    columns: 5,\r\n  },\r\n}"
+                }
+            ],
+            "stories/pagination.stories.ts": [
+                {
+                    "name": "defaultConfig",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/pagination.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\r\n  currentPage: 1,\r\n  totalPages: 5,\r\n  pageSize: 10,\r\n  totalItems: 50,\r\n  titles: {\r\n    showing: 'Mostrando',\r\n    results: 'resultados',\r\n    page: 'Página',\r\n    of: 'de'\r\n  },\r\n  twClass: ''\r\n}"
+                },
+                {
+                    "name": "InteractivePagination",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/pagination.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\r\n  render: (args) => {\r\n    const handleNextPage = () => {\r\n      if (args.config.currentPage < args.config.totalPages) {\r\n        args.config.currentPage += 1;\r\n      }\r\n    };\r\n\r\n    const handlePreviousPage = () => {\r\n      if (args.config.currentPage > 1) {\r\n        args.config.currentPage -= 1;\r\n      }\r\n    };\r\n\r\n    const handlePageSelected = (event: { page: number }) => {\r\n      args.config.currentPage = event.page;\r\n    };\r\n\r\n    return {\r\n      props: {\r\n        ...args,\r\n        nextPageClicked: handleNextPage,\r\n        previousPageClicked: handlePreviousPage,\r\n        pageSelected: handlePageSelected,\r\n      },\r\n    };\r\n  },\r\n  args: {\r\n    config: { ...defaultConfig },\r\n  },\r\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/pagination.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<PaginationComponent>",
+                    "defaultValue": "{\r\n  title: 'Evolution Components/Pagination',\r\n  component: PaginationComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
                 }
             ],
             "stories/avatar.stories.ts": [
@@ -2722,6 +2961,45 @@
         },
         "groupedEnumerations": {},
         "groupedTypeAliases": {
+            "stories/accordion.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<AccordionComponent>",
+                    "file": "stories/accordion.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "stories/action-menu.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<ActionMenuComponent>",
+                    "file": "stories/action-menu.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "stories/assign-card.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<AssignCardComponent>",
+                    "file": "stories/assign-card.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
             "stories/avatar.stories.ts": [
                 {
                     "name": "Story",
@@ -2742,19 +3020,6 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<ButtonComponent>",
                     "file": "stories/button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
-            "stories/card.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<CardComponent>",
-                    "file": "stories/card.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -2865,6 +3130,19 @@
                     "kind": 183
                 }
             ],
+            "stories/pagination.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<PaginationComponent>",
+                    "file": "stories/pagination.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
             "stories/program-card.stories.ts": [
                 {
                     "name": "Story",
@@ -2872,19 +3150,6 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<ProgramCardComponent>",
                     "file": "stories/program-card.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "description": "",
-                    "kind": 183
-                }
-            ],
-            "stories/program-table.stories.ts": [
-                {
-                    "name": "Story",
-                    "ctype": "miscellaneous",
-                    "subtype": "typealias",
-                    "rawtype": "StoryObj<ProgramTableComponent>",
-                    "file": "stories/program-table.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -2924,6 +3189,19 @@
                     "subtype": "typealias",
                     "rawtype": "StoryObj<SidebarComponent>",
                     "file": "stories/sidebar.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 183
+                }
+            ],
+            "stories/smart-list.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "StoryObj<SmartListComponent>",
+                    "file": "stories/smart-list.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -2995,6 +3273,116 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "preview",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/accordion.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/accordion.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/accordion.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "OpenAccordion",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/action-menu.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/action-menu.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "defaultConfig",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/action-menu.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/assign-card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/assign-card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "defaultConfig",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/assign-card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/assign-card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "SmallSize",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/assign-card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "SmallSizeSmallOptions",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -3165,56 +3553,6 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "WithSvgIcon",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "stories/card.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Default",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "stories/card.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "defaultConfig",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "stories/card.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "meta",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "stories/card.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "SmallSize",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "stories/card.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "SmallSizeSmallOptions",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -3840,6 +4178,36 @@
                 "status": "low"
             },
             {
+                "filePath": "stories/pagination.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "defaultConfig",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/pagination.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "InteractivePagination",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/pagination.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "stories/program-card.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -3885,46 +4253,6 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Small",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "stories/program-table.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "data",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "stories/program-table.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Default",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "stories/program-table.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "meta",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "stories/program-table.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "smartlistConfig",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -4055,6 +4383,56 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/smart-list.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "data",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/smart-list.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/smart-list.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/smart-list.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "smartlistConfig",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/smart-list.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "titles",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

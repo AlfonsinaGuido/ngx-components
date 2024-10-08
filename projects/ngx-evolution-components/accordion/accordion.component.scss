@@ -1,0 +1,117 @@
+.accordion {
+  width: 100%;
+  background-color: var(--white);
+
+  mat-divider {
+    margin: 0;
+    border-top: 1px solid var(--light-gray);
+  }
+
+  .accordion-content {
+    .accordion-item {
+      display: flex;
+      border: none;
+      flex-direction: row;
+      border-radius: 0px;
+      font-size: 16px;
+      justify-content: space-between;
+      padding: 10px;
+      padding-left: 40px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+  }
+
+  .accordion-content.moreOptions {
+    max-height: 0px;
+    overflow-y: auto;
+    height: auto;
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: var(--dark-gray);
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: var(--light-gray);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: var(--primary-color);
+    }
+
+    .accordion-item {
+      padding-left: 10px;
+      padding-bottom: 0px;
+      padding-top: 0px;
+    }
+
+    .accordion-item mat-icon.mat-icon.notranslate.mat-icon-no-color {
+      color: black;
+    }
+
+    .accordion-item div.label {
+      color: black;
+    }
+  }
+
+  evo-button {
+    .evo-button.accordion__evo-button.without-border.theme-secondary {
+      background-color: transparent;
+      box-shadow: none;
+      border: none !important;
+
+      &:hover {
+        border: none !important;
+      }
+    }
+  }
+
+  .accordion-item {
+    border-bottom: 1px solid var(--light-gray);
+  }
+
+  .accordion-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--light-gray);
+    }
+  }
+
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition:
+      max-height 0.3s ease-in-out,
+      overflow 0.3s ease-in-out;
+
+    &.open {
+      transition:
+        max-height 0.3s ease-in-out,
+        overflow 0.3s ease-in-out;
+    }
+
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: var(--white-smoke);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--light-gray);
+      border-radius: 10px;
+    }
+  }
+}

@@ -12,10 +12,7 @@
   ></evo-button>
 
   <!-- Indicador de la página actual y el total de páginas -->
-  <span
-    >{{ config.titles.page }} {{ config.currentPage }} {{ config.titles.of }}
-    {{ config.totalPages }}</span
-  >
+  <span>{{ getPageIndicatorText() }}</span>
 
   <!-- Botón para ir a la página siguiente -->
   <evo-button
@@ -29,10 +26,5 @@
   ></evo-button>
 
   <!-- Información sobre el rango de ítems mostrados y el total de resultados -->
-  <span>
-    {{ config.titles.showing }}
-    {{ (config.currentPage - 1) * config.pageSize + 1 }} -
-    {{ getMinValue(config.currentPage * config.pageSize, config.totalItems) }}
-    {{ config.titles.results }}
-  </span>
+  <span>{{ getItemsRangeText() }}</span>
 </div>

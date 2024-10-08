@@ -64,13 +64,14 @@ export class ActionMenuComponent {
   /**
    * Obtiene el ícono correspondiente para una acción basada en su índice.
    * @param index El índice de la acción.
-   * @returns El ícono correspondiente o `undefined` si no hay ícono.
+   * @returns El ícono correspondiente o un ícono con nombre vacío si no hay ícono.
    */
-  getActionIcon(index: number): IIcon | undefined {
+  getActionIcon(index: number): IIcon {
     if (this.config.icons && index >= 0 && index < this.config.icons.length) {
       return this.config.icons[index];
     }
-    return undefined;
+    // Retorna un ícono con nombre vacío en lugar de `undefined`
+    return { type: 'class', icon: '' };
   }
 
   // Función para determinar si se debe mostrar el tooltip

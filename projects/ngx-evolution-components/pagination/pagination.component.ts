@@ -73,4 +73,23 @@ export class PaginationComponent {
       this.config.twClass,
     );
   }
+
+  /**
+   * Obtiene el texto para el indicador de la página actual y el total de páginas.
+   */
+  getPageIndicatorText(): string {
+    return `${this.config.titles.page} ${this.config.currentPage} ${this.config.titles.of} ${this.config.totalPages}`;
+  }
+
+  /**
+   * Obtiene el texto para mostrar el rango de ítems y el total de resultados.
+   */
+  getItemsRangeText(): string {
+    const startItem = (this.config.currentPage - 1) * this.config.pageSize + 1;
+    const endItem = this.getMinValue(
+      this.config.currentPage * this.config.pageSize,
+      this.config.totalItems,
+    );
+    return `${this.config.titles.showing} ${startItem} - ${endItem} ${this.config.titles.results}`;
+  }
 }

@@ -102,7 +102,7 @@ describe('ActionMenuComponent', () => {
 
     expect(component.getActionIcon(0)).toEqual(icons[0]);
     expect(component.getActionIcon(1)).toEqual(icons[1]);
-    expect(component.getActionIcon(2)).toBeUndefined();
+    expect(component.getActionIcon(2)).toEqual({ type: 'class', icon: '' });
   });
 
   it('should return true for shouldShowTooltip when text length exceeds the maxLength', () => {

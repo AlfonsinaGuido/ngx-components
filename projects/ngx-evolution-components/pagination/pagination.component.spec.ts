@@ -4,7 +4,6 @@ import { PaginationComponent } from './pagination.component';
 import { ButtonComponent } from '../public-api';
 import { CommonModule } from '@angular/common';
 import { ClassUtilityService } from '../shared/services/class-utility.service';
-
 describe('PaginationComponent', () => {
   let component: PaginationComponent;
   let fixture: ComponentFixture<PaginationComponent>;
@@ -32,6 +31,33 @@ describe('PaginationComponent', () => {
 
   it('should create the component', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should return correct page indicator text using getPageIndicatorText method', () => {
+    component.config = { ...component.config, currentPage: 2, totalPages: 5 };
+    fixture.detectChanges();
+
+    const pageIndicatorText = component.getPageIndicatorText();
+    expect(pageIndicatorText).toBe('Página 2 de 5');
+  });
+
+  it('should return correct items range text using getItemsRangeText method', () => {
+    component.config = {
+      ...component.config,
+      currentPage: 3,
+      pageSize: 10,
+      totalItems: 25,
+      titles: {
+        showing: 'Mostrando',
+        results: 'resultados',
+        page: 'Página',
+        of: 'de',
+      },
+    };
+    fixture.detectChanges();
+
+    const itemsRangeText = component.getItemsRangeText();
+    expect(itemsRangeText).toBe('Mostrando 21 - 25 resultados');
   });
 
   it('should disable the previous button on the first page', () => {

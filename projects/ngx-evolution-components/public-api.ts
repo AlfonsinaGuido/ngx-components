@@ -14,6 +14,7 @@ export * from './header/header.component';
 export * from './footer/footer.component';
 export * from './dialog/dialog.component';
 export * from './tag/tag.component';
+export * from './data-grid/data-grid.component';
 export * from './carta-actividad/carta-actividad.component';
 export * from './header-columna/header-columna.component';
 export * from './columna-tablero/columna-tablero.component';
@@ -29,6 +30,7 @@ export * from './search-bar/search-bar.component';
 export * from './action-menu/action-menu.component';
 export * from './pagination/pagination.component';
 export * from './accordion/accordion.component';
+export * from './breadcrumb/breadcrumb.component';
 
 // Services
 export * from './shared/services/viewport.service';
@@ -40,6 +42,7 @@ export * from './shared/interfaces/iinput.interface';
 export * from './shared/interfaces/iselect.interface';
 export * from './shared/interfaces/idialog.interface';
 export * from './shared/interfaces/ievaluacion.interface';
+export * from './shared/interfaces/iactividad-programa.interface';
 export * from './shared/interfaces/iactividad.interface';
 export * from './shared/interfaces/icolumna.interface';
 export * from './shared/interfaces/iheader.interface';
@@ -55,6 +58,8 @@ export * from './shared/interfaces/icard-config.inteface';
 export * from './shared/interfaces/iaction-menu.interface';
 export * from './shared/interfaces/ipagination.interface';
 export * from './shared/interfaces/iaccordion.interface';
+export * from './shared/interfaces/idatagrid.interface';
+export * from './shared/interfaces/ibreadcrumb.interface';
 
 // Api Interfaces
 export * from './shared/interfaces/api/iempleado.interface';

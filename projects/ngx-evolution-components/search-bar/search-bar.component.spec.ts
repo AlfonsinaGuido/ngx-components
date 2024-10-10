@@ -90,15 +90,15 @@ describe('SearchBarComponent', () => {
     const mockTwClass = 'custom-class';
     component.twClass = mockTwClass;
     mockClassUtilityService.getCombinedClasses.and.returnValue(
-      'search-bar custom-class',
+      'evo-search-bar custom-class',
     );
     fixture.detectChanges();
 
     const classes = component.getClasses();
     expect(mockClassUtilityService.getCombinedClasses).toHaveBeenCalledWith(
-      'search-bar',
+      'evo-search-bar',
       mockTwClass,
     );
-    expect(classes).toBe('search-bar custom-class');
+    expect(classes).toBe('evo-search-bar custom-class');
   });
 });

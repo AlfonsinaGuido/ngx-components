@@ -169,7 +169,7 @@ export class SidebarComponent implements OnInit, OnChanges {
    * @returns {string} Clases CSS aplicadas al componente.
    */
   getClasses(): string {
-    return this.classUtility.getCombinedClasses('layout', this.twClass);
+    return this.classUtility.getCombinedClasses('evo-side-bar', this.twClass);
   }
 
   /**

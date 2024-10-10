@@ -185,15 +185,15 @@ describe('SidebarComponent', () => {
     const mockTwClass = 'custom-class';
     component.twClass = mockTwClass;
     mockClassUtilityService.getCombinedClasses.and.returnValue(
-      'layout custom-class',
+      'evo-side-bar custom-class',
     );
     fixture.detectChanges();
 
     const classes = component.getClasses();
     expect(mockClassUtilityService.getCombinedClasses).toHaveBeenCalledWith(
-      'layout',
+      'evo-side-bar',
       mockTwClass,
     );
-    expect(classes).toBe('layout custom-class');
+    expect(classes).toBe('evo-side-bar custom-class');
   });
 });

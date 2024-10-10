@@ -14,7 +14,7 @@ import { ClassUtilityService } from '../shared/services/class-utility.service';
   standalone: true,
   imports: [CommonModule, ButtonComponent],
   templateUrl: './pagination.component.html',
-  styleUrls: ['./pagination.component.scss'],
+  styleUrls: ['./pagination.component.scss', '../styles/output.scss'],
   encapsulation: ViewEncapsulation.None,
 })
 export class PaginationComponent {
@@ -69,7 +69,7 @@ export class PaginationComponent {
    */
   getClasses(): string {
     return this.classUtility.getCombinedClasses(
-      'pagination flex justify-around items-center mt-4',
+      'evo-pagination',
       this.config.twClass,
     );
   }

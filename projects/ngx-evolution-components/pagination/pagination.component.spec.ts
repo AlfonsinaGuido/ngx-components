@@ -136,17 +136,15 @@ describe('PaginationComponent', () => {
     const mockTwClass = 'custom-class';
     component.config.twClass = mockTwClass;
     mockClassUtilityService.getCombinedClasses.and.returnValue(
-      'pagination flex justify-around items-center mt-4 custom-class',
+      'evo-pagination custom-class',
     );
     fixture.detectChanges();
 
     const classes = component.getClasses();
     expect(mockClassUtilityService.getCombinedClasses).toHaveBeenCalledWith(
-      'pagination flex justify-around items-center mt-4',
+      'evo-pagination',
       mockTwClass,
     );
-    expect(classes).toBe(
-      'pagination flex justify-around items-center mt-4 custom-class',
-    );
+    expect(classes).toBe('evo-pagination custom-class');
   });
 });

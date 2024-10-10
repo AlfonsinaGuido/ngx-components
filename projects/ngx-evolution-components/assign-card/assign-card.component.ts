@@ -7,8 +7,7 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
-import { ButtonComponent } from '../public-api';
-import { ICardConfig, ICardItem } from '../public-api';
+import { ButtonComponent, ICardConfig, ICardItem } from '../public-api';
 import { ClassUtilityService } from '../shared/services/class-utility.service';
 
 @Component({
@@ -38,7 +37,10 @@ export class AssignCardComponent {
    * @returns {string} Clases CSS aplicadas al acordeón.
    */
   getClasses(): string {
-    return this.classUtility.getCombinedClasses('card', this.config.twClass);
+    return this.classUtility.getCombinedClasses(
+      'evo-assign-card',
+      this.config.twClass,
+    );
   }
 
   /**
@@ -54,8 +56,10 @@ export class AssignCardComponent {
    * Maneja el clic en el botón de acción y emite un evento con los IDs de los elementos.
    */
   onButtonClick(): void {
-    const itemIds = this.config.items.map((item) => item.id);
-    this.buttonClick.emit(itemIds);
+    if (this.config.items.length > 0) {
+      const itemIds = this.config.items.map((item) => item.id);
+      this.buttonClick.emit(itemIds);
+    }
   }
 
   /**

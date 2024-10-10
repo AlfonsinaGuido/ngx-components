@@ -63,6 +63,6 @@ export class SearchBarComponent {
    * @returns {string} Clases CSS aplicadas al componente.
    */
   getClasses(): string {
-    return this.classUtility.getCombinedClasses('search-bar', this.twClass);
+    return this.classUtility.getCombinedClasses('evo-search-bar', this.twClass);
   }
 }

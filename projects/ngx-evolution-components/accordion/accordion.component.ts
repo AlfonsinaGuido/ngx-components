@@ -47,7 +47,7 @@ export class AccordionComponent {
    */
   getClasses(): string {
     return this.classUtility.getCombinedClasses(
-      'accordion',
+      'evo-accordion',
       this.config.twClass,
     );
   }

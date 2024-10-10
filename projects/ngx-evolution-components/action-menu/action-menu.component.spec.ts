@@ -48,13 +48,19 @@ describe('ActionMenuComponent', () => {
     spyOn(component, 'closeActionsMenu').and.callThrough();
     spyOn(component.menuClosed, 'emit');
 
+    // Configuramos el menú como abierto para que se renderice el overlay
     component.config = {
       ...component.config,
       isOpen: true,
     };
     fixture.detectChanges();
 
-    const overlayElement = fixture.debugElement.query(By.css('.overlay'));
+    const overlayElement = fixture.debugElement.query(
+      By.css('.evo-actions-menu-overlay'),
+    );
+
+    expect(overlayElement).toBeTruthy();
+
     overlayElement.triggerEventHandler('click', null);
     fixture.detectChanges();
 
@@ -120,15 +126,15 @@ describe('ActionMenuComponent', () => {
     const mockTwClass = 'custom-class';
     component.config.twClass = mockTwClass;
     mockClassUtilityService.getCombinedClasses.and.returnValue(
-      'actions-menu custom-class',
+      'evo-actions-menu custom-class',
     );
     fixture.detectChanges();
 
     const classes = component.getClasses();
     expect(mockClassUtilityService.getCombinedClasses).toHaveBeenCalledWith(
-      'actions-menu',
+      'evo-actions-menu',
       mockTwClass,
     );
-    expect(classes).toBe('actions-menu custom-class');
+    expect(classes).toBe('evo-actions-menu custom-class');
   });
 });

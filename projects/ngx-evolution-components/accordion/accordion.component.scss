@@ -1,4 +1,4 @@
-.accordion {
+.evo-accordion {
   width: 100%;
   background-color: var(--white);
 
@@ -60,6 +60,7 @@
 
   evo-button {
     button.evo-button.accordion__evo-button {
+      padding-left: 14px;
       color: black;
       background-color: transparent;
       box-shadow: none;

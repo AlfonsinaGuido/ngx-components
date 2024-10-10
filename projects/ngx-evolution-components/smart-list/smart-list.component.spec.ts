@@ -79,7 +79,6 @@ describe('SmartListComponent', () => {
   };
 
   beforeEach(async () => {
-    // Inicialización de los mocks y espías para servicios
     viewportServiceMock = jasmine.createSpyObj('ViewportService', [
       'getIsMobile',
     ]);
@@ -89,9 +88,8 @@ describe('SmartListComponent', () => {
     cdrMock = jasmine.createSpyObj('ChangeDetectorRef', ['detectChanges']);
     elementRefMock = new ElementRef(document.createElement('div'));
 
-    // Configuración del TestBed antes de crear el componente
     await TestBed.configureTestingModule({
-      imports: [SmartListComponent], // Importa el componente standalone aquí
+      imports: [SmartListComponent],
       providers: [
         { provide: ViewportService, useValue: viewportServiceMock },
         { provide: ClassUtilityService, useValue: classUtilityServiceMock },
@@ -102,7 +100,6 @@ describe('SmartListComponent', () => {
   });
 
   beforeEach(() => {
-    // Creación del componente y asignación de mocks después de la configuración de TestBed
     fixture = TestBed.createComponent(SmartListComponent);
     component = fixture.componentInstance;
     viewportServiceMock.getIsMobile.and.returnValue(of(false));
@@ -116,11 +113,11 @@ describe('SmartListComponent', () => {
   });
 
   it('should display the correct number of items based on pagination', () => {
-    component.data = mockData; // Ensure data is populated before pagination
+    component.data = mockData;
     component.pageSize = 1;
     component.paginate();
     fixture.detectChanges();
-    expect(component.paginatedItems.length).toBe(1); // Verify correct pagination
+    expect(component.paginatedItems.length).toBe(1);
   });
 
   it('should toggle the actions menu for a specific item', () => {
@@ -149,9 +146,9 @@ describe('SmartListComponent', () => {
 
   it('should emit columnSort event when a column is sorted', () => {
     spyOn(component.columnSort, 'emit');
-    component.metadata = mockConfig.Metadata; // Asegúrate de que las columnas estén configuradas
-    component.sortableColumns = [0]; // Marca la primera columna como ordenable
-    component.toggleSort('id'); // Llama al método para activar la ordenación
+    component.metadata = mockConfig.Metadata;
+    component.sortableColumns = [0];
+    component.toggleSort('id');
     expect(component.columnSort.emit).toHaveBeenCalledWith({
       column: 'id',
       order: 'asc',
@@ -331,35 +328,215 @@ describe('SmartListComponent', () => {
   });
 
   it('should return correct CSS classes based on context', () => {
-    classUtilityServiceMock.getCombinedClasses.and.returnValue('base-classes');
+    classUtilityServiceMock.getCombinedClasses.and.callFake(
+      (baseClasses: string, twClass: string) => {
+        return `${baseClasses} ${twClass}`.trim().replace(/\s+/g, ' ');
+      },
+    );
 
-    const tableClasses = component.getClasses('table-container');
-    expect(tableClasses).toContain('base-classes table-container-class');
+    const tableClasses = component.getClasses('evo-table-container');
+    expect(tableClasses).toContain(
+      'evo-table-container evo-table-container-class',
+    );
 
-    const cardClasses = component.getClasses('card-container');
-    expect(cardClasses).toContain('base-classes card-container-class');
+    const cardClasses = component.getClasses('evo-card-container');
+    expect(cardClasses).toContain(
+      'evo-card-container evo-card-container-class',
+    );
 
     const defaultClasses = component.getClasses('unknown-context');
-    expect(defaultClasses).toContain('base-classes');
+    expect(defaultClasses).toContain('unknown-context');
   });
 
   it('should not navigate beyond the first or last page', () => {
     component.page = 1;
     component.previousPage();
-    expect(component.page).toBe(1); // No debe cambiar porque ya estamos en la primera página
+    expect(component.page).toBe(1);
 
     component.page = component.totalPages;
     component.nextPage();
-    expect(component.page).toBe(component.totalPages); // No debe cambiar porque ya estamos en la última página
+    expect(component.page).toBe(component.totalPages);
   });
 
   it('should adjust page size when viewport state changes to mobile', () => {
     viewportServiceMock.getIsMobile.and.returnValue(of(true));
-    component.ngOnInit(); // Forzar a que se ejecute la suscripción y ajuste el tamaño de página
+    component.ngOnInit();
     expect(component.pageSize).toBe(1);
 
     viewportServiceMock.getIsMobile.and.returnValue(of(false));
-    component.ngOnInit(); // Forzar el cambio a no móvil
+    component.ngOnInit();
     expect(component.pageSize).toBe(component.initialPageSize);
+  });
+
+  it('should update page size and repaginate when pageSize is manually changed', () => {
+    component.pageSize = 5;
+    component.paginate();
+    expect(component.paginatedItems.length).toBeLessThanOrEqual(5);
+
+    component.pageSize = 2;
+    component.paginate();
+    expect(component.paginatedItems.length).toBeLessThanOrEqual(2);
+  });
+
+  it('should correctly handle viewport service subscription on mobile state change', () => {
+    viewportServiceMock.getIsMobile.and.returnValue(of(true));
+    component.ngOnInit();
+    expect(component.isMobile).toBeTrue();
+    expect(component.pageSize).toBe(1);
+
+    viewportServiceMock.getIsMobile.and.returnValue(of(false));
+    component.ngOnInit();
+    expect(component.isMobile).toBeFalse();
+    expect(component.pageSize).toBe(component.initialPageSize);
+  });
+
+  it('should reset sort state when toggling sort on a column', () => {
+    component.metadata = mockConfig.Metadata;
+    component.sortableColumns = [0];
+
+    component.toggleSort('id');
+    expect(component.sortState['id']).toBe('asc');
+
+    component.toggleSort('id');
+    expect(component.sortState['id']).toBe('desc');
+
+    component.toggleSort('id');
+    expect(component.sortState['id']).toBeNull();
+  });
+
+  it('should not display action button if there are no actions configured', () => {
+    component.metadata = { ...mockConfig.Metadata, Buttons: [] };
+    fixture.detectChanges();
+
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('evo-button')).toBeNull();
+  });
+
+  it('should correctly handle visibility of columns based on hiddenColumns input', () => {
+    component.metadata = mockConfig.Metadata;
+    component.hiddenColumns = [1];
+    fixture.detectChanges();
+
+    const visibleColumns = component.getVisibleColumns();
+    expect(visibleColumns.some((col) => col.Code === 'name')).toBeFalse();
+  });
+  it('should not sort columns if no sortableColumns are defined', () => {
+    component.metadata = mockConfig.Metadata;
+    component.sortableColumns = [];
+    component.toggleSort('id');
+    expect(component.sortState['id']).toBeUndefined();
+  });
+
+  it('should not change the page if an invalid page number is provided', () => {
+    spyOn(component.pageSelected, 'emit');
+    component.totalPages = 3;
+
+    component.goToPage(0);
+    expect(component.page).toBe(1);
+
+    component.goToPage(4);
+    expect(component.page).toBe(1);
+    expect(component.pageSelected.emit).not.toHaveBeenCalled();
+  });
+
+  it('should update visible columns dynamically when hiddenColumns changes', () => {
+    component.metadata = mockConfig.Metadata;
+    component.hiddenColumns = [1];
+    const visibleColumns = component.getVisibleColumns();
+    expect(visibleColumns.length).toBe(2);
+
+    component.hiddenColumns = [];
+    const updatedVisibleColumns = component.getVisibleColumns();
+    expect(updatedVisibleColumns.length).toBe(3);
+  });
+
+  it('should close actions menu when a different item is selected', () => {
+    const item1 = mockData[0];
+    const item2 = mockData[1];
+
+    component.openActionsModal(item1);
+    expect(component.isActionsModalOpen).toBeTrue();
+    expect(component.selectedItem).toBe(item1);
+
+    component.openActionsModal(item2);
+    expect(component.selectedItem).toBe(item2);
+    expect(component.isActionsModalOpen).toBeTrue();
+  });
+
+  it('should adjust layout when switching from mobile to desktop view', () => {
+    viewportServiceMock.getIsMobile.and.returnValue(of(true));
+    component.ngOnInit();
+    expect(component.isMobile).toBeTrue();
+    expect(component.pageSize).toBe(1);
+
+    viewportServiceMock.getIsMobile.and.returnValue(of(false));
+    component.ngOnInit();
+    expect(component.isMobile).toBeFalse();
+    expect(component.pageSize).toBe(component.initialPageSize);
+  });
+
+  it('should handle initialization when metadata is missing', () => {
+    component.smartlistConfig = null;
+    component.data = mockData;
+    component.initializeTable();
+    expect(component.metadata).toBeNull();
+    expect(component.totalItems).toBe(mockData.length);
+  });
+
+  it('should reset sort state when a different column is sorted', () => {
+    component.metadata = mockConfig.Metadata;
+    component.sortableColumns = [0, 1];
+
+    component.toggleSort('id');
+    expect(component.sortState['id']).toBe('asc');
+
+    component.toggleSort('name');
+    expect(component.sortState['id']).toBeNull();
+    expect(component.sortState['name']).toBe('asc');
+  });
+
+  it('should maintain selected items across pagination', () => {
+    component.data = mockData;
+    component.pageSize = 1;
+    component.paginate();
+
+    const firstItem = component.paginatedItems[0];
+    component.toggleSelect(firstItem);
+    expect(firstItem.selected).toBeTrue();
+    expect(component.selectedItems.length).toBe(1);
+
+    component.goToPage(2);
+    expect(component.selectedItems.length).toBe(1);
+  });
+
+  it('should close action menu when opening for a different item', () => {
+    const item1 = mockData[0];
+    const item2 = mockData[1];
+
+    component.openActionsModal(item1);
+    expect(component.selectedItem).toBe(item1);
+    expect(component.isActionsModalOpen).toBeTrue();
+
+    component.openActionsModal(item2);
+    expect(component.selectedItem).toBe(item2);
+    expect(component.isActionsModalOpen).toBeTrue();
+  });
+
+  it('should adjust total pages when data length changes', () => {
+    component.data = [...mockData];
+    component.pageSize = 1;
+    component.initializeTable();
+
+    expect(component.totalPages).toBe(2);
+
+    component.data.push({
+      id: 3,
+      name: 'Item 3',
+      estado: 'agregar',
+      selected: false,
+    } as ISmartListItem);
+    component.initializeTable();
+
+    expect(component.totalPages).toBe(3);
   });
 });

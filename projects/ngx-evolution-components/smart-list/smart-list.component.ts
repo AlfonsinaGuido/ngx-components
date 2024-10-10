@@ -360,18 +360,20 @@ export class SmartListComponent implements OnInit, OnChanges {
   }
 
   /**
-   * Alterna el estado de orden en la columna seleccionada solo si está habilitada para ordenar.
+   * Alterna el estado de orden en la columna seleccionada, incluyendo el estado sin ordenar.
+   * @param columnName El nombre del campo de la columna
+   */
+  /**
+   * Alterna el estado de orden en la columna seleccionada, incluyendo el estado sin ordenar.
    * @param columnName El nombre del campo de la columna
    */
   toggleSort(columnName: string) {
-    const columnIndex = this.metadata?.Columns.findIndex(
+    const columnIndex = this.getVisibleColumns().findIndex(
       (col) => col.FieldName === columnName,
     );
 
-    if (
-      columnIndex === undefined ||
-      !this.sortableColumns?.includes(columnIndex)
-    ) {
+    // Verifica si la columna es ordenable según la lista de índices de `sortableColumns`
+    if (columnIndex === -1 || !this.sortableColumns.includes(columnIndex)) {
       return;
     }
 
@@ -382,9 +384,13 @@ export class SmartListComponent implements OnInit, OnChanges {
       }
     });
 
-    // Alterna el estado de la columna seleccionada
+    // Alterna el estado de la columna seleccionada entre 'asc', 'desc' y null
     this.sortState[columnName] =
-      this.sortState[columnName] === 'asc' ? 'desc' : 'asc';
+      this.sortState[columnName] === 'asc'
+        ? 'desc'
+        : this.sortState[columnName] === 'desc'
+          ? null
+          : 'asc';
 
     this.columnSort.emit({
       column: columnName,
@@ -399,14 +405,12 @@ export class SmartListComponent implements OnInit, OnChanges {
    * @returns El nombre del ícono para esa columna
    */
   getSortIcon(columnName: string): string {
-    const columnIndex = this.metadata?.Columns.findIndex(
+    const columnIndex = this.getVisibleColumns().findIndex(
       (col) => col.FieldName === columnName,
     );
 
-    if (
-      columnIndex !== undefined &&
-      this.sortableColumns?.includes(columnIndex)
-    ) {
+    // Verifica si la columna es ordenable según la lista de índices de `sortableColumns`
+    if (columnIndex !== -1 && this.sortableColumns.includes(columnIndex)) {
       switch (this.sortState[columnName]) {
         case 'asc':
           return 'arrow_upward';
@@ -416,7 +420,7 @@ export class SmartListComponent implements OnInit, OnChanges {
           return 'sort';
       }
     }
-    return '';
+    return 'sort';
   }
 
   /**
@@ -425,15 +429,15 @@ export class SmartListComponent implements OnInit, OnChanges {
    */
   getClasses(context: string): string {
     const baseClasses = this.classUtility.getCombinedClasses(
-      'layout',
+      context,
       this.twClass,
     );
 
     // Agrega clases adicionales según el contexto proporcionado
-    if (context === 'table-container') {
-      return `${baseClasses} table-container-class`;
-    } else if (context === 'card-container') {
-      return `${baseClasses} card-container-class`;
+    if (context === 'evo-table-container') {
+      return `${baseClasses} evo-table-container-class`;
+    } else if (context === 'evo-card-container') {
+      return `${baseClasses} evo-card-container-class`;
     }
 
     return baseClasses;

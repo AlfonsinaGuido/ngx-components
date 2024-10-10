@@ -134,15 +134,15 @@ describe('AssignCardComponent', () => {
     const mockTwClass = 'custom-class';
     component.config.twClass = mockTwClass;
     mockClassUtilityService.getCombinedClasses.and.returnValue(
-      'card custom-class',
+      'evo-assign-card custom-class',
     );
     fixture.detectChanges();
 
     const classes = component.getClasses();
     expect(mockClassUtilityService.getCombinedClasses).toHaveBeenCalledWith(
-      'card',
+      'evo-assign-card',
       mockTwClass,
     );
-    expect(classes).toBe('card custom-class');
+    expect(classes).toBe('evo-assign-card custom-class');
   });
 });

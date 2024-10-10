@@ -1,4 +1,4 @@
-.overlay {
+.evo-actions-menu-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -8,7 +8,7 @@
   z-index: 999;
 }
 
-.actions-menu {
+.evo-actions-menu {
   position: absolute;
   top: 80%;
   right: 0;
@@ -34,11 +34,6 @@
     opacity: 1;
     transform: translateY(0);
     visibility: visible;
-  }
-
-  @media (max-width: 768px) {
-    top: 0;
-    left: calc(100% + 10px);
   }
 
   ul {

@@ -1,6 +1,6 @@
 <!-- Vista de tabla para escritorio -->
 @if (!isMobile) {
-  <div [ngClass]="getClasses('table-container')">
+  <div [ngClass]="getClasses('evo-table-container')">
     <table class="evo-table w-full border-collapse">
       <thead>
         <tr>
@@ -17,19 +17,23 @@
             <th class="text-left px-2 py-1">
               <div class="flex align-center items-center">
                 <!-- Columna con header y botón de ordenamiento -->
-                <span class="header-text">{{ column.Header }}</span>
-                <evo-button
-                  class="pl-2"
-                  [icon]="{
-                    type: 'class',
-                    icon: getSortIcon(column.FieldName),
-                  }"
-                  size="sm"
-                  [withoutBorder]="true"
-                  [twClass]="'sort-button card__evo-button'"
-                  (click)="toggleSort(column.FieldName)"
-                  [theme]="'secondary'"
-                ></evo-button>
+                <span class="">{{ column.Header }}</span>
+                @if (
+                  sortableColumns.includes(getVisibleColumns().indexOf(column))
+                ) {
+                  <evo-button
+                    class="pl-2"
+                    [icon]="{
+                      type: 'class',
+                      icon: getSortIcon(column.FieldName),
+                    }"
+                    size="sm"
+                    [withoutBorder]="true"
+                    [twClass]="'sort-button card__evo-button'"
+                    (click)="toggleSort(column.FieldName)"
+                    [theme]="'secondary'"
+                  ></evo-button>
+                }
               </div>
             </th>
           }
@@ -100,9 +104,32 @@
 
 <!-- Vista de card para móvil -->
 @if (isMobile) {
-  <div [ngClass]="getClasses('card-container')">
+  <div [ngClass]="getClasses('evo-card-container')">
     @for (item of paginatedItems; track item) {
-      <div class="card">
+      <div class="card relative">
+        <!-- Botón de acciones ubicado en la parte superior derecha -->
+        <div class="absolute top-2 right-2 card-actions">
+          <evo-button
+            [icon]="{ type: 'class', icon: 'more_horiz' }"
+            [withoutBorder]="true"
+            (click)="toggleActionsMenu(item)"
+            [twClass]="'card__evo-button'"
+            [theme]="'secondary'"
+            size="sm"
+          ></evo-button>
+
+          <!-- Reutilización del action-menu -->
+          <action-menu
+            [config]="{
+              actions: currentItemActions,
+              isOpen: isActionsModalOpen && selectedItem === item,
+              icons: actionIcons,
+            }"
+            (actionSelected)="handleAction(selectedItem!, $event)"
+            (menuClosed)="closeActionsMenu()"
+          ></action-menu>
+        </div>
+
         <!-- Título general basado en 'smartlistConfig.Code' -->
         <div class="my-4">
           <h3 class="font-bold">
@@ -118,29 +145,6 @@
           <!-- Margen entre cada conjunto de dato -->
           <div class="mt-4"></div>
         }
-        <div class="w-full h-8">
-          <div class="card-actions">
-            <evo-button
-              [icon]="{ type: 'class', icon: 'more_vert' }"
-              [withoutBorder]="true"
-              (click)="toggleActionsMenu(item)"
-              [twClass]="'card__evo-button'"
-              [theme]="'secondary'"
-              size="sm"
-            ></evo-button>
-
-            <!-- Reutilización del action-menu -->
-            <action-menu
-              [config]="{
-                actions: currentItemActions,
-                isOpen: isActionsModalOpen && selectedItem === item,
-                icons: actionIcons,
-              }"
-              (actionSelected)="handleAction(selectedItem!, $event)"
-              (menuClosed)="closeActionsMenu()"
-            ></action-menu>
-          </div>
-        </div>
       </div>
     }
   </div>

@@ -28,13 +28,7 @@ export class ProgramCardComponent {
    * @returns {string} Clases CSS aplicadas.
    */
   getClasses(): string {
-    const defaultClasses = [
-      'evo-card',
-      'rounded-2xl',
-      'shadow-box',
-      'p-4',
-      'min-w-[160px]',
-    ];
+    const defaultClasses = ['evo-program-card'];
 
     const dynamicClasses = [
       this.config.isFluid !== false ? 'is-fluid' : '',

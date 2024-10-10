@@ -40,7 +40,7 @@ export class ActionMenuComponent {
    */
   getClasses(): string {
     return this.classUtility.getCombinedClasses(
-      this.config.isOpen ? 'actions-menu open' : 'actions-menu',
+      this.config.isOpen ? 'evo-actions-menu open' : 'evo-actions-menu',
       this.config.twClass,
     );
   }

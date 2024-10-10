@@ -80,16 +80,16 @@ describe('AccordionComponent', () => {
     const mockTwClass = 'custom-class';
     component.config.twClass = mockTwClass;
     mockClassUtilityService.getCombinedClasses.and.returnValue(
-      'accordion custom-class',
+      'evo-accordion custom-class',
     );
     fixture.detectChanges();
 
     const classes = component.getClasses();
     expect(mockClassUtilityService.getCombinedClasses).toHaveBeenCalledWith(
-      'accordion',
+      'evo-accordion',
       mockTwClass,
     );
-    expect(classes).toBe('accordion custom-class');
+    expect(classes).toBe('evo-accordion custom-class');
   });
 
   it('should update the icon based on the isOpen state', () => {

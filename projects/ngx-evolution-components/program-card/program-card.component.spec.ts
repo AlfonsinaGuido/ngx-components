@@ -100,18 +100,23 @@ describe('ProgramCardComponent', () => {
 
   it('should call getCombinedClasses on the ClassUtilityService with correct parameters', () => {
     const mockTwClass = 'custom-class';
+    component.config = {
+      ...component.config,
+      isFluid: true,
+      size: 'md',
+      twClass: mockTwClass,
+    };
+
     mockClassUtilityService.getCombinedClasses.and.returnValue(
-      'evo-card rounded-2xl shadow-box p-4 min-w-[160px] is-fluid size-md custom-class',
+      'evo-program-card is-fluid size-md custom-class',
     );
-    component.config.twClass = mockTwClass;
     fixture.detectChanges();
+
     const classes = component.getClasses();
     expect(mockClassUtilityService.getCombinedClasses).toHaveBeenCalledWith(
-      'evo-card rounded-2xl shadow-box p-4 min-w-[160px] is-fluid size-md',
+      'evo-program-card is-fluid size-md',
       mockTwClass,
     );
-    expect(classes).toBe(
-      'evo-card rounded-2xl shadow-box p-4 min-w-[160px] is-fluid size-md custom-class',
-    );
+    expect(classes).toBe('evo-program-card is-fluid size-md custom-class');
   });
 });

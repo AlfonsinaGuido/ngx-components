@@ -1,58 +1,122 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ProgramCardComponent } from './program-card.component';
-import { CommonModule } from '@angular/common';
-import { MatIconModule } from '@angular/material/icon';
+import { By } from '@angular/platform-browser';
+import { ProgramCardComponent } from '../public-api';
 import {
   ButtonComponent,
   SvgComponent,
-  IProgramCardInterface,
+  IProgramCardConfigInterface,
 } from '../public-api';
+import { CommonModule } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
+import { ClassUtilityService } from '../shared/services/class-utility.service';
 
 describe('ProgramCardComponent', () => {
   let component: ProgramCardComponent;
   let fixture: ComponentFixture<ProgramCardComponent>;
+  let mockClassUtilityService: jasmine.SpyObj<ClassUtilityService>;
+
+  const mockCardData: IProgramCardConfigInterface = {
+    title: 'Test Program',
+    subtitle: 'Test Subtitle',
+    activitiesCount: 5,
+    activitiesText: 'Activities',
+    weeksCount: 3,
+    weeksText: 'Weeks',
+    buttonLabel: 'Add Person',
+    buttonClasses: 'btn-primary',
+    onButtonClick: { action: jasmine.createSpy('buttonClickAction') },
+    twClass: 'custom-class',
+    isFluid: true,
+    size: 'md',
+  };
 
   beforeEach(async () => {
+    mockClassUtilityService = jasmine.createSpyObj('ClassUtilityService', [
+      'getCombinedClasses',
+    ]);
+
     await TestBed.configureTestingModule({
       imports: [
         ProgramCardComponent,
         CommonModule,
-        MatIconModule,
         ButtonComponent,
         SvgComponent,
+        MatIconModule,
+      ],
+      providers: [
+        { provide: ClassUtilityService, useValue: mockClassUtilityService }, // Proveer el servicio mockeado
       ],
     }).compileComponents();
+  });
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(ProgramCardComponent);
     component = fixture.componentInstance;
-
-    const mockCardData: IProgramCardInterface = {
-      twClass: 'test-class',
-      isFluid: true,
-      size: 'lg',
-      title: 'test',
-      onButtonClick: { action: jasmine.createSpy('onButtonClickSpy') },
-    };
-
-    component.cardData = mockCardData;
-
+    component.config = mockCardData;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create the component', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should apply correct classes based on cardData', () => {
-    const classes = component.getClasses;
-    expect(classes['test-class']).toBeTrue();
-    expect(classes['is-fluid']).toBeTrue();
-    expect(classes['size-lg']).toBeTrue();
-    expect(classes['fixed-size']).toBeFalse();
+  it('should display the card title and subtitle', () => {
+    const titleElement = fixture.debugElement.query(By.css('h3'));
+    const subtitleElement = fixture.debugElement.query(By.css('p'));
+
+    expect(titleElement.nativeElement.textContent).toContain(
+      mockCardData.title,
+    );
+    expect(subtitleElement.nativeElement.textContent).toContain(
+      mockCardData.subtitle,
+    );
   });
 
-  it('should call onButtonClick action when onButtonClickHandler is triggered', () => {
-    component.onButtonClickHandler();
-    expect(component.cardData.onButtonClick?.action).toHaveBeenCalled();
+  it('should display the correct activities and weeks count', () => {
+    const activitiesElement = fixture.debugElement.query(
+      By.css('.flex .small-icon + span'),
+    );
+    const weeksElement = fixture.debugElement.queryAll(
+      By.css('.flex .small-icon + span'),
+    )[1];
+
+    expect(activitiesElement.nativeElement.textContent).toContain(
+      mockCardData.activitiesCount,
+    );
+    expect(weeksElement.nativeElement.textContent).toContain(
+      mockCardData.weeksCount,
+    );
+  });
+
+  it('should trigger the button click action when the button is clicked', () => {
+    const buttonElement = fixture.debugElement.query(By.css('evo-button'));
+    expect(buttonElement).toBeTruthy();
+
+    buttonElement.triggerEventHandler('click', null);
+    fixture.detectChanges();
+
+    expect(component.config.onButtonClick?.action).toHaveBeenCalled();
+  });
+
+  it('should call getCombinedClasses on the ClassUtilityService with correct parameters', () => {
+    const mockTwClass = 'custom-class';
+    component.config = {
+      ...component.config,
+      isFluid: true,
+      size: 'md',
+      twClass: mockTwClass,
+    };
+
+    mockClassUtilityService.getCombinedClasses.and.returnValue(
+      'evo-program-card is-fluid size-md custom-class',
+    );
+    fixture.detectChanges();
+
+    const classes = component.getClasses();
+    expect(mockClassUtilityService.getCombinedClasses).toHaveBeenCalledWith(
+      'evo-program-card is-fluid size-md',
+      mockTwClass,
+    );
+    expect(classes).toBe('evo-program-card is-fluid size-md custom-class');
   });
 });

@@ -1,0 +1,17 @@
+.evo-pagination {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 1rem;
+
+  span {
+    font-size: 0.875rem;
+  }
+
+  evo-button {
+    .evo-button.pagination__evo-button.without-border.theme-secondary {
+      background-color: transparent;
+      box-shadow: none;
+    }
+  }
+}

@@ -1,6 +1,14 @@
-<div class="layout">
+<div
+  class="evo-sidebar__overlay"
+  [ngClass]="{ visible: showMoreOptionsModal }"
+  (click)="closeMoreOptionsModal()"
+></div>
+<!-- Capa de fondo que detecta clics fuera del modal para cerrarlo -->
+
+<div [ngClass]="getClasses()">
   <header class="content__header">
     <div class="content__header-left">
+      <!-- Componente de cabecera (header) personalizado -->
       <evo-header
         twClass="w-full"
         [icons]="commonProps.icons"
@@ -12,6 +20,7 @@
       ></evo-header>
     </div>
 
+    <!-- Mostrar el botón del menú en móvil -->
     @if (isMobile) {
       <div
         class="content__header-right w-8 flex align-center justify-center items-center"
@@ -26,11 +35,14 @@
     }
   </header>
 
+  <!-- Sidebar para móvil y desktop -->
   @if (isSidebarOpen) {
     @if (isMobile) {
+      <!-- Sidebar en versión móvil -->
       <div class="sidebar sidebar--mobile sidebar--open">
         <div class="mobile-header">
           <div class="profile-img">
+            <!-- Componente de avatar con la imagen de usuario -->
             <evo-avatar
               size="sm"
               [name]="commonProps.userData.fullName"
@@ -39,10 +51,13 @@
             ></evo-avatar>
           </div>
           <div class="profile-info">
+            <!-- Información del perfil del usuario -->
             <div class="name">{{ commonProps.userData.fullName }}</div>
             <div>{{ sessionJobPositionName }}</div>
           </div>
         </div>
+
+        <!-- Menú de navegación del sidebar -->
         <nav class="sidebar__nav">
           <ul>
             @for (option of options; track option.title) {
@@ -58,31 +73,34 @@
             }
           </ul>
         </nav>
+
+        <!-- Sección de opciones adicionales en el sidebar -->
         <div class="additional-options">
           <mat-divider></mat-divider>
           <nav class="sidebar__nav">
             <ul>
+              <!-- Renderizado de las opciones principales de la app -->
               @if (commonProps.items.appItems) {
                 @for (
                   option of commonProps.items.appItems;
                   track option.label
                 ) {
-                  @if (option.icon) {
-                    <evo-button
-                      [label]="option.label"
-                      [icon]="option.icon"
-                      [withoutBorder]="true"
-                      [theme]="'secondary'"
-                      [isFluid]="true"
-                      [twClass]="'sidebar__evo-button'"
-                      [url]="option.url"
-                    ></evo-button>
-                  }
+                  <evo-button
+                    [label]="option.label"
+                    [icon]="option.icon"
+                    [withoutBorder]="true"
+                    [theme]="'secondary'"
+                    [isFluid]="true"
+                    [twClass]="'sidebar__evo-button'"
+                    [url]="option.url"
+                  ></evo-button>
                 }
               }
             </ul>
           </nav>
           <mat-divider></mat-divider>
+
+          <!-- Opciones adicionales si las hay -->
           @if (additionalOptions) {
             @for (option of additionalOptions; track option.title) {
               <evo-button
@@ -92,11 +110,64 @@
                 [theme]="'secondary'"
                 [isFluid]="true"
                 twClass="sidebar__evo-button"
-                (click)="option.action()"
+                (click)="selectOption(option)"
               ></evo-button>
             }
             <mat-divider></mat-divider>
           }
+
+          <!-- Acordeón de configuraciones -->
+          <evo-accordion
+            [config]="{
+              title: commonProps.titles.settingTitle,
+              icon: commonProps.icons?.settingMenuIcons?.buttonIcon || {
+                type: 'class',
+                icon: '',
+              },
+              height: '90px',
+            }"
+          >
+            <!-- Opciones dentro del acordeón de configuraciones -->
+            @for (
+              option of commonProps.items.settingMenu.options;
+              track option.name
+            ) {
+              <div class="option-item">
+                <span class="pl-4">{{ option.name }}</span>
+                <mat-slide-toggle></mat-slide-toggle>
+              </div>
+              <mat-divider></mat-divider>
+            }
+          </evo-accordion>
+
+          <!-- Segundo acordeón: Más Aplicaciones -->
+          <evo-accordion
+            [config]="{
+              title: 'Más Aplicaciones',
+              icon: commonProps.icons?.appMenuIcons?.buttonIcon || {
+                type: 'class',
+                icon: '',
+              },
+              height: '157px',
+            }"
+          >
+            <!-- Lista de aplicaciones adicionales -->
+            @for (app of commonProps.moreOptions?.options; track app.label) {
+              <div class="option-item" (click)="app.action!()">
+                <evo-button
+                  [label]="app.label"
+                  [icon]="app.icon"
+                  [withoutBorder]="true"
+                  [theme]="'secondary'"
+                  [isFluid]="true"
+                  [twClass]="'sidebar__evo-button'"
+                ></evo-button>
+              </div>
+              <mat-divider></mat-divider>
+            }
+          </evo-accordion>
+
+          <!-- Botones de opciones relacionadas con el usuario -->
           @for (option of commonProps.items.userDataItems; track option.label) {
             @if (option.icon) {
               <evo-button
@@ -117,27 +188,116 @@
     }
   }
 
+  <!-- Sidebar para versión de escritorio -->
   @if (!isMobile) {
     <div class="sidebar sidebar--open items-center">
       <nav class="sidebar__nav">
         <header>
-          @for (option of options; track option.title) {
+          <ul>
+            @for (option of options; track option.title) {
+              <div class="sidebar__options">
+                <evo-button
+                  mat-button
+                  [icon]="option.icon"
+                  [withoutBorder]="true"
+                  (click)="option.action!()"
+                  [twClass]="
+                    option.route ? (isActive(option.route) ? 'active' : '') : ''
+                  "
+                ></evo-button>
+                <p class="truncate w-full">{{ option.title }}</p>
+              </div>
+            }
+
+            <!-- Botón de Más Opciones justo debajo del menú -->
             <div class="sidebar__options">
               <evo-button
                 mat-button
-                [icon]="option.icon"
+                [icon]="commonProps.moreOptions?.icon"
                 [withoutBorder]="true"
-                (click)="option.action!()"
-                [twClass]="isActive(option.route) ? 'active' : ''"
+                (click)="openMoreOptionsModal()"
               ></evo-button>
+              <p class="truncate w-full">
+                {{ commonProps.moreOptions?.label }}
+              </p>
             </div>
-          }
+            <div class="more-options-wrapper">
+              <!-- Modal para Más Opciones -->
+              <div
+                class="more-options-modal"
+                [ngClass]="{ show: showMoreOptionsModal }"
+                (click)="$event.stopPropagation()"
+              >
+                <!-- Botón de cierre (equis) -->
+                <button class="close-button" (click)="closeMoreOptionsModal()">
+                  &times;
+                </button>
+
+                <div class="more-options-content">
+                  <h3 class="text-center text-base">
+                    {{ commonProps.moreOptions?.insideLabel }}
+                  </h3>
+                  <div class="more-options-grid">
+                    @for (
+                      option of commonProps.moreOptions?.options;
+                      track option.label
+                    ) {
+                      <div
+                        class="option-item__more-options"
+                        (click)="selectOption(option)"
+                      >
+                        <evo-button
+                          mat-button
+                          [icon]="commonProps.moreOptions?.icon"
+                          [withoutBorder]="true"
+                        ></evo-button>
+                        <p class="truncate w-full">
+                          {{ commonProps.moreOptions?.label }}
+                        </p>
+                      </div>
+                    }
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ul>
         </header>
       </nav>
+
+      <!-- Footer del sidebar en escritorio -->
+      <div class="sidebar__footer">
+        <nav class="sidebar__nav">
+          <header class="mb-2">
+            <ul>
+              @if (footerOptions) {
+                @for (option of footerOptions; track option.title) {
+                  <div class="sidebar__footer-options">
+                    <evo-button
+                      mat-button
+                      [icon]="option.icon"
+                      [withoutBorder]="true"
+                      (click)="selectOption(option)"
+                      [twClass]="
+                        option.route
+                          ? isActive(option.route)
+                            ? 'active'
+                            : ''
+                          : ''
+                      "
+                    ></evo-button>
+                    <p class="truncate w-full">{{ option.title }}</p>
+                  </div>
+                }
+              }
+            </ul>
+          </header>
+        </nav>
+      </div>
     </div>
   }
 
-  <div class="content">
+  <!-- Contenido principal -->
+  <div class="content" [ngClass]="{ 'with-sidebar-margin': !isMobile }">
     <main class="content__main">
       <ng-content></ng-content>
     </main>

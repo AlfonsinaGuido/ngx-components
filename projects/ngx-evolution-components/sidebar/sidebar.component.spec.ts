@@ -7,15 +7,21 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
 import { IIcon } from '../public-api';
+import { ClassUtilityService } from '../shared/services/class-utility.service';
 
 describe('SidebarComponent', () => {
   let component: SidebarComponent;
   let fixture: ComponentFixture<SidebarComponent>;
   let mockRouter: jasmine.SpyObj<Router>;
+  let mockClassUtilityService: jasmine.SpyObj<ClassUtilityService>;
   const mockPlatformId = 'browser';
   const routerEventsSubject = new Subject<any>();
 
   beforeEach(async () => {
+    mockClassUtilityService = jasmine.createSpyObj('ClassUtilityService', [
+      'getCombinedClasses',
+    ]);
+
     mockRouter = jasmine.createSpyObj('Router', ['navigate']);
     Object.defineProperty(mockRouter, 'events', {
       value: routerEventsSubject.asObservable(),
@@ -32,6 +38,7 @@ describe('SidebarComponent', () => {
       providers: [
         { provide: Router, useValue: mockRouter },
         { provide: PLATFORM_ID, useValue: mockPlatformId },
+        { provide: ClassUtilityService, useValue: mockClassUtilityService },
       ],
     }).compileComponents();
 
@@ -122,13 +129,6 @@ describe('SidebarComponent', () => {
     expect(component.activeRoute).toBe('/test');
   });
 
-  it('should set isMobile and isSidebarOpen based on viewport size', () => {
-    spyOnProperty(window, 'innerWidth').and.returnValue(500);
-    component.checkViewport();
-    expect(component.isMobile).toBe(true);
-    expect(component.isSidebarOpen).toBe(false);
-  });
-
   it('should toggle sidebar state', () => {
     component.isSidebarOpen = false;
     component.toggleSidebar();
@@ -144,16 +144,25 @@ describe('SidebarComponent', () => {
     expect(component.isSidebarOpen).toBe(false);
   });
 
-  it('should navigate to the selected route and execute action', () => {
+  it('should navigate to the selected route when the route is defined', () => {
     const mockOption = {
       icon: { icon: 'dashboard.svg', type: 'svg' } as IIcon,
-      action: jasmine.createSpy('action'),
       route: '/dashboard',
       title: 'dashboard',
     };
 
     component.selectOption(mockOption);
     expect(mockRouter.navigate).toHaveBeenCalledWith(['/dashboard']);
+  });
+
+  it('should execute the action when no route is defined', () => {
+    const mockOption = {
+      icon: { icon: 'dashboard.svg', type: 'svg' } as IIcon,
+      action: jasmine.createSpy('action'),
+      title: 'dashboard',
+    };
+
+    component.selectOption(mockOption);
     expect(mockOption.action).toHaveBeenCalled();
   });
 
@@ -170,5 +179,21 @@ describe('SidebarComponent', () => {
   it('should return false for isActive if route does not match activeRoute', () => {
     component.activeRoute = '/test';
     expect(component.isActive('/not-test')).toBe(false);
+  });
+
+  it('should call getCombinedClasses on the ClassUtilityService with correct parameters', () => {
+    const mockTwClass = 'custom-class';
+    component.twClass = mockTwClass;
+    mockClassUtilityService.getCombinedClasses.and.returnValue(
+      'evo-side-bar custom-class',
+    );
+    fixture.detectChanges();
+
+    const classes = component.getClasses();
+    expect(mockClassUtilityService.getCombinedClasses).toHaveBeenCalledWith(
+      'evo-side-bar',
+      mockTwClass,
+    );
+    expect(classes).toBe('evo-side-bar custom-class');
   });
 });

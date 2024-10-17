@@ -60,7 +60,7 @@ describe('MenuComponent', () => {
     const buttonElement = buttonDebugElement.nativeElement as HTMLElement;
     buttonElement.click();
 
-    const menuItems = fixture.debugElement.queryAll(By.css('.buttons-in-menu'));
+    const menuItems = fixture.debugElement.queryAll(By.css('.button-in-menu'));
     expect(menuItems.length).toBe(items.length);
   });
 

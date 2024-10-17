@@ -25,6 +25,8 @@ export * from './dialogo-actividad/dialogo-actividad.component';
 export * from './login/login.component';
 export * from './program-card/program-card.component';
 export * from './breadcrumb/breadcrumb.component';
+export * from './info-panel/info-panel.component';
+export * from './time-segmented-list/time-segmented-list.component';
 
 // Interfaces
 export * from './shared/interfaces/ibutton.interface';
@@ -45,9 +47,13 @@ export * from './shared/interfaces/iprioridad.interface';
 export * from './shared/interfaces/iprogram-card.interface';
 export * from './shared/interfaces/idatagrid.interface';
 export * from './shared/interfaces/ibreadcrumb.interface';
+export * from './shared/interfaces/itime-segmented-list.interface';
 
 // Api Interfaces
 export * from './shared/interfaces/api/iempleado.interface';
+
+// Utils
+export * from './shared/utils/date-utils';
 
 // Validators
 export * from './shared/validators/custom-error-state-matcher';

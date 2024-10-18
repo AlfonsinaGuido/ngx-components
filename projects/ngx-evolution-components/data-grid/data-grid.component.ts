@@ -1,9 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { TagComponent } from '../public-api';
+import { TagComponent, IDataGridItem } from '../public-api';
 import { CommonModule } from '@angular/common';
 import { MatIcon } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
-import { IDataGridItem } from '../shared/interfaces/idatagrid.interface';
 
 @Component({
   selector: 'evo-data-grid',

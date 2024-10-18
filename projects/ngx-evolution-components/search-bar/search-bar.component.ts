@@ -8,7 +8,7 @@ import {
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
-import { ClassUtilityService } from '../shared/services/class-utility.service';
+import { ClassUtilityService } from '../public-api';
 
 @Component({
   selector: 'evo-search-bar',

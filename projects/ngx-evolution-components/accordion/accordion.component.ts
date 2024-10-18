@@ -1,7 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, ViewEncapsulation } from '@angular/core';
-import { ButtonComponent, IAccordionConfig, IIcon } from '../public-api';
-import { ClassUtilityService } from '../shared/services/class-utility.service';
+import {
+  ButtonComponent,
+  IAccordionConfig,
+  ClassUtilityService,
+} from '../public-api';
 
 @Component({
   selector: 'evo-accordion',

@@ -45,6 +45,9 @@ export * from './shared/interfaces/iprioridad.interface';
 export * from './shared/interfaces/iprogram-card.interface';
 export * from './shared/interfaces/idatagrid.interface';
 export * from './shared/interfaces/ibreadcrumb.interface';
+export * from './shared/interfaces/ietapa.interface';
+export * from './shared/interfaces/iempleado-responsable.interface';
+export * from './shared/interfaces/itipo-actividad.interface';
 
 // Api Interfaces
 export * from './shared/interfaces/api/iempleado.interface';

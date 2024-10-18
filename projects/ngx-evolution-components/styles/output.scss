@@ -167,6 +167,10 @@
   color: rgb(79 70 229 / var(--tw-text-opacity));
 }
 
+.column-name {
+  margin-left: 10px;
+}
+
 /*
 ! tailwindcss v3.4.6 | MIT License | https://tailwindcss.com
 */
@@ -807,10 +811,6 @@ video {
   margin-inline-end: 10px;
 }
 
-.ml-2 {
-  margin-left: 10px;
-}
-
 .mr-0\.5 {
   margin-right: 0.125rem;
 }
@@ -1448,12 +1448,6 @@ video {
 
 .transition-transform {
   transition-property: transform;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.transition-all {
-  transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }

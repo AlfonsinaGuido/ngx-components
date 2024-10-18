@@ -21,11 +21,10 @@ export const Default: Story = {
     size: 'sm',
     twClass: '',
     prioridad: {
-      nombre: 'Alta',
-      color: '#FF0000',
-      icono: 'arrow_upward',
-      codigo: 0,
-      orden: 0,
+      Nombre: 'Alta',
+      Color: '#FF0000',
+      Codigo: 0,
+      Orden: 0,
     },
   },
 };

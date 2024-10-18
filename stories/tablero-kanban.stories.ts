@@ -20,21 +20,21 @@ const columnas: IColumna[] = [
     id: 1,
     nombre: 'abiertas',
     actividades: actividades.filter(
-      (act) => act.status === EstadoActividad.abierta,
+      (act) => act.EstadoDb === EstadoActividad.Pendiente,
     ),
   },
   {
     id: 2,
     nombre: 'en progreso',
     actividades: actividades.filter(
-      (act) => act.status === EstadoActividad.enProgreso,
+      (act) => act.EstadoDb === EstadoActividad.EnProceso,
     ),
   },
   {
     id: 3,
     nombre: 'finalizadas',
     actividades: actividades.filter(
-      (act) => act.status === EstadoActividad.cerrada,
+      (act) => act.EstadoDb === EstadoActividad.Finalizada,
     ),
   },
 ];

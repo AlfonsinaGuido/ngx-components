@@ -1,7 +1,6 @@
 export interface IPrioridad {
-  codigo: number;
-  nombre: string;
-  color: string;
-  icono: string;
-  orden: number;
+  Codigo?: number;
+  Nombre?: string;
+  Color?: string;
+  Orden?: number;
 }

@@ -20,12 +20,12 @@ import {
   IMoreOptionItem,
   ViewportService,
   AccordionComponent,
+  ClassUtilityService,
 } from '../public-api';
 import { Router, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { MatDivider } from '@angular/material/divider';
 import { MatSlideToggle } from '@angular/material/slide-toggle';
-import { ClassUtilityService } from '../shared/services/class-utility.service';
 
 @Component({
   selector: 'evo-sidebar',

@@ -4,9 +4,9 @@ import {
   ButtonComponent,
   SvgComponent,
   IProgramCardConfigInterface,
+  ClassUtilityService,
 } from '../public-api';
 import { MatIconModule } from '@angular/material/icon';
-import { ClassUtilityService } from '../shared/services/class-utility.service';
 
 @Component({
   selector: 'evo-card',

@@ -23,10 +23,10 @@ import {
   ActionMenuComponent,
   PaginationComponent,
   IIcon,
+  ClassUtilityService,
 } from '../public-api';
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
-import { ClassUtilityService } from '../shared/services/class-utility.service';
 
 @Component({
   selector: 'smart-list',

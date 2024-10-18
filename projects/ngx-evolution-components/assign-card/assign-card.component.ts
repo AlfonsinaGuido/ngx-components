@@ -7,8 +7,12 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
-import { ButtonComponent, ICardConfig, ICardItem } from '../public-api';
-import { ClassUtilityService } from '../shared/services/class-utility.service';
+import {
+  ButtonComponent,
+  ICardConfig,
+  ICardItem,
+  ClassUtilityService,
+} from '../public-api';
 
 @Component({
   selector: 'assign-card',

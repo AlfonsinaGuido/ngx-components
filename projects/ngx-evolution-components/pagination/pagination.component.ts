@@ -5,9 +5,12 @@ import {
   Output,
   ViewEncapsulation,
 } from '@angular/core';
-import { ButtonComponent, IPaginationConfig } from '../public-api';
+import {
+  ButtonComponent,
+  IPaginationConfig,
+  ClassUtilityService,
+} from '../public-api';
 import { CommonModule } from '@angular/common';
-import { ClassUtilityService } from '../shared/services/class-utility.service';
 
 @Component({
   selector: 'pagination',

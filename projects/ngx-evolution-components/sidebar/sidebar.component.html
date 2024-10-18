@@ -141,32 +141,33 @@
           </evo-accordion>
 
           <!-- Segundo acordeón: Más Aplicaciones -->
-          <evo-accordion
-            [config]="{
-              title: 'Más Aplicaciones',
-              icon: commonProps.icons?.appMenuIcons?.buttonIcon || {
-                type: 'class',
-                icon: '',
-              },
-              height: '157px',
-            }"
-          >
-            <!-- Lista de aplicaciones adicionales -->
-            @for (app of commonProps.moreOptions?.options; track app.label) {
-              <div class="option-item" (click)="app.action!()">
-                <evo-button
-                  [label]="app.label"
-                  [icon]="app.icon"
-                  [withoutBorder]="true"
-                  [theme]="'secondary'"
-                  [isFluid]="true"
-                  [twClass]="'sidebar__evo-button'"
-                ></evo-button>
-              </div>
-              <mat-divider></mat-divider>
-            }
-          </evo-accordion>
-
+          @if (commonProps.moreOptions?.options?.length) {
+            <evo-accordion
+              [config]="{
+                title: 'Más Aplicaciones',
+                icon: commonProps.icons?.appMenuIcons?.buttonIcon || {
+                  type: 'class',
+                  icon: '',
+                },
+                height: '157px',
+              }"
+            >
+              <!-- Lista de aplicaciones adicionales -->
+              @for (app of commonProps.moreOptions?.options; track app.label) {
+                <div class="option-item" (click)="app.action!()">
+                  <evo-button
+                    [label]="app.label"
+                    [icon]="app.icon"
+                    [withoutBorder]="true"
+                    [theme]="'secondary'"
+                    [isFluid]="true"
+                    [twClass]="'sidebar__evo-button'"
+                  ></evo-button>
+                </div>
+                <mat-divider></mat-divider>
+              }
+            </evo-accordion>
+          }
           <!-- Botones de opciones relacionadas con el usuario -->
           @for (option of commonProps.items.userDataItems; track option.label) {
             @if (option.icon) {
@@ -210,56 +211,61 @@
             }
 
             <!-- Botón de Más Opciones justo debajo del menú -->
-            <div class="sidebar__options">
-              <evo-button
-                mat-button
-                [icon]="commonProps.moreOptions?.icon"
-                [withoutBorder]="true"
-                (click)="openMoreOptionsModal()"
-              ></evo-button>
-              <p class="truncate w-full">
-                {{ commonProps.moreOptions?.label }}
-              </p>
-            </div>
-            <div class="more-options-wrapper">
-              <!-- Modal para Más Opciones -->
-              <div
-                class="more-options-modal"
-                [ngClass]="{ show: showMoreOptionsModal }"
-                (click)="$event.stopPropagation()"
-              >
-                <!-- Botón de cierre (equis) -->
-                <button class="close-button" (click)="closeMoreOptionsModal()">
-                  &times;
-                </button>
+            @if (commonProps.moreOptions?.options?.length) {
+              <div class="sidebar__options">
+                <evo-button
+                  mat-button
+                  [icon]="commonProps.moreOptions?.icon"
+                  [withoutBorder]="true"
+                  (click)="openMoreOptionsModal()"
+                ></evo-button>
+                <p class="truncate w-full">
+                  {{ commonProps.moreOptions?.label }}
+                </p>
+              </div>
+              <div class="more-options-wrapper">
+                <!-- Modal para Más Opciones -->
+                <div
+                  class="more-options-modal"
+                  [ngClass]="{ show: showMoreOptionsModal }"
+                  (click)="$event.stopPropagation()"
+                >
+                  <!-- Botón de cierre (equis) -->
+                  <button
+                    class="close-button"
+                    (click)="closeMoreOptionsModal()"
+                  >
+                    &times;
+                  </button>
 
-                <div class="more-options-content">
-                  <h3 class="text-center text-base">
-                    {{ commonProps.moreOptions?.insideLabel }}
-                  </h3>
-                  <div class="more-options-grid">
-                    @for (
-                      option of commonProps.moreOptions?.options;
-                      track option.label
-                    ) {
-                      <div
-                        class="option-item__more-options"
-                        (click)="selectOption(option)"
-                      >
-                        <evo-button
-                          mat-button
-                          [icon]="commonProps.moreOptions?.icon"
-                          [withoutBorder]="true"
-                        ></evo-button>
-                        <p class="truncate w-full">
-                          {{ commonProps.moreOptions?.label }}
-                        </p>
-                      </div>
-                    }
+                  <div class="more-options-content">
+                    <h3 class="text-center text-base">
+                      {{ commonProps.moreOptions?.insideLabel }}
+                    </h3>
+                    <div class="more-options-grid">
+                      @for (
+                        option of commonProps.moreOptions?.options;
+                        track option.label
+                      ) {
+                        <div
+                          class="option-item__more-options"
+                          (click)="selectOption(option)"
+                        >
+                          <evo-button
+                            mat-button
+                            [icon]="commonProps.moreOptions?.icon"
+                            [withoutBorder]="true"
+                          ></evo-button>
+                          <p class="truncate w-full">
+                            {{ commonProps.moreOptions?.label }}
+                          </p>
+                        </div>
+                      }
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            }
           </ul>
         </header>
       </nav>
@@ -298,7 +304,7 @@
 
   <!-- Contenido principal -->
   <div class="content" [ngClass]="{ 'with-sidebar-margin': !isMobile }">
-    <main class="content__main">
+    <main class="w-full">
       <ng-content></ng-content>
     </main>
   </div>

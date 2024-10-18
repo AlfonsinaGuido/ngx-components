@@ -11,8 +11,8 @@ import {
   IActionConfig,
   IActionMenuConfig,
   IIcon,
+  ClassUtilityService,
 } from '../public-api';
-import { ClassUtilityService } from '../shared/services/class-utility.service';
 
 @Component({
   selector: 'action-menu',

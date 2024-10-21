@@ -37,17 +37,15 @@ export class SearchBarComponent {
     this.inputValue = target.value;
     clearTimeout(this.typingTimeout);
     this.typingTimeout = setTimeout(() => {
-      this.emitSearch();
+      this.emitSearch(); // Emitir siempre el valor actual, incluso si está vacío
     }, 400);
   }
 
   /**
-   * Emite el valor de la búsqueda si no está vacío.
+   * Emite el valor de la búsqueda, incluyendo el valor vacío si el campo está vacío.
    */
   emitSearch(): void {
-    if (this.inputValue.trim() !== '') {
-      this.searchQuery.emit(this.inputValue);
-    }
+    this.searchQuery.emit(this.inputValue); // Emitir siempre el valor actual
   }
 
   /**
@@ -55,7 +53,7 @@ export class SearchBarComponent {
    */
   clearInput(): void {
     this.inputValue = '';
-    this.searchQuery.emit(this.inputValue);
+    this.searchQuery.emit(''); // Emitir un valor vacío explícitamente
   }
 
   /**

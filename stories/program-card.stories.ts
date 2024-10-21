@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 type Story = StoryObj<ProgramCardComponent>;
 
 const defaultconfig = {
+  id: '1',
   title: 'Program Title',
   subtitle: 'Ejemplo de descripción',
   activitiesCount: 5,

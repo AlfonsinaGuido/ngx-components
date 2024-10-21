@@ -157,6 +157,7 @@
     flex-direction: column;
     margin-top: 60px;
     width: 100%;
+    overflow-y: scroll;
 
     &__main {
       flex: 1;

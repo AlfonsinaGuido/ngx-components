@@ -16,6 +16,7 @@ describe('ProgramCardComponent', () => {
   let mockClassUtilityService: jasmine.SpyObj<ClassUtilityService>;
 
   const mockCardData: IProgramCardConfigInterface = {
+    id: '1',
     title: 'Test Program',
     subtitle: 'Test Subtitle',
     activitiesCount: 5,

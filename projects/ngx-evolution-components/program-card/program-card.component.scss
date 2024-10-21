@@ -1,11 +1,9 @@
-.shadow-box {
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
-}
+.evo-program-card {
+  border-radius: 1rem;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  min-width: 160px;
 
-.two-line-truncate {
-}
-
-.evo-card {
   &.fixed-size {
     width: 300px;
 
@@ -61,6 +59,7 @@
       margin: 0;
     }
   }
+
   .icon-display {
     transform: scale(0.9);
   }

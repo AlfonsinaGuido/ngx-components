@@ -1,0 +1,28 @@
+<!-- Contenedor de paginación -->
+<div [ngClass]="getClasses()">
+  <!-- Botón para ir a la página anterior -->
+  <evo-button
+    (click)="previousPage()"
+    [disabled]="config.currentPage <= 1"
+    [icon]="{ type: 'class', icon: 'chevron_left' }"
+    [twClass]="'pagination__evo-button'"
+    [withoutBorder]="true"
+    [theme]="'secondary'"
+  ></evo-button>
+
+  <!-- Indicador de la página actual y el total de páginas -->
+  <span>{{ getPageIndicatorText() }}</span>
+
+  <!-- Botón para ir a la página siguiente -->
+  <evo-button
+    (click)="nextPage()"
+    [disabled]="config.currentPage >= config.totalPages"
+    [icon]="{ type: 'class', icon: 'chevron_right' }"
+    [withoutBorder]="true"
+    [twClass]="'pagination__evo-button'"
+    [theme]="'secondary'"
+  ></evo-button>
+
+  <!-- Información sobre el rango de ítems mostrados y el total de resultados -->
+  <span>{{ getItemsRangeText() }}</span>
+</div>

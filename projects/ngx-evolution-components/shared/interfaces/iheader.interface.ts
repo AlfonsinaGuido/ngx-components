@@ -4,6 +4,7 @@ import {
   IMenuIcons,
   ISettingMenu,
   IUserData,
+  IIcon,
 } from '../../public-api';
 
 export interface IHeader {
@@ -14,6 +15,7 @@ export interface IHeader {
   box?: IHeaderBoxButton[];
   userData: IUserData;
   twClass?: string;
+  moreOptions?: IMoreOptions;
 }
 
 export interface IHeaderBoxButton {
@@ -53,4 +55,18 @@ interface ISeeAllButton {
 export interface IHeaderCompanyData {
   companyImage?: string;
   companyName?: string;
+}
+
+export interface IMoreOptions {
+  label: string;
+  insideLabel: string;
+  icon: IIcon;
+  options: IMoreOptionItem[];
+}
+
+export interface IMoreOptionItem {
+  label: string;
+  icon: IIcon;
+  route: string;
+  action?: () => void;
 }

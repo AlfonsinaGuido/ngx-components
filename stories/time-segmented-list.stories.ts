@@ -36,8 +36,6 @@ export const Default: Story = {
       {
         label: 'Samuel Lopez finalizó Programa Desarrollo',
         avatarName: 'Samuel Lopez',
-        avatarImgUrl:
-          'https://material.angular.io/assets/img/examples/shiba1.jpg',
         onClick: {
           action: (name = 'Samuel Lopez') => {
             alert('Notificación de: ' + name);
@@ -72,14 +70,12 @@ export const Default: Story = {
       {
         label: 'Samuel Lopez finalizó Programa Desarrollo',
         avatarName: 'Samuel Lopez',
-        avatarImgUrl:
-          'https://material.angular.io/assets/img/examples/shiba1.jpg',
         onClick: {
           action: (name = 'Samuel Lopez') => {
             alert('Notificación de: ' + name);
           },
         },
-        date: '2024-10-07T07:30:00.000-06:00',
+        date: '2024-10-21T07:30:00.000-06:00',
       },
       {
         label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',
@@ -91,7 +87,7 @@ export const Default: Story = {
             alert('Notificación de: ' + name);
           },
         },
-        date: '2024-10-06T07:30:00.000-06:00',
+        date: '2024-10-22T07:30:00.000-06:00',
       },
     ],
     twClass: '',

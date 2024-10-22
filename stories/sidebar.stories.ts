@@ -21,20 +21,35 @@ const meta: Meta<SidebarComponent> = {
   ],
   tags: ['autodocs'],
   argTypes: {
+    twClass: {
+      control: {
+        type: 'text',
+      },
+    },
     commonProps: {
-      description: 'Propiedades comunes entre header y sidebar',
+      description:
+        'Common properties shared between the header and the sidebar, including icons, titles, and user data.',
       control: {
         type: 'object',
       },
     },
     options: {
-      description: 'Opciones del sidebar',
+      description:
+        'Sidebar navigation or action options with icons and titles.',
       control: {
         type: 'object',
       },
     },
     additionalOptions: {
-      description: 'Opciones adicionales del sidebar',
+      description:
+        'Additional options that will be displayed in the sidebar (only on mobile version).',
+      control: {
+        type: 'object',
+      },
+    },
+    footerOptions: {
+      description:
+        'Options specifically for the footer section of the sidebar.',
       control: {
         type: 'object',
       },
@@ -115,18 +130,6 @@ const meta: Meta<SidebarComponent> = {
             onClick: {
               action: () => {
                 alert('Se autorizó a Samuel Lopez');
-              },
-            },
-          },
-          {
-            label:
-              'Ignacio Fernandez requiere autorización de acceso al Programa Recursos Humanos',
-            avatarName: 'Ignacio Fernandez',
-            avatarImgUrl:
-              'https://material.angular.io/assets/img/examples/shiba1.jpg',
-            onClick: {
-              action: (name = 'Ignacio Fernandez') => {
-                alert('Se autorizó a ' + name);
               },
             },
           },
@@ -218,24 +221,105 @@ const meta: Meta<SidebarComponent> = {
               },
             },
           },
+        ],
+      },
+      moreOptions: {
+        label: 'Ver más',
+        insideLabel: 'Más opciones',
+        icon: {
+          icon: 'dashboard.svg',
+          type: 'svg',
+        },
+        options: [
           {
-            Puesto: {
-              Nombre: 'Gerente Calidad',
+            label: 'Opción 1',
+            icon: {
+              icon: 'dashboard.svg',
+              type: 'svg',
             },
-            Unidad: {
-              Descripcion: 'Unidad',
+            route: '/opcion1',
+            action: () => alert('Opción 1 seleccionada'),
+          },
+          {
+            label: 'Opción 2',
+            icon: {
+              icon: 'settings.svg',
+              type: 'svg',
             },
-            Compania: {
-              Descripcion: 'Compania',
+            route: '/opcion2',
+            action: () => alert('Opción 2 seleccionada'),
+          },
+          {
+            label: 'Opción 3',
+            icon: {
+              icon: 'files.svg',
+              type: 'svg',
             },
-            CentroTrabajo: {
-              Descripcion: 'Centro de Trabajo',
+            route: '/opcion3',
+            action: () => alert('Opción 3 seleccionada'),
+          },
+          {
+            label: 'Opción 1',
+            icon: {
+              icon: 'dashboard.svg',
+              type: 'svg',
             },
-            onClick: {
-              action: (position = 'Gerente Calidad') => {
-                alert('Puesto elegido: ' + position);
-              },
+            route: '/opcion1',
+            action: () => alert('Opción 1 seleccionada'),
+          },
+          {
+            label: 'Opción 2',
+            icon: {
+              icon: 'settings.svg',
+              type: 'svg',
             },
+            route: '/opcion2',
+            action: () => alert('Opción 2 seleccionada'),
+          },
+          {
+            label: 'Opción 3',
+            icon: {
+              icon: 'files.svg',
+              type: 'svg',
+            },
+            route: '/opcion3',
+            action: () => alert('Opción 3 seleccionada'),
+          },
+          {
+            label: 'Opción 1',
+            icon: {
+              icon: 'dashboard.svg',
+              type: 'svg',
+            },
+            route: '/opcion1',
+            action: () => alert('Opción 1 seleccionada'),
+          },
+          {
+            label: 'Opción 2',
+            icon: {
+              icon: 'settings.svg',
+              type: 'svg',
+            },
+            route: '/opcion2',
+            action: () => alert('Opción 2 seleccionada'),
+          },
+          {
+            label: 'Opción 3',
+            icon: {
+              icon: 'files.svg',
+              type: 'svg',
+            },
+            route: '/opcion3',
+            action: () => alert('Opción 3 seleccionada'),
+          },
+          {
+            label: 'Opción 3',
+            icon: {
+              icon: 'files.svg',
+              type: 'svg',
+            },
+            route: '/opcion3',
+            action: () => alert('Opción 3 seleccionada'),
           },
         ],
       },
@@ -262,6 +346,21 @@ const meta: Meta<SidebarComponent> = {
         title: 'Dashboard',
       },
     ] as ISidebarOption[],
+    footerOptions: [
+      {
+        icon: { icon: 'settings.svg', type: 'svg' },
+        action: () => alert('settings'),
+        route: '/settings',
+        title: 'Settings',
+      },
+      {
+        icon: { icon: 'dashboard.svg', type: 'svg' },
+        action: () => alert('dashboard'),
+        route: '/dashboard',
+        title: 'Dashboard',
+      },
+    ] as ISidebarOption[],
+    twClass: '',
   },
 };
 

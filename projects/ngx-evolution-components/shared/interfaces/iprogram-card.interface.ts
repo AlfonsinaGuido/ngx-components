@@ -1,6 +1,7 @@
 import { IButtonAction, IIcon } from '../../public-api';
 
-export interface IProgramCardInterface {
+export interface IProgramCardConfigInterface {
+  id: string;
   title: string;
   subtitle?: string;
   activitiesCount?: number;

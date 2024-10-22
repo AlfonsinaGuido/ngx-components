@@ -37,12 +37,21 @@ export class ButtonComponent implements OnChanges {
   @Input() avatarImgUrl?: string;
   @Input() onClick?: IButtonAction;
 
+  /**
+   * Se asegura de que si se proporciona un ícono sin posición, se asigne una por defecto.
+   * @param {SimpleChanges} changes - Cambios detectados en las entradas del componente.
+   */
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['icon'] && this.icon && !this.icon.position) {
       this.icon.position = 'left';
     }
   }
 
+  /**
+   * Obtiene las clases CSS que deben aplicarse al botón.
+   * Combina las clases de Tailwind con las propiedades del componente.
+   * @returns {Object} Objeto con las clases CSS como claves y valores booleanos.
+   */
   public get getClasses() {
     const classes = this.twClass ? this.twClass.split(' ') : [];
     return {
@@ -62,6 +71,10 @@ export class ButtonComponent implements OnChanges {
     };
   }
 
+  /**
+   * Maneja el evento de clic del botón.
+   * Ejecuta la acción definida en la propiedad `onClick` si está presente.
+   */
   public onClickHandler() {
     if (this.onClick) {
       this.onClick.action();

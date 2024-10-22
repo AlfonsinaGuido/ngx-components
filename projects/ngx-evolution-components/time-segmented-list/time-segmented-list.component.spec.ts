@@ -1,11 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TimeSegmentedListComponent } from './time-segmented-list.component';
-import { SimpleChanges } from '@angular/core';
+import { DebugElement, SimpleChanges } from '@angular/core';
 import { ITimeSegmentedList } from '../public-api';
+import { By } from '@angular/platform-browser';
 
 describe('TimeSegmentedListComponent', () => {
   let component: TimeSegmentedListComponent;
   let fixture: ComponentFixture<TimeSegmentedListComponent>;
+  let debugElement: DebugElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -14,6 +16,7 @@ describe('TimeSegmentedListComponent', () => {
 
     fixture = TestBed.createComponent(TimeSegmentedListComponent);
     component = fixture.componentInstance;
+    debugElement = fixture.debugElement;
     component.titles = {
       today: '',
       thisWeek: '',
@@ -73,5 +76,61 @@ describe('TimeSegmentedListComponent', () => {
     expect(component.todayItems.length).toBe(0);
     expect(component.thisWeekItems.length).toBe(0);
     expect(component.previousItems.length).toBe(0);
+  });
+
+  it('should display correct titles', () => {
+    const titles = debugElement.queryAll(By.css('h3'));
+    expect(titles.length).toBe(3);
+    expect(titles[0].nativeElement.textContent.trim()).toBe(
+      component.titles.today,
+    );
+    expect(titles[1].nativeElement.textContent.trim()).toBe(
+      component.titles.thisWeek,
+    );
+    expect(titles[2].nativeElement.textContent.trim()).toBe(
+      component.titles.previous,
+    );
+  });
+
+  it('should render todayItems list', () => {
+    component.todayItems = [
+      {
+        label: 'Item 1',
+        onClick: { action: () => {} }, 
+        avatarName: 'A', 
+        avatarImgUrl: 'url1',
+        date: ''
+      },
+      {
+        label: 'Item 2',
+        onClick: { action: () => {} }, 
+        avatarName: 'B', 
+        avatarImgUrl: 'url2',
+        date: ''
+      },
+    ];
+    fixture.detectChanges();
+
+    const todayListItems = debugElement
+      .queryAll(By.css('ul'))[0]
+      .queryAll(By.css('li'));
+    expect(todayListItems.length).toBe(2);
+    expect(todayListItems[0].nativeElement.textContent.trim()).toContain(
+      'Item 1',
+    );
+    expect(todayListItems[1].nativeElement.textContent.trim()).toContain(
+      'Item 2',
+    );
+  });
+
+  it('should show empty message for empty todayItems list', () => {
+    component.todayItems = [];
+    component.emptyListMessage = '';
+    fixture.detectChanges();
+
+    const emptyMessage = debugElement
+      .queryAll(By.css('ul'))[0]
+      .query(By.css('li')).nativeElement;
+    expect(emptyMessage.textContent.trim()).toBe(component.emptyListMessage);
   });
 });

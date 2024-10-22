@@ -22,11 +22,12 @@ export class DateUtils {
    * @returns {boolean} Verdadero si la fecha es hoy, de lo contrario falso.
    */
   static isToday(dateString: string): boolean {
+    const parsedDate = this.parseDate(dateString);
+    const today = this.todayDate;
     return (
-      this.parseDate(dateString).getFullYear() ===
-        this.todayDate.getFullYear() &&
-      this.parseDate(dateString).getMonth() === this.todayDate.getMonth() &&
-      this.parseDate(dateString).getDate() === this.todayDate.getDate()
+      parsedDate.getFullYear() === today.getFullYear() &&
+      parsedDate.getMonth() === today.getMonth() &&
+      parsedDate.getDate() === today.getDate()
     );
   }
 
@@ -41,15 +42,17 @@ export class DateUtils {
     if (this.isToday(dateString)) {
       return false;
     }
-    const dayOfWeekIndex = this.todayDate.getDay();
+    const today = this.todayDate;
+    today.setHours(0, 0, 0, 0);
+    const dayOfWeekIndex = today.getDay();
     const calculatedMondayDate =
-      this.todayDate.getDate() -
-      dayOfWeekIndex +
-      (dayOfWeekIndex === 0 ? -6 : 1);
-    const mondayOfCurrentWeek = new Date(
-      this.todayDate.setDate(calculatedMondayDate),
-    );
-    return this.parseDate(dateString) >= mondayOfCurrentWeek;
+      today.getDate() - dayOfWeekIndex + (dayOfWeekIndex === 0 ? -6 : 1);
+    const mondayOfCurrentWeek = new Date(today);
+    mondayOfCurrentWeek.setDate(calculatedMondayDate);
+    mondayOfCurrentWeek.setHours(0, 0, 0, 0);
+    const parsedDate = this.parseDate(dateString);
+    parsedDate.setHours(0, 0, 0, 0);
+    return parsedDate >= mondayOfCurrentWeek;
   }
 
   /**
@@ -58,12 +61,6 @@ export class DateUtils {
    * @returns {boolean} Verdadero si la fecha es anterior, de lo contrario falso.
    */
   static isPrevious(dateString: string): boolean {
-    if (this.isToday(dateString)) {
-      return false;
-    }
-    if (this.isThisWeek(dateString)) {
-      return false;
-    }
-    return true;
+    return !this.isToday(dateString) && !this.isThisWeek(dateString);
   }
 }

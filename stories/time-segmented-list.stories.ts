@@ -31,7 +31,7 @@ export const Default: Story = {
             alert('Notificación de: ' + name);
           },
         },
-        date: '2024-10-10T07:30:00.000-06:00',
+        date: '2024-03-09T07:00:00',
       },
       {
         label: 'Samuel Lopez finalizó Programa Desarrollo',
@@ -41,7 +41,7 @@ export const Default: Story = {
             alert('Notificación de: ' + name);
           },
         },
-        date: '2024-10-10T07:30:00.000-06:00',
+        date: '2024-03-09T07:00:00',
       },
       {
         label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',
@@ -53,7 +53,7 @@ export const Default: Story = {
             alert('Notificación de: ' + name);
           },
         },
-        date: '2024-10-08T07:30:00.000-06:00',
+        date: '2024-03-09T07:00:00',
       },
       {
         label: 'Carlos Sanchez finalizó Programa Recursos Humanos',
@@ -65,7 +65,7 @@ export const Default: Story = {
             alert('Notificación de: ' + name);
           },
         },
-        date: '2024-10-07T07:30:00.000-06:00',
+        date: '2024-03-09T07:00:00',
       },
       {
         label: 'Samuel Lopez finalizó Programa Desarrollo',
@@ -75,7 +75,7 @@ export const Default: Story = {
             alert('Notificación de: ' + name);
           },
         },
-        date: '2024-10-21T07:30:00.000-06:00',
+        date: '2024-10-21T07:00:00',
       },
       {
         label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',
@@ -87,7 +87,7 @@ export const Default: Story = {
             alert('Notificación de: ' + name);
           },
         },
-        date: '2024-10-22T07:30:00.000-06:00',
+        date: '2024-10-22T07:00:00',
       },
     ],
     twClass: '',

@@ -1,0 +1,77 @@
+<div [class]="twClass">
+  <div>
+    <h3 class="font-bold text-medium-gray !mb-2 max-sm:text-lg ps-8">
+      {{ titles.today }}
+    </h3>
+    <ul>
+      @for (item of todayItems; track $index) {
+        <li>
+          <evo-button
+            class="button-in-list"
+            [label]="item.label"
+            [withoutBorder]="true"
+            [theme]="'default'"
+            [isFluid]="true"
+            [avatarName]="item.avatarName"
+            [avatarImgUrl]="item.avatarImgUrl"
+            [onClick]="item.onClick"
+          ></evo-button>
+        </li>
+      } @empty {
+        <li class="ps-20 max-sm:ps-8 text-sm text-medium-gray">
+          {{ emptyListMessage }}
+        </li>
+      }
+    </ul>
+  </div>
+  <div>
+    <h3 class="font-bold text-medium-gray !my-2 max-sm:text-lg ps-8">
+      {{ titles.thisWeek }}
+    </h3>
+    <ul>
+      @for (item of thisWeekItems; track $index) {
+        <li>
+          <evo-button
+            class="button-in-list"
+            [label]="item.label"
+            [withoutBorder]="true"
+            [theme]="'default'"
+            [isFluid]="true"
+            [avatarName]="item.avatarName"
+            [avatarImgUrl]="item.avatarImgUrl"
+            [onClick]="item.onClick"
+          ></evo-button>
+        </li>
+      } @empty {
+        <li class="ps-20 max-sm:ps-8 text-sm text-medium-gray">
+          {{ emptyListMessage }}
+        </li>
+      }
+    </ul>
+  </div>
+  <div>
+    <h3 class="font-bold text-medium-gray !my-2 max-sm:text-lg ps-8">
+      {{ titles.previous }}
+    </h3>
+    <ul>
+      @for (item of previousItems; track $index) {
+        <li>
+          <evo-button
+            class="button-in-list"
+            [label]="item.label"
+            [withoutBorder]="true"
+            [theme]="'default'"
+            [isFluid]="true"
+            [avatarName]="item.avatarName"
+            [avatarImgUrl]="item.avatarImgUrl"
+            [onClick]="item.onClick"
+          ></evo-button>
+        </li>
+      } @empty {
+        <li class="ps-20 max-sm:ps-8 text-sm text-medium-gray">
+          {{ emptyListMessage }}
+        </li>
+      }
+    </ul>
+  </div>
+</div>

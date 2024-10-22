@@ -35,6 +35,8 @@ export * from './accordion/accordion.component';
 export * from './smart-list/smart-list.component';
 export * from './sidebar/sidebar.component';
 export * from './breadcrumb/breadcrumb.component';
+export * from './info-panel/info-panel.component';
+export * from './time-segmented-list/time-segmented-list.component';
 
 // Interfaces
 export * from './shared/interfaces/ibutton.interface';
@@ -60,9 +62,13 @@ export * from './shared/interfaces/ipagination.interface';
 export * from './shared/interfaces/iaccordion.interface';
 export * from './shared/interfaces/idatagrid.interface';
 export * from './shared/interfaces/ibreadcrumb.interface';
+export * from './shared/interfaces/itime-segmented-list.interface';
 
 // Api Interfaces
 export * from './shared/interfaces/api/iempleado.interface';
+
+// Utils
+export * from './shared/utils/date-utils';
 
 // Validators
 export * from './shared/validators/custom-error-state-matcher';

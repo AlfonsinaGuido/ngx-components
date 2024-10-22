@@ -30,6 +30,7 @@ describe('TimeSegmentedListComponent', () => {
     const today = new Date();
     const thisWeek = new Date();
     thisWeek.setDate(thisWeek.getDate() - 1);
+    thisWeek.setHours(thisWeek.getHours() + 1);
     const previous = new Date();
     previous.setDate(previous.getDate() - 10);
 

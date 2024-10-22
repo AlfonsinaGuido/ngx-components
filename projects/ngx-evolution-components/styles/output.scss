@@ -765,6 +765,10 @@ video {
   visibility: visible;
 }
 
+.static {
+  position: static;
+}
+
 .absolute {
   position: absolute;
 }
@@ -806,6 +810,11 @@ video {
 .my-4 {
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+.\!my-2 {
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
 }
 
 .mb-0 {
@@ -870,6 +879,10 @@ video {
 
 .mt-4 {
   margin-top: 20px;
+}
+
+.\!mb-2 {
+  margin-bottom: 10px !important;
 }
 
 .line-clamp-1 {
@@ -1326,6 +1339,14 @@ video {
   padding-top: 5rem;
 }
 
+.ps-20 {
+  padding-inline-start: 5rem;
+}
+
+.ps-8 {
+  padding-inline-start: 2rem;
+}
+
 .text-left {
   text-align: left;
 }
@@ -1642,6 +1663,17 @@ a {
   .max-md\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
+  }
+}
+
+@media not all and (min-width: 640px) {
+  .max-sm\:ps-8 {
+    padding-inline-start: 2rem;
+  }
+
+  .max-sm\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
   }
 }
 

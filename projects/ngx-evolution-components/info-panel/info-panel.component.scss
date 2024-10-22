@@ -1,0 +1,35 @@
+.container-title {
+  p {
+    color: var(--dark-gray);
+    font-size: 20px;
+  }
+}
+.container-subtitle {
+  p {
+    color: var(--medium-gray);
+    font-size: 14px;
+  }
+}
+.container-info {
+  p {
+    color: var(--dark-gray);
+  }
+}
+
+@media (max-width: 640px) {
+  .container-title {
+    p {
+      font-size: 18px;
+    }
+  }
+  .container-subtitle {
+    p {
+      font-size: 12px;
+    }
+  }
+  .container-info {
+    p {
+      font-size: 14px;
+    }
+  }
+}

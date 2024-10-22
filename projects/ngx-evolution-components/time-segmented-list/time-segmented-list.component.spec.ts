@@ -96,17 +96,17 @@ describe('TimeSegmentedListComponent', () => {
     component.todayItems = [
       {
         label: 'Item 1',
-        onClick: { action: () => {} }, 
-        avatarName: 'A', 
+        onClick: { action: () => {} },
+        avatarName: 'A',
         avatarImgUrl: 'url1',
-        date: ''
+        date: '',
       },
       {
         label: 'Item 2',
-        onClick: { action: () => {} }, 
-        avatarName: 'B', 
+        onClick: { action: () => {} },
+        avatarName: 'B',
         avatarImgUrl: 'url2',
-        date: ''
+        date: '',
       },
     ];
     fixture.detectChanges();

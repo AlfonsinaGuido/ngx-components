@@ -52,9 +52,9 @@ describe('TimeSegmentedListComponent', () => {
 
     component.ngOnChanges(changes);
 
-    expect(component.todayItems.length).toBe(1); 
+    expect(component.todayItems.length).toBe(1);
     expect(component.thisWeekItems.length).toBe(1);
-    expect(component.previousItems.length).toBe(1); 
+    expect(component.previousItems.length).toBe(1);
   });
 
   it('should display empty lists when there are no items, private groupItemsByDate(): void', () => {

@@ -24,7 +24,8 @@ describe('InfoPanelComponent', () => {
     component.title = 'Test Title';
     fixture.detectChanges();
 
-    const titleElement = fixture.nativeElement.querySelector('.container-title');
+    const titleElement =
+      fixture.nativeElement.querySelector('.container-title');
     expect(titleElement).toBeTruthy();
     expect(titleElement.textContent).toContain('Test Title');
   });
@@ -33,7 +34,9 @@ describe('InfoPanelComponent', () => {
     component.subtitle = 'Test Subtitle';
     fixture.detectChanges();
 
-    const subtitleElement = fixture.nativeElement.querySelector('.container-subtitle');
+    const subtitleElement = fixture.nativeElement.querySelector(
+      '.container-subtitle',
+    );
     expect(subtitleElement).toBeTruthy();
     expect(subtitleElement.textContent).toContain('Test Subtitle');
   });
@@ -50,8 +53,11 @@ describe('InfoPanelComponent', () => {
   it('should not display title, subtitle, or info if not provided', () => {
     fixture.detectChanges();
 
-    const titleElement = fixture.nativeElement.querySelector('.container-title');
-    const subtitleElement = fixture.nativeElement.querySelector('.container-subtitle');
+    const titleElement =
+      fixture.nativeElement.querySelector('.container-title');
+    const subtitleElement = fixture.nativeElement.querySelector(
+      '.container-subtitle',
+    );
     const infoElement = fixture.nativeElement.querySelector('.container-info');
 
     expect(titleElement).toBeFalsy();

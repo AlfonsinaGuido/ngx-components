@@ -19,13 +19,9 @@ definitions:
           variables:
             SONAR_HOST_URL: ${SONAR_HOST_URL}
             SONAR_TOKEN: ${SONAR_TOKEN}
-
-      
-
 pipelines:
   default:
     - step: *build-test-sonarcloud
   pull-requests:
     '**':
       - step: *build-test-sonarcloud
-

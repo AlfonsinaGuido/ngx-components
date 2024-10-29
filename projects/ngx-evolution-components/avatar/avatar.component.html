@@ -1,0 +1,20 @@
+<div
+  id="avatar-wrapper"
+  class="relative rounded-full overflow-hidden flex items-center justify-center"
+  [class]="['avatar__' + color, 'avatar__size-' + size].join(' ')"
+  [matTooltip]="name"
+  [matTooltipDisabled]="tooltipDisabled"
+>
+  @if (!imgUrl) {
+    <span class="font-semibold" [class]="'avatar__' + color">{{
+      iniciales
+    }}</span>
+  } @else {
+    <img
+      [class]="'avatar__size-' + size + ' object-cover'"
+      [src]="imgUrl"
+      [attr.loading]="!isPriority ? 'lazy' : null"
+      alt="Avatar Icon"
+    />
+  }
+</div>

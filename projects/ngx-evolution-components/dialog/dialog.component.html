@@ -1,0 +1,74 @@
+@if (closeButton) {
+  <div mat-dialog-title class="dialog-title">
+    <button
+      class="mt-1"
+      mat-icon-button
+      aria-label="close dialog"
+      mat-dialog-close
+    >
+      <mat-icon
+        aria-hidden="false"
+        aria-label="close dialog icon"
+        fontSet="material-symbols-outlined"
+        >close</mat-icon
+      >
+    </button>
+  </div>
+}
+
+@if (icon.icon === "") {
+  <span mat-dialog-title class="!text-dark-gray !font-sans">{{ title }}</span>
+}
+
+@if (scrollableContent !== "") {
+  <mat-dialog-content class="mat-typography !font-sans">
+    <div [innerHTML]="scrollableContent"></div>
+  </mat-dialog-content>
+}
+
+@if (icon.icon !== "") {
+  <mat-dialog-content align="center" class="dialog-icon-container">
+    @if (icon.type === "svg") {
+      <evo-svg class="justify-center" [svgPath]="icon.icon"></evo-svg>
+    }
+    @if (icon.type === "class") {
+      <mat-icon
+        aria-hidden="false"
+        [attr.aria-label]="icon.icon + ' icon'"
+        fontSet="material-symbols-outlined"
+        class="icon-size"
+        [ngStyle]="{ color: icon.color }"
+        >{{ icon.icon }}</mat-icon
+      >
+    }
+    <span mat-dialog-title class="!text-dark-gray !font-sans pb-0">{{
+      title
+    }}</span>
+  </mat-dialog-content>
+}
+
+@if (simpleContent !== "") {
+  <mat-dialog-content
+    class="!font-sans"
+    [ngClass]="icon.icon !== '' ? 'icon-content' : ''"
+  >
+    <div [ngClass]="icon.icon !== '' ? 'text-center' : ''">
+      {{ simpleContent }}
+    </div>
+  </mat-dialog-content>
+}
+
+@if (buttonsItems.length! > 0) {
+  <mat-dialog-actions class="flex-col !justify-end sm:flex-row !gap-2 !m-5 p-0">
+    @for (item of buttonsItems; track item) {
+      <evo-button
+        class="function-button"
+        [label]="item.label"
+        [icon]="item.icon"
+        [theme]="item.theme!"
+        [onClick]="item.onClick"
+        matDialogClose
+      ></evo-button>
+    }
+  </mat-dialog-actions>
+}

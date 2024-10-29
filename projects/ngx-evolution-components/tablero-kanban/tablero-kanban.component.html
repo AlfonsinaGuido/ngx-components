@@ -1,0 +1,70 @@
+<div
+  class="flex flex-col flex-nowrap h-screen overflow-auto px-4 py-6 sm:mt-8 sm:px-2 snap-x snap-proximity"
+  [class]="twClass"
+  id="board"
+>
+  <div class="flex gap-3" cdkDropListGroup>
+    @for (columna of columnas; track $index) {
+      <div
+        class="inline-block min-w-72 max-w-72 whitespace-normal snap-center"
+        id="board-column"
+      >
+        <evo-header-columna
+          [name]="columna.nombre"
+          [count]="columna.actividades.length"
+          [index]="$index"
+          [withCount]="isSingle"
+        ></evo-header-columna>
+        @if (isSingle) {
+          <evo-columna-tablero [actividades]="columna.actividades">
+          </evo-columna-tablero>
+        }
+      </div>
+    }
+  </div>
+  @if (!isSingle) {
+    <cdk-accordion #accordion="cdkAccordion" [multi]="true">
+      @for (empleo of actividadesEmpleos; track empleo; let index = $index) {
+        <cdk-accordion-item
+          #accordionItem="cdkAccordionItem"
+          tabindex="0"
+          [expanded]="true"
+        >
+          <div
+            class="w-full flex items-center overflow-hidden line-clamp-1 text-nowrap rounded-md p-1.5 mb-0.5 cursor-pointer bg-gray-100 hover:bg-gray-200 transition-colors"
+            (click)="accordionItem.toggle()"
+          >
+            <mat-icon
+              class="flex items-center justify-center text-xl"
+              fontSet="material-symbols-outlined"
+              aria-hidden="false"
+              aria-label="icon"
+            >
+              {{ accordionItem.expanded ? "chevron_right" : "expand_more" }}
+            </mat-icon>
+            <p class="text-sm">
+              {{ empleo.nombreEmpleado }}
+              <span class="text-tiny font-bold text-gray-400">
+                - {{ empleo.count }} actividades
+              </span>
+            </p>
+          </div>
+          <div
+            role="region"
+            [class]="accordionItem.expanded ? 'flex gap-3 my-2' : 'hidden'"
+            cdkDropListGroup
+          >
+            <div
+              class="inline-block min-w-72 max-w-72 whitespace-normal snap-center"
+            >
+              <evo-columna-tablero
+                [actividades]="empleo.actividades.actividades"
+              >
+              </evo-columna-tablero>
+            </div>
+          </div>
+        </cdk-accordion-item>
+      }
+    </cdk-accordion>
+  }
+</div>

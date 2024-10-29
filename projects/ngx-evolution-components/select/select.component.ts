@@ -1,9 +1,16 @@
-import { Component, Input, ViewChild, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  ViewChild,
+  ViewEncapsulation,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelect, MatSelectModule } from '@angular/material/select';
-import { ButtonComponent, IconInterface, SelectInterface } from '../public-api';
+import { ButtonComponent, IIcon, ISelect } from '../public-api';
 
 @Component({
   selector: 'evo-select',
@@ -17,29 +24,32 @@ import { ButtonComponent, IconInterface, SelectInterface } from '../public-api';
     ButtonComponent,
   ],
   templateUrl: './select.component.html',
-  styleUrl: './select.component.scss',
+  styleUrls: ['./select.component.scss', '../styles/output.scss'],
   encapsulation: ViewEncapsulation.None,
 })
 export class SelectComponent {
   @Input() control!: FormControl;
   @Input() label!: string;
-  @Input() items!: SelectInterface[];
+  @Input() items!: ISelect[];
   @Input() isMultiple?: boolean;
   @Input() isRequired?: boolean;
-  @Input() errorMessage?: string;
+  @Input() requiredErrorMessage?: string;
   @Input() detail?: string;
-
-  icon: IconInterface = {
-    icon: 'https://pic.onlinewebfonts.com/thumbnails/icons_320714.svg',
-    type: 'svg',
-  };
+  @Input() buttonIcon!: IIcon;
+  @Input() twClass?: string;
+  @Output() valueChange = new EventEmitter<any>();
 
   @ViewChild('selectControl') selectControl!: MatSelect;
 
-  clean() {
+  public clean(event: any) {
     this.control.reset();
+    this.valueChange.emit(event.target.value);
     if (this.selectControl) {
       this.selectControl.close();
     }
+  }
+
+  public onValueChange(event: any) {
+    this.valueChange.emit(event.value);
   }
 }

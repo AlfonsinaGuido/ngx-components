@@ -7,15 +7,17 @@ module.exports = {
         primary: "var(--primary-500)",
         accent: "var(--accent-500)",
         warn: "var(--warn)",
-        "on-primary": "var(--on-primary)",
-        "on-accent": "var(--on-accent)",
+        "white-smoke": "var(--white-smoke)",
+        "light-gray": "var(--light-gray)",
+        "medium-gray": "var(--medium-gray)",
+        "dark-gray": "var(--dark-gray)",
       },
       fontFamily: {
-        sans: ["Roboto", "Helvetica Neue", "sans-serif"],
+        sans: ["Plus Jakarta Sans", "sans-serif"],
       },
       fontSize: {
         small: "0.875rem",
-        tiny: "0.75rem",
+        tiny: "0.65rem",
       },
       borderRadius: {
         default: "15px",
@@ -35,6 +37,7 @@ module.exports = {
       },
       boxShadow: {
         normal: "0 2px 10px rgba(0, 0, 0, 0.1)",
+        md: "0px 4px 8px -2px rgba(23, 23, 23, 0.1)",
       },
     },
     screens: {
@@ -45,5 +48,5 @@ module.exports = {
       "2xl": "1536px", // Computadoras grandes
     },
   },
-  plugins: [],
+  plugins: [require("postcss-import")],
 };

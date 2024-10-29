@@ -1,0 +1,122 @@
+<evo-button
+  [matMenuTriggerFor]="menu"
+  [icon]="icons.buttonIcon || defaultUserMenuIcons?.buttonIcon"
+  [withoutBorder]="true"
+  class="menu-button flex w-fit"
+  (menuOpened)="onMenuOpen()"
+  (menuClosed)="onMenuClose()"
+></evo-button>
+<mat-menu
+  #menu="matMenu"
+  class="sm:!min-w-80 p-3 max-h-[50vh] mt-1 {{ twClass }}"
+>
+  <div class="flex items-center justify-between p-2">
+    <div class="user-data-container flex items-center gap-2">
+      @if (userData) {
+        <evo-avatar
+          size="md"
+          [name]="userData.fullName"
+          [imgUrl]="userData.imgUrl"
+          [isPriority]="true"
+        ></evo-avatar>
+        <div>
+          <div class="font-bold text-dark-gray text-base">
+            {{ userData.fullName }}
+          </div>
+          <div class="font-medium text-medium-gray text-sm">
+            {{ userData.email }}
+          </div>
+        </div>
+      } @else if (title) {
+        <div class="test-title flex font-bold text-sm text-dark-gray">
+          {{ title }}
+        </div>
+        @if (lengthOfItems) {
+          <div class="flex font-semibold text-xs text-primary">
+            {{ lengthOfItems }}
+          </div>
+        }
+      }
+    </div>
+    @if (icons.closeIcon || defaultUserMenuIcons?.closeIcon) {
+      <evo-button
+        class="close-button"
+        [icon]="icons.closeIcon"
+        [withoutBorder]="true"
+      ></evo-button>
+    }
+  </div>
+  @if (settingMenu) {
+    <ul (click)="$event.stopPropagation()">
+      @for (option of settingMenu.options; track $index) {
+        <mat-divider></mat-divider>
+        <li class="p-2">
+          <mat-slide-toggle
+            class="mat-slide"
+            [labelPosition]="settingMenu.labelPosition || 'after'"
+            [color]="settingMenu.color"
+            [checked]="option.checked"
+            [disabled]="option.disabled"
+          >
+            {{ option.name }}
+          </mat-slide-toggle>
+        </li>
+      }
+    </ul>
+  }
+  @if (userData) {
+    <evo-button
+      [label]="sessionJobPosition.Puesto.Nombre"
+      [theme]="'secondary'"
+      [withoutBorder]="true"
+      class="button-in-menu"
+      [isFluid]="true"
+      [disabled]="true"
+      twClass="!pb-0 !min-h-max"
+    ></evo-button>
+    <div class="text-sm text-medium-gray px-2 pb-2">
+      <div>{{ sessionJobPosition.Unidad.Descripcion }}</div>
+      <div>{{ sessionJobPosition.Compania.Descripcion }}</div>
+      <div>{{ sessionJobPosition.CentroTrabajo.Descripcion }}</div>
+    </div>
+    @for (jobPosition of userData.jobPositions; track $index) {
+      @if ($index > 0) {
+        <evo-button
+          [label]="jobPosition.Puesto.Nombre"
+          [icon]="jobPositionChangeIcon"
+          [theme]="'secondary'"
+          [withoutBorder]="true"
+          class="button-in-menu"
+          [isFluid]="true"
+          [onClick]="jobPosition.onClick"
+        ></evo-button>
+      }
+    }
+  }
+  @for (item of items; track $index) {
+    <mat-divider></mat-divider>
+    <evo-button
+      class="button-in-menu"
+      [label]="item.label"
+      [icon]="item.icon"
+      [withoutBorder]="true"
+      [theme]="'secondary'"
+      [isFluid]="true"
+      [url]="item.url"
+      [avatarName]="item.avatarName"
+      [avatarImgUrl]="item.avatarImgUrl"
+      [onClick]="item.onClick"
+    ></evo-button>
+  }
+  @if (seeAllButton && lengthOfItems && lengthOfItems > 3) {
+    <evo-button
+      class="see-all-button flex justify-end mt-2"
+      [label]="seeAllButton.label"
+      [icon]="seeAllButton.icon"
+      [onClick]="seeAllButton.onClick"
+      [withoutBorder]="seeAllButton.withoutBorder || false"
+      [theme]="seeAllButton.theme || 'secondary'"
+      [isFlat]="true"
+    ></evo-button>
+  }
+</mat-menu>

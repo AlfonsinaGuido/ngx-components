@@ -1,0 +1,26 @@
+<div
+  id="dialogo-actividad"
+  class="flex flex-col p-5 text-gray-700 max-w-[560px]"
+>
+  <div class="flex justify-between items-center">
+    <p class="text-2xl font-bold">
+      {{ actividad.nombre }}
+    </p>
+    <button
+      class="flex justify-center items-center cursor-pointer p-2 rounded-full bg-gray-10 hover:bg-gray-100 transition-colors"
+      mat-dialog-close
+    >
+      <mat-icon
+        aria-hidden="false"
+        aria-label="close dialog icon"
+        fontSet="material-symbols-outlined"
+        >close</mat-icon
+      >
+    </button>
+  </div>
+  <p id="program" class="text-small text-gray-500">
+    Programa
+    <span class="font-bold"> {{ actividad.actividadPrograma.nombre }} </span>
+  </p>
+  <evo-data-grid [data]="dataGrid" />
+</div>

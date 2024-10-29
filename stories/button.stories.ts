@@ -1,11 +1,20 @@
-
+import { provideHttpClient } from '@angular/common/http';
 import { ButtonComponent } from '@aseinfo/ngx-evolution-components/public-api';
-import type { Meta, StoryObj } from '@storybook/angular';
+import {
+  applicationConfig,
+  type Meta,
+  type StoryObj,
+} from '@storybook/angular';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta: Meta<ButtonComponent> = {
   title: 'Evolution Components/Button',
   component: ButtonComponent,
+  decorators: [
+    applicationConfig({
+      providers: [provideHttpClient()],
+    }),
+  ],
   tags: ['autodocs'],
 };
 
@@ -16,6 +25,7 @@ type Story = StoryObj<ButtonComponent>;
 export const Default: Story = {
   args: {
     label: 'Button',
+    twClass: '',
   },
 };
 
@@ -33,28 +43,61 @@ export const Secondary: Story = {
   },
 };
 
-export const Terciary: Story = {
+export const Warning: Story = {
   args: {
     ...Default.args,
-    theme: 'terciary',
+    theme: 'warning',
   },
 };
 
-export const WithIcon: Story = {
+export const WithFunction: Story = {
   args: {
     ...Default.args,
-    icon: {
-      icon: 'http://cdn.onlinewebfonts.com/svg/img_572138.png',
-      type: 'svg',
-      position: 'left'
+    onClick: {
+      action: (param = 'con param') => {
+        alert('Función ' + param);
+      },
     },
   },
 };
 
-export const OnlyIcon: Story = {
+export const WithMatIcon: Story = {
   args: {
     icon: {
-      icon: 'http://cdn.onlinewebfonts.com/svg/img_572138.png',
+      icon: 'home',
+      type: 'class',
+    },
+  },
+};
+
+export const WithAvatarName: Story = {
+  args: {
+    avatarName: 'Carlos Sanchez',
+    withoutBorder: true,
+  },
+};
+
+export const WithAvatarImg: Story = {
+  args: {
+    avatarName: 'Carlos Sanchez',
+    avatarImgUrl: 'https://material.angular.io/assets/img/examples/shiba1.jpg',
+  },
+};
+
+export const WithSvgIcon: Story = {
+  args: {
+    ...Default.args,
+    icon: {
+      icon: 'add-user.svg',
+      type: 'svg',
+    },
+  },
+};
+
+export const OnlySvgIcon: Story = {
+  args: {
+    icon: {
+      icon: 'add-user.svg',
       type: 'svg',
     },
   },

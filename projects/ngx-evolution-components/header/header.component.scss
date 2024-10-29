@@ -1,0 +1,39 @@
+@import "../styles/output.scss";
+
+header {
+  height: 60px;
+  background-color: var(--accent-500);
+  .app-menu .icon evo-svg .mat-icon {
+    height: 18px;
+    width: 18px;
+  }
+  .evo-button {
+    &.without-border {
+      border: none !important;
+      background-color: transparent;
+      box-shadow: none;
+      .evo-button__content .icon {
+        color: var(--white-smoke);
+      }
+      &:hover,
+      &:focus {
+        background-color: var(--white-smoke);
+        .evo-button__content .icon .mat-icon {
+          color: var(--accent-500);
+        }
+      }
+    }
+  }
+  evo-svg .mat-icon {
+    height: inherit;
+    width: inherit;
+    max-width: 45px;
+    color: var(--white-smoke);
+  }
+  evo-avatar #avatar-wrapper {
+    background-color: var(--primary-50);
+    span {
+      color: var(--primary-700);
+    }
+  }
+}

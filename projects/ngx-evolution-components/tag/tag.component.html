@@ -1,0 +1,9 @@
+<p
+  [class]="[twClass, 'tag__size-' + size].join(' ')"
+  class="w-fit rounded-lg uppercase text-white"
+  [style]="{
+    'background-color': prioridad?.color,
+  }"
+>
+  {{ !!prioridad?.nombre ? prioridad?.nombre : label }}
+</p>

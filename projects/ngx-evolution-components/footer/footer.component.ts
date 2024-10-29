@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'evo-footer',
   standalone: true,
   imports: [],
   templateUrl: './footer.component.html',
-  styleUrl: './footer.component.scss'
+  styleUrls: ['./footer.component.scss', '../styles/output.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class FooterComponent {
-
+  @Input() twClass?: string;
 }

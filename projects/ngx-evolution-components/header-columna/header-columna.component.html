@@ -1,0 +1,21 @@
+<div
+  id="column-header"
+  class="flex rounded-3xl p-1.5 min-w-fit h-10 text-white items-center mb-2 hover:scale-105 transition-transform"
+  [class]="[classColor, twClass]"
+>
+  @if (withCount) {
+    <span
+      class="flex items-center justify-center font-bold text-sm rounded-full bg-white {{
+        classColor
+      }}"
+      [ngClass]="count === 999 ? 'size-8' : 'size-6 sm:size-7'"
+    >
+      {{ count === 999 ? count + "+" : count }}
+    </span>
+  }
+  <p
+    class="text-white capitalize font-semibold tracking-wide text-sm overflow-hidden text-ellipsis line-clamp-1 ml-2"
+  >
+    {{ name }}
+  </p>
+</div>

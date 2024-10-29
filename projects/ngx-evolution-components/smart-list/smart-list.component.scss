@@ -1,0 +1,169 @@
+.evo-table-container {
+  .evo-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: 14px;
+
+    th,
+    td {
+      padding: 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      text-align: left;
+      padding: 8px;
+      border-bottom: 1px solid #ddd;
+      background-color: #f8fafc;
+      font-weight: 500;
+      color: #64748b;
+    }
+
+    td input[type="checkbox"] {
+      transform: scale(1.2);
+      padding: 8px;
+      text-align: left;
+      border-radius: 100%;
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+
+      .profile-info {
+        margin-left: 0.75rem;
+
+        .name {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .modal-backdrop {
+    display: none;
+  }
+
+  .card-actions {
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+  }
+
+  .center-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.evo-card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .card {
+    border: 1px solid #ddd;
+    padding: 30px;
+    padding-top: 5px;
+    padding-bottom: 8px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .evo-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: 14px;
+
+    th,
+    td {
+      padding: 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      text-align: left;
+      padding: 8px;
+      border-bottom: 1px solid #ddd;
+      background-color: #f8fafc;
+      font-weight: 500;
+      color: #64748b;
+    }
+
+    td input[type="checkbox"] {
+      transform: scale(1.2);
+      padding: 8px;
+      text-align: left;
+      border-radius: 100%;
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+
+      .profile-info {
+        margin-left: 0.75rem;
+
+        .name {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .card-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-actions {
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+  }
+
+  .center-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.table-container,
+.card-container {
+  evo-button {
+    .evo-button.card__evo-button.without-border.theme-secondary {
+      background-color: transparent;
+      box-shadow: none;
+      border: none;
+
+      &:hover {
+        background-color: transparent;
+        box-shadow: none;
+        border: none;
+      }
+
+      mat-icon {
+        &:hover {
+          color: var(--light-gray) !important;
+        }
+      }
+    }
+  }
+}

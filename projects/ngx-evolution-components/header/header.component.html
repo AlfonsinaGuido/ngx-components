@@ -1,1 +1,84 @@
-<p>header works!</p>
+<header
+  class="flex justify-between items-center sm:px-5 px-3 py-2 {{ twClass }}"
+>
+  <div class="flex gap-5 items-center">
+    <evo-menu
+      class="sm:flex hidden app-menu"
+      [icons]="icons.appMenuIcons"
+      [title]="titles.appTitle"
+      [items]="items.appItems"
+      twClass="mt-4"
+    ></evo-menu>
+    <div class="flex items-center gap-5">
+      @if (companyData.companyImage) {
+        <evo-svg [svgPath]="companyData.companyImage"></evo-svg>
+      }
+      @if (companyData.companyName) {
+        <div
+          class="test-company-name lg:flex hidden border-r border-white-smoke pr-5 font-semibold text-white-smoke text-sm"
+        >
+          {{ companyData.companyName }}
+        </div>
+      }
+    </div>
+  </div>
+  <div class="sm:flex gap-3 items-center hidden">
+    @if (box) {
+      @for (button of box; track $index) {
+        <button
+          (click)="button.onClick.action()"
+          class="test-box-button font-bold text-sm text-white-smoke lg:flex hidden"
+        >
+          {{ button.label }}
+        </button>
+      }
+    }
+    @if (icons.authorizationMenuIcons && items.authorizationItems) {
+      <evo-menu
+        [icons]="icons.authorizationMenuIcons"
+        [title]="titles.authorizationTitle"
+        [items]="items.authorizationItems.slice(0, 3)"
+        [lengthOfItems]="items.authorizationItems.length"
+        [seeAllButton]="items.seeAllButton.seeAllAuthorizations"
+        twClass="mt-4"
+      ></evo-menu>
+    }
+    <evo-menu
+      [icons]="icons.notificationMenuIcons"
+      [title]="titles.notificationTitle"
+      [items]="items.notificationItems.slice(0, 3)"
+      [lengthOfItems]="items.notificationItems.length"
+      [seeAllButton]="items.seeAllButton.seeAllNotifications"
+      twClass="mt-4"
+    ></evo-menu>
+    <evo-menu
+      [icons]="icons.settingMenuIcons"
+      [title]="titles.settingTitle"
+      [settingMenu]="items.settingMenu"
+      twClass="mt-4"
+    ></evo-menu>
+    <div class="flex items-center gap-2">
+      <evo-avatar
+        size="sm"
+        [name]="userData.fullName"
+        [imgUrl]="userData.imgUrl"
+        [isPriority]="true"
+      >
+      </evo-avatar>
+      <div class="tracking-wider md:block hidden">
+        <div class="font-bold text-base text-white-smoke">
+          {{ userData.fullName }}
+        </div>
+        <div class="font-medium text-sm text-white-smoke">
+          {{ sessionJobPositionName }}
+        </div>
+      </div>
+      <evo-menu
+        [icons]="icons.userMenuIcons || {}"
+        [userData]="userData"
+        [items]="items.userDataItems"
+        twClass="mt-4"
+      ></evo-menu>
+    </div>
+  </div>
+</header>

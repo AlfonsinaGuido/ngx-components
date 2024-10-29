@@ -4,15 +4,16 @@ import {
   type Meta,
   type StoryObj,
 } from '@storybook/angular';
-import { provideAnimations } from '@angular/platform-browser/animations';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { FormBuilder, FormControl } from '@angular/forms';
+import { provideHttpClient } from '@angular/common/http';
 
 const meta: Meta<SelectComponent> = {
   title: 'Evolution Components/Select',
   component: SelectComponent,
   decorators: [
     applicationConfig({
-      providers: [provideAnimations()],
+      providers: [provideAnimationsAsync(), provideHttpClient()],
     }),
   ],
   tags: ['autodocs'],
@@ -24,7 +25,7 @@ type Story = StoryObj<SelectComponent>;
 const form = new FormBuilder().group({
   defaultFieldSelect: new FormControl('', []),
   multipleFieldSelect: new FormControl([], []),
-  requiredFieldSelect: new FormControl('', [Validators.required]),
+  requiredFieldSelect: new FormControl('', []),
 });
 
 const formControlDefaultSelect = form.controls['defaultFieldSelect'];
@@ -63,7 +64,12 @@ export const Default: Story = {
       },
     ],
     control: formControlDefaultSelect,
+    buttonIcon: {
+      icon: 'clean.svg',
+      type: 'svg',
+    },
     detail: '',
+    twClass: '',
   },
 };
 
@@ -81,6 +87,6 @@ export const Required: Story = {
     control: formControlRequiredSelect,
     isRequired: true,
     isMultiple: false,
-    errorMessage: 'Este campo es requerido',
+    requiredErrorMessage: 'Este campo es requerido',
   },
 };

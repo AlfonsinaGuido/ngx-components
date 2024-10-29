@@ -1,0 +1,9 @@
+#dialogo-actividad {
+  width: 560px;
+}
+
+@media (max-width: 640px) {
+  #dialogo-actividad {
+    width: fit-content;
+  }
+}

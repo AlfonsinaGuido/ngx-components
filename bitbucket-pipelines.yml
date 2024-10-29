@@ -1,0 +1,31 @@
+image: node:20
+
+clone:
+  depth: full
+ 
+definitions:
+  caches:
+    sonar: ~/.sonar/cache
+  steps:
+    - step: &build-test-sonarcloud
+      name: Build, test and analyze
+      caches:
+        - node
+        - sonar
+      script:
+        - npm install --quiet
+        - npm run test -- --code-coverage --no-watch --no-progress --browsers=ChromeHeadlessNoSandbox
+        - pipe: sonarsource/sonarcloud-scan:1.2.0
+          variables:
+            SONAR_HOST_URL: ${SONAR_HOST_URL}
+            SONAR_TOKEN: ${SONAR_TOKEN}
+
+      
+
+pipelines:
+  default:
+    - step: *build-test-sonarcloud
+  pull-requests:
+    '**':
+      - step: *build-test-sonarcloud
+

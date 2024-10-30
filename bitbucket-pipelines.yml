@@ -1,4 +1,4 @@
-image: node:20
+image: feeni/node-chrome:latest
 
 clone:
   depth: full
@@ -19,14 +19,6 @@ definitions:
           - apt-get install -y google-chrome-stable xvfb
           - npm install --quiet
           - npm run test -- --code-coverage --no-watch --no-progress --browsers=ChromeHeadlessNoSandbox
-
-    - step: &analyze-sonarcloud
-        name: Sonarqube analysis
-        image: maven:3.3.9
-        caches:
-          - sonar
-        script:
-          - git fetch --unshallow
           - pipe: sonarsource/sonarcloud-scan:1.2.0
             variables:
               SONAR_HOST_URL: ${SONAR_HOST_URL}
@@ -34,7 +26,6 @@ definitions:
 pipelines:
   default:
     - step: *build-test
-    - step: *analyze-sonarcloud
   pull-requests:
     '**':
       - step: *build-test

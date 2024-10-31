@@ -1,4 +1,8 @@
-image: feeni/node-chrome:latest
+image: node:20
+
+options:
+  docker: true
+  size: 2x
 
 clone:
   depth: full

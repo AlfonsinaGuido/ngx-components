@@ -117,28 +117,30 @@
           }
 
           <!-- Acordeón de configuraciones -->
-          <evo-accordion
-            [config]="{
-              title: commonProps.titles.settingTitle,
-              icon: commonProps.icons?.settingMenuIcons?.buttonIcon || {
-                type: 'class',
-                icon: '',
-              },
-              height: '90px',
-            }"
-          >
-            <!-- Opciones dentro del acordeón de configuraciones -->
-            @for (
-              option of commonProps.items.settingMenu.options;
-              track option.name
-            ) {
-              <div class="option-item">
-                <span class="pl-4">{{ option.name }}</span>
-                <mat-slide-toggle></mat-slide-toggle>
-              </div>
-              <mat-divider></mat-divider>
-            }
-          </evo-accordion>
+          @if (commonProps.titles.settingTitle) {
+            <evo-accordion
+              [config]="{
+                title: commonProps.titles.settingTitle,
+                icon: commonProps.icons?.settingMenuIcons?.buttonIcon || {
+                  type: 'class',
+                  icon: '',
+                },
+                height: '90px',
+              }"
+            >
+              <!-- Opciones dentro del acordeón de configuraciones -->
+              @for (
+                option of commonProps.items.settingMenu.options;
+                track option.name
+              ) {
+                <div class="option-item">
+                  <span class="pl-4">{{ option.name }}</span>
+                  <mat-slide-toggle></mat-slide-toggle>
+                </div>
+                <mat-divider></mat-divider>
+              }
+            </evo-accordion>
+          }
 
           <!-- Segundo acordeón: Más Aplicaciones -->
           @if (commonProps.moreOptions?.options?.length) {

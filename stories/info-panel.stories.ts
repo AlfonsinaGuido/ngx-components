@@ -26,7 +26,7 @@ export const Default: Story = {
   args: {
     title: 'Samuel Lopez finalizó Programa Desarrollo',
     subtitle: '30/09/2024',
-    info: 'Estimado(a) Juana Margarita Rodas Opico,\n\nEste es un recordatorio de que su capacitación en **Atención al Cliente** se llevará a cabo mañana.\n\nAsegúrese de estar preparado.',
+    info: 'Estimado(a) Juana Margarita Rodas Opico,\n\nEste es un recordatorio de que su capacitación en **Atención al Cliente** se llevará a cabo mañana.\n\nAsegúrese de estar preparado. Ingrese a la misma desde <a href="https://www.google.com/" target="_blank">**aquí**</a>.',
     twClass: '',
   },
 };

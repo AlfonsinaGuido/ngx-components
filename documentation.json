@@ -91,6 +91,16 @@
         "defaultValue": "{\n  args: {\n    label: 'Custom',\n    size: 'md',\n    twClass:\n      'bg-slate-600 text-white border-slate-700 font-bold cursor-pointer rounded-xl p-2',\n  },\n}"
       },
       {
+        "name": "ControlledError",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/banner.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\r\n  args: {\r\n    title: 'Error',\r\n    message: 'No se puede eliminar un programa con personas asignadas.',\r\n    isError: true,\r\n    duration: 10000,\r\n    twClass: '',\r\n  },\r\n}"
+      },
+      {
         "name": "customTailwindClass",
         "ctype": "miscellaneous",
         "subtype": "variable",
@@ -108,7 +118,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "ISmartListItem[]",
-        "defaultValue": "[\n  {\n    amo_codigo: 6,\n    amo_fecha_infraccion: '2024-09-18T06:00:00',\n    cau_descripcion:\n      'Falta sin causa justificada dos días completos y consecutivos',\n    cia_descripcion: 'ASEINFO Guatemala.',\n    exp_apellidos_nombres1: 'Abrego Labbe, Rene Armando',\n    exp_apellidos_nombres2: 'Delgado de García, María del Rosario',\n    g_record_number: '1',\n    g_total_recs: 1,\n    tam_descripcion: 'Oral',\n  },\n  {\n    amo_codigo: 7,\n    amo_fecha_infraccion: '2024-09-19T06:00:00',\n    cau_descripcion:\n      'Falta sin causa justificada dos días completos y consecutivos',\n    cia_descripcion: 'ASEINFO Salvador.',\n    exp_apellidos_nombres1: 'Abrego Labbe, Rene Armando',\n    exp_apellidos_nombres2: 'Delgado de García, María del Rosario',\n    g_record_number: '2',\n    g_total_recs: 1,\n    tam_descripcion: 'Oral',\n  },\n]"
+        "defaultValue": "[\r\n  {\r\n    amo_codigo: 6,\r\n    amo_fecha_infraccion: '2024-09-18T06:00:00',\r\n    cau_descripcion:\r\n      'Falta sin causa justificada dos días completos y consecutivos',\r\n    cia_descripcion: 'ASEINFO Guatemala.',\r\n    exp_apellidos_nombres1: 'Abrego Labbe, Rene Armando',\r\n    exp_apellidos_nombres2: 'Delgado de García, María del Rosario',\r\n    g_record_number: '1',\r\n    g_total_recs: 1,\r\n    tam_descripcion: 'Oral',\r\n  },\r\n  {\r\n    amo_codigo: 7,\r\n    amo_fecha_infraccion: '2024-09-19T06:00:00',\r\n    cau_descripcion:\r\n      'Falta sin causa justificada dos días completos y consecutivos',\r\n    cia_descripcion: 'ASEINFO Salvador.',\r\n    exp_apellidos_nombres1: 'Abrego Labbe, Rene Armando',\r\n    exp_apellidos_nombres2: 'Delgado de García, María del Rosario',\r\n    g_record_number: '2',\r\n    g_total_recs: 1,\r\n    tam_descripcion: 'Oral',\r\n  },\r\n]"
       },
       {
         "name": "Default",
@@ -118,7 +128,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  render: (args) => {\n    const handleActionSelected = (actionCode: string) => {\n      console.log('Acción seleccionada:', actionCode);\n    };\n\n    const handleMenuClosed = () => {\n      console.log('Menú cerrado');\n    };\n\n    return {\n      template: `\n        <div class=\"w-full h-48 bg-gray-100 p-4 flex justify-center items-center\">\n          <div class=\"relative\">\n            <h3 class=\"text-lg font-bold mb-2\">Botón</h3>\n            <action-menu\n            [icons]=\"icons\"\n              [config]=\"config\"\n              (actionSelected)=\"actionSelected($event)\"\n              (menuClosed)=\"menuClosed()\"\n              [twClass]=\"twClass\"\n            ></action-menu>\n          </div>\n        </div>\n      `,\n      props: {\n        ...args,\n        actionSelected: handleActionSelected,\n        menuClosed: handleMenuClosed,\n      },\n    };\n  },\n  args: {\n    config: { ...defaultConfig },\n  },\n}"
+        "defaultValue": "{\r\n  render: (args) => {\r\n    const handleActionSelected = (actionCode: string) => {\r\n      console.log('Acción seleccionada:', actionCode);\r\n    };\r\n\r\n    const handleMenuClosed = () => {\r\n      console.log('Menú cerrado');\r\n    };\r\n\r\n    return {\r\n      template: `\r\n        <div class=\"w-full h-48 bg-gray-100 p-4 flex justify-center items-center\">\r\n          <div class=\"relative\">\r\n            <h3 class=\"text-lg font-bold mb-2\">Botón</h3>\r\n            <action-menu\r\n            [icons]=\"icons\"\r\n              [config]=\"config\"\r\n              (actionSelected)=\"actionSelected($event)\"\r\n              (menuClosed)=\"menuClosed()\"\r\n              [twClass]=\"twClass\"\r\n            ></action-menu>\r\n          </div>\r\n        </div>\r\n      `,\r\n      props: {\r\n        ...args,\r\n        actionSelected: handleActionSelected,\r\n        menuClosed: handleMenuClosed,\r\n      },\r\n    };\r\n  },\r\n  args: {\r\n    config: { ...defaultConfig },\r\n  },\r\n}"
       },
       {
         "name": "Default",
@@ -128,7 +138,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    config: {\n      ...defaultConfig,\n    },\n  },\n  parameters: {\n    actions: {\n      handles: ['removeItem', 'buttonClick'],\n    },\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    config: {\r\n      ...defaultConfig,\r\n    },\r\n  },\r\n  parameters: {\r\n    actions: {\r\n      handles: ['removeItem', 'buttonClick'],\r\n    },\r\n  },\r\n}"
       },
       {
         "name": "Default",
@@ -218,7 +228,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    title: 'Samuel Lopez finalizó Programa Desarrollo',\n    subtitle: '30/09/2024',\n    info: 'Estimado(a) Juana Margarita Rodas Opico,\\n\\nEste es un recordatorio de que su capacitación en **Atención al Cliente** se llevará a cabo mañana.\\n\\nAsegúrese de estar preparado.',\n    twClass: '',\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    title: 'Samuel Lopez finalizó Programa Desarrollo',\r\n    subtitle: '30/09/2024',\r\n    info: 'Estimado(a) Juana Margarita Rodas Opico,\\n\\nEste es un recordatorio de que su capacitación en **Atención al Cliente** se llevará a cabo mañana.\\n\\nAsegúrese de estar preparado. Ingrese a la misma desde <a href=\"https://www.google.com/\" target=\"_blank\">**aquí**</a>.',\r\n    twClass: '',\r\n  },\r\n}"
       },
       {
         "name": "Default",
@@ -248,7 +258,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n    },\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    config: {\r\n      ...defaultconfig,\r\n    },\r\n  },\r\n}"
       },
       {
         "name": "Default",
@@ -258,7 +268,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    placeholder: 'Buscar personas...',\n    twClass: '',\n  },\n  parameters: {\n    actions: {\n      handles: ['searchQuery'],\n    },\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    placeholder: 'Buscar personas...',\r\n    twClass: '',\r\n  },\r\n  parameters: {\r\n    actions: {\r\n      handles: ['searchQuery'],\r\n    },\r\n  },\r\n}"
       },
       {
         "name": "Default",
@@ -288,7 +298,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    smartlistConfig: smartlistConfig,\n    data: data,\n    titles: titles,\n    page: 1,\n    totalPages: 1,\n    pageSize: 5,\n    hiddenColumns: [2],\n    twClass: '',\n    sortableColumns: [1],\n    actionIcons: [\n      { type: 'class', icon: 'add' },\n      { type: 'class', icon: 'edit' },\n      { type: 'class', icon: 'delete' },\n      { type: 'class', icon: 'verified_user' },\n    ],\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    smartlistConfig: smartlistConfig,\r\n    data: data,\r\n    titles: titles,\r\n    page: 1,\r\n    totalPages: 1,\r\n    pageSize: 5,\r\n    hiddenColumns: [2],\r\n    twClass: '',\r\n    sortableColumns: [1],\r\n    actionIcons: [\r\n      { type: 'class', icon: 'add' },\r\n      { type: 'class', icon: 'edit' },\r\n      { type: 'class', icon: 'delete' },\r\n      { type: 'class', icon: 'verified_user' },\r\n    ],\r\n  },\r\n}"
       },
       {
         "name": "Default",
@@ -338,7 +348,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    titles: {\n      today: 'Hoy',\n      thisWeek: 'Esta Semana',\n      previous: 'Anteriores',\n    },\n    emptyListMessage: 'Sin contenido',\n    items: [\n      {\n        label: 'Carlos Sanchez finalizó Programa Recursos Humanos',\n        avatarName: 'Carlos Sanchez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Carlos Sanchez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-03-09T07:00:00',\n      },\n      {\n        label: 'Samuel Lopez finalizó Programa Desarrollo',\n        avatarName: 'Samuel Lopez',\n        onClick: {\n          action: (name = 'Samuel Lopez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-03-09T07:00:00',\n      },\n      {\n        label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',\n        avatarName: 'Ignacio Fernandez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Ignacio Fernandez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-03-09T07:00:00',\n      },\n      {\n        label: 'Carlos Sanchez finalizó Programa Recursos Humanos',\n        avatarName: 'Carlos Sanchez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Carlos Sanchez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-03-09T07:00:00',\n      },\n      {\n        label: 'Samuel Lopez finalizó Programa Desarrollo',\n        avatarName: 'Samuel Lopez',\n        onClick: {\n          action: (name = 'Samuel Lopez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-10-21T13:30:00',\n      },\n      {\n        label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',\n        avatarName: 'Ignacio Fernandez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Ignacio Fernandez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-10-22T07:00:00',\n      },\n    ],\n    twClass: '',\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    titles: {\r\n      today: 'Hoy',\r\n      thisWeek: 'Esta Semana',\r\n      previous: 'Anteriores',\r\n    },\r\n    emptyListMessage: 'Sin contenido',\r\n    items: [\r\n      {\r\n        label: 'Carlos Sanchez finalizó Programa Recursos Humanos',\r\n        avatarName: 'Carlos Sanchez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: (name = 'Carlos Sanchez') => {\r\n            alert('Notificación de: ' + name);\r\n          },\r\n        },\r\n        date: '2024-03-09T07:00:00',\r\n      },\r\n      {\r\n        label: 'Samuel Lopez finalizó Programa Desarrollo',\r\n        avatarName: 'Samuel Lopez',\r\n        onClick: {\r\n          action: (name = 'Samuel Lopez') => {\r\n            alert('Notificación de: ' + name);\r\n          },\r\n        },\r\n        date: '2024-03-09T07:00:00',\r\n      },\r\n      {\r\n        label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',\r\n        avatarName: 'Ignacio Fernandez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: (name = 'Ignacio Fernandez') => {\r\n            alert('Notificación de: ' + name);\r\n          },\r\n        },\r\n        date: '2024-03-09T07:00:00',\r\n      },\r\n      {\r\n        label: 'Carlos Sanchez finalizó Programa Recursos Humanos',\r\n        avatarName: 'Carlos Sanchez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: (name = 'Carlos Sanchez') => {\r\n            alert('Notificación de: ' + name);\r\n          },\r\n        },\r\n        date: '2024-03-09T07:00:00',\r\n      },\r\n      {\r\n        label: 'Samuel Lopez finalizó Programa Desarrollo',\r\n        avatarName: 'Samuel Lopez',\r\n        onClick: {\r\n          action: (name = 'Samuel Lopez') => {\r\n            alert('Notificación de: ' + name);\r\n          },\r\n        },\r\n        date: '2024-10-21T07:00:00',\r\n      },\r\n      {\r\n        label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',\r\n        avatarName: 'Ignacio Fernandez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: (name = 'Ignacio Fernandez') => {\r\n            alert('Notificación de: ' + name);\r\n          },\r\n        },\r\n        date: '2024-10-22T07:00:00',\r\n      },\r\n    ],\r\n    twClass: '',\r\n  },\r\n}"
       },
       {
         "name": "defaultconfig",
@@ -348,7 +358,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "object",
-        "defaultValue": "{\n  id: '1',\n  title: 'Program Title',\n  subtitle: 'Ejemplo de descripción',\n  activitiesCount: 5,\n  activitiesText: 'Actividades',\n  weeksCount: 3,\n  weeksText: 'Semanas',\n  buttonLabel: 'Asignar',\n  buttonIcon: 'add-user.svg',\n  buttonClasses: 'theme-primary',\n  onButtonClick: {\n    action: () => {\n      console.log('Button clicked!');\n    },\n  },\n  twClass: 'custom-class',\n  isFluid: true,\n  size: 'lg' as 'sm' | 'md' | 'lg',\n}"
+        "defaultValue": "{\r\n  id: '1',\r\n  title: 'Program Title',\r\n  subtitle: 'Ejemplo de descripción',\r\n  activitiesCount: 5,\r\n  activitiesText: 'Actividades',\r\n  weeksCount: 3,\r\n  weeksText: 'Semanas',\r\n  buttonLabel: 'Asignar',\r\n  buttonIcon: 'add-user.svg',\r\n  buttonClasses: 'theme-primary',\r\n  onButtonClick: {\r\n    action: () => {\r\n      console.log('Button clicked!');\r\n    },\r\n  },\r\n  twClass: 'custom-class',\r\n  isFluid: true,\r\n  size: 'lg' as 'sm' | 'md' | 'lg',\r\n}"
       },
       {
         "name": "defaultConfig",
@@ -358,7 +368,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "IActionMenuConfig",
-        "defaultValue": "{\n  actions: [\n    {\n      Code: 'new',\n      Text: 'Esto es un texto un poco largo ',\n      Visible: true,\n      ShowText: true,\n      ShowImage: false,\n      ImageURL: '',\n      VisibleIndex: 2,\n      ActionURL: '/new',\n      ExecuteLinkAction: false,\n    },\n    {\n      Code: 'edit',\n      Text: 'Editar',\n      Visible: true,\n      ShowText: true,\n      ShowImage: false,\n      ImageURL: '',\n      VisibleIndex: 1,\n      ActionURL: '/edit',\n      ExecuteLinkAction: false,\n    },\n    {\n      Code: 'delete',\n      Text: 'Eliminar',\n      Visible: true,\n      ShowText: true,\n      ShowImage: false,\n      ImageURL: '',\n      VisibleIndex: 3,\n      ActionURL: '/delete',\n      ExecuteLinkAction: false,\n    },\n  ],\n  isOpen: true,\n  twClass: '',\n  icons: [\n    { type: 'class', icon: 'add' },\n    { type: 'class', icon: 'edit' },\n    { type: 'class', icon: 'delete' },\n  ],\n}"
+        "defaultValue": "{\r\n  actions: [\r\n    {\r\n      Code: 'new',\r\n      Text: 'Esto es un texto un poco largo ',\r\n      Visible: true,\r\n      ShowText: true,\r\n      ShowImage: false,\r\n      ImageURL: '',\r\n      VisibleIndex: 2,\r\n      ActionURL: '/new',\r\n      ExecuteLinkAction: false,\r\n    },\r\n    {\r\n      Code: 'edit',\r\n      Text: 'Editar',\r\n      Visible: true,\r\n      ShowText: true,\r\n      ShowImage: false,\r\n      ImageURL: '',\r\n      VisibleIndex: 1,\r\n      ActionURL: '/edit',\r\n      ExecuteLinkAction: false,\r\n    },\r\n    {\r\n      Code: 'delete',\r\n      Text: 'Eliminar',\r\n      Visible: true,\r\n      ShowText: true,\r\n      ShowImage: false,\r\n      ImageURL: '',\r\n      VisibleIndex: 3,\r\n      ActionURL: '/delete',\r\n      ExecuteLinkAction: false,\r\n    },\r\n  ],\r\n  isOpen: true,\r\n  twClass: '',\r\n  icons: [\r\n    { type: 'class', icon: 'add' },\r\n    { type: 'class', icon: 'edit' },\r\n    { type: 'class', icon: 'delete' },\r\n  ],\r\n}"
       },
       {
         "name": "defaultConfig",
@@ -368,7 +378,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "ICardConfig",
-        "defaultValue": "{\n  assignActionText: 'Asignar a',\n  assignTargetText: 'personas',\n  items: [\n    { id: '1', name: 'Oscar Esteban Juarez Paz' },\n    { id: '2', name: 'Julia Maria Fernandez Paredes' },\n    { id: '3', name: 'Isabella Maria Gonzales Clark' },\n  ],\n  buttonText: 'Asignar Programa',\n  emptyStateText: 'No hay personas asignadas',\n  twClass: '',\n}"
+        "defaultValue": "{\r\n  assignActionText: 'Asignar a',\r\n  assignTargetText: 'personas',\r\n  items: [\r\n    { id: '1', name: 'Oscar Esteban Juarez Paz' },\r\n    { id: '2', name: 'Julia Maria Fernandez Paredes' },\r\n    { id: '3', name: 'Isabella Maria Gonzales Clark' },\r\n  ],\r\n  buttonText: 'Asignar Programa',\r\n  emptyStateText: 'No hay personas asignadas',\r\n  twClass: '',\r\n}"
       },
       {
         "name": "defaultConfig",
@@ -378,7 +388,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "object",
-        "defaultValue": "{\n  currentPage: 1,\n  totalPages: 5,\n  pageSize: 10,\n  totalItems: 50,\n  titles: {\n    showing: 'Mostrando',\n    results: 'resultados',\n    page: 'Página',\n    of: 'de',\n  },\n  twClass: '',\n}"
+        "defaultValue": "{\r\n  currentPage: 1,\r\n  totalPages: 5,\r\n  pageSize: 10,\r\n  totalItems: 50,\r\n  titles: {\r\n    showing: 'Mostrando',\r\n    results: 'resultados',\r\n    page: 'Página',\r\n    of: 'de',\r\n  },\r\n  twClass: '',\r\n}"
       },
       {
         "name": "Disabled",
@@ -548,7 +558,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  render: (args) => ({\n    props: {\n      config: args.config,\n    },\n    template: `\n        <evo-accordion [config]=\"config\">\n          <p>Este es el contenido dentro del acordeón.</p>\n          <p>Puedes colocar cualquier tipo de HTML o componentes aquí.</p>\n        </evo-accordion>\n      `,\n  }),\n  args: {\n    config: {\n      title: 'Mi Acordeón',\n      icon: { icon: 'add-user.svg', type: 'svg' },\n      height: '200px',\n      twClass: '',\n    },\n  },\n}"
+        "defaultValue": "{\r\n  render: (args) => ({\r\n    props: {\r\n      config: args.config,\r\n    },\r\n    template: `\r\n        <evo-accordion [config]=\"config\">\r\n          <p>Este es el contenido dentro del acordeón.</p>\r\n          <p>Puedes colocar cualquier tipo de HTML o componentes aquí.</p>\r\n        </evo-accordion>\r\n      `,\r\n  }),\r\n  args: {\r\n    config: {\r\n      title: 'Mi Acordeón',\r\n      icon: { icon: 'add-user.svg', type: 'svg' },\r\n      height: '200px',\r\n      twClass: '',\r\n    },\r\n  },\r\n}"
       },
       {
         "name": "InteractivePagination",
@@ -558,7 +568,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  render: (args) => {\n    const handleNextPage = () => {\n      if (args.config.currentPage < args.config.totalPages) {\n        args.config.currentPage += 1;\n      }\n    };\n\n    const handlePreviousPage = () => {\n      if (args.config.currentPage > 1) {\n        args.config.currentPage -= 1;\n      }\n    };\n\n    const handlePageSelected = (event: { page: number }) => {\n      args.config.currentPage = event.page;\n    };\n\n    return {\n      props: {\n        ...args,\n        nextPageClicked: handleNextPage,\n        previousPageClicked: handlePreviousPage,\n        pageSelected: handlePageSelected,\n      },\n    };\n  },\n  args: {\n    config: { ...defaultConfig },\n  },\n}"
+        "defaultValue": "{\r\n  render: (args) => {\r\n    const handleNextPage = () => {\r\n      if (args.config.currentPage < args.config.totalPages) {\r\n        args.config.currentPage += 1;\r\n      }\r\n    };\r\n\r\n    const handlePreviousPage = () => {\r\n      if (args.config.currentPage > 1) {\r\n        args.config.currentPage -= 1;\r\n      }\r\n    };\r\n\r\n    const handlePageSelected = (event: { page: number }) => {\r\n      args.config.currentPage = event.page;\r\n    };\r\n\r\n    return {\r\n      props: {\r\n        ...args,\r\n        nextPageClicked: handleNextPage,\r\n        previousPageClicked: handlePreviousPage,\r\n        pageSelected: handlePageSelected,\r\n      },\r\n    };\r\n  },\r\n  args: {\r\n    config: { ...defaultConfig },\r\n  },\r\n}"
       },
       {
         "name": "IsFlat",
@@ -588,7 +598,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'lg',\n      title: 'Large Program Title',\n      isFluid: false,\n    },\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    config: {\r\n      ...defaultconfig,\r\n      size: 'lg',\r\n      title: 'Large Program Title',\r\n      isFluid: false,\r\n    },\r\n  },\r\n}"
       },
       {
         "name": "loginFunction",
@@ -618,7 +628,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'md',\n      title: 'Medium Program Title',\n      isFluid: false,\n    },\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    config: {\r\n      ...defaultconfig,\r\n      size: 'md',\r\n      title: 'Medium Program Title',\r\n      isFluid: false,\r\n    },\r\n  },\r\n}"
       },
       {
         "name": "meta",
@@ -628,7 +638,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<AccordionComponent>",
-        "defaultValue": "{\n  title: 'Evolution Components/Accordion',\n  component: AccordionComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()],\n    }),\n    moduleMetadata({\n      imports: [CommonModule],\n    }),\n  ],\n  tags: ['autodocs'],\n  argTypes: {\n    config: {\n      control: 'object',\n      description: 'Configuración completa del acordeón',\n      defaultValue: {\n        title: 'Mi Acordeón',\n        icon: { icon: 'add-user.svg', type: 'svg' },\n        height: '200px',\n        twClass: '',\n      },\n      table: {\n        type: { summary: 'IAccordionConfig' },\n      },\n    },\n  },\n}"
+        "defaultValue": "{\r\n  title: 'Evolution Components/Accordion',\r\n  component: AccordionComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideHttpClient()],\r\n    }),\r\n    moduleMetadata({\r\n      imports: [CommonModule],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    config: {\r\n      control: 'object',\r\n      description: 'Configuración completa del acordeón',\r\n      defaultValue: {\r\n        title: 'Mi Acordeón',\r\n        icon: { icon: 'add-user.svg', type: 'svg' },\r\n        height: '200px',\r\n        twClass: '',\r\n      },\r\n      table: {\r\n        type: { summary: 'IAccordionConfig' },\r\n      },\r\n    },\r\n  },\r\n}"
       },
       {
         "name": "meta",
@@ -638,7 +648,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<ActionMenuComponent>",
-        "defaultValue": "{\n  title: 'Evolution Components/Action Menu',\n  component: ActionMenuComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+        "defaultValue": "{\r\n  title: 'Evolution Components/Action Menu',\r\n  component: ActionMenuComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
       },
       {
         "name": "meta",
@@ -648,7 +658,17 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<AssignCardComponent>",
-        "defaultValue": "{\n  title: 'Evolution Components/Assign Card',\n  component: AssignCardComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+        "defaultValue": "{\r\n  title: 'Evolution Components/Assign Card',\r\n  component: AssignCardComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
+      },
+      {
+        "name": "meta",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/banner.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Meta<BannerComponent>",
+        "defaultValue": "{\r\n  title: 'Evolution Components/Banner',\r\n  component: BannerComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideAnimationsAsync()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
       },
       {
         "name": "meta",
@@ -708,7 +728,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<InfoPanelComponent>",
-        "defaultValue": "{\n  title: 'Evolution Components/Info Panel',\n  component: InfoPanelComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideMarkdown()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+        "defaultValue": "{\r\n  title: 'Evolution Components/Info Panel',\r\n  component: InfoPanelComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideMarkdown()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
       },
       {
         "name": "meta",
@@ -748,7 +768,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<PaginationComponent>",
-        "defaultValue": "{\n  title: 'Evolution Components/Pagination',\n  component: PaginationComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+        "defaultValue": "{\r\n  title: 'Evolution Components/Pagination',\r\n  component: PaginationComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
       },
       {
         "name": "meta",
@@ -758,7 +778,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<SearchBarComponent>",
-        "defaultValue": "{\n  title: 'Evolution Components/Search Bar',\n  component: SearchBarComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+        "defaultValue": "{\r\n  title: 'Evolution Components/Search Bar',\r\n  component: SearchBarComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
       },
       {
         "name": "meta",
@@ -778,7 +798,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<SidebarComponent>",
-        "defaultValue": "{\n  title: 'Evolution Components/Sidebar',\n  component: SidebarComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync(), provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n  argTypes: {\n    twClass: {\n      control: {\n        type: 'text',\n      },\n    },\n    commonProps: {\n      description:\n        'Common properties shared between the header and the sidebar, including icons, titles, and user data.',\n      control: {\n        type: 'object',\n      },\n    },\n    options: {\n      description:\n        'Sidebar navigation or action options with icons and titles.',\n      control: {\n        type: 'object',\n      },\n    },\n    additionalOptions: {\n      description:\n        'Additional options that will be displayed in the sidebar (only on mobile version).',\n      control: {\n        type: 'object',\n      },\n    },\n    footerOptions: {\n      description:\n        'Options specifically for the footer section of the sidebar.',\n      control: {\n        type: 'object',\n      },\n    },\n  },\n  args: {\n    commonProps: {\n      icons: {\n        appMenuIcons: {\n          buttonIcon: {\n            icon: 'app-menu.svg',\n            type: 'svg',\n          },\n        },\n        authorizationMenuIcons: {\n          buttonIcon: {\n            icon: 'fact_check',\n            type: 'class',\n          },\n        },\n        notificationMenuIcons: {\n          buttonIcon: {\n            icon: 'bell.svg',\n            type: 'svg',\n          },\n        },\n        settingMenuIcons: {\n          buttonIcon: {\n            icon: 'settings.svg',\n            type: 'svg',\n          },\n        },\n      } as IHeaderIcons,\n      titles: {\n        appTitle: 'Tus aplicaciones',\n        authorizationTitle: 'Autorizaciones',\n        notificationTitle: 'Notificaciones',\n        settingTitle: 'Ajustes',\n      } as IHeaderTitles,\n      items: {\n        appItems: [\n          {\n            label: 'Evo Wave',\n            icon: {\n              icon: 'company-logo.svg',\n              type: 'svg',\n            },\n            url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoWave',\n          },\n          {\n            label: 'Evo Chart',\n            icon: {\n              icon: 'company-logo.svg',\n              type: 'svg',\n            },\n            url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoChart',\n          },\n        ],\n        authorizationItems: [\n          {\n            label:\n              'Carlos Sanchez requiere autorización de acceso al Programa Recursos Humanos',\n            avatarName: 'Carlos Sanchez',\n            avatarImgUrl:\n              'https://material.angular.io/assets/img/examples/shiba1.jpg',\n            onClick: {\n              action: (name = 'Carlos Sanchez') => {\n                alert('Se autorizó a ' + name);\n              },\n            },\n          },\n          {\n            label:\n              'Samuel Lopez requiere autorización de acceso al Programa Desarrollo',\n            avatarName: 'Samuel Lopez',\n            avatarImgUrl:\n              'https://material.angular.io/assets/img/examples/shiba1.jpg',\n            onClick: {\n              action: () => {\n                alert('Se autorizó a Samuel Lopez');\n              },\n            },\n          },\n        ],\n        notificationItems: [\n          {\n            label: 'Carlos Sanchez finalizó Programa Recursos Humanos',\n            avatarName: 'Carlos Sanchez',\n            avatarImgUrl:\n              'https://material.angular.io/assets/img/examples/shiba1.jpg',\n            onClick: {\n              action: (name = 'Carlos Sanchez') => {\n                alert('Notificación de: ' + name);\n              },\n            },\n          },\n        ],\n        seeAllButton: {\n          seeAllAuthorizations: {\n            label: 'Ver todas',\n            onClick: {\n              action: (path = '/autorizaciones') => {\n                alert('Redirige a pantalla: ' + path);\n              },\n            },\n          },\n          seeAllNotifications: {\n            label: 'Ver todas',\n            onClick: {\n              action: (path = '/notificaciones') => {\n                alert('Redirige a pantalla: ' + path);\n              },\n            },\n          },\n        },\n        settingMenu: {\n          options: [\n            {\n              name: 'Apellido primero',\n            },\n            {\n              name: 'Autorizaciones',\n            },\n          ],\n        },\n        userDataItems: [\n          {\n            label: 'Administrar Cuenta',\n            icon: {\n              icon: 'manage_accounts',\n              type: 'class',\n            },\n            url: 'https://localhost:7002/identity/account/manage',\n          },\n          {\n            label: 'Cerrar Sesión',\n            onClick: {\n              action: () => {\n                alert('Se ejecuta Logout');\n              },\n            },\n          },\n        ],\n      } as IHeaderItems,\n      companyData: {\n        companyImage: 'company-logo.svg',\n        companyName: 'ASEINFO',\n      } as IHeaderCompanyData,\n      userData: {\n        fullName: 'Stela Lopez',\n        email: 'slopez@empresa.com',\n        jobPositions: [\n          {\n            Puesto: {\n              Nombre: 'Gerente Desarrollo',\n            },\n            Unidad: {\n              Descripcion: 'Unidad',\n            },\n            Compania: {\n              Descripcion: 'Compania',\n            },\n            CentroTrabajo: {\n              Descripcion: 'Centro de Trabajo',\n            },\n            onClick: {\n              action: (position = 'Gerente Desarrollo') => {\n                alert('Puesto elegido: ' + position);\n              },\n            },\n          },\n        ],\n      },\n      moreOptions: {\n        label: 'Ver más',\n        insideLabel: 'Más opciones',\n        icon: {\n          icon: 'dashboard.svg',\n          type: 'svg',\n        },\n        options: [\n          {\n            label: 'Opción 1',\n            icon: {\n              icon: 'dashboard.svg',\n              type: 'svg',\n            },\n            route: '/opcion1',\n            action: () => alert('Opción 1 seleccionada'),\n          },\n          {\n            label: 'Opción 2',\n            icon: {\n              icon: 'settings.svg',\n              type: 'svg',\n            },\n            route: '/opcion2',\n            action: () => alert('Opción 2 seleccionada'),\n          },\n          {\n            label: 'Opción 3',\n            icon: {\n              icon: 'files.svg',\n              type: 'svg',\n            },\n            route: '/opcion3',\n            action: () => alert('Opción 3 seleccionada'),\n          },\n          {\n            label: 'Opción 1',\n            icon: {\n              icon: 'dashboard.svg',\n              type: 'svg',\n            },\n            route: '/opcion1',\n            action: () => alert('Opción 1 seleccionada'),\n          },\n          {\n            label: 'Opción 2',\n            icon: {\n              icon: 'settings.svg',\n              type: 'svg',\n            },\n            route: '/opcion2',\n            action: () => alert('Opción 2 seleccionada'),\n          },\n          {\n            label: 'Opción 3',\n            icon: {\n              icon: 'files.svg',\n              type: 'svg',\n            },\n            route: '/opcion3',\n            action: () => alert('Opción 3 seleccionada'),\n          },\n          {\n            label: 'Opción 1',\n            icon: {\n              icon: 'dashboard.svg',\n              type: 'svg',\n            },\n            route: '/opcion1',\n            action: () => alert('Opción 1 seleccionada'),\n          },\n          {\n            label: 'Opción 2',\n            icon: {\n              icon: 'settings.svg',\n              type: 'svg',\n            },\n            route: '/opcion2',\n            action: () => alert('Opción 2 seleccionada'),\n          },\n          {\n            label: 'Opción 3',\n            icon: {\n              icon: 'files.svg',\n              type: 'svg',\n            },\n            route: '/opcion3',\n            action: () => alert('Opción 3 seleccionada'),\n          },\n          {\n            label: 'Opción 3',\n            icon: {\n              icon: 'files.svg',\n              type: 'svg',\n            },\n            route: '/opcion3',\n            action: () => alert('Opción 3 seleccionada'),\n          },\n        ],\n      },\n    } as IHeader,\n    options: [\n      {\n        icon: { icon: 'dashboard.svg', type: 'svg' },\n        action: () => alert('Dashboard'),\n        route: '/dashboard',\n        title: 'Dashboard',\n      },\n      {\n        icon: { icon: 'files.svg', type: 'svg' },\n        action: () => alert('Files'),\n        route: '/files',\n        title: 'Files',\n      },\n    ] as ISidebarOption[],\n    additionalOptions: [\n      {\n        icon: { icon: 'company-logo.svg', type: 'svg' },\n        action: () => alert('Dashboard'),\n        route: '/dashboard',\n        title: 'Dashboard',\n      },\n    ] as ISidebarOption[],\n    footerOptions: [\n      {\n        icon: { icon: 'settings.svg', type: 'svg' },\n        action: () => alert('settings'),\n        route: '/settings',\n        title: 'Settings',\n      },\n      {\n        icon: { icon: 'dashboard.svg', type: 'svg' },\n        action: () => alert('dashboard'),\n        route: '/dashboard',\n        title: 'Dashboard',\n      },\n    ] as ISidebarOption[],\n    twClass: '',\n  },\n}"
+        "defaultValue": "{\r\n  title: 'Evolution Components/Sidebar',\r\n  component: SidebarComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideAnimationsAsync(), provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    twClass: {\r\n      control: {\r\n        type: 'text',\r\n      },\r\n    },\r\n    commonProps: {\r\n      description:\r\n        'Common properties shared between the header and the sidebar, including icons, titles, and user data.',\r\n      control: {\r\n        type: 'object',\r\n      },\r\n    },\r\n    options: {\r\n      description:\r\n        'Sidebar navigation or action options with icons and titles.',\r\n      control: {\r\n        type: 'object',\r\n      },\r\n    },\r\n    additionalOptions: {\r\n      description:\r\n        'Additional options that will be displayed in the sidebar (only on mobile version).',\r\n      control: {\r\n        type: 'object',\r\n      },\r\n    },\r\n    footerOptions: {\r\n      description:\r\n        'Options specifically for the footer section of the sidebar.',\r\n      control: {\r\n        type: 'object',\r\n      },\r\n    },\r\n  },\r\n  args: {\r\n    commonProps: {\r\n      icons: {\r\n        appMenuIcons: {\r\n          buttonIcon: {\r\n            icon: 'app-menu.svg',\r\n            type: 'svg',\r\n          },\r\n        },\r\n        authorizationMenuIcons: {\r\n          buttonIcon: {\r\n            icon: 'fact_check',\r\n            type: 'class',\r\n          },\r\n        },\r\n        notificationMenuIcons: {\r\n          buttonIcon: {\r\n            icon: 'bell.svg',\r\n            type: 'svg',\r\n          },\r\n        },\r\n        settingMenuIcons: {\r\n          buttonIcon: {\r\n            icon: 'settings.svg',\r\n            type: 'svg',\r\n          },\r\n        },\r\n      } as IHeaderIcons,\r\n      titles: {\r\n        appTitle: 'Tus aplicaciones',\r\n        authorizationTitle: 'Autorizaciones',\r\n        notificationTitle: 'Notificaciones',\r\n        settingTitle: 'Ajustes',\r\n      } as IHeaderTitles,\r\n      items: {\r\n        appItems: [\r\n          {\r\n            label: 'Evo Wave',\r\n            icon: {\r\n              icon: 'company-logo.svg',\r\n              type: 'svg',\r\n            },\r\n            url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoWave',\r\n          },\r\n          {\r\n            label: 'Evo Chart',\r\n            icon: {\r\n              icon: 'company-logo.svg',\r\n              type: 'svg',\r\n            },\r\n            url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoChart',\r\n          },\r\n        ],\r\n        authorizationItems: [\r\n          {\r\n            label:\r\n              'Carlos Sanchez requiere autorización de acceso al Programa Recursos Humanos',\r\n            avatarName: 'Carlos Sanchez',\r\n            avatarImgUrl:\r\n              'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n            onClick: {\r\n              action: (name = 'Carlos Sanchez') => {\r\n                alert('Se autorizó a ' + name);\r\n              },\r\n            },\r\n          },\r\n          {\r\n            label:\r\n              'Samuel Lopez requiere autorización de acceso al Programa Desarrollo',\r\n            avatarName: 'Samuel Lopez',\r\n            avatarImgUrl:\r\n              'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n            onClick: {\r\n              action: () => {\r\n                alert('Se autorizó a Samuel Lopez');\r\n              },\r\n            },\r\n          },\r\n        ],\r\n        notificationItems: [\r\n          {\r\n            label: 'Carlos Sanchez finalizó Programa Recursos Humanos',\r\n            avatarName: 'Carlos Sanchez',\r\n            avatarImgUrl:\r\n              'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n            onClick: {\r\n              action: (name = 'Carlos Sanchez') => {\r\n                alert('Notificación de: ' + name);\r\n              },\r\n            },\r\n          },\r\n        ],\r\n        seeAllButton: {\r\n          seeAllAuthorizations: {\r\n            label: 'Ver todas',\r\n            onClick: {\r\n              action: (path = '/autorizaciones') => {\r\n                alert('Redirige a pantalla: ' + path);\r\n              },\r\n            },\r\n          },\r\n          seeAllNotifications: {\r\n            label: 'Ver todas',\r\n            onClick: {\r\n              action: (path = '/notificaciones') => {\r\n                alert('Redirige a pantalla: ' + path);\r\n              },\r\n            },\r\n          },\r\n        },\r\n        settingMenu: {\r\n          options: [\r\n            {\r\n              name: 'Apellido primero',\r\n            },\r\n            {\r\n              name: 'Autorizaciones',\r\n            },\r\n          ],\r\n        },\r\n        userDataItems: [\r\n          {\r\n            label: 'Administrar Cuenta',\r\n            icon: {\r\n              icon: 'manage_accounts',\r\n              type: 'class',\r\n            },\r\n            url: 'https://localhost:7002/identity/account/manage',\r\n          },\r\n          {\r\n            label: 'Cerrar Sesión',\r\n            onClick: {\r\n              action: () => {\r\n                alert('Se ejecuta Logout');\r\n              },\r\n            },\r\n          },\r\n        ],\r\n      } as IHeaderItems,\r\n      companyData: {\r\n        companyImage: 'company-logo.svg',\r\n        companyName: 'ASEINFO',\r\n      } as IHeaderCompanyData,\r\n      userData: {\r\n        fullName: 'Stela Lopez',\r\n        email: 'slopez@empresa.com',\r\n        jobPositions: [\r\n          {\r\n            Puesto: {\r\n              Nombre: 'Gerente Desarrollo',\r\n            },\r\n            Unidad: {\r\n              Descripcion: 'Unidad',\r\n            },\r\n            Compania: {\r\n              Descripcion: 'Compania',\r\n            },\r\n            CentroTrabajo: {\r\n              Descripcion: 'Centro de Trabajo',\r\n            },\r\n            onClick: {\r\n              action: (position = 'Gerente Desarrollo') => {\r\n                alert('Puesto elegido: ' + position);\r\n              },\r\n            },\r\n          },\r\n        ],\r\n      },\r\n      moreOptions: {\r\n        label: 'Ver más',\r\n        insideLabel: 'Más opciones',\r\n        icon: {\r\n          icon: 'dashboard.svg',\r\n          type: 'svg',\r\n        },\r\n        options: [\r\n          {\r\n            label: 'Opción 1',\r\n            icon: {\r\n              icon: 'dashboard.svg',\r\n              type: 'svg',\r\n            },\r\n            route: '/opcion1',\r\n            action: () => alert('Opción 1 seleccionada'),\r\n          },\r\n          {\r\n            label: 'Opción 2',\r\n            icon: {\r\n              icon: 'settings.svg',\r\n              type: 'svg',\r\n            },\r\n            route: '/opcion2',\r\n            action: () => alert('Opción 2 seleccionada'),\r\n          },\r\n          {\r\n            label: 'Opción 3',\r\n            icon: {\r\n              icon: 'files.svg',\r\n              type: 'svg',\r\n            },\r\n            route: '/opcion3',\r\n            action: () => alert('Opción 3 seleccionada'),\r\n          },\r\n          {\r\n            label: 'Opción 1',\r\n            icon: {\r\n              icon: 'dashboard.svg',\r\n              type: 'svg',\r\n            },\r\n            route: '/opcion1',\r\n            action: () => alert('Opción 1 seleccionada'),\r\n          },\r\n          {\r\n            label: 'Opción 2',\r\n            icon: {\r\n              icon: 'settings.svg',\r\n              type: 'svg',\r\n            },\r\n            route: '/opcion2',\r\n            action: () => alert('Opción 2 seleccionada'),\r\n          },\r\n          {\r\n            label: 'Opción 3',\r\n            icon: {\r\n              icon: 'files.svg',\r\n              type: 'svg',\r\n            },\r\n            route: '/opcion3',\r\n            action: () => alert('Opción 3 seleccionada'),\r\n          },\r\n          {\r\n            label: 'Opción 1',\r\n            icon: {\r\n              icon: 'dashboard.svg',\r\n              type: 'svg',\r\n            },\r\n            route: '/opcion1',\r\n            action: () => alert('Opción 1 seleccionada'),\r\n          },\r\n          {\r\n            label: 'Opción 2',\r\n            icon: {\r\n              icon: 'settings.svg',\r\n              type: 'svg',\r\n            },\r\n            route: '/opcion2',\r\n            action: () => alert('Opción 2 seleccionada'),\r\n          },\r\n          {\r\n            label: 'Opción 3',\r\n            icon: {\r\n              icon: 'files.svg',\r\n              type: 'svg',\r\n            },\r\n            route: '/opcion3',\r\n            action: () => alert('Opción 3 seleccionada'),\r\n          },\r\n          {\r\n            label: 'Opción 3',\r\n            icon: {\r\n              icon: 'files.svg',\r\n              type: 'svg',\r\n            },\r\n            route: '/opcion3',\r\n            action: () => alert('Opción 3 seleccionada'),\r\n          },\r\n        ],\r\n      },\r\n    } as IHeader,\r\n    options: [\r\n      {\r\n        icon: { icon: 'dashboard.svg', type: 'svg' },\r\n        action: () => alert('Dashboard'),\r\n        route: '/dashboard',\r\n        title: 'Dashboard',\r\n      },\r\n      {\r\n        icon: { icon: 'files.svg', type: 'svg' },\r\n        action: () => alert('Files'),\r\n        route: '/files',\r\n        title: 'Files',\r\n      },\r\n    ] as ISidebarOption[],\r\n    additionalOptions: [\r\n      {\r\n        icon: { icon: 'company-logo.svg', type: 'svg' },\r\n        action: () => alert('Dashboard'),\r\n        route: '/dashboard',\r\n        title: 'Dashboard',\r\n      },\r\n    ] as ISidebarOption[],\r\n    footerOptions: [\r\n      {\r\n        icon: { icon: 'settings.svg', type: 'svg' },\r\n        action: () => alert('settings'),\r\n        route: '/settings',\r\n        title: 'Settings',\r\n      },\r\n      {\r\n        icon: { icon: 'dashboard.svg', type: 'svg' },\r\n        action: () => alert('dashboard'),\r\n        route: '/dashboard',\r\n        title: 'Dashboard',\r\n      },\r\n    ] as ISidebarOption[],\r\n    twClass: '',\r\n  },\r\n}"
       },
       {
         "name": "meta",
@@ -788,7 +808,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<SmartListComponent>",
-        "defaultValue": "{\n  title: 'Evolution Components/Smart List',\n  component: SmartListComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+        "defaultValue": "{\r\n  title: 'Evolution Components/Smart List',\r\n  component: SmartListComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
       },
       {
         "name": "meta",
@@ -808,7 +828,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<TimeSegmentedListComponent>",
-        "defaultValue": "{\n  title: 'Evolution Components/Time Segmented List',\n  component: TimeSegmentedListComponent,\n  tags: ['autodocs'],\n}"
+        "defaultValue": "{\r\n  title: 'Evolution Components/Time Segmented List',\r\n  component: TimeSegmentedListComponent,\r\n  tags: ['autodocs'],\r\n}"
       },
       {
         "name": "muchasActividades",
@@ -1078,7 +1098,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'sm',\n      title: 'Small Program Title',\n      subtitle: 'Se permite texto hasta dos líneas.',\n      isFluid: false,\n    },\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    config: {\r\n      ...defaultconfig,\r\n      size: 'sm',\r\n      title: 'Small Program Title',\r\n      subtitle: 'Se permite texto hasta dos líneas.',\r\n      isFluid: false,\r\n    },\r\n  },\r\n}"
       },
       {
         "name": "SmallSize",
@@ -1088,7 +1108,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    config: {\n      ...defaultConfig,\n      items: [\n        ...defaultConfig.items,\n        { id: '4', name: 'Oscar Esteban Juarez Paz' },\n      ],\n      twClass: 'w-80',\n    },\n  },\n  parameters: {\n    actions: {\n      handles: ['removeItem', 'buttonClick'],\n    },\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    config: {\r\n      ...defaultConfig,\r\n      items: [\r\n        ...defaultConfig.items,\r\n        { id: '4', name: 'Oscar Esteban Juarez Paz' },\r\n      ],\r\n      twClass: 'w-80',\r\n    },\r\n  },\r\n  parameters: {\r\n    actions: {\r\n      handles: ['removeItem', 'buttonClick'],\r\n    },\r\n  },\r\n}"
       },
       {
         "name": "SmallSizeSmallOptions",
@@ -1098,7 +1118,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    config: {\n      ...defaultConfig,\n      twClass: 'w-80',\n    },\n  },\n  parameters: {\n    actions: {\n      handles: ['removeItem', 'buttonClick'],\n    },\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    config: {\r\n      ...defaultConfig,\r\n      twClass: 'w-80',\r\n    },\r\n  },\r\n  parameters: {\r\n    actions: {\r\n      handles: ['removeItem', 'buttonClick'],\r\n    },\r\n  },\r\n}"
       },
       {
         "name": "smartlistConfig",
@@ -1108,7 +1128,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "ISmartlistFullConfig",
-        "defaultValue": "{\n  Code: 'evowave.SolicitudAmonestaciones',\n  ClientControlID: 'evowave.SolicitudAmonestaciones',\n  Parameters: {},\n  DatabaseDialect: 'Microsoft.Data.SqlClient',\n  UrlMetadata: '/api/configuracion/SmartList/evowave.SolicitudAmonestaciones',\n  FormTagId: 'evowave_SolicitudAmonestaciones_form',\n  AlmacenaInformacionPersonalizacion: false,\n  Height: 'Auto',\n  Metadata: metaData,\n  HasQueryBuilder: false,\n  UrlData: '/api/configuracion/SmartList/evowave.SolicitudAmonestaciones/Data',\n  FormatoEntero: '{0:n0}',\n  Checksum: 'c3c0d2dfa2ca6048dd03942e9132c668d215ebb03e1eb0bee496f8eb857da3b7',\n  Rows: 1,\n}"
+        "defaultValue": "{\r\n  Code: 'evowave.SolicitudAmonestaciones',\r\n  ClientControlID: 'evowave.SolicitudAmonestaciones',\r\n  Parameters: {},\r\n  DatabaseDialect: 'Microsoft.Data.SqlClient',\r\n  UrlMetadata: '/api/configuracion/SmartList/evowave.SolicitudAmonestaciones',\r\n  FormTagId: 'evowave_SolicitudAmonestaciones_form',\r\n  AlmacenaInformacionPersonalizacion: false,\r\n  Height: 'Auto',\r\n  Metadata: metaData,\r\n  HasQueryBuilder: false,\r\n  UrlData: '/api/configuracion/SmartList/evowave.SolicitudAmonestaciones/Data',\r\n  FormatoEntero: '{0:n0}',\r\n  Checksum: 'c3c0d2dfa2ca6048dd03942e9132c668d215ebb03e1eb0bee496f8eb857da3b7',\r\n  Rows: 1,\r\n}"
       },
       {
         "name": "soloTituloYDescripcion",
@@ -1139,6 +1159,16 @@
         "deprecationMessage": "",
         "type": "Story",
         "defaultValue": "{\n  args: {\n    title: title,\n    subtitle: subtitle,\n  },\n}"
+      },
+      {
+        "name": "Success",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/banner.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\r\n  args: {\r\n    title: 'Éxito',\r\n    message: 'Se asignaron correctamente las personas al programa.',\r\n    duration: 10000,\r\n    twClass: '',\r\n  },\r\n}"
       },
       {
         "name": "svgDialog",
@@ -1188,7 +1218,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "ISmartListTitles",
-        "defaultValue": "{\n  showing: 'Mostrando',\n  results: 'resultados',\n  page: 'pag',\n  of: 'de',\n}"
+        "defaultValue": "{\r\n  showing: 'Mostrando',\r\n  results: 'resultados',\r\n  page: 'pag',\r\n  of: 'de',\r\n}"
       },
       {
         "name": "today",
@@ -1199,6 +1229,16 @@
         "deprecationMessage": "",
         "type": "",
         "defaultValue": "new Date()"
+      },
+      {
+        "name": "UncontrolledError",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/banner.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\r\n  args: {\r\n    title: 'Error',\r\n    message: 'No se pudo establecer conexión con el Identity Server.',\r\n    isError: true,\r\n    twClass: '',\r\n  },\r\n}"
       },
       {
         "name": "UserMenu",
@@ -1439,6 +1479,17 @@
         "subtype": "typealias",
         "rawtype": "StoryObj<AvatarComponent>",
         "file": "stories/avatar.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "description": "",
+        "kind": 183
+      },
+      {
+        "name": "Story",
+        "ctype": "miscellaneous",
+        "subtype": "typealias",
+        "rawtype": "StoryObj<BannerComponent>",
+        "file": "stories/banner.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "description": "",
@@ -2019,6 +2070,48 @@
           "defaultValue": "{\n  args: {\n    label: 'Media',\n    size: 'md',\n    twClass: 'bg-gray-300',\n  },\n}"
         }
       ],
+      "stories/banner.stories.ts": [
+        {
+          "name": "ControlledError",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/banner.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\r\n  args: {\r\n    title: 'Error',\r\n    message: 'No se puede eliminar un programa con personas asignadas.',\r\n    isError: true,\r\n    duration: 10000,\r\n    twClass: '',\r\n  },\r\n}"
+        },
+        {
+          "name": "meta",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/banner.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Meta<BannerComponent>",
+          "defaultValue": "{\r\n  title: 'Evolution Components/Banner',\r\n  component: BannerComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideAnimationsAsync()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
+        },
+        {
+          "name": "Success",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/banner.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\r\n  args: {\r\n    title: 'Éxito',\r\n    message: 'Se asignaron correctamente las personas al programa.',\r\n    duration: 10000,\r\n    twClass: '',\r\n  },\r\n}"
+        },
+        {
+          "name": "UncontrolledError",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/banner.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\r\n  args: {\r\n    title: 'Error',\r\n    message: 'No se pudo establecer conexión con el Identity Server.',\r\n    isError: true,\r\n    twClass: '',\r\n  },\r\n}"
+        }
+      ],
       "stories/header-columna.stories.ts": [
         {
           "name": "customTailwindClass",
@@ -2080,7 +2173,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "ISmartListItem[]",
-          "defaultValue": "[\n  {\n    amo_codigo: 6,\n    amo_fecha_infraccion: '2024-09-18T06:00:00',\n    cau_descripcion:\n      'Falta sin causa justificada dos días completos y consecutivos',\n    cia_descripcion: 'ASEINFO Guatemala.',\n    exp_apellidos_nombres1: 'Abrego Labbe, Rene Armando',\n    exp_apellidos_nombres2: 'Delgado de García, María del Rosario',\n    g_record_number: '1',\n    g_total_recs: 1,\n    tam_descripcion: 'Oral',\n  },\n  {\n    amo_codigo: 7,\n    amo_fecha_infraccion: '2024-09-19T06:00:00',\n    cau_descripcion:\n      'Falta sin causa justificada dos días completos y consecutivos',\n    cia_descripcion: 'ASEINFO Salvador.',\n    exp_apellidos_nombres1: 'Abrego Labbe, Rene Armando',\n    exp_apellidos_nombres2: 'Delgado de García, María del Rosario',\n    g_record_number: '2',\n    g_total_recs: 1,\n    tam_descripcion: 'Oral',\n  },\n]"
+          "defaultValue": "[\r\n  {\r\n    amo_codigo: 6,\r\n    amo_fecha_infraccion: '2024-09-18T06:00:00',\r\n    cau_descripcion:\r\n      'Falta sin causa justificada dos días completos y consecutivos',\r\n    cia_descripcion: 'ASEINFO Guatemala.',\r\n    exp_apellidos_nombres1: 'Abrego Labbe, Rene Armando',\r\n    exp_apellidos_nombres2: 'Delgado de García, María del Rosario',\r\n    g_record_number: '1',\r\n    g_total_recs: 1,\r\n    tam_descripcion: 'Oral',\r\n  },\r\n  {\r\n    amo_codigo: 7,\r\n    amo_fecha_infraccion: '2024-09-19T06:00:00',\r\n    cau_descripcion:\r\n      'Falta sin causa justificada dos días completos y consecutivos',\r\n    cia_descripcion: 'ASEINFO Salvador.',\r\n    exp_apellidos_nombres1: 'Abrego Labbe, Rene Armando',\r\n    exp_apellidos_nombres2: 'Delgado de García, María del Rosario',\r\n    g_record_number: '2',\r\n    g_total_recs: 1,\r\n    tam_descripcion: 'Oral',\r\n  },\r\n]"
         },
         {
           "name": "Default",
@@ -2090,7 +2183,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    smartlistConfig: smartlistConfig,\n    data: data,\n    titles: titles,\n    page: 1,\n    totalPages: 1,\n    pageSize: 5,\n    hiddenColumns: [2],\n    twClass: '',\n    sortableColumns: [1],\n    actionIcons: [\n      { type: 'class', icon: 'add' },\n      { type: 'class', icon: 'edit' },\n      { type: 'class', icon: 'delete' },\n      { type: 'class', icon: 'verified_user' },\n    ],\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    smartlistConfig: smartlistConfig,\r\n    data: data,\r\n    titles: titles,\r\n    page: 1,\r\n    totalPages: 1,\r\n    pageSize: 5,\r\n    hiddenColumns: [2],\r\n    twClass: '',\r\n    sortableColumns: [1],\r\n    actionIcons: [\r\n      { type: 'class', icon: 'add' },\r\n      { type: 'class', icon: 'edit' },\r\n      { type: 'class', icon: 'delete' },\r\n      { type: 'class', icon: 'verified_user' },\r\n    ],\r\n  },\r\n}"
         },
         {
           "name": "meta",
@@ -2100,7 +2193,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<SmartListComponent>",
-          "defaultValue": "{\n  title: 'Evolution Components/Smart List',\n  component: SmartListComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+          "defaultValue": "{\r\n  title: 'Evolution Components/Smart List',\r\n  component: SmartListComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
         },
         {
           "name": "smartlistConfig",
@@ -2110,7 +2203,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "ISmartlistFullConfig",
-          "defaultValue": "{\n  Code: 'evowave.SolicitudAmonestaciones',\n  ClientControlID: 'evowave.SolicitudAmonestaciones',\n  Parameters: {},\n  DatabaseDialect: 'Microsoft.Data.SqlClient',\n  UrlMetadata: '/api/configuracion/SmartList/evowave.SolicitudAmonestaciones',\n  FormTagId: 'evowave_SolicitudAmonestaciones_form',\n  AlmacenaInformacionPersonalizacion: false,\n  Height: 'Auto',\n  Metadata: metaData,\n  HasQueryBuilder: false,\n  UrlData: '/api/configuracion/SmartList/evowave.SolicitudAmonestaciones/Data',\n  FormatoEntero: '{0:n0}',\n  Checksum: 'c3c0d2dfa2ca6048dd03942e9132c668d215ebb03e1eb0bee496f8eb857da3b7',\n  Rows: 1,\n}"
+          "defaultValue": "{\r\n  Code: 'evowave.SolicitudAmonestaciones',\r\n  ClientControlID: 'evowave.SolicitudAmonestaciones',\r\n  Parameters: {},\r\n  DatabaseDialect: 'Microsoft.Data.SqlClient',\r\n  UrlMetadata: '/api/configuracion/SmartList/evowave.SolicitudAmonestaciones',\r\n  FormTagId: 'evowave_SolicitudAmonestaciones_form',\r\n  AlmacenaInformacionPersonalizacion: false,\r\n  Height: 'Auto',\r\n  Metadata: metaData,\r\n  HasQueryBuilder: false,\r\n  UrlData: '/api/configuracion/SmartList/evowave.SolicitudAmonestaciones/Data',\r\n  FormatoEntero: '{0:n0}',\r\n  Checksum: 'c3c0d2dfa2ca6048dd03942e9132c668d215ebb03e1eb0bee496f8eb857da3b7',\r\n  Rows: 1,\r\n}"
         },
         {
           "name": "titles",
@@ -2120,7 +2213,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "ISmartListTitles",
-          "defaultValue": "{\n  showing: 'Mostrando',\n  results: 'resultados',\n  page: 'pag',\n  of: 'de',\n}"
+          "defaultValue": "{\r\n  showing: 'Mostrando',\r\n  results: 'resultados',\r\n  page: 'pag',\r\n  of: 'de',\r\n}"
         }
       ],
       "stories/action-menu.stories.ts": [
@@ -2132,7 +2225,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  render: (args) => {\n    const handleActionSelected = (actionCode: string) => {\n      console.log('Acción seleccionada:', actionCode);\n    };\n\n    const handleMenuClosed = () => {\n      console.log('Menú cerrado');\n    };\n\n    return {\n      template: `\n        <div class=\"w-full h-48 bg-gray-100 p-4 flex justify-center items-center\">\n          <div class=\"relative\">\n            <h3 class=\"text-lg font-bold mb-2\">Botón</h3>\n            <action-menu\n            [icons]=\"icons\"\n              [config]=\"config\"\n              (actionSelected)=\"actionSelected($event)\"\n              (menuClosed)=\"menuClosed()\"\n              [twClass]=\"twClass\"\n            ></action-menu>\n          </div>\n        </div>\n      `,\n      props: {\n        ...args,\n        actionSelected: handleActionSelected,\n        menuClosed: handleMenuClosed,\n      },\n    };\n  },\n  args: {\n    config: { ...defaultConfig },\n  },\n}"
+          "defaultValue": "{\r\n  render: (args) => {\r\n    const handleActionSelected = (actionCode: string) => {\r\n      console.log('Acción seleccionada:', actionCode);\r\n    };\r\n\r\n    const handleMenuClosed = () => {\r\n      console.log('Menú cerrado');\r\n    };\r\n\r\n    return {\r\n      template: `\r\n        <div class=\"w-full h-48 bg-gray-100 p-4 flex justify-center items-center\">\r\n          <div class=\"relative\">\r\n            <h3 class=\"text-lg font-bold mb-2\">Botón</h3>\r\n            <action-menu\r\n            [icons]=\"icons\"\r\n              [config]=\"config\"\r\n              (actionSelected)=\"actionSelected($event)\"\r\n              (menuClosed)=\"menuClosed()\"\r\n              [twClass]=\"twClass\"\r\n            ></action-menu>\r\n          </div>\r\n        </div>\r\n      `,\r\n      props: {\r\n        ...args,\r\n        actionSelected: handleActionSelected,\r\n        menuClosed: handleMenuClosed,\r\n      },\r\n    };\r\n  },\r\n  args: {\r\n    config: { ...defaultConfig },\r\n  },\r\n}"
         },
         {
           "name": "defaultConfig",
@@ -2142,7 +2235,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "IActionMenuConfig",
-          "defaultValue": "{\n  actions: [\n    {\n      Code: 'new',\n      Text: 'Esto es un texto un poco largo ',\n      Visible: true,\n      ShowText: true,\n      ShowImage: false,\n      ImageURL: '',\n      VisibleIndex: 2,\n      ActionURL: '/new',\n      ExecuteLinkAction: false,\n    },\n    {\n      Code: 'edit',\n      Text: 'Editar',\n      Visible: true,\n      ShowText: true,\n      ShowImage: false,\n      ImageURL: '',\n      VisibleIndex: 1,\n      ActionURL: '/edit',\n      ExecuteLinkAction: false,\n    },\n    {\n      Code: 'delete',\n      Text: 'Eliminar',\n      Visible: true,\n      ShowText: true,\n      ShowImage: false,\n      ImageURL: '',\n      VisibleIndex: 3,\n      ActionURL: '/delete',\n      ExecuteLinkAction: false,\n    },\n  ],\n  isOpen: true,\n  twClass: '',\n  icons: [\n    { type: 'class', icon: 'add' },\n    { type: 'class', icon: 'edit' },\n    { type: 'class', icon: 'delete' },\n  ],\n}"
+          "defaultValue": "{\r\n  actions: [\r\n    {\r\n      Code: 'new',\r\n      Text: 'Esto es un texto un poco largo ',\r\n      Visible: true,\r\n      ShowText: true,\r\n      ShowImage: false,\r\n      ImageURL: '',\r\n      VisibleIndex: 2,\r\n      ActionURL: '/new',\r\n      ExecuteLinkAction: false,\r\n    },\r\n    {\r\n      Code: 'edit',\r\n      Text: 'Editar',\r\n      Visible: true,\r\n      ShowText: true,\r\n      ShowImage: false,\r\n      ImageURL: '',\r\n      VisibleIndex: 1,\r\n      ActionURL: '/edit',\r\n      ExecuteLinkAction: false,\r\n    },\r\n    {\r\n      Code: 'delete',\r\n      Text: 'Eliminar',\r\n      Visible: true,\r\n      ShowText: true,\r\n      ShowImage: false,\r\n      ImageURL: '',\r\n      VisibleIndex: 3,\r\n      ActionURL: '/delete',\r\n      ExecuteLinkAction: false,\r\n    },\r\n  ],\r\n  isOpen: true,\r\n  twClass: '',\r\n  icons: [\r\n    { type: 'class', icon: 'add' },\r\n    { type: 'class', icon: 'edit' },\r\n    { type: 'class', icon: 'delete' },\r\n  ],\r\n}"
         },
         {
           "name": "meta",
@@ -2152,7 +2245,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<ActionMenuComponent>",
-          "defaultValue": "{\n  title: 'Evolution Components/Action Menu',\n  component: ActionMenuComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+          "defaultValue": "{\r\n  title: 'Evolution Components/Action Menu',\r\n  component: ActionMenuComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
         }
       ],
       "stories/assign-card.stories.ts": [
@@ -2164,7 +2257,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    config: {\n      ...defaultConfig,\n    },\n  },\n  parameters: {\n    actions: {\n      handles: ['removeItem', 'buttonClick'],\n    },\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    config: {\r\n      ...defaultConfig,\r\n    },\r\n  },\r\n  parameters: {\r\n    actions: {\r\n      handles: ['removeItem', 'buttonClick'],\r\n    },\r\n  },\r\n}"
         },
         {
           "name": "defaultConfig",
@@ -2174,7 +2267,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "ICardConfig",
-          "defaultValue": "{\n  assignActionText: 'Asignar a',\n  assignTargetText: 'personas',\n  items: [\n    { id: '1', name: 'Oscar Esteban Juarez Paz' },\n    { id: '2', name: 'Julia Maria Fernandez Paredes' },\n    { id: '3', name: 'Isabella Maria Gonzales Clark' },\n  ],\n  buttonText: 'Asignar Programa',\n  emptyStateText: 'No hay personas asignadas',\n  twClass: '',\n}"
+          "defaultValue": "{\r\n  assignActionText: 'Asignar a',\r\n  assignTargetText: 'personas',\r\n  items: [\r\n    { id: '1', name: 'Oscar Esteban Juarez Paz' },\r\n    { id: '2', name: 'Julia Maria Fernandez Paredes' },\r\n    { id: '3', name: 'Isabella Maria Gonzales Clark' },\r\n  ],\r\n  buttonText: 'Asignar Programa',\r\n  emptyStateText: 'No hay personas asignadas',\r\n  twClass: '',\r\n}"
         },
         {
           "name": "meta",
@@ -2184,7 +2277,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<AssignCardComponent>",
-          "defaultValue": "{\n  title: 'Evolution Components/Assign Card',\n  component: AssignCardComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+          "defaultValue": "{\r\n  title: 'Evolution Components/Assign Card',\r\n  component: AssignCardComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
         },
         {
           "name": "SmallSize",
@@ -2194,7 +2287,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    config: {\n      ...defaultConfig,\n      items: [\n        ...defaultConfig.items,\n        { id: '4', name: 'Oscar Esteban Juarez Paz' },\n      ],\n      twClass: 'w-80',\n    },\n  },\n  parameters: {\n    actions: {\n      handles: ['removeItem', 'buttonClick'],\n    },\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    config: {\r\n      ...defaultConfig,\r\n      items: [\r\n        ...defaultConfig.items,\r\n        { id: '4', name: 'Oscar Esteban Juarez Paz' },\r\n      ],\r\n      twClass: 'w-80',\r\n    },\r\n  },\r\n  parameters: {\r\n    actions: {\r\n      handles: ['removeItem', 'buttonClick'],\r\n    },\r\n  },\r\n}"
         },
         {
           "name": "SmallSizeSmallOptions",
@@ -2204,7 +2297,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    config: {\n      ...defaultConfig,\n      twClass: 'w-80',\n    },\n  },\n  parameters: {\n    actions: {\n      handles: ['removeItem', 'buttonClick'],\n    },\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    config: {\r\n      ...defaultConfig,\r\n      twClass: 'w-80',\r\n    },\r\n  },\r\n  parameters: {\r\n    actions: {\r\n      handles: ['removeItem', 'buttonClick'],\r\n    },\r\n  },\r\n}"
         }
       ],
       "stories/breadcrumb.stories.ts": [
@@ -2576,7 +2669,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    title: 'Samuel Lopez finalizó Programa Desarrollo',\n    subtitle: '30/09/2024',\n    info: 'Estimado(a) Juana Margarita Rodas Opico,\\n\\nEste es un recordatorio de que su capacitación en **Atención al Cliente** se llevará a cabo mañana.\\n\\nAsegúrese de estar preparado.',\n    twClass: '',\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    title: 'Samuel Lopez finalizó Programa Desarrollo',\r\n    subtitle: '30/09/2024',\r\n    info: 'Estimado(a) Juana Margarita Rodas Opico,\\n\\nEste es un recordatorio de que su capacitación en **Atención al Cliente** se llevará a cabo mañana.\\n\\nAsegúrese de estar preparado. Ingrese a la misma desde <a href=\"https://www.google.com/\" target=\"_blank\">**aquí**</a>.',\r\n    twClass: '',\r\n  },\r\n}"
         },
         {
           "name": "meta",
@@ -2586,7 +2679,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<InfoPanelComponent>",
-          "defaultValue": "{\n  title: 'Evolution Components/Info Panel',\n  component: InfoPanelComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideMarkdown()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+          "defaultValue": "{\r\n  title: 'Evolution Components/Info Panel',\r\n  component: InfoPanelComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideMarkdown()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
         }
       ],
       "stories/input.stories.ts": [
@@ -2700,7 +2793,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n    },\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    config: {\r\n      ...defaultconfig,\r\n    },\r\n  },\r\n}"
         },
         {
           "name": "defaultconfig",
@@ -2710,7 +2803,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "object",
-          "defaultValue": "{\n  id: '1',\n  title: 'Program Title',\n  subtitle: 'Ejemplo de descripción',\n  activitiesCount: 5,\n  activitiesText: 'Actividades',\n  weeksCount: 3,\n  weeksText: 'Semanas',\n  buttonLabel: 'Asignar',\n  buttonIcon: 'add-user.svg',\n  buttonClasses: 'theme-primary',\n  onButtonClick: {\n    action: () => {\n      console.log('Button clicked!');\n    },\n  },\n  twClass: 'custom-class',\n  isFluid: true,\n  size: 'lg' as 'sm' | 'md' | 'lg',\n}"
+          "defaultValue": "{\r\n  id: '1',\r\n  title: 'Program Title',\r\n  subtitle: 'Ejemplo de descripción',\r\n  activitiesCount: 5,\r\n  activitiesText: 'Actividades',\r\n  weeksCount: 3,\r\n  weeksText: 'Semanas',\r\n  buttonLabel: 'Asignar',\r\n  buttonIcon: 'add-user.svg',\r\n  buttonClasses: 'theme-primary',\r\n  onButtonClick: {\r\n    action: () => {\r\n      console.log('Button clicked!');\r\n    },\r\n  },\r\n  twClass: 'custom-class',\r\n  isFluid: true,\r\n  size: 'lg' as 'sm' | 'md' | 'lg',\r\n}"
         },
         {
           "name": "Large",
@@ -2720,7 +2813,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'lg',\n      title: 'Large Program Title',\n      isFluid: false,\n    },\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    config: {\r\n      ...defaultconfig,\r\n      size: 'lg',\r\n      title: 'Large Program Title',\r\n      isFluid: false,\r\n    },\r\n  },\r\n}"
         },
         {
           "name": "Medium",
@@ -2730,7 +2823,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'md',\n      title: 'Medium Program Title',\n      isFluid: false,\n    },\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    config: {\r\n      ...defaultconfig,\r\n      size: 'md',\r\n      title: 'Medium Program Title',\r\n      isFluid: false,\r\n    },\r\n  },\r\n}"
         },
         {
           "name": "Small",
@@ -2740,7 +2833,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'sm',\n      title: 'Small Program Title',\n      subtitle: 'Se permite texto hasta dos líneas.',\n      isFluid: false,\n    },\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    config: {\r\n      ...defaultconfig,\r\n      size: 'sm',\r\n      title: 'Small Program Title',\r\n      subtitle: 'Se permite texto hasta dos líneas.',\r\n      isFluid: false,\r\n    },\r\n  },\r\n}"
         }
       ],
       "stories/search-bar.stories.ts": [
@@ -2752,7 +2845,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    placeholder: 'Buscar personas...',\n    twClass: '',\n  },\n  parameters: {\n    actions: {\n      handles: ['searchQuery'],\n    },\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    placeholder: 'Buscar personas...',\r\n    twClass: '',\r\n  },\r\n  parameters: {\r\n    actions: {\r\n      handles: ['searchQuery'],\r\n    },\r\n  },\r\n}"
         },
         {
           "name": "meta",
@@ -2762,7 +2855,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<SearchBarComponent>",
-          "defaultValue": "{\n  title: 'Evolution Components/Search Bar',\n  component: SearchBarComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+          "defaultValue": "{\r\n  title: 'Evolution Components/Search Bar',\r\n  component: SearchBarComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
         }
       ],
       "stories/select.stories.ts": [
@@ -2866,7 +2959,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<SidebarComponent>",
-          "defaultValue": "{\n  title: 'Evolution Components/Sidebar',\n  component: SidebarComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync(), provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n  argTypes: {\n    twClass: {\n      control: {\n        type: 'text',\n      },\n    },\n    commonProps: {\n      description:\n        'Common properties shared between the header and the sidebar, including icons, titles, and user data.',\n      control: {\n        type: 'object',\n      },\n    },\n    options: {\n      description:\n        'Sidebar navigation or action options with icons and titles.',\n      control: {\n        type: 'object',\n      },\n    },\n    additionalOptions: {\n      description:\n        'Additional options that will be displayed in the sidebar (only on mobile version).',\n      control: {\n        type: 'object',\n      },\n    },\n    footerOptions: {\n      description:\n        'Options specifically for the footer section of the sidebar.',\n      control: {\n        type: 'object',\n      },\n    },\n  },\n  args: {\n    commonProps: {\n      icons: {\n        appMenuIcons: {\n          buttonIcon: {\n            icon: 'app-menu.svg',\n            type: 'svg',\n          },\n        },\n        authorizationMenuIcons: {\n          buttonIcon: {\n            icon: 'fact_check',\n            type: 'class',\n          },\n        },\n        notificationMenuIcons: {\n          buttonIcon: {\n            icon: 'bell.svg',\n            type: 'svg',\n          },\n        },\n        settingMenuIcons: {\n          buttonIcon: {\n            icon: 'settings.svg',\n            type: 'svg',\n          },\n        },\n      } as IHeaderIcons,\n      titles: {\n        appTitle: 'Tus aplicaciones',\n        authorizationTitle: 'Autorizaciones',\n        notificationTitle: 'Notificaciones',\n        settingTitle: 'Ajustes',\n      } as IHeaderTitles,\n      items: {\n        appItems: [\n          {\n            label: 'Evo Wave',\n            icon: {\n              icon: 'company-logo.svg',\n              type: 'svg',\n            },\n            url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoWave',\n          },\n          {\n            label: 'Evo Chart',\n            icon: {\n              icon: 'company-logo.svg',\n              type: 'svg',\n            },\n            url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoChart',\n          },\n        ],\n        authorizationItems: [\n          {\n            label:\n              'Carlos Sanchez requiere autorización de acceso al Programa Recursos Humanos',\n            avatarName: 'Carlos Sanchez',\n            avatarImgUrl:\n              'https://material.angular.io/assets/img/examples/shiba1.jpg',\n            onClick: {\n              action: (name = 'Carlos Sanchez') => {\n                alert('Se autorizó a ' + name);\n              },\n            },\n          },\n          {\n            label:\n              'Samuel Lopez requiere autorización de acceso al Programa Desarrollo',\n            avatarName: 'Samuel Lopez',\n            avatarImgUrl:\n              'https://material.angular.io/assets/img/examples/shiba1.jpg',\n            onClick: {\n              action: () => {\n                alert('Se autorizó a Samuel Lopez');\n              },\n            },\n          },\n        ],\n        notificationItems: [\n          {\n            label: 'Carlos Sanchez finalizó Programa Recursos Humanos',\n            avatarName: 'Carlos Sanchez',\n            avatarImgUrl:\n              'https://material.angular.io/assets/img/examples/shiba1.jpg',\n            onClick: {\n              action: (name = 'Carlos Sanchez') => {\n                alert('Notificación de: ' + name);\n              },\n            },\n          },\n        ],\n        seeAllButton: {\n          seeAllAuthorizations: {\n            label: 'Ver todas',\n            onClick: {\n              action: (path = '/autorizaciones') => {\n                alert('Redirige a pantalla: ' + path);\n              },\n            },\n          },\n          seeAllNotifications: {\n            label: 'Ver todas',\n            onClick: {\n              action: (path = '/notificaciones') => {\n                alert('Redirige a pantalla: ' + path);\n              },\n            },\n          },\n        },\n        settingMenu: {\n          options: [\n            {\n              name: 'Apellido primero',\n            },\n            {\n              name: 'Autorizaciones',\n            },\n          ],\n        },\n        userDataItems: [\n          {\n            label: 'Administrar Cuenta',\n            icon: {\n              icon: 'manage_accounts',\n              type: 'class',\n            },\n            url: 'https://localhost:7002/identity/account/manage',\n          },\n          {\n            label: 'Cerrar Sesión',\n            onClick: {\n              action: () => {\n                alert('Se ejecuta Logout');\n              },\n            },\n          },\n        ],\n      } as IHeaderItems,\n      companyData: {\n        companyImage: 'company-logo.svg',\n        companyName: 'ASEINFO',\n      } as IHeaderCompanyData,\n      userData: {\n        fullName: 'Stela Lopez',\n        email: 'slopez@empresa.com',\n        jobPositions: [\n          {\n            Puesto: {\n              Nombre: 'Gerente Desarrollo',\n            },\n            Unidad: {\n              Descripcion: 'Unidad',\n            },\n            Compania: {\n              Descripcion: 'Compania',\n            },\n            CentroTrabajo: {\n              Descripcion: 'Centro de Trabajo',\n            },\n            onClick: {\n              action: (position = 'Gerente Desarrollo') => {\n                alert('Puesto elegido: ' + position);\n              },\n            },\n          },\n        ],\n      },\n      moreOptions: {\n        label: 'Ver más',\n        insideLabel: 'Más opciones',\n        icon: {\n          icon: 'dashboard.svg',\n          type: 'svg',\n        },\n        options: [\n          {\n            label: 'Opción 1',\n            icon: {\n              icon: 'dashboard.svg',\n              type: 'svg',\n            },\n            route: '/opcion1',\n            action: () => alert('Opción 1 seleccionada'),\n          },\n          {\n            label: 'Opción 2',\n            icon: {\n              icon: 'settings.svg',\n              type: 'svg',\n            },\n            route: '/opcion2',\n            action: () => alert('Opción 2 seleccionada'),\n          },\n          {\n            label: 'Opción 3',\n            icon: {\n              icon: 'files.svg',\n              type: 'svg',\n            },\n            route: '/opcion3',\n            action: () => alert('Opción 3 seleccionada'),\n          },\n          {\n            label: 'Opción 1',\n            icon: {\n              icon: 'dashboard.svg',\n              type: 'svg',\n            },\n            route: '/opcion1',\n            action: () => alert('Opción 1 seleccionada'),\n          },\n          {\n            label: 'Opción 2',\n            icon: {\n              icon: 'settings.svg',\n              type: 'svg',\n            },\n            route: '/opcion2',\n            action: () => alert('Opción 2 seleccionada'),\n          },\n          {\n            label: 'Opción 3',\n            icon: {\n              icon: 'files.svg',\n              type: 'svg',\n            },\n            route: '/opcion3',\n            action: () => alert('Opción 3 seleccionada'),\n          },\n          {\n            label: 'Opción 1',\n            icon: {\n              icon: 'dashboard.svg',\n              type: 'svg',\n            },\n            route: '/opcion1',\n            action: () => alert('Opción 1 seleccionada'),\n          },\n          {\n            label: 'Opción 2',\n            icon: {\n              icon: 'settings.svg',\n              type: 'svg',\n            },\n            route: '/opcion2',\n            action: () => alert('Opción 2 seleccionada'),\n          },\n          {\n            label: 'Opción 3',\n            icon: {\n              icon: 'files.svg',\n              type: 'svg',\n            },\n            route: '/opcion3',\n            action: () => alert('Opción 3 seleccionada'),\n          },\n          {\n            label: 'Opción 3',\n            icon: {\n              icon: 'files.svg',\n              type: 'svg',\n            },\n            route: '/opcion3',\n            action: () => alert('Opción 3 seleccionada'),\n          },\n        ],\n      },\n    } as IHeader,\n    options: [\n      {\n        icon: { icon: 'dashboard.svg', type: 'svg' },\n        action: () => alert('Dashboard'),\n        route: '/dashboard',\n        title: 'Dashboard',\n      },\n      {\n        icon: { icon: 'files.svg', type: 'svg' },\n        action: () => alert('Files'),\n        route: '/files',\n        title: 'Files',\n      },\n    ] as ISidebarOption[],\n    additionalOptions: [\n      {\n        icon: { icon: 'company-logo.svg', type: 'svg' },\n        action: () => alert('Dashboard'),\n        route: '/dashboard',\n        title: 'Dashboard',\n      },\n    ] as ISidebarOption[],\n    footerOptions: [\n      {\n        icon: { icon: 'settings.svg', type: 'svg' },\n        action: () => alert('settings'),\n        route: '/settings',\n        title: 'Settings',\n      },\n      {\n        icon: { icon: 'dashboard.svg', type: 'svg' },\n        action: () => alert('dashboard'),\n        route: '/dashboard',\n        title: 'Dashboard',\n      },\n    ] as ISidebarOption[],\n    twClass: '',\n  },\n}"
+          "defaultValue": "{\r\n  title: 'Evolution Components/Sidebar',\r\n  component: SidebarComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideAnimationsAsync(), provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    twClass: {\r\n      control: {\r\n        type: 'text',\r\n      },\r\n    },\r\n    commonProps: {\r\n      description:\r\n        'Common properties shared between the header and the sidebar, including icons, titles, and user data.',\r\n      control: {\r\n        type: 'object',\r\n      },\r\n    },\r\n    options: {\r\n      description:\r\n        'Sidebar navigation or action options with icons and titles.',\r\n      control: {\r\n        type: 'object',\r\n      },\r\n    },\r\n    additionalOptions: {\r\n      description:\r\n        'Additional options that will be displayed in the sidebar (only on mobile version).',\r\n      control: {\r\n        type: 'object',\r\n      },\r\n    },\r\n    footerOptions: {\r\n      description:\r\n        'Options specifically for the footer section of the sidebar.',\r\n      control: {\r\n        type: 'object',\r\n      },\r\n    },\r\n  },\r\n  args: {\r\n    commonProps: {\r\n      icons: {\r\n        appMenuIcons: {\r\n          buttonIcon: {\r\n            icon: 'app-menu.svg',\r\n            type: 'svg',\r\n          },\r\n        },\r\n        authorizationMenuIcons: {\r\n          buttonIcon: {\r\n            icon: 'fact_check',\r\n            type: 'class',\r\n          },\r\n        },\r\n        notificationMenuIcons: {\r\n          buttonIcon: {\r\n            icon: 'bell.svg',\r\n            type: 'svg',\r\n          },\r\n        },\r\n        settingMenuIcons: {\r\n          buttonIcon: {\r\n            icon: 'settings.svg',\r\n            type: 'svg',\r\n          },\r\n        },\r\n      } as IHeaderIcons,\r\n      titles: {\r\n        appTitle: 'Tus aplicaciones',\r\n        authorizationTitle: 'Autorizaciones',\r\n        notificationTitle: 'Notificaciones',\r\n        settingTitle: 'Ajustes',\r\n      } as IHeaderTitles,\r\n      items: {\r\n        appItems: [\r\n          {\r\n            label: 'Evo Wave',\r\n            icon: {\r\n              icon: 'company-logo.svg',\r\n              type: 'svg',\r\n            },\r\n            url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoWave',\r\n          },\r\n          {\r\n            label: 'Evo Chart',\r\n            icon: {\r\n              icon: 'company-logo.svg',\r\n              type: 'svg',\r\n            },\r\n            url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoChart',\r\n          },\r\n        ],\r\n        authorizationItems: [\r\n          {\r\n            label:\r\n              'Carlos Sanchez requiere autorización de acceso al Programa Recursos Humanos',\r\n            avatarName: 'Carlos Sanchez',\r\n            avatarImgUrl:\r\n              'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n            onClick: {\r\n              action: (name = 'Carlos Sanchez') => {\r\n                alert('Se autorizó a ' + name);\r\n              },\r\n            },\r\n          },\r\n          {\r\n            label:\r\n              'Samuel Lopez requiere autorización de acceso al Programa Desarrollo',\r\n            avatarName: 'Samuel Lopez',\r\n            avatarImgUrl:\r\n              'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n            onClick: {\r\n              action: () => {\r\n                alert('Se autorizó a Samuel Lopez');\r\n              },\r\n            },\r\n          },\r\n        ],\r\n        notificationItems: [\r\n          {\r\n            label: 'Carlos Sanchez finalizó Programa Recursos Humanos',\r\n            avatarName: 'Carlos Sanchez',\r\n            avatarImgUrl:\r\n              'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n            onClick: {\r\n              action: (name = 'Carlos Sanchez') => {\r\n                alert('Notificación de: ' + name);\r\n              },\r\n            },\r\n          },\r\n        ],\r\n        seeAllButton: {\r\n          seeAllAuthorizations: {\r\n            label: 'Ver todas',\r\n            onClick: {\r\n              action: (path = '/autorizaciones') => {\r\n                alert('Redirige a pantalla: ' + path);\r\n              },\r\n            },\r\n          },\r\n          seeAllNotifications: {\r\n            label: 'Ver todas',\r\n            onClick: {\r\n              action: (path = '/notificaciones') => {\r\n                alert('Redirige a pantalla: ' + path);\r\n              },\r\n            },\r\n          },\r\n        },\r\n        settingMenu: {\r\n          options: [\r\n            {\r\n              name: 'Apellido primero',\r\n            },\r\n            {\r\n              name: 'Autorizaciones',\r\n            },\r\n          ],\r\n        },\r\n        userDataItems: [\r\n          {\r\n            label: 'Administrar Cuenta',\r\n            icon: {\r\n              icon: 'manage_accounts',\r\n              type: 'class',\r\n            },\r\n            url: 'https://localhost:7002/identity/account/manage',\r\n          },\r\n          {\r\n            label: 'Cerrar Sesión',\r\n            onClick: {\r\n              action: () => {\r\n                alert('Se ejecuta Logout');\r\n              },\r\n            },\r\n          },\r\n        ],\r\n      } as IHeaderItems,\r\n      companyData: {\r\n        companyImage: 'company-logo.svg',\r\n        companyName: 'ASEINFO',\r\n      } as IHeaderCompanyData,\r\n      userData: {\r\n        fullName: 'Stela Lopez',\r\n        email: 'slopez@empresa.com',\r\n        jobPositions: [\r\n          {\r\n            Puesto: {\r\n              Nombre: 'Gerente Desarrollo',\r\n            },\r\n            Unidad: {\r\n              Descripcion: 'Unidad',\r\n            },\r\n            Compania: {\r\n              Descripcion: 'Compania',\r\n            },\r\n            CentroTrabajo: {\r\n              Descripcion: 'Centro de Trabajo',\r\n            },\r\n            onClick: {\r\n              action: (position = 'Gerente Desarrollo') => {\r\n                alert('Puesto elegido: ' + position);\r\n              },\r\n            },\r\n          },\r\n        ],\r\n      },\r\n      moreOptions: {\r\n        label: 'Ver más',\r\n        insideLabel: 'Más opciones',\r\n        icon: {\r\n          icon: 'dashboard.svg',\r\n          type: 'svg',\r\n        },\r\n        options: [\r\n          {\r\n            label: 'Opción 1',\r\n            icon: {\r\n              icon: 'dashboard.svg',\r\n              type: 'svg',\r\n            },\r\n            route: '/opcion1',\r\n            action: () => alert('Opción 1 seleccionada'),\r\n          },\r\n          {\r\n            label: 'Opción 2',\r\n            icon: {\r\n              icon: 'settings.svg',\r\n              type: 'svg',\r\n            },\r\n            route: '/opcion2',\r\n            action: () => alert('Opción 2 seleccionada'),\r\n          },\r\n          {\r\n            label: 'Opción 3',\r\n            icon: {\r\n              icon: 'files.svg',\r\n              type: 'svg',\r\n            },\r\n            route: '/opcion3',\r\n            action: () => alert('Opción 3 seleccionada'),\r\n          },\r\n          {\r\n            label: 'Opción 1',\r\n            icon: {\r\n              icon: 'dashboard.svg',\r\n              type: 'svg',\r\n            },\r\n            route: '/opcion1',\r\n            action: () => alert('Opción 1 seleccionada'),\r\n          },\r\n          {\r\n            label: 'Opción 2',\r\n            icon: {\r\n              icon: 'settings.svg',\r\n              type: 'svg',\r\n            },\r\n            route: '/opcion2',\r\n            action: () => alert('Opción 2 seleccionada'),\r\n          },\r\n          {\r\n            label: 'Opción 3',\r\n            icon: {\r\n              icon: 'files.svg',\r\n              type: 'svg',\r\n            },\r\n            route: '/opcion3',\r\n            action: () => alert('Opción 3 seleccionada'),\r\n          },\r\n          {\r\n            label: 'Opción 1',\r\n            icon: {\r\n              icon: 'dashboard.svg',\r\n              type: 'svg',\r\n            },\r\n            route: '/opcion1',\r\n            action: () => alert('Opción 1 seleccionada'),\r\n          },\r\n          {\r\n            label: 'Opción 2',\r\n            icon: {\r\n              icon: 'settings.svg',\r\n              type: 'svg',\r\n            },\r\n            route: '/opcion2',\r\n            action: () => alert('Opción 2 seleccionada'),\r\n          },\r\n          {\r\n            label: 'Opción 3',\r\n            icon: {\r\n              icon: 'files.svg',\r\n              type: 'svg',\r\n            },\r\n            route: '/opcion3',\r\n            action: () => alert('Opción 3 seleccionada'),\r\n          },\r\n          {\r\n            label: 'Opción 3',\r\n            icon: {\r\n              icon: 'files.svg',\r\n              type: 'svg',\r\n            },\r\n            route: '/opcion3',\r\n            action: () => alert('Opción 3 seleccionada'),\r\n          },\r\n        ],\r\n      },\r\n    } as IHeader,\r\n    options: [\r\n      {\r\n        icon: { icon: 'dashboard.svg', type: 'svg' },\r\n        action: () => alert('Dashboard'),\r\n        route: '/dashboard',\r\n        title: 'Dashboard',\r\n      },\r\n      {\r\n        icon: { icon: 'files.svg', type: 'svg' },\r\n        action: () => alert('Files'),\r\n        route: '/files',\r\n        title: 'Files',\r\n      },\r\n    ] as ISidebarOption[],\r\n    additionalOptions: [\r\n      {\r\n        icon: { icon: 'company-logo.svg', type: 'svg' },\r\n        action: () => alert('Dashboard'),\r\n        route: '/dashboard',\r\n        title: 'Dashboard',\r\n      },\r\n    ] as ISidebarOption[],\r\n    footerOptions: [\r\n      {\r\n        icon: { icon: 'settings.svg', type: 'svg' },\r\n        action: () => alert('settings'),\r\n        route: '/settings',\r\n        title: 'Settings',\r\n      },\r\n      {\r\n        icon: { icon: 'dashboard.svg', type: 'svg' },\r\n        action: () => alert('dashboard'),\r\n        route: '/dashboard',\r\n        title: 'Dashboard',\r\n      },\r\n    ] as ISidebarOption[],\r\n    twClass: '',\r\n  },\r\n}"
         }
       ],
       "stories/svg.stories.ts": [
@@ -2922,7 +3015,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    titles: {\n      today: 'Hoy',\n      thisWeek: 'Esta Semana',\n      previous: 'Anteriores',\n    },\n    emptyListMessage: 'Sin contenido',\n    items: [\n      {\n        label: 'Carlos Sanchez finalizó Programa Recursos Humanos',\n        avatarName: 'Carlos Sanchez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Carlos Sanchez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-03-09T07:00:00',\n      },\n      {\n        label: 'Samuel Lopez finalizó Programa Desarrollo',\n        avatarName: 'Samuel Lopez',\n        onClick: {\n          action: (name = 'Samuel Lopez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-03-09T07:00:00',\n      },\n      {\n        label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',\n        avatarName: 'Ignacio Fernandez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Ignacio Fernandez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-03-09T07:00:00',\n      },\n      {\n        label: 'Carlos Sanchez finalizó Programa Recursos Humanos',\n        avatarName: 'Carlos Sanchez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Carlos Sanchez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-03-09T07:00:00',\n      },\n      {\n        label: 'Samuel Lopez finalizó Programa Desarrollo',\n        avatarName: 'Samuel Lopez',\n        onClick: {\n          action: (name = 'Samuel Lopez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-10-21T13:30:00',\n      },\n      {\n        label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',\n        avatarName: 'Ignacio Fernandez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Ignacio Fernandez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-10-22T07:00:00',\n      },\n    ],\n    twClass: '',\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    titles: {\r\n      today: 'Hoy',\r\n      thisWeek: 'Esta Semana',\r\n      previous: 'Anteriores',\r\n    },\r\n    emptyListMessage: 'Sin contenido',\r\n    items: [\r\n      {\r\n        label: 'Carlos Sanchez finalizó Programa Recursos Humanos',\r\n        avatarName: 'Carlos Sanchez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: (name = 'Carlos Sanchez') => {\r\n            alert('Notificación de: ' + name);\r\n          },\r\n        },\r\n        date: '2024-03-09T07:00:00',\r\n      },\r\n      {\r\n        label: 'Samuel Lopez finalizó Programa Desarrollo',\r\n        avatarName: 'Samuel Lopez',\r\n        onClick: {\r\n          action: (name = 'Samuel Lopez') => {\r\n            alert('Notificación de: ' + name);\r\n          },\r\n        },\r\n        date: '2024-03-09T07:00:00',\r\n      },\r\n      {\r\n        label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',\r\n        avatarName: 'Ignacio Fernandez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: (name = 'Ignacio Fernandez') => {\r\n            alert('Notificación de: ' + name);\r\n          },\r\n        },\r\n        date: '2024-03-09T07:00:00',\r\n      },\r\n      {\r\n        label: 'Carlos Sanchez finalizó Programa Recursos Humanos',\r\n        avatarName: 'Carlos Sanchez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: (name = 'Carlos Sanchez') => {\r\n            alert('Notificación de: ' + name);\r\n          },\r\n        },\r\n        date: '2024-03-09T07:00:00',\r\n      },\r\n      {\r\n        label: 'Samuel Lopez finalizó Programa Desarrollo',\r\n        avatarName: 'Samuel Lopez',\r\n        onClick: {\r\n          action: (name = 'Samuel Lopez') => {\r\n            alert('Notificación de: ' + name);\r\n          },\r\n        },\r\n        date: '2024-10-21T07:00:00',\r\n      },\r\n      {\r\n        label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',\r\n        avatarName: 'Ignacio Fernandez',\r\n        avatarImgUrl:\r\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\r\n        onClick: {\r\n          action: (name = 'Ignacio Fernandez') => {\r\n            alert('Notificación de: ' + name);\r\n          },\r\n        },\r\n        date: '2024-10-22T07:00:00',\r\n      },\r\n    ],\r\n    twClass: '',\r\n  },\r\n}"
         },
         {
           "name": "meta",
@@ -2932,7 +3025,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<TimeSegmentedListComponent>",
-          "defaultValue": "{\n  title: 'Evolution Components/Time Segmented List',\n  component: TimeSegmentedListComponent,\n  tags: ['autodocs'],\n}"
+          "defaultValue": "{\r\n  title: 'Evolution Components/Time Segmented List',\r\n  component: TimeSegmentedListComponent,\r\n  tags: ['autodocs'],\r\n}"
         }
       ],
       "stories/pagination.stories.ts": [
@@ -2944,7 +3037,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "object",
-          "defaultValue": "{\n  currentPage: 1,\n  totalPages: 5,\n  pageSize: 10,\n  totalItems: 50,\n  titles: {\n    showing: 'Mostrando',\n    results: 'resultados',\n    page: 'Página',\n    of: 'de',\n  },\n  twClass: '',\n}"
+          "defaultValue": "{\r\n  currentPage: 1,\r\n  totalPages: 5,\r\n  pageSize: 10,\r\n  totalItems: 50,\r\n  titles: {\r\n    showing: 'Mostrando',\r\n    results: 'resultados',\r\n    page: 'Página',\r\n    of: 'de',\r\n  },\r\n  twClass: '',\r\n}"
         },
         {
           "name": "InteractivePagination",
@@ -2954,7 +3047,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  render: (args) => {\n    const handleNextPage = () => {\n      if (args.config.currentPage < args.config.totalPages) {\n        args.config.currentPage += 1;\n      }\n    };\n\n    const handlePreviousPage = () => {\n      if (args.config.currentPage > 1) {\n        args.config.currentPage -= 1;\n      }\n    };\n\n    const handlePageSelected = (event: { page: number }) => {\n      args.config.currentPage = event.page;\n    };\n\n    return {\n      props: {\n        ...args,\n        nextPageClicked: handleNextPage,\n        previousPageClicked: handlePreviousPage,\n        pageSelected: handlePageSelected,\n      },\n    };\n  },\n  args: {\n    config: { ...defaultConfig },\n  },\n}"
+          "defaultValue": "{\r\n  render: (args) => {\r\n    const handleNextPage = () => {\r\n      if (args.config.currentPage < args.config.totalPages) {\r\n        args.config.currentPage += 1;\r\n      }\r\n    };\r\n\r\n    const handlePreviousPage = () => {\r\n      if (args.config.currentPage > 1) {\r\n        args.config.currentPage -= 1;\r\n      }\r\n    };\r\n\r\n    const handlePageSelected = (event: { page: number }) => {\r\n      args.config.currentPage = event.page;\r\n    };\r\n\r\n    return {\r\n      props: {\r\n        ...args,\r\n        nextPageClicked: handleNextPage,\r\n        previousPageClicked: handlePreviousPage,\r\n        pageSelected: handlePageSelected,\r\n      },\r\n    };\r\n  },\r\n  args: {\r\n    config: { ...defaultConfig },\r\n  },\r\n}"
         },
         {
           "name": "meta",
@@ -2964,7 +3057,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<PaginationComponent>",
-          "defaultValue": "{\n  title: 'Evolution Components/Pagination',\n  component: PaginationComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+          "defaultValue": "{\r\n  title: 'Evolution Components/Pagination',\r\n  component: PaginationComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
         }
       ],
       "stories/avatar.stories.ts": [
@@ -2998,7 +3091,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  render: (args) => ({\n    props: {\n      config: args.config,\n    },\n    template: `\n        <evo-accordion [config]=\"config\">\n          <p>Este es el contenido dentro del acordeón.</p>\n          <p>Puedes colocar cualquier tipo de HTML o componentes aquí.</p>\n        </evo-accordion>\n      `,\n  }),\n  args: {\n    config: {\n      title: 'Mi Acordeón',\n      icon: { icon: 'add-user.svg', type: 'svg' },\n      height: '200px',\n      twClass: '',\n    },\n  },\n}"
+          "defaultValue": "{\r\n  render: (args) => ({\r\n    props: {\r\n      config: args.config,\r\n    },\r\n    template: `\r\n        <evo-accordion [config]=\"config\">\r\n          <p>Este es el contenido dentro del acordeón.</p>\r\n          <p>Puedes colocar cualquier tipo de HTML o componentes aquí.</p>\r\n        </evo-accordion>\r\n      `,\r\n  }),\r\n  args: {\r\n    config: {\r\n      title: 'Mi Acordeón',\r\n      icon: { icon: 'add-user.svg', type: 'svg' },\r\n      height: '200px',\r\n      twClass: '',\r\n    },\r\n  },\r\n}"
         },
         {
           "name": "meta",
@@ -3008,7 +3101,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<AccordionComponent>",
-          "defaultValue": "{\n  title: 'Evolution Components/Accordion',\n  component: AccordionComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()],\n    }),\n    moduleMetadata({\n      imports: [CommonModule],\n    }),\n  ],\n  tags: ['autodocs'],\n  argTypes: {\n    config: {\n      control: 'object',\n      description: 'Configuración completa del acordeón',\n      defaultValue: {\n        title: 'Mi Acordeón',\n        icon: { icon: 'add-user.svg', type: 'svg' },\n        height: '200px',\n        twClass: '',\n      },\n      table: {\n        type: { summary: 'IAccordionConfig' },\n      },\n    },\n  },\n}"
+          "defaultValue": "{\r\n  title: 'Evolution Components/Accordion',\r\n  component: AccordionComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideHttpClient()],\r\n    }),\r\n    moduleMetadata({\r\n      imports: [CommonModule],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    config: {\r\n      control: 'object',\r\n      description: 'Configuración completa del acordeón',\r\n      defaultValue: {\r\n        title: 'Mi Acordeón',\r\n        icon: { icon: 'add-user.svg', type: 'svg' },\r\n        height: '200px',\r\n        twClass: '',\r\n      },\r\n      table: {\r\n        type: { summary: 'IAccordionConfig' },\r\n      },\r\n    },\r\n  },\r\n}"
         }
       ],
       "stories/login.stories.ts": [
@@ -3186,6 +3279,19 @@
           "subtype": "typealias",
           "rawtype": "StoryObj<AvatarComponent>",
           "file": "stories/avatar.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "description": "",
+          "kind": 183
+        }
+      ],
+      "stories/banner.stories.ts": [
+        {
+          "name": "Story",
+          "ctype": "miscellaneous",
+          "subtype": "typealias",
+          "rawtype": "StoryObj<BannerComponent>",
+          "file": "stories/banner.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "description": "",
@@ -3611,6 +3717,46 @@
         "linktype": "miscellaneous",
         "linksubtype": "variable",
         "name": "iniciales",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/banner.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "ControlledError",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/banner.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "meta",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/banner.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Success",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/banner.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "UncontrolledError",
         "coveragePercent": 0,
         "coverageCount": "0/1",
         "status": "low"

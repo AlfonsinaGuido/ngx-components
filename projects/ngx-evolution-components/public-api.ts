@@ -8,6 +8,7 @@ export * from './shared/services/class-utility.service';
 
 // Components
 export * from './svg/svg.component';
+export * from './banner/banner.component';
 export * from './avatar/avatar.component';
 export * from './input/input.component';
 export * from './button/button.component';

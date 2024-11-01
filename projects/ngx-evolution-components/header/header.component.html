@@ -51,12 +51,14 @@
       [seeAllButton]="items.seeAllButton.seeAllNotifications"
       twClass="mt-4"
     ></evo-menu>
-    <evo-menu
-      [icons]="icons.settingMenuIcons"
-      [title]="titles.settingTitle"
-      [settingMenu]="items.settingMenu"
-      twClass="mt-4"
-    ></evo-menu>
+    @if (titles.settingTitle) {
+      <evo-menu
+        [icons]="icons.settingMenuIcons"
+        [title]="titles.settingTitle"
+        [settingMenu]="items.settingMenu"
+        twClass="mt-4"
+      ></evo-menu>
+    }
     <div class="flex items-center gap-2">
       <evo-avatar
         size="sm"

@@ -7,7 +7,7 @@
       [icons]="icons.appMenuIcons"
       [title]="titles.appTitle"
       [items]="items.appItems"
-      twClass="mt-4"
+      twClass="mt-4 max-sm:hidden"
     ></evo-menu>
     <div class="flex items-center gap-5">
       @if (companyData.companyImage) {
@@ -40,7 +40,7 @@
         [items]="items.authorizationItems.slice(0, 3)"
         [lengthOfItems]="items.authorizationItems.length"
         [seeAllButton]="items.seeAllButton.seeAllAuthorizations"
-        twClass="mt-4"
+        twClass="mt-4 max-sm:hidden"
       ></evo-menu>
     }
     <evo-menu
@@ -49,14 +49,14 @@
       [items]="items.notificationItems.slice(0, 3)"
       [lengthOfItems]="items.notificationItems.length"
       [seeAllButton]="items.seeAllButton.seeAllNotifications"
-      twClass="mt-4"
+      twClass="mt-4 max-sm:hidden"
     ></evo-menu>
     @if (titles.settingTitle) {
       <evo-menu
         [icons]="icons.settingMenuIcons"
         [title]="titles.settingTitle"
         [settingMenu]="items.settingMenu"
-        twClass="mt-4"
+        twClass="mt-4 max-sm:hidden"
       ></evo-menu>
     }
     <div class="flex items-center gap-2">
@@ -79,7 +79,7 @@
         [icons]="icons.userMenuIcons || {}"
         [userData]="userData"
         [items]="items.userDataItems"
-        twClass="mt-4"
+        twClass="mt-4 max-sm:hidden"
       ></evo-menu>
     </div>
   </div>

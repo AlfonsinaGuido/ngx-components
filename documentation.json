@@ -98,7 +98,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    title: 'Error',\n    message: 'No se puede eliminar un programa con personas asignadas.',\n    isError: true,\n    duration: 10000,\n    twClass: '',\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    title: 'Error',\r\n    message: 'No se puede eliminar un programa con personas asignadas.',\r\n    isError: true,\r\n    duration: 10000,\r\n    twClass: '',\r\n  },\r\n}"
       },
       {
         "name": "customTailwindClass",
@@ -228,7 +228,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    title: 'Samuel Lopez finalizó Programa Desarrollo',\n    subtitle: '30/09/2024',\n    info: 'Estimado(a) Juana Margarita Rodas Opico,\\n\\nEste es un recordatorio de que su capacitación en **Atención al Cliente** se llevará a cabo mañana.\\n\\nAsegúrese de estar preparado. Ingrese a la misma desde <a href=\"https://www.google.com/\" target=\"_blank\">**aquí**</a>.',\n    twClass: '',\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    title: 'Samuel Lopez finalizó Programa Desarrollo',\r\n    subtitle: '30/09/2024',\r\n    info: 'Estimado(a) Juana Margarita Rodas Opico,\\n\\nEste es un recordatorio de que su capacitación en **Atención al Cliente** se llevará a cabo mañana.\\n\\nAsegúrese de estar preparado. Ingrese a la misma desde <a href=\"https://www.google.com/\" target=\"_blank\">**aquí**</a>.',\r\n    twClass: '',\r\n  },\r\n}"
       },
       {
         "name": "Default",
@@ -668,7 +668,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<BannerComponent>",
-        "defaultValue": "{\n  title: 'Evolution Components/Banner',\n  component: BannerComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+        "defaultValue": "{\r\n  title: 'Evolution Components/Banner',\r\n  component: BannerComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideAnimationsAsync()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
       },
       {
         "name": "meta",
@@ -728,7 +728,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<InfoPanelComponent>",
-        "defaultValue": "{\n  title: 'Evolution Components/Info Panel',\n  component: InfoPanelComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideMarkdown()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+        "defaultValue": "{\r\n  title: 'Evolution Components/Info Panel',\r\n  component: InfoPanelComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideMarkdown()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
       },
       {
         "name": "meta",
@@ -1168,7 +1168,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    title: 'Éxito',\n    message: 'Se asignaron correctamente las personas al programa.',\n    duration: 10000,\n    twClass: '',\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    title: 'Éxito',\r\n    message: 'Se asignaron correctamente las personas al programa.',\r\n    duration: 10000,\r\n    twClass: '',\r\n  },\r\n}"
       },
       {
         "name": "svgDialog",
@@ -1238,7 +1238,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    title: 'Error',\n    message: 'No se pudo establecer conexión con el Identity Server.',\n    isError: true,\n    twClass: '',\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    title: 'Error',\r\n    message: 'No se pudo establecer conexión con el Identity Server.',\r\n    isError: true,\r\n    twClass: '',\r\n  },\r\n}"
       },
       {
         "name": "UserMenu",
@@ -2079,7 +2079,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    title: 'Error',\n    message: 'No se puede eliminar un programa con personas asignadas.',\n    isError: true,\n    duration: 10000,\n    twClass: '',\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    title: 'Error',\r\n    message: 'No se puede eliminar un programa con personas asignadas.',\r\n    isError: true,\r\n    duration: 10000,\r\n    twClass: '',\r\n  },\r\n}"
         },
         {
           "name": "meta",
@@ -2089,7 +2089,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<BannerComponent>",
-          "defaultValue": "{\n  title: 'Evolution Components/Banner',\n  component: BannerComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+          "defaultValue": "{\r\n  title: 'Evolution Components/Banner',\r\n  component: BannerComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideAnimationsAsync()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
         },
         {
           "name": "Success",
@@ -2099,7 +2099,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    title: 'Éxito',\n    message: 'Se asignaron correctamente las personas al programa.',\n    duration: 10000,\n    twClass: '',\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    title: 'Éxito',\r\n    message: 'Se asignaron correctamente las personas al programa.',\r\n    duration: 10000,\r\n    twClass: '',\r\n  },\r\n}"
         },
         {
           "name": "UncontrolledError",
@@ -2109,7 +2109,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    title: 'Error',\n    message: 'No se pudo establecer conexión con el Identity Server.',\n    isError: true,\n    twClass: '',\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    title: 'Error',\r\n    message: 'No se pudo establecer conexión con el Identity Server.',\r\n    isError: true,\r\n    twClass: '',\r\n  },\r\n}"
         }
       ],
       "stories/header-columna.stories.ts": [
@@ -2669,7 +2669,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    title: 'Samuel Lopez finalizó Programa Desarrollo',\n    subtitle: '30/09/2024',\n    info: 'Estimado(a) Juana Margarita Rodas Opico,\\n\\nEste es un recordatorio de que su capacitación en **Atención al Cliente** se llevará a cabo mañana.\\n\\nAsegúrese de estar preparado. Ingrese a la misma desde <a href=\"https://www.google.com/\" target=\"_blank\">**aquí**</a>.',\n    twClass: '',\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    title: 'Samuel Lopez finalizó Programa Desarrollo',\r\n    subtitle: '30/09/2024',\r\n    info: 'Estimado(a) Juana Margarita Rodas Opico,\\n\\nEste es un recordatorio de que su capacitación en **Atención al Cliente** se llevará a cabo mañana.\\n\\nAsegúrese de estar preparado. Ingrese a la misma desde <a href=\"https://www.google.com/\" target=\"_blank\">**aquí**</a>.',\r\n    twClass: '',\r\n  },\r\n}"
         },
         {
           "name": "meta",
@@ -2679,7 +2679,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<InfoPanelComponent>",
-          "defaultValue": "{\n  title: 'Evolution Components/Info Panel',\n  component: InfoPanelComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideMarkdown()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+          "defaultValue": "{\r\n  title: 'Evolution Components/Info Panel',\r\n  component: InfoPanelComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideMarkdown()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
         }
       ],
       "stories/input.stories.ts": [

@@ -27,7 +27,7 @@ export class BannerComponent implements OnChanges {
   public isHidden: boolean = false;
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['message']) {
+    if (changes['isError'] || changes['title'] || changes['message']) {
       this.isHidden = false;
       if (this.duration) {
         setTimeout(() => {

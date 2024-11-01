@@ -1751,6 +1751,10 @@ a {
 }
 
 @media not all and (min-width: 640px) {
+  .max-sm\:hidden {
+    display: none;
+  }
+
   .max-sm\:ps-10 {
     padding-inline-start: 2.5rem;
   }

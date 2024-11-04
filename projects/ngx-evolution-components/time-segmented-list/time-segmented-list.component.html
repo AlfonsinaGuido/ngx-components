@@ -1,6 +1,8 @@
 <div [class]="twClass">
   <div>
-    <h3 class="font-bold text-medium-gray !mb-2 max-sm:text-lg ps-8">
+    <h3
+      class="font-bold text-medium-gray !mb-2 max-sm:text-lg ps-8 max-sm:ps-3"
+    >
       {{ titles.today }}
     </h3>
     <ul>
@@ -18,14 +20,16 @@
           ></evo-button>
         </li>
       } @empty {
-        <li class="ps-20 max-sm:ps-8 text-sm text-medium-gray">
+        <li class="ps-32 max-sm:ps-10 text-sm text-medium-gray">
           {{ emptyListMessage }}
         </li>
       }
     </ul>
   </div>
   <div>
-    <h3 class="font-bold text-medium-gray !my-2 max-sm:text-lg ps-8">
+    <h3
+      class="font-bold text-medium-gray !my-2 max-sm:text-lg ps-8 max-sm:ps-3"
+    >
       {{ titles.thisWeek }}
     </h3>
     <ul>
@@ -43,14 +47,16 @@
           ></evo-button>
         </li>
       } @empty {
-        <li class="ps-20 max-sm:ps-8 text-sm text-medium-gray">
+        <li class="ps-32 max-sm:ps-10 text-sm text-medium-gray">
           {{ emptyListMessage }}
         </li>
       }
     </ul>
   </div>
   <div>
-    <h3 class="font-bold text-medium-gray !my-2 max-sm:text-lg ps-8">
+    <h3
+      class="font-bold text-medium-gray !my-2 max-sm:text-lg ps-8 max-sm:ps-3"
+    >
       {{ titles.previous }}
     </h3>
     <ul>
@@ -68,7 +74,7 @@
           ></evo-button>
         </li>
       } @empty {
-        <li class="ps-20 max-sm:ps-8 text-sm text-medium-gray">
+        <li class="ps-32 max-sm:ps-10 text-sm text-medium-gray">
           {{ emptyListMessage }}
         </li>
       }

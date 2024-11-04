@@ -1,16 +1,24 @@
 .button-in-list .evo-button {
   &.theme-default {
     justify-content: left;
-    padding: 8px 70px;
-    @media (max-width: 640px) {
-      padding: 8px 32px;
-    }
+    padding: 8px 128px;
     box-shadow: none;
+    @media (max-width: 640px) {
+      padding: 8px 40px;
+    }
     .evo-button__content {
       color: var(--medium-gray);
       .label {
         text-align: left;
         font-size: 14px;
+      }
+    }
+    &:hover {
+      .evo-button__content {
+        .label {
+          font-weight: bold;
+          transition: font-weight 0.5s ease;
+        }
       }
     }
   }

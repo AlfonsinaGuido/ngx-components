@@ -91,6 +91,16 @@
         "defaultValue": "{\n  args: {\n    label: 'Custom',\n    size: 'md',\n    twClass:\n      'bg-slate-600 text-white border-slate-700 font-bold cursor-pointer rounded-xl p-2',\n  },\n}"
       },
       {
+        "name": "ControlledError",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/banner.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\r\n  args: {\r\n    title: 'Error',\r\n    message: 'No se puede eliminar un programa con personas asignadas.',\r\n    isError: true,\r\n    duration: 10000,\r\n    twClass: '',\r\n  },\r\n}"
+      },
+      {
         "name": "customTailwindClass",
         "ctype": "miscellaneous",
         "subtype": "variable",
@@ -218,7 +228,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    title: 'Samuel Lopez finalizó Programa Desarrollo',\n    subtitle: '30/09/2024',\n    info: 'Estimado(a) Juana Margarita Rodas Opico,\\n\\nEste es un recordatorio de que su capacitación en **Atención al Cliente** se llevará a cabo mañana.\\n\\nAsegúrese de estar preparado.',\n    twClass: '',\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    title: 'Samuel Lopez finalizó Programa Desarrollo',\r\n    subtitle: '30/09/2024',\r\n    info: 'Estimado(a) Juana Margarita Rodas Opico,\\n\\nEste es un recordatorio de que su capacitación en **Atención al Cliente** se llevará a cabo mañana.\\n\\nAsegúrese de estar preparado. Ingrese a la misma desde <a href=\"https://www.google.com/\" target=\"_blank\">**aquí**</a>.',\r\n    twClass: '',\r\n  },\r\n}"
       },
       {
         "name": "Default",
@@ -338,7 +348,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    titles: {\n      today: 'Hoy',\n      thisWeek: 'Esta Semana',\n      previous: 'Anteriores',\n    },\n    emptyListMessage: 'Sin contenido',\n    items: [\n      {\n        label: 'Carlos Sanchez finalizó Programa Recursos Humanos',\n        avatarName: 'Carlos Sanchez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Carlos Sanchez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-03-09T07:00:00',\n      },\n      {\n        label: 'Samuel Lopez finalizó Programa Desarrollo',\n        avatarName: 'Samuel Lopez',\n        onClick: {\n          action: (name = 'Samuel Lopez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-03-09T07:00:00',\n      },\n      {\n        label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',\n        avatarName: 'Ignacio Fernandez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Ignacio Fernandez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-03-09T07:00:00',\n      },\n      {\n        label: 'Carlos Sanchez finalizó Programa Recursos Humanos',\n        avatarName: 'Carlos Sanchez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Carlos Sanchez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-03-09T07:00:00',\n      },\n      {\n        label: 'Samuel Lopez finalizó Programa Desarrollo',\n        avatarName: 'Samuel Lopez',\n        onClick: {\n          action: (name = 'Samuel Lopez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-10-21T13:30:00',\n      },\n      {\n        label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',\n        avatarName: 'Ignacio Fernandez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Ignacio Fernandez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-10-22T07:00:00',\n      },\n    ],\n    twClass: '',\n  },\n}"
+        "defaultValue": "{\n  args: {\n    titles: {\n      today: 'Hoy',\n      thisWeek: 'Esta Semana',\n      previous: 'Anteriores',\n    },\n    emptyListMessage: 'Sin contenido',\n    items: [\n      {\n        label: 'Carlos Sanchez finalizó Programa Recursos Humanos',\n        avatarName: 'Carlos Sanchez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Carlos Sanchez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-03-09T07:00:00',\n      },\n      {\n        label: 'Samuel Lopez finalizó Programa Desarrollo',\n        avatarName: 'Samuel Lopez',\n        onClick: {\n          action: (name = 'Samuel Lopez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-03-09T07:00:00',\n      },\n      {\n        label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',\n        avatarName: 'Ignacio Fernandez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Ignacio Fernandez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-03-09T07:00:00',\n      },\n      {\n        label: 'Carlos Sanchez finalizó Programa Recursos Humanos',\n        avatarName: 'Carlos Sanchez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Carlos Sanchez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-03-09T07:00:00',\n      },\n      {\n        label: 'Samuel Lopez finalizó Programa Desarrollo',\n        avatarName: 'Samuel Lopez',\n        onClick: {\n          action: (name = 'Samuel Lopez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-10-21T07:00:00',\n      },\n      {\n        label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',\n        avatarName: 'Ignacio Fernandez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Ignacio Fernandez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-10-22T07:00:00',\n      },\n    ],\n    twClass: '',\n  },\n}"
       },
       {
         "name": "defaultconfig",
@@ -654,6 +664,16 @@
         "name": "meta",
         "ctype": "miscellaneous",
         "subtype": "variable",
+        "file": "stories/banner.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Meta<BannerComponent>",
+        "defaultValue": "{\r\n  title: 'Evolution Components/Banner',\r\n  component: BannerComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideAnimationsAsync()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
+      },
+      {
+        "name": "meta",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
         "file": "stories/breadcrumb.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
@@ -708,7 +728,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<InfoPanelComponent>",
-        "defaultValue": "{\n  title: 'Evolution Components/Info Panel',\n  component: InfoPanelComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideMarkdown()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+        "defaultValue": "{\r\n  title: 'Evolution Components/Info Panel',\r\n  component: InfoPanelComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideMarkdown()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
       },
       {
         "name": "meta",
@@ -1141,6 +1161,16 @@
         "defaultValue": "{\n  args: {\n    title: title,\n    subtitle: subtitle,\n  },\n}"
       },
       {
+        "name": "Success",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/banner.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\r\n  args: {\r\n    title: 'Éxito',\r\n    message: 'Se asignaron correctamente las personas al programa.',\r\n    duration: 10000,\r\n    twClass: '',\r\n  },\r\n}"
+      },
+      {
         "name": "svgDialog",
         "ctype": "miscellaneous",
         "subtype": "variable",
@@ -1199,6 +1229,16 @@
         "deprecationMessage": "",
         "type": "",
         "defaultValue": "new Date()"
+      },
+      {
+        "name": "UncontrolledError",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/banner.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\r\n  args: {\r\n    title: 'Error',\r\n    message: 'No se pudo establecer conexión con el Identity Server.',\r\n    isError: true,\r\n    twClass: '',\r\n  },\r\n}"
       },
       {
         "name": "UserMenu",
@@ -1439,6 +1479,17 @@
         "subtype": "typealias",
         "rawtype": "StoryObj<AvatarComponent>",
         "file": "stories/avatar.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "description": "",
+        "kind": 183
+      },
+      {
+        "name": "Story",
+        "ctype": "miscellaneous",
+        "subtype": "typealias",
+        "rawtype": "StoryObj<BannerComponent>",
+        "file": "stories/banner.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "description": "",
@@ -2019,6 +2070,48 @@
           "defaultValue": "{\n  args: {\n    label: 'Media',\n    size: 'md',\n    twClass: 'bg-gray-300',\n  },\n}"
         }
       ],
+      "stories/banner.stories.ts": [
+        {
+          "name": "ControlledError",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/banner.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\r\n  args: {\r\n    title: 'Error',\r\n    message: 'No se puede eliminar un programa con personas asignadas.',\r\n    isError: true,\r\n    duration: 10000,\r\n    twClass: '',\r\n  },\r\n}"
+        },
+        {
+          "name": "meta",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/banner.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Meta<BannerComponent>",
+          "defaultValue": "{\r\n  title: 'Evolution Components/Banner',\r\n  component: BannerComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideAnimationsAsync()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
+        },
+        {
+          "name": "Success",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/banner.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\r\n  args: {\r\n    title: 'Éxito',\r\n    message: 'Se asignaron correctamente las personas al programa.',\r\n    duration: 10000,\r\n    twClass: '',\r\n  },\r\n}"
+        },
+        {
+          "name": "UncontrolledError",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/banner.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\r\n  args: {\r\n    title: 'Error',\r\n    message: 'No se pudo establecer conexión con el Identity Server.',\r\n    isError: true,\r\n    twClass: '',\r\n  },\r\n}"
+        }
+      ],
       "stories/header-columna.stories.ts": [
         {
           "name": "customTailwindClass",
@@ -2576,7 +2669,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    title: 'Samuel Lopez finalizó Programa Desarrollo',\n    subtitle: '30/09/2024',\n    info: 'Estimado(a) Juana Margarita Rodas Opico,\\n\\nEste es un recordatorio de que su capacitación en **Atención al Cliente** se llevará a cabo mañana.\\n\\nAsegúrese de estar preparado.',\n    twClass: '',\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    title: 'Samuel Lopez finalizó Programa Desarrollo',\r\n    subtitle: '30/09/2024',\r\n    info: 'Estimado(a) Juana Margarita Rodas Opico,\\n\\nEste es un recordatorio de que su capacitación en **Atención al Cliente** se llevará a cabo mañana.\\n\\nAsegúrese de estar preparado. Ingrese a la misma desde <a href=\"https://www.google.com/\" target=\"_blank\">**aquí**</a>.',\r\n    twClass: '',\r\n  },\r\n}"
         },
         {
           "name": "meta",
@@ -2586,7 +2679,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<InfoPanelComponent>",
-          "defaultValue": "{\n  title: 'Evolution Components/Info Panel',\n  component: InfoPanelComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideMarkdown()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+          "defaultValue": "{\r\n  title: 'Evolution Components/Info Panel',\r\n  component: InfoPanelComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideMarkdown()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
         }
       ],
       "stories/input.stories.ts": [
@@ -2922,7 +3015,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    titles: {\n      today: 'Hoy',\n      thisWeek: 'Esta Semana',\n      previous: 'Anteriores',\n    },\n    emptyListMessage: 'Sin contenido',\n    items: [\n      {\n        label: 'Carlos Sanchez finalizó Programa Recursos Humanos',\n        avatarName: 'Carlos Sanchez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Carlos Sanchez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-03-09T07:00:00',\n      },\n      {\n        label: 'Samuel Lopez finalizó Programa Desarrollo',\n        avatarName: 'Samuel Lopez',\n        onClick: {\n          action: (name = 'Samuel Lopez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-03-09T07:00:00',\n      },\n      {\n        label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',\n        avatarName: 'Ignacio Fernandez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Ignacio Fernandez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-03-09T07:00:00',\n      },\n      {\n        label: 'Carlos Sanchez finalizó Programa Recursos Humanos',\n        avatarName: 'Carlos Sanchez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Carlos Sanchez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-03-09T07:00:00',\n      },\n      {\n        label: 'Samuel Lopez finalizó Programa Desarrollo',\n        avatarName: 'Samuel Lopez',\n        onClick: {\n          action: (name = 'Samuel Lopez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-10-21T13:30:00',\n      },\n      {\n        label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',\n        avatarName: 'Ignacio Fernandez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Ignacio Fernandez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-10-22T07:00:00',\n      },\n    ],\n    twClass: '',\n  },\n}"
+          "defaultValue": "{\n  args: {\n    titles: {\n      today: 'Hoy',\n      thisWeek: 'Esta Semana',\n      previous: 'Anteriores',\n    },\n    emptyListMessage: 'Sin contenido',\n    items: [\n      {\n        label: 'Carlos Sanchez finalizó Programa Recursos Humanos',\n        avatarName: 'Carlos Sanchez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Carlos Sanchez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-03-09T07:00:00',\n      },\n      {\n        label: 'Samuel Lopez finalizó Programa Desarrollo',\n        avatarName: 'Samuel Lopez',\n        onClick: {\n          action: (name = 'Samuel Lopez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-03-09T07:00:00',\n      },\n      {\n        label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',\n        avatarName: 'Ignacio Fernandez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Ignacio Fernandez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-03-09T07:00:00',\n      },\n      {\n        label: 'Carlos Sanchez finalizó Programa Recursos Humanos',\n        avatarName: 'Carlos Sanchez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Carlos Sanchez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-03-09T07:00:00',\n      },\n      {\n        label: 'Samuel Lopez finalizó Programa Desarrollo',\n        avatarName: 'Samuel Lopez',\n        onClick: {\n          action: (name = 'Samuel Lopez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-10-21T07:00:00',\n      },\n      {\n        label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',\n        avatarName: 'Ignacio Fernandez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Ignacio Fernandez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-10-22T07:00:00',\n      },\n    ],\n    twClass: '',\n  },\n}"
         },
         {
           "name": "meta",
@@ -3186,6 +3279,19 @@
           "subtype": "typealias",
           "rawtype": "StoryObj<AvatarComponent>",
           "file": "stories/avatar.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "description": "",
+          "kind": 183
+        }
+      ],
+      "stories/banner.stories.ts": [
+        {
+          "name": "Story",
+          "ctype": "miscellaneous",
+          "subtype": "typealias",
+          "rawtype": "StoryObj<BannerComponent>",
+          "file": "stories/banner.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "description": "",
@@ -3611,6 +3717,46 @@
         "linktype": "miscellaneous",
         "linksubtype": "variable",
         "name": "iniciales",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/banner.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "ControlledError",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/banner.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "meta",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/banner.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Success",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/banner.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "UncontrolledError",
         "coveragePercent": 0,
         "coverageCount": "0/1",
         "status": "low"

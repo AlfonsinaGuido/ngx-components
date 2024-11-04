@@ -35,7 +35,7 @@ export interface IHeaderTitles {
   appTitle: string;
   authorizationTitle?: string;
   notificationTitle: string;
-  settingTitle: string;
+  settingTitle?: string;
 }
 
 export interface IHeaderItems {

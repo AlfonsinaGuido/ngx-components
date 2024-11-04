@@ -1,0 +1,52 @@
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { BannerComponent } from '@aseinfo/ngx-evolution-components/public-api';
+import {
+  applicationConfig,
+  type Meta,
+  type StoryObj,
+} from '@storybook/angular';
+
+// More on how to set up stories at: https://storybook.js.org/docs/writing-stories
+const meta: Meta<BannerComponent> = {
+  title: 'Evolution Components/Banner',
+  component: BannerComponent,
+  decorators: [
+    applicationConfig({
+      providers: [provideAnimationsAsync()],
+    }),
+  ],
+  tags: ['autodocs'],
+};
+
+export default meta;
+type Story = StoryObj<BannerComponent>;
+
+// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
+
+export const Success: Story = {
+  args: {
+    title: 'Éxito',
+    message: 'Se asignaron correctamente las personas al programa.',
+    duration: 10000,
+    twClass: '',
+  },
+};
+
+export const ControlledError: Story = {
+  args: {
+    title: 'Error',
+    message: 'No se puede eliminar un programa con personas asignadas.',
+    isError: true,
+    duration: 10000,
+    twClass: '',
+  },
+};
+
+export const UncontrolledError: Story = {
+  args: {
+    title: 'Error',
+    message: 'No se pudo establecer conexión con el Identity Server.',
+    isError: true,
+    twClass: '',
+  },
+};

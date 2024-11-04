@@ -41,14 +41,11 @@ describe('TimeSegmentedListComponent', () => {
 
     const isMonday: boolean = today.getDay() === 1;
     let thisWeek: Date;
-    
+
     if (!isMonday) {
       thisWeek = new Date();
       thisWeek.setDate(thisWeek.getDate() - 1);
-      items = [
-        ...items,
-        { date: thisWeek.toISOString() },
-      ]
+      items = [...items, { date: thisWeek.toISOString() }];
     }
 
     component.items = items;

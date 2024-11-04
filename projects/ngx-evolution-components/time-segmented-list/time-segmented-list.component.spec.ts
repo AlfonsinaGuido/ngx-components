@@ -31,16 +31,22 @@ describe('TimeSegmentedListComponent', () => {
 
   it('should classify items by date when items input changes, ngOnChanges(changes: SimpleChanges): void', () => {
     const today = new Date();
-    const thisWeek = new Date();
-    thisWeek.setDate(thisWeek.getDate() - 1);
     const previous = new Date();
     previous.setDate(previous.getDate() - 10);
 
-    const items: ITimeSegmentedList[] = [
+    let items: ITimeSegmentedList[] = [
       { date: today.toISOString() },
-      { date: thisWeek.toISOString() },
       { date: previous.toISOString() },
     ];
+
+    const isMonday: boolean = today.getDay() === 1;
+    let thisWeek: Date;
+
+    if (!isMonday) {
+      thisWeek = new Date();
+      thisWeek.setDate(thisWeek.getDate() - 1);
+      items = [...items, { date: thisWeek.toISOString() }];
+    }
 
     component.items = items;
 
@@ -56,7 +62,7 @@ describe('TimeSegmentedListComponent', () => {
     component.ngOnChanges(changes);
 
     expect(component.todayItems.length).toBe(1);
-    expect(component.thisWeekItems.length).toBe(1);
+    expect(component.thisWeekItems.length).toBe(isMonday ? 0 : 1);
     expect(component.previousItems.length).toBe(1);
   });
 

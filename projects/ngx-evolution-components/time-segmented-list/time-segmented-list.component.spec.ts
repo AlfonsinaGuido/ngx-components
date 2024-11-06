@@ -3,6 +3,7 @@ import { TimeSegmentedListComponent } from './time-segmented-list.component';
 import { DebugElement, SimpleChanges } from '@angular/core';
 import { ITimeSegmentedList } from '../public-api';
 import { By } from '@angular/platform-browser';
+import { MarkdownModule } from 'ngx-markdown';
 
 describe('TimeSegmentedListComponent', () => {
   let component: TimeSegmentedListComponent;
@@ -11,7 +12,7 @@ describe('TimeSegmentedListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TimeSegmentedListComponent],
+      imports: [TimeSegmentedListComponent, MarkdownModule.forRoot()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(TimeSegmentedListComponent);
@@ -40,10 +41,9 @@ describe('TimeSegmentedListComponent', () => {
     ];
 
     const isMonday: boolean = today.getDay() === 1;
-    let thisWeek: Date;
 
     if (!isMonday) {
-      thisWeek = new Date();
+      const thisWeek = new Date();
       thisWeek.setDate(thisWeek.getDate() - 1);
       items = [...items, { date: thisWeek.toISOString() }];
     }

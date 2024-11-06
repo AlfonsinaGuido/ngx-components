@@ -41,9 +41,15 @@
       ></evo-avatar>
     }
     @if (label) {
-      <div class="label">
-        {{ label }}
-      </div>
+      @if (isMarkdown) {
+        <markdown class="label line-clamp-2">
+          {{ label }}
+        </markdown>
+      } @else {
+        <div class="label line-clamp-2">
+          {{ label }}
+        </div>
+      }
     }
     @if (icon && icon.position === "right") {
       <div

@@ -114,14 +114,17 @@ describe('PaginationComponent', () => {
       currentPage: 2,
       pageSize: 10,
       totalItems: 35,
+      titles: {
+        showing: 'Mostrando',
+        results: 'resultados',
+        page: 'Página',
+        of: 'de',
+      },
     };
     fixture.detectChanges();
 
-    const rangeText =
-      fixture.debugElement.nativeElement.querySelector(
-        'span:last-of-type',
-      ).textContent;
-    expect(rangeText).toContain('Mostrando 11 - 20 resultados');
+    const rangeText = component.getItemsRangeText();
+    expect(rangeText).toBe('Mostrando 11 - 20 resultados');
   });
 
   it('should return the correct minimum value using getMinValue method', () => {

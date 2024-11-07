@@ -1,8 +1,12 @@
 .evo-program-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribuye los elementos */
   border-radius: 1rem;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   padding: 1rem;
   min-width: 160px;
+  border: 1px solid var(--light-gray);
 
   &.fixed-size {
     width: 300px;
@@ -62,5 +66,27 @@
 
   .icon-display {
     transform: scale(0.9);
+  }
+
+  .text-section {
+    min-height: 86px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-grow: 1;
+    margin-bottom: 10px;
+  }
+
+  .details-section {
+    color: var(--medium-gray);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: auto;
+  }
+  .flex-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
   }
 }

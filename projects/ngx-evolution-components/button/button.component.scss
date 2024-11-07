@@ -10,19 +10,31 @@ $parent: ".evo-button";
     border: 1.5px solid var(--accent-500);
     box-shadow: var(--inverted-box-shadow);
     color: var(--accent-500);
+    .label p {
+      color: var(--accent-500);
+    }
     &:hover {
       border: 1.5px solid var(--dark-gray);
       color: var(--dark-gray);
+      .label p {
+        color: var(--dark-gray);
+      }
     }
     &:active {
       border: 1.5px solid var(--medium-gray);
       color: var(--medium-gray);
+      .label p {
+        color: var(--medium-gray);
+      }
     }
     &:disabled,
     &:active:disabled,
     &:hover:disabled {
       border: 1.5px solid var(--light-gray);
       color: var(--light-gray);
+      .label p {
+        color: var(--light-gray);
+      }
     }
   }
 
@@ -31,6 +43,9 @@ $parent: ".evo-button";
     border: 1.5px solid var(--accent-500);
     box-shadow: var(--inverted-box-shadow);
     color: var(--white);
+    .label p {
+      color: var(--white);
+    }
     &:hover {
       border: 1.5px solid var(--primary-500);
       background-color: var(--primary-500);
@@ -51,14 +66,23 @@ $parent: ".evo-button";
     background-color: transparent;
     border: 1.5px solid var(--accent-500);
     color: var(--accent-500);
+    .label p {
+      color: var(--accent-500);
+    }
     &:hover {
       border: 1.5px solid var(--dark-gray);
       color: var(--dark-gray);
       background-color: var(--light-gray);
+      .label p {
+        color: var(--dark-gray);
+      }
     }
     &:active {
       border: 1.5px solid var(--medium-gray);
       color: var(--medium-gray);
+      .label p {
+        color: var(--medium-gray);
+      }
     }
     &:disabled,
     &:active:disabled,
@@ -66,6 +90,9 @@ $parent: ".evo-button";
       border: 1.5px solid var(--light-gray);
       color: var(--light-gray);
       background-color: transparent;
+      .label p {
+        color: var(--light-gray);
+      }
     }
   }
 
@@ -74,6 +101,9 @@ $parent: ".evo-button";
     box-shadow: var(--standard-box-shadow);
     border: 1.5px solid var(--warn);
     color: var(--warn);
+    .label p {
+      color: var(--warn);
+    }
     &:hover {
       border: 1.5px solid var(--warn);
     }
@@ -85,6 +115,9 @@ $parent: ".evo-button";
     &:hover:disabled {
       border: 1.5px solid var(--light-gray);
       color: var(--light-gray);
+      .label p {
+        color: var(--light-gray);
+      }
     }
   }
 
@@ -110,7 +143,8 @@ $parent: ".evo-button";
     min-height: 22px;
     height: 22px;
     padding: 12px;
-    .label {
+    .label,
+    .label p {
       font-weight: 400;
       font-size: 14px;
     }

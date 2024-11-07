@@ -5,6 +5,7 @@ import {
   type Meta,
   type StoryObj,
 } from '@storybook/angular';
+import { provideMarkdown } from 'ngx-markdown';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta: Meta<ButtonComponent> = {
@@ -12,7 +13,7 @@ const meta: Meta<ButtonComponent> = {
   component: ButtonComponent,
   decorators: [
     applicationConfig({
-      providers: [provideHttpClient()],
+      providers: [provideHttpClient(), provideMarkdown()],
     }),
   ],
   tags: ['autodocs'],
@@ -50,6 +51,14 @@ export const Warning: Story = {
   },
 };
 
+export const WithMarkdown: Story = {
+  args: {
+    label: '**Carlos Sanchez** finalizó Programa Desarrollo',
+    isMarkdown: true,
+    twClass: '',
+  },
+};
+
 export const WithFunction: Story = {
   args: {
     ...Default.args,
@@ -79,6 +88,14 @@ export const WithAvatarName: Story = {
 
 export const WithAvatarImg: Story = {
   args: {
+    avatarName: 'Carlos Sanchez',
+    avatarImgUrl: 'https://material.angular.io/assets/img/examples/shiba1.jpg',
+  },
+};
+
+export const WithAvatarAndLabel: Story = {
+  args: {
+    ...WithMarkdown.args,
     avatarName: 'Carlos Sanchez',
     avatarImgUrl: 'https://material.angular.io/assets/img/examples/shiba1.jpg',
   },

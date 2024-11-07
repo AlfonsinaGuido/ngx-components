@@ -7,15 +7,15 @@
       padding: 8px 40px;
     }
     .evo-button__content {
-      color: var(--medium-gray);
-      .label {
+      .label p {
+        color: var(--medium-gray);
         text-align: left;
         font-size: 14px;
       }
     }
     &:hover {
       .evo-button__content {
-        .label {
+        .label p {
           font-weight: bold;
           transition: font-weight 0.5s ease;
         }

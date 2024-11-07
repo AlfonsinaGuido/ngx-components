@@ -14,11 +14,18 @@ import {
   SvgComponent,
 } from '../public-api';
 import { MatIconModule } from '@angular/material/icon';
+import { MarkdownModule } from 'ngx-markdown';
 
 @Component({
   selector: 'evo-button',
   standalone: true,
-  imports: [CommonModule, SvgComponent, MatIconModule, AvatarComponent],
+  imports: [
+    CommonModule,
+    SvgComponent,
+    MatIconModule,
+    AvatarComponent,
+    MarkdownModule,
+  ],
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss', '../styles/output.scss'],
   encapsulation: ViewEncapsulation.None,
@@ -36,6 +43,7 @@ export class ButtonComponent implements OnChanges {
   @Input() avatarName?: string;
   @Input() avatarImgUrl?: string;
   @Input() onClick?: IButtonAction;
+  @Input() isMarkdown?: boolean = false;
 
   /**
    * Se asegura de que si se proporciona un ícono sin posición, se asigne una por defecto.

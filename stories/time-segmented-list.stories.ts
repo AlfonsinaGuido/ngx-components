@@ -1,10 +1,20 @@
 import { TimeSegmentedListComponent } from '@aseinfo/ngx-evolution-components/public-api';
-import { type Meta, type StoryObj } from '@storybook/angular';
+import {
+  applicationConfig,
+  type Meta,
+  type StoryObj,
+} from '@storybook/angular';
+import { provideMarkdown } from 'ngx-markdown';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta: Meta<TimeSegmentedListComponent> = {
   title: 'Evolution Components/Time Segmented List',
   component: TimeSegmentedListComponent,
+  decorators: [
+    applicationConfig({
+      providers: [provideMarkdown()],
+    }),
+  ],
   tags: ['autodocs'],
 };
 
@@ -22,7 +32,8 @@ export const Default: Story = {
     emptyListMessage: 'Sin contenido',
     items: [
       {
-        label: 'Carlos Sanchez finalizó Programa Recursos Humanos',
+        label:
+          'Carlos Sanchez finalizó Programa Recursos Humanos. El empleado **Carlos Sanchez** completó el programa de **Recursos Humanos**.',
         avatarName: 'Carlos Sanchez',
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',
@@ -56,7 +67,8 @@ export const Default: Story = {
         date: '2024-03-09T07:00:00',
       },
       {
-        label: 'Carlos Sanchez finalizó Programa Recursos Humanos',
+        label:
+          'Carlos Sanchez finalizó Programa Recursos Humanos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut error repellendus nemo, dolorem voluptatem voluptates optio quas, minus dolor odit nihil est quaerat alias nulla iusto cumque, consequuntur sed placeat.',
         avatarName: 'Carlos Sanchez',
         avatarImgUrl:
           'https://material.angular.io/assets/img/examples/shiba1.jpg',

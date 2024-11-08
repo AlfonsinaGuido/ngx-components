@@ -1,4 +1,4 @@
-image: node:20
+image: node:18
 
 options:
   docker: true
@@ -27,9 +27,21 @@ definitions:
             variables:
               SONAR_HOST_URL: ${SONAR_HOST_URL}
               SONAR_TOKEN: ${SONAR_TOKEN}
+    - step: &publish-verdaccio
+        name: Publish npm package
+        caches:
+          - node
+        script:
+          - npm install --quiet
+          - npm install --global verdaccio
+          - npm run build
+          - cd ./dist/@aseinfo/ngx-evolution-components
+          - npm pack
+          - npm publish --registry https://npm.aseinfo.net/
 pipelines:
   default:
     - step: *build-test
+    - step: *publish-verdaccio
   pull-requests:
     '**':
       - step: *build-test

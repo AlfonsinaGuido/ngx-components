@@ -29,20 +29,17 @@ definitions:
               SONAR_TOKEN: ${SONAR_TOKEN}
     - step: &publish-verdaccio
         name: Publish npm package
-        caches:
-          - node
         script:
-          - npm install --quiet
-          - npm install --global verdaccio
-          - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > .npmrc
-          - npm run build
-          - cd ./dist/@aseinfo/ngx-evolution-components
-          - npm pack
-          - npm publish --registry https://npm.aseinfo.net/
+          - npm version minor -m "Upgrade to %s [skip ci]"
+          - git push && git push --tags
+          - pipe: atlassian/npm-publish:1.0.0
+            variables:
+              NPM_TOKEN: ${NPM_TOKEN}
+
 pipelines:
   default:
     - step: *build-test
     - step: *publish-verdaccio
   pull-requests:
-    '**':
+    "**":
       - step: *build-test

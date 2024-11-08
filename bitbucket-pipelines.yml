@@ -34,6 +34,7 @@ definitions:
         script:
           - npm install --quiet
           - npm install --global verdaccio
+          - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" > .npmrc
           - npm run build
           - cd ./dist/@aseinfo/ngx-evolution-components
           - npm pack

@@ -29,7 +29,12 @@ definitions:
               SONAR_TOKEN: ${SONAR_TOKEN}
     - step: &publish-verdaccio
         name: Publish npm package
+        caches:
+          - node
         script:
+          - npm install --quiet
+          - npm run build
+          - cd ./dist/@aseinfo/ngx-evolution-components
           - npm version minor -m "Upgrade to %s [skip ci]"
           - git push && git push --tags
           - npm config set registry https://npm.aseinfo.net

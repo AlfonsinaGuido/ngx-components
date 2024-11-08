@@ -38,10 +38,12 @@ describe('TagComponent', () => {
   });
 
   it('should render text label', () => {
-    const prioridadMock = { ...prioridadHigh, nombre: 'TagTest' };
+    const prioridadMock = { ...prioridadHigh, Nombre: 'TagTest' };
     component.prioridad = prioridadMock;
     fixture.detectChanges();
     const tagEl: HTMLElement = fixture.nativeElement;
+    console.log('Nombre -> ', prioridadMock);
+    console.log('TAG->', tagEl);
     expect(tagEl.textContent).toContain('TagTest');
   });
 });

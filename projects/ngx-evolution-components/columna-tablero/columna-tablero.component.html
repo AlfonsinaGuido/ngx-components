@@ -9,16 +9,16 @@
       actividades.length === 0,
   }"
 >
-  @for (actividad of actividades; track actividad.id) {
+  @for (actividad of actividades; track actividad.Codigo) {
     <evo-carta-actividad
       class="carta-actividad"
       cdkDrag
       cdkDragHandle
       [cdkDragData]="actividad"
       [actividad]="actividad"
-      [endDate]="actividad.fechaFin"
+      [endDate]="actividad.FechaFin"
       [twClass]="'h-36'"
-      [id]="actividad.id"
+      [id]="actividad.Codigo"
     >
     </evo-carta-actividad>
   }

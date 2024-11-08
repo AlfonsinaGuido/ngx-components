@@ -27,7 +27,7 @@ describe('DialogoActividadComponent', () => {
 
   it('should render the activity name as the first p element', () => {
     const pElement = fixture.nativeElement.querySelector('p');
-    expect(pElement.textContent.trim()).toBe(actividad.nombre);
+    expect(pElement.textContent.trim()).toBe(actividad.Nombre);
   });
 
   it('should render a tag component with the activity priority', () => {

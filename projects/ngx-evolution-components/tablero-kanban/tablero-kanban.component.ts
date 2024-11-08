@@ -14,7 +14,7 @@ interface actividadesData {
   nombreEmpleado: string;
   count: number;
   actividades: {
-    status: string;
+    estadoDb: string;
     actividades: IActividad[];
   };
 }

@@ -98,7 +98,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    title: 'Error',\r\n    message: 'No se puede eliminar un programa con personas asignadas.',\r\n    isError: true,\r\n    duration: 10000,\r\n    twClass: '',\r\n  },\r\n}"
+        "defaultValue": "{\n  args: {\n    title: 'Error',\n    message: 'No se puede eliminar un programa con personas asignadas.',\n    isError: true,\n    duration: 10000,\n    twClass: '',\n  },\n}"
       },
       {
         "name": "customTailwindClass",
@@ -668,7 +668,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<BannerComponent>",
-        "defaultValue": "{\r\n  title: 'Evolution Components/Banner',\r\n  component: BannerComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideAnimationsAsync()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
+        "defaultValue": "{\n  title: 'Evolution Components/Banner',\n  component: BannerComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
       },
       {
         "name": "meta",
@@ -688,7 +688,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<ButtonComponent>",
-        "defaultValue": "{\n  title: 'Evolution Components/Button',\n  component: ButtonComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+        "defaultValue": "{\n  title: 'Evolution Components/Button',\n  component: ButtonComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient(), provideMarkdown()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
       },
       {
         "name": "meta",
@@ -928,7 +928,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Preview",
-        "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n    deepControls: { enabled: true },\n  },\n  decorators: [componentWrapperDecorator((story) => `<div>${story}</div>`)],\n}"
+        "defaultValue": "{\r\n  parameters: {\r\n    controls: {\r\n      matchers: {\r\n        color: /(background|color)$/i,\r\n        date: /Date$/i,\r\n      },\r\n    },\r\n    deepControls: { enabled: true },\r\n  },\r\n  decorators: [componentWrapperDecorator((story) => `<div>${story}</div>`)],\r\n}"
       },
       {
         "name": "Primary",
@@ -1168,7 +1168,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    title: 'Éxito',\r\n    message: 'Se asignaron correctamente las personas al programa.',\r\n    duration: 10000,\r\n    twClass: '',\r\n  },\r\n}"
+        "defaultValue": "{\n  args: {\n    title: 'Éxito',\n    message: 'Se asignaron correctamente las personas al programa.',\n    duration: 10000,\n    twClass: '',\n  },\n}"
       },
       {
         "name": "svgDialog",
@@ -1238,7 +1238,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    title: 'Error',\r\n    message: 'No se pudo establecer conexión con el Identity Server.',\r\n    isError: true,\r\n    twClass: '',\r\n  },\r\n}"
+        "defaultValue": "{\n  args: {\n    title: 'Error',\n    message: 'No se pudo establecer conexión con el Identity Server.',\n    isError: true,\n    twClass: '',\n  },\n}"
       },
       {
         "name": "UserMenu",
@@ -1269,6 +1269,16 @@
         "deprecationMessage": "",
         "type": "Story",
         "defaultValue": "{\n  args: {\n    ...Default.args,\n    theme: 'warning',\n  },\n}"
+      },
+      {
+        "name": "WithAvatarAndLabel",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/button.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    ...WithMarkdown.args,\n    avatarName: 'Carlos Sanchez',\n    avatarImgUrl: 'https://material.angular.io/assets/img/examples/shiba1.jpg',\n  },\n}"
       },
       {
         "name": "WithAvatarImg",
@@ -1309,6 +1319,16 @@
         "deprecationMessage": "",
         "type": "Story",
         "defaultValue": "{\n  args: {\n    ...Default.args,\n    onClick: {\n      action: (param = 'con param') => {\n        alert('Función ' + param);\n      },\n    },\n  },\n}"
+      },
+      {
+        "name": "WithMarkdown",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/button.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    label: '**Carlos Sanchez** finalizó Programa Desarrollo',\n    isMarkdown: true,\n    twClass: '',\n  },\n}"
       },
       {
         "name": "WithMatIcon",
@@ -2079,7 +2099,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    title: 'Error',\r\n    message: 'No se puede eliminar un programa con personas asignadas.',\r\n    isError: true,\r\n    duration: 10000,\r\n    twClass: '',\r\n  },\r\n}"
+          "defaultValue": "{\n  args: {\n    title: 'Error',\n    message: 'No se puede eliminar un programa con personas asignadas.',\n    isError: true,\n    duration: 10000,\n    twClass: '',\n  },\n}"
         },
         {
           "name": "meta",
@@ -2089,7 +2109,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<BannerComponent>",
-          "defaultValue": "{\r\n  title: 'Evolution Components/Banner',\r\n  component: BannerComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideAnimationsAsync()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
+          "defaultValue": "{\n  title: 'Evolution Components/Banner',\n  component: BannerComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
         },
         {
           "name": "Success",
@@ -2099,7 +2119,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    title: 'Éxito',\r\n    message: 'Se asignaron correctamente las personas al programa.',\r\n    duration: 10000,\r\n    twClass: '',\r\n  },\r\n}"
+          "defaultValue": "{\n  args: {\n    title: 'Éxito',\n    message: 'Se asignaron correctamente las personas al programa.',\n    duration: 10000,\n    twClass: '',\n  },\n}"
         },
         {
           "name": "UncontrolledError",
@@ -2109,7 +2129,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    title: 'Error',\r\n    message: 'No se pudo establecer conexión con el Identity Server.',\r\n    isError: true,\r\n    twClass: '',\r\n  },\r\n}"
+          "defaultValue": "{\n  args: {\n    title: 'Error',\n    message: 'No se pudo establecer conexión con el Identity Server.',\n    isError: true,\n    twClass: '',\n  },\n}"
         }
       ],
       "stories/header-columna.stories.ts": [
@@ -2391,7 +2411,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<ButtonComponent>",
-          "defaultValue": "{\n  title: 'Evolution Components/Button',\n  component: ButtonComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+          "defaultValue": "{\n  title: 'Evolution Components/Button',\n  component: ButtonComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient(), provideMarkdown()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
         },
         {
           "name": "OnlySvgIcon",
@@ -2434,6 +2454,16 @@
           "defaultValue": "{\n  args: {\n    ...Default.args,\n    theme: 'warning',\n  },\n}"
         },
         {
+          "name": "WithAvatarAndLabel",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/button.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    ...WithMarkdown.args,\n    avatarName: 'Carlos Sanchez',\n    avatarImgUrl: 'https://material.angular.io/assets/img/examples/shiba1.jpg',\n  },\n}"
+        },
+        {
           "name": "WithAvatarImg",
           "ctype": "miscellaneous",
           "subtype": "variable",
@@ -2462,6 +2492,16 @@
           "deprecationMessage": "",
           "type": "Story",
           "defaultValue": "{\n  args: {\n    ...Default.args,\n    onClick: {\n      action: (param = 'con param') => {\n        alert('Función ' + param);\n      },\n    },\n  },\n}"
+        },
+        {
+          "name": "WithMarkdown",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/button.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    label: '**Carlos Sanchez** finalizó Programa Desarrollo',\n    isMarkdown: true,\n    twClass: '',\n  },\n}"
         },
         {
           "name": "WithMatIcon",
@@ -3165,7 +3205,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Preview",
-          "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n    deepControls: { enabled: true },\n  },\n  decorators: [componentWrapperDecorator((story) => `<div>${story}</div>`)],\n}"
+          "defaultValue": "{\r\n  parameters: {\r\n    controls: {\r\n      matchers: {\r\n        color: /(background|color)$/i,\r\n        date: /Date$/i,\r\n      },\r\n    },\r\n    deepControls: { enabled: true },\r\n  },\r\n  decorators: [componentWrapperDecorator((story) => `<div>${story}</div>`)],\r\n}"
         }
       ]
     },
@@ -3896,6 +3936,16 @@
         "type": "variable",
         "linktype": "miscellaneous",
         "linksubtype": "variable",
+        "name": "WithAvatarAndLabel",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/button.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
         "name": "WithAvatarImg",
         "coveragePercent": 0,
         "coverageCount": "0/1",
@@ -3917,6 +3967,16 @@
         "linktype": "miscellaneous",
         "linksubtype": "variable",
         "name": "WithFunction",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/button.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "WithMarkdown",
         "coveragePercent": 0,
         "coverageCount": "0/1",
         "status": "low"

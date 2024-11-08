@@ -21,7 +21,7 @@ export const Default = {
   },
   args: {
     actividad,
-    endDate: actividad.fechaFin,
+    endDate: actividad.FechaFin,
     tooltipSoonToExpire: 'Próxima a vencer',
     tooltipExpired: 'Vencida',
   },
@@ -49,7 +49,7 @@ export const sinTagDePrioridad = {
       ...actividad,
       prioridad: undefined,
     },
-    endDate: actividad.fechaFin,
+    endDate: actividad.FechaFin,
   },
 } as StoryObj<CartaActividadComponent>;
 
@@ -59,7 +59,7 @@ export const sinAvatar = {
       ...actividad,
       responsable: '',
     },
-    endDate: actividad.fechaFin,
+    endDate: actividad.FechaFin,
   },
 } as StoryObj<CartaActividadComponent>;
 

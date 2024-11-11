@@ -13,9 +13,11 @@
       {{ count === 999 ? count + "+" : count }}
     </span>
   }
-  <p
-    class="text-white capitalize font-semibold tracking-wide text-sm overflow-hidden text-ellipsis line-clamp-1 ml-2"
-  >
-    {{ name }}
-  </p>
+  <div class="column-name">
+    <p
+      class="text-white capitalize font-semibold tracking-wide text-sm overflow-hidden text-ellipsis line-clamp-1"
+    >
+      {{ name }}
+    </p>
+  </div>
 </div>

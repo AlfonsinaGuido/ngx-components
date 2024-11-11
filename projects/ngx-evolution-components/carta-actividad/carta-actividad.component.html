@@ -9,8 +9,8 @@
     class="flex flex-start flex-nowrap gap-1.5 items-center"
     id="activity-card-header"
   >
-    @if (actividad.prioridad) {
-      <evo-tag [prioridad]="actividad.prioridad" />
+    @if (actividad.Prioridad) {
+      <evo-tag [prioridad]="actividad.Prioridad" />
     }
   </div>
   <div>
@@ -18,25 +18,25 @@
       class="my-1 text-base font-bold overflow-hidden line-clamp-1 text-ellipsis"
       id="activity-title"
     >
-      {{ actividad.nombre }}
+      {{ actividad.Nombre }}
     </p>
     <p
       class="text-xs font-light text-gray-500 overflow-hidden line-clamp-2 text-ellipsis"
       id="activity-description"
     >
-      {{ actividad.descripcion }}
+      {{ actividad.Descripcion }}
     </p>
   </div>
-  @if (actividad.responsable || endDate) {
+  @if (actividad.EmpleoResponsable?.NombresApellidos || endDate) {
     <div
       id="activity-card-footer"
       class="flex flex-row gap-1 items-center mt-2"
     >
-      @if (actividad.responsable) {
+      @if (actividad.EmpleoResponsable?.NombresApellidos) {
         <div class="flex flex-grow">
           <evo-avatar
             size="sm"
-            [name]="actividad.responsable"
+            [name]="actividad.EmpleoResponsable?.NombresApellidos!"
             [tooltipDisabled]="false"
           ></evo-avatar>
         </div>

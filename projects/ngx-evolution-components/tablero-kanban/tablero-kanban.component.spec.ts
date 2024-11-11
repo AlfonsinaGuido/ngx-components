@@ -12,21 +12,21 @@ const columnas: IColumna[] = [
     id: 1,
     nombre: 'abiertas',
     actividades: actividades.filter(
-      (act) => act.status === EstadoActividad.abierta,
+      (act) => act.EstadoDb === EstadoActividad.Pendiente,
     ),
   },
   {
     id: 2,
     nombre: 'en progreso',
     actividades: actividades.filter(
-      (act) => act.status === EstadoActividad.enProgreso,
+      (act) => act.EstadoDb === EstadoActividad.EnProceso,
     ),
   },
   {
     id: 3,
     nombre: 'finalizadas',
     actividades: actividades.filter(
-      (act) => act.status === EstadoActividad.cerrada,
+      (act) => act.EstadoDb === EstadoActividad.Finalizada,
     ),
   },
 ];
@@ -77,9 +77,9 @@ describe('TableroKanbanComponent', () => {
         const titleEl = activityEl.querySelector('#activity-title');
         const descriptionEl = activityEl.querySelector('#activity-description');
 
-        expect(titleEl?.textContent?.trim()).toEqual(actividad.nombre);
+        expect(titleEl?.textContent?.trim()).toEqual(actividad.Nombre);
         expect(descriptionEl?.textContent?.trim()).toEqual(
-          actividad.descripcion,
+          actividad.Descripcion,
         );
       });
     });

@@ -16,13 +16,13 @@ describe('ProgramCardComponent', () => {
   let mockClassUtilityService: jasmine.SpyObj<ClassUtilityService>;
 
   const mockCardData: IProgramCardConfigInterface = {
-    id: '1',
-    title: 'Test Program',
-    subtitle: 'Test Subtitle',
-    activitiesCount: 5,
+    codigo: '1',
+    nombre: 'Test Program',
+    descripcion: 'Test Subtitle',
+    totalActividades: 5,
     activitiesText: 'Activities',
-    weeksCount: 3,
-    weeksText: 'Weeks',
+    duracion: 3,
+    unidadDuracionDb: 'Weeks',
     buttonLabel: 'Add Person',
     buttonClasses: 'btn-primary',
     onButtonClick: { action: jasmine.createSpy('buttonClickAction') },
@@ -61,15 +61,15 @@ describe('ProgramCardComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should display the card title and subtitle', () => {
+  it('should display the card Nombre and Descripcion', () => {
     const titleElement = fixture.debugElement.query(By.css('h3'));
     const subtitleElement = fixture.debugElement.query(By.css('p'));
 
     expect(titleElement.nativeElement.textContent).toContain(
-      mockCardData.title,
+      mockCardData.nombre,
     );
     expect(subtitleElement.nativeElement.textContent).toContain(
-      mockCardData.subtitle,
+      mockCardData.descripcion,
     );
   });
 
@@ -82,10 +82,10 @@ describe('ProgramCardComponent', () => {
     )[1];
 
     expect(activitiesElement.nativeElement.textContent).toContain(
-      mockCardData.activitiesCount,
+      mockCardData.totalActividades,
     );
     expect(weeksElement.nativeElement.textContent).toContain(
-      mockCardData.weeksCount,
+      mockCardData.duracion,
     );
   });
 

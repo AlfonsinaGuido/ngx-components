@@ -52,13 +52,14 @@ export class SmartListComponent implements OnInit, OnChanges {
   };
 
   @Input() page: number = 1;
-  @Input() pageSize: number = 10;
-  @Input() totalPages: number = 1;
+  @Input() pageSize: number = 1;
+  @Input() totalPages: number = 2;
   @Input() hiddenColumns: number[] = [];
   @Input() sortableColumns: number[] = [];
   @Input() emptyStateText: string = 'No hay datos para mostrar';
   @Input() twClass: string = '';
   @Input() actionIcons: IIcon[] = [];
+  @Input() isManualPaginate: boolean = false;
 
   @Output() pageSelected = new EventEmitter<number>();
   @Output() selectedUsers = new EventEmitter<ISmartListItem[]>();
@@ -178,6 +179,9 @@ export class SmartListComponent implements OnInit, OnChanges {
   initializeTable() {
     this.metadata = this.smartlistConfig?.Metadata || null;
     this.totalItems = this.data.length;
+    if (!this.isManualPaginate) {
+      this.totalPages = Math.ceil(this.totalItems / this.pageSize);
+    }
     this.page = 1;
     this.paginate();
   }
@@ -186,10 +190,13 @@ export class SmartListComponent implements OnInit, OnChanges {
    * Paginación de los elementos de la tabla.
    */
   paginate() {
-    const startIndex = (this.page - 1) * this.pageSize;
-    this.paginatedItems =
-      this.data?.slice(startIndex, startIndex + this.pageSize) || [];
-    this.totalPages = Math.ceil(this.totalItems / this.pageSize);
+    if (this.isManualPaginate) {
+      this.paginatedItems = this.data;
+    } else {
+      const startIndex = (this.page - 1) * this.pageSize;
+      this.paginatedItems =
+        this.data?.slice(startIndex, startIndex + this.pageSize) || [];
+    }
     this.cdr.detectChanges();
   }
 
@@ -282,8 +289,10 @@ export class SmartListComponent implements OnInit, OnChanges {
   goToPage(page: number) {
     if (page >= 1 && page <= this.totalPages) {
       this.page = page;
-      this.paginate();
       this.pageSelected.emit(page);
+      if (!this.isManualPaginate) {
+        this.paginate();
+      }
     }
   }
 

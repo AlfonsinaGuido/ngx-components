@@ -21,6 +21,7 @@ const defaultConfig = {
   totalPages: 5,
   pageSize: 10,
   totalItems: 50,
+  isManualPaginate: false,
   titles: {
     showing: 'Mostrando',
     results: 'resultados',

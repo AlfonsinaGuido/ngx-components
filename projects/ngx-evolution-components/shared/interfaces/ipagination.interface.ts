@@ -6,6 +6,7 @@ export interface IPaginationTitles {
 }
 
 export interface IPaginationConfig {
+  isManualPaginate: boolean;
   currentPage: number;
   totalPages: number;
   pageSize: number;

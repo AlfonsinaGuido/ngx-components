@@ -179,7 +179,9 @@ export class SmartListComponent implements OnInit, OnChanges {
   initializeTable() {
     this.metadata = this.smartlistConfig?.Metadata || null;
     this.totalItems = this.data.length;
-    this.totalPages = Math.ceil(this.totalItems / this.pageSize); // Recalcula las páginas totales
+    if (!this.isManualPaginate) {
+      this.totalPages = Math.ceil(this.totalItems / this.pageSize);
+    }
     this.page = 1;
     this.paginate();
   }

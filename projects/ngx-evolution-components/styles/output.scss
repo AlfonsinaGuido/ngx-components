@@ -887,6 +887,10 @@ video {
   margin-top: 20px;
 }
 
+.mt-auto {
+  margin-top: auto;
+}
+
 .line-clamp-1 {
   overflow: hidden;
   display: -webkit-box;
@@ -976,6 +980,10 @@ video {
   min-height: 2.25rem;
 }
 
+.min-h-\[86px\] {
+  min-height: 86px;
+}
+
 .w-10 {
   width: 2.5rem;
 }
@@ -1039,6 +1047,10 @@ video {
   flex-grow: 1;
 }
 
+.grow {
+  flex-grow: 1;
+}
+
 .border-collapse {
   border-collapse: collapse;
 }
@@ -1089,12 +1101,20 @@ video {
   flex-direction: column;
 }
 
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
 .flex-nowrap {
   flex-wrap: nowrap;
 }
 
 .items-center {
   align-items: center;
+}
+
+.justify-start {
+  justify-content: flex-start;
 }
 
 .\!justify-end {

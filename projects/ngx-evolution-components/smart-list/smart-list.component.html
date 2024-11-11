@@ -161,6 +161,7 @@
 @if (totalPages >= 1) {
   <pagination
     [config]="{
+      isManualPaginate: isManualPaginate,
       currentPage: page,
       totalPages: totalPages,
       pageSize: pageSize,

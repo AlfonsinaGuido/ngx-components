@@ -20,7 +20,7 @@
       [endDate]="actividad.FechaFin"
       [twClass]="'h-36'"
       [id]="actividad.Codigo"
-      (taskUpdate)="mostrar($event)"
+      (taskUpdate)="mostrar($event.actividad)"
     >
     </evo-carta-actividad>
   }

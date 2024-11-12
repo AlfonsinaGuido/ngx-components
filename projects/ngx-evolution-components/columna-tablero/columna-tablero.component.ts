@@ -1,9 +1,4 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import {
   CartaActividadComponent,
   Duracion,
@@ -49,7 +44,7 @@ export class ColumnaTableroComponent {
   @Input() actividades!: IActividad[];
   @Input() validacion?: IValidationAction;
   @Output('ordenActividad')
-  public ordenActividad: EventEmitter<any> = new EventEmitter();
+  public ordenActividad: EventEmitter<IActividad> = new EventEmitter();
   @Output('actualizarActividad')
   public actualizarActividad: EventEmitter<IActividad> = new EventEmitter();
 
@@ -83,7 +78,7 @@ export class ColumnaTableroComponent {
     return false;
   };
 
-  mostrar(event: any) {
-    this.actividadSelected = event.actividad;
+  mostrar(event: IActividad) {
+    this.actividadSelected = event;
   }
 }

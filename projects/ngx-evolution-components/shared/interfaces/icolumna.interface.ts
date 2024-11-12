@@ -4,4 +4,9 @@ export interface IColumna {
   id: string | number;
   nombre: string;
   actividades: IActividad[];
+  validacion?: IValidationAction;
+}
+
+export interface IValidationAction {
+  action: (element: IActividad) => boolean;
 }

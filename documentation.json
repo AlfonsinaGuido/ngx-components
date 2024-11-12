@@ -78,7 +78,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "IColumna[]",
-        "defaultValue": "[\n  {\n    id: 1,\n    nombre: 'abiertas',\n    actividades: actividades.filter(\n      (act) => act.status === EstadoActividad.abierta,\n    ),\n  },\n  {\n    id: 2,\n    nombre: 'en progreso',\n    actividades: actividades.filter(\n      (act) => act.status === EstadoActividad.enProgreso,\n    ),\n  },\n  {\n    id: 3,\n    nombre: 'finalizadas',\n    actividades: actividades.filter(\n      (act) => act.status === EstadoActividad.cerrada,\n    ),\n  },\n]"
+        "defaultValue": "Object.values(\n  actividades.reduce((acc: any, act) => {\n    const estadoConfig = estadosMap[act.EstadoDb];\n    if (!estadoConfig) return acc;\n\n    if (!acc[act.EstadoDb]) {\n      acc[act.EstadoDb] = { ...estadoConfig, actividades: [] };\n    }\n\n    acc[act.EstadoDb].actividades.push(act);\n\n    return acc;\n  }, {}),\n)"
       },
       {
         "name": "conClasePersonalizada",
@@ -168,7 +168,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "",
-        "defaultValue": "{\n  argTypes: {\n    twClass: {\n      control: { type: 'text' },\n    },\n  },\n  args: {\n    actividad,\n    endDate: actividad.fechaFin,\n    tooltipSoonToExpire: 'Próxima a vencer',\n    tooltipExpired: 'Vencida',\n  },\n} as StoryObj<CartaActividadComponent>"
+        "defaultValue": "{\n  argTypes: {\n    twClass: {\n      control: { type: 'text' },\n    },\n  },\n  args: {\n    actividad,\n    endDate: actividad.FechaFin,\n    tooltipSoonToExpire: 'Próxima a vencer',\n    tooltipExpired: 'Vencida',\n  },\n} as StoryObj<CartaActividadComponent>"
       },
       {
         "name": "Default",
@@ -298,7 +298,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    smartlistConfig: smartlistConfig,\n    data: data,\n    titles: titles,\n    page: 1,\n    totalPages: 1,\n    pageSize: 5,\n    hiddenColumns: [2],\n    twClass: '',\n    sortableColumns: [1],\n    actionIcons: [\n      { type: 'class', icon: 'add' },\n      { type: 'class', icon: 'edit' },\n      { type: 'class', icon: 'delete' },\n      { type: 'class', icon: 'verified_user' },\n    ],\n  },\n}"
+        "defaultValue": "{\n  args: {\n    smartlistConfig: smartlistConfig,\n    data: data,\n    titles: titles,\n    page: 1,\n    totalPages: 1,\n    pageSize: 5,\n    hiddenColumns: [2],\n    twClass: '',\n    sortableColumns: [1],\n    isManualPaginate: false,\n    actionIcons: [\n      { type: 'class', icon: 'add' },\n      { type: 'class', icon: 'edit' },\n      { type: 'class', icon: 'delete' },\n      { type: 'class', icon: 'verified_user' },\n    ],\n  },\n}"
       },
       {
         "name": "Default",
@@ -338,7 +338,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    label: 'Tag',\n    size: 'sm',\n    twClass: '',\n    prioridad: {\n      nombre: 'Alta',\n      color: '#FF0000',\n      icono: 'arrow_upward',\n      codigo: 0,\n      orden: 0,\n    },\n  },\n}"
+        "defaultValue": "{\n  args: {\n    label: 'Tag',\n    size: 'sm',\n    twClass: '',\n    prioridad: {\n      Nombre: 'Alta',\n      Color: '#FF0000',\n      Codigo: 0,\n      Orden: 0,\n    },\n  },\n}"
       },
       {
         "name": "Default",
@@ -358,7 +358,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "object",
-        "defaultValue": "{\n  Codigo: '1',\n  Nombre: 'Program Title',\n  Descripcion:\n    'Se permite texto hasta dos líneas. Se permite texto hasta dos líneas.',\n  TotalActividades: 5,\n  activitiesText: 'Actividades',\n  Duracion: 3,\n  UnidadDuracionDb: 'Semanas',\n  buttonLabel: 'Asignar',\n  buttonIcon: 'add-user.svg',\n  buttonClasses: 'theme-primary',\n  TotalParticipantes: 2,\n  participantesText: 'participantes',\n  onButtonClick: {\n    action: () => {\n      console.log('Button clicked!');\n    },\n  },\n  twClass: 'custom-class',\n  isFluid: true,\n  size: 'lg' as 'sm' | 'md' | 'lg',\n}"
+        "defaultValue": "{\n  codigo: '1',\n  nombre: 'Program Title',\n  descripcion:\n    'Se permite texto hasta dos líneas. Se permite texto hasta dos líneas. Se permite texto hasta dos líneas.',\n  totalActividades: 5,\n  activitiesText: 'Actividades',\n  duracion: 3,\n  unidadDuracionDb: 'Semanas',\n  buttonLabel: 'Asignar',\n  buttonIcon: 'add-user.svg',\n  buttonClasses: 'theme-primary',\n  totalParticipantes: 2,\n  participantesText: 'participantes',\n  onButtonClick: {\n    action: () => {\n      console.log('Button clicked!');\n    },\n  },\n  twClass: 'custom-class',\n  isFluid: true,\n  size: 'lg' as 'sm' | 'md' | 'lg',\n}"
       },
       {
         "name": "defaultConfig",
@@ -388,7 +388,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "object",
-        "defaultValue": "{\n  currentPage: 1,\n  totalPages: 5,\n  pageSize: 10,\n  totalItems: 50,\n  titles: {\n    showing: 'Mostrando',\n    results: 'resultados',\n    page: 'Página',\n    of: 'de',\n  },\n  twClass: '',\n}"
+        "defaultValue": "{\r\n  currentPage: 1,\r\n  totalPages: 5,\r\n  pageSize: 10,\r\n  totalItems: 50,\r\n  isManualPaginate: false,\r\n  titles: {\r\n    showing: 'Mostrando',\r\n    results: 'resultados',\r\n    page: 'Página',\r\n    of: 'de',\r\n  },\r\n  twClass: '',\r\n}"
       },
       {
         "name": "Disabled",
@@ -419,6 +419,16 @@
         "deprecationMessage": "",
         "type": "Story",
         "defaultValue": "{\n  args: {\n    ...Default.args,\n    inputType: 'tel',\n    control: formControlPatternInput,\n    requiredErrorMessage: 'Este campo es requerido',\n    patternErrorMessage: 'Formato requerido (123) 456-7890',\n  },\n}"
+      },
+      {
+        "name": "estadosMap",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/tablero-kanban.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "object",
+        "defaultValue": "{\n  [EstadoActividad.Pendiente]: {\n    id: 1,\n    nombre: 'abiertas',\n    validacion: { action: validarPendiente },\n  },\n  [EstadoActividad.EnProceso]: {\n    id: 2,\n    nombre: 'en progreso',\n    validacion: { action: validarEnEjecucion },\n  },\n  [EstadoActividad.Finalizada]: {\n    id: 3,\n    nombre: 'finalizadas',\n    validacion: { action: validarFinalizado },\n  },\n}"
       },
       {
         "name": "form",
@@ -568,7 +578,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  render: (args) => {\n    const handleNextPage = () => {\n      if (args.config.currentPage < args.config.totalPages) {\n        args.config.currentPage += 1;\n      }\n    };\n\n    const handlePreviousPage = () => {\n      if (args.config.currentPage > 1) {\n        args.config.currentPage -= 1;\n      }\n    };\n\n    const handlePageSelected = (event: { page: number }) => {\n      args.config.currentPage = event.page;\n    };\n\n    return {\n      props: {\n        ...args,\n        nextPageClicked: handleNextPage,\n        previousPageClicked: handlePreviousPage,\n        pageSelected: handlePageSelected,\n      },\n    };\n  },\n  args: {\n    config: { ...defaultConfig },\n  },\n}"
+        "defaultValue": "{\r\n  render: (args) => {\r\n    const handleNextPage = () => {\r\n      if (args.config.currentPage < args.config.totalPages) {\r\n        args.config.currentPage += 1;\r\n      }\r\n    };\r\n\r\n    const handlePreviousPage = () => {\r\n      if (args.config.currentPage > 1) {\r\n        args.config.currentPage -= 1;\r\n      }\r\n    };\r\n\r\n    const handlePageSelected = (event: { page: number }) => {\r\n      args.config.currentPage = event.page;\r\n    };\r\n\r\n    return {\r\n      props: {\r\n        ...args,\r\n        nextPageClicked: handleNextPage,\r\n        previousPageClicked: handlePreviousPage,\r\n        pageSelected: handlePageSelected,\r\n      },\r\n    };\r\n  },\r\n  args: {\r\n    config: { ...defaultConfig },\r\n  },\r\n}"
       },
       {
         "name": "IsFlat",
@@ -598,7 +608,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'lg',\n      Nombre: 'Large Program Title',\n      isFluid: false,\n    },\n  },\n}"
+        "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'lg',\n      nombre: 'Large Program Title',\n      isFluid: false,\n    },\n  },\n}"
       },
       {
         "name": "loginFunction",
@@ -628,7 +638,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'md',\n      Nombre: 'Medium Program Title',\n      isFluid: false,\n    },\n  },\n}"
+        "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'md',\n      nombre: 'Medium Program Title',\n      isFluid: false,\n    },\n  },\n}"
       },
       {
         "name": "meta",
@@ -768,7 +778,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<PaginationComponent>",
-        "defaultValue": "{\n  title: 'Evolution Components/Pagination',\n  component: PaginationComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+        "defaultValue": "{\r\n  title: 'Evolution Components/Pagination',\r\n  component: PaginationComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
       },
       {
         "name": "meta",
@@ -1068,7 +1078,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "",
-        "defaultValue": "{\n  args: {\n    actividad: {\n      ...actividad,\n      responsable: '',\n    },\n    endDate: actividad.fechaFin,\n  },\n} as StoryObj<CartaActividadComponent>"
+        "defaultValue": "{\n  args: {\n    actividad: {\n      ...actividad,\n      responsable: '',\n    },\n    endDate: actividad.FechaFin,\n  },\n} as StoryObj<CartaActividadComponent>"
       },
       {
         "name": "sinFechaFin",
@@ -1098,7 +1108,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "",
-        "defaultValue": "{\n  args: {\n    actividad: {\n      ...actividad,\n      prioridad: undefined,\n    },\n    endDate: actividad.fechaFin,\n  },\n} as StoryObj<CartaActividadComponent>"
+        "defaultValue": "{\n  args: {\n    actividad: {\n      ...actividad,\n      prioridad: undefined,\n    },\n    endDate: actividad.FechaFin,\n  },\n} as StoryObj<CartaActividadComponent>"
       },
       {
         "name": "Small",
@@ -1108,7 +1118,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'sm',\n      Nombre: 'Small Program Title',\n      Descripcion:\n        'Se permite texto hasta dos líneas. Se permite texto hasta dos líneas.',\n      isFluid: false,\n    },\n  },\n}"
+        "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'sm',\n      nombre: 'Onboarding General para Todos los Empleados',\n      descripcion:\n        'Se permite texto hasta dos líneas. Se permite texto hasta dos líneas.',\n      isFluid: false,\n    },\n  },\n}"
       },
       {
         "name": "smartlistConfig",
@@ -1239,6 +1249,36 @@
         "deprecationMessage": "",
         "type": "Story",
         "defaultValue": "{\n  args: {\n    icons: {\n      closeIcon: {\n        icon: 'close.svg',\n        type: 'svg',\n      },\n    },\n    userData: {\n      fullName: 'Stela Lopez',\n      email: 'slopez@empresa.com',\n      jobPositions: [\n        {\n          Puesto: {\n            Nombre: 'Gerente Desarrollo',\n          },\n          Unidad: {\n            Descripcion: 'Unidad',\n          },\n          Compania: {\n            Descripcion: 'Compania',\n          },\n          CentroTrabajo: {\n            Descripcion: 'Centro de Trabajo',\n          },\n          onClick: {\n            action: (position = 'Gerente Desarrollo') => {\n              alert('Puesto elegido: ' + position);\n            },\n          },\n        },\n        {\n          Puesto: {\n            Nombre: 'Gerente Calidad',\n          },\n          Unidad: {\n            Descripcion: 'Unidad',\n          },\n          Compania: {\n            Descripcion: 'Compania',\n          },\n          CentroTrabajo: {\n            Descripcion: 'Centro de Trabajo',\n          },\n          onClick: {\n            action: (position = 'Gerente Calidad') => {\n              alert('Puesto elegido: ' + position);\n            },\n          },\n        },\n        {\n          Puesto: {\n            Nombre: 'Community Manager',\n          },\n          Unidad: {\n            Descripcion: 'Unidad',\n          },\n          Compania: {\n            Descripcion: 'Compania',\n          },\n          CentroTrabajo: {\n            Descripcion: 'Centro de Trabajo',\n          },\n          onClick: {\n            action: (position = 'Community Manager') => {\n              alert('Puesto elegido: ' + position);\n            },\n          },\n        },\n      ],\n    },\n    items: [\n      {\n        label: 'Administrar Cuenta',\n        icon: {\n          icon: 'manage_accounts',\n          type: 'class',\n        },\n        url: 'https://localhost:7002/identity/account/manage',\n      },\n      {\n        label: 'Cerrar Sesión',\n        onClick: {\n          action: () => {\n            alert('Se ejecuta Logout');\n          },\n        },\n      },\n    ],\n    twClass: '',\n  },\n}"
+      },
+      {
+        "name": "validarEnEjecucion",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/tablero-kanban.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "(item: IActividad): boolean => {\n  const estado = item.EstadoDb;\n\n  if (estado === EstadoActividad.Pendiente) {\n    return true;\n  }\n  return false;\n}"
+      },
+      {
+        "name": "validarFinalizado",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/tablero-kanban.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "(item: IActividad): boolean => {\n  const estado = item.EstadoDb;\n\n  if (estado === EstadoActividad.EnProceso) {\n    return true;\n  }\n\n  return false;\n}"
+      },
+      {
+        "name": "validarPendiente",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/tablero-kanban.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "(item: IActividad): boolean => {\n  return false;\n}"
       },
       {
         "name": "vencida",
@@ -2015,7 +2055,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "IColumna[]",
-          "defaultValue": "[\n  {\n    id: 1,\n    nombre: 'abiertas',\n    actividades: actividades.filter(\n      (act) => act.status === EstadoActividad.abierta,\n    ),\n  },\n  {\n    id: 2,\n    nombre: 'en progreso',\n    actividades: actividades.filter(\n      (act) => act.status === EstadoActividad.enProgreso,\n    ),\n  },\n  {\n    id: 3,\n    nombre: 'finalizadas',\n    actividades: actividades.filter(\n      (act) => act.status === EstadoActividad.cerrada,\n    ),\n  },\n]"
+          "defaultValue": "Object.values(\n  actividades.reduce((acc: any, act) => {\n    const estadoConfig = estadosMap[act.EstadoDb];\n    if (!estadoConfig) return acc;\n\n    if (!acc[act.EstadoDb]) {\n      acc[act.EstadoDb] = { ...estadoConfig, actividades: [] };\n    }\n\n    acc[act.EstadoDb].actividades.push(act);\n\n    return acc;\n  }, {}),\n)"
         },
         {
           "name": "Default",
@@ -2026,6 +2066,46 @@
           "deprecationMessage": "",
           "type": "Story",
           "defaultValue": "{\n  args: {\n    columnas,\n  },\n}"
+        },
+        {
+          "name": "estadosMap",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/tablero-kanban.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "object",
+          "defaultValue": "{\n  [EstadoActividad.Pendiente]: {\n    id: 1,\n    nombre: 'abiertas',\n    validacion: { action: validarPendiente },\n  },\n  [EstadoActividad.EnProceso]: {\n    id: 2,\n    nombre: 'en progreso',\n    validacion: { action: validarEnEjecucion },\n  },\n  [EstadoActividad.Finalizada]: {\n    id: 3,\n    nombre: 'finalizadas',\n    validacion: { action: validarFinalizado },\n  },\n}"
+        },
+        {
+          "name": "validarEnEjecucion",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/tablero-kanban.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "(item: IActividad): boolean => {\n  const estado = item.EstadoDb;\n\n  if (estado === EstadoActividad.Pendiente) {\n    return true;\n  }\n  return false;\n}"
+        },
+        {
+          "name": "validarFinalizado",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/tablero-kanban.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "(item: IActividad): boolean => {\n  const estado = item.EstadoDb;\n\n  if (estado === EstadoActividad.EnProceso) {\n    return true;\n  }\n\n  return false;\n}"
+        },
+        {
+          "name": "validarPendiente",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/tablero-kanban.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "(item: IActividad): boolean => {\n  return false;\n}"
         }
       ],
       "stories/tag.stories.ts": [
@@ -2047,7 +2127,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    label: 'Tag',\n    size: 'sm',\n    twClass: '',\n    prioridad: {\n      nombre: 'Alta',\n      color: '#FF0000',\n      icono: 'arrow_upward',\n      codigo: 0,\n      orden: 0,\n    },\n  },\n}"
+          "defaultValue": "{\n  args: {\n    label: 'Tag',\n    size: 'sm',\n    twClass: '',\n    prioridad: {\n      Nombre: 'Alta',\n      Color: '#FF0000',\n      Codigo: 0,\n      Orden: 0,\n    },\n  },\n}"
         },
         {
           "name": "prioridadAlta",
@@ -2193,7 +2273,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    smartlistConfig: smartlistConfig,\n    data: data,\n    titles: titles,\n    page: 1,\n    totalPages: 1,\n    pageSize: 5,\n    hiddenColumns: [2],\n    twClass: '',\n    sortableColumns: [1],\n    actionIcons: [\n      { type: 'class', icon: 'add' },\n      { type: 'class', icon: 'edit' },\n      { type: 'class', icon: 'delete' },\n      { type: 'class', icon: 'verified_user' },\n    ],\n  },\n}"
+          "defaultValue": "{\n  args: {\n    smartlistConfig: smartlistConfig,\n    data: data,\n    titles: titles,\n    page: 1,\n    totalPages: 1,\n    pageSize: 5,\n    hiddenColumns: [2],\n    twClass: '',\n    sortableColumns: [1],\n    isManualPaginate: false,\n    actionIcons: [\n      { type: 'class', icon: 'add' },\n      { type: 'class', icon: 'edit' },\n      { type: 'class', icon: 'delete' },\n      { type: 'class', icon: 'verified_user' },\n    ],\n  },\n}"
         },
         {
           "name": "meta",
@@ -2523,7 +2603,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "",
-          "defaultValue": "{\n  argTypes: {\n    twClass: {\n      control: { type: 'text' },\n    },\n  },\n  args: {\n    actividad,\n    endDate: actividad.fechaFin,\n    tooltipSoonToExpire: 'Próxima a vencer',\n    tooltipExpired: 'Vencida',\n  },\n} as StoryObj<CartaActividadComponent>"
+          "defaultValue": "{\n  argTypes: {\n    twClass: {\n      control: { type: 'text' },\n    },\n  },\n  args: {\n    actividad,\n    endDate: actividad.FechaFin,\n    tooltipSoonToExpire: 'Próxima a vencer',\n    tooltipExpired: 'Vencida',\n  },\n} as StoryObj<CartaActividadComponent>"
         },
         {
           "name": "pastToday",
@@ -2553,7 +2633,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "",
-          "defaultValue": "{\n  args: {\n    actividad: {\n      ...actividad,\n      responsable: '',\n    },\n    endDate: actividad.fechaFin,\n  },\n} as StoryObj<CartaActividadComponent>"
+          "defaultValue": "{\n  args: {\n    actividad: {\n      ...actividad,\n      responsable: '',\n    },\n    endDate: actividad.FechaFin,\n  },\n} as StoryObj<CartaActividadComponent>"
         },
         {
           "name": "sinFechaFin",
@@ -2583,7 +2663,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "",
-          "defaultValue": "{\n  args: {\n    actividad: {\n      ...actividad,\n      prioridad: undefined,\n    },\n    endDate: actividad.fechaFin,\n  },\n} as StoryObj<CartaActividadComponent>"
+          "defaultValue": "{\n  args: {\n    actividad: {\n      ...actividad,\n      prioridad: undefined,\n    },\n    endDate: actividad.FechaFin,\n  },\n} as StoryObj<CartaActividadComponent>"
         },
         {
           "name": "soloTituloYDescripcion",
@@ -2823,7 +2903,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "object",
-          "defaultValue": "{\n  Codigo: '1',\n  Nombre: 'Program Title',\n  Descripcion:\n    'Se permite texto hasta dos líneas. Se permite texto hasta dos líneas.',\n  TotalActividades: 5,\n  activitiesText: 'Actividades',\n  Duracion: 3,\n  UnidadDuracionDb: 'Semanas',\n  buttonLabel: 'Asignar',\n  buttonIcon: 'add-user.svg',\n  buttonClasses: 'theme-primary',\n  TotalParticipantes: 2,\n  participantesText: 'participantes',\n  onButtonClick: {\n    action: () => {\n      console.log('Button clicked!');\n    },\n  },\n  twClass: 'custom-class',\n  isFluid: true,\n  size: 'lg' as 'sm' | 'md' | 'lg',\n}"
+          "defaultValue": "{\n  codigo: '1',\n  nombre: 'Program Title',\n  descripcion:\n    'Se permite texto hasta dos líneas. Se permite texto hasta dos líneas. Se permite texto hasta dos líneas.',\n  totalActividades: 5,\n  activitiesText: 'Actividades',\n  duracion: 3,\n  unidadDuracionDb: 'Semanas',\n  buttonLabel: 'Asignar',\n  buttonIcon: 'add-user.svg',\n  buttonClasses: 'theme-primary',\n  totalParticipantes: 2,\n  participantesText: 'participantes',\n  onButtonClick: {\n    action: () => {\n      console.log('Button clicked!');\n    },\n  },\n  twClass: 'custom-class',\n  isFluid: true,\n  size: 'lg' as 'sm' | 'md' | 'lg',\n}"
         },
         {
           "name": "Large",
@@ -2833,7 +2913,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'lg',\n      Nombre: 'Large Program Title',\n      isFluid: false,\n    },\n  },\n}"
+          "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'lg',\n      nombre: 'Large Program Title',\n      isFluid: false,\n    },\n  },\n}"
         },
         {
           "name": "Medium",
@@ -2843,7 +2923,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'md',\n      Nombre: 'Medium Program Title',\n      isFluid: false,\n    },\n  },\n}"
+          "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'md',\n      nombre: 'Medium Program Title',\n      isFluid: false,\n    },\n  },\n}"
         },
         {
           "name": "Small",
@@ -2853,7 +2933,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'sm',\n      Nombre: 'Small Program Title',\n      Descripcion:\n        'Se permite texto hasta dos líneas. Se permite texto hasta dos líneas.',\n      isFluid: false,\n    },\n  },\n}"
+          "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'sm',\n      nombre: 'Onboarding General para Todos los Empleados',\n      descripcion:\n        'Se permite texto hasta dos líneas. Se permite texto hasta dos líneas.',\n      isFluid: false,\n    },\n  },\n}"
         }
       ],
       "stories/search-bar.stories.ts": [
@@ -3057,7 +3137,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "object",
-          "defaultValue": "{\n  currentPage: 1,\n  totalPages: 5,\n  pageSize: 10,\n  totalItems: 50,\n  titles: {\n    showing: 'Mostrando',\n    results: 'resultados',\n    page: 'Página',\n    of: 'de',\n  },\n  twClass: '',\n}"
+          "defaultValue": "{\r\n  currentPage: 1,\r\n  totalPages: 5,\r\n  pageSize: 10,\r\n  totalItems: 50,\r\n  isManualPaginate: false,\r\n  titles: {\r\n    showing: 'Mostrando',\r\n    results: 'resultados',\r\n    page: 'Página',\r\n    of: 'de',\r\n  },\r\n  twClass: '',\r\n}"
         },
         {
           "name": "InteractivePagination",
@@ -3067,7 +3147,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  render: (args) => {\n    const handleNextPage = () => {\n      if (args.config.currentPage < args.config.totalPages) {\n        args.config.currentPage += 1;\n      }\n    };\n\n    const handlePreviousPage = () => {\n      if (args.config.currentPage > 1) {\n        args.config.currentPage -= 1;\n      }\n    };\n\n    const handlePageSelected = (event: { page: number }) => {\n      args.config.currentPage = event.page;\n    };\n\n    return {\n      props: {\n        ...args,\n        nextPageClicked: handleNextPage,\n        previousPageClicked: handlePreviousPage,\n        pageSelected: handlePageSelected,\n      },\n    };\n  },\n  args: {\n    config: { ...defaultConfig },\n  },\n}"
+          "defaultValue": "{\r\n  render: (args) => {\r\n    const handleNextPage = () => {\r\n      if (args.config.currentPage < args.config.totalPages) {\r\n        args.config.currentPage += 1;\r\n      }\r\n    };\r\n\r\n    const handlePreviousPage = () => {\r\n      if (args.config.currentPage > 1) {\r\n        args.config.currentPage -= 1;\r\n      }\r\n    };\r\n\r\n    const handlePageSelected = (event: { page: number }) => {\r\n      args.config.currentPage = event.page;\r\n    };\r\n\r\n    return {\r\n      props: {\r\n        ...args,\r\n        nextPageClicked: handleNextPage,\r\n        previousPageClicked: handlePreviousPage,\r\n        pageSelected: handlePageSelected,\r\n      },\r\n    };\r\n  },\r\n  args: {\r\n    config: { ...defaultConfig },\r\n  },\r\n}"
         },
         {
           "name": "meta",
@@ -3077,7 +3157,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<PaginationComponent>",
-          "defaultValue": "{\n  title: 'Evolution Components/Pagination',\n  component: PaginationComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+          "defaultValue": "{\r\n  title: 'Evolution Components/Pagination',\r\n  component: PaginationComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
         }
       ],
       "stories/avatar.stories.ts": [
@@ -4917,6 +4997,46 @@
         "linktype": "miscellaneous",
         "linksubtype": "variable",
         "name": "Default",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/tablero-kanban.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "estadosMap",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/tablero-kanban.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "validarEnEjecucion",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/tablero-kanban.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "validarFinalizado",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/tablero-kanban.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "validarPendiente",
         "coveragePercent": 0,
         "coverageCount": "0/1",
         "status": "low"

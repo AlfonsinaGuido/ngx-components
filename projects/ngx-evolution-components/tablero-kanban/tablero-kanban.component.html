@@ -16,7 +16,11 @@
           [withCount]="isSingle"
         ></evo-header-columna>
         @if (isSingle) {
-          <evo-columna-tablero [actividades]="columna.actividades">
+          <evo-columna-tablero
+            [actividades]="columna.actividades"
+            [validacion]="columna.validacion"
+            (actualizarActividad)="changeActivityStatus($event)"
+          >
           </evo-columna-tablero>
         }
       </div>
@@ -59,6 +63,7 @@
             >
               <evo-columna-tablero
                 [actividades]="empleo.actividades.actividades"
+                (actualizarActividad)="changeActivityStatus($event)"
               >
               </evo-columna-tablero>
             </div>

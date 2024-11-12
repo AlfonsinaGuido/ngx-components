@@ -2,7 +2,13 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ColumnaTableroComponent } from './columna-tablero.component';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { actividades as mockActividades } from '../shared/data/kanban/actividades.data';
+import {
+  actividad1,
+  actividad2,
+  actividades as mockActividades,
+} from '../shared/data/kanban/actividades.data';
+import { IActividad } from '../public-api';
+import { CdkDrag } from '@angular/cdk/drag-drop';
 
 describe('ColumnaTableroComponent', () => {
   let component: ColumnaTableroComponent;
@@ -56,5 +62,50 @@ describe('ColumnaTableroComponent', () => {
     // Was the method "drop" called?
     fixture.detectChanges();
     expect(spyOnDragDrop).toHaveBeenCalled();
+  });
+
+  it('should return true when validacion.action returns true', () => {
+    component.validacion = {
+      action: jasmine.createSpy('actionSpy').and.returnValue(true),
+    };
+
+    const mockActividad: IActividad = actividad1; // Replace with your actual IActividad structure
+    const mockCdkDrag: CdkDrag<IActividad> = {
+      data: mockActividad,
+    } as CdkDrag<IActividad>;
+
+    const result = component.validationCDK(mockCdkDrag);
+
+    expect(component.validacion.action).toHaveBeenCalledWith(mockActividad);
+    expect(result).toBe(true);
+  });
+
+  it('should return false when validacion is not defined', () => {
+    component.validacion = undefined;
+
+    const mockActividad: IActividad = actividad2;
+    const mockCdkDrag: CdkDrag<IActividad> = {
+      data: mockActividad,
+    } as CdkDrag<IActividad>;
+
+    const result = component.validationCDK(mockCdkDrag);
+
+    expect(result).toBe(false);
+  });
+
+  it('should return false when validacion.action returns false', () => {
+    component.validacion = {
+      action: jasmine.createSpy('actionSpy').and.returnValue(false),
+    };
+
+    const mockActividad: IActividad = actividad2;
+    const mockCdkDrag: CdkDrag<IActividad> = {
+      data: mockActividad,
+    } as CdkDrag<IActividad>;
+
+    const result = component.validationCDK(mockCdkDrag);
+
+    expect(component.validacion.action).toHaveBeenCalledWith(mockActividad);
+    expect(result).toBe(false);
   });
 });

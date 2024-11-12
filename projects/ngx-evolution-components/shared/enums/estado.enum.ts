@@ -1,5 +1,5 @@
 export enum EstadoActividad {
   Pendiente = 'Pendiente',
-  EnProceso = 'En Proceso',
+  EnProceso = 'EnProceso',
   Finalizada = 'Finalizada',
 }

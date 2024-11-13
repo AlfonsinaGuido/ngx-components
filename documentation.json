@@ -71,7 +71,7 @@
         "defaultValue": "{\n  args: {\n    title: 'Dialogo de testing',\n    simpleContent:\n      'Testing de prueba para dialogo para comprobar que tanto se puede expandir el texto el dialogo',\n    buttonsItems: [\n      {\n        label: 'Item 1',\n        theme: 'secondary',\n        onClick: {\n          action: Testing1,\n        },\n      },\n      {\n        label: 'Item 2',\n        theme: 'primary',\n        onClick: {\n          action: Testing2,\n        },\n      },\n    ],\n    disableClosing: true,\n    closeButton: true,\n  },\n}"
       },
       {
-        "name": "columnas",
+        "name": "columns",
         "ctype": "miscellaneous",
         "subtype": "variable",
         "file": "stories/tablero-kanban.stories.ts",
@@ -178,7 +178,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    actividades: actividades,\n  },\n}"
+        "defaultValue": "{\n  args: {\n    activities: actividades,\n  },\n}"
       },
       {
         "name": "Default",
@@ -318,7 +318,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    columnas,\n  },\n}"
+        "defaultValue": "{\n  args: {\n    columns,\n  },\n}"
       },
       {
         "name": "Default",
@@ -388,7 +388,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "object",
-        "defaultValue": "{\r\n  currentPage: 1,\r\n  totalPages: 5,\r\n  pageSize: 10,\r\n  totalItems: 50,\r\n  isManualPaginate: false,\r\n  titles: {\r\n    showing: 'Mostrando',\r\n    results: 'resultados',\r\n    page: 'Página',\r\n    of: 'de',\r\n  },\r\n  twClass: '',\r\n}"
+        "defaultValue": "{\n  currentPage: 1,\n  totalPages: 5,\n  pageSize: 10,\n  totalItems: 50,\n  isManualPaginate: false,\n  titles: {\n    showing: 'Mostrando',\n    results: 'resultados',\n    page: 'Página',\n    of: 'de',\n  },\n  twClass: '',\n}"
       },
       {
         "name": "Disabled",
@@ -428,7 +428,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "object",
-        "defaultValue": "{\n  [EstadoActividad.Pendiente]: {\n    id: 1,\n    nombre: 'abiertas',\n    validacion: { action: validarPendiente },\n  },\n  [EstadoActividad.EnProceso]: {\n    id: 2,\n    nombre: 'en progreso',\n    validacion: { action: validarEnEjecucion },\n  },\n  [EstadoActividad.Finalizada]: {\n    id: 3,\n    nombre: 'finalizadas',\n    validacion: { action: validarFinalizado },\n  },\n}"
+        "defaultValue": "{\n  [EstadoActividad.Pendiente]: {\n    id: 1,\n    nombre: 'abiertas',\n    validacion: { action: validarEstado, estado: EstadoActividad.Pendiente },\n  },\n  [EstadoActividad.EnProceso]: {\n    id: 2,\n    nombre: 'en progreso',\n    validacion: { action: validarEstado, estado: EstadoActividad.EnProceso },\n  },\n  [EstadoActividad.Finalizada]: {\n    id: 3,\n    nombre: 'finalizadas',\n    validacion: { action: validarEstado, estado: EstadoActividad.Finalizada },\n  },\n}"
       },
       {
         "name": "form",
@@ -578,7 +578,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  render: (args) => {\r\n    const handleNextPage = () => {\r\n      if (args.config.currentPage < args.config.totalPages) {\r\n        args.config.currentPage += 1;\r\n      }\r\n    };\r\n\r\n    const handlePreviousPage = () => {\r\n      if (args.config.currentPage > 1) {\r\n        args.config.currentPage -= 1;\r\n      }\r\n    };\r\n\r\n    const handlePageSelected = (event: { page: number }) => {\r\n      args.config.currentPage = event.page;\r\n    };\r\n\r\n    return {\r\n      props: {\r\n        ...args,\r\n        nextPageClicked: handleNextPage,\r\n        previousPageClicked: handlePreviousPage,\r\n        pageSelected: handlePageSelected,\r\n      },\r\n    };\r\n  },\r\n  args: {\r\n    config: { ...defaultConfig },\r\n  },\r\n}"
+        "defaultValue": "{\n  render: (args) => {\n    const handleNextPage = () => {\n      if (args.config.currentPage < args.config.totalPages) {\n        args.config.currentPage += 1;\n      }\n    };\n\n    const handlePreviousPage = () => {\n      if (args.config.currentPage > 1) {\n        args.config.currentPage -= 1;\n      }\n    };\n\n    const handlePageSelected = (event: { page: number }) => {\n      args.config.currentPage = event.page;\n    };\n\n    return {\n      props: {\n        ...args,\n        nextPageClicked: handleNextPage,\n        previousPageClicked: handlePreviousPage,\n        pageSelected: handlePageSelected,\n      },\n    };\n  },\n  args: {\n    config: { ...defaultConfig },\n  },\n}"
       },
       {
         "name": "IsFlat",
@@ -778,7 +778,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<PaginationComponent>",
-        "defaultValue": "{\r\n  title: 'Evolution Components/Pagination',\r\n  component: PaginationComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
+        "defaultValue": "{\n  title: 'Evolution Components/Pagination',\n  component: PaginationComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
       },
       {
         "name": "meta",
@@ -1068,7 +1068,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    actividades: [],\n  },\n}"
+        "defaultValue": "{\n  args: {\n    activities: [],\n  },\n}"
       },
       {
         "name": "sinAvatar",
@@ -1251,34 +1251,16 @@
         "defaultValue": "{\n  args: {\n    icons: {\n      closeIcon: {\n        icon: 'close.svg',\n        type: 'svg',\n      },\n    },\n    userData: {\n      fullName: 'Stela Lopez',\n      email: 'slopez@empresa.com',\n      jobPositions: [\n        {\n          Puesto: {\n            Nombre: 'Gerente Desarrollo',\n          },\n          Unidad: {\n            Descripcion: 'Unidad',\n          },\n          Compania: {\n            Descripcion: 'Compania',\n          },\n          CentroTrabajo: {\n            Descripcion: 'Centro de Trabajo',\n          },\n          onClick: {\n            action: (position = 'Gerente Desarrollo') => {\n              alert('Puesto elegido: ' + position);\n            },\n          },\n        },\n        {\n          Puesto: {\n            Nombre: 'Gerente Calidad',\n          },\n          Unidad: {\n            Descripcion: 'Unidad',\n          },\n          Compania: {\n            Descripcion: 'Compania',\n          },\n          CentroTrabajo: {\n            Descripcion: 'Centro de Trabajo',\n          },\n          onClick: {\n            action: (position = 'Gerente Calidad') => {\n              alert('Puesto elegido: ' + position);\n            },\n          },\n        },\n        {\n          Puesto: {\n            Nombre: 'Community Manager',\n          },\n          Unidad: {\n            Descripcion: 'Unidad',\n          },\n          Compania: {\n            Descripcion: 'Compania',\n          },\n          CentroTrabajo: {\n            Descripcion: 'Centro de Trabajo',\n          },\n          onClick: {\n            action: (position = 'Community Manager') => {\n              alert('Puesto elegido: ' + position);\n            },\n          },\n        },\n      ],\n    },\n    items: [\n      {\n        label: 'Administrar Cuenta',\n        icon: {\n          icon: 'manage_accounts',\n          type: 'class',\n        },\n        url: 'https://localhost:7002/identity/account/manage',\n      },\n      {\n        label: 'Cerrar Sesión',\n        onClick: {\n          action: () => {\n            alert('Se ejecuta Logout');\n          },\n        },\n      },\n    ],\n    twClass: '',\n  },\n}"
       },
       {
-        "name": "validarEnEjecucion",
+        "name": "validarEstado",
         "ctype": "miscellaneous",
         "subtype": "variable",
         "file": "stories/tablero-kanban.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "",
-        "defaultValue": "(item: IActividad): boolean => {\n  const estado = item.EstadoDb;\n\n  if (estado === EstadoActividad.Pendiente) {\n    return true;\n  }\n  return false;\n}"
-      },
-      {
-        "name": "validarFinalizado",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
-        "file": "stories/tablero-kanban.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "",
-        "defaultValue": "(item: IActividad): boolean => {\n  const estado = item.EstadoDb;\n\n  if (estado === EstadoActividad.EnProceso) {\n    return true;\n  }\n\n  return false;\n}"
-      },
-      {
-        "name": "validarPendiente",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
-        "file": "stories/tablero-kanban.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "",
-        "defaultValue": "(item: IActividad): boolean => {\n  return false;\n}"
+        "defaultValue": "(\n  item: IActividad,\n  tipoColumna: EstadoActividad,\n): boolean => {\n  const estado = item.EstadoDb;\n  let resultado: boolean;\n  switch (tipoColumna) {\n    case EstadoActividad.EnProceso:\n      resultado = estado === EstadoActividad.Pendiente;\n      break;\n    case EstadoActividad.Finalizada:\n      resultado = estado === EstadoActividad.EnProceso;\n      break;\n    default:\n      resultado = false;\n      break;\n  }\n  return resultado;\n}",
+        "rawdescription": "Arrow Function que permite validar la actividad que quiere ingresar a una columna",
+        "description": "<p>Arrow Function que permite validar la actividad que quiere ingresar a una columna</p>\n"
       },
       {
         "name": "vencida",
@@ -2048,7 +2030,7 @@
       ],
       "stories/tablero-kanban.stories.ts": [
         {
-          "name": "columnas",
+          "name": "columns",
           "ctype": "miscellaneous",
           "subtype": "variable",
           "file": "stories/tablero-kanban.stories.ts",
@@ -2065,7 +2047,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    columnas,\n  },\n}"
+          "defaultValue": "{\n  args: {\n    columns,\n  },\n}"
         },
         {
           "name": "estadosMap",
@@ -2075,37 +2057,19 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "object",
-          "defaultValue": "{\n  [EstadoActividad.Pendiente]: {\n    id: 1,\n    nombre: 'abiertas',\n    validacion: { action: validarPendiente },\n  },\n  [EstadoActividad.EnProceso]: {\n    id: 2,\n    nombre: 'en progreso',\n    validacion: { action: validarEnEjecucion },\n  },\n  [EstadoActividad.Finalizada]: {\n    id: 3,\n    nombre: 'finalizadas',\n    validacion: { action: validarFinalizado },\n  },\n}"
+          "defaultValue": "{\n  [EstadoActividad.Pendiente]: {\n    id: 1,\n    nombre: 'abiertas',\n    validacion: { action: validarEstado, estado: EstadoActividad.Pendiente },\n  },\n  [EstadoActividad.EnProceso]: {\n    id: 2,\n    nombre: 'en progreso',\n    validacion: { action: validarEstado, estado: EstadoActividad.EnProceso },\n  },\n  [EstadoActividad.Finalizada]: {\n    id: 3,\n    nombre: 'finalizadas',\n    validacion: { action: validarEstado, estado: EstadoActividad.Finalizada },\n  },\n}"
         },
         {
-          "name": "validarEnEjecucion",
+          "name": "validarEstado",
           "ctype": "miscellaneous",
           "subtype": "variable",
           "file": "stories/tablero-kanban.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "type": "",
-          "defaultValue": "(item: IActividad): boolean => {\n  const estado = item.EstadoDb;\n\n  if (estado === EstadoActividad.Pendiente) {\n    return true;\n  }\n  return false;\n}"
-        },
-        {
-          "name": "validarFinalizado",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "stories/tablero-kanban.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "",
-          "defaultValue": "(item: IActividad): boolean => {\n  const estado = item.EstadoDb;\n\n  if (estado === EstadoActividad.EnProceso) {\n    return true;\n  }\n\n  return false;\n}"
-        },
-        {
-          "name": "validarPendiente",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "stories/tablero-kanban.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "",
-          "defaultValue": "(item: IActividad): boolean => {\n  return false;\n}"
+          "defaultValue": "(\n  item: IActividad,\n  tipoColumna: EstadoActividad,\n): boolean => {\n  const estado = item.EstadoDb;\n  let resultado: boolean;\n  switch (tipoColumna) {\n    case EstadoActividad.EnProceso:\n      resultado = estado === EstadoActividad.Pendiente;\n      break;\n    case EstadoActividad.Finalizada:\n      resultado = estado === EstadoActividad.EnProceso;\n      break;\n    default:\n      resultado = false;\n      break;\n  }\n  return resultado;\n}",
+          "rawdescription": "Arrow Function que permite validar la actividad que quiere ingresar a una columna",
+          "description": "<p>Arrow Function que permite validar la actividad que quiere ingresar a una columna</p>\n"
         }
       ],
       "stories/tag.stories.ts": [
@@ -2715,7 +2679,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    actividades: actividades,\n  },\n}"
+          "defaultValue": "{\n  args: {\n    activities: actividades,\n  },\n}"
         },
         {
           "name": "sinActividadeds",
@@ -2725,7 +2689,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    actividades: [],\n  },\n}"
+          "defaultValue": "{\n  args: {\n    activities: [],\n  },\n}"
         }
       ],
       "stories/header.stories.ts": [
@@ -3137,7 +3101,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "object",
-          "defaultValue": "{\r\n  currentPage: 1,\r\n  totalPages: 5,\r\n  pageSize: 10,\r\n  totalItems: 50,\r\n  isManualPaginate: false,\r\n  titles: {\r\n    showing: 'Mostrando',\r\n    results: 'resultados',\r\n    page: 'Página',\r\n    of: 'de',\r\n  },\r\n  twClass: '',\r\n}"
+          "defaultValue": "{\n  currentPage: 1,\n  totalPages: 5,\n  pageSize: 10,\n  totalItems: 50,\n  isManualPaginate: false,\n  titles: {\n    showing: 'Mostrando',\n    results: 'resultados',\n    page: 'Página',\n    of: 'de',\n  },\n  twClass: '',\n}"
         },
         {
           "name": "InteractivePagination",
@@ -3147,7 +3111,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  render: (args) => {\r\n    const handleNextPage = () => {\r\n      if (args.config.currentPage < args.config.totalPages) {\r\n        args.config.currentPage += 1;\r\n      }\r\n    };\r\n\r\n    const handlePreviousPage = () => {\r\n      if (args.config.currentPage > 1) {\r\n        args.config.currentPage -= 1;\r\n      }\r\n    };\r\n\r\n    const handlePageSelected = (event: { page: number }) => {\r\n      args.config.currentPage = event.page;\r\n    };\r\n\r\n    return {\r\n      props: {\r\n        ...args,\r\n        nextPageClicked: handleNextPage,\r\n        previousPageClicked: handlePreviousPage,\r\n        pageSelected: handlePageSelected,\r\n      },\r\n    };\r\n  },\r\n  args: {\r\n    config: { ...defaultConfig },\r\n  },\r\n}"
+          "defaultValue": "{\n  render: (args) => {\n    const handleNextPage = () => {\n      if (args.config.currentPage < args.config.totalPages) {\n        args.config.currentPage += 1;\n      }\n    };\n\n    const handlePreviousPage = () => {\n      if (args.config.currentPage > 1) {\n        args.config.currentPage -= 1;\n      }\n    };\n\n    const handlePageSelected = (event: { page: number }) => {\n      args.config.currentPage = event.page;\n    };\n\n    return {\n      props: {\n        ...args,\n        nextPageClicked: handleNextPage,\n        previousPageClicked: handlePreviousPage,\n        pageSelected: handlePageSelected,\n      },\n    };\n  },\n  args: {\n    config: { ...defaultConfig },\n  },\n}"
         },
         {
           "name": "meta",
@@ -3157,7 +3121,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<PaginationComponent>",
-          "defaultValue": "{\r\n  title: 'Evolution Components/Pagination',\r\n  component: PaginationComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideHttpClient()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
+          "defaultValue": "{\n  title: 'Evolution Components/Pagination',\n  component: PaginationComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
         }
       ],
       "stories/avatar.stories.ts": [
@@ -4986,7 +4950,7 @@
         "type": "variable",
         "linktype": "miscellaneous",
         "linksubtype": "variable",
-        "name": "columnas",
+        "name": "columns",
         "coveragePercent": 0,
         "coverageCount": "0/1",
         "status": "low"
@@ -5016,30 +4980,10 @@
         "type": "variable",
         "linktype": "miscellaneous",
         "linksubtype": "variable",
-        "name": "validarEnEjecucion",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
-      },
-      {
-        "filePath": "stories/tablero-kanban.stories.ts",
-        "type": "variable",
-        "linktype": "miscellaneous",
-        "linksubtype": "variable",
-        "name": "validarFinalizado",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
-      },
-      {
-        "filePath": "stories/tablero-kanban.stories.ts",
-        "type": "variable",
-        "linktype": "miscellaneous",
-        "linksubtype": "variable",
-        "name": "validarPendiente",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
+        "name": "validarEstado",
+        "coveragePercent": 100,
+        "coverageCount": "1/1",
+        "status": "very-good"
       },
       {
         "filePath": "stories/tablero-skeleton.stories.ts",

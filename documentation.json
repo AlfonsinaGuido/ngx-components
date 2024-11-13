@@ -78,7 +78,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "IColumna[]",
-        "defaultValue": "[\n  {\n    id: 1,\n    nombre: 'abiertas',\n    actividades: actividades.filter(\n      (act) => act.status === EstadoActividad.abierta,\n    ),\n  },\n  {\n    id: 2,\n    nombre: 'en progreso',\n    actividades: actividades.filter(\n      (act) => act.status === EstadoActividad.enProgreso,\n    ),\n  },\n  {\n    id: 3,\n    nombre: 'finalizadas',\n    actividades: actividades.filter(\n      (act) => act.status === EstadoActividad.cerrada,\n    ),\n  },\n]"
+        "defaultValue": "[\n  {\n    id: 1,\n    nombre: 'abiertas',\n    actividades: actividades.filter(\n      (act) => act.EstadoDb === EstadoActividad.Pendiente,\n    ),\n  },\n  {\n    id: 2,\n    nombre: 'en progreso',\n    actividades: actividades.filter(\n      (act) => act.EstadoDb === EstadoActividad.EnProceso,\n    ),\n  },\n  {\n    id: 3,\n    nombre: 'finalizadas',\n    actividades: actividades.filter(\n      (act) => act.EstadoDb === EstadoActividad.Finalizada,\n    ),\n  },\n]"
       },
       {
         "name": "conClasePersonalizada",
@@ -178,7 +178,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "",
-        "defaultValue": "{\n  argTypes: {\n    twClass: {\n      control: { type: 'text' },\n    },\n  },\n  args: {\n    actividad,\n    endDate: actividad.fechaFin,\n    tooltipSoonToExpire: 'Próxima a vencer',\n    tooltipExpired: 'Vencida',\n  },\n} as StoryObj<CartaActividadComponent>"
+        "defaultValue": "{\n  argTypes: {\n    twClass: {\n      control: { type: 'text' },\n    },\n  },\n  args: {\n    actividad,\n    endDate: actividad.FechaFin,\n    tooltipSoonToExpire: 'Próxima a vencer',\n    tooltipExpired: 'Vencida',\n  },\n} as StoryObj<CartaActividadComponent>"
       },
       {
         "name": "Default",
@@ -308,7 +308,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    smartlistConfig: smartlistConfig,\n    data: data,\n    titles: titles,\n    page: 1,\n    totalPages: 1,\n    pageSize: 5,\n    hiddenColumns: [2],\n    twClass: '',\n    sortableColumns: [1],\n    actionIcons: [\n      { type: 'class', icon: 'add' },\n      { type: 'class', icon: 'edit' },\n      { type: 'class', icon: 'delete' },\n      { type: 'class', icon: 'verified_user' },\n    ],\n  },\n}"
+        "defaultValue": "{\n  args: {\n    smartlistConfig: smartlistConfig,\n    data: data,\n    titles: titles,\n    page: 1,\n    totalPages: 1,\n    pageSize: 5,\n    hiddenColumns: [2],\n    twClass: '',\n    sortableColumns: [1],\n    isManualPaginate: false,\n    actionIcons: [\n      { type: 'class', icon: 'add' },\n      { type: 'class', icon: 'edit' },\n      { type: 'class', icon: 'delete' },\n      { type: 'class', icon: 'verified_user' },\n    ],\n  },\n}"
       },
       {
         "name": "Default",
@@ -348,7 +348,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    label: 'Tag',\n    size: 'sm',\n    twClass: '',\n    prioridad: {\n      nombre: 'Alta',\n      color: '#FF0000',\n      icono: 'arrow_upward',\n      codigo: 0,\n      orden: 0,\n    },\n  },\n}"
+        "defaultValue": "{\n  args: {\n    label: 'Tag',\n    size: 'sm',\n    twClass: '',\n    prioridad: {\n      Nombre: 'Alta',\n      Color: '#FF0000',\n      Codigo: 0,\n      Orden: 0,\n    },\n  },\n}"
       },
       {
         "name": "Default",
@@ -368,7 +368,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "object",
-        "defaultValue": "{\n  Codigo: '1',\n  Nombre: 'Program Title',\n  Descripcion:\n    'Se permite texto hasta dos líneas. Se permite texto hasta dos líneas.',\n  TotalActividades: 5,\n  activitiesText: 'Actividades',\n  Duracion: 3,\n  UnidadDuracionDb: 'Semanas',\n  buttonLabel: 'Asignar',\n  buttonIcon: 'add-user.svg',\n  buttonClasses: 'theme-primary',\n  TotalParticipantes: 2,\n  participantesText: 'participantes',\n  onButtonClick: {\n    action: () => {\n      console.log('Button clicked!');\n    },\n  },\n  twClass: 'custom-class',\n  isFluid: true,\n  size: 'lg' as 'sm' | 'md' | 'lg',\n}"
+        "defaultValue": "{\n  codigo: '1',\n  nombre: 'Program Title',\n  descripcion:\n    'Se permite texto hasta dos líneas. Se permite texto hasta dos líneas. Se permite texto hasta dos líneas.',\n  totalActividades: 5,\n  activitiesText: 'Actividades',\n  duracion: 3,\n  unidadDuracionDb: 'Semanas',\n  buttonLabel: 'Asignar',\n  buttonIcon: 'add-user.svg',\n  buttonClasses: 'theme-primary',\n  totalParticipantes: 2,\n  participantesText: 'participantes',\n  onButtonClick: {\n    action: () => {\n      console.log('Button clicked!');\n    },\n  },\n  twClass: 'custom-class',\n  isFluid: true,\n  size: 'lg' as 'sm' | 'md' | 'lg',\n}"
       },
       {
         "name": "defaultConfig",
@@ -398,7 +398,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "object",
-        "defaultValue": "{\n  currentPage: 1,\n  totalPages: 5,\n  pageSize: 10,\n  totalItems: 50,\n  titles: {\n    showing: 'Mostrando',\n    results: 'resultados',\n    page: 'Página',\n    of: 'de',\n  },\n  twClass: '',\n}"
+        "defaultValue": "{\n  currentPage: 1,\n  totalPages: 5,\n  pageSize: 10,\n  totalItems: 50,\n  isManualPaginate: false,\n  titles: {\n    showing: 'Mostrando',\n    results: 'resultados',\n    page: 'Página',\n    of: 'de',\n  },\n  twClass: '',\n}"
       },
       {
         "name": "Disabled",
@@ -668,7 +668,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'lg',\n      Nombre: 'Large Program Title',\n      isFluid: false,\n    },\n  },\n}"
+        "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'lg',\n      nombre: 'Large Program Title',\n      isFluid: false,\n    },\n  },\n}"
       },
       {
         "name": "loginFunction",
@@ -698,7 +698,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'md',\n      Nombre: 'Medium Program Title',\n      isFluid: false,\n    },\n  },\n}"
+        "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'md',\n      nombre: 'Medium Program Title',\n      isFluid: false,\n    },\n  },\n}"
       },
       {
         "name": "meta",
@@ -1158,7 +1158,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "",
-        "defaultValue": "{\n  args: {\n    actividad: {\n      ...actividad,\n      responsable: '',\n    },\n    endDate: actividad.fechaFin,\n  },\n} as StoryObj<CartaActividadComponent>"
+        "defaultValue": "{\n  args: {\n    actividad: {\n      ...actividad,\n      responsable: '',\n    },\n    endDate: actividad.FechaFin,\n  },\n} as StoryObj<CartaActividadComponent>"
       },
       {
         "name": "sinFechaFin",
@@ -1188,7 +1188,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "",
-        "defaultValue": "{\n  args: {\n    actividad: {\n      ...actividad,\n      prioridad: undefined,\n    },\n    endDate: actividad.fechaFin,\n  },\n} as StoryObj<CartaActividadComponent>"
+        "defaultValue": "{\n  args: {\n    actividad: {\n      ...actividad,\n      prioridad: undefined,\n    },\n    endDate: actividad.FechaFin,\n  },\n} as StoryObj<CartaActividadComponent>"
       },
       {
         "name": "Small",
@@ -1198,7 +1198,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'sm',\n      Nombre: 'Small Program Title',\n      Descripcion:\n        'Se permite texto hasta dos líneas. Se permite texto hasta dos líneas.',\n      isFluid: false,\n    },\n  },\n}"
+        "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'sm',\n      nombre: 'Onboarding General para Todos los Empleados',\n      descripcion:\n        'Se permite texto hasta dos líneas. Se permite texto hasta dos líneas.',\n      isFluid: false,\n    },\n  },\n}"
       },
       {
         "name": "smartlistConfig",
@@ -2174,7 +2174,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "IColumna[]",
-          "defaultValue": "[\n  {\n    id: 1,\n    nombre: 'abiertas',\n    actividades: actividades.filter(\n      (act) => act.status === EstadoActividad.abierta,\n    ),\n  },\n  {\n    id: 2,\n    nombre: 'en progreso',\n    actividades: actividades.filter(\n      (act) => act.status === EstadoActividad.enProgreso,\n    ),\n  },\n  {\n    id: 3,\n    nombre: 'finalizadas',\n    actividades: actividades.filter(\n      (act) => act.status === EstadoActividad.cerrada,\n    ),\n  },\n]"
+          "defaultValue": "[\n  {\n    id: 1,\n    nombre: 'abiertas',\n    actividades: actividades.filter(\n      (act) => act.EstadoDb === EstadoActividad.Pendiente,\n    ),\n  },\n  {\n    id: 2,\n    nombre: 'en progreso',\n    actividades: actividades.filter(\n      (act) => act.EstadoDb === EstadoActividad.EnProceso,\n    ),\n  },\n  {\n    id: 3,\n    nombre: 'finalizadas',\n    actividades: actividades.filter(\n      (act) => act.EstadoDb === EstadoActividad.Finalizada,\n    ),\n  },\n]"
         },
         {
           "name": "Default",
@@ -2206,7 +2206,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    label: 'Tag',\n    size: 'sm',\n    twClass: '',\n    prioridad: {\n      nombre: 'Alta',\n      color: '#FF0000',\n      icono: 'arrow_upward',\n      codigo: 0,\n      orden: 0,\n    },\n  },\n}"
+          "defaultValue": "{\n  args: {\n    label: 'Tag',\n    size: 'sm',\n    twClass: '',\n    prioridad: {\n      Nombre: 'Alta',\n      Color: '#FF0000',\n      Codigo: 0,\n      Orden: 0,\n    },\n  },\n}"
         },
         {
           "name": "prioridadAlta",
@@ -2352,7 +2352,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    smartlistConfig: smartlistConfig,\n    data: data,\n    titles: titles,\n    page: 1,\n    totalPages: 1,\n    pageSize: 5,\n    hiddenColumns: [2],\n    twClass: '',\n    sortableColumns: [1],\n    actionIcons: [\n      { type: 'class', icon: 'add' },\n      { type: 'class', icon: 'edit' },\n      { type: 'class', icon: 'delete' },\n      { type: 'class', icon: 'verified_user' },\n    ],\n  },\n}"
+          "defaultValue": "{\n  args: {\n    smartlistConfig: smartlistConfig,\n    data: data,\n    titles: titles,\n    page: 1,\n    totalPages: 1,\n    pageSize: 5,\n    hiddenColumns: [2],\n    twClass: '',\n    sortableColumns: [1],\n    isManualPaginate: false,\n    actionIcons: [\n      { type: 'class', icon: 'add' },\n      { type: 'class', icon: 'edit' },\n      { type: 'class', icon: 'delete' },\n      { type: 'class', icon: 'verified_user' },\n    ],\n  },\n}"
         },
         {
           "name": "meta",
@@ -2764,7 +2764,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "",
-          "defaultValue": "{\n  argTypes: {\n    twClass: {\n      control: { type: 'text' },\n    },\n  },\n  args: {\n    actividad,\n    endDate: actividad.fechaFin,\n    tooltipSoonToExpire: 'Próxima a vencer',\n    tooltipExpired: 'Vencida',\n  },\n} as StoryObj<CartaActividadComponent>"
+          "defaultValue": "{\n  argTypes: {\n    twClass: {\n      control: { type: 'text' },\n    },\n  },\n  args: {\n    actividad,\n    endDate: actividad.FechaFin,\n    tooltipSoonToExpire: 'Próxima a vencer',\n    tooltipExpired: 'Vencida',\n  },\n} as StoryObj<CartaActividadComponent>"
         },
         {
           "name": "pastToday",
@@ -2794,7 +2794,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "",
-          "defaultValue": "{\n  args: {\n    actividad: {\n      ...actividad,\n      responsable: '',\n    },\n    endDate: actividad.fechaFin,\n  },\n} as StoryObj<CartaActividadComponent>"
+          "defaultValue": "{\n  args: {\n    actividad: {\n      ...actividad,\n      responsable: '',\n    },\n    endDate: actividad.FechaFin,\n  },\n} as StoryObj<CartaActividadComponent>"
         },
         {
           "name": "sinFechaFin",
@@ -2824,7 +2824,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "",
-          "defaultValue": "{\n  args: {\n    actividad: {\n      ...actividad,\n      prioridad: undefined,\n    },\n    endDate: actividad.fechaFin,\n  },\n} as StoryObj<CartaActividadComponent>"
+          "defaultValue": "{\n  args: {\n    actividad: {\n      ...actividad,\n      prioridad: undefined,\n    },\n    endDate: actividad.FechaFin,\n  },\n} as StoryObj<CartaActividadComponent>"
         },
         {
           "name": "soloTituloYDescripcion",
@@ -3084,7 +3084,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "object",
-          "defaultValue": "{\n  Codigo: '1',\n  Nombre: 'Program Title',\n  Descripcion:\n    'Se permite texto hasta dos líneas. Se permite texto hasta dos líneas.',\n  TotalActividades: 5,\n  activitiesText: 'Actividades',\n  Duracion: 3,\n  UnidadDuracionDb: 'Semanas',\n  buttonLabel: 'Asignar',\n  buttonIcon: 'add-user.svg',\n  buttonClasses: 'theme-primary',\n  TotalParticipantes: 2,\n  participantesText: 'participantes',\n  onButtonClick: {\n    action: () => {\n      console.log('Button clicked!');\n    },\n  },\n  twClass: 'custom-class',\n  isFluid: true,\n  size: 'lg' as 'sm' | 'md' | 'lg',\n}"
+          "defaultValue": "{\n  codigo: '1',\n  nombre: 'Program Title',\n  descripcion:\n    'Se permite texto hasta dos líneas. Se permite texto hasta dos líneas. Se permite texto hasta dos líneas.',\n  totalActividades: 5,\n  activitiesText: 'Actividades',\n  duracion: 3,\n  unidadDuracionDb: 'Semanas',\n  buttonLabel: 'Asignar',\n  buttonIcon: 'add-user.svg',\n  buttonClasses: 'theme-primary',\n  totalParticipantes: 2,\n  participantesText: 'participantes',\n  onButtonClick: {\n    action: () => {\n      console.log('Button clicked!');\n    },\n  },\n  twClass: 'custom-class',\n  isFluid: true,\n  size: 'lg' as 'sm' | 'md' | 'lg',\n}"
         },
         {
           "name": "Large",
@@ -3094,7 +3094,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'lg',\n      Nombre: 'Large Program Title',\n      isFluid: false,\n    },\n  },\n}"
+          "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'lg',\n      nombre: 'Large Program Title',\n      isFluid: false,\n    },\n  },\n}"
         },
         {
           "name": "Medium",
@@ -3104,7 +3104,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'md',\n      Nombre: 'Medium Program Title',\n      isFluid: false,\n    },\n  },\n}"
+          "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'md',\n      nombre: 'Medium Program Title',\n      isFluid: false,\n    },\n  },\n}"
         },
         {
           "name": "Small",
@@ -3114,7 +3114,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'sm',\n      Nombre: 'Small Program Title',\n      Descripcion:\n        'Se permite texto hasta dos líneas. Se permite texto hasta dos líneas.',\n      isFluid: false,\n    },\n  },\n}"
+          "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'sm',\n      nombre: 'Onboarding General para Todos los Empleados',\n      descripcion:\n        'Se permite texto hasta dos líneas. Se permite texto hasta dos líneas.',\n      isFluid: false,\n    },\n  },\n}"
         }
       ],
       "stories/search-bar.stories.ts": [
@@ -3338,7 +3338,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "object",
-          "defaultValue": "{\n  currentPage: 1,\n  totalPages: 5,\n  pageSize: 10,\n  totalItems: 50,\n  titles: {\n    showing: 'Mostrando',\n    results: 'resultados',\n    page: 'Página',\n    of: 'de',\n  },\n  twClass: '',\n}"
+          "defaultValue": "{\n  currentPage: 1,\n  totalPages: 5,\n  pageSize: 10,\n  totalItems: 50,\n  isManualPaginate: false,\n  titles: {\n    showing: 'Mostrando',\n    results: 'resultados',\n    page: 'Página',\n    of: 'de',\n  },\n  twClass: '',\n}"
         },
         {
           "name": "InteractivePagination",

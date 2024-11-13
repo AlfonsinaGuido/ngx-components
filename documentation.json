@@ -78,7 +78,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "IColumna[]",
-        "defaultValue": "Object.values(\n  actividades.reduce((acc: any, act) => {\n    const estadoConfig = estadosMap[act.EstadoDb];\n    if (!estadoConfig) return acc;\n\n    if (!acc[act.EstadoDb]) {\n      acc[act.EstadoDb] = { ...estadoConfig, actividades: [] };\n    }\n\n    acc[act.EstadoDb].actividades.push(act);\n\n    return acc;\n  }, {}),\n)"
+        "defaultValue": "[\n  {\n    id: 1,\n    nombre: 'abiertas',\n    actividades: actividades.filter(\n      (act) => act.EstadoDb === EstadoActividad.Pendiente,\n    ),\n  },\n  {\n    id: 2,\n    nombre: 'en progreso',\n    actividades: actividades.filter(\n      (act) => act.EstadoDb === EstadoActividad.EnProceso,\n    ),\n  },\n  {\n    id: 3,\n    nombre: 'finalizadas',\n    actividades: actividades.filter(\n      (act) => act.EstadoDb === EstadoActividad.Finalizada,\n    ),\n  },\n]"
       },
       {
         "name": "conClasePersonalizada",
@@ -139,6 +139,16 @@
         "deprecationMessage": "",
         "type": "Story",
         "defaultValue": "{\n  args: {\n    config: {\n      ...defaultConfig,\n    },\n  },\n  parameters: {\n    actions: {\n      handles: ['removeItem', 'buttonClick'],\n    },\n  },\n}"
+      },
+      {
+        "name": "Default",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/autocomplete.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    inputConfiguration: {\n      control: formControlDefaultAutocomplete,\n      label: 'Autocomplete',\n      detail: '',\n      twClass: '',\n    },\n    items: [\n      {\n        Id: '7',\n        Description: 'Penado Guzmán, Ana María',\n        Bag: {},\n      },\n      {\n        Id: '178',\n        Description: 'Guatemala Melara, Victor Hugo',\n        Bag: {},\n      },\n      {\n        Id: '8',\n        Description: 'Sanchez, Carlos',\n        Bag: {},\n      },\n      {\n        Id: '9',\n        Description: 'Lopez, Samuel',\n        Bag: {},\n      },\n      {\n        Id: '10',\n        Description: 'Fernandez, Ignacio',\n        Bag: {},\n      },\n      {\n        Id: '11',\n        Description: 'Perez, Mercedes',\n        Bag: {},\n      },\n    ],\n  },\n}"
       },
       {
         "name": "Default",
@@ -238,7 +248,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    control: formControlDefaultInput,\n    label: 'Input',\n    inputType: 'text',\n    detail: '',\n    twClass: '',\n  },\n}"
+        "defaultValue": "{\n  args: {\n    inputConfiguration: {\n      control: formControlDefaultInput,\n      label: 'Input',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
       },
       {
         "name": "Default",
@@ -408,7 +418,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    ...Default.args,\n    inputType: 'email',\n    control: formControlEmailInput,\n    requiredErrorMessage: 'Este campo es requerido',\n    emailErrorMessage:\n      'Por favor, introduce una dirección de correo electrónico válida',\n  },\n}"
+        "defaultValue": "{\n  args: {\n    inputConfiguration: {\n      control: formControlEmailInput,\n      label: 'Input',\n      inputType: 'email',\n      requiredErrorMessage: 'Este campo es requerido',\n      emailErrorMessage:\n        'Por favor, introduce una dirección de correo electrónico válida',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
       },
       {
         "name": "ErrorPattern",
@@ -418,17 +428,17 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    ...Default.args,\n    inputType: 'tel',\n    control: formControlPatternInput,\n    requiredErrorMessage: 'Este campo es requerido',\n    patternErrorMessage: 'Formato requerido (123) 456-7890',\n  },\n}"
+        "defaultValue": "{\n  args: {\n    inputConfiguration: {\n      control: formControlPatternInput,\n      label: 'Input',\n      inputType: 'tel',\n      requiredErrorMessage: 'Este campo es requerido',\n      patternErrorMessage: 'Formato requerido (123) 456-7890',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
       },
       {
-        "name": "estadosMap",
+        "name": "form",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "stories/tablero-kanban.stories.ts",
+        "file": "stories/autocomplete.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
-        "type": "object",
-        "defaultValue": "{\n  [EstadoActividad.Pendiente]: {\n    id: 1,\n    nombre: 'abiertas',\n    validacion: { action: validarEstado, estado: EstadoActividad.Pendiente },\n  },\n  [EstadoActividad.EnProceso]: {\n    id: 2,\n    nombre: 'en progreso',\n    validacion: { action: validarEstado, estado: EstadoActividad.EnProceso },\n  },\n  [EstadoActividad.Finalizada]: {\n    id: 3,\n    nombre: 'finalizadas',\n    validacion: { action: validarEstado, estado: EstadoActividad.Finalizada },\n  },\n}"
+        "type": "",
+        "defaultValue": "new FormBuilder().group({\n  defaultFieldAutocomplete: new FormControl('', []),\n  requiredFieldAutocomplete: new FormControl('', [Validators.required]),\n  unlabeledFieldAutocomplete: new FormControl('', [Validators.required]),\n})"
       },
       {
         "name": "form",
@@ -438,7 +448,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "",
-        "defaultValue": "new FormBuilder().group({\n  defaultFieldInput: new FormControl('', []),\n  requiredFieldInput: new FormControl('', [Validators.required]),\n  emailFieldInput: new FormControl('', [Validators.required, Validators.email]),\n  patternFieldInput: new FormControl('', [\n    Validators.required,\n    Validators.pattern(/^\\(\\d{3}\\) \\d{3}-\\d{4}$/),\n  ]),\n})"
+        "defaultValue": "new FormBuilder().group({\n  defaultFieldInput: new FormControl('', []),\n  requiredFieldInput: new FormControl('', [Validators.required]),\n  unlabeledFieldInput: new FormControl('', [Validators.required]),\n  emailFieldInput: new FormControl('', [Validators.required, Validators.email]),\n  patternFieldInput: new FormControl('', [\n    Validators.required,\n    Validators.pattern(/^\\(\\d{3}\\) \\d{3}-\\d{4}$/),\n  ]),\n})"
       },
       {
         "name": "form",
@@ -448,7 +458,17 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "",
-        "defaultValue": "new FormBuilder().group({\n  defaultFieldSelect: new FormControl('', []),\n  multipleFieldSelect: new FormControl([], []),\n  requiredFieldSelect: new FormControl('', []),\n})"
+        "defaultValue": "new FormBuilder().group({\n  defaultFieldSelect: new FormControl('', []),\n  multipleFieldSelect: new FormControl([], []),\n  requiredFieldSelect: new FormControl('', []),\n  unlabeledFieldSelect: new FormControl('', []),\n})"
+      },
+      {
+        "name": "formControlDefaultAutocomplete",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/autocomplete.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "form.controls['defaultFieldAutocomplete']"
       },
       {
         "name": "formControlDefaultInput",
@@ -501,6 +521,16 @@
         "defaultValue": "form.controls['patternFieldInput']"
       },
       {
+        "name": "formControlRequiredAutocomplete",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/autocomplete.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "form.controls['requiredFieldAutocomplete']"
+      },
+      {
         "name": "formControlRequiredInput",
         "ctype": "miscellaneous",
         "subtype": "variable",
@@ -519,6 +549,36 @@
         "deprecationMessage": "",
         "type": "",
         "defaultValue": "form.controls['requiredFieldSelect']"
+      },
+      {
+        "name": "formControlUnlabeledAutocomplete",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/autocomplete.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "form.controls['unlabeledFieldAutocomplete']"
+      },
+      {
+        "name": "formControlUnlabeledInput",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/input.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "form.controls['unlabeledFieldInput']"
+      },
+      {
+        "name": "formControlUnlabeledSelect",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/select.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "form.controls['unlabeledFieldSelect']"
       },
       {
         "name": "fotoDePerfil",
@@ -669,6 +729,16 @@
         "deprecationMessage": "",
         "type": "Meta<AssignCardComponent>",
         "defaultValue": "{\n  title: 'Evolution Components/Assign Card',\n  component: AssignCardComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+      },
+      {
+        "name": "meta",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/autocomplete.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Meta<AutocompleteComponent>",
+        "defaultValue": "{\n  title: 'Evolution Components/Autocomplete',\n  component: AutocompleteComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
       },
       {
         "name": "meta",
@@ -994,11 +1064,21 @@
         "name": "Required",
         "ctype": "miscellaneous",
         "subtype": "variable",
+        "file": "stories/autocomplete.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    ...Default.args,\n    inputConfiguration: {\n      control: formControlRequiredAutocomplete,\n      label: 'Autocomplete',\n      requiredErrorMessage: 'Este campo es requerido',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
+      },
+      {
+        "name": "Required",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
         "file": "stories/input.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    ...Default.args,\n    control: formControlRequiredInput,\n    requiredErrorMessage: 'Este campo es requerido',\n  },\n}"
+        "defaultValue": "{\n  args: {\n    inputConfiguration: {\n      control: formControlRequiredInput,\n      label: 'Input',\n      requiredErrorMessage: 'Este campo es requerido',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
       },
       {
         "name": "Required",
@@ -1241,6 +1321,36 @@
         "defaultValue": "{\n  args: {\n    title: 'Error',\n    message: 'No se pudo establecer conexión con el Identity Server.',\n    isError: true,\n    twClass: '',\n  },\n}"
       },
       {
+        "name": "Unlabeled",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/autocomplete.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    ...Default.args,\n    inputConfiguration: {\n      control: formControlUnlabeledAutocomplete,\n      requiredErrorMessage: 'Este campo es requerido',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
+      },
+      {
+        "name": "Unlabeled",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/input.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    inputConfiguration: {\n      control: formControlUnlabeledInput,\n      requiredErrorMessage: 'Este campo es requerido',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
+      },
+      {
+        "name": "Unlabeled",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/select.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    ...Default.args,\n    label: '',\n    control: formControlUnlabeledSelect,\n    isRequired: true,\n    isMultiple: false,\n    requiredErrorMessage: 'Este campo es requerido',\n  },\n}"
+      },
+      {
         "name": "UserMenu",
         "ctype": "miscellaneous",
         "subtype": "variable",
@@ -1416,6 +1526,34 @@
     "functions": [
       {
         "name": "addCircularSafeProperties",
+        "file": "stories/autocomplete.stories.ts",
+        "ctype": "miscellaneous",
+        "subtype": "function",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "description": "",
+        "args": [
+          {
+            "name": "formControl",
+            "type": "FormControl",
+            "deprecated": false,
+            "deprecationMessage": ""
+          }
+        ],
+        "jsdoctags": [
+          {
+            "name": "formControl",
+            "type": "FormControl",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "tagName": {
+              "text": "param"
+            }
+          }
+        ]
+      },
+      {
+        "name": "addCircularSafeProperties",
         "file": "stories/input.stories.ts",
         "ctype": "miscellaneous",
         "subtype": "function",
@@ -1500,6 +1638,17 @@
         "subtype": "typealias",
         "rawtype": "StoryObj<AssignCardComponent>",
         "file": "stories/assign-card.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "description": "",
+        "kind": 183
+      },
+      {
+        "name": "Story",
+        "ctype": "miscellaneous",
+        "subtype": "typealias",
+        "rawtype": "StoryObj<AutocompleteComponent>",
+        "file": "stories/autocomplete.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "description": "",
@@ -2037,7 +2186,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "IColumna[]",
-          "defaultValue": "Object.values(\n  actividades.reduce((acc: any, act) => {\n    const estadoConfig = estadosMap[act.EstadoDb];\n    if (!estadoConfig) return acc;\n\n    if (!acc[act.EstadoDb]) {\n      acc[act.EstadoDb] = { ...estadoConfig, actividades: [] };\n    }\n\n    acc[act.EstadoDb].actividades.push(act);\n\n    return acc;\n  }, {}),\n)"
+          "defaultValue": "[\n  {\n    id: 1,\n    nombre: 'abiertas',\n    actividades: actividades.filter(\n      (act) => act.EstadoDb === EstadoActividad.Pendiente,\n    ),\n  },\n  {\n    id: 2,\n    nombre: 'en progreso',\n    actividades: actividades.filter(\n      (act) => act.EstadoDb === EstadoActividad.EnProceso,\n    ),\n  },\n  {\n    id: 3,\n    nombre: 'finalizadas',\n    actividades: actividades.filter(\n      (act) => act.EstadoDb === EstadoActividad.Finalizada,\n    ),\n  },\n]"
         },
         {
           "name": "Default",
@@ -2342,6 +2491,88 @@
           "deprecationMessage": "",
           "type": "Story",
           "defaultValue": "{\n  args: {\n    config: {\n      ...defaultConfig,\n      items: [],\n      twClass: 'w-40',\n    },\n  },\n  parameters: {\n    actions: {\n      handles: ['removeItem', 'buttonClick'],\n    },\n  },\n}"
+        }
+      ],
+      "stories/autocomplete.stories.ts": [
+        {
+          "name": "Default",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/autocomplete.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    inputConfiguration: {\n      control: formControlDefaultAutocomplete,\n      label: 'Autocomplete',\n      detail: '',\n      twClass: '',\n    },\n    items: [\n      {\n        Id: '7',\n        Description: 'Penado Guzmán, Ana María',\n        Bag: {},\n      },\n      {\n        Id: '178',\n        Description: 'Guatemala Melara, Victor Hugo',\n        Bag: {},\n      },\n      {\n        Id: '8',\n        Description: 'Sanchez, Carlos',\n        Bag: {},\n      },\n      {\n        Id: '9',\n        Description: 'Lopez, Samuel',\n        Bag: {},\n      },\n      {\n        Id: '10',\n        Description: 'Fernandez, Ignacio',\n        Bag: {},\n      },\n      {\n        Id: '11',\n        Description: 'Perez, Mercedes',\n        Bag: {},\n      },\n    ],\n  },\n}"
+        },
+        {
+          "name": "form",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/autocomplete.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "new FormBuilder().group({\n  defaultFieldAutocomplete: new FormControl('', []),\n  requiredFieldAutocomplete: new FormControl('', [Validators.required]),\n  unlabeledFieldAutocomplete: new FormControl('', [Validators.required]),\n})"
+        },
+        {
+          "name": "formControlDefaultAutocomplete",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/autocomplete.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "form.controls['defaultFieldAutocomplete']"
+        },
+        {
+          "name": "formControlRequiredAutocomplete",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/autocomplete.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "form.controls['requiredFieldAutocomplete']"
+        },
+        {
+          "name": "formControlUnlabeledAutocomplete",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/autocomplete.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "form.controls['unlabeledFieldAutocomplete']"
+        },
+        {
+          "name": "meta",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/autocomplete.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Meta<AutocompleteComponent>",
+          "defaultValue": "{\n  title: 'Evolution Components/Autocomplete',\n  component: AutocompleteComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+        },
+        {
+          "name": "Required",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/autocomplete.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    ...Default.args,\n    inputConfiguration: {\n      control: formControlRequiredAutocomplete,\n      label: 'Autocomplete',\n      requiredErrorMessage: 'Este campo es requerido',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
+        },
+        {
+          "name": "Unlabeled",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/autocomplete.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    ...Default.args,\n    inputConfiguration: {\n      control: formControlUnlabeledAutocomplete,\n      requiredErrorMessage: 'Este campo es requerido',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
         }
       ],
       "stories/breadcrumb.stories.ts": [
@@ -2755,7 +2986,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    control: formControlDefaultInput,\n    label: 'Input',\n    inputType: 'text',\n    detail: '',\n    twClass: '',\n  },\n}"
+          "defaultValue": "{\n  args: {\n    inputConfiguration: {\n      control: formControlDefaultInput,\n      label: 'Input',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
         },
         {
           "name": "ErrorEmail",
@@ -2765,7 +2996,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    ...Default.args,\n    inputType: 'email',\n    control: formControlEmailInput,\n    requiredErrorMessage: 'Este campo es requerido',\n    emailErrorMessage:\n      'Por favor, introduce una dirección de correo electrónico válida',\n  },\n}"
+          "defaultValue": "{\n  args: {\n    inputConfiguration: {\n      control: formControlEmailInput,\n      label: 'Input',\n      inputType: 'email',\n      requiredErrorMessage: 'Este campo es requerido',\n      emailErrorMessage:\n        'Por favor, introduce una dirección de correo electrónico válida',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
         },
         {
           "name": "ErrorPattern",
@@ -2775,7 +3006,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    ...Default.args,\n    inputType: 'tel',\n    control: formControlPatternInput,\n    requiredErrorMessage: 'Este campo es requerido',\n    patternErrorMessage: 'Formato requerido (123) 456-7890',\n  },\n}"
+          "defaultValue": "{\n  args: {\n    inputConfiguration: {\n      control: formControlPatternInput,\n      label: 'Input',\n      inputType: 'tel',\n      requiredErrorMessage: 'Este campo es requerido',\n      patternErrorMessage: 'Formato requerido (123) 456-7890',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
         },
         {
           "name": "form",
@@ -2785,7 +3016,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "",
-          "defaultValue": "new FormBuilder().group({\n  defaultFieldInput: new FormControl('', []),\n  requiredFieldInput: new FormControl('', [Validators.required]),\n  emailFieldInput: new FormControl('', [Validators.required, Validators.email]),\n  patternFieldInput: new FormControl('', [\n    Validators.required,\n    Validators.pattern(/^\\(\\d{3}\\) \\d{3}-\\d{4}$/),\n  ]),\n})"
+          "defaultValue": "new FormBuilder().group({\n  defaultFieldInput: new FormControl('', []),\n  requiredFieldInput: new FormControl('', [Validators.required]),\n  unlabeledFieldInput: new FormControl('', [Validators.required]),\n  emailFieldInput: new FormControl('', [Validators.required, Validators.email]),\n  patternFieldInput: new FormControl('', [\n    Validators.required,\n    Validators.pattern(/^\\(\\d{3}\\) \\d{3}-\\d{4}$/),\n  ]),\n})"
         },
         {
           "name": "formControlDefaultInput",
@@ -2828,6 +3059,16 @@
           "defaultValue": "form.controls['requiredFieldInput']"
         },
         {
+          "name": "formControlUnlabeledInput",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/input.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "form.controls['unlabeledFieldInput']"
+        },
+        {
           "name": "meta",
           "ctype": "miscellaneous",
           "subtype": "variable",
@@ -2845,7 +3086,17 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    ...Default.args,\n    control: formControlRequiredInput,\n    requiredErrorMessage: 'Este campo es requerido',\n  },\n}"
+          "defaultValue": "{\n  args: {\n    inputConfiguration: {\n      control: formControlRequiredInput,\n      label: 'Input',\n      requiredErrorMessage: 'Este campo es requerido',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
+        },
+        {
+          "name": "Unlabeled",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/input.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    inputConfiguration: {\n      control: formControlUnlabeledInput,\n      requiredErrorMessage: 'Este campo es requerido',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
         }
       ],
       "stories/program-card.stories.ts": [
@@ -2941,7 +3192,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "",
-          "defaultValue": "new FormBuilder().group({\n  defaultFieldSelect: new FormControl('', []),\n  multipleFieldSelect: new FormControl([], []),\n  requiredFieldSelect: new FormControl('', []),\n})"
+          "defaultValue": "new FormBuilder().group({\n  defaultFieldSelect: new FormControl('', []),\n  multipleFieldSelect: new FormControl([], []),\n  requiredFieldSelect: new FormControl('', []),\n  unlabeledFieldSelect: new FormControl('', []),\n})"
         },
         {
           "name": "formControlDefaultSelect",
@@ -2974,6 +3225,16 @@
           "defaultValue": "form.controls['requiredFieldSelect']"
         },
         {
+          "name": "formControlUnlabeledSelect",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/select.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "form.controls['unlabeledFieldSelect']"
+        },
+        {
           "name": "meta",
           "ctype": "miscellaneous",
           "subtype": "variable",
@@ -3002,6 +3263,16 @@
           "deprecationMessage": "",
           "type": "Story",
           "defaultValue": "{\n  args: {\n    ...Default.args,\n    control: formControlRequiredSelect,\n    isRequired: true,\n    isMultiple: false,\n    requiredErrorMessage: 'Este campo es requerido',\n  },\n}"
+        },
+        {
+          "name": "Unlabeled",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/select.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    ...Default.args,\n    label: '',\n    control: formControlUnlabeledSelect,\n    isRequired: true,\n    isMultiple: false,\n    requiredErrorMessage: 'Este campo es requerido',\n  },\n}"
         }
       ],
       "stories/sidebar.stories.ts": [
@@ -3234,6 +3505,36 @@
       ]
     },
     "groupedFunctions": {
+      "stories/autocomplete.stories.ts": [
+        {
+          "name": "addCircularSafeProperties",
+          "file": "stories/autocomplete.stories.ts",
+          "ctype": "miscellaneous",
+          "subtype": "function",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "description": "",
+          "args": [
+            {
+              "name": "formControl",
+              "type": "FormControl",
+              "deprecated": false,
+              "deprecationMessage": ""
+            }
+          ],
+          "jsdoctags": [
+            {
+              "name": "formControl",
+              "type": "FormControl",
+              "deprecated": false,
+              "deprecationMessage": "",
+              "tagName": {
+                "text": "param"
+              }
+            }
+          ]
+        }
+      ],
       "stories/input.stories.ts": [
         {
           "name": "addCircularSafeProperties",
@@ -3330,6 +3631,19 @@
           "subtype": "typealias",
           "rawtype": "StoryObj<AssignCardComponent>",
           "file": "stories/assign-card.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "description": "",
+          "kind": 183
+        }
+      ],
+      "stories/autocomplete.stories.ts": [
+        {
+          "name": "Story",
+          "ctype": "miscellaneous",
+          "subtype": "typealias",
+          "rawtype": "StoryObj<AutocompleteComponent>",
+          "file": "stories/autocomplete.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "description": "",
@@ -3751,6 +4065,96 @@
         "linktype": "miscellaneous",
         "linksubtype": "variable",
         "name": "NoData",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/autocomplete.stories.ts",
+        "type": "function",
+        "linktype": "miscellaneous",
+        "linksubtype": "function",
+        "name": "addCircularSafeProperties",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/autocomplete.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Default",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/autocomplete.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "form",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/autocomplete.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "formControlDefaultAutocomplete",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/autocomplete.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "formControlRequiredAutocomplete",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/autocomplete.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "formControlUnlabeledAutocomplete",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/autocomplete.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "meta",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/autocomplete.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Required",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/autocomplete.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Unlabeled",
         "coveragePercent": 0,
         "coverageCount": "0/1",
         "status": "low"
@@ -4530,6 +4934,16 @@
         "type": "variable",
         "linktype": "miscellaneous",
         "linksubtype": "variable",
+        "name": "formControlUnlabeledInput",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/input.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
         "name": "meta",
         "coveragePercent": 0,
         "coverageCount": "0/1",
@@ -4541,6 +4955,16 @@
         "linktype": "miscellaneous",
         "linksubtype": "variable",
         "name": "Required",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/input.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Unlabeled",
         "coveragePercent": 0,
         "coverageCount": "0/1",
         "status": "low"
@@ -4830,6 +5254,16 @@
         "type": "variable",
         "linktype": "miscellaneous",
         "linksubtype": "variable",
+        "name": "formControlUnlabeledSelect",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/select.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
         "name": "meta",
         "coveragePercent": 0,
         "coverageCount": "0/1",
@@ -4851,6 +5285,16 @@
         "linktype": "miscellaneous",
         "linksubtype": "variable",
         "name": "Required",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/select.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Unlabeled",
         "coveragePercent": 0,
         "coverageCount": "0/1",
         "status": "low"

@@ -24,6 +24,7 @@ type Story = StoryObj<InputComponent>;
 const form = new FormBuilder().group({
   defaultFieldInput: new FormControl('', []),
   requiredFieldInput: new FormControl('', [Validators.required]),
+  unlabeledFieldInput: new FormControl('', [Validators.required]),
   emailFieldInput: new FormControl('', [Validators.required, Validators.email]),
   patternFieldInput: new FormControl('', [
     Validators.required,
@@ -34,6 +35,8 @@ const form = new FormBuilder().group({
 const formControlDefaultInput = form.controls['defaultFieldInput'];
 
 const formControlRequiredInput = form.controls['requiredFieldInput'];
+
+const formControlUnlabeledInput = form.controls['unlabeledFieldInput'];
 
 const formControlEmailInput = form.controls['emailFieldInput'];
 
@@ -49,44 +52,69 @@ function addCircularSafeProperties(formControl: FormControl) {
 
 addCircularSafeProperties(formControlDefaultInput);
 addCircularSafeProperties(formControlRequiredInput);
+addCircularSafeProperties(formControlUnlabeledInput);
 addCircularSafeProperties(formControlEmailInput);
 addCircularSafeProperties(formControlPatternInput);
 
 export const Default: Story = {
   args: {
-    control: formControlDefaultInput,
-    label: 'Input',
-    inputType: 'text',
-    detail: '',
-    twClass: '',
+    inputConfiguration: {
+      control: formControlDefaultInput,
+      label: 'Input',
+      detail: '',
+      twClass: '',
+    },
   },
 };
 
 export const Required: Story = {
   args: {
-    ...Default.args,
-    control: formControlRequiredInput,
-    requiredErrorMessage: 'Este campo es requerido',
+    inputConfiguration: {
+      control: formControlRequiredInput,
+      label: 'Input',
+      requiredErrorMessage: 'Este campo es requerido',
+      detail: '',
+      twClass: '',
+    },
+  },
+};
+
+export const Unlabeled: Story = {
+  args: {
+    inputConfiguration: {
+      control: formControlUnlabeledInput,
+      requiredErrorMessage: 'Este campo es requerido',
+      detail: '',
+      twClass: '',
+    },
   },
 };
 
 export const ErrorEmail: Story = {
   args: {
-    ...Default.args,
-    inputType: 'email',
-    control: formControlEmailInput,
-    requiredErrorMessage: 'Este campo es requerido',
-    emailErrorMessage:
-      'Por favor, introduce una dirección de correo electrónico válida',
+    inputConfiguration: {
+      control: formControlEmailInput,
+      label: 'Input',
+      inputType: 'email',
+      requiredErrorMessage: 'Este campo es requerido',
+      emailErrorMessage:
+        'Por favor, introduce una dirección de correo electrónico válida',
+      detail: '',
+      twClass: '',
+    },
   },
 };
 
 export const ErrorPattern: Story = {
   args: {
-    ...Default.args,
-    inputType: 'tel',
-    control: formControlPatternInput,
-    requiredErrorMessage: 'Este campo es requerido',
-    patternErrorMessage: 'Formato requerido (123) 456-7890',
+    inputConfiguration: {
+      control: formControlPatternInput,
+      label: 'Input',
+      inputType: 'tel',
+      requiredErrorMessage: 'Este campo es requerido',
+      patternErrorMessage: 'Formato requerido (123) 456-7890',
+      detail: '',
+      twClass: '',
+    },
   },
 };

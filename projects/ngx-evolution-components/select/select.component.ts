@@ -29,7 +29,7 @@ import { ButtonComponent, IIcon, ISelect } from '../public-api';
 })
 export class SelectComponent {
   @Input() control!: FormControl;
-  @Input() label!: string;
+  @Input() label?: string;
   @Input() items!: ISelect[];
   @Input() isMultiple?: boolean;
   @Input() isRequired?: boolean;
@@ -41,7 +41,14 @@ export class SelectComponent {
 
   @ViewChild('selectControl') selectControl!: MatSelect;
 
-  public clean(event: any) {
+  /**
+   * Limpia el valor del control de input, emite el nuevo valor,
+   * y cierra el control de selección si está presente.
+   * @public
+   * @param {any} event - Evento que contiene el valor del input a emitir.
+   * @returns {void} No retorna ningún valor.
+   */
+  public clean(event: any): void {
     this.control.reset();
     this.valueChange.emit(event.target.value);
     if (this.selectControl) {
@@ -49,7 +56,13 @@ export class SelectComponent {
     }
   }
 
-  public onValueChange(event: any) {
+  /**
+   * Emite el valor cambiado del input. *
+   * @public
+   * @param {any} event - Evento que contiene el nuevo valor del input a emitir.
+   * @returns {void} No retorna ningún valor.
+   */
+  public onValueChange(event: any): void {
     this.valueChange.emit(event.value);
   }
 }

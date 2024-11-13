@@ -1,3 +1,5 @@
+import { FormControl } from '@angular/forms';
+
 export type MatNativeControlInputType =
   | 'color'
   | 'date'
@@ -12,3 +14,16 @@ export type MatNativeControlInputType =
   | 'time'
   | 'url'
   | 'week';
+
+export interface IInput {
+  control: FormControl;
+  label?: string;
+  inputType?: MatNativeControlInputType;
+  inputPlaceholder?: string;
+  requiredErrorMessage?: string;
+  emailErrorMessage?: string;
+  patternErrorMessage?: string;
+  anotherErrorMessage?: string;
+  detail?: string;
+  twClass?: string;
+}

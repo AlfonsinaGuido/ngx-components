@@ -64,6 +64,9 @@ export * from './shared/interfaces/ipagination.interface';
 export * from './shared/interfaces/iaccordion.interface';
 export * from './shared/interfaces/idatagrid.interface';
 export * from './shared/interfaces/ibreadcrumb.interface';
+export * from './shared/interfaces/ietapa.interface';
+export * from './shared/interfaces/iempleado-responsable.interface';
+export * from './shared/interfaces/itipo-actividad.interface';
 export * from './shared/interfaces/itime-segmented-list.interface';
 export * from './shared/interfaces/iautocomplete.interface';
 

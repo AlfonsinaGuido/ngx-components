@@ -113,11 +113,46 @@ describe('SmartListComponent', () => {
   });
 
   it('should display the correct number of items based on pagination', () => {
-    component.data = mockData;
     component.pageSize = 1;
+    component.data = mockData;
+    component.totalItems = component.data.length;
     component.paginate();
-    fixture.detectChanges();
+
     expect(component.paginatedItems.length).toBe(1);
+    expect(component.paginatedItems[0]).toEqual(mockData[0]);
+
+    component.goToPage(2);
+    fixture.detectChanges();
+
+    expect(component.paginatedItems.length).toBe(1);
+  });
+
+  it('should update the page and paginate items when goToPage is called with a valid page number', () => {
+    spyOn(component.pageSelected, 'emit');
+    component.totalPages = 3;
+
+    component.goToPage(2);
+    expect(component.page).toBe(2);
+    expect(component.paginatedItems.length).toBeLessThanOrEqual(
+      component.pageSize,
+    );
+    expect(component.pageSelected.emit).toHaveBeenCalledWith(2);
+  });
+
+  it('should not change the page or call paginate if an invalid page number is provided', () => {
+    spyOn(component.pageSelected, 'emit');
+    spyOn(component, 'paginate').and.callThrough();
+    component.totalPages = 3;
+
+    component.goToPage(0);
+    expect(component.page).toBe(1);
+    expect(component.paginate).not.toHaveBeenCalled();
+    expect(component.pageSelected.emit).not.toHaveBeenCalled();
+
+    component.goToPage(4);
+    expect(component.page).toBe(1);
+    expect(component.paginate).not.toHaveBeenCalled();
+    expect(component.pageSelected.emit).not.toHaveBeenCalled();
   });
 
   it('should toggle the actions menu for a specific item', () => {
@@ -535,6 +570,7 @@ describe('SmartListComponent', () => {
       estado: 'agregar',
       selected: false,
     } as ISmartListItem);
+
     component.initializeTable();
 
     expect(component.totalPages).toBe(3);

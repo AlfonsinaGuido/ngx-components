@@ -14,7 +14,7 @@ describe('CartaComponent', () => {
     fixture = TestBed.createComponent(CartaActividadComponent);
     component = fixture.componentInstance;
     component.actividad = actividadMockData;
-    component.endDate = actividadMockData.fechaFin;
+    component.endDate = actividadMockData.FechaFin;
     fixture.detectChanges();
   });
 
@@ -24,8 +24,8 @@ describe('CartaComponent', () => {
 
   it('should render activity title and description', () => {
     const cardEl: HTMLElement = fixture.nativeElement;
-    expect(cardEl.textContent).toContain(actividadMockData.nombre);
-    expect(cardEl.textContent).toContain(actividadMockData.descripcion);
+    expect(cardEl.textContent).toContain(actividadMockData.Nombre);
+    expect(cardEl.textContent).toContain(actividadMockData.Descripcion);
   });
 
   it('should render tag component as first child', () => {

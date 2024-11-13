@@ -1,13 +1,15 @@
 import { IButtonAction, IIcon } from '../../public-api';
 
 export interface IProgramCardConfigInterface {
-  id: string;
-  title: string;
-  subtitle?: string;
-  activitiesCount?: number;
+  codigo: string;
+  nombre: string;
+  descripcion?: string;
+  totalActividades?: number;
   activitiesText?: string;
-  weeksCount?: number;
-  weeksText?: string;
+  duracion?: number;
+  unidadDuracionDb?: string;
+  totalParticipantes?: number;
+  participantesText?: string;
   assignIcon?: IIcon;
   buttonLabel?: string;
   buttonIcon?: string;

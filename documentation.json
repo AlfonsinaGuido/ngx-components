@@ -368,7 +368,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "object",
-        "defaultValue": "{\n  id: '1',\n  title: 'Program Title',\n  subtitle: 'Ejemplo de descripción',\n  activitiesCount: 5,\n  activitiesText: 'Actividades',\n  weeksCount: 3,\n  weeksText: 'Semanas',\n  buttonLabel: 'Asignar',\n  buttonIcon: 'add-user.svg',\n  buttonClasses: 'theme-primary',\n  onButtonClick: {\n    action: () => {\n      console.log('Button clicked!');\n    },\n  },\n  twClass: 'custom-class',\n  isFluid: true,\n  size: 'lg' as 'sm' | 'md' | 'lg',\n}"
+        "defaultValue": "{\n  Codigo: '1',\n  Nombre: 'Program Title',\n  Descripcion:\n    'Se permite texto hasta dos líneas. Se permite texto hasta dos líneas.',\n  TotalActividades: 5,\n  activitiesText: 'Actividades',\n  Duracion: 3,\n  UnidadDuracionDb: 'Semanas',\n  buttonLabel: 'Asignar',\n  buttonIcon: 'add-user.svg',\n  buttonClasses: 'theme-primary',\n  TotalParticipantes: 2,\n  participantesText: 'participantes',\n  onButtonClick: {\n    action: () => {\n      console.log('Button clicked!');\n    },\n  },\n  twClass: 'custom-class',\n  isFluid: true,\n  size: 'lg' as 'sm' | 'md' | 'lg',\n}"
       },
       {
         "name": "defaultConfig",
@@ -668,7 +668,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'lg',\n      title: 'Large Program Title',\n      isFluid: false,\n    },\n  },\n}"
+        "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'lg',\n      Nombre: 'Large Program Title',\n      isFluid: false,\n    },\n  },\n}"
       },
       {
         "name": "loginFunction",
@@ -698,7 +698,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'md',\n      title: 'Medium Program Title',\n      isFluid: false,\n    },\n  },\n}"
+        "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'md',\n      Nombre: 'Medium Program Title',\n      isFluid: false,\n    },\n  },\n}"
       },
       {
         "name": "meta",
@@ -929,6 +929,16 @@
         "deprecationMessage": "",
         "type": "Story",
         "defaultValue": "{\n  args: {\n    ...Default.args,\n    control: formControlMultipleSelect,\n    isMultiple: true,\n  },\n}"
+      },
+      {
+        "name": "NoData",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/assign-card.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    config: {\n      ...defaultConfig,\n      items: [],\n      twClass: 'w-40',\n    },\n  },\n  parameters: {\n    actions: {\n      handles: ['removeItem', 'buttonClick'],\n    },\n  },\n}"
       },
       {
         "name": "NoIcon",
@@ -1188,27 +1198,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'sm',\n      title: 'Small Program Title',\n      subtitle: 'Se permite texto hasta dos líneas.',\n      isFluid: false,\n    },\n  },\n}"
-      },
-      {
-        "name": "SmallSize",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
-        "file": "stories/assign-card.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "Story",
-        "defaultValue": "{\n  args: {\n    config: {\n      ...defaultConfig,\n      items: [\n        ...defaultConfig.items,\n        { id: '4', name: 'Oscar Esteban Juarez Paz' },\n      ],\n      twClass: 'w-80',\n    },\n  },\n  parameters: {\n    actions: {\n      handles: ['removeItem', 'buttonClick'],\n    },\n  },\n}"
-      },
-      {
-        "name": "SmallSizeSmallOptions",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
-        "file": "stories/assign-card.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "Story",
-        "defaultValue": "{\n  args: {\n    config: {\n      ...defaultConfig,\n      twClass: 'w-80',\n    },\n  },\n  parameters: {\n    actions: {\n      handles: ['removeItem', 'buttonClick'],\n    },\n  },\n}"
+        "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'sm',\n      Nombre: 'Small Program Title',\n      Descripcion:\n        'Se permite texto hasta dos líneas. Se permite texto hasta dos líneas.',\n      isFluid: false,\n    },\n  },\n}"
       },
       {
         "name": "smartlistConfig",
@@ -2459,24 +2449,14 @@
           "defaultValue": "{\n  title: 'Evolution Components/Assign Card',\n  component: AssignCardComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
         },
         {
-          "name": "SmallSize",
+          "name": "NoData",
           "ctype": "miscellaneous",
           "subtype": "variable",
           "file": "stories/assign-card.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    config: {\n      ...defaultConfig,\n      items: [\n        ...defaultConfig.items,\n        { id: '4', name: 'Oscar Esteban Juarez Paz' },\n      ],\n      twClass: 'w-80',\n    },\n  },\n  parameters: {\n    actions: {\n      handles: ['removeItem', 'buttonClick'],\n    },\n  },\n}"
-        },
-        {
-          "name": "SmallSizeSmallOptions",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "stories/assign-card.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Story",
-          "defaultValue": "{\n  args: {\n    config: {\n      ...defaultConfig,\n      twClass: 'w-80',\n    },\n  },\n  parameters: {\n    actions: {\n      handles: ['removeItem', 'buttonClick'],\n    },\n  },\n}"
+          "defaultValue": "{\n  args: {\n    config: {\n      ...defaultConfig,\n      items: [],\n      twClass: 'w-40',\n    },\n  },\n  parameters: {\n    actions: {\n      handles: ['removeItem', 'buttonClick'],\n    },\n  },\n}"
         }
       ],
       "stories/autocomplete.stories.ts": [
@@ -3104,7 +3084,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "object",
-          "defaultValue": "{\n  id: '1',\n  title: 'Program Title',\n  subtitle: 'Ejemplo de descripción',\n  activitiesCount: 5,\n  activitiesText: 'Actividades',\n  weeksCount: 3,\n  weeksText: 'Semanas',\n  buttonLabel: 'Asignar',\n  buttonIcon: 'add-user.svg',\n  buttonClasses: 'theme-primary',\n  onButtonClick: {\n    action: () => {\n      console.log('Button clicked!');\n    },\n  },\n  twClass: 'custom-class',\n  isFluid: true,\n  size: 'lg' as 'sm' | 'md' | 'lg',\n}"
+          "defaultValue": "{\n  Codigo: '1',\n  Nombre: 'Program Title',\n  Descripcion:\n    'Se permite texto hasta dos líneas. Se permite texto hasta dos líneas.',\n  TotalActividades: 5,\n  activitiesText: 'Actividades',\n  Duracion: 3,\n  UnidadDuracionDb: 'Semanas',\n  buttonLabel: 'Asignar',\n  buttonIcon: 'add-user.svg',\n  buttonClasses: 'theme-primary',\n  TotalParticipantes: 2,\n  participantesText: 'participantes',\n  onButtonClick: {\n    action: () => {\n      console.log('Button clicked!');\n    },\n  },\n  twClass: 'custom-class',\n  isFluid: true,\n  size: 'lg' as 'sm' | 'md' | 'lg',\n}"
         },
         {
           "name": "Large",
@@ -3114,7 +3094,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'lg',\n      title: 'Large Program Title',\n      isFluid: false,\n    },\n  },\n}"
+          "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'lg',\n      Nombre: 'Large Program Title',\n      isFluid: false,\n    },\n  },\n}"
         },
         {
           "name": "Medium",
@@ -3124,7 +3104,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'md',\n      title: 'Medium Program Title',\n      isFluid: false,\n    },\n  },\n}"
+          "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'md',\n      Nombre: 'Medium Program Title',\n      isFluid: false,\n    },\n  },\n}"
         },
         {
           "name": "Small",
@@ -3134,7 +3114,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'sm',\n      title: 'Small Program Title',\n      subtitle: 'Se permite texto hasta dos líneas.',\n      isFluid: false,\n    },\n  },\n}"
+          "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'sm',\n      Nombre: 'Small Program Title',\n      Descripcion:\n        'Se permite texto hasta dos líneas. Se permite texto hasta dos líneas.',\n      isFluid: false,\n    },\n  },\n}"
         }
       ],
       "stories/search-bar.stories.ts": [
@@ -4050,17 +4030,7 @@
         "type": "variable",
         "linktype": "miscellaneous",
         "linksubtype": "variable",
-        "name": "SmallSize",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
-      },
-      {
-        "filePath": "stories/assign-card.stories.ts",
-        "type": "variable",
-        "linktype": "miscellaneous",
-        "linksubtype": "variable",
-        "name": "SmallSizeSmallOptions",
+        "name": "NoData",
         "coveragePercent": 0,
         "coverageCount": "0/1",
         "status": "low"

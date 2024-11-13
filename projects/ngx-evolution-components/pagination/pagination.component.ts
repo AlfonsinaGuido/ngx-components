@@ -22,6 +22,7 @@ import { CommonModule } from '@angular/common';
 })
 export class PaginationComponent {
   @Input() config: IPaginationConfig = {
+    isManualPaginate: false,
     currentPage: 1,
     totalPages: 1,
     pageSize: 10,
@@ -89,10 +90,19 @@ export class PaginationComponent {
    */
   getItemsRangeText(): string {
     const startItem = (this.config.currentPage - 1) * this.config.pageSize + 1;
-    const endItem = this.getMinValue(
-      this.config.currentPage * this.config.pageSize,
-      this.config.totalItems,
-    );
+    let endItem;
+
+    if (this.config.isManualPaginate) {
+      // Cálculo de endItem cuando isManualPaginate es true
+      endItem = this.config.pageSize * this.config.totalPages;
+    } else {
+      // Cálculo normal
+      endItem = this.getMinValue(
+        this.config.currentPage * this.config.pageSize,
+        this.config.totalItems,
+      );
+    }
+
     return `${this.config.titles.showing} ${startItem} - ${endItem} ${this.config.titles.results}`;
   }
 }

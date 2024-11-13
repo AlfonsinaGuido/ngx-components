@@ -1,8 +1,12 @@
 .evo-program-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribuye los elementos */
   border-radius: 1rem;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   padding: 1rem;
   min-width: 160px;
+  border: 1px solid var(--light-gray);
 
   &.fixed-size {
     width: 300px;
@@ -18,16 +22,6 @@
     &.size-lg {
       width: 500px;
     }
-  }
-
-  h3,
-  p {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: normal;
   }
 
   mat-icon.small-icon {

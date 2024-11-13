@@ -86,6 +86,7 @@ export const Default: Story = {
     hiddenColumns: [2],
     twClass: '',
     sortableColumns: [1],
+    isManualPaginate: false,
     actionIcons: [
       { type: 'class', icon: 'add' },
       { type: 'class', icon: 'edit' },

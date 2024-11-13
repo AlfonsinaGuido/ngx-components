@@ -37,7 +37,7 @@
               </div>
             </th>
           }
-          @if (metadata?.Buttons?.length) {
+          @if (metadata?.Buttons && (metadata?.Buttons)!.length > 0) {
             <th class="text-left px-2 py-1">Acciones</th>
           }
         </tr>
@@ -161,6 +161,7 @@
 @if (totalPages >= 1) {
   <pagination
     [config]="{
+      isManualPaginate: isManualPaginate,
       currentPage: page,
       totalPages: totalPages,
       pageSize: pageSize,

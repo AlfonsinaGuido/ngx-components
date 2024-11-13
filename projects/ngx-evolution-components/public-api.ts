@@ -10,8 +10,9 @@ export * from './shared/services/class-utility.service';
 export * from './svg/svg.component';
 export * from './banner/banner.component';
 export * from './avatar/avatar.component';
-export * from './input/input.component';
 export * from './button/button.component';
+export * from './input/input.component';
+export * from './autocomplete/autocomplete.component';
 export * from './select/select.component';
 export * from './highlight/highlight.component';
 export * from './menu/menu.component';
@@ -64,6 +65,7 @@ export * from './shared/interfaces/iaccordion.interface';
 export * from './shared/interfaces/idatagrid.interface';
 export * from './shared/interfaces/ibreadcrumb.interface';
 export * from './shared/interfaces/itime-segmented-list.interface';
+export * from './shared/interfaces/iautocomplete.interface';
 
 // Api Interfaces
 export * from './shared/interfaces/api/iempleado.interface';

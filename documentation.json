@@ -144,6 +144,16 @@
         "name": "Default",
         "ctype": "miscellaneous",
         "subtype": "variable",
+        "file": "stories/autocomplete.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    inputConfiguration: {\n      control: formControlDefaultAutocomplete,\n      label: 'Autocomplete',\n      detail: '',\n      twClass: '',\n    },\n    items: [\n      {\n        Id: '7',\n        Description: 'Penado Guzmán, Ana María',\n        Bag: {},\n      },\n      {\n        Id: '178',\n        Description: 'Guatemala Melara, Victor Hugo',\n        Bag: {},\n      },\n      {\n        Id: '8',\n        Description: 'Sanchez, Carlos',\n        Bag: {},\n      },\n      {\n        Id: '9',\n        Description: 'Lopez, Samuel',\n        Bag: {},\n      },\n      {\n        Id: '10',\n        Description: 'Fernandez, Ignacio',\n        Bag: {},\n      },\n      {\n        Id: '11',\n        Description: 'Perez, Mercedes',\n        Bag: {},\n      },\n    ],\n  },\n}"
+      },
+      {
+        "name": "Default",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
         "file": "stories/breadcrumb.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
@@ -228,7 +238,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    title: 'Samuel Lopez finalizó Programa Desarrollo',\r\n    subtitle: '30/09/2024',\r\n    info: 'Estimado(a) Juana Margarita Rodas Opico,\\n\\nEste es un recordatorio de que su capacitación en **Atención al Cliente** se llevará a cabo mañana.\\n\\nAsegúrese de estar preparado. Ingrese a la misma desde <a href=\"https://www.google.com/\" target=\"_blank\">**aquí**</a>.',\r\n    twClass: '',\r\n  },\r\n}"
+        "defaultValue": "{\n  args: {\n    title: 'Samuel Lopez finalizó Programa Desarrollo',\n    subtitle: '30/09/2024',\n    info: 'Estimado(a) Juana Margarita Rodas Opico,\\n\\nEste es un recordatorio de que su capacitación en **Atención al Cliente** se llevará a cabo mañana.\\n\\nAsegúrese de estar preparado. Ingrese a la misma desde <a href=\"https://www.google.com/\" target=\"_blank\">**aquí**</a>.',\n    twClass: '',\n  },\n}"
       },
       {
         "name": "Default",
@@ -238,7 +248,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    control: formControlDefaultInput,\n    label: 'Input',\n    inputType: 'text',\n    detail: '',\n    twClass: '',\n  },\n}"
+        "defaultValue": "{\n  args: {\n    inputConfiguration: {\n      control: formControlDefaultInput,\n      label: 'Input',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
       },
       {
         "name": "Default",
@@ -348,7 +358,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    titles: {\n      today: 'Hoy',\n      thisWeek: 'Esta Semana',\n      previous: 'Anteriores',\n    },\n    emptyListMessage: 'Sin contenido',\n    items: [\n      {\n        label: 'Carlos Sanchez finalizó Programa Recursos Humanos',\n        avatarName: 'Carlos Sanchez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Carlos Sanchez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-03-09T07:00:00',\n      },\n      {\n        label: 'Samuel Lopez finalizó Programa Desarrollo',\n        avatarName: 'Samuel Lopez',\n        onClick: {\n          action: (name = 'Samuel Lopez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-03-09T07:00:00',\n      },\n      {\n        label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',\n        avatarName: 'Ignacio Fernandez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Ignacio Fernandez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-03-09T07:00:00',\n      },\n      {\n        label: 'Carlos Sanchez finalizó Programa Recursos Humanos',\n        avatarName: 'Carlos Sanchez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Carlos Sanchez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-03-09T07:00:00',\n      },\n      {\n        label: 'Samuel Lopez finalizó Programa Desarrollo',\n        avatarName: 'Samuel Lopez',\n        onClick: {\n          action: (name = 'Samuel Lopez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-10-21T07:00:00',\n      },\n      {\n        label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',\n        avatarName: 'Ignacio Fernandez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Ignacio Fernandez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-10-22T07:00:00',\n      },\n    ],\n    twClass: '',\n  },\n}"
+        "defaultValue": "{\n  args: {\n    titles: {\n      today: 'Hoy',\n      thisWeek: 'Esta Semana',\n      previous: 'Anteriores',\n    },\n    emptyListMessage: 'Sin contenido',\n    items: [\n      {\n        label:\n          'Carlos Sanchez finalizó Programa Recursos Humanos. El empleado **Carlos Sanchez** completó el programa de **Recursos Humanos**.',\n        avatarName: 'Carlos Sanchez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Carlos Sanchez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-03-09T07:00:00',\n      },\n      {\n        label: 'Samuel Lopez finalizó Programa Desarrollo',\n        avatarName: 'Samuel Lopez',\n        onClick: {\n          action: (name = 'Samuel Lopez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-03-09T07:00:00',\n      },\n      {\n        label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',\n        avatarName: 'Ignacio Fernandez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Ignacio Fernandez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-03-09T07:00:00',\n      },\n      {\n        label:\n          'Carlos Sanchez finalizó Programa Recursos Humanos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut error repellendus nemo, dolorem voluptatem voluptates optio quas, minus dolor odit nihil est quaerat alias nulla iusto cumque, consequuntur sed placeat.',\n        avatarName: 'Carlos Sanchez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Carlos Sanchez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-03-09T07:00:00',\n      },\n      {\n        label: 'Samuel Lopez finalizó Programa Desarrollo',\n        avatarName: 'Samuel Lopez',\n        onClick: {\n          action: (name = 'Samuel Lopez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-10-21T07:00:00',\n      },\n      {\n        label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',\n        avatarName: 'Ignacio Fernandez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Ignacio Fernandez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-10-22T07:00:00',\n      },\n    ],\n    twClass: '',\n  },\n}"
       },
       {
         "name": "defaultconfig",
@@ -408,7 +418,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    ...Default.args,\n    inputType: 'email',\n    control: formControlEmailInput,\n    requiredErrorMessage: 'Este campo es requerido',\n    emailErrorMessage:\n      'Por favor, introduce una dirección de correo electrónico válida',\n  },\n}"
+        "defaultValue": "{\n  args: {\n    inputConfiguration: {\n      control: formControlEmailInput,\n      label: 'Input',\n      inputType: 'email',\n      requiredErrorMessage: 'Este campo es requerido',\n      emailErrorMessage:\n        'Por favor, introduce una dirección de correo electrónico válida',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
       },
       {
         "name": "ErrorPattern",
@@ -418,7 +428,17 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    ...Default.args,\n    inputType: 'tel',\n    control: formControlPatternInput,\n    requiredErrorMessage: 'Este campo es requerido',\n    patternErrorMessage: 'Formato requerido (123) 456-7890',\n  },\n}"
+        "defaultValue": "{\n  args: {\n    inputConfiguration: {\n      control: formControlPatternInput,\n      label: 'Input',\n      inputType: 'tel',\n      requiredErrorMessage: 'Este campo es requerido',\n      patternErrorMessage: 'Formato requerido (123) 456-7890',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
+      },
+      {
+        "name": "form",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/autocomplete.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "new FormBuilder().group({\n  defaultFieldAutocomplete: new FormControl('', []),\n  requiredFieldAutocomplete: new FormControl('', [Validators.required]),\n  unlabeledFieldAutocomplete: new FormControl('', [Validators.required]),\n})"
       },
       {
         "name": "form",
@@ -428,7 +448,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "",
-        "defaultValue": "new FormBuilder().group({\n  defaultFieldInput: new FormControl('', []),\n  requiredFieldInput: new FormControl('', [Validators.required]),\n  emailFieldInput: new FormControl('', [Validators.required, Validators.email]),\n  patternFieldInput: new FormControl('', [\n    Validators.required,\n    Validators.pattern(/^\\(\\d{3}\\) \\d{3}-\\d{4}$/),\n  ]),\n})"
+        "defaultValue": "new FormBuilder().group({\n  defaultFieldInput: new FormControl('', []),\n  requiredFieldInput: new FormControl('', [Validators.required]),\n  unlabeledFieldInput: new FormControl('', [Validators.required]),\n  emailFieldInput: new FormControl('', [Validators.required, Validators.email]),\n  patternFieldInput: new FormControl('', [\n    Validators.required,\n    Validators.pattern(/^\\(\\d{3}\\) \\d{3}-\\d{4}$/),\n  ]),\n})"
       },
       {
         "name": "form",
@@ -438,7 +458,17 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "",
-        "defaultValue": "new FormBuilder().group({\n  defaultFieldSelect: new FormControl('', []),\n  multipleFieldSelect: new FormControl([], []),\n  requiredFieldSelect: new FormControl('', []),\n})"
+        "defaultValue": "new FormBuilder().group({\n  defaultFieldSelect: new FormControl('', []),\n  multipleFieldSelect: new FormControl([], []),\n  requiredFieldSelect: new FormControl('', []),\n  unlabeledFieldSelect: new FormControl('', []),\n})"
+      },
+      {
+        "name": "formControlDefaultAutocomplete",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/autocomplete.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "form.controls['defaultFieldAutocomplete']"
       },
       {
         "name": "formControlDefaultInput",
@@ -491,6 +521,16 @@
         "defaultValue": "form.controls['patternFieldInput']"
       },
       {
+        "name": "formControlRequiredAutocomplete",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/autocomplete.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "form.controls['requiredFieldAutocomplete']"
+      },
+      {
         "name": "formControlRequiredInput",
         "ctype": "miscellaneous",
         "subtype": "variable",
@@ -509,6 +549,36 @@
         "deprecationMessage": "",
         "type": "",
         "defaultValue": "form.controls['requiredFieldSelect']"
+      },
+      {
+        "name": "formControlUnlabeledAutocomplete",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/autocomplete.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "form.controls['unlabeledFieldAutocomplete']"
+      },
+      {
+        "name": "formControlUnlabeledInput",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/input.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "form.controls['unlabeledFieldInput']"
+      },
+      {
+        "name": "formControlUnlabeledSelect",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/select.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "form.controls['unlabeledFieldSelect']"
       },
       {
         "name": "fotoDePerfil",
@@ -664,6 +734,16 @@
         "name": "meta",
         "ctype": "miscellaneous",
         "subtype": "variable",
+        "file": "stories/autocomplete.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Meta<AutocompleteComponent>",
+        "defaultValue": "{\n  title: 'Evolution Components/Autocomplete',\n  component: AutocompleteComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+      },
+      {
+        "name": "meta",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
         "file": "stories/banner.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
@@ -728,7 +808,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<InfoPanelComponent>",
-        "defaultValue": "{\r\n  title: 'Evolution Components/Info Panel',\r\n  component: InfoPanelComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideMarkdown()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
+        "defaultValue": "{\n  title: 'Evolution Components/Info Panel',\n  component: InfoPanelComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideMarkdown()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
       },
       {
         "name": "meta",
@@ -828,7 +908,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<TimeSegmentedListComponent>",
-        "defaultValue": "{\n  title: 'Evolution Components/Time Segmented List',\n  component: TimeSegmentedListComponent,\n  tags: ['autodocs'],\n}"
+        "defaultValue": "{\n  title: 'Evolution Components/Time Segmented List',\n  component: TimeSegmentedListComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideMarkdown()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
       },
       {
         "name": "muchasActividades",
@@ -928,7 +1008,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Preview",
-        "defaultValue": "{\r\n  parameters: {\r\n    controls: {\r\n      matchers: {\r\n        color: /(background|color)$/i,\r\n        date: /Date$/i,\r\n      },\r\n    },\r\n    deepControls: { enabled: true },\r\n  },\r\n  decorators: [componentWrapperDecorator((story) => `<div>${story}</div>`)],\r\n}"
+        "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n    deepControls: { enabled: true },\n  },\n  decorators: [componentWrapperDecorator((story) => `<div>${story}</div>`)],\n}"
       },
       {
         "name": "Primary",
@@ -974,11 +1054,21 @@
         "name": "Required",
         "ctype": "miscellaneous",
         "subtype": "variable",
+        "file": "stories/autocomplete.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    ...Default.args,\n    inputConfiguration: {\n      control: formControlRequiredAutocomplete,\n      label: 'Autocomplete',\n      requiredErrorMessage: 'Este campo es requerido',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
+      },
+      {
+        "name": "Required",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
         "file": "stories/input.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    ...Default.args,\n    control: formControlRequiredInput,\n    requiredErrorMessage: 'Este campo es requerido',\n  },\n}"
+        "defaultValue": "{\n  args: {\n    inputConfiguration: {\n      control: formControlRequiredInput,\n      label: 'Input',\n      requiredErrorMessage: 'Este campo es requerido',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
       },
       {
         "name": "Required",
@@ -1241,6 +1331,36 @@
         "defaultValue": "{\n  args: {\n    title: 'Error',\n    message: 'No se pudo establecer conexión con el Identity Server.',\n    isError: true,\n    twClass: '',\n  },\n}"
       },
       {
+        "name": "Unlabeled",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/autocomplete.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    ...Default.args,\n    inputConfiguration: {\n      control: formControlUnlabeledAutocomplete,\n      requiredErrorMessage: 'Este campo es requerido',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
+      },
+      {
+        "name": "Unlabeled",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/input.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    inputConfiguration: {\n      control: formControlUnlabeledInput,\n      requiredErrorMessage: 'Este campo es requerido',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
+      },
+      {
+        "name": "Unlabeled",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/select.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    ...Default.args,\n    label: '',\n    control: formControlUnlabeledSelect,\n    isRequired: true,\n    isMultiple: false,\n    requiredErrorMessage: 'Este campo es requerido',\n  },\n}"
+      },
+      {
         "name": "UserMenu",
         "ctype": "miscellaneous",
         "subtype": "variable",
@@ -1404,6 +1524,34 @@
     "functions": [
       {
         "name": "addCircularSafeProperties",
+        "file": "stories/autocomplete.stories.ts",
+        "ctype": "miscellaneous",
+        "subtype": "function",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "description": "",
+        "args": [
+          {
+            "name": "formControl",
+            "type": "FormControl",
+            "deprecated": false,
+            "deprecationMessage": ""
+          }
+        ],
+        "jsdoctags": [
+          {
+            "name": "formControl",
+            "type": "FormControl",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "tagName": {
+              "text": "param"
+            }
+          }
+        ]
+      },
+      {
+        "name": "addCircularSafeProperties",
         "file": "stories/input.stories.ts",
         "ctype": "miscellaneous",
         "subtype": "function",
@@ -1488,6 +1636,17 @@
         "subtype": "typealias",
         "rawtype": "StoryObj<AssignCardComponent>",
         "file": "stories/assign-card.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "description": "",
+        "kind": 183
+      },
+      {
+        "name": "Story",
+        "ctype": "miscellaneous",
+        "subtype": "typealias",
+        "rawtype": "StoryObj<AutocompleteComponent>",
+        "file": "stories/autocomplete.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "description": "",
@@ -2320,6 +2479,88 @@
           "defaultValue": "{\n  args: {\n    config: {\n      ...defaultConfig,\n      twClass: 'w-80',\n    },\n  },\n  parameters: {\n    actions: {\n      handles: ['removeItem', 'buttonClick'],\n    },\n  },\n}"
         }
       ],
+      "stories/autocomplete.stories.ts": [
+        {
+          "name": "Default",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/autocomplete.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    inputConfiguration: {\n      control: formControlDefaultAutocomplete,\n      label: 'Autocomplete',\n      detail: '',\n      twClass: '',\n    },\n    items: [\n      {\n        Id: '7',\n        Description: 'Penado Guzmán, Ana María',\n        Bag: {},\n      },\n      {\n        Id: '178',\n        Description: 'Guatemala Melara, Victor Hugo',\n        Bag: {},\n      },\n      {\n        Id: '8',\n        Description: 'Sanchez, Carlos',\n        Bag: {},\n      },\n      {\n        Id: '9',\n        Description: 'Lopez, Samuel',\n        Bag: {},\n      },\n      {\n        Id: '10',\n        Description: 'Fernandez, Ignacio',\n        Bag: {},\n      },\n      {\n        Id: '11',\n        Description: 'Perez, Mercedes',\n        Bag: {},\n      },\n    ],\n  },\n}"
+        },
+        {
+          "name": "form",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/autocomplete.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "new FormBuilder().group({\n  defaultFieldAutocomplete: new FormControl('', []),\n  requiredFieldAutocomplete: new FormControl('', [Validators.required]),\n  unlabeledFieldAutocomplete: new FormControl('', [Validators.required]),\n})"
+        },
+        {
+          "name": "formControlDefaultAutocomplete",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/autocomplete.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "form.controls['defaultFieldAutocomplete']"
+        },
+        {
+          "name": "formControlRequiredAutocomplete",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/autocomplete.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "form.controls['requiredFieldAutocomplete']"
+        },
+        {
+          "name": "formControlUnlabeledAutocomplete",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/autocomplete.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "form.controls['unlabeledFieldAutocomplete']"
+        },
+        {
+          "name": "meta",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/autocomplete.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Meta<AutocompleteComponent>",
+          "defaultValue": "{\n  title: 'Evolution Components/Autocomplete',\n  component: AutocompleteComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+        },
+        {
+          "name": "Required",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/autocomplete.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    ...Default.args,\n    inputConfiguration: {\n      control: formControlRequiredAutocomplete,\n      label: 'Autocomplete',\n      requiredErrorMessage: 'Este campo es requerido',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
+        },
+        {
+          "name": "Unlabeled",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/autocomplete.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    ...Default.args,\n    inputConfiguration: {\n      control: formControlUnlabeledAutocomplete,\n      requiredErrorMessage: 'Este campo es requerido',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
+        }
+      ],
       "stories/breadcrumb.stories.ts": [
         {
           "name": "Default",
@@ -2709,7 +2950,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    title: 'Samuel Lopez finalizó Programa Desarrollo',\r\n    subtitle: '30/09/2024',\r\n    info: 'Estimado(a) Juana Margarita Rodas Opico,\\n\\nEste es un recordatorio de que su capacitación en **Atención al Cliente** se llevará a cabo mañana.\\n\\nAsegúrese de estar preparado. Ingrese a la misma desde <a href=\"https://www.google.com/\" target=\"_blank\">**aquí**</a>.',\r\n    twClass: '',\r\n  },\r\n}"
+          "defaultValue": "{\n  args: {\n    title: 'Samuel Lopez finalizó Programa Desarrollo',\n    subtitle: '30/09/2024',\n    info: 'Estimado(a) Juana Margarita Rodas Opico,\\n\\nEste es un recordatorio de que su capacitación en **Atención al Cliente** se llevará a cabo mañana.\\n\\nAsegúrese de estar preparado. Ingrese a la misma desde <a href=\"https://www.google.com/\" target=\"_blank\">**aquí**</a>.',\n    twClass: '',\n  },\n}"
         },
         {
           "name": "meta",
@@ -2719,7 +2960,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<InfoPanelComponent>",
-          "defaultValue": "{\r\n  title: 'Evolution Components/Info Panel',\r\n  component: InfoPanelComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideMarkdown()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
+          "defaultValue": "{\n  title: 'Evolution Components/Info Panel',\n  component: InfoPanelComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideMarkdown()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
         }
       ],
       "stories/input.stories.ts": [
@@ -2731,7 +2972,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    control: formControlDefaultInput,\n    label: 'Input',\n    inputType: 'text',\n    detail: '',\n    twClass: '',\n  },\n}"
+          "defaultValue": "{\n  args: {\n    inputConfiguration: {\n      control: formControlDefaultInput,\n      label: 'Input',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
         },
         {
           "name": "ErrorEmail",
@@ -2741,7 +2982,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    ...Default.args,\n    inputType: 'email',\n    control: formControlEmailInput,\n    requiredErrorMessage: 'Este campo es requerido',\n    emailErrorMessage:\n      'Por favor, introduce una dirección de correo electrónico válida',\n  },\n}"
+          "defaultValue": "{\n  args: {\n    inputConfiguration: {\n      control: formControlEmailInput,\n      label: 'Input',\n      inputType: 'email',\n      requiredErrorMessage: 'Este campo es requerido',\n      emailErrorMessage:\n        'Por favor, introduce una dirección de correo electrónico válida',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
         },
         {
           "name": "ErrorPattern",
@@ -2751,7 +2992,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    ...Default.args,\n    inputType: 'tel',\n    control: formControlPatternInput,\n    requiredErrorMessage: 'Este campo es requerido',\n    patternErrorMessage: 'Formato requerido (123) 456-7890',\n  },\n}"
+          "defaultValue": "{\n  args: {\n    inputConfiguration: {\n      control: formControlPatternInput,\n      label: 'Input',\n      inputType: 'tel',\n      requiredErrorMessage: 'Este campo es requerido',\n      patternErrorMessage: 'Formato requerido (123) 456-7890',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
         },
         {
           "name": "form",
@@ -2761,7 +3002,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "",
-          "defaultValue": "new FormBuilder().group({\n  defaultFieldInput: new FormControl('', []),\n  requiredFieldInput: new FormControl('', [Validators.required]),\n  emailFieldInput: new FormControl('', [Validators.required, Validators.email]),\n  patternFieldInput: new FormControl('', [\n    Validators.required,\n    Validators.pattern(/^\\(\\d{3}\\) \\d{3}-\\d{4}$/),\n  ]),\n})"
+          "defaultValue": "new FormBuilder().group({\n  defaultFieldInput: new FormControl('', []),\n  requiredFieldInput: new FormControl('', [Validators.required]),\n  unlabeledFieldInput: new FormControl('', [Validators.required]),\n  emailFieldInput: new FormControl('', [Validators.required, Validators.email]),\n  patternFieldInput: new FormControl('', [\n    Validators.required,\n    Validators.pattern(/^\\(\\d{3}\\) \\d{3}-\\d{4}$/),\n  ]),\n})"
         },
         {
           "name": "formControlDefaultInput",
@@ -2804,6 +3045,16 @@
           "defaultValue": "form.controls['requiredFieldInput']"
         },
         {
+          "name": "formControlUnlabeledInput",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/input.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "form.controls['unlabeledFieldInput']"
+        },
+        {
           "name": "meta",
           "ctype": "miscellaneous",
           "subtype": "variable",
@@ -2821,7 +3072,17 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    ...Default.args,\n    control: formControlRequiredInput,\n    requiredErrorMessage: 'Este campo es requerido',\n  },\n}"
+          "defaultValue": "{\n  args: {\n    inputConfiguration: {\n      control: formControlRequiredInput,\n      label: 'Input',\n      requiredErrorMessage: 'Este campo es requerido',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
+        },
+        {
+          "name": "Unlabeled",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/input.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    inputConfiguration: {\n      control: formControlUnlabeledInput,\n      requiredErrorMessage: 'Este campo es requerido',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
         }
       ],
       "stories/program-card.stories.ts": [
@@ -2917,7 +3178,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "",
-          "defaultValue": "new FormBuilder().group({\n  defaultFieldSelect: new FormControl('', []),\n  multipleFieldSelect: new FormControl([], []),\n  requiredFieldSelect: new FormControl('', []),\n})"
+          "defaultValue": "new FormBuilder().group({\n  defaultFieldSelect: new FormControl('', []),\n  multipleFieldSelect: new FormControl([], []),\n  requiredFieldSelect: new FormControl('', []),\n  unlabeledFieldSelect: new FormControl('', []),\n})"
         },
         {
           "name": "formControlDefaultSelect",
@@ -2950,6 +3211,16 @@
           "defaultValue": "form.controls['requiredFieldSelect']"
         },
         {
+          "name": "formControlUnlabeledSelect",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/select.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "form.controls['unlabeledFieldSelect']"
+        },
+        {
           "name": "meta",
           "ctype": "miscellaneous",
           "subtype": "variable",
@@ -2978,6 +3249,16 @@
           "deprecationMessage": "",
           "type": "Story",
           "defaultValue": "{\n  args: {\n    ...Default.args,\n    control: formControlRequiredSelect,\n    isRequired: true,\n    isMultiple: false,\n    requiredErrorMessage: 'Este campo es requerido',\n  },\n}"
+        },
+        {
+          "name": "Unlabeled",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/select.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    ...Default.args,\n    label: '',\n    control: formControlUnlabeledSelect,\n    isRequired: true,\n    isMultiple: false,\n    requiredErrorMessage: 'Este campo es requerido',\n  },\n}"
         }
       ],
       "stories/sidebar.stories.ts": [
@@ -3055,7 +3336,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    titles: {\n      today: 'Hoy',\n      thisWeek: 'Esta Semana',\n      previous: 'Anteriores',\n    },\n    emptyListMessage: 'Sin contenido',\n    items: [\n      {\n        label: 'Carlos Sanchez finalizó Programa Recursos Humanos',\n        avatarName: 'Carlos Sanchez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Carlos Sanchez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-03-09T07:00:00',\n      },\n      {\n        label: 'Samuel Lopez finalizó Programa Desarrollo',\n        avatarName: 'Samuel Lopez',\n        onClick: {\n          action: (name = 'Samuel Lopez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-03-09T07:00:00',\n      },\n      {\n        label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',\n        avatarName: 'Ignacio Fernandez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Ignacio Fernandez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-03-09T07:00:00',\n      },\n      {\n        label: 'Carlos Sanchez finalizó Programa Recursos Humanos',\n        avatarName: 'Carlos Sanchez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Carlos Sanchez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-03-09T07:00:00',\n      },\n      {\n        label: 'Samuel Lopez finalizó Programa Desarrollo',\n        avatarName: 'Samuel Lopez',\n        onClick: {\n          action: (name = 'Samuel Lopez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-10-21T07:00:00',\n      },\n      {\n        label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',\n        avatarName: 'Ignacio Fernandez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Ignacio Fernandez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-10-22T07:00:00',\n      },\n    ],\n    twClass: '',\n  },\n}"
+          "defaultValue": "{\n  args: {\n    titles: {\n      today: 'Hoy',\n      thisWeek: 'Esta Semana',\n      previous: 'Anteriores',\n    },\n    emptyListMessage: 'Sin contenido',\n    items: [\n      {\n        label:\n          'Carlos Sanchez finalizó Programa Recursos Humanos. El empleado **Carlos Sanchez** completó el programa de **Recursos Humanos**.',\n        avatarName: 'Carlos Sanchez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Carlos Sanchez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-03-09T07:00:00',\n      },\n      {\n        label: 'Samuel Lopez finalizó Programa Desarrollo',\n        avatarName: 'Samuel Lopez',\n        onClick: {\n          action: (name = 'Samuel Lopez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-03-09T07:00:00',\n      },\n      {\n        label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',\n        avatarName: 'Ignacio Fernandez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Ignacio Fernandez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-03-09T07:00:00',\n      },\n      {\n        label:\n          'Carlos Sanchez finalizó Programa Recursos Humanos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut error repellendus nemo, dolorem voluptatem voluptates optio quas, minus dolor odit nihil est quaerat alias nulla iusto cumque, consequuntur sed placeat.',\n        avatarName: 'Carlos Sanchez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Carlos Sanchez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-03-09T07:00:00',\n      },\n      {\n        label: 'Samuel Lopez finalizó Programa Desarrollo',\n        avatarName: 'Samuel Lopez',\n        onClick: {\n          action: (name = 'Samuel Lopez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-10-21T07:00:00',\n      },\n      {\n        label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',\n        avatarName: 'Ignacio Fernandez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Ignacio Fernandez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n        date: '2024-10-22T07:00:00',\n      },\n    ],\n    twClass: '',\n  },\n}"
         },
         {
           "name": "meta",
@@ -3065,7 +3346,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<TimeSegmentedListComponent>",
-          "defaultValue": "{\n  title: 'Evolution Components/Time Segmented List',\n  component: TimeSegmentedListComponent,\n  tags: ['autodocs'],\n}"
+          "defaultValue": "{\n  title: 'Evolution Components/Time Segmented List',\n  component: TimeSegmentedListComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideMarkdown()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
         }
       ],
       "stories/pagination.stories.ts": [
@@ -3205,11 +3486,41 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Preview",
-          "defaultValue": "{\r\n  parameters: {\r\n    controls: {\r\n      matchers: {\r\n        color: /(background|color)$/i,\r\n        date: /Date$/i,\r\n      },\r\n    },\r\n    deepControls: { enabled: true },\r\n  },\r\n  decorators: [componentWrapperDecorator((story) => `<div>${story}</div>`)],\r\n}"
+          "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n    deepControls: { enabled: true },\n  },\n  decorators: [componentWrapperDecorator((story) => `<div>${story}</div>`)],\n}"
         }
       ]
     },
     "groupedFunctions": {
+      "stories/autocomplete.stories.ts": [
+        {
+          "name": "addCircularSafeProperties",
+          "file": "stories/autocomplete.stories.ts",
+          "ctype": "miscellaneous",
+          "subtype": "function",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "description": "",
+          "args": [
+            {
+              "name": "formControl",
+              "type": "FormControl",
+              "deprecated": false,
+              "deprecationMessage": ""
+            }
+          ],
+          "jsdoctags": [
+            {
+              "name": "formControl",
+              "type": "FormControl",
+              "deprecated": false,
+              "deprecationMessage": "",
+              "tagName": {
+                "text": "param"
+              }
+            }
+          ]
+        }
+      ],
       "stories/input.stories.ts": [
         {
           "name": "addCircularSafeProperties",
@@ -3306,6 +3617,19 @@
           "subtype": "typealias",
           "rawtype": "StoryObj<AssignCardComponent>",
           "file": "stories/assign-card.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "description": "",
+          "kind": 183
+        }
+      ],
+      "stories/autocomplete.stories.ts": [
+        {
+          "name": "Story",
+          "ctype": "miscellaneous",
+          "subtype": "typealias",
+          "rawtype": "StoryObj<AutocompleteComponent>",
+          "file": "stories/autocomplete.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "description": "",
@@ -3737,6 +4061,96 @@
         "linktype": "miscellaneous",
         "linksubtype": "variable",
         "name": "SmallSizeSmallOptions",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/autocomplete.stories.ts",
+        "type": "function",
+        "linktype": "miscellaneous",
+        "linksubtype": "function",
+        "name": "addCircularSafeProperties",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/autocomplete.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Default",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/autocomplete.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "form",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/autocomplete.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "formControlDefaultAutocomplete",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/autocomplete.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "formControlRequiredAutocomplete",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/autocomplete.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "formControlUnlabeledAutocomplete",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/autocomplete.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "meta",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/autocomplete.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Required",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/autocomplete.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Unlabeled",
         "coveragePercent": 0,
         "coverageCount": "0/1",
         "status": "low"
@@ -4516,6 +4930,16 @@
         "type": "variable",
         "linktype": "miscellaneous",
         "linksubtype": "variable",
+        "name": "formControlUnlabeledInput",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/input.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
         "name": "meta",
         "coveragePercent": 0,
         "coverageCount": "0/1",
@@ -4527,6 +4951,16 @@
         "linktype": "miscellaneous",
         "linksubtype": "variable",
         "name": "Required",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/input.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Unlabeled",
         "coveragePercent": 0,
         "coverageCount": "0/1",
         "status": "low"
@@ -4816,6 +5250,16 @@
         "type": "variable",
         "linktype": "miscellaneous",
         "linksubtype": "variable",
+        "name": "formControlUnlabeledSelect",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/select.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
         "name": "meta",
         "coveragePercent": 0,
         "coverageCount": "0/1",
@@ -4837,6 +5281,16 @@
         "linktype": "miscellaneous",
         "linksubtype": "variable",
         "name": "Required",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/select.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Unlabeled",
         "coveragePercent": 0,
         "coverageCount": "0/1",
         "status": "low"

@@ -1,35 +1,59 @@
-<form class="min-w-[150px] max-w-[500px] w-full {{ twClass }}">
+<form
+  class="form-input min-w-36 max-w-lg w-full {{ inputConfiguration.twClass }}"
+>
   <mat-form-field class="w-full">
-    <mat-label>{{ label }}</mat-label>
+    @if (inputConfiguration.label) {
+      <mat-label class="text-medium-gray">{{
+        inputConfiguration.label
+      }}</mat-label>
+    }
     <input
-      type="{{ inputType }}"
+      type="{{ inputConfiguration.inputType }}"
       matInput
-      [formControl]="control"
+      [formControl]="inputConfiguration.control"
       [errorStateMatcher]="matcher"
-      placeholder="{{ inputPlaceholder }}"
+      placeholder="{{ inputConfiguration.inputPlaceholder }}"
     />
-    @if (detail) {
-      <mat-hint>{{ detail }}</mat-hint>
+    @if (inputConfiguration.control.value) {
+      <evo-button
+        class="absolute right-0 bottom-[13px]"
+        twClass="!shadow-none !bg-white"
+        [icon]="{
+          icon: 'close',
+          type: 'class',
+        }"
+        [withoutBorder]="true"
+        (click)="clean($event)"
+      ></evo-button>
     }
-    @if (control.hasError("required") && requiredErrorMessage) {
-      <mat-error>{{ requiredErrorMessage }}</mat-error>
+    @if (inputConfiguration.detail) {
+      <mat-hint>{{ inputConfiguration.detail }}</mat-hint>
     }
     @if (
-      !control.hasError("required") &&
-      control.hasError("email") &&
-      emailErrorMessage
+      inputConfiguration.control.hasError("required") &&
+      inputConfiguration.requiredErrorMessage
     ) {
-      <mat-error>{{ emailErrorMessage }}</mat-error>
+      <mat-error>{{ inputConfiguration.requiredErrorMessage }}</mat-error>
     }
     @if (
-      !control.hasError("required") &&
-      control.hasError("pattern") &&
-      patternErrorMessage
+      !inputConfiguration.control.hasError("required") &&
+      inputConfiguration.control.hasError("email") &&
+      inputConfiguration.emailErrorMessage
     ) {
-      <mat-error>{{ patternErrorMessage }}</mat-error>
+      <mat-error>{{ inputConfiguration.emailErrorMessage }}</mat-error>
     }
-    @if (!control.hasError("required") && anotherErrorMessage) {
-      <mat-error>{{ anotherErrorMessage }}</mat-error>
+    @if (
+      !inputConfiguration.control.hasError("required") &&
+      inputConfiguration.control.hasError("pattern") &&
+      inputConfiguration.patternErrorMessage
+    ) {
+      <mat-error>{{ inputConfiguration.patternErrorMessage }}</mat-error>
+    }
+    @if (
+      !inputConfiguration.control.hasError("required") &&
+      inputConfiguration.anotherErrorMessage
+    ) {
+      <mat-error>{{ inputConfiguration.anotherErrorMessage }}</mat-error>
     }
   </mat-form-field>
 </form>

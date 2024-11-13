@@ -68,10 +68,10 @@ export * from './shared/interfaces/ietapa.interface';
 export * from './shared/interfaces/iempleado-responsable.interface';
 export * from './shared/interfaces/itipo-actividad.interface';
 export * from './shared/interfaces/itime-segmented-list.interface';
-export * from './shared/interfaces/iautocomplete.interface';
 
 // Api Interfaces
 export * from './shared/interfaces/api/iempleado.interface';
+export * from './shared/interfaces/api/ivalue-list.interface';
 
 // Utils
 export * from './shared/utils/date-utils';

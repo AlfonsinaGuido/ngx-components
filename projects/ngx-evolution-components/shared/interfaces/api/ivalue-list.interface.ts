@@ -1,4 +1,4 @@
-export interface IAutocompleteItems {
+export interface IValueList {
   Id: string;
   Description: string;
   Bag: IBag;

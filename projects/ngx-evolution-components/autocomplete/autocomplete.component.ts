@@ -17,7 +17,7 @@ import { MatInputModule } from '@angular/material/input';
 import {
   ButtonComponent,
   CustomErrorStateMatcher,
-  IAutocompleteItems,
+  IValueList,
   IInput,
 } from '../public-api';
 import { Subscription } from 'rxjs';
@@ -40,9 +40,9 @@ import { Subscription } from 'rxjs';
 })
 export class AutocompleteComponent implements OnInit, OnDestroy {
   @Input() inputConfiguration!: IInput;
-  @Input() items: IAutocompleteItems[] = [];
+  @Input() items: IValueList[] = [];
   @Output() valueChange = new EventEmitter<any>();
-  public filteredOptions: IAutocompleteItems[];
+  public filteredOptions: IValueList[];
   private valueChangesSubscription: Subscription = new Subscription();
   matcher = new CustomErrorStateMatcher();
 

@@ -11,12 +11,12 @@ export default {
 
 export const Default: Story = {
   args: {
-    actividades: actividades,
+    activities: actividades,
   },
 };
 
 export const sinActividadeds: Story = {
   args: {
-    actividades: [],
+    activities: [],
   },
 };

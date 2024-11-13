@@ -20,18 +20,18 @@ export class TagComponent {
    * @returns color negro o blanco en hexadecimal
    */
   getTextColorBasedOnBackground(backgroundColor: string): string {
-    // Remove the hash if present
+    // Remueve el hash del string de color
     const color = backgroundColor.replace('#', '');
 
-    // Parse r, g, b from hex color
+    // Parsea el color a RGB
     const r = parseInt(color.substring(0, 2), 16);
     const g = parseInt(color.substring(2, 4), 16);
     const b = parseInt(color.substring(4, 6), 16);
 
-    // Calculate brightness according to the luminance formula
+    // Formula de brillo según el color ingresado
     const brightness = (r * 299 + g * 587 + b * 114) / 1000;
 
-    // Return black for bright backgrounds, white for dark backgrounds
+    // Regresa negro o blanco según el resultado de la formula
     return brightness > 128 ? '#000000' : '#FFFFFF';
   }
 }

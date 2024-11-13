@@ -42,10 +42,10 @@ interface actividadesData {
   styleUrls: ['./tablero-kanban.component.scss', '../styles/output.scss'],
 })
 export class TableroKanbanComponent implements OnInit {
-  @Input() columnas!: IColumna[];
+  @Input() columns!: IColumna[];
   @Input() twClass?: string;
-  @Output('actividadModificada')
-  public actividadModificada: EventEmitter<IActividad> = new EventEmitter();
+  @Output('activityModified')
+  public activityModified: EventEmitter<IActividad> = new EventEmitter();
   public actividadesMock: IActividad[] = [];
   public actividadesEmpleos: actividadesData[] = [];
   public isSingle: boolean = true;
@@ -53,6 +53,6 @@ export class TableroKanbanComponent implements OnInit {
   ngOnInit(): void {}
 
   changeActivityStatus(event: IActividad): void {
-    this.actividadModificada.emit(event);
+    this.activityModified.emit(event);
   }
 }

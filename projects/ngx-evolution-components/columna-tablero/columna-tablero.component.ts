@@ -41,12 +41,12 @@ export class ColumnaTableroComponent {
     Nombre: '',
     FechaFin: new Date(),
   };
-  @Input() actividades!: IActividad[];
-  @Input() validacion?: IValidationAction;
-  @Output('ordenActividad')
-  public ordenActividad: EventEmitter<IActividad> = new EventEmitter();
-  @Output('actualizarActividad')
-  public actualizarActividad: EventEmitter<IActividad> = new EventEmitter();
+  @Input() activities!: IActividad[];
+  @Input() validation?: IValidationAction;
+  @Output('orderActivity')
+  public orderActivity: EventEmitter<IActividad> = new EventEmitter();
+  @Output('updateActivity')
+  public updateActivity: EventEmitter<IActividad> = new EventEmitter();
 
   drop(event: CdkDragDrop<IActividad[]>) {
     // Cambio de orden
@@ -57,7 +57,7 @@ export class ColumnaTableroComponent {
         event.currentIndex,
       );
       const itemMoved = event.container.data[event.currentIndex];
-      this.ordenActividad.emit(itemMoved);
+      this.orderActivity.emit(itemMoved);
       // Cambio de columna (array)
     } else {
       transferArrayItem(
@@ -67,13 +67,13 @@ export class ColumnaTableroComponent {
         event.currentIndex,
       );
       const itemMoved = event.container.data[event.currentIndex];
-      this.actualizarActividad.emit(itemMoved);
+      this.updateActivity.emit(itemMoved);
     }
   }
 
   validationCDK = (item: CdkDrag<IActividad>) => {
-    if (this.validacion) {
-      return this.validacion.action(item.data);
+    if (this.validation) {
+      return this.validation.action(item.data, this.validation.estado);
     }
     return false;
   };

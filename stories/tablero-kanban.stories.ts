@@ -16,48 +16,51 @@ export default {
   args: {},
 } as Meta<TableroKanbanComponent>;
 
-const validarPendiente = (item: IActividad): boolean => {
-  return false;
-};
-
-const validarEnEjecucion = (item: IActividad): boolean => {
+/**
+ * Arrow Function que permite validar la actividad que quiere ingresar a una columna
+ * @param item Actividad seleccionada en el tablero
+ * @param tipoColumna Estado de la columna
+ * @returns valor booleano que indica si pueda ingresar o no a la columna
+ */
+const validarEstado = (
+  item: IActividad,
+  tipoColumna: EstadoActividad,
+): boolean => {
   const estado = item.EstadoDb;
-
-  if (estado === EstadoActividad.Pendiente) {
-    return true;
+  let resultado: boolean;
+  switch (tipoColumna) {
+    case EstadoActividad.EnProceso:
+      resultado = estado === EstadoActividad.Pendiente;
+      break;
+    case EstadoActividad.Finalizada:
+      resultado = estado === EstadoActividad.EnProceso;
+      break;
+    default:
+      resultado = false;
+      break;
   }
-  return false;
-};
-
-const validarFinalizado = (item: IActividad): boolean => {
-  const estado = item.EstadoDb;
-
-  if (estado === EstadoActividad.EnProceso) {
-    return true;
-  }
-
-  return false;
+  return resultado;
 };
 
 const estadosMap = {
   [EstadoActividad.Pendiente]: {
     id: 1,
     nombre: 'abiertas',
-    validacion: { action: validarPendiente },
+    validacion: { action: validarEstado, estado: EstadoActividad.Pendiente },
   },
   [EstadoActividad.EnProceso]: {
     id: 2,
     nombre: 'en progreso',
-    validacion: { action: validarEnEjecucion },
+    validacion: { action: validarEstado, estado: EstadoActividad.EnProceso },
   },
   [EstadoActividad.Finalizada]: {
     id: 3,
     nombre: 'finalizadas',
-    validacion: { action: validarFinalizado },
+    validacion: { action: validarEstado, estado: EstadoActividad.Finalizada },
   },
 };
 
-const columnas: IColumna[] = Object.values(
+const columns: IColumna[] = Object.values(
   actividades.reduce((acc: any, act) => {
     const estadoConfig = estadosMap[act.EstadoDb];
     if (!estadoConfig) return acc;
@@ -74,6 +77,6 @@ const columnas: IColumna[] = Object.values(
 
 export const Default: Story = {
   args: {
-    columnas,
+    columns,
   },
 };

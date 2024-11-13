@@ -4,7 +4,7 @@
   id="board"
 >
   <div class="flex gap-3" cdkDropListGroup>
-    @for (columna of columnas; track $index) {
+    @for (columna of columns; track $index) {
       <div
         class="inline-block min-w-72 max-w-72 whitespace-normal snap-center"
         id="board-column"
@@ -17,9 +17,9 @@
         ></evo-header-columna>
         @if (isSingle) {
           <evo-columna-tablero
-            [actividades]="columna.actividades"
-            [validacion]="columna.validacion"
-            (actualizarActividad)="changeActivityStatus($event)"
+            [activities]="columna.actividades"
+            [validation]="columna.validacion"
+            (updateActivity)="changeActivityStatus($event)"
           >
           </evo-columna-tablero>
         }
@@ -62,8 +62,8 @@
               class="inline-block min-w-72 max-w-72 whitespace-normal snap-center"
             >
               <evo-columna-tablero
-                [actividades]="empleo.actividades.actividades"
-                (actualizarActividad)="changeActivityStatus($event)"
+                [activities]="empleo.actividades.actividades"
+                (updateActivity)="changeActivityStatus($event)"
               >
               </evo-columna-tablero>
             </div>

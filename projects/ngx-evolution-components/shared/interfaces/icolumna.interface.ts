@@ -1,4 +1,4 @@
-import { IActividad } from '../../public-api';
+import { EstadoActividad, IActividad } from '../../public-api';
 
 export interface IColumna {
   id: string | number;
@@ -8,5 +8,6 @@ export interface IColumna {
 }
 
 export interface IValidationAction {
-  action: (element: IActividad) => boolean;
+  action: (element: IActividad, tipoColumna: EstadoActividad) => boolean;
+  estado: EstadoActividad;
 }

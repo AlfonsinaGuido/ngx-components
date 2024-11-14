@@ -1,5 +1,7 @@
-<mat-form-field [class]="twClass">
-  <mat-label>{{ label }}</mat-label>
+<mat-form-field class="mat-form-select min-w-36 max-w-lg w-full {{ twClass }}">
+  @if (label) {
+    <mat-label class="text-medium-gray">{{ label }}</mat-label>
+  }
   @if (isMultiple) {
     @if (isRequired) {
       <mat-select

@@ -1,0 +1,54 @@
+<form
+  class="form-autocomplete min-w-36 max-w-lg w-full {{
+    inputConfiguration.twClass
+  }}"
+>
+  <mat-form-field class="w-full">
+    @if (inputConfiguration.label) {
+      <mat-label class="text-medium-gray">{{
+        inputConfiguration.label
+      }}</mat-label>
+    }
+    <input
+      #input
+      matInput
+      type="text"
+      placeholder="{{ inputConfiguration.inputPlaceholder }}"
+      [errorStateMatcher]="matcher"
+      [formControl]="inputConfiguration.control"
+      [matAutocomplete]="auto"
+      (input)="filter()"
+      (focus)="filter()"
+    />
+    @if (inputConfiguration.control.value) {
+      <evo-button
+        class="absolute right-0 bottom-[13px]"
+        twClass="!shadow-none !bg-white"
+        [icon]="{
+          icon: 'close',
+          type: 'class',
+        }"
+        [withoutBorder]="true"
+        (click)="clean($event)"
+      ></evo-button>
+    }
+    <mat-autocomplete requireSelection #auto="matAutocomplete">
+      @for (option of filteredOptions; track option.Id) {
+        <mat-option [value]="option.Description">{{
+          option.Description
+        }}</mat-option>
+      }
+    </mat-autocomplete>
+    @if (inputConfiguration.detail) {
+      <mat-hint class="whitespace-pre-wrap">{{
+        inputConfiguration.detail
+      }}</mat-hint>
+    }
+    @if (
+      inputConfiguration.control.hasError("required") &&
+      inputConfiguration.requiredErrorMessage
+    ) {
+      <mat-error>{{ inputConfiguration.requiredErrorMessage }}</mat-error>
+    }
+  </mat-form-field>
+</form>

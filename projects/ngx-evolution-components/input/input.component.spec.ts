@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { InputComponent } from './input.component';
 import {
   FormControl,
@@ -29,7 +28,9 @@ describe('InputComponent', () => {
 
     fixture = TestBed.createComponent(InputComponent);
     component = fixture.componentInstance;
-    component.control = new FormControl();
+    component.inputConfiguration = {
+      control: new FormControl(),
+    };
     fixture.detectChanges();
   });
 
@@ -38,9 +39,11 @@ describe('InputComponent', () => {
   });
 
   it('should subscribe to valueChanges on init, ngOnInit()', () => {
-    spyOn(component.control.valueChanges, 'subscribe');
+    spyOn(component.inputConfiguration.control.valueChanges, 'subscribe');
     component.ngOnInit();
-    expect(component.control.valueChanges.subscribe).toHaveBeenCalled();
+    expect(
+      component.inputConfiguration.control.valueChanges.subscribe,
+    ).toHaveBeenCalled();
   });
 
   it('should unsubscribe from valueChanges on destroy, ngOnDestroy()', () => {
@@ -54,31 +57,48 @@ describe('InputComponent', () => {
 
   it('should return true if control is invalid, dirty, and not touched or submitted', () => {
     matcher = new CustomErrorStateMatcher();
-    component.control.setValue('test');
-    component.control.markAsDirty();
-    component.control.setErrors({ required: true });
+    component.inputConfiguration.control.setValue('test');
+    component.inputConfiguration.control.markAsDirty();
+    component.inputConfiguration.control.setErrors({ required: true });
 
     const form = {} as FormGroupDirective;
 
-    expect(matcher.isErrorState(component.control, form)).toBeTrue();
+    expect(
+      matcher.isErrorState(component.inputConfiguration.control, form),
+    ).toBeTrue();
   });
 
   it('should return false if control is valid', () => {
     matcher = new CustomErrorStateMatcher();
-    component.control.setValue('test');
-    component.control.markAsDirty();
+    component.inputConfiguration.control.setValue('test');
+    component.inputConfiguration.control.markAsDirty();
 
     const form = {} as FormGroupDirective;
 
-    expect(matcher.isErrorState(component.control, form)).toBeFalse();
+    expect(
+      matcher.isErrorState(component.inputConfiguration.control, form),
+    ).toBeFalse();
   });
 
   it('should return true if control is invalid and form is submitted', () => {
     matcher = new CustomErrorStateMatcher();
-    component.control.setErrors({ required: true });
+    component.inputConfiguration.control.setErrors({ required: true });
 
     const form = { submitted: true } as FormGroupDirective;
 
-    expect(matcher.isErrorState(component.control, form)).toBeTrue();
+    expect(
+      matcher.isErrorState(component.inputConfiguration.control, form),
+    ).toBeTrue();
+  });
+
+  it('should reset control and output the new value, clean(event: any)', () => {
+    spyOn(component.valueChange, 'emit');
+    spyOn(component.inputConfiguration.control, 'reset');
+
+    const event = { target: { value: 'test' } };
+    component.clean(event);
+
+    expect(component.inputConfiguration.control.reset).toHaveBeenCalled();
+    expect(component.valueChange.emit).toHaveBeenCalledWith('test');
   });
 });

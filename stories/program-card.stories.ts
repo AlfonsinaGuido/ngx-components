@@ -11,16 +11,19 @@ import { CommonModule } from '@angular/common';
 type Story = StoryObj<ProgramCardComponent>;
 
 const defaultconfig = {
-  id: '1',
-  title: 'Program Title',
-  subtitle: 'Ejemplo de descripción',
-  activitiesCount: 5,
+  codigo: '1',
+  nombre: 'Program Title',
+  descripcion:
+    'Se permite texto hasta dos líneas. Se permite texto hasta dos líneas. Se permite texto hasta dos líneas.',
+  totalActividades: 5,
   activitiesText: 'Actividades',
-  weeksCount: 3,
-  weeksText: 'Semanas',
+  duracion: 3,
+  unidadDuracionDb: 'Semanas',
   buttonLabel: 'Asignar',
   buttonIcon: 'add-user.svg',
   buttonClasses: 'theme-primary',
+  totalParticipantes: 2,
+  participantesText: 'participantes',
   onButtonClick: {
     action: () => {
       console.log('Button clicked!');
@@ -68,8 +71,9 @@ export const Small: Story = {
     config: {
       ...defaultconfig,
       size: 'sm',
-      title: 'Small Program Title',
-      subtitle: 'Se permite texto hasta dos líneas.',
+      nombre: 'Onboarding General para Todos los Empleados',
+      descripcion:
+        'Se permite texto hasta dos líneas. Se permite texto hasta dos líneas.',
       isFluid: false,
     },
   },
@@ -80,7 +84,7 @@ export const Medium: Story = {
     config: {
       ...defaultconfig,
       size: 'md',
-      title: 'Medium Program Title',
+      nombre: 'Medium Program Title',
       isFluid: false,
     },
   },
@@ -91,7 +95,7 @@ export const Large: Story = {
     config: {
       ...defaultconfig,
       size: 'lg',
-      title: 'Large Program Title',
+      nombre: 'Large Program Title',
       isFluid: false,
     },
   },

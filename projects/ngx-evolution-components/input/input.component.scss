@@ -1,0 +1,21 @@
+.form-input {
+  .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: white;
+  }
+  .mdc-text-field--filled {
+    border: 1px solid var(--light-gray);
+    border-radius: 123px;
+    .mdc-floating-label {
+      max-width: calc(100% - 18px);
+    }
+    .mdc-floating-label--float-above {
+      max-width: calc(100% / 0.75 - 24px);
+    }
+  }
+  .mdc-text-field--invalid {
+    border: 1px solid var(--warn);
+  }
+  .mdc-line-ripple {
+    display: none;
+  }
+}

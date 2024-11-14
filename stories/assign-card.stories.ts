@@ -45,29 +45,12 @@ export const Default: Story = {
   },
 };
 
-export const SmallSizeSmallOptions: Story = {
+export const NoData: Story = {
   args: {
     config: {
       ...defaultConfig,
-      twClass: 'w-80',
-    },
-  },
-  parameters: {
-    actions: {
-      handles: ['removeItem', 'buttonClick'],
-    },
-  },
-};
-
-export const SmallSize: Story = {
-  args: {
-    config: {
-      ...defaultConfig,
-      items: [
-        ...defaultConfig.items,
-        { id: '4', name: 'Oscar Esteban Juarez Paz' },
-      ],
-      twClass: 'w-80',
+      items: [],
+      twClass: 'w-40',
     },
   },
   parameters: {

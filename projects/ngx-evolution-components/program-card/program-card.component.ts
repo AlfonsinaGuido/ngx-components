@@ -2,7 +2,6 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   ButtonComponent,
-  SvgComponent,
   IProgramCardConfigInterface,
   ClassUtilityService,
 } from '../public-api';
@@ -11,7 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'evo-card',
   standalone: true,
-  imports: [CommonModule, ButtonComponent, SvgComponent, MatIconModule],
+  imports: [CommonModule, ButtonComponent, MatIconModule],
   templateUrl: './program-card.component.html',
   styleUrls: ['./program-card.component.scss'],
   encapsulation: ViewEncapsulation.None,

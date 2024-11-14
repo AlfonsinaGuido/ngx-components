@@ -1,11 +1,18 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { CartaActividadComponent, IActividad } from '../public-api';
+import {
+  CartaActividadComponent,
+  Duracion,
+  EstadoActividad,
+  IActividad,
+  IValidationAction,
+} from '../public-api';
 import { CommonModule } from '@angular/common';
 import {
   DragDropModule,
   CdkDragDrop,
   moveItemInArray,
   transferArrayItem,
+  CdkDrag,
 } from '@angular/cdk/drag-drop';
 
 @Component({
@@ -16,11 +23,30 @@ import {
   styleUrls: ['./columna-tablero.component.scss', '../styles/output.scss'],
 })
 export class ColumnaTableroComponent {
-  @Input() actividades!: IActividad[];
-  @Output('ordenActividad')
-  public ordenActividad: EventEmitter<any> = new EventEmitter();
-  @Output('actualizarActividad')
-  public actualizarActividad: EventEmitter<any> = new EventEmitter();
+  actividadSelected: IActividad = {
+    Codigo: 0,
+    Duracion: 0,
+    Etapa: {
+      Codigo: 0,
+      Nombre: '',
+      Descripcion: '',
+    },
+    EstadoDb: EstadoActividad.Pendiente,
+    Tipo: {
+      Codigo: 0,
+      Nombre: '',
+      Descripcion: '',
+    },
+    UnidadDuracionDb: Duracion.Horas,
+    Nombre: '',
+    FechaFin: new Date(),
+  };
+  @Input() activities!: IActividad[];
+  @Input() validation?: IValidationAction;
+  @Output('orderActivity')
+  public orderActivity: EventEmitter<IActividad> = new EventEmitter();
+  @Output('updateActivity')
+  public updateActivity: EventEmitter<IActividad> = new EventEmitter();
 
   drop(event: CdkDragDrop<IActividad[]>) {
     // Cambio de orden
@@ -30,7 +56,8 @@ export class ColumnaTableroComponent {
         event.previousIndex,
         event.currentIndex,
       );
-      this.ordenActividad.emit(this.actividades);
+      const itemMoved = event.container.data[event.currentIndex];
+      this.orderActivity.emit(itemMoved);
       // Cambio de columna (array)
     } else {
       transferArrayItem(
@@ -39,7 +66,19 @@ export class ColumnaTableroComponent {
         event.previousIndex,
         event.currentIndex,
       );
-      this.actualizarActividad.emit(this.actividades);
+      const itemMoved = event.container.data[event.currentIndex];
+      this.updateActivity.emit(itemMoved);
     }
+  }
+
+  validationCDK = (item: CdkDrag<IActividad>) => {
+    if (this.validation) {
+      return this.validation.action(item.data, this.validation.estado);
+    }
+    return false;
+  };
+
+  mostrar(event: IActividad) {
+    this.actividadSelected = event;
   }
 }

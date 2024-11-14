@@ -40,7 +40,7 @@ definitions:
           - npm config set registry https://npm.aseinfo.net
           - pipe: atlassian/npm-publish:1.0.0
             variables:
-              NPM_TOKEN: ${NPM_TOKEN}
+              NPM_TOKEN: $NPM_TOKEN
 
 pipelines:
   default:

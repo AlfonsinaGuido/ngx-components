@@ -1,18 +1,22 @@
 @if (!isHidden && title && message) {
   <div
     [ngClass]="isError ? 'bg-light-warn' : 'bg-light-success'"
-    class="flex items-center justify-between p-3 rounded-xl {{ twClass }}"
+    class="flex items-center justify-between p-3 rounded-xl relative {{
+      twClass
+    }}"
     @slideDown
   >
     <div class="flex gap-2">
-      <mat-icon
-        [ngClass]="isError ? 'text-warn' : 'text-success'"
-        class="min-w-min"
-        aria-hidden="false"
-        [attr.aria-label]="(isError ? 'Error' : 'Success') + ' icon'"
-        fontSet="material-symbols-outlined"
-        >{{ isError ? "error" : "check_circle" }}</mat-icon
-      >
+      <div class="min-w-4">
+        <mat-icon
+          [ngClass]="isError ? 'text-warn' : 'text-success'"
+          class="min-w-min absolute top-[12px] left-3 text-xl"
+          aria-hidden="false"
+          [attr.aria-label]="(isError ? 'Error' : 'Success') + ' icon'"
+          fontSet="material-symbols-outlined"
+          >{{ isError ? "error" : "check_circle" }}</mat-icon
+        >
+      </div>
       <div>
         <div class="mb-1 font-extrabold text-dark-gray">{{ title }}</div>
         <p class="text-medium-gray text-sm font-semibold">{{ message }}</p>

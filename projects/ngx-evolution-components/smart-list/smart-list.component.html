@@ -4,16 +4,18 @@
     <table class="evo-table w-full border-collapse">
       <thead>
         <tr>
+          <!-- Checkbox para selección múltiple -->
           @if (metadata?.MultiSelect) {
             <th>
               <input
                 type="checkbox"
                 [checked]="areAllSelected()"
-                (change)="selectAllResults()"
+                (change)="selectAll()"
               />
             </th>
           }
-          @for (column of getVisibleColumns(); track column.Code) {
+          <!-- Encabezados de columnas -->
+          @for (column of getVisibleColumns(); track trackByColumnCode) {
             <th class="text-left px-2 py-1">
               <div class="flex align-center items-center">
                 <!-- Columna con header y botón de ordenamiento -->
@@ -37,13 +39,14 @@
               </div>
             </th>
           }
-          @if (metadata?.Buttons && (metadata?.Buttons)!.length > 0) {
+          <!-- Encabezado para acciones -->
+          @if (metadata?.Buttons?.length) {
             <th class="text-left px-2 py-1">Acciones</th>
           }
         </tr>
       </thead>
       <tbody>
-        @for (item of paginatedItems; track item) {
+        @for (item of paginatedItems; track trackByItem) {
           <tr class="border-b border-gray-300 hover:bg-gray-100">
             @if (metadata?.MultiSelect) {
               <td>
@@ -54,7 +57,8 @@
                 />
               </td>
             }
-            @for (column of getVisibleColumns(); track column.Code) {
+            <!-- Celdas de datos -->
+            @for (column of getVisibleColumns(); track trackByColumnCode) {
               <td class="px-2 py-1 text-left">
                 @if (column.FieldName === "estado") {
                   <evo-button
@@ -68,7 +72,8 @@
                 }
               </td>
             }
-            @if (metadata?.Buttons?.length) {
+            <!-- Acciones -->
+            @if (getVisibleActions().length > 0) {
               <td class="px-2 py-1 text-left relative">
                 <div class="absolute center-content">
                   <evo-button
@@ -105,7 +110,7 @@
 <!-- Vista de card para móvil -->
 @if (isMobile) {
   <div [ngClass]="getClasses('evo-card-container')">
-    @for (item of paginatedItems; track item) {
+    @for (item of paginatedItems; track trackByItem) {
       <div class="card relative">
         <!-- Botón de acciones ubicado en la parte superior derecha -->
         <div class="absolute top-2 right-2 card-actions">
@@ -138,7 +143,7 @@
         </div>
 
         <!-- Datos de la tarjeta -->
-        @for (column of getVisibleColumns(); track column.Code) {
+        @for (column of getVisibleColumns(); track trackByColumnCode) {
           <p class="text-medium-gray">{{ column.Header }}</p>
           <p>{{ item[column.FieldName] || "N/A" }}</p>
 

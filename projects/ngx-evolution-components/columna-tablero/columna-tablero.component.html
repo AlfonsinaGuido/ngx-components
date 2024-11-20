@@ -1,15 +1,16 @@
 <div
   cdkDropList
   class="flex flex-col gap-2 !h-full p-2 rounded-lg"
-  [cdkDropListData]="actividades"
+  [cdkDropListData]="activities"
   (cdkDropListDropped)="drop($event)"
+  [cdkDropListEnterPredicate]="validationCDK"
   id="board-activity-column"
   [ngClass]="{
     'rounded-xl outline-dashed outline-gray-300 outline-2 h-full':
-      actividades.length === 0,
+      activities.length === 0,
   }"
 >
-  @for (actividad of actividades; track actividad.Codigo) {
+  @for (actividad of activities; track actividad.Codigo) {
     <evo-carta-actividad
       class="carta-actividad"
       cdkDrag
@@ -19,6 +20,7 @@
       [endDate]="actividad.FechaFin"
       [twClass]="'h-36'"
       [id]="actividad.Codigo"
+      (taskUpdate)="mostrar($event.actividad)"
     >
     </evo-carta-actividad>
   }

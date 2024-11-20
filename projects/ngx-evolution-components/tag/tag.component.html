@@ -3,6 +3,7 @@
   class="w-fit rounded-lg uppercase text-white"
   [style]="{
     'background-color': prioridad?.Color,
+    color: getTextColorBasedOnBackground(prioridad?.Color || '#FFFFFF'),
   }"
 >
   {{ !!prioridad?.Nombre ? prioridad?.Nombre : label }}

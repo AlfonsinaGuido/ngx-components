@@ -43,7 +43,7 @@ describe('TableroKanbanComponent', () => {
 
     fixture = TestBed.createComponent(TableroKanbanComponent);
     component = fixture.componentInstance;
-    component.columnas = columnas;
+    component.columns = columnas;
     component.isSingle = true;
     fixture.detectChanges();
   });

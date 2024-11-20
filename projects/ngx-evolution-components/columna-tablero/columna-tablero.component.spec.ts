@@ -2,7 +2,13 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ColumnaTableroComponent } from './columna-tablero.component';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { actividades as mockActividades } from '../shared/data/kanban/actividades.data';
+import {
+  actividad1,
+  actividad2,
+  actividades as mockActividades,
+} from '../shared/data/kanban/actividades.data';
+import { EstadoActividad, IActividad } from '../public-api';
+import { CdkDrag, CdkDragDrop } from '@angular/cdk/drag-drop';
 
 describe('ColumnaTableroComponent', () => {
   let component: ColumnaTableroComponent;
@@ -15,7 +21,7 @@ describe('ColumnaTableroComponent', () => {
 
     fixture = TestBed.createComponent(ColumnaTableroComponent);
     component = fixture.componentInstance;
-    component.actividades = mockActividades;
+    component.activities = mockActividades;
     fixture.detectChanges();
   });
 
@@ -56,5 +62,87 @@ describe('ColumnaTableroComponent', () => {
     // Was the method "drop" called?
     fixture.detectChanges();
     expect(spyOnDragDrop).toHaveBeenCalled();
+  });
+
+  it('should return true when validacion.action returns true', () => {
+    component.validation = {
+      action: jasmine.createSpy('actionSpy').and.returnValue(true),
+      estado: EstadoActividad.Pendiente,
+    };
+
+    const mockActividad: IActividad = actividad1; // Replace with your actual IActividad structure
+    const mockCdkDrag: CdkDrag<IActividad> = {
+      data: mockActividad,
+    } as CdkDrag<IActividad>;
+
+    const result = component.validationCDK(mockCdkDrag);
+
+    expect(component.validation.action).toHaveBeenCalledWith(
+      mockActividad,
+      EstadoActividad.Pendiente,
+    );
+    expect(result).toBe(true);
+  });
+
+  it('should return false when validacion is not defined', () => {
+    component.validation = undefined;
+
+    const mockActividad: IActividad = actividad2;
+    const mockCdkDrag: CdkDrag<IActividad> = {
+      data: mockActividad,
+    } as CdkDrag<IActividad>;
+
+    const result = component.validationCDK(mockCdkDrag);
+
+    expect(result).toBe(false);
+  });
+
+  it('should return false when validacion.action returns false', () => {
+    component.validation = {
+      action: jasmine.createSpy('actionSpy').and.returnValue(false),
+      estado: EstadoActividad.Pendiente,
+    };
+
+    const mockActividad: IActividad = actividad2;
+    const mockCdkDrag: CdkDrag<IActividad> = {
+      data: mockActividad,
+    } as CdkDrag<IActividad>;
+
+    const result = component.validationCDK(mockCdkDrag);
+
+    expect(component.validation.action).toHaveBeenCalledWith(
+      mockActividad,
+      EstadoActividad.Pendiente,
+    );
+    expect(result).toBe(false);
+  });
+
+  describe('validationCDK method', () => {
+    it('should return true when validation.action returns true', () => {
+      const mockActividad: IActividad = actividad1;
+
+      component.validation = {
+        action: jasmine.createSpy('actionSpy').and.returnValue(true),
+        estado: EstadoActividad.Pendiente,
+      };
+
+      const result = component.validationCDK({ data: mockActividad } as any);
+
+      expect(component.validation.action).toHaveBeenCalledWith(
+        mockActividad,
+        EstadoActividad.Pendiente,
+      );
+      expect(result).toBe(true);
+    });
+
+    it('should return false when validation is not defined', () => {
+      const mockActividad: IActividad = actividad1;
+
+      component.validation = undefined;
+
+      const result = component.validationCDK({ data: mockActividad } as any);
+
+      expect(result).toBe(false);
+    });
   });
 });

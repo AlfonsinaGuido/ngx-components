@@ -78,7 +78,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "IColumna[]",
-        "defaultValue": "[\n  {\n    id: 1,\n    nombre: 'abiertas',\n    actividades: actividades.filter(\n      (act) => act.EstadoDb === EstadoActividad.Pendiente,\n    ),\n  },\n  {\n    id: 2,\n    nombre: 'en progreso',\n    actividades: actividades.filter(\n      (act) => act.EstadoDb === EstadoActividad.EnProceso,\n    ),\n  },\n  {\n    id: 3,\n    nombre: 'finalizadas',\n    actividades: actividades.filter(\n      (act) => act.EstadoDb === EstadoActividad.Finalizada,\n    ),\n  },\n]"
+        "defaultValue": "Object.values(\n  actividades.reduce((acc: any, act) => {\n    const estadoConfig = estadosMap[act.EstadoDb];\n    if (!estadoConfig) return acc;\n\n    if (!acc[act.EstadoDb]) {\n      acc[act.EstadoDb] = { ...estadoConfig, actividades: [] };\n    }\n\n    acc[act.EstadoDb].actividades.push(act);\n\n    return acc;\n  }, {}),\n)"
       },
       {
         "name": "conClasePersonalizada",
@@ -429,6 +429,16 @@
         "deprecationMessage": "",
         "type": "Story",
         "defaultValue": "{\n  args: {\n    inputConfiguration: {\n      control: formControlPatternInput,\n      label: 'Input',\n      inputType: 'tel',\n      requiredErrorMessage: 'Este campo es requerido',\n      patternErrorMessage: 'Formato requerido (123) 456-7890',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
+      },
+      {
+        "name": "estadosMap",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/tablero-kanban.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "object",
+        "defaultValue": "{\n  [EstadoActividad.Pendiente]: {\n    id: 1,\n    nombre: 'abiertas',\n    validacion: { action: validarEstado, estado: EstadoActividad.Pendiente },\n  },\n  [EstadoActividad.EnProceso]: {\n    id: 2,\n    nombre: 'en progreso',\n    validacion: { action: validarEstado, estado: EstadoActividad.EnProceso },\n  },\n  [EstadoActividad.Finalizada]: {\n    id: 3,\n    nombre: 'finalizadas',\n    validacion: { action: validarEstado, estado: EstadoActividad.Finalizada },\n  },\n}"
       },
       {
         "name": "form",
@@ -1318,7 +1328,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    title: 'Error',\n    message: 'No se pudo establecer conexión con el Identity Server.',\n    isError: true,\n    twClass: '',\n  },\n}"
+        "defaultValue": "{\n  args: {\n    title: 'Error',\n    message: 'No se pudo establecer conexión con el Identity Server.',\n    isError: true,\n    useAnimation: false,\n    twClass: '',\n  },\n}"
       },
       {
         "name": "Unlabeled",
@@ -2186,7 +2196,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "IColumna[]",
-          "defaultValue": "[\n  {\n    id: 1,\n    nombre: 'abiertas',\n    actividades: actividades.filter(\n      (act) => act.EstadoDb === EstadoActividad.Pendiente,\n    ),\n  },\n  {\n    id: 2,\n    nombre: 'en progreso',\n    actividades: actividades.filter(\n      (act) => act.EstadoDb === EstadoActividad.EnProceso,\n    ),\n  },\n  {\n    id: 3,\n    nombre: 'finalizadas',\n    actividades: actividades.filter(\n      (act) => act.EstadoDb === EstadoActividad.Finalizada,\n    ),\n  },\n]"
+          "defaultValue": "Object.values(\n  actividades.reduce((acc: any, act) => {\n    const estadoConfig = estadosMap[act.EstadoDb];\n    if (!estadoConfig) return acc;\n\n    if (!acc[act.EstadoDb]) {\n      acc[act.EstadoDb] = { ...estadoConfig, actividades: [] };\n    }\n\n    acc[act.EstadoDb].actividades.push(act);\n\n    return acc;\n  }, {}),\n)"
         },
         {
           "name": "Default",
@@ -2312,7 +2322,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    title: 'Error',\n    message: 'No se pudo establecer conexión con el Identity Server.',\n    isError: true,\n    twClass: '',\n  },\n}"
+          "defaultValue": "{\n  args: {\n    title: 'Error',\n    message: 'No se pudo establecer conexión con el Identity Server.',\n    isError: true,\n    useAnimation: false,\n    twClass: '',\n  },\n}"
         }
       ],
       "stories/header-columna.stories.ts": [

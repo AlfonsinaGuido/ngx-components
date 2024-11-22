@@ -21,7 +21,9 @@
                 <!-- Columna con header y botón de ordenamiento -->
                 <span class="">{{ column.Header }}</span>
                 @if (
-                  sortableColumns.includes(getVisibleColumns().indexOf(column))
+                  tableConfig.sortableColumns.includes(
+                    getVisibleColumns().indexOf(column)
+                  )
                 ) {
                   <evo-button
                     class="pl-2"
@@ -92,7 +94,7 @@
                     [config]="{
                       actions: currentItemActions,
                       isOpen: isActionsModalOpen && selectedItem === item,
-                      icons: actionIcons,
+                      icons: tableConfig.actionIcons,
                     }"
                     (actionSelected)="handleAction(selectedItem!, $event)"
                     (menuClosed)="closeActionsMenu()"
@@ -128,7 +130,7 @@
             [config]="{
               actions: currentItemActions,
               isOpen: isActionsModalOpen && selectedItem === item,
-              icons: actionIcons,
+              icons: tableConfig.actionIcons,
             }"
             (actionSelected)="handleAction(selectedItem!, $event)"
             (menuClosed)="closeActionsMenu()"
@@ -158,20 +160,20 @@
 <!-- Mensaje cuando no hay datos -->
 @if (data.length === 0) {
   <div class="text-center py-4">
-    {{ emptyStateText }}
+    {{ tableConfig.emptyStateText }}
   </div>
 }
 
 <!-- Controles de paginación -->
-@if (totalPages >= 1) {
+@if (paginationConfig.totalPages >= 1) {
   <pagination
     [config]="{
-      isManualPaginate: isManualPaginate,
-      currentPage: page,
-      totalPages: totalPages,
-      pageSize: pageSize,
-      totalItems: totalItems,
-      titles: titles,
+      isManualPaginate: paginationConfig.isManualPaginate,
+      currentPage: paginationConfig.page!,
+      totalPages: paginationConfig.totalPages,
+      pageSize: paginationConfig.pageSize,
+      totalItems: paginationConfig.totalItems,
+      titles: paginationConfig.titles,
     }"
     (nextPageClicked)="nextPage()"
     (previousPageClicked)="previousPage()"

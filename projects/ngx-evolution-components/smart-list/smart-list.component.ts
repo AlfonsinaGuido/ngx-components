@@ -18,12 +18,13 @@ import {
   ISmartlistMetadata,
   IActionConfig,
   ButtonComponent,
-  ISmartListTitles,
   ViewportService,
   ActionMenuComponent,
   PaginationComponent,
-  IIcon,
   ClassUtilityService,
+  IPaginationConfig,
+  ITableConfig,
+  IPaginationEvents,
 } from '../public-api';
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
@@ -44,32 +45,43 @@ import { Subscription } from 'rxjs';
 export class SmartListComponent implements OnInit, OnChanges {
   @Input() smartlistConfig: ISmartlistFullConfig | null = null;
   @Input() data: ISmartListItem[] = [];
-  @Input() titles: ISmartListTitles = {
-    showing: 'Mostrando',
-    results: 'resultados',
-    page: 'Pag',
-    of: 'de',
+  @Input() tableConfig: ITableConfig = {
+    hiddenColumns: [],
+    sortableColumns: [],
+    actionIcons: [],
+    emptyStateText: 'No hay datos para mostrar',
+    twClass: '',
+  };
+  @Input() paginationConfig: IPaginationConfig = {
+    isManualPaginate: false,
+    currentPage: 1,
+    totalPages: 1,
+    pageSize: 10,
+    totalItems: 0,
+    page: 1,
+    titles: {
+      showing: 'Mostrando',
+      results: 'resultados',
+      page: 'Pag',
+      of: 'de',
+    },
   };
 
-  @Input() page: number = 1;
-  @Input() pageSize: number = 1;
-  @Input() totalPages: number = 2;
-  @Input() hiddenColumns: number[] = [];
-  @Input() sortableColumns: number[] = [];
-  @Input() emptyStateText: string = 'No hay datos para mostrar';
-  @Input() twClass: string = '';
-  @Input() actionIcons: IIcon[] = [];
-  @Input() isManualPaginate: boolean = false;
-  @Input() totalItems: number = 0;
-
-  @Output() pageSelected = new EventEmitter<number>();
-  @Output() selectedUsers = new EventEmitter<ISmartListItem[]>();
+  @Output() paginationEvents: IPaginationEvents = {
+    onPageChange: (page: number) => this.goToPage(page),
+    onPreviousPage: () => this.previousPage(),
+    onNextPage: () => this.nextPage(),
+  };
+  @Output() columnSort = new EventEmitter<string>();
   @Output() rowAction = new EventEmitter<{
     actionType: 'button' | 'checkbox';
     action: string;
     item: ISmartListItem;
   }>();
-  @Output() columnSort = new EventEmitter<any>();
+
+  @Output() selectedUsers = new EventEmitter<ISmartListItem[]>();
+
+  @Output() pageSelected = new EventEmitter<number>();
   @Output() pageSizeChanged = new EventEmitter<number>();
 
   isMobile: boolean = false;
@@ -82,7 +94,6 @@ export class SmartListComponent implements OnInit, OnChanges {
   sortState: { [key: string]: 'asc' | 'desc' | null } = {};
   initialPageSize: number = 5;
   private viewportSubscription!: Subscription;
-
   constructor(
     private cdr: ChangeDetectorRef,
     private eRef: ElementRef,
@@ -94,7 +105,7 @@ export class SmartListComponent implements OnInit, OnChanges {
    * Inicializa la tabla y verifica el viewport al cargar el componente.
    */
   ngOnInit(): void {
-    this.initialPageSize = this.pageSize;
+    this.initialPageSize = this.paginationConfig.pageSize;
 
     this.viewportSubscription = this.viewportService
       .getIsMobile()
@@ -116,13 +127,16 @@ export class SmartListComponent implements OnInit, OnChanges {
    * Ajusta el pageSize según el estado de `isMobile`.
    */
   adjustPageSize() {
-    if (this.isMobile && this.pageSize !== 1) {
-      this.pageSize = 1;
-      this.pageSizeChanged.emit(this.pageSize);
+    if (this.isMobile && this.paginationConfig.pageSize !== 1) {
+      this.paginationConfig.pageSize = 1;
+      this.pageSizeChanged.emit(this.paginationConfig.pageSize);
       this.paginate();
-    } else if (!this.isMobile && this.pageSize !== this.initialPageSize) {
-      this.pageSize = this.initialPageSize;
-      this.pageSizeChanged.emit(this.pageSize);
+    } else if (
+      !this.isMobile &&
+      this.paginationConfig.pageSize !== this.initialPageSize
+    ) {
+      this.paginationConfig.pageSize = this.initialPageSize;
+      this.pageSizeChanged.emit(this.paginationConfig.pageSize);
       this.paginate();
     }
   }
@@ -185,15 +199,18 @@ export class SmartListComponent implements OnInit, OnChanges {
    * Paginación de los elementos de la tabla.
    */
   paginate(): void {
-    if (this.isManualPaginate) {
+    if (this.paginationConfig.isManualPaginate) {
       this.paginatedItems = [...this.data];
     } else {
-      this.totalItems = this.data.length;
-      this.totalPages = Math.ceil(this.totalItems / this.pageSize);
-      const startIndex = (this.page - 1) * this.pageSize;
+      this.paginationConfig.totalItems = this.data.length;
+      this.paginationConfig.totalPages = Math.ceil(
+        this.paginationConfig.totalItems / this.paginationConfig.pageSize,
+      );
+      const startIndex =
+        (this.paginationConfig.page! - 1) * this.paginationConfig.pageSize;
       this.paginatedItems = this.data.slice(
         startIndex,
-        startIndex + this.pageSize,
+        startIndex + this.paginationConfig.pageSize,
       );
     }
   }
@@ -203,9 +220,9 @@ export class SmartListComponent implements OnInit, OnChanges {
    */
   adjustPagination(): void {
     if (this.isMobile) {
-      this.pageSize = 1;
+      this.paginationConfig.pageSize = 1;
     } else {
-      this.pageSize = 10;
+      this.paginationConfig.pageSize = 10;
     }
     this.paginate();
     this.cdr.markForCheck();
@@ -228,7 +245,8 @@ export class SmartListComponent implements OnInit, OnChanges {
   getVisibleColumns(): IColumnConfig[] {
     if (!this.metadata || !this.metadata.Columns) return [];
     return this.metadata.Columns.filter(
-      (col, index) => col.Visible && !this.hiddenColumns.includes(index),
+      (col, index) =>
+        col.Visible && !this.tableConfig.hiddenColumns.includes(index),
     );
   }
 
@@ -302,20 +320,11 @@ export class SmartListComponent implements OnInit, OnChanges {
    * @param page El número de la página a la que se navega.
    */
   goToPage(page: number): void {
-    if (page >= 1 && page <= this.totalPages) {
-      this.page = page;
+    if (page >= 1 && page <= this.paginationConfig.totalPages) {
+      this.paginationConfig.page! = page;
       this.pageSelected.emit(page);
       this.paginate();
     }
-  }
-
-  /**
-   * Método para optimizar el renderizado de filas en el For utilizando el índice como clave.
-   * @param index Índice de la fila en el array.
-   * @returns El índice de la fila.
-   */
-  trackByIndex(index: number): number {
-    return index;
   }
 
   /**
@@ -332,8 +341,8 @@ export class SmartListComponent implements OnInit, OnChanges {
    * Navega a la página anterior.
    */
   previousPage() {
-    if (this.page > 1) {
-      this.goToPage(this.page - 1);
+    if (this.paginationConfig.page! > 1) {
+      this.goToPage(this.paginationConfig.page! - 1);
     }
   }
 
@@ -341,8 +350,8 @@ export class SmartListComponent implements OnInit, OnChanges {
    * Navega a la página siguiente.
    */
   nextPage() {
-    if (this.page < this.totalPages) {
-      this.goToPage(this.page + 1);
+    if (this.paginationConfig.page! < this.paginationConfig.totalPages) {
+      this.goToPage(this.paginationConfig.page! + 1);
     }
   }
 
@@ -409,7 +418,10 @@ export class SmartListComponent implements OnInit, OnChanges {
     );
 
     // Verifica si la columna es ordenable según la lista de índices de `sortableColumns`
-    if (columnIndex === -1 || !this.sortableColumns.includes(columnIndex)) {
+    if (
+      columnIndex === -1 ||
+      !this.tableConfig.sortableColumns.includes(columnIndex)
+    ) {
       return;
     }
 
@@ -442,7 +454,10 @@ export class SmartListComponent implements OnInit, OnChanges {
     );
 
     // Verifica si la columna es ordenable según la lista de índices de `sortableColumns`
-    if (columnIndex !== -1 && this.sortableColumns.includes(columnIndex)) {
+    if (
+      columnIndex !== -1 &&
+      this.tableConfig.sortableColumns.includes(columnIndex)
+    ) {
       switch (this.sortState[columnName]) {
         case 'asc':
           return 'arrow_upward';
@@ -462,7 +477,7 @@ export class SmartListComponent implements OnInit, OnChanges {
   getClasses(context: string): string {
     const baseClasses = this.classUtility.getCombinedClasses(
       context,
-      this.twClass,
+      this.tableConfig.twClass,
     );
 
     // Agrega clases adicionales según el contexto proporcionado

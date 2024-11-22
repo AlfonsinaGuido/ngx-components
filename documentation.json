@@ -78,7 +78,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "IColumna[]",
-        "defaultValue": "[\n  {\n    id: 1,\n    nombre: 'abiertas',\n    actividades: actividades.filter(\n      (act) => act.EstadoDb === EstadoActividad.Pendiente,\n    ),\n  },\n  {\n    id: 2,\n    nombre: 'en progreso',\n    actividades: actividades.filter(\n      (act) => act.EstadoDb === EstadoActividad.EnProceso,\n    ),\n  },\n  {\n    id: 3,\n    nombre: 'finalizadas',\n    actividades: actividades.filter(\n      (act) => act.EstadoDb === EstadoActividad.Finalizada,\n    ),\n  },\n]"
+        "defaultValue": "Object.values(\r\n  actividades.reduce((acc: any, act) => {\r\n    const estadoConfig = estadosMap[act.EstadoDb];\r\n    if (!estadoConfig) return acc;\r\n\r\n    if (!acc[act.EstadoDb]) {\r\n      acc[act.EstadoDb] = { ...estadoConfig, actividades: [] };\r\n    }\r\n\r\n    acc[act.EstadoDb].actividades.push(act);\r\n\r\n    return acc;\r\n  }, {}),\r\n)"
       },
       {
         "name": "conClasePersonalizada",
@@ -188,7 +188,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    activities: actividades,\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    activities: actividades,\r\n  },\r\n}"
       },
       {
         "name": "Default",
@@ -308,7 +308,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    smartlistConfig: smartlistConfig,\n    data: data,\n    titles: titles,\n    page: 1,\n    totalPages: 1,\n    pageSize: 5,\n    hiddenColumns: [2],\n    twClass: '',\n    sortableColumns: [1],\n    isManualPaginate: false,\n    actionIcons: [\n      { type: 'class', icon: 'add' },\n      { type: 'class', icon: 'edit' },\n      { type: 'class', icon: 'delete' },\n      { type: 'class', icon: 'verified_user' },\n    ],\n  },\n}"
+        "defaultValue": "{\n  args: {\n    smartlistConfig,\n    paginationConfig,\n    tableConfig,\n    data,\n  },\n}"
       },
       {
         "name": "Default",
@@ -328,7 +328,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    columns,\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    columns,\r\n  },\r\n}"
       },
       {
         "name": "Default",
@@ -429,6 +429,16 @@
         "deprecationMessage": "",
         "type": "Story",
         "defaultValue": "{\n  args: {\n    inputConfiguration: {\n      control: formControlPatternInput,\n      label: 'Input',\n      inputType: 'tel',\n      requiredErrorMessage: 'Este campo es requerido',\n      patternErrorMessage: 'Formato requerido (123) 456-7890',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
+      },
+      {
+        "name": "estadosMap",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/tablero-kanban.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "object",
+        "defaultValue": "{\r\n  [EstadoActividad.Pendiente]: {\r\n    id: 1,\r\n    nombre: 'abiertas',\r\n    validacion: { action: validarEstado, estado: EstadoActividad.Pendiente },\r\n  },\r\n  [EstadoActividad.EnProceso]: {\r\n    id: 2,\r\n    nombre: 'en progreso',\r\n    validacion: { action: validarEstado, estado: EstadoActividad.EnProceso },\r\n  },\r\n  [EstadoActividad.Finalizada]: {\r\n    id: 3,\r\n    nombre: 'finalizadas',\r\n    validacion: { action: validarEstado, estado: EstadoActividad.Finalizada },\r\n  },\r\n}"
       },
       {
         "name": "form",
@@ -991,6 +1001,16 @@
         "defaultValue": "{\n  args: {\n    icon: {\n      icon: 'add-user.svg',\n      type: 'svg',\n    },\n  },\n}"
       },
       {
+        "name": "paginationConfig",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/smart-list.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "IPaginationConfig",
+        "defaultValue": "{\n  isManualPaginate: false,\n  currentPage: 1,\n  totalPages: 2,\n  pageSize: 5,\n  totalItems: 10,\n  page: 1,\n  titles: {\n    showing: 'Mostrando',\n    results: 'resultados',\n    page: 'Pag',\n    of: 'de',\n  },\n}"
+      },
+      {
         "name": "pastToday",
         "ctype": "miscellaneous",
         "subtype": "variable",
@@ -1148,7 +1168,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    activities: [],\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    activities: [],\r\n  },\r\n}"
       },
       {
         "name": "sinAvatar",
@@ -1261,6 +1281,16 @@
         "defaultValue": "{\n  args: {\n    title: 'Dialogo de testing',\n    icon: {\n      icon: 'company-logo.svg',\n      type: 'svg',\n    },\n    buttonsItems: [\n      {\n        label: 'Item 1',\n        theme: 'secondary',\n        onClick: {\n          action: Testing1,\n        },\n      },\n      {\n        label: 'Item 2',\n        theme: 'primary',\n        onClick: {\n          action: Testing2,\n        },\n      },\n    ],\n    simpleContent: 'Testing de prueba para dialogo',\n  },\n}"
       },
       {
+        "name": "tableConfig",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/smart-list.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "ITableConfig",
+        "defaultValue": "{\n  hiddenColumns: [2],\n  sortableColumns: [1],\n  actionIcons: [\n    { type: 'class', icon: 'add' },\n    { type: 'class', icon: 'edit' },\n    { type: 'class', icon: 'delete' },\n    { type: 'class', icon: 'verified_user' },\n  ],\n  emptyStateText: 'No hay datos para mostrar',\n  twClass: '',\n}"
+      },
+      {
         "name": "Testing1",
         "ctype": "miscellaneous",
         "subtype": "variable",
@@ -1289,16 +1319,6 @@
         "deprecationMessage": "",
         "type": "string",
         "defaultValue": "'Te apoyamos en cada paso hacia tu éxito profesional'"
-      },
-      {
-        "name": "titles",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
-        "file": "stories/smart-list.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "ISmartListTitles",
-        "defaultValue": "{\n  showing: 'Mostrando',\n  results: 'resultados',\n  page: 'pag',\n  of: 'de',\n}"
       },
       {
         "name": "today",
@@ -1368,7 +1388,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "",
-        "defaultValue": "(\n  item: IActividad,\n  tipoColumna: EstadoActividad,\n): boolean => {\n  const estado = item.EstadoDb;\n  let resultado: boolean;\n  switch (tipoColumna) {\n    case EstadoActividad.EnProceso:\n      resultado = estado === EstadoActividad.Pendiente;\n      break;\n    case EstadoActividad.Finalizada:\n      resultado = estado === EstadoActividad.EnProceso;\n      break;\n    default:\n      resultado = false;\n      break;\n  }\n  return resultado;\n}",
+        "defaultValue": "(\r\n  item: IActividad,\r\n  tipoColumna: EstadoActividad,\r\n): boolean => {\r\n  const estado = item.EstadoDb;\r\n  let resultado: boolean;\r\n  switch (tipoColumna) {\r\n    case EstadoActividad.EnProceso:\r\n      resultado = estado === EstadoActividad.Pendiente;\r\n      break;\r\n    case EstadoActividad.Finalizada:\r\n      resultado = estado === EstadoActividad.EnProceso;\r\n      break;\r\n    default:\r\n      resultado = false;\r\n      break;\r\n  }\r\n  return resultado;\r\n}",
         "rawdescription": "Arrow Function que permite validar la actividad que quiere ingresar a una columna",
         "description": "<p>Arrow Function que permite validar la actividad que quiere ingresar a una columna</p>\n"
       },
@@ -2186,7 +2206,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "IColumna[]",
-          "defaultValue": "[\n  {\n    id: 1,\n    nombre: 'abiertas',\n    actividades: actividades.filter(\n      (act) => act.EstadoDb === EstadoActividad.Pendiente,\n    ),\n  },\n  {\n    id: 2,\n    nombre: 'en progreso',\n    actividades: actividades.filter(\n      (act) => act.EstadoDb === EstadoActividad.EnProceso,\n    ),\n  },\n  {\n    id: 3,\n    nombre: 'finalizadas',\n    actividades: actividades.filter(\n      (act) => act.EstadoDb === EstadoActividad.Finalizada,\n    ),\n  },\n]"
+          "defaultValue": "Object.values(\r\n  actividades.reduce((acc: any, act) => {\r\n    const estadoConfig = estadosMap[act.EstadoDb];\r\n    if (!estadoConfig) return acc;\r\n\r\n    if (!acc[act.EstadoDb]) {\r\n      acc[act.EstadoDb] = { ...estadoConfig, actividades: [] };\r\n    }\r\n\r\n    acc[act.EstadoDb].actividades.push(act);\r\n\r\n    return acc;\r\n  }, {}),\r\n)"
         },
         {
           "name": "Default",
@@ -2196,7 +2216,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    columns,\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    columns,\r\n  },\r\n}"
         },
         {
           "name": "estadosMap",
@@ -2206,7 +2226,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "object",
-          "defaultValue": "{\n  [EstadoActividad.Pendiente]: {\n    id: 1,\n    nombre: 'abiertas',\n    validacion: { action: validarEstado, estado: EstadoActividad.Pendiente },\n  },\n  [EstadoActividad.EnProceso]: {\n    id: 2,\n    nombre: 'en progreso',\n    validacion: { action: validarEstado, estado: EstadoActividad.EnProceso },\n  },\n  [EstadoActividad.Finalizada]: {\n    id: 3,\n    nombre: 'finalizadas',\n    validacion: { action: validarEstado, estado: EstadoActividad.Finalizada },\n  },\n}"
+          "defaultValue": "{\r\n  [EstadoActividad.Pendiente]: {\r\n    id: 1,\r\n    nombre: 'abiertas',\r\n    validacion: { action: validarEstado, estado: EstadoActividad.Pendiente },\r\n  },\r\n  [EstadoActividad.EnProceso]: {\r\n    id: 2,\r\n    nombre: 'en progreso',\r\n    validacion: { action: validarEstado, estado: EstadoActividad.EnProceso },\r\n  },\r\n  [EstadoActividad.Finalizada]: {\r\n    id: 3,\r\n    nombre: 'finalizadas',\r\n    validacion: { action: validarEstado, estado: EstadoActividad.Finalizada },\r\n  },\r\n}"
         },
         {
           "name": "validarEstado",
@@ -2216,7 +2236,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "",
-          "defaultValue": "(\n  item: IActividad,\n  tipoColumna: EstadoActividad,\n): boolean => {\n  const estado = item.EstadoDb;\n  let resultado: boolean;\n  switch (tipoColumna) {\n    case EstadoActividad.EnProceso:\n      resultado = estado === EstadoActividad.Pendiente;\n      break;\n    case EstadoActividad.Finalizada:\n      resultado = estado === EstadoActividad.EnProceso;\n      break;\n    default:\n      resultado = false;\n      break;\n  }\n  return resultado;\n}",
+          "defaultValue": "(\r\n  item: IActividad,\r\n  tipoColumna: EstadoActividad,\r\n): boolean => {\r\n  const estado = item.EstadoDb;\r\n  let resultado: boolean;\r\n  switch (tipoColumna) {\r\n    case EstadoActividad.EnProceso:\r\n      resultado = estado === EstadoActividad.Pendiente;\r\n      break;\r\n    case EstadoActividad.Finalizada:\r\n      resultado = estado === EstadoActividad.EnProceso;\r\n      break;\r\n    default:\r\n      resultado = false;\r\n      break;\r\n  }\r\n  return resultado;\r\n}",
           "rawdescription": "Arrow Function que permite validar la actividad que quiere ingresar a una columna",
           "description": "<p>Arrow Function que permite validar la actividad que quiere ingresar a una columna</p>\n"
         }
@@ -2386,7 +2406,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    smartlistConfig: smartlistConfig,\n    data: data,\n    titles: titles,\n    page: 1,\n    totalPages: 1,\n    pageSize: 5,\n    hiddenColumns: [2],\n    twClass: '',\n    sortableColumns: [1],\n    isManualPaginate: false,\n    actionIcons: [\n      { type: 'class', icon: 'add' },\n      { type: 'class', icon: 'edit' },\n      { type: 'class', icon: 'delete' },\n      { type: 'class', icon: 'verified_user' },\n    ],\n  },\n}"
+          "defaultValue": "{\n  args: {\n    smartlistConfig,\n    paginationConfig,\n    tableConfig,\n    data,\n  },\n}"
         },
         {
           "name": "meta",
@@ -2399,6 +2419,16 @@
           "defaultValue": "{\n  title: 'Evolution Components/Smart List',\n  component: SmartListComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
         },
         {
+          "name": "paginationConfig",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/smart-list.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "IPaginationConfig",
+          "defaultValue": "{\n  isManualPaginate: false,\n  currentPage: 1,\n  totalPages: 2,\n  pageSize: 5,\n  totalItems: 10,\n  page: 1,\n  titles: {\n    showing: 'Mostrando',\n    results: 'resultados',\n    page: 'Pag',\n    of: 'de',\n  },\n}"
+        },
+        {
           "name": "smartlistConfig",
           "ctype": "miscellaneous",
           "subtype": "variable",
@@ -2409,14 +2439,14 @@
           "defaultValue": "{\n  Code: 'evowave.SolicitudAmonestaciones',\n  ClientControlID: 'evowave.SolicitudAmonestaciones',\n  Parameters: {},\n  DatabaseDialect: 'Microsoft.Data.SqlClient',\n  UrlMetadata: '/api/configuracion/SmartList/evowave.SolicitudAmonestaciones',\n  FormTagId: 'evowave_SolicitudAmonestaciones_form',\n  AlmacenaInformacionPersonalizacion: false,\n  Height: 'Auto',\n  Metadata: metaData,\n  HasQueryBuilder: false,\n  UrlData: '/api/configuracion/SmartList/evowave.SolicitudAmonestaciones/Data',\n  FormatoEntero: '{0:n0}',\n  Checksum: 'c3c0d2dfa2ca6048dd03942e9132c668d215ebb03e1eb0bee496f8eb857da3b7',\n  Rows: 1,\n}"
         },
         {
-          "name": "titles",
+          "name": "tableConfig",
           "ctype": "miscellaneous",
           "subtype": "variable",
           "file": "stories/smart-list.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
-          "type": "ISmartListTitles",
-          "defaultValue": "{\n  showing: 'Mostrando',\n  results: 'resultados',\n  page: 'pag',\n  of: 'de',\n}"
+          "type": "ITableConfig",
+          "defaultValue": "{\n  hiddenColumns: [2],\n  sortableColumns: [1],\n  actionIcons: [\n    { type: 'class', icon: 'add' },\n    { type: 'class', icon: 'edit' },\n    { type: 'class', icon: 'delete' },\n    { type: 'class', icon: 'verified_user' },\n  ],\n  emptyStateText: 'No hay datos para mostrar',\n  twClass: '',\n}"
         }
       ],
       "stories/action-menu.stories.ts": [
@@ -2910,7 +2940,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    activities: actividades,\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    activities: actividades,\r\n  },\r\n}"
         },
         {
           "name": "sinActividadeds",
@@ -2920,7 +2950,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    activities: [],\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    activities: [],\r\n  },\r\n}"
         }
       ],
       "stories/header.stories.ts": [
@@ -5354,6 +5384,16 @@
         "type": "variable",
         "linktype": "miscellaneous",
         "linksubtype": "variable",
+        "name": "paginationConfig",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/smart-list.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
         "name": "smartlistConfig",
         "coveragePercent": 0,
         "coverageCount": "0/1",
@@ -5364,7 +5404,7 @@
         "type": "variable",
         "linktype": "miscellaneous",
         "linksubtype": "variable",
-        "name": "titles",
+        "name": "tableConfig",
         "coveragePercent": 0,
         "coverageCount": "0/1",
         "status": "low"

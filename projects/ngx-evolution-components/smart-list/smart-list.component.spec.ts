@@ -117,9 +117,9 @@ describe('SmartListComponent', () => {
   });
 
   it('should display the correct number of items based on pagination', () => {
-    component.pageSize = 1;
+    component.paginationConfig.pageSize = 1;
     component.data = mockData;
-    component.totalItems = component.data.length;
+    component.paginationConfig.totalItems = component.data.length;
     component.paginate();
 
     expect(component.paginatedItems.length).toBe(1);
@@ -133,12 +133,12 @@ describe('SmartListComponent', () => {
 
   it('should update the page and paginate items when goToPage is called with a valid page number', () => {
     spyOn(component.pageSelected, 'emit');
-    component.totalPages = 3;
+    component.paginationConfig.totalPages = 3;
 
     component.goToPage(2);
-    expect(component.page).toBe(2);
+    expect(component.paginationConfig.page).toBe(2);
     expect(component.paginatedItems.length).toBeLessThanOrEqual(
-      component.pageSize,
+      component.paginationConfig.pageSize,
     );
     expect(component.pageSelected.emit).toHaveBeenCalledWith(2);
   });
@@ -146,15 +146,15 @@ describe('SmartListComponent', () => {
   it('should not change the page or call paginate if an invalid page number is provided', () => {
     spyOn(component.pageSelected, 'emit');
     spyOn(component, 'paginate').and.callThrough();
-    component.totalPages = 3;
+    component.paginationConfig.totalPages = 3;
 
     component.goToPage(0);
-    expect(component.page).toBe(1);
+    expect(component.paginationConfig.page).toBe(1);
     expect(component.paginate).not.toHaveBeenCalled();
     expect(component.pageSelected.emit).not.toHaveBeenCalled();
 
     component.goToPage(4);
-    expect(component.page).toBe(1);
+    expect(component.paginationConfig.page).toBe(1);
     expect(component.paginate).not.toHaveBeenCalled();
     expect(component.pageSelected.emit).not.toHaveBeenCalled();
   });
@@ -187,7 +187,7 @@ describe('SmartListComponent', () => {
     spyOn(component.columnSort, 'emit');
 
     component.metadata = mockConfig.Metadata;
-    component.sortableColumns = [0, 1];
+    component.tableConfig.sortableColumns = [0, 1];
     component.toggleSort('id');
 
     expect(component.columnSort.emit).toHaveBeenCalledWith('id');
@@ -203,10 +203,10 @@ describe('SmartListComponent', () => {
 
   it('should update the page when goToPage is called with a valid page number', () => {
     spyOn(component.pageSelected, 'emit');
-    component.totalPages = 3;
+    component.paginationConfig.totalPages = 3;
 
     component.goToPage(2);
-    expect(component.page).toBe(2);
+    expect(component.paginationConfig.page).toBe(2);
     expect(component.pageSelected.emit).toHaveBeenCalledWith(2);
   });
 
@@ -238,11 +238,6 @@ describe('SmartListComponent', () => {
     expect(component.selectedItem).toBeNull();
   });
 
-  it('should return the index when trackByIndex is called', () => {
-    const index = 5;
-    expect(component.trackByIndex(index)).toBe(index);
-  });
-
   it('should return column code or index when trackByColumnCode is called', () => {
     const column = { Code: 'testColumn' } as IColumnConfig;
     const index = 3;
@@ -261,7 +256,7 @@ describe('SmartListComponent', () => {
 
   it('should return the correct sort icon for a column', () => {
     component.metadata = mockConfig.Metadata;
-    component.sortableColumns = [0];
+    component.tableConfig.sortableColumns = [0];
 
     component.toggleSort('id');
     expect(component.getSortIcon('id')).toBe('arrow_upward');
@@ -277,12 +272,12 @@ describe('SmartListComponent', () => {
     component.isMobile = true;
     component.adjustPagination();
 
-    expect(component.pageSize).toBe(1);
+    expect(component.paginationConfig.pageSize).toBe(1);
 
     component.isMobile = false;
     component.adjustPagination();
 
-    expect(component.pageSize).toBe(10);
+    expect(component.paginationConfig.pageSize).toBe(10);
   });
 
   it('should return combined CSS classes based on context', () => {
@@ -346,7 +341,7 @@ describe('SmartListComponent', () => {
     component.smartlistConfig = { Metadata: { Columns: [] } } as any;
     component.data = [{}, {}, {}];
     component.initializeTable();
-    expect(component.totalItems).toBe(3);
+    expect(component.paginationConfig.totalItems).toBe(3);
   });
 
   it('should return the correct formatted title from code', () => {
@@ -357,14 +352,14 @@ describe('SmartListComponent', () => {
   });
 
   it('should adjust page size based on mobile state', () => {
-    component.pageSize = 10;
+    component.paginationConfig.pageSize = 10;
     component.isMobile = true;
     component.adjustPageSize();
-    expect(component.pageSize).toBe(1);
+    expect(component.paginationConfig.pageSize).toBe(1);
 
     component.isMobile = false;
     component.adjustPageSize();
-    expect(component.pageSize).toBe(component.initialPageSize);
+    expect(component.paginationConfig.pageSize).toBe(component.initialPageSize);
   });
 
   it('should return only visible columns', () => {
@@ -389,17 +384,17 @@ describe('SmartListComponent', () => {
   });
 
   it('should navigate to the previous page', () => {
-    component.page = 2;
-    component.totalPages = 3;
+    component.paginationConfig.page = 2;
+    component.paginationConfig.totalPages = 3;
     component.previousPage();
-    expect(component.page).toBe(1);
+    expect(component.paginationConfig.page).toBe(1);
   });
 
   it('should navigate to the next page', () => {
-    component.page = 1;
-    component.totalPages = 3;
+    component.paginationConfig.page = 1;
+    component.paginationConfig.totalPages = 3;
     component.nextPage();
-    expect(component.page).toBe(2);
+    expect(component.paginationConfig.page).toBe(2);
   });
 
   it('should display empty state text when there are no items', () => {
@@ -435,7 +430,7 @@ describe('SmartListComponent', () => {
       },
     });
     expect(component.metadata).toEqual(newConfig.Metadata);
-    expect(component.totalItems).toBe(component.data.length);
+    expect(component.paginationConfig.totalItems).toBe(component.data.length);
   });
 
   it('should return correct CSS classes based on context', () => {
@@ -460,31 +455,33 @@ describe('SmartListComponent', () => {
   });
 
   it('should not navigate beyond the first or last page', () => {
-    component.page = 1;
+    component.paginationConfig.page = 1;
     component.previousPage();
-    expect(component.page).toBe(1);
+    expect(component.paginationConfig.page).toBe(1);
 
-    component.page = component.totalPages;
+    component.paginationConfig.page = component.paginationConfig.totalPages;
     component.nextPage();
-    expect(component.page).toBe(component.totalPages);
+    expect(component.paginationConfig.page).toBe(
+      component.paginationConfig.totalPages,
+    );
   });
 
   it('should adjust page size when viewport state changes to mobile', () => {
     viewportServiceMock.getIsMobile.and.returnValue(of(true));
     component.ngOnInit();
-    expect(component.pageSize).toBe(1);
+    expect(component.paginationConfig.pageSize).toBe(1);
 
     viewportServiceMock.getIsMobile.and.returnValue(of(false));
     component.ngOnInit();
-    expect(component.pageSize).toBe(component.initialPageSize);
+    expect(component.paginationConfig.pageSize).toBe(component.initialPageSize);
   });
 
   it('should update page size and repaginate when pageSize is manually changed', () => {
-    component.pageSize = 5;
+    component.paginationConfig.pageSize = 5;
     component.paginate();
     expect(component.paginatedItems.length).toBeLessThanOrEqual(5);
 
-    component.pageSize = 2;
+    component.paginationConfig.pageSize = 2;
     component.paginate();
     expect(component.paginatedItems.length).toBeLessThanOrEqual(2);
   });
@@ -493,17 +490,17 @@ describe('SmartListComponent', () => {
     viewportServiceMock.getIsMobile.and.returnValue(of(true));
     component.ngOnInit();
     expect(component.isMobile).toBeTrue();
-    expect(component.pageSize).toBe(1);
+    expect(component.paginationConfig.pageSize).toBe(1);
 
     viewportServiceMock.getIsMobile.and.returnValue(of(false));
     component.ngOnInit();
     expect(component.isMobile).toBeFalse();
-    expect(component.pageSize).toBe(component.initialPageSize);
+    expect(component.paginationConfig.pageSize).toBe(component.initialPageSize);
   });
 
   it('should reset sort state when toggling sort on a column', () => {
     component.metadata = mockConfig.Metadata;
-    component.sortableColumns = [0];
+    component.tableConfig.sortableColumns = [0];
 
     component.toggleSort('id');
     expect(component.sortState['id']).toBe('asc');
@@ -525,7 +522,7 @@ describe('SmartListComponent', () => {
 
   it('should correctly handle visibility of columns based on hiddenColumns input', () => {
     component.metadata = mockConfig.Metadata;
-    component.hiddenColumns = [1];
+    component.tableConfig.hiddenColumns = [1];
     fixture.detectChanges();
 
     const visibleColumns = component.getVisibleColumns();
@@ -533,30 +530,30 @@ describe('SmartListComponent', () => {
   });
   it('should not sort columns if no sortableColumns are defined', () => {
     component.metadata = mockConfig.Metadata;
-    component.sortableColumns = [];
+    component.tableConfig.sortableColumns = [];
     component.toggleSort('id');
     expect(component.sortState['id']).toBeUndefined();
   });
 
   it('should not change the page if an invalid page number is provided', () => {
     spyOn(component.pageSelected, 'emit');
-    component.totalPages = 3;
+    component.paginationConfig.totalPages = 3;
 
     component.goToPage(0);
-    expect(component.page).toBe(1);
+    expect(component.paginationConfig.page).toBe(1);
 
     component.goToPage(4);
-    expect(component.page).toBe(1);
+    expect(component.paginationConfig.page).toBe(1);
     expect(component.pageSelected.emit).not.toHaveBeenCalled();
   });
 
   it('should update visible columns dynamically when hiddenColumns changes', () => {
     component.metadata = mockConfig.Metadata;
-    component.hiddenColumns = [1];
+    component.tableConfig.hiddenColumns = [1];
     const visibleColumns = component.getVisibleColumns();
     expect(visibleColumns.length).toBe(2);
 
-    component.hiddenColumns = [];
+    component.tableConfig.hiddenColumns = [];
     const updatedVisibleColumns = component.getVisibleColumns();
     expect(updatedVisibleColumns.length).toBe(3);
   });
@@ -565,12 +562,12 @@ describe('SmartListComponent', () => {
     viewportServiceMock.getIsMobile.and.returnValue(of(true));
     component.ngOnInit();
     expect(component.isMobile).toBeTrue();
-    expect(component.pageSize).toBe(1);
+    expect(component.paginationConfig.pageSize).toBe(1);
 
     viewportServiceMock.getIsMobile.and.returnValue(of(false));
     component.ngOnInit();
     expect(component.isMobile).toBeFalse();
-    expect(component.pageSize).toBe(component.initialPageSize);
+    expect(component.paginationConfig.pageSize).toBe(component.initialPageSize);
   });
 
   it('should handle initialization when metadata is missing', () => {
@@ -578,12 +575,12 @@ describe('SmartListComponent', () => {
     component.data = mockData;
     component.initializeTable();
     expect(component.metadata).toBeNull();
-    expect(component.totalItems).toBe(mockData.length);
+    expect(component.paginationConfig.totalItems).toBe(mockData.length);
   });
 
   it('should maintain selected items across pagination', () => {
     component.data = mockData;
-    component.pageSize = 1;
+    component.paginationConfig.pageSize = 1;
     component.paginate();
 
     const firstItem = component.paginatedItems[0];
@@ -597,9 +594,9 @@ describe('SmartListComponent', () => {
 
   it('should adjust total pages when data length changes', () => {
     component.data = [...mockData];
-    component.pageSize = 1;
+    component.paginationConfig.pageSize = 1;
     component.initializeTable();
-    expect(component.totalPages).toBe(2);
+    expect(component.paginationConfig.totalPages).toBe(2);
     component.data.push({
       id: 3,
       name: 'Item 3',
@@ -607,6 +604,6 @@ describe('SmartListComponent', () => {
       selected: false,
     } as ISmartListItem);
     component.paginate();
-    expect(component.totalPages).toBe(3);
+    expect(component.paginationConfig.totalPages).toBe(3);
   });
 });

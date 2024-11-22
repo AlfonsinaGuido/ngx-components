@@ -1,12 +1,11 @@
 import { provideHttpClient } from '@angular/common/http';
 import { applicationConfig, Meta, StoryObj } from '@storybook/angular';
 import {
-  ISmartListTitles,
   SmartListComponent,
-} from '@aseinfo/ngx-evolution-components/public-api';
-import {
   ISmartlistFullConfig,
   ISmartListItem,
+  IPaginationConfig,
+  ITableConfig,
 } from '@aseinfo/ngx-evolution-components/public-api';
 import { metaData } from './configs/sidebar-config';
 
@@ -22,6 +21,7 @@ const meta: Meta<SmartListComponent> = {
 };
 
 export default meta;
+
 type Story = StoryObj<SmartListComponent>;
 
 const smartlistConfig: ISmartlistFullConfig = {
@@ -41,11 +41,32 @@ const smartlistConfig: ISmartlistFullConfig = {
   Rows: 1,
 };
 
-const titles: ISmartListTitles = {
-  showing: 'Mostrando',
-  results: 'resultados',
-  page: 'pag',
-  of: 'de',
+const paginationConfig: IPaginationConfig = {
+  isManualPaginate: false,
+  currentPage: 1,
+  totalPages: 2,
+  pageSize: 5,
+  totalItems: 10,
+  page: 1,
+  titles: {
+    showing: 'Mostrando',
+    results: 'resultados',
+    page: 'Pag',
+    of: 'de',
+  },
+};
+
+const tableConfig: ITableConfig = {
+  hiddenColumns: [2],
+  sortableColumns: [1],
+  actionIcons: [
+    { type: 'class', icon: 'add' },
+    { type: 'class', icon: 'edit' },
+    { type: 'class', icon: 'delete' },
+    { type: 'class', icon: 'verified_user' },
+  ],
+  emptyStateText: 'No hay datos para mostrar',
+  twClass: '',
 };
 
 const data: ISmartListItem[] = [
@@ -77,22 +98,9 @@ const data: ISmartListItem[] = [
 
 export const Default: Story = {
   args: {
-    smartlistConfig: smartlistConfig,
-    data: data,
-    titles: titles,
-    page: 1,
-    totalPages: 1,
-    pageSize: 5,
-    hiddenColumns: [2],
-    twClass: '',
-    sortableColumns: [1],
-    isManualPaginate: false,
-    totalItems: 5,
-    actionIcons: [
-      { type: 'class', icon: 'add' },
-      { type: 'class', icon: 'edit' },
-      { type: 'class', icon: 'delete' },
-      { type: 'class', icon: 'verified_user' },
-    ],
+    smartlistConfig,
+    paginationConfig,
+    tableConfig,
+    data,
   },
 };

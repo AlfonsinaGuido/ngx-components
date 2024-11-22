@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { SelectComponent } from './select.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
@@ -36,25 +35,30 @@ describe('SelectComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should emit valueChange on value change, onValueChange(event: any)', () => {
+  it('should emit valueChange when selecting an option, onValueChange()', () => {
+    component.control = new FormControl('1');
+
+    spyOn(component, 'onValueChange').and.callThrough();
     spyOn(component.valueChange, 'emit');
 
-    const event = { value: 'test' };
-    component.onValueChange(event);
+    const matSelect = fixture.debugElement.query(By.css('mat-select'));
+    matSelect.triggerEventHandler('selectionChange', { value: '1' });
 
-    expect(component.valueChange.emit).toHaveBeenCalledWith('test');
+    fixture.detectChanges();
+
+    expect(component.onValueChange).toHaveBeenCalled();
+    expect(component.valueChange.emit).toHaveBeenCalledWith('1');
   });
 
-  it('should reset control and close select on clean, clean(event: any)', () => {
+  it('should reset control and close select on clean, clean()', () => {
     spyOn(component.valueChange, 'emit');
     spyOn(component.control, 'reset');
     component.selectControl = { close: jasmine.createSpy('close') } as any;
 
-    const event = { target: { value: 'test' } };
-    component.clean(event);
+    component.clean();
 
     expect(component.control.reset).toHaveBeenCalled();
-    expect(component.valueChange.emit).toHaveBeenCalledWith('test');
+    expect(component.valueChange.emit).toHaveBeenCalledWith(null);
     expect(component.selectControl.close).toHaveBeenCalled();
   });
 
@@ -77,14 +81,6 @@ describe('SelectComponent', () => {
     fixture.detectChanges();
     const matHint = fixture.debugElement.query(By.css('mat-hint'));
     expect(matHint.nativeElement.textContent).toContain('Detalle adicional');
-  });
-
-  it('should issue a value change when selecting an option', () => {
-    spyOn(component, 'onValueChange');
-    const selectControl = fixture.debugElement.query(By.css('mat-select'));
-    selectControl.triggerEventHandler('selectionChange', { value: 'opción1' });
-    fixture.detectChanges();
-    expect(component.onValueChange).toHaveBeenCalledWith({ value: 'opción1' });
   });
 
   it('should set `mat-select` to multiple when `isMultiple` is true', () => {

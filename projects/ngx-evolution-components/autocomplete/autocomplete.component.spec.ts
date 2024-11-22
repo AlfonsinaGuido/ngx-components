@@ -27,6 +27,27 @@ describe('AutocompleteComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should clean up the valueChanges subscription on ngOnDestroy', () => {
+    const mockSubscription = new Subscription();
+    spyOn(mockSubscription, 'unsubscribe');
+    component['valueChangesSubscription'] = mockSubscription;
+
+    component.ngOnDestroy();
+
+    expect(mockSubscription.unsubscribe).toHaveBeenCalled();
+  });
+
+  it('should return the description of the option if the option is valid, displayFn(option: IValueList | null): string', () => {
+    const option = { Id: '1', Description: 'Test Description', Bag: {} };
+    const result = component.displayFn(option);
+    expect(result).toBe('Test Description');
+  });
+
+  it('should return an empty string if the option is null, displayFn(option: IValueList | null): string', () => {
+    const result = component.displayFn(null);
+    expect(result).toBe('');
+  });
+
   it('should filter options based on the input value, public filter(): void', () => {
     component.items = [
       { Id: '1', Description: 'Apple', Bag: {} },
@@ -47,24 +68,9 @@ describe('AutocompleteComponent', () => {
     ]);
   });
 
-  it('should clean up the valueChanges subscription on ngOnDestroy', () => {
-    const mockSubscription = new Subscription();
-    spyOn(mockSubscription, 'unsubscribe');
-    component['valueChangesSubscription'] = mockSubscription;
-
-    component.ngOnDestroy();
-
-    expect(mockSubscription.unsubscribe).toHaveBeenCalled();
-  });
-
-  it('should reset control and output the new value, public clean(event: any): void', () => {
-    spyOn(component.valueChange, 'emit');
+  it('should reset control, public clean(): void', () => {
     spyOn(component.inputConfiguration.control, 'reset');
-
-    const event = { target: { value: 'test' } };
-    component.clean(event);
-
+    component.clean();
     expect(component.inputConfiguration.control.reset).toHaveBeenCalled();
-    expect(component.valueChange.emit).toHaveBeenCalledWith('test');
   });
 });

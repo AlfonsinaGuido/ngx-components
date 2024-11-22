@@ -9,16 +9,16 @@
         [formControl]="control"
         multiple
         required
-        (selectionChange)="onValueChange($event)"
+        (selectionChange)="onValueChange()"
       >
         <evo-button
           [icon]="buttonIcon"
           [isFluid]="true"
-          (click)="clean($event)"
+          (click)="clean()"
           theme="secondary"
         ></evo-button>
-        @for (item of items; track item) {
-          <mat-option [value]="item.key">{{ item.value }}</mat-option>
+        @for (item of items; track item.Id) {
+          <mat-option [value]="item.Id">{{ item.Description }}</mat-option>
         }
       </mat-select>
     } @else {
@@ -26,16 +26,16 @@
         #selectControl
         [formControl]="control"
         multiple
-        (selectionChange)="onValueChange($event)"
+        (selectionChange)="onValueChange()"
       >
         <evo-button
           [icon]="buttonIcon"
           [isFluid]="true"
-          (click)="clean($event)"
+          (click)="clean()"
           theme="secondary"
         ></evo-button>
-        @for (item of items; track item) {
-          <mat-option [value]="item.key">{{ item.value }}</mat-option>
+        @for (item of items; track item.Id) {
+          <mat-option [value]="item.Id">{{ item.Description }}</mat-option>
         }
       </mat-select>
     }
@@ -45,32 +45,32 @@
         #selectControl
         [formControl]="control"
         required
-        (selectionChange)="onValueChange($event)"
+        (selectionChange)="onValueChange()"
       >
         <evo-button
           [icon]="buttonIcon"
           [isFluid]="true"
-          (click)="clean($event)"
+          (click)="clean()"
           theme="secondary"
         ></evo-button>
-        @for (item of items; track item) {
-          <mat-option [value]="item.key">{{ item.value }}</mat-option>
+        @for (item of items; track item.Id) {
+          <mat-option [value]="item.Id">{{ item.Description }}</mat-option>
         }
       </mat-select>
     } @else {
       <mat-select
         #selectControl
         [formControl]="control"
-        (selectionChange)="onValueChange($event)"
+        (selectionChange)="onValueChange()"
       >
         <evo-button
           [icon]="buttonIcon"
           [isFluid]="true"
-          (click)="clean($event)"
+          (click)="clean()"
           theme="secondary"
         ></evo-button>
-        @for (item of items; track item) {
-          <mat-option [value]="item.key">{{ item.value }}</mat-option>
+        @for (item of items; track item.Id) {
+          <mat-option [value]="item.Id">{{ item.Description }}</mat-option>
         }
       </mat-select>
     }

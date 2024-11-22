@@ -55,16 +55,19 @@ export const Default: Story = {
     label: 'Select',
     items: [
       {
-        key: 1,
-        value: 'Option 1',
+        Id: '1',
+        Description: 'Option 1',
+        Bag: {},
       },
       {
-        key: 2,
-        value: 'Option 2',
+        Id: '2',
+        Description: 'Option 2',
+        Bag: {},
       },
       {
-        key: 3,
-        value: 'Option 3',
+        Id: '3',
+        Description: 'Option 3',
+        Bag: {},
       },
     ],
     control: formControlDefaultSelect,

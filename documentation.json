@@ -78,7 +78,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "IColumna[]",
-        "defaultValue": "Object.values(\r\n  actividades.reduce((acc: any, act) => {\r\n    const estadoConfig = estadosMap[act.EstadoDb];\r\n    if (!estadoConfig) return acc;\r\n\r\n    if (!acc[act.EstadoDb]) {\r\n      acc[act.EstadoDb] = { ...estadoConfig, actividades: [] };\r\n    }\r\n\r\n    acc[act.EstadoDb].actividades.push(act);\r\n\r\n    return acc;\r\n  }, {}),\r\n)"
+        "defaultValue": "Object.values(\n  actividades.reduce((acc: any, act) => {\n    const estadoConfig = estadosMap[act.EstadoDb];\n    if (!estadoConfig) return acc;\n\n    if (!acc[act.EstadoDb]) {\n      acc[act.EstadoDb] = { ...estadoConfig, actividades: [] };\n    }\n\n    acc[act.EstadoDb].actividades.push(act);\n\n    return acc;\n  }, {}),\n)"
       },
       {
         "name": "conClasePersonalizada",
@@ -98,7 +98,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    title: 'Error',\n    message: 'No se puede eliminar un programa con personas asignadas.',\n    isError: true,\n    duration: 10000,\n    twClass: '',\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    title: 'Error',\r\n    message: 'No se puede eliminar un programa con personas asignadas.',\r\n    isError: true,\r\n    duration: 10000,\r\n    twClass: '',\r\n  },\r\n}"
       },
       {
         "name": "customTailwindClass",
@@ -148,7 +148,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    inputConfiguration: {\n      control: formControlDefaultAutocomplete,\n      label: 'Autocomplete',\n      detail: '',\n      twClass: '',\n    },\n    items: [\n      {\n        Id: '7',\n        Description: 'Penado Guzmán, Ana María',\n        Bag: {},\n      },\n      {\n        Id: '178',\n        Description: 'Guatemala Melara, Victor Hugo',\n        Bag: {},\n      },\n      {\n        Id: '8',\n        Description: 'Sanchez, Carlos',\n        Bag: {},\n      },\n      {\n        Id: '9',\n        Description: 'Lopez, Samuel',\n        Bag: {},\n      },\n      {\n        Id: '10',\n        Description: 'Fernandez, Ignacio',\n        Bag: {},\n      },\n      {\n        Id: '11',\n        Description: 'Perez, Mercedes',\n        Bag: {},\n      },\n    ],\n  },\n}"
+        "defaultValue": "{\n  args: {\n    inputConfiguration: {\n      control: formControlDefaultAutocomplete,\n      label: 'Autocomplete',\n      inputPlaceholder: '',\n      detail: '',\n      twClass: '',\n    },\n    items: [\n      {\n        Id: '7',\n        Description: 'Penado Guzmán, Ana María',\n        Bag: {},\n      },\n      {\n        Id: '178',\n        Description: 'Guatemala Melara, Victor Hugo',\n        Bag: {},\n      },\n      {\n        Id: '8',\n        Description: 'Sanchez, Carlos',\n        Bag: {},\n      },\n      {\n        Id: '9',\n        Description: 'Lopez, Samuel',\n        Bag: {},\n      },\n      {\n        Id: '10',\n        Description: 'Fernandez, Ignacio',\n        Bag: {},\n      },\n      {\n        Id: '11',\n        Description: 'Perez, Mercedes',\n        Bag: {},\n      },\n    ],\n  },\n}"
       },
       {
         "name": "Default",
@@ -288,7 +288,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    label: 'Select',\n    items: [\n      {\n        key: 1,\n        value: 'Option 1',\n      },\n      {\n        key: 2,\n        value: 'Option 2',\n      },\n      {\n        key: 3,\n        value: 'Option 3',\n      },\n    ],\n    control: formControlDefaultSelect,\n    buttonIcon: {\n      icon: 'clean.svg',\n      type: 'svg',\n    },\n    detail: '',\n    twClass: '',\n  },\n}"
+        "defaultValue": "{\n  args: {\n    label: 'Select',\n    items: [\n      {\n        Id: '1',\n        Description: 'Option 1',\n        Bag: {},\n      },\n      {\n        Id: '2',\n        Description: 'Option 2',\n        Bag: {},\n      },\n      {\n        Id: '3',\n        Description: 'Option 3',\n        Bag: {},\n      },\n    ],\n    control: formControlDefaultSelect,\n    buttonIcon: {\n      icon: 'clean.svg',\n      type: 'svg',\n    },\n    detail: '',\n    twClass: '',\n  },\n}"
       },
       {
         "name": "Default",
@@ -438,7 +438,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "object",
-        "defaultValue": "{\r\n  [EstadoActividad.Pendiente]: {\r\n    id: 1,\r\n    nombre: 'abiertas',\r\n    validacion: { action: validarEstado, estado: EstadoActividad.Pendiente },\r\n  },\r\n  [EstadoActividad.EnProceso]: {\r\n    id: 2,\r\n    nombre: 'en progreso',\r\n    validacion: { action: validarEstado, estado: EstadoActividad.EnProceso },\r\n  },\r\n  [EstadoActividad.Finalizada]: {\r\n    id: 3,\r\n    nombre: 'finalizadas',\r\n    validacion: { action: validarEstado, estado: EstadoActividad.Finalizada },\r\n  },\r\n}"
+        "defaultValue": "{\n  [EstadoActividad.Pendiente]: {\n    id: 1,\n    nombre: 'abiertas',\n    validacion: { action: validarEstado, estado: EstadoActividad.Pendiente },\n  },\n  [EstadoActividad.EnProceso]: {\n    id: 2,\n    nombre: 'en progreso',\n    validacion: { action: validarEstado, estado: EstadoActividad.EnProceso },\n  },\n  [EstadoActividad.Finalizada]: {\n    id: 3,\n    nombre: 'finalizadas',\n    validacion: { action: validarEstado, estado: EstadoActividad.Finalizada },\n  },\n}"
       },
       {
         "name": "form",
@@ -758,7 +758,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<BannerComponent>",
-        "defaultValue": "{\n  title: 'Evolution Components/Banner',\n  component: BannerComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+        "defaultValue": "{\r\n  title: 'Evolution Components/Banner',\r\n  component: BannerComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideAnimationsAsync()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
       },
       {
         "name": "meta",
@@ -1088,7 +1088,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    ...Default.args,\n    inputConfiguration: {\n      control: formControlRequiredAutocomplete,\n      label: 'Autocomplete',\n      requiredErrorMessage: 'Este campo es requerido',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
+        "defaultValue": "{\n  args: {\n    ...Default.args,\n    inputConfiguration: {\n      control: formControlRequiredAutocomplete,\n      label: 'Autocomplete',\n      inputPlaceholder: '',\n      requiredErrorMessage: 'Este campo es requerido',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
       },
       {
         "name": "Required",
@@ -1268,7 +1268,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    title: 'Éxito',\n    message: 'Se asignaron correctamente las personas al programa.',\n    duration: 10000,\n    twClass: '',\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    title: 'Éxito',\r\n    message: 'Se asignaron correctamente las personas al programa.',\r\n    duration: 10000,\r\n    twClass: '',\r\n  },\r\n}"
       },
       {
         "name": "svgDialog",
@@ -1338,7 +1338,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    title: 'Error',\n    message: 'No se pudo establecer conexión con el Identity Server.',\n    isError: true,\n    twClass: '',\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    title: 'Error',\r\n    message: 'No se pudo establecer conexión con el Identity Server.',\r\n    isError: true,\r\n    useAnimation: false,\r\n    twClass: '',\r\n  },\r\n}"
       },
       {
         "name": "Unlabeled",
@@ -1348,7 +1348,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    ...Default.args,\n    inputConfiguration: {\n      control: formControlUnlabeledAutocomplete,\n      requiredErrorMessage: 'Este campo es requerido',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
+        "defaultValue": "{\n  args: {\n    ...Default.args,\n    inputConfiguration: {\n      control: formControlUnlabeledAutocomplete,\n      inputPlaceholder: '',\n      requiredErrorMessage: 'Este campo es requerido',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
       },
       {
         "name": "Unlabeled",
@@ -2206,7 +2206,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "IColumna[]",
-          "defaultValue": "Object.values(\r\n  actividades.reduce((acc: any, act) => {\r\n    const estadoConfig = estadosMap[act.EstadoDb];\r\n    if (!estadoConfig) return acc;\r\n\r\n    if (!acc[act.EstadoDb]) {\r\n      acc[act.EstadoDb] = { ...estadoConfig, actividades: [] };\r\n    }\r\n\r\n    acc[act.EstadoDb].actividades.push(act);\r\n\r\n    return acc;\r\n  }, {}),\r\n)"
+          "defaultValue": "Object.values(\n  actividades.reduce((acc: any, act) => {\n    const estadoConfig = estadosMap[act.EstadoDb];\n    if (!estadoConfig) return acc;\n\n    if (!acc[act.EstadoDb]) {\n      acc[act.EstadoDb] = { ...estadoConfig, actividades: [] };\n    }\n\n    acc[act.EstadoDb].actividades.push(act);\n\n    return acc;\n  }, {}),\n)"
         },
         {
           "name": "Default",
@@ -2302,7 +2302,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    title: 'Error',\n    message: 'No se puede eliminar un programa con personas asignadas.',\n    isError: true,\n    duration: 10000,\n    twClass: '',\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    title: 'Error',\r\n    message: 'No se puede eliminar un programa con personas asignadas.',\r\n    isError: true,\r\n    duration: 10000,\r\n    twClass: '',\r\n  },\r\n}"
         },
         {
           "name": "meta",
@@ -2312,7 +2312,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<BannerComponent>",
-          "defaultValue": "{\n  title: 'Evolution Components/Banner',\n  component: BannerComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+          "defaultValue": "{\r\n  title: 'Evolution Components/Banner',\r\n  component: BannerComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideAnimationsAsync()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
         },
         {
           "name": "Success",
@@ -2322,7 +2322,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    title: 'Éxito',\n    message: 'Se asignaron correctamente las personas al programa.',\n    duration: 10000,\n    twClass: '',\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    title: 'Éxito',\r\n    message: 'Se asignaron correctamente las personas al programa.',\r\n    duration: 10000,\r\n    twClass: '',\r\n  },\r\n}"
         },
         {
           "name": "UncontrolledError",
@@ -2332,7 +2332,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    title: 'Error',\n    message: 'No se pudo establecer conexión con el Identity Server.',\n    isError: true,\n    twClass: '',\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    title: 'Error',\r\n    message: 'No se pudo establecer conexión con el Identity Server.',\r\n    isError: true,\r\n    useAnimation: false,\r\n    twClass: '',\r\n  },\r\n}"
         }
       ],
       "stories/header-columna.stories.ts": [
@@ -2532,7 +2532,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    inputConfiguration: {\n      control: formControlDefaultAutocomplete,\n      label: 'Autocomplete',\n      detail: '',\n      twClass: '',\n    },\n    items: [\n      {\n        Id: '7',\n        Description: 'Penado Guzmán, Ana María',\n        Bag: {},\n      },\n      {\n        Id: '178',\n        Description: 'Guatemala Melara, Victor Hugo',\n        Bag: {},\n      },\n      {\n        Id: '8',\n        Description: 'Sanchez, Carlos',\n        Bag: {},\n      },\n      {\n        Id: '9',\n        Description: 'Lopez, Samuel',\n        Bag: {},\n      },\n      {\n        Id: '10',\n        Description: 'Fernandez, Ignacio',\n        Bag: {},\n      },\n      {\n        Id: '11',\n        Description: 'Perez, Mercedes',\n        Bag: {},\n      },\n    ],\n  },\n}"
+          "defaultValue": "{\n  args: {\n    inputConfiguration: {\n      control: formControlDefaultAutocomplete,\n      label: 'Autocomplete',\n      inputPlaceholder: '',\n      detail: '',\n      twClass: '',\n    },\n    items: [\n      {\n        Id: '7',\n        Description: 'Penado Guzmán, Ana María',\n        Bag: {},\n      },\n      {\n        Id: '178',\n        Description: 'Guatemala Melara, Victor Hugo',\n        Bag: {},\n      },\n      {\n        Id: '8',\n        Description: 'Sanchez, Carlos',\n        Bag: {},\n      },\n      {\n        Id: '9',\n        Description: 'Lopez, Samuel',\n        Bag: {},\n      },\n      {\n        Id: '10',\n        Description: 'Fernandez, Ignacio',\n        Bag: {},\n      },\n      {\n        Id: '11',\n        Description: 'Perez, Mercedes',\n        Bag: {},\n      },\n    ],\n  },\n}"
         },
         {
           "name": "form",
@@ -2592,7 +2592,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    ...Default.args,\n    inputConfiguration: {\n      control: formControlRequiredAutocomplete,\n      label: 'Autocomplete',\n      requiredErrorMessage: 'Este campo es requerido',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
+          "defaultValue": "{\n  args: {\n    ...Default.args,\n    inputConfiguration: {\n      control: formControlRequiredAutocomplete,\n      label: 'Autocomplete',\n      inputPlaceholder: '',\n      requiredErrorMessage: 'Este campo es requerido',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
         },
         {
           "name": "Unlabeled",
@@ -2602,7 +2602,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    ...Default.args,\n    inputConfiguration: {\n      control: formControlUnlabeledAutocomplete,\n      requiredErrorMessage: 'Este campo es requerido',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
+          "defaultValue": "{\n  args: {\n    ...Default.args,\n    inputConfiguration: {\n      control: formControlUnlabeledAutocomplete,\n      inputPlaceholder: '',\n      requiredErrorMessage: 'Este campo es requerido',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
         }
       ],
       "stories/breadcrumb.stories.ts": [
@@ -3212,7 +3212,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    label: 'Select',\n    items: [\n      {\n        key: 1,\n        value: 'Option 1',\n      },\n      {\n        key: 2,\n        value: 'Option 2',\n      },\n      {\n        key: 3,\n        value: 'Option 3',\n      },\n    ],\n    control: formControlDefaultSelect,\n    buttonIcon: {\n      icon: 'clean.svg',\n      type: 'svg',\n    },\n    detail: '',\n    twClass: '',\n  },\n}"
+          "defaultValue": "{\n  args: {\n    label: 'Select',\n    items: [\n      {\n        Id: '1',\n        Description: 'Option 1',\n        Bag: {},\n      },\n      {\n        Id: '2',\n        Description: 'Option 2',\n        Bag: {},\n      },\n      {\n        Id: '3',\n        Description: 'Option 3',\n        Bag: {},\n      },\n    ],\n    control: formControlDefaultSelect,\n    buttonIcon: {\n      icon: 'clean.svg',\n      type: 'svg',\n    },\n    detail: '',\n    twClass: '',\n  },\n}"
         },
         {
           "name": "form",

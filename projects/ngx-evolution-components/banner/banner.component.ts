@@ -24,6 +24,7 @@ export class BannerComponent implements OnChanges {
   @Input() message: string = '';
   @Input() duration: number | null = null;
   @Input() twClass?: string;
+  @Input() useAnimation: boolean = true;
   public isHidden: boolean = false;
 
   ngOnChanges(changes: SimpleChanges): void {

@@ -44,7 +44,6 @@ export * from './time-segmented-list/time-segmented-list.component';
 export * from './shared/interfaces/ibutton.interface';
 export * from './shared/interfaces/iicon.interface';
 export * from './shared/interfaces/iinput.interface';
-export * from './shared/interfaces/iselect.interface';
 export * from './shared/interfaces/idialog.interface';
 export * from './shared/interfaces/ievaluacion.interface';
 export * from './shared/interfaces/iactividad-programa.interface';

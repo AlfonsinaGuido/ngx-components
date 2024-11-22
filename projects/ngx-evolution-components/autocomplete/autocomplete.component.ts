@@ -1,4 +1,3 @@
-import { AsyncPipe } from '@angular/common';
 import {
   Component,
   ElementRef,
@@ -31,7 +30,6 @@ import { Subscription } from 'rxjs';
     MatInputModule,
     MatAutocompleteModule,
     ReactiveFormsModule,
-    AsyncPipe,
     ButtonComponent,
   ],
   templateUrl: './autocomplete.component.html',
@@ -55,7 +53,7 @@ export class AutocompleteComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.valueChangesSubscription =
       this.inputConfiguration.control.valueChanges.subscribe((value) => {
-        this.valueChange.emit(value);
+        if (value) this.valueChange.emit(value.Id);
       });
   }
 
@@ -66,11 +64,19 @@ export class AutocompleteComponent implements OnInit, OnDestroy {
   }
 
   /**
+   * Formatea el valor que se muestra en el input del autocompletado.
+   * Si la opción es nula o indefinida, devuelve una cadena vacía.
+   * @param {IValueList | null} option - La opción seleccionada de la lista. Puede ser nula.
+   * @returns {string} La descripción de la opción seleccionada, o una cadena vacía si la opción es nula o no tiene descripción.
+   */
+  public displayFn(option: IValueList | null): string {
+    return option?.Description ?? '';
+  }
+
+  /**
    * Filtra una lista de opciones basándose en el valor del input.
    * Convierte el valor del input a minúsculas y filtra los elementos
    * de `items` cuyo campo `Description` contiene el valor ingresado.
-   * @public
-   * @returns {void} No retorna ningún valor.
    */
   public filter(): void {
     const filterValue = this.input.nativeElement.value.toLowerCase();
@@ -80,14 +86,9 @@ export class AutocompleteComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Restaura el control asociado al input a su valor inicial y emite
-   * el valor actual a través del evento `valueChange`.
-   * @public
-   * @param {any} event - Evento que contiene el valor del input a emitir.
-   * @returns {void} No retorna ningún valor.
+   * Restaura el control asociado al input a su valor inicial.
    */
-  public clean(event: any): void {
+  public clean(): void {
     this.inputConfiguration.control.reset();
-    this.valueChange.emit(event.target.value);
   }
 }

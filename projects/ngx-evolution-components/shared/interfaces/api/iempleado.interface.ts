@@ -1,11 +1,7 @@
-export type Action = 'Create' | 'Delete' | 'Edit' | 'Index';
-
 export interface IEmpleado {
   Nombre: string;
   Email: string;
   Empleos: IEmpleo[];
-  OpcionId: string;
-  Acciones: Action[];
 }
 
 interface IEmpleo {

@@ -1,6 +1,7 @@
-export type Action = 'Create' | 'Delete' | 'Edit' | 'Index';
-
 export interface IPermiso {
   OpcionId: string;
-  Acciones: Action[];
+  ModuloId: string;
+  ModuloOrden: number;
+  Acciones?: string[];
+  Nombre?: string;
 }

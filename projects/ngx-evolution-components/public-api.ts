@@ -39,6 +39,7 @@ export * from './sidebar/sidebar.component';
 export * from './breadcrumb/breadcrumb.component';
 export * from './info-panel/info-panel.component';
 export * from './time-segmented-list/time-segmented-list.component';
+export * from './filter/filter.component';
 
 // Interfaces
 export * from './shared/interfaces/ibutton.interface';
@@ -68,6 +69,7 @@ export * from './shared/interfaces/ietapa.interface';
 export * from './shared/interfaces/iempleado-responsable.interface';
 export * from './shared/interfaces/itipo-actividad.interface';
 export * from './shared/interfaces/itime-segmented-list.interface';
+export * from './shared/interfaces/ifilter.interface';
 
 // Api Interfaces
 export * from './shared/interfaces/api/iempleado.interface';

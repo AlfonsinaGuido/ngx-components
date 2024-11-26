@@ -1,0 +1,92 @@
+<ng-template #dynamicFilter>
+  <div class="flex flex-col px-4 py-2">
+    <div class="flex-1 space-y-2">
+      @for (field of fields.fields; track $index) {
+        <div mat-menu-item [ngSwitch]="field.fieldType">
+          <div *ngSwitchCase="'searchBar'" class="mb-10">
+            <evo-search-bar
+              [twClass]="'h-12 min-w-36 max-w-lg'"
+              [placeholder]="'empleados'"
+              (searchQuery)="testingparams($event, field.id)"
+            >
+            </evo-search-bar>
+          </div>
+          <div *ngSwitchCase="'autocomplete'">
+            <evo-autocomplete
+              [inputConfiguration]="{
+                inputType: field.inputType,
+                control: field.control,
+                label: field.label,
+                inputPlaceholder: field.inputPlaceholder,
+                requiredErrorMessage: field.requiredErrorMessage,
+                emailErrorMessage: field.emailErrorMessage,
+                twClass: field.twClass,
+              }"
+              [items]="field.items || []"
+              (valueChange)="testingparams($event, field.id)"
+            ></evo-autocomplete>
+          </div>
+          <div *ngSwitchCase="'select'">
+            <!-- <evo-select [label]="field.label"
+            [items]="field.items"
+            [control]="field.control"
+            [isRequired]="false"
+            ></evo-select> -->
+          </div>
+          <div *ngSwitchDefault>
+            <evo-input
+              class="flex-grow"
+              [inputConfiguration]="{
+                inputType: field.inputType,
+                control: field.control,
+                label: field.label,
+                inputPlaceholder: field.inputPlaceholder,
+                requiredErrorMessage: field.requiredErrorMessage,
+                emailErrorMessage: field.emailErrorMessage,
+                twClass: field.twClass,
+              }"
+              (valueChange)="testingparams($event, field.id)"
+            ></evo-input>
+          </div>
+        </div>
+      }
+    </div>
+    <div class="mt-auto flex justify-evenly">
+      <div>
+        <evo-button
+          [label]="'limpiar'"
+          [theme]="'secondary'"
+          (click)="testing()"
+        ></evo-button>
+      </div>
+      <div>
+        <evo-button
+          [label]="'filtrar'"
+          [theme]="'primary'"
+          (click)="testing()"
+        ></evo-button>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<div class="hidden sm:block">
+  <div class="flex flex-col h-5/6 px-4 py-6 shadow-md">
+    <ng-container *ngTemplateOutlet="dynamicFilter"></ng-container>
+  </div>
+</div>
+<div class="block sm:hidden">
+  <button
+    mat-icon-button
+    [matMenuTriggerFor]="menu"
+    [matMenuTriggerRestoreFocus]="false"
+    class="flex items-center"
+  >
+    <mat-icon class="mr-2" fontSet="material-symbols-outlined"
+      >filter_list</mat-icon
+    >
+    Filtro
+  </button>
+  <mat-menu #menu="matMenu">
+    <ng-container *ngTemplateOutlet="dynamicFilter"></ng-container>
+  </mat-menu>
+</div>

@@ -98,7 +98,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    title: 'Error',\n    message: 'No se puede eliminar un programa con personas asignadas.',\n    isError: true,\n    duration: 10000,\n    twClass: '',\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    title: 'Error',\r\n    message: 'No se puede eliminar un programa con personas asignadas.',\r\n    isError: true,\r\n    duration: 10000,\r\n    twClass: '',\r\n  },\r\n}"
       },
       {
         "name": "customTailwindClass",
@@ -199,6 +199,16 @@
         "deprecationMessage": "",
         "type": "Story",
         "defaultValue": "{\n  args: {\n    title: 'Dialogo de testing',\n  },\n}"
+      },
+      {
+        "name": "Default",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/filter.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    fields: fields,\n  },\n}"
       },
       {
         "name": "Default",
@@ -441,6 +451,16 @@
         "defaultValue": "{\n  [EstadoActividad.Pendiente]: {\n    id: 1,\n    nombre: 'abiertas',\n    validacion: { action: validarEstado, estado: EstadoActividad.Pendiente },\n  },\n  [EstadoActividad.EnProceso]: {\n    id: 2,\n    nombre: 'en progreso',\n    validacion: { action: validarEstado, estado: EstadoActividad.EnProceso },\n  },\n  [EstadoActividad.Finalizada]: {\n    id: 3,\n    nombre: 'finalizadas',\n    validacion: { action: validarEstado, estado: EstadoActividad.Finalizada },\n  },\n}"
       },
       {
+        "name": "fields",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/filter.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "IFilter",
+        "defaultValue": "{\n  fields: [\n    {\n      id: 'empleado',\n      fieldType: 'searchBar',\n      inputPlaceholder: 'Empleados',\n      twClass: 'h-12',\n      control: formControlDefaultInput,\n    },\n    {\n      id: 'fecha',\n      fieldType: 'date',\n      inputType: 'date',\n      label: 'Fecha',\n      detail: '',\n      twClass: 'max-w-max',\n      control: formControlDefaultInput,\n    },\n    {\n      id: 'tel',\n      fieldType: 'tel',\n      inputType: 'tel',\n      label: 'Telefono',\n      twClass: 'max-w-max',\n      requiredErrorMessage: 'Ninguna',\n      control: formControlPatternInput,\n    },\n    {\n      id: 'autocomplete',\n      fieldType: 'autocomplete',\n      control: formControlDefaultInput,\n      label: 'Autocomplete Empleados',\n      twClass: 'max-w-max',\n      items: valuelistTest,\n    },\n  ],\n}"
+      },
+      {
         "name": "form",
         "ctype": "miscellaneous",
         "subtype": "variable",
@@ -449,6 +469,16 @@
         "deprecationMessage": "",
         "type": "",
         "defaultValue": "new FormBuilder().group({\n  defaultFieldAutocomplete: new FormControl('', []),\n  requiredFieldAutocomplete: new FormControl('', [Validators.required]),\n  unlabeledFieldAutocomplete: new FormControl('', [Validators.required]),\n})"
+      },
+      {
+        "name": "form",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/filter.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "new FormBuilder().group({\n  defaultFieldInput: new FormControl('', []),\n  requiredFieldInput: new FormControl('', [Validators.required]),\n  unlabeledFieldInput: new FormControl('', [Validators.required]),\n  emailFieldInput: new FormControl('', [Validators.required, Validators.email]),\n  patternFieldInput: new FormControl('', [\n    Validators.required,\n    Validators.pattern(/^\\(\\d{3}\\) \\d{3}-\\d{4}$/),\n  ]),\n})"
       },
       {
         "name": "form",
@@ -484,6 +514,16 @@
         "name": "formControlDefaultInput",
         "ctype": "miscellaneous",
         "subtype": "variable",
+        "file": "stories/filter.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "form.controls['defaultFieldInput']"
+      },
+      {
+        "name": "formControlDefaultInput",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
         "file": "stories/input.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
@@ -499,6 +539,16 @@
         "deprecationMessage": "",
         "type": "",
         "defaultValue": "form.controls['defaultFieldSelect']"
+      },
+      {
+        "name": "formControlEmailInput",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/filter.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "form.controls['emailFieldInput']"
       },
       {
         "name": "formControlEmailInput",
@@ -524,6 +574,16 @@
         "name": "formControlPatternInput",
         "ctype": "miscellaneous",
         "subtype": "variable",
+        "file": "stories/filter.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "form.controls['patternFieldInput']"
+      },
+      {
+        "name": "formControlPatternInput",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
         "file": "stories/input.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
@@ -539,6 +599,16 @@
         "deprecationMessage": "",
         "type": "",
         "defaultValue": "form.controls['requiredFieldAutocomplete']"
+      },
+      {
+        "name": "formControlRequiredInput",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/filter.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "form.controls['requiredFieldInput']"
       },
       {
         "name": "formControlRequiredInput",
@@ -569,6 +639,16 @@
         "deprecationMessage": "",
         "type": "",
         "defaultValue": "form.controls['unlabeledFieldAutocomplete']"
+      },
+      {
+        "name": "formControlUnlabeledInput",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/filter.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "",
+        "defaultValue": "form.controls['unlabeledFieldInput']"
       },
       {
         "name": "formControlUnlabeledInput",
@@ -758,7 +838,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<BannerComponent>",
-        "defaultValue": "{\n  title: 'Evolution Components/Banner',\n  component: BannerComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+        "defaultValue": "{\r\n  title: 'Evolution Components/Banner',\r\n  component: BannerComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideAnimationsAsync()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
       },
       {
         "name": "meta",
@@ -789,6 +869,16 @@
         "deprecationMessage": "",
         "type": "Meta<DialogButtonComponent>",
         "defaultValue": "{\n  title: 'Evolution Components/Dialog',\n  component: DialogButtonComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync(), provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+      },
+      {
+        "name": "meta",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/filter.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Meta<FilterComponent>",
+        "defaultValue": "{\n  title: 'Evolution Components/Filter',\n  component: FilterComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
       },
       {
         "name": "meta",
@@ -1258,7 +1348,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    title: 'Éxito',\n    message: 'Se asignaron correctamente las personas al programa.',\n    duration: 10000,\n    twClass: '',\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    title: 'Éxito',\r\n    message: 'Se asignaron correctamente las personas al programa.',\r\n    duration: 10000,\r\n    twClass: '',\r\n  },\r\n}"
       },
       {
         "name": "svgDialog",
@@ -1328,7 +1418,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    title: 'Error',\n    message: 'No se pudo establecer conexión con el Identity Server.',\n    isError: true,\n    useAnimation: false,\n    twClass: '',\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    title: 'Error',\r\n    message: 'No se pudo establecer conexión con el Identity Server.',\r\n    isError: true,\r\n    useAnimation: false,\r\n    twClass: '',\r\n  },\r\n}"
       },
       {
         "name": "Unlabeled",
@@ -1381,6 +1471,16 @@
         "defaultValue": "(\n  item: IActividad,\n  tipoColumna: EstadoActividad,\n): boolean => {\n  const estado = item.EstadoDb;\n  let resultado: boolean;\n  switch (tipoColumna) {\n    case EstadoActividad.EnProceso:\n      resultado = estado === EstadoActividad.Pendiente;\n      break;\n    case EstadoActividad.Finalizada:\n      resultado = estado === EstadoActividad.EnProceso;\n      break;\n    default:\n      resultado = false;\n      break;\n  }\n  return resultado;\n}",
         "rawdescription": "Arrow Function que permite validar la actividad que quiere ingresar a una columna",
         "description": "<p>Arrow Function que permite validar la actividad que quiere ingresar a una columna</p>\n"
+      },
+      {
+        "name": "valuelistTest",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/filter.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "IValueList[]",
+        "defaultValue": "[\n  {\n    Id: '7',\n    Description: 'Penado Guzmán, Ana María',\n    Bag: {},\n  },\n  {\n    Id: '178',\n    Description: 'Guatemala Melara, Victor Hugo',\n    Bag: {},\n  },\n  {\n    Id: '8',\n    Description: 'Sanchez, Carlos',\n    Bag: {},\n  },\n  {\n    Id: '9',\n    Description: 'Lopez, Samuel',\n    Bag: {},\n  },\n  {\n    Id: '10',\n    Description: 'Fernandez, Ignacio',\n    Bag: {},\n  },\n  {\n    Id: '11',\n    Description: 'Perez, Mercedes',\n    Bag: {},\n  },\n]"
       },
       {
         "name": "vencida",
@@ -1537,6 +1637,34 @@
       {
         "name": "addCircularSafeProperties",
         "file": "stories/autocomplete.stories.ts",
+        "ctype": "miscellaneous",
+        "subtype": "function",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "description": "",
+        "args": [
+          {
+            "name": "formControl",
+            "type": "FormControl",
+            "deprecated": false,
+            "deprecationMessage": ""
+          }
+        ],
+        "jsdoctags": [
+          {
+            "name": "formControl",
+            "type": "FormControl",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "tagName": {
+              "text": "param"
+            }
+          }
+        ]
+      },
+      {
+        "name": "addCircularSafeProperties",
+        "file": "stories/filter.stories.ts",
         "ctype": "miscellaneous",
         "subtype": "function",
         "deprecated": false,
@@ -1725,6 +1853,17 @@
         "subtype": "typealias",
         "rawtype": "StoryObj<DialogButtonComponent>",
         "file": "stories/dialog.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "description": "",
+        "kind": 183
+      },
+      {
+        "name": "Story",
+        "ctype": "miscellaneous",
+        "subtype": "typealias",
+        "rawtype": "StoryObj<FilterComponent>",
+        "file": "stories/filter.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "description": "",
@@ -2292,7 +2431,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    title: 'Error',\n    message: 'No se puede eliminar un programa con personas asignadas.',\n    isError: true,\n    duration: 10000,\n    twClass: '',\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    title: 'Error',\r\n    message: 'No se puede eliminar un programa con personas asignadas.',\r\n    isError: true,\r\n    duration: 10000,\r\n    twClass: '',\r\n  },\r\n}"
         },
         {
           "name": "meta",
@@ -2302,7 +2441,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<BannerComponent>",
-          "defaultValue": "{\n  title: 'Evolution Components/Banner',\n  component: BannerComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+          "defaultValue": "{\r\n  title: 'Evolution Components/Banner',\r\n  component: BannerComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideAnimationsAsync()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
         },
         {
           "name": "Success",
@@ -2312,7 +2451,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    title: 'Éxito',\n    message: 'Se asignaron correctamente las personas al programa.',\n    duration: 10000,\n    twClass: '',\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    title: 'Éxito',\r\n    message: 'Se asignaron correctamente las personas al programa.',\r\n    duration: 10000,\r\n    twClass: '',\r\n  },\r\n}"
         },
         {
           "name": "UncontrolledError",
@@ -2322,7 +2461,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    title: 'Error',\n    message: 'No se pudo establecer conexión con el Identity Server.',\n    isError: true,\n    useAnimation: false,\n    twClass: '',\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    title: 'Error',\r\n    message: 'No se pudo establecer conexión con el Identity Server.',\r\n    isError: true,\r\n    useAnimation: false,\r\n    twClass: '',\r\n  },\r\n}"
         }
       ],
       "stories/header-columna.stories.ts": [
@@ -2931,6 +3070,108 @@
           "deprecationMessage": "",
           "type": "Story",
           "defaultValue": "{\n  args: {\n    activities: [],\n  },\n}"
+        }
+      ],
+      "stories/filter.stories.ts": [
+        {
+          "name": "Default",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/filter.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    fields: fields,\n  },\n}"
+        },
+        {
+          "name": "fields",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/filter.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "IFilter",
+          "defaultValue": "{\n  fields: [\n    {\n      id: 'empleado',\n      fieldType: 'searchBar',\n      inputPlaceholder: 'Empleados',\n      twClass: 'h-12',\n      control: formControlDefaultInput,\n    },\n    {\n      id: 'fecha',\n      fieldType: 'date',\n      inputType: 'date',\n      label: 'Fecha',\n      detail: '',\n      twClass: 'max-w-max',\n      control: formControlDefaultInput,\n    },\n    {\n      id: 'tel',\n      fieldType: 'tel',\n      inputType: 'tel',\n      label: 'Telefono',\n      twClass: 'max-w-max',\n      requiredErrorMessage: 'Ninguna',\n      control: formControlPatternInput,\n    },\n    {\n      id: 'autocomplete',\n      fieldType: 'autocomplete',\n      control: formControlDefaultInput,\n      label: 'Autocomplete Empleados',\n      twClass: 'max-w-max',\n      items: valuelistTest,\n    },\n  ],\n}"
+        },
+        {
+          "name": "form",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/filter.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "new FormBuilder().group({\n  defaultFieldInput: new FormControl('', []),\n  requiredFieldInput: new FormControl('', [Validators.required]),\n  unlabeledFieldInput: new FormControl('', [Validators.required]),\n  emailFieldInput: new FormControl('', [Validators.required, Validators.email]),\n  patternFieldInput: new FormControl('', [\n    Validators.required,\n    Validators.pattern(/^\\(\\d{3}\\) \\d{3}-\\d{4}$/),\n  ]),\n})"
+        },
+        {
+          "name": "formControlDefaultInput",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/filter.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "form.controls['defaultFieldInput']"
+        },
+        {
+          "name": "formControlEmailInput",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/filter.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "form.controls['emailFieldInput']"
+        },
+        {
+          "name": "formControlPatternInput",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/filter.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "form.controls['patternFieldInput']"
+        },
+        {
+          "name": "formControlRequiredInput",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/filter.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "form.controls['requiredFieldInput']"
+        },
+        {
+          "name": "formControlUnlabeledInput",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/filter.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "",
+          "defaultValue": "form.controls['unlabeledFieldInput']"
+        },
+        {
+          "name": "meta",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/filter.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Meta<FilterComponent>",
+          "defaultValue": "{\n  title: 'Evolution Components/Filter',\n  component: FilterComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+        },
+        {
+          "name": "valuelistTest",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/filter.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "IValueList[]",
+          "defaultValue": "[\n  {\n    Id: '7',\n    Description: 'Penado Guzmán, Ana María',\n    Bag: {},\n  },\n  {\n    Id: '178',\n    Description: 'Guatemala Melara, Victor Hugo',\n    Bag: {},\n  },\n  {\n    Id: '8',\n    Description: 'Sanchez, Carlos',\n    Bag: {},\n  },\n  {\n    Id: '9',\n    Description: 'Lopez, Samuel',\n    Bag: {},\n  },\n  {\n    Id: '10',\n    Description: 'Fernandez, Ignacio',\n    Bag: {},\n  },\n  {\n    Id: '11',\n    Description: 'Perez, Mercedes',\n    Bag: {},\n  },\n]"
         }
       ],
       "stories/header.stories.ts": [
@@ -3545,6 +3786,36 @@
           ]
         }
       ],
+      "stories/filter.stories.ts": [
+        {
+          "name": "addCircularSafeProperties",
+          "file": "stories/filter.stories.ts",
+          "ctype": "miscellaneous",
+          "subtype": "function",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "description": "",
+          "args": [
+            {
+              "name": "formControl",
+              "type": "FormControl",
+              "deprecated": false,
+              "deprecationMessage": ""
+            }
+          ],
+          "jsdoctags": [
+            {
+              "name": "formControl",
+              "type": "FormControl",
+              "deprecated": false,
+              "deprecationMessage": "",
+              "tagName": {
+                "text": "param"
+              }
+            }
+          ]
+        }
+      ],
       "stories/input.stories.ts": [
         {
           "name": "addCircularSafeProperties",
@@ -3732,6 +4003,19 @@
           "subtype": "typealias",
           "rawtype": "StoryObj<DialogButtonComponent>",
           "file": "stories/dialog.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "description": "",
+          "kind": 183
+        }
+      ],
+      "stories/filter.stories.ts": [
+        {
+          "name": "Story",
+          "ctype": "miscellaneous",
+          "subtype": "typealias",
+          "rawtype": "StoryObj<FilterComponent>",
+          "file": "stories/filter.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "description": "",
@@ -4675,6 +4959,116 @@
         "linktype": "miscellaneous",
         "linksubtype": "variable",
         "name": "Testing2",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/filter.stories.ts",
+        "type": "function",
+        "linktype": "miscellaneous",
+        "linksubtype": "function",
+        "name": "addCircularSafeProperties",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/filter.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Default",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/filter.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "fields",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/filter.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "form",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/filter.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "formControlDefaultInput",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/filter.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "formControlEmailInput",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/filter.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "formControlPatternInput",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/filter.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "formControlRequiredInput",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/filter.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "formControlUnlabeledInput",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/filter.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "meta",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/filter.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "valuelistTest",
         "coveragePercent": 0,
         "coverageCount": "0/1",
         "status": "low"

@@ -148,7 +148,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    inputConfiguration: {\n      control: formControlDefaultAutocomplete,\n      label: 'Autocomplete',\n      detail: '',\n      twClass: '',\n    },\n    items: [\n      {\n        Id: '7',\n        Description: 'Penado Guzmán, Ana María',\n        Bag: {},\n      },\n      {\n        Id: '178',\n        Description: 'Guatemala Melara, Victor Hugo',\n        Bag: {},\n      },\n      {\n        Id: '8',\n        Description: 'Sanchez, Carlos',\n        Bag: {},\n      },\n      {\n        Id: '9',\n        Description: 'Lopez, Samuel',\n        Bag: {},\n      },\n      {\n        Id: '10',\n        Description: 'Fernandez, Ignacio',\n        Bag: {},\n      },\n      {\n        Id: '11',\n        Description: 'Perez, Mercedes',\n        Bag: {},\n      },\n    ],\n  },\n}"
+        "defaultValue": "{\n  args: {\n    inputConfiguration: {\n      control: formControlDefaultAutocomplete,\n      label: 'Autocomplete',\n      inputPlaceholder: '',\n      detail: '',\n      twClass: '',\n    },\n    items: [\n      {\n        Id: '7',\n        Description: 'Penado Guzmán, Ana María',\n        Bag: {},\n      },\n      {\n        Id: '178',\n        Description: 'Guatemala Melara, Victor Hugo',\n        Bag: {},\n      },\n      {\n        Id: '8',\n        Description: 'Sanchez, Carlos',\n        Bag: {},\n      },\n      {\n        Id: '9',\n        Description: 'Lopez, Samuel',\n        Bag: {},\n      },\n      {\n        Id: '10',\n        Description: 'Fernandez, Ignacio',\n        Bag: {},\n      },\n      {\n        Id: '11',\n        Description: 'Perez, Mercedes',\n        Bag: {},\n      },\n    ],\n  },\n}"
       },
       {
         "name": "Default",
@@ -298,7 +298,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    label: 'Select',\n    items: [\n      {\n        key: 1,\n        value: 'Option 1',\n      },\n      {\n        key: 2,\n        value: 'Option 2',\n      },\n      {\n        key: 3,\n        value: 'Option 3',\n      },\n    ],\n    control: formControlDefaultSelect,\n    buttonIcon: {\n      icon: 'clean.svg',\n      type: 'svg',\n    },\n    detail: '',\n    twClass: '',\n  },\n}"
+        "defaultValue": "{\n  args: {\n    label: 'Select',\n    items: [\n      {\n        Id: '1',\n        Description: 'Option 1',\n        Bag: {},\n      },\n      {\n        Id: '2',\n        Description: 'Option 2',\n        Bag: {},\n      },\n      {\n        Id: '3',\n        Description: 'Option 3',\n        Bag: {},\n      },\n    ],\n    control: formControlDefaultSelect,\n    buttonIcon: {\n      icon: 'clean.svg',\n      type: 'svg',\n    },\n    detail: '',\n    twClass: '',\n  },\n}"
       },
       {
         "name": "Default",
@@ -1168,7 +1168,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    ...Default.args,\n    inputConfiguration: {\n      control: formControlRequiredAutocomplete,\n      label: 'Autocomplete',\n      requiredErrorMessage: 'Este campo es requerido',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
+        "defaultValue": "{\n  args: {\n    ...Default.args,\n    inputConfiguration: {\n      control: formControlRequiredAutocomplete,\n      label: 'Autocomplete',\n      inputPlaceholder: '',\n      requiredErrorMessage: 'Este campo es requerido',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
       },
       {
         "name": "Required",
@@ -1428,7 +1428,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    ...Default.args,\n    inputConfiguration: {\n      control: formControlUnlabeledAutocomplete,\n      requiredErrorMessage: 'Este campo es requerido',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
+        "defaultValue": "{\n  args: {\n    ...Default.args,\n    inputConfiguration: {\n      control: formControlUnlabeledAutocomplete,\n      inputPlaceholder: '',\n      requiredErrorMessage: 'Este campo es requerido',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
       },
       {
         "name": "Unlabeled",
@@ -2651,7 +2651,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    inputConfiguration: {\n      control: formControlDefaultAutocomplete,\n      label: 'Autocomplete',\n      detail: '',\n      twClass: '',\n    },\n    items: [\n      {\n        Id: '7',\n        Description: 'Penado Guzmán, Ana María',\n        Bag: {},\n      },\n      {\n        Id: '178',\n        Description: 'Guatemala Melara, Victor Hugo',\n        Bag: {},\n      },\n      {\n        Id: '8',\n        Description: 'Sanchez, Carlos',\n        Bag: {},\n      },\n      {\n        Id: '9',\n        Description: 'Lopez, Samuel',\n        Bag: {},\n      },\n      {\n        Id: '10',\n        Description: 'Fernandez, Ignacio',\n        Bag: {},\n      },\n      {\n        Id: '11',\n        Description: 'Perez, Mercedes',\n        Bag: {},\n      },\n    ],\n  },\n}"
+          "defaultValue": "{\n  args: {\n    inputConfiguration: {\n      control: formControlDefaultAutocomplete,\n      label: 'Autocomplete',\n      inputPlaceholder: '',\n      detail: '',\n      twClass: '',\n    },\n    items: [\n      {\n        Id: '7',\n        Description: 'Penado Guzmán, Ana María',\n        Bag: {},\n      },\n      {\n        Id: '178',\n        Description: 'Guatemala Melara, Victor Hugo',\n        Bag: {},\n      },\n      {\n        Id: '8',\n        Description: 'Sanchez, Carlos',\n        Bag: {},\n      },\n      {\n        Id: '9',\n        Description: 'Lopez, Samuel',\n        Bag: {},\n      },\n      {\n        Id: '10',\n        Description: 'Fernandez, Ignacio',\n        Bag: {},\n      },\n      {\n        Id: '11',\n        Description: 'Perez, Mercedes',\n        Bag: {},\n      },\n    ],\n  },\n}"
         },
         {
           "name": "form",
@@ -2711,7 +2711,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    ...Default.args,\n    inputConfiguration: {\n      control: formControlRequiredAutocomplete,\n      label: 'Autocomplete',\n      requiredErrorMessage: 'Este campo es requerido',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
+          "defaultValue": "{\n  args: {\n    ...Default.args,\n    inputConfiguration: {\n      control: formControlRequiredAutocomplete,\n      label: 'Autocomplete',\n      inputPlaceholder: '',\n      requiredErrorMessage: 'Este campo es requerido',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
         },
         {
           "name": "Unlabeled",
@@ -2721,7 +2721,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    ...Default.args,\n    inputConfiguration: {\n      control: formControlUnlabeledAutocomplete,\n      requiredErrorMessage: 'Este campo es requerido',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
+          "defaultValue": "{\n  args: {\n    ...Default.args,\n    inputConfiguration: {\n      control: formControlUnlabeledAutocomplete,\n      inputPlaceholder: '',\n      requiredErrorMessage: 'Este campo es requerido',\n      detail: '',\n      twClass: '',\n    },\n  },\n}"
         }
       ],
       "stories/breadcrumb.stories.ts": [
@@ -3433,7 +3433,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    label: 'Select',\n    items: [\n      {\n        key: 1,\n        value: 'Option 1',\n      },\n      {\n        key: 2,\n        value: 'Option 2',\n      },\n      {\n        key: 3,\n        value: 'Option 3',\n      },\n    ],\n    control: formControlDefaultSelect,\n    buttonIcon: {\n      icon: 'clean.svg',\n      type: 'svg',\n    },\n    detail: '',\n    twClass: '',\n  },\n}"
+          "defaultValue": "{\n  args: {\n    label: 'Select',\n    items: [\n      {\n        Id: '1',\n        Description: 'Option 1',\n        Bag: {},\n      },\n      {\n        Id: '2',\n        Description: 'Option 2',\n        Bag: {},\n      },\n      {\n        Id: '3',\n        Description: 'Option 3',\n        Bag: {},\n      },\n    ],\n    control: formControlDefaultSelect,\n    buttonIcon: {\n      icon: 'clean.svg',\n      type: 'svg',\n    },\n    detail: '',\n    twClass: '',\n  },\n}"
         },
         {
           "name": "form",

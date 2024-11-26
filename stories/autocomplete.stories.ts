@@ -53,6 +53,7 @@ export const Default: Story = {
     inputConfiguration: {
       control: formControlDefaultAutocomplete,
       label: 'Autocomplete',
+      inputPlaceholder: '',
       detail: '',
       twClass: '',
     },
@@ -97,6 +98,7 @@ export const Required: Story = {
     inputConfiguration: {
       control: formControlRequiredAutocomplete,
       label: 'Autocomplete',
+      inputPlaceholder: '',
       requiredErrorMessage: 'Este campo es requerido',
       detail: '',
       twClass: '',
@@ -109,6 +111,7 @@ export const Unlabeled: Story = {
     ...Default.args,
     inputConfiguration: {
       control: formControlUnlabeledAutocomplete,
+      inputPlaceholder: '',
       requiredErrorMessage: 'Este campo es requerido',
       detail: '',
       twClass: '',

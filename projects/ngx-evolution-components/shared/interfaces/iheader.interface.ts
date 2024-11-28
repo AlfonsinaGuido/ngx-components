@@ -40,9 +40,9 @@ export interface IHeaderTitles {
 
 export interface IHeaderItems {
   appItems: IButton[];
-  authorizationItems?: IButton[];
-  notificationItems?: IButton[];
-  seeAllButton?: ISeeAllButton;
+  authorizationItems: IButton[];
+  notificationItems: IButton[];
+  seeAllButton: ISeeAllButton;
   settingMenu: ISettingMenu;
   userDataItems: IButton[];
 }

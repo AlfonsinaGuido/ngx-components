@@ -98,7 +98,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    title: 'Error',\r\n    message: 'No se puede eliminar un programa con personas asignadas.',\r\n    isError: true,\r\n    duration: 10000,\r\n    twClass: '',\r\n  },\r\n}"
+        "defaultValue": "{\n  args: {\n    title: 'Error',\n    message: 'No se puede eliminar un programa con personas asignadas.',\n    isError: true,\n    duration: 10000,\n    twClass: '',\n  },\n}"
       },
       {
         "name": "customTailwindClass",
@@ -758,7 +758,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<BannerComponent>",
-        "defaultValue": "{\r\n  title: 'Evolution Components/Banner',\r\n  component: BannerComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideAnimationsAsync()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
+        "defaultValue": "{\n  title: 'Evolution Components/Banner',\n  component: BannerComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
       },
       {
         "name": "meta",
@@ -1258,7 +1258,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    title: 'Éxito',\r\n    message: 'Se asignaron correctamente las personas al programa.',\r\n    duration: 10000,\r\n    twClass: '',\r\n  },\r\n}"
+        "defaultValue": "{\n  args: {\n    title: 'Éxito',\n    message: 'Se asignaron correctamente las personas al programa.',\n    duration: 10000,\n    twClass: '',\n  },\n}"
       },
       {
         "name": "svgDialog",
@@ -1328,7 +1328,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    title: 'Error',\r\n    message: 'No se pudo establecer conexión con el Identity Server.',\r\n    isError: true,\r\n    useAnimation: false,\r\n    twClass: '',\r\n  },\r\n}"
+        "defaultValue": "{\n  args: {\n    title: 'Error',\n    message: 'No se pudo establecer conexión con el Identity Server.',\n    isError: true,\n    useAnimation: false,\n    twClass: '',\n  },\n}"
       },
       {
         "name": "Unlabeled",
@@ -2292,7 +2292,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    title: 'Error',\r\n    message: 'No se puede eliminar un programa con personas asignadas.',\r\n    isError: true,\r\n    duration: 10000,\r\n    twClass: '',\r\n  },\r\n}"
+          "defaultValue": "{\n  args: {\n    title: 'Error',\n    message: 'No se puede eliminar un programa con personas asignadas.',\n    isError: true,\n    duration: 10000,\n    twClass: '',\n  },\n}"
         },
         {
           "name": "meta",
@@ -2302,7 +2302,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<BannerComponent>",
-          "defaultValue": "{\r\n  title: 'Evolution Components/Banner',\r\n  component: BannerComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideAnimationsAsync()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
+          "defaultValue": "{\n  title: 'Evolution Components/Banner',\n  component: BannerComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
         },
         {
           "name": "Success",
@@ -2312,7 +2312,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    title: 'Éxito',\r\n    message: 'Se asignaron correctamente las personas al programa.',\r\n    duration: 10000,\r\n    twClass: '',\r\n  },\r\n}"
+          "defaultValue": "{\n  args: {\n    title: 'Éxito',\n    message: 'Se asignaron correctamente las personas al programa.',\n    duration: 10000,\n    twClass: '',\n  },\n}"
         },
         {
           "name": "UncontrolledError",
@@ -2322,7 +2322,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    title: 'Error',\r\n    message: 'No se pudo establecer conexión con el Identity Server.',\r\n    isError: true,\r\n    useAnimation: false,\r\n    twClass: '',\r\n  },\r\n}"
+          "defaultValue": "{\n  args: {\n    title: 'Error',\n    message: 'No se pudo establecer conexión con el Identity Server.',\n    isError: true,\n    useAnimation: false,\n    twClass: '',\n  },\n}"
         }
       ],
       "stories/header-columna.stories.ts": [

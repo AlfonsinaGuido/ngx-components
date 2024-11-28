@@ -28,7 +28,7 @@ export interface ISidebarOption {
 // Configuración del Sidebar que incluye props comunes y opciones
 export interface ISidebarConfig {
   commonProps: ISidebarHeaderProps;
-  options: ISidebarOption[];
+  options: ISidebarOption[] | [];
   additionalOptions?: ISidebarOption[];
   footerOptions?: ISidebarOption[];
   accordion?: {

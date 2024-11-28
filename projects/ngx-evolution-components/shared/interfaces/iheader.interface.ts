@@ -26,7 +26,7 @@ export interface IHeaderBoxButton {
 export interface IHeaderIcons {
   appMenuIcons: IMenuIcons;
   authorizationMenuIcons?: IMenuIcons;
-  notificationMenuIcons: IMenuIcons;
+  notificationMenuIcons?: IMenuIcons;
   settingMenuIcons: IMenuIcons;
   userMenuIcons?: IMenuIcons;
 }
@@ -41,15 +41,15 @@ export interface IHeaderTitles {
 export interface IHeaderItems {
   appItems: IButton[];
   authorizationItems?: IButton[];
-  notificationItems: IButton[];
-  seeAllButton: ISeeAllButton;
+  notificationItems?: IButton[];
+  seeAllButton?: ISeeAllButton;
   settingMenu: ISettingMenu;
   userDataItems: IButton[];
 }
 
 interface ISeeAllButton {
   seeAllAuthorizations?: IButton;
-  seeAllNotifications: IButton;
+  seeAllNotifications?: IButton;
 }
 
 export interface IHeaderCompanyData {

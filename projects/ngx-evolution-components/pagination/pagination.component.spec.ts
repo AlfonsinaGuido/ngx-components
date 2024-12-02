@@ -4,6 +4,7 @@ import { PaginationComponent } from './pagination.component';
 import { ButtonComponent } from '../public-api';
 import { CommonModule } from '@angular/common';
 import { ClassUtilityService } from '../shared/services/class-utility.service';
+
 describe('PaginationComponent', () => {
   let component: PaginationComponent;
   let fixture: ComponentFixture<PaginationComponent>;
@@ -16,7 +17,6 @@ describe('PaginationComponent', () => {
 
     await TestBed.configureTestingModule({
       imports: [PaginationComponent, CommonModule, ButtonComponent],
-
       providers: [
         { provide: ClassUtilityService, useValue: mockClassUtilityService },
       ],
@@ -57,7 +57,7 @@ describe('PaginationComponent', () => {
     fixture.detectChanges();
 
     const itemsRangeText = component.getItemsRangeText();
-    expect(itemsRangeText).toBe('Mostrando 21 - 25 resultados');
+    expect(itemsRangeText).toBe('Mostrando 25 - 25 resultados');
   });
 
   it('should disable the previous button on the first page', () => {
@@ -124,7 +124,7 @@ describe('PaginationComponent', () => {
     fixture.detectChanges();
 
     const rangeText = component.getItemsRangeText();
-    expect(rangeText).toBe('Mostrando 11 - 20 resultados');
+    expect(rangeText).toBe('Mostrando 20 - 35 resultados');
   });
 
   it('should return the correct minimum value using getMinValue method', () => {

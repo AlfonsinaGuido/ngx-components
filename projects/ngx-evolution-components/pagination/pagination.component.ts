@@ -89,18 +89,11 @@ export class PaginationComponent {
    * Obtiene el texto para mostrar el rango de ítems y el total de resultados.
    */
   getItemsRangeText(): string {
-    const startItem = (this.config.currentPage - 1) * this.config.pageSize + 1;
-    let endItem;
+    let startItem = this.config.currentPage * this.config.pageSize;
+    let endItem = this.config.totalItems;
 
-    if (this.config.isManualPaginate) {
-      // Cálculo de endItem cuando isManualPaginate es true
-      endItem = this.config.pageSize * this.config.totalPages;
-    } else {
-      // Cálculo normal
-      endItem = this.getMinValue(
-        this.config.currentPage * this.config.pageSize,
-        this.config.totalItems,
-      );
+    if (startItem > endItem) {
+      startItem = endItem;
     }
 
     return `${this.config.titles.showing} ${startItem} - ${endItem} ${this.config.titles.results}`;

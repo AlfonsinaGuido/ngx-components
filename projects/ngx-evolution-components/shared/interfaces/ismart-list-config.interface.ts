@@ -1,3 +1,5 @@
+import { IIcon } from '../../public-api';
+
 export interface ISmartlistFullConfig {
   Code: string;
   ClientControlID: string;
@@ -93,4 +95,12 @@ export interface IActionConfig {
 export interface ILocalizedString {
   Key: string;
   Translation: string;
+}
+
+export interface ITableConfig {
+  hiddenColumns: number[];
+  sortableColumns: number[];
+  actionIcons: IIcon[];
+  emptyStateText: string;
+  twClass: string;
 }

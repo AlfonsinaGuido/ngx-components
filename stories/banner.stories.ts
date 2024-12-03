@@ -47,6 +47,7 @@ export const UncontrolledError: Story = {
     title: 'Error',
     message: 'No se pudo establecer conexión con el Identity Server.',
     isError: true,
+    useAnimation: false,
     twClass: '',
   },
 };

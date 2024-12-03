@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelect, MatSelectModule } from '@angular/material/select';
-import { ButtonComponent, IIcon, ISelect } from '../public-api';
+import { ButtonComponent, IIcon, IValueList } from '../public-api';
 
 @Component({
   selector: 'evo-select',
@@ -30,7 +30,7 @@ import { ButtonComponent, IIcon, ISelect } from '../public-api';
 export class SelectComponent {
   @Input() control!: FormControl;
   @Input() label?: string;
-  @Input() items!: ISelect[];
+  @Input() items!: IValueList[];
   @Input() isMultiple?: boolean;
   @Input() isRequired?: boolean;
   @Input() requiredErrorMessage?: string;
@@ -42,27 +42,21 @@ export class SelectComponent {
   @ViewChild('selectControl') selectControl!: MatSelect;
 
   /**
-   * Limpia el valor del control de input, emite el nuevo valor,
+   * Limpia el valor del control, emite el nuevo valor,
    * y cierra el control de selección si está presente.
-   * @public
-   * @param {any} event - Evento que contiene el valor del input a emitir.
-   * @returns {void} No retorna ningún valor.
    */
-  public clean(event: any): void {
+  public clean(): void {
     this.control.reset();
-    this.valueChange.emit(event.target.value);
+    this.valueChange.emit(this.control.value);
     if (this.selectControl) {
       this.selectControl.close();
     }
   }
 
   /**
-   * Emite el valor cambiado del input. *
-   * @public
-   * @param {any} event - Evento que contiene el nuevo valor del input a emitir.
-   * @returns {void} No retorna ningún valor.
+   * Emite el nuevo valor del control.
    */
-  public onValueChange(event: any): void {
-    this.valueChange.emit(event.value);
+  public onValueChange(): void {
+    this.valueChange.emit(this.control.value);
   }
 }

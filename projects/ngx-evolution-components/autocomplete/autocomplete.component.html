@@ -29,14 +29,16 @@
           type: 'class',
         }"
         [withoutBorder]="true"
-        (click)="clean($event)"
+        (click)="clean()"
       ></evo-button>
     }
-    <mat-autocomplete requireSelection #auto="matAutocomplete">
+    <mat-autocomplete
+      requireSelection
+      #auto="matAutocomplete"
+      [displayWith]="displayFn"
+    >
       @for (option of filteredOptions; track option.Id) {
-        <mat-option [value]="option.Description">{{
-          option.Description
-        }}</mat-option>
+        <mat-option [value]="option">{{ option.Description }}</mat-option>
       }
     </mat-autocomplete>
     @if (inputConfiguration.detail) {

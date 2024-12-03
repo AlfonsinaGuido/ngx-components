@@ -4,22 +4,26 @@
     <table class="evo-table w-full border-collapse">
       <thead>
         <tr>
+          <!-- Checkbox para selección múltiple -->
           @if (metadata?.MultiSelect) {
             <th>
               <input
                 type="checkbox"
                 [checked]="areAllSelected()"
-                (change)="selectAllResults()"
+                (change)="selectAll()"
               />
             </th>
           }
-          @for (column of getVisibleColumns(); track column.Code) {
+          <!-- Encabezados de columnas -->
+          @for (column of getVisibleColumns(); track trackByColumnCode) {
             <th class="text-left px-2 py-1">
               <div class="flex align-center items-center">
                 <!-- Columna con header y botón de ordenamiento -->
                 <span class="">{{ column.Header }}</span>
                 @if (
-                  sortableColumns.includes(getVisibleColumns().indexOf(column))
+                  tableConfig.sortableColumns.includes(
+                    getVisibleColumns().indexOf(column)
+                  )
                 ) {
                   <evo-button
                     class="pl-2"
@@ -37,13 +41,14 @@
               </div>
             </th>
           }
-          @if (metadata?.Buttons && (metadata?.Buttons)!.length > 0) {
+          <!-- Encabezado para acciones -->
+          @if (metadata?.Buttons?.length) {
             <th class="text-left px-2 py-1">Acciones</th>
           }
         </tr>
       </thead>
       <tbody>
-        @for (item of paginatedItems; track item) {
+        @for (item of paginatedItems; track trackByItem) {
           <tr class="border-b border-gray-300 hover:bg-gray-100">
             @if (metadata?.MultiSelect) {
               <td>
@@ -54,7 +59,8 @@
                 />
               </td>
             }
-            @for (column of getVisibleColumns(); track column.Code) {
+            <!-- Celdas de datos -->
+            @for (column of getVisibleColumns(); track trackByColumnCode) {
               <td class="px-2 py-1 text-left">
                 @if (column.FieldName === "estado") {
                   <evo-button
@@ -68,7 +74,8 @@
                 }
               </td>
             }
-            @if (metadata?.Buttons?.length) {
+            <!-- Acciones -->
+            @if (getVisibleActions().length > 0) {
               <td class="px-2 py-1 text-left relative">
                 <div class="absolute center-content">
                   <evo-button
@@ -87,7 +94,7 @@
                     [config]="{
                       actions: currentItemActions,
                       isOpen: isActionsModalOpen && selectedItem === item,
-                      icons: actionIcons,
+                      icons: tableConfig.actionIcons,
                     }"
                     (actionSelected)="handleAction(selectedItem!, $event)"
                     (menuClosed)="closeActionsMenu()"
@@ -105,7 +112,7 @@
 <!-- Vista de card para móvil -->
 @if (isMobile) {
   <div [ngClass]="getClasses('evo-card-container')">
-    @for (item of paginatedItems; track item) {
+    @for (item of paginatedItems; track trackByItem) {
       <div class="card relative">
         <!-- Botón de acciones ubicado en la parte superior derecha -->
         <div class="absolute top-2 right-2 card-actions">
@@ -123,7 +130,7 @@
             [config]="{
               actions: currentItemActions,
               isOpen: isActionsModalOpen && selectedItem === item,
-              icons: actionIcons,
+              icons: tableConfig.actionIcons,
             }"
             (actionSelected)="handleAction(selectedItem!, $event)"
             (menuClosed)="closeActionsMenu()"
@@ -138,7 +145,7 @@
         </div>
 
         <!-- Datos de la tarjeta -->
-        @for (column of getVisibleColumns(); track column.Code) {
+        @for (column of getVisibleColumns(); track trackByColumnCode) {
           <p class="text-medium-gray">{{ column.Header }}</p>
           <p>{{ item[column.FieldName] || "N/A" }}</p>
 
@@ -153,20 +160,20 @@
 <!-- Mensaje cuando no hay datos -->
 @if (data.length === 0) {
   <div class="text-center py-4">
-    {{ emptyStateText }}
+    {{ tableConfig.emptyStateText }}
   </div>
 }
 
 <!-- Controles de paginación -->
-@if (totalPages >= 1) {
+@if (paginationConfig.totalPages >= 1) {
   <pagination
     [config]="{
-      isManualPaginate: isManualPaginate,
-      currentPage: page,
-      totalPages: totalPages,
-      pageSize: pageSize,
-      totalItems: totalItems,
-      titles: titles,
+      isManualPaginate: paginationConfig.isManualPaginate,
+      currentPage: paginationConfig.page!,
+      totalPages: paginationConfig.totalPages,
+      pageSize: paginationConfig.pageSize,
+      totalItems: paginationConfig.totalItems,
+      titles: paginationConfig.titles,
     }"
     (nextPageClicked)="nextPage()"
     (previousPageClicked)="previousPage()"

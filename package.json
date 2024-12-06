@@ -1,5 +1,5 @@
 {
-  "name": "evolution-web-components",
+  "name": "@aseinfo/evolution-web-components",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",

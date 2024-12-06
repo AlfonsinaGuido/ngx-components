@@ -1,0 +1,52 @@
+image: node:18
+
+options:
+  docker: true
+  size: 2x
+
+clone:
+  depth: full
+
+definitions:
+  caches:
+    sonar: ~/.sonar/cache
+  steps:
+    - step: &build-test
+        name: Build and test
+        caches:
+          - node
+          - sonar
+        script:
+          - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+          - echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list
+          - apt-get update
+          - apt-get install -y google-chrome-stable xvfb
+          - npm install --quiet
+          - npm run test -- --code-coverage --no-watch --no-progress --browsers=ChromeHeadlessNoSandbox
+          - pipe: sonarsource/sonarcloud-scan:3.0.0
+            variables:
+              SONAR_HOST_URL: ${SONAR_HOST_URL}
+              SONAR_TOKEN: ${SONAR_TOKEN}
+    - step: &publish-verdaccio
+        name: Publish npm package
+        caches:
+          - node
+        script:
+          - npm install --quiet
+          - npm run build
+          - cd ./dist/@aseinfo/ngx-evolution-components
+          - npm version patch -m "Bump version to %s [skip ci]"
+          - npm config set @aseinfo:registry https://npm.aseinfo.net
+          - npm config get @aseinfo:registry
+          - git push && git push --tags
+          - pipe: atlassian/npm-publish:1.0.0
+            variables:
+              NPM_TOKEN: $NPM_TOKEN
+
+pipelines:
+  default:
+    - step: *build-test
+    - step: *publish-verdaccio
+  pull-requests:
+    "**":
+      - step: *build-test

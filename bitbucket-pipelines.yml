@@ -33,9 +33,9 @@ definitions:
           - node
         script:
           - npm install --quiet
+          - npm version patch -m "Bump version to %s [skip ci]"
           - npm run build
           - cd ./dist/@aseinfo/ngx-evolution-components
-          - npm version minor -m "Upgrade to %s [skip ci]"
           - git push && git push --tags
           - npm config set registry https://npm.aseinfo.net
           - pipe: atlassian/npm-publish:1.0.0

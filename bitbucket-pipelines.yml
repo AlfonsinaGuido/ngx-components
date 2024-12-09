@@ -23,7 +23,7 @@ definitions:
           - apt-get install -y google-chrome-stable xvfb
           - npm install --quiet
           - npm run test -- --code-coverage --no-watch --no-progress --browsers=ChromeHeadlessNoSandbox
-          - pipe: sonarsource/sonarcloud-scan:3.0.0
+          - pipe: sonarsource/sonarcloud-scan:latest
             variables:
               SONAR_HOST_URL: ${SONAR_HOST_URL}
               SONAR_TOKEN: ${SONAR_TOKEN}

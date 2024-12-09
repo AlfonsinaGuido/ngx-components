@@ -27,8 +27,8 @@ definitions:
             variables:
               SONAR_HOST_URL: ${SONAR_HOST_URL}
               SONAR_TOKEN: ${SONAR_TOKEN}
-    - step: &publish-verdaccio
-        name: Publish npm package
+    - step: &publish-verdaccio-patch
+        name: Publish npm patch
         caches:
           - node
         script:
@@ -47,4 +47,4 @@ pipelines:
   branches:
     development:
       - step: *build-test
-      - step: *publish-verdaccio
+      - step: *publish-verdaccio-patch

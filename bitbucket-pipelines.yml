@@ -44,9 +44,7 @@ definitions:
               NPM_TOKEN: $NPM_TOKEN
 
 pipelines:
-  default:
-    - step: *build-test
-    - step: *publish-verdaccio
-  pull-requests:
-    "**":
+  branches:
+    development:
       - step: *build-test
+      - step: *publish-verdaccio

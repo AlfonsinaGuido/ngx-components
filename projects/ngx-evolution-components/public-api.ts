@@ -70,6 +70,7 @@ export * from './shared/interfaces/itime-segmented-list.interface';
 
 // Api Interfaces
 export * from './shared/interfaces/api/iempleado.interface';
+export * from './shared/interfaces/api/ipermiso.interface';
 export * from './shared/interfaces/api/ivalue-list.interface';
 
 // Utils

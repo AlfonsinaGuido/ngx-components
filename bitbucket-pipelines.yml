@@ -1,5 +1,3 @@
-image: node:16
-
 options:
   docker: true
   size: 2x
@@ -12,6 +10,7 @@ definitions:
     sonar: ~/.sonar/cache
   steps:
     - step: &build-test
+        image: node:16
         name: Build and test
         caches:
           - node
@@ -28,6 +27,7 @@ definitions:
               SONAR_HOST_URL: ${SONAR_HOST_URL}
               SONAR_TOKEN: ${SONAR_TOKEN}
     - step: &publish-verdaccio-patch
+        image: node:18
         name: Publish npm patch
         caches:
           - node

@@ -1,5 +1,4 @@
-import { IValueList } from 'dist/@aseinfo/ngx-evolution-components';
-import { IIcon } from '../../public-api';
+import { IIcon, IValueList } from '../../public-api';
 
 export interface ISmartlistFullConfig {
   Code: string;

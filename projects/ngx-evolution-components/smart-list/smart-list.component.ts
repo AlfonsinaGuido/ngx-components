@@ -402,7 +402,7 @@ export class SmartListComponent implements OnInit, OnChanges {
       item['estado'] === 'asignado' ||
       item['estado'] === 'assigned'
     ) {
-      return; // Prevent execution for 'asignado' state
+      return;
     }
 
     const action = this.metadata?.Buttons?.find(
@@ -549,7 +549,7 @@ export class SmartListComponent implements OnInit, OnChanges {
     switch (action['estado']) {
       case 'asignado':
       case 'assigned':
-        return 'smart-list-button smart-list-button__update';
+        return 'smart-list-button smart-list-button__assigned';
       case 'agregar':
       case 'add':
         return 'smart-list-button smart-list-button__add';

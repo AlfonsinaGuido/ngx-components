@@ -317,11 +317,11 @@ describe('SmartListComponent', () => {
     const testCases = [
       {
         estado: 'asignado',
-        expected: 'smart-list-button smart-list-button__update',
+        expected: 'smart-list-button smart-list-button__assigned',
       },
       {
         estado: 'assigned',
-        expected: 'smart-list-button smart-list-button__update',
+        expected: 'smart-list-button smart-list-button__assigned',
       },
       {
         estado: 'agregar',

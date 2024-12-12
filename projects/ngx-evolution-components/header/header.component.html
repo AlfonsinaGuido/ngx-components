@@ -43,14 +43,16 @@
         twClass="mt-4 max-sm:hidden"
       ></evo-menu>
     }
-    <evo-menu
-      [icons]="icons.notificationMenuIcons"
-      [title]="titles.notificationTitle"
-      [items]="items.notificationItems.slice(0, 3)"
-      [lengthOfItems]="items.notificationItems.length"
-      [seeAllButton]="items.seeAllButton.seeAllNotifications"
-      twClass="mt-4 max-sm:hidden"
-    ></evo-menu>
+    @if (icons.notificationMenuIcons && items.notificationItems) {
+      <evo-menu
+        [icons]="icons.notificationMenuIcons"
+        [title]="titles.notificationTitle"
+        [items]="items.notificationItems.slice(0, 3)"
+        [lengthOfItems]="items.notificationItems.length"
+        [seeAllButton]="items.seeAllButton.seeAllNotifications"
+        twClass="mt-4 max-sm:hidden"
+      ></evo-menu>
+    }
     @if (titles.settingTitle) {
       <evo-menu
         [icons]="icons.settingMenuIcons"

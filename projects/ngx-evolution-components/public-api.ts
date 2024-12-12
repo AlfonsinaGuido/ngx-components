@@ -72,6 +72,7 @@ export * from './shared/interfaces/istepper.interface';
 
 // Api Interfaces
 export * from './shared/interfaces/api/iempleado.interface';
+export * from './shared/interfaces/api/ipermiso.interface';
 export * from './shared/interfaces/api/ivalue-list.interface';
 
 // Utils

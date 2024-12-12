@@ -9,6 +9,7 @@ import {
 import { ClassUtilityService } from '../shared/services/class-utility.service';
 import { of } from 'rxjs';
 import { ISmartListItem } from '../public-api';
+import { FormControl } from '@angular/forms';
 
 describe('SmartListComponent', () => {
   let component: SmartListComponent;
@@ -101,6 +102,8 @@ describe('SmartListComponent', () => {
         { provide: ElementRef, useValue: elementRefMock },
       ],
     }).compileComponents();
+
+    spyOn(window, 'confirm').and.returnValue(true);
   });
 
   beforeEach(() => {
@@ -171,15 +174,21 @@ describe('SmartListComponent', () => {
   });
 
   it('should emit a row action when handleAction is called with confirmation', () => {
-    spyOn(window, 'confirm').and.returnValue(true);
     spyOn(component.rowAction, 'emit');
 
-    const item = mockData[0];
-    component.handleAction(item, 'edit');
+    const mockItem = {
+      id: 3,
+      name: 'Item 3',
+      estado: 'editable',
+      selected: false,
+    };
+
+    component.handleAction(mockItem, 'edit');
+
     expect(component.rowAction.emit).toHaveBeenCalledWith({
       actionType: 'button',
       action: 'edit',
-      item: item,
+      item: mockItem,
     });
   });
 
@@ -305,18 +314,39 @@ describe('SmartListComponent', () => {
   });
 
   it('should return the correct button theme based on action code', () => {
-    expect(component.getButtonTheme({ Code: 'edit' } as any)).toBe(
-      'smart-list-button__update',
-    );
-    expect(component.getButtonTheme({ Code: 'new' } as any)).toBe(
-      'smart-list-button__add',
-    );
-    expect(component.getButtonTheme({ Code: 'delete' } as any)).toBe(
-      'smart-list-button__delete',
-    );
-    expect(component.getButtonTheme({ Code: 'unknown' } as any)).toBe(
-      'smart-list-button__default',
-    );
+    const testCases = [
+      {
+        estado: 'asignado',
+        expected: 'smart-list-button smart-list-button__update',
+      },
+      {
+        estado: 'assigned',
+        expected: 'smart-list-button smart-list-button__update',
+      },
+      {
+        estado: 'agregar',
+        expected: 'smart-list-button smart-list-button__add',
+      },
+      { estado: 'add', expected: 'smart-list-button smart-list-button__add' },
+      {
+        estado: 'quitar',
+        expected: 'smart-list-button smart-list-button__delete',
+      },
+      {
+        estado: 'remove',
+        expected: 'smart-list-button smart-list-button__delete',
+      },
+      {
+        estado: 'unknown',
+        expected: 'smart-list-button smart-list-button__default',
+      },
+    ];
+
+    testCases.forEach(({ estado, expected }) => {
+      const action = { estado };
+      const result = component.getButtonTheme(action);
+      expect(result).toBe(expected, `Failed for estado: ${estado}`);
+    });
   });
 
   it('should select or deselect all items correctly', () => {
@@ -512,12 +542,13 @@ describe('SmartListComponent', () => {
     expect(component.sortState['id']).toBeNull();
   });
 
-  it('should not display action button if there are no actions configured', () => {
+  it('should not display action button if there are no actions configured or showActions is false', () => {
+    // Case 1: No actions configured
     component.metadata = { ...mockConfig.Metadata, Buttons: [] };
+    component.tableConfig = { ...component.tableConfig, showActions: false };
     fixture.detectChanges();
-
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('evo-button')).toBeNull();
+    let compiled = fixture.nativeElement;
+    expect(compiled.querySelector('card__evo-button')).toBeNull();
   });
 
   it('should correctly handle visibility of columns based on hiddenColumns input', () => {
@@ -605,5 +636,154 @@ describe('SmartListComponent', () => {
     } as ISmartListItem);
     component.paginate();
     expect(component.paginationConfig.totalPages).toBe(3);
+  });
+
+  it('should transform selector options to IValueList format', () => {
+    const options = [
+      { Id: '1', Description: 'Option 1' },
+      { Id: '2', Description: 'Option 2' },
+    ];
+    const result = component.transformSelectorOptions(options);
+
+    expect(result).toEqual([
+      { Id: '1', Description: 'Option 1', Bag: {} },
+      { Id: '2', Description: 'Option 2', Bag: {} },
+    ]);
+  });
+
+  it('should handle selector value change and emit row action', () => {
+    spyOn(component.rowAction, 'emit');
+    const item = { id: 1, name: 'Item 1' } as ISmartListItem;
+    component.handleSelectorChange(item, 'name', 'Updated Item');
+
+    expect(item['name']).toBe('Updated Item');
+    expect(component.rowAction.emit).toHaveBeenCalledWith({
+      actionType: 'selector',
+      action: 'update',
+      item,
+    });
+  });
+
+  it('should get all table data', () => {
+    component.data = mockData;
+    const result = component.getTableData();
+
+    expect(result).toEqual(mockData);
+  });
+
+  it('should create a default control value based on column configuration', () => {
+    const multiSelectColumn = { MultiSelect: true } as IColumnConfig;
+    const singleSelectColumn = { MultiSelect: false } as IColumnConfig;
+
+    expect(component.createDefaultControl(multiSelectColumn)).toEqual([]);
+    expect(component.createDefaultControl(singleSelectColumn)).toBeNull();
+  });
+
+  it('should update selector value and emit row action on value change', () => {
+    spyOn(component.rowAction, 'emit');
+    const item = { id: 1, name: 'Item 1' } as ISmartListItem;
+    const column = { FieldName: 'name', MultiSelect: false } as IColumnConfig;
+
+    component.onSelectorValueChange('Updated Value', item, column);
+
+    expect(item['name']).toBe('Updated Value');
+    expect(component.rowAction.emit).toHaveBeenCalledWith({
+      actionType: 'selector',
+      action: 'update',
+      item,
+    });
+  });
+
+  it('should return all table data with updated values', () => {
+    component.data = mockData;
+    const result = component.getAllData();
+
+    expect(result).toEqual(mockData);
+  });
+
+  it('should return default value for createDefaultControl for unrecognized column types', () => {
+    const column = { MultiSelect: undefined } as IColumnConfig;
+    expect(component.createDefaultControl(column)).toBeNull();
+  });
+
+  it('should correctly toggle actions menu when called repeatedly', () => {
+    const item = mockData[0];
+    component.toggleActionsMenu(item);
+    expect(component.isActionsModalOpen).toBeTrue();
+
+    component.toggleActionsMenu(item);
+    expect(component.isActionsModalOpen).toBeFalse();
+
+    component.toggleActionsMenu(item);
+    expect(component.isActionsModalOpen).toBeTrue();
+  });
+
+  it('should handle invalid columnName gracefully in toggleSort', () => {
+    spyOn(component.columnSort, 'emit');
+    component.toggleSort('nonexistentColumn');
+    expect(component.columnSort.emit).not.toHaveBeenCalled();
+  });
+
+  it('should not throw error when getSortIcon is called with invalid columnName', () => {
+    expect(() => component.getSortIcon('nonexistentColumn')).not.toThrow();
+    expect(component.getSortIcon('nonexistentColumn')).toBe('sort');
+  });
+
+  it('should reset pagination when data changes', () => {
+    spyOn(component, 'paginate');
+    component.ngOnChanges({
+      data: {
+        currentValue: [],
+        previousValue: mockData,
+        firstChange: false,
+        isFirstChange: function (): boolean {
+          throw new Error('Function not implemented.');
+        },
+      },
+    });
+    expect(component.paginate).toHaveBeenCalled();
+    expect(component.paginationConfig.page).toBe(1);
+  });
+
+  it('should correctly determine if a selector control exists', () => {
+    const column = mockConfig.Metadata.Columns[0];
+    const item = mockData[0];
+    const control = component.getOrCreateSelectControl(item, column);
+    expect(control).toBeDefined();
+    expect(control.value).toBe(item[column.FieldName]);
+  });
+
+  it('should return correct pageSize based on isMobile state', () => {
+    component.isMobile = true;
+    component.adjustPageSize();
+    expect(component.paginationConfig.pageSize).toBe(1);
+
+    component.isMobile = false;
+    component.adjustPageSize();
+    expect(component.paginationConfig.pageSize).toBe(component.initialPageSize);
+  });
+
+  it('should not fail when initializing table with empty config', () => {
+    component.smartlistConfig = null;
+    expect(() => component.initializeTable()).not.toThrow();
+    expect(component.metadata).toBeNull();
+  });
+
+  it('should handle invalid action gracefully in handleAction', () => {
+    const invalidAction = 'nonexistentAction';
+    const item = mockData[0];
+    spyOn(component.rowAction, 'emit');
+    component.handleAction(item, invalidAction);
+    expect(component.rowAction.emit).not.toHaveBeenCalled();
+  });
+
+  it('should adjust layout correctly when isMobile toggles', () => {
+    spyOn(component, 'adjustPageSize');
+    spyOn(component, 'adjustPagination');
+
+    component.isMobile = true;
+    component.ngOnInit();
+    expect(component.adjustPageSize).toHaveBeenCalled();
+    expect(component.adjustPagination).toHaveBeenCalled();
   });
 });

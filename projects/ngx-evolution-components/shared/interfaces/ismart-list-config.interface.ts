@@ -1,3 +1,4 @@
+import { IValueList } from 'dist/@aseinfo/ngx-evolution-components';
 import { IIcon } from '../../public-api';
 
 export interface ISmartlistFullConfig {
@@ -54,6 +55,8 @@ export interface IColumnConfig {
   Width?: string;
   Wrap?: boolean;
   Format?: string;
+  MultiSelect?: boolean;
+  SelectorOptions?: IValueList[];
 }
 
 export interface ISmartListItem {
@@ -98,6 +101,9 @@ export interface ILocalizedString {
 }
 
 export interface ITableConfig {
+  showActions?: boolean;
+  noPagination?: boolean;
+  maxHeight: string;
   hiddenColumns: number[];
   sortableColumns: number[];
   actionIcons: IIcon[];

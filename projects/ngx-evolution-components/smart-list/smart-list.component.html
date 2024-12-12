@@ -1,111 +1,148 @@
 <!-- Vista de tabla para escritorio -->
 @if (!isMobile) {
-  <div [ngClass]="getClasses('evo-table-container')">
-    <table class="evo-table w-full border-collapse">
-      <thead>
-        <tr>
-          <!-- Checkbox para selección múltiple -->
-          @if (metadata?.MultiSelect) {
-            <th>
-              <input
-                type="checkbox"
-                [checked]="areAllSelected()"
-                (change)="selectAll()"
-              />
-            </th>
-          }
-          <!-- Encabezados de columnas -->
-          @for (column of getVisibleColumns(); track trackByColumnCode) {
-            <th class="text-left px-2 py-1">
-              <div class="flex align-center items-center">
-                <!-- Columna con header y botón de ordenamiento -->
-                <span class="">{{ column.Header }}</span>
+  <div [ngClass]="getClasses('evo-table-container')" class="relative">
+    <!-- Contenedor de la tabla con scroll -->
+    <div class="bg-white shadow-md">
+      <div
+        class="overflow-y-auto custom-scroll"
+        [style.max-height]="
+          tableConfig.noPagination ? tableConfig.maxHeight : 'none'
+        "
+      >
+        <table class="evo-table w-full border-collapse">
+          <thead class="sticky top-0 bg-white shadow-md z-10">
+            <tr>
+              <!-- Checkbox para selección múltiple -->
+              @if (metadata?.MultiSelect) {
+                <th>
+                  <input
+                    type="checkbox"
+                    [checked]="areAllSelected()"
+                    (change)="selectAll()"
+                  />
+                </th>
+              }
+              <!-- Encabezados de columnas -->
+              @for (column of getVisibleColumns(); track trackByColumnCode) {
+                <th class="text-left px-2 py-1">
+                  @if (column.FieldName !== "estado") {
+                    <div class="flex align-center items-center">
+                      <span class="">{{ column.Header }}</span>
+                      @if (
+                        tableConfig.sortableColumns.includes(
+                          getVisibleColumns().indexOf(column)
+                        )
+                      ) {
+                        <evo-button
+                          class="pl-2"
+                          [icon]="{
+                            type: 'class',
+                            icon: getSortIcon(column.FieldName),
+                          }"
+                          size="sm"
+                          [withoutBorder]="true"
+                          [twClass]="'sort-button card__evo-button'"
+                          (click)="toggleSort(column.FieldName)"
+                          [theme]="'secondary'"
+                        ></evo-button>
+                      }
+                    </div>
+                  }
+                </th>
+              }
+              <!-- Encabezado para acciones -->
+              @if (metadata?.Buttons?.length && tableConfig.showActions) {
+                <th class="text-left px-2 py-1">Acciones</th>
+              }
+            </tr>
+          </thead>
+          <tbody>
+            @for (
+              item of tableConfig.noPagination ? data : paginatedItems;
+              track trackByItem
+            ) {
+              <tr class="border-b border-gray-300 hover:bg-gray-100">
+                @if (metadata?.MultiSelect) {
+                  <td>
+                    <input
+                      type="checkbox"
+                      [checked]="item.selected"
+                      (change)="toggleSelect(item)"
+                    />
+                  </td>
+                }
+                <!-- Celdas de datos -->
+                @for (column of getVisibleColumns(); track trackByColumnCode) {
+                  <td
+                    class="px-2 py-1 text-left"
+                    [ngClass]="{ 'pt-35': column.Format === 'selector' }"
+                  >
+                    @if (column.FieldName === "estado") {
+                      <evo-button
+                        [label]="getButtonLabel(item)"
+                        [twClass]="getButtonTheme(item)"
+                        (click)="handleAction(item, 'customAction')"
+                        [isFlat]="true"
+                        size="sm"
+                      ></evo-button>
+                    } @else if (column.Format === "selector") {
+                      <evo-select
+                        [buttonIcon]="{ icon: 'clean.svg', type: 'svg' }"
+                        [control]="getOrCreateSelectControl(item, column)"
+                        [items]="
+                          transformSelectorOptions(column.SelectorOptions || [])
+                        "
+                        (valueChange)="
+                          onSelectorValueChange($event, item, column)
+                        "
+                        [label]="column.Header"
+                        (valueChange)="
+                          handleSelectorChange(item, column.FieldName, $event)
+                        "
+                        [isMultiple]="column.MultiSelect"
+                        [twClass]="'smart-list-selector'"
+                      ></evo-select>
+                    } @else {
+                      {{ item[column.FieldName] || "N/A" }}
+                    }
+                  </td>
+                }
+
+                <!-- Acciones -->
                 @if (
-                  tableConfig.sortableColumns.includes(
-                    getVisibleColumns().indexOf(column)
-                  )
+                  getVisibleActions().length > 0 && tableConfig.showActions
                 ) {
-                  <evo-button
-                    class="pl-2"
-                    [icon]="{
-                      type: 'class',
-                      icon: getSortIcon(column.FieldName),
-                    }"
-                    size="sm"
-                    [withoutBorder]="true"
-                    [twClass]="'sort-button card__evo-button'"
-                    (click)="toggleSort(column.FieldName)"
-                    [theme]="'secondary'"
-                  ></evo-button>
+                  <td class="px-2 py-1 text-left relative">
+                    <div class="absolute center-content">
+                      <evo-button
+                        [icon]="{
+                          type: 'class',
+                          icon: 'more_vert',
+                        }"
+                        [withoutBorder]="true"
+                        (click)="toggleActionsMenu(item)"
+                        [twClass]="'card__evo-button'"
+                        [theme]="'secondary'"
+                        size="sm"
+                      ></evo-button>
+                      <action-menu
+                        [config]="{
+                          actions: currentItemActions,
+                          isOpen: isActionsModalOpen && selectedItem === item,
+                          icons: tableConfig.actionIcons,
+                        }"
+                        (actionSelected)="handleAction(selectedItem!, $event)"
+                        (menuClosed)="closeActionsMenu()"
+                      ></action-menu>
+                    </div>
+                  </td>
                 }
-              </div>
-            </th>
-          }
-          <!-- Encabezado para acciones -->
-          @if (metadata?.Buttons?.length) {
-            <th class="text-left px-2 py-1">Acciones</th>
-          }
-        </tr>
-      </thead>
-      <tbody>
-        @for (item of paginatedItems; track trackByItem) {
-          <tr class="border-b border-gray-300 hover:bg-gray-100">
-            @if (metadata?.MultiSelect) {
-              <td>
-                <input
-                  type="checkbox"
-                  [checked]="item.selected"
-                  (change)="toggleSelect(item)"
-                />
-              </td>
+              </tr>
             }
-            <!-- Celdas de datos -->
-            @for (column of getVisibleColumns(); track trackByColumnCode) {
-              <td class="px-2 py-1 text-left">
-                @if (column.FieldName === "estado") {
-                  <evo-button
-                    [label]="getButtonLabel(item)"
-                    [twClass]="getButtonTheme(item)"
-                    (click)="handleAction(item, 'customAction')"
-                    size="sm"
-                  ></evo-button>
-                } @else {
-                  {{ item[column.FieldName] || "N/A" }}
-                }
-              </td>
-            }
-            <!-- Acciones -->
-            @if (getVisibleActions().length > 0) {
-              <td class="px-2 py-1 text-left relative">
-                <div class="absolute center-content">
-                  <evo-button
-                    [icon]="{
-                      type: 'class',
-                      icon: 'more_vert',
-                    }"
-                    [withoutBorder]="true"
-                    (click)="toggleActionsMenu(item)"
-                    [twClass]="'card__evo-button'"
-                    [theme]="'secondary'"
-                    size="sm"
-                  ></evo-button>
-                  <!-- Reutilización del action-menu -->
-                  <action-menu
-                    [config]="{
-                      actions: currentItemActions,
-                      isOpen: isActionsModalOpen && selectedItem === item,
-                      icons: tableConfig.actionIcons,
-                    }"
-                    (actionSelected)="handleAction(selectedItem!, $event)"
-                    (menuClosed)="closeActionsMenu()"
-                  ></action-menu>
-                </div>
-              </td>
-            }
-          </tr>
-        }
-      </tbody>
-    </table>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 }
 
@@ -115,28 +152,29 @@
     @for (item of paginatedItems; track trackByItem) {
       <div class="card relative">
         <!-- Botón de acciones ubicado en la parte superior derecha -->
-        <div class="absolute top-2 right-2 card-actions">
-          <evo-button
-            [icon]="{ type: 'class', icon: 'more_horiz' }"
-            [withoutBorder]="true"
-            (click)="toggleActionsMenu(item)"
-            [twClass]="'card__evo-button'"
-            [theme]="'secondary'"
-            size="sm"
-          ></evo-button>
+        @if (tableConfig.showActions) {
+          <div class="absolute top-2 right-2 card-actions">
+            <evo-button
+              [icon]="{ type: 'class', icon: 'more_horiz' }"
+              [withoutBorder]="true"
+              (click)="toggleActionsMenu(item)"
+              [twClass]="'card__evo-button'"
+              [theme]="'secondary'"
+              size="sm"
+            ></evo-button>
 
-          <!-- Reutilización del action-menu -->
-          <action-menu
-            [config]="{
-              actions: currentItemActions,
-              isOpen: isActionsModalOpen && selectedItem === item,
-              icons: tableConfig.actionIcons,
-            }"
-            (actionSelected)="handleAction(selectedItem!, $event)"
-            (menuClosed)="closeActionsMenu()"
-          ></action-menu>
-        </div>
-
+            <!-- Reutilización del action-menu -->
+            <action-menu
+              [config]="{
+                actions: currentItemActions,
+                isOpen: isActionsModalOpen && selectedItem === item,
+                icons: tableConfig.actionIcons,
+              }"
+              (actionSelected)="handleAction(selectedItem!, $event)"
+              (menuClosed)="closeActionsMenu()"
+            ></action-menu>
+          </div>
+        }
         <!-- Título general basado en 'smartlistConfig.Code' -->
         <div class="my-4">
           <h3 class="font-bold">
@@ -146,9 +184,35 @@
 
         <!-- Datos de la tarjeta -->
         @for (column of getVisibleColumns(); track trackByColumnCode) {
-          <p class="text-medium-gray">{{ column.Header }}</p>
-          <p>{{ item[column.FieldName] || "N/A" }}</p>
-
+          @if (column.FieldName === "estado") {
+            <div>
+              <evo-button
+                [label]="getButtonLabel(item)"
+                [twClass]="getButtonTheme(item)"
+                (click)="handleAction(item, 'customAction')"
+                [isFlat]="true"
+                size="sm"
+              ></evo-button>
+            </div>
+          } @else if (column.Format === "selector") {
+            <div>
+              <evo-select
+                [buttonIcon]="{ icon: 'clean.svg', type: 'svg' }"
+                [control]="getOrCreateSelectControl(item, column)"
+                [items]="transformSelectorOptions(column.SelectorOptions || [])"
+                (valueChange)="onSelectorValueChange($event, item, column)"
+                [label]="column.Header"
+                (valueChange)="
+                  handleSelectorChange(item, column.FieldName, $event)
+                "
+                [isMultiple]="column.MultiSelect"
+                [twClass]="'text-sm'"
+              ></evo-select>
+            </div>
+          } @else {
+            <p class="text-medium-gray">{{ column.Header }}</p>
+            <p>{{ item[column.FieldName] || "N/A" }}</p>
+          }
           <!-- Margen entre cada conjunto de dato -->
           <div class="mt-4"></div>
         }
@@ -165,7 +229,7 @@
 }
 
 <!-- Controles de paginación -->
-@if (paginationConfig.totalPages >= 1) {
+@if (!tableConfig.noPagination && paginationConfig.totalPages >= 1) {
   <pagination
     [config]="{
       isManualPaginate: paginationConfig.isManualPaginate,

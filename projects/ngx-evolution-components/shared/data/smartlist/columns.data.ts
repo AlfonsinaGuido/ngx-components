@@ -1,0 +1,31 @@
+export const columnEncargado = {
+  Code: 'encargado',
+  FieldName: 'encargado',
+  PropertyName: 'encargado',
+  Header: 'Encargado Actividad',
+  IsPrimaryKey: false,
+  Format: 'selector',
+  FieldDescriptor: 'selector',
+  Visible: true,
+  AlternateText: '',
+  HorizontalAlign: 'Left' as const,
+  VerticalAlign: 'Automatic' as const,
+  Width: 'Auto',
+  Wrap: false,
+  SelectorOptions: [],
+};
+
+export const columnEstado = {
+  Code: 'estado',
+  FieldName: 'estado',
+  PropertyName: 'estado',
+  Header: 'Estado',
+  IsPrimaryKey: false,
+  FieldDescriptor: 'string',
+  Visible: true,
+  AlternateText: '',
+  HorizontalAlign: 'Left',
+  VerticalAlign: 'Automatic',
+  Width: 'Auto',
+  Wrap: false,
+};

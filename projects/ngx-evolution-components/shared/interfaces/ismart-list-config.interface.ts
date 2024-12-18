@@ -55,7 +55,6 @@ export interface IColumnConfig {
   Wrap?: boolean;
   Format?: string;
   MultiSelect?: boolean;
-  SelectorOptions?: IValueList[];
 }
 
 export interface ISmartListItem {
@@ -101,8 +100,11 @@ export interface ILocalizedString {
 
 export interface ITableConfig {
   showActions?: boolean;
+  showStateButtons?: boolean;
+  showSelect?: boolean;
+  selectorOptions?: IValueList[];
   noPagination?: boolean;
-  maxHeight: string;
+  maxHeight?: string;
   hiddenColumns: number[];
   sortableColumns: number[];
   actionIcons: IIcon[];

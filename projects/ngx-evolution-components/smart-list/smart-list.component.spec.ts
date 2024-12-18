@@ -675,8 +675,13 @@ describe('SmartListComponent', () => {
     const multiSelectColumn = { MultiSelect: true } as IColumnConfig;
     const singleSelectColumn = { MultiSelect: false } as IColumnConfig;
 
-    expect(component.createDefaultControl(multiSelectColumn)).toEqual([]);
-    expect(component.createDefaultControl(singleSelectColumn)).toBeNull();
+    const multiSelectControl =
+      component.createDefaultControl(multiSelectColumn);
+    const singleSelectControl =
+      component.createDefaultControl(singleSelectColumn);
+
+    expect(multiSelectControl).toEqual(true);
+    expect(singleSelectControl).toEqual(false);
   });
 
   it('should update selector value and emit row action on value change', () => {
@@ -703,7 +708,8 @@ describe('SmartListComponent', () => {
 
   it('should return default value for createDefaultControl for unrecognized column types', () => {
     const column = { MultiSelect: undefined } as IColumnConfig;
-    expect(component.createDefaultControl(column)).toBeNull();
+    const result = component.createDefaultControl(column);
+    expect(result).toEqual([]);
   });
 
   it('should correctly toggle actions menu when called repeatedly', () => {

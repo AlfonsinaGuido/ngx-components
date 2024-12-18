@@ -5,8 +5,10 @@
     <div class="bg-white shadow-md">
       <div
         class="overflow-y-auto custom-scroll"
-        [style.max-height]="
-          tableConfig.noPagination ? tableConfig.maxHeight : 'none'
+        [ngStyle]="
+          tableConfig.noPagination
+            ? { 'max-height': tableConfig.maxHeight }
+            : {}
         "
       >
         <table class="evo-table w-full border-collapse">
@@ -25,7 +27,11 @@
               <!-- Encabezados de columnas -->
               @for (column of getVisibleColumns(); track trackByColumnCode) {
                 <th class="text-left px-2 py-1">
-                  @if (column.FieldName !== "estado") {
+                  @if (
+                    column.Code !== "estado" &&
+                    (column.Code !== "encargado" ||
+                      (tableConfig.showSelect && tableConfig.selectorOptions))
+                  ) {
                     <div class="flex align-center items-center">
                       <span class="">{{ column.Header }}</span>
                       @if (
@@ -42,7 +48,7 @@
                           size="sm"
                           [withoutBorder]="true"
                           [twClass]="'sort-button card__evo-button'"
-                          (click)="toggleSort(column.FieldName)"
+                          (click)="toggleSort(column.Code)"
                           [theme]="'secondary'"
                         ></evo-button>
                       }
@@ -77,33 +83,41 @@
                     class="px-2 py-1 text-left"
                     [ngClass]="{ 'pt-35': column.Format === 'selector' }"
                   >
-                    @if (column.FieldName === "estado") {
-                      <evo-button
-                        [label]="getButtonLabel(item)"
-                        [twClass]="getButtonTheme(item)"
-                        (click)="handleAction(item, 'customAction')"
-                        [isFlat]="true"
-                        size="sm"
-                      ></evo-button>
-                    } @else if (column.Format === "selector") {
+                    @if (column.Code === "estado") {
+                      @if (tableConfig.showStateButtons) {
+                        <evo-button
+                          [label]="getButtonLabel(item)"
+                          [twClass]="getButtonTheme(item)"
+                          (click)="handleAction(item, 'customAction')"
+                          [isFlat]="true"
+                          size="sm"
+                        ></evo-button>
+                      }
+                    } @else if (
+                      column.Format === "selector" &&
+                      tableConfig.showSelect &&
+                      tableConfig.selectorOptions
+                    ) {
                       <evo-select
                         [buttonIcon]="{ icon: 'clean.svg', type: 'svg' }"
                         [control]="getOrCreateSelectControl(item, column)"
                         [items]="
-                          transformSelectorOptions(column.SelectorOptions || [])
+                          transformSelectorOptions(
+                            tableConfig.selectorOptions || []
+                          )
                         "
                         (valueChange)="
                           onSelectorValueChange($event, item, column)
                         "
                         [label]="column.Header"
                         (valueChange)="
-                          handleSelectorChange(item, column.FieldName, $event)
+                          handleSelectorChange(item, column.Code, $event)
                         "
                         [isMultiple]="column.MultiSelect"
                         [twClass]="'smart-list-selector'"
                       ></evo-select>
-                    } @else {
-                      {{ item[column.FieldName] || "N/A" }}
+                    } @else if (column.Code !== "encargado") {
+                      {{ item[column.Code] || "N/A" }}
                     }
                   </td>
                 }
@@ -184,34 +198,40 @@
 
         <!-- Datos de la tarjeta -->
         @for (column of getVisibleColumns(); track trackByColumnCode) {
-          @if (column.FieldName === "estado") {
-            <div>
-              <evo-button
-                [label]="getButtonLabel(item)"
-                [twClass]="getButtonTheme(item)"
-                (click)="handleAction(item, 'customAction')"
-                [isFlat]="true"
-                size="sm"
-              ></evo-button>
-            </div>
-          } @else if (column.Format === "selector") {
+          @if (column.Code === "estado") {
+            @if (tableConfig.showStateButtons) {
+              <div>
+                <evo-button
+                  [label]="getButtonLabel(item)"
+                  [twClass]="getButtonTheme(item)"
+                  (click)="handleAction(item, 'customAction')"
+                  [isFlat]="true"
+                  size="sm"
+                ></evo-button>
+              </div>
+            }
+          } @else if (
+            column.Format === "selector" &&
+            tableConfig.showSelect &&
+            tableConfig.selectorOptions
+          ) {
             <div>
               <evo-select
                 [buttonIcon]="{ icon: 'clean.svg', type: 'svg' }"
                 [control]="getOrCreateSelectControl(item, column)"
-                [items]="transformSelectorOptions(column.SelectorOptions || [])"
+                [items]="
+                  transformSelectorOptions(tableConfig.selectorOptions || [])
+                "
                 (valueChange)="onSelectorValueChange($event, item, column)"
                 [label]="column.Header"
-                (valueChange)="
-                  handleSelectorChange(item, column.FieldName, $event)
-                "
+                (valueChange)="handleSelectorChange(item, column.Code, $event)"
                 [isMultiple]="column.MultiSelect"
                 [twClass]="'text-sm'"
               ></evo-select>
             </div>
-          } @else {
+          } @else if (column.Code !== "encargado") {
             <p class="text-medium-gray">{{ column.Header }}</p>
-            <p>{{ item[column.FieldName] || "N/A" }}</p>
+            <p>{{ item[column.Code] || "N/A" }}</p>
           }
           <!-- Margen entre cada conjunto de dato -->
           <div class="mt-4"></div>

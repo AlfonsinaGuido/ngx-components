@@ -8,12 +8,7 @@ import {
   ISmartlistMetadata,
 } from '@aseinfo/ngx-evolution-components/public-api';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import {
-  baseMetaData,
-  columnEncargado,
-  columnEstado,
-  data,
-} from './configs/smart-list-config';
+import { baseMetaData, data } from './configs/smart-list-config';
 
 const meta: Meta<SmartListComponent> = {
   title: 'Evolution Components/Smart List',
@@ -61,7 +56,9 @@ const tableConfig: ITableConfig = {
     { type: 'class', icon: 'delete' },
     { type: 'class', icon: 'verified_user' },
   ],
-  showActions: false,
+  showActions: true,
+  showSelect: false,
+  showStateButtons: false,
   noPagination: false,
   maxHeight: '120px',
   emptyStateText: 'No hay datos para mostrar',
@@ -69,11 +66,11 @@ const tableConfig: ITableConfig = {
 };
 
 /**
- * Historia Default: Con "encargado" y "estado"
+ * Historia Default
  */
 const metaDataDefault: ISmartlistMetadata = {
   ...baseMetaData,
-  Columns: [...baseMetaData.Columns],
+  MultiSelect: false,
 };
 
 const smartlistConfigDefault: ISmartlistFullConfig = {
@@ -116,7 +113,6 @@ export const Default: Story = {
  */
 const metaDataEncargadoSinEstado: ISmartlistMetadata = {
   ...baseMetaData,
-  Columns: [...baseMetaData.Columns, columnEncargado],
 };
 
 const tableConfigEncargadoSinEstado: ITableConfig = {
@@ -130,9 +126,18 @@ const smartlistConfigEncargadoSinEstado: ISmartlistFullConfig = {
 
 export const ConSelector: Story = {
   args: {
-    smartlistConfig: smartlistConfigEncargadoSinEstado,
+    smartlistConfig: { ...smartlistConfigEncargadoSinEstado },
     paginationConfig: { ...paginationConfig, titles: titlesConfig },
-    tableConfig: tableConfigEncargadoSinEstado,
+    tableConfig: {
+      ...tableConfigEncargadoSinEstado,
+      showSelect: true,
+      showActions: false,
+      selectorOptions: [
+        { Id: 'z', Description: 'aaa z', Bag: {} },
+        { Id: 'a', Description: 'aaa a', Bag: {} },
+        { Id: 'b', Description: 'aaa b', Bag: {} },
+      ],
+    },
     data,
   },
 };
@@ -143,12 +148,14 @@ export const ConSelector: Story = {
  */
 const metaDataEstadoSinEncargado: ISmartlistMetadata = {
   ...baseMetaData,
-  Columns: [...baseMetaData.Columns, columnEstado],
+  MultiSelect: false,
 };
 
 const tableConfigEstadoSinEncargado: ITableConfig = {
   ...tableConfig,
   noPagination: false,
+  showStateButtons: true,
+  showActions: false,
 };
 
 const smartlistConfigEstadoSinEncargado: ISmartlistFullConfig = {
@@ -160,7 +167,11 @@ export const ConBotonesDeEstado: Story = {
   args: {
     smartlistConfig: smartlistConfigEstadoSinEncargado,
     paginationConfig: { ...paginationConfig, titles: titlesConfig },
-    tableConfig: tableConfigEstadoSinEncargado,
+    tableConfig: {
+      ...tableConfigEstadoSinEncargado,
+      showActions: false,
+      showSelect: false,
+    },
     data,
   },
 };
@@ -168,6 +179,7 @@ export const ConBotonesDeEstado: Story = {
 const tableConfigConScroll: ITableConfig = {
   ...tableConfig,
   noPagination: true,
+  showActions: false,
 };
 
 export const ConScroll: Story = {

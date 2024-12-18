@@ -70,6 +70,9 @@ export * from './shared/interfaces/itipo-actividad.interface';
 export * from './shared/interfaces/itime-segmented-list.interface';
 export * from './shared/interfaces/istepper.interface';
 
+// Data
+export * from './shared/data/smartlist/columns.data';
+
 // Api Interfaces
 export * from './shared/interfaces/api/iempleado.interface';
 export * from './shared/interfaces/api/ipermiso.interface';

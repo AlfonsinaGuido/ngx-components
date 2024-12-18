@@ -27,6 +27,8 @@ import {
   IPaginationEvents,
   SelectComponent,
   IValueList,
+  columnEncargado,
+  columnEstado,
 } from '../public-api';
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
@@ -56,6 +58,7 @@ export class SmartListComponent implements OnInit, OnChanges {
     emptyStateText: 'No hay datos para mostrar',
     twClass: '',
     showActions: true,
+    showStateButtons: false,
     noPagination: true,
     maxHeight: '10px',
   };
@@ -198,7 +201,7 @@ export class SmartListComponent implements OnInit, OnChanges {
    * @returns Un valor inicial para el control.
    */
   createDefaultControl(column: IColumnConfig): any {
-    return column.MultiSelect ? [] : null; // Devuelve un array vacío para multiselección o null para valor único.
+    return column.MultiSelect ?? [];
   }
 
   /**
@@ -315,17 +318,31 @@ export class SmartListComponent implements OnInit, OnChanges {
   initializeTable(): void {
     this.metadata = this.smartlistConfig?.Metadata || null;
 
-    if (this.metadata?.Columns) {
-      this.metadata.Columns.forEach((column) => {
-        if (column.Format === 'selector' && column.SelectorOptions) {
-          this.data.forEach((item) => {
-            const control = this.getOrCreateSelectControl(item, column);
-            if (control.value === null || control.value === undefined) {
-              control.setValue(this.createDefaultControl(column));
-            }
-          });
-        }
-      });
+    // Si showStateButtons es true, agregamos la columna estado
+    if (this.metadata && this.tableConfig.showStateButtons) {
+      // Verificamos que no exista ya la columna 'estado' para no duplicarla
+      const hasEstado = this.metadata.Columns.some(
+        (col) => col.FieldName === 'estado',
+      );
+      if (!hasEstado) {
+        this.metadata.Columns.push(columnEstado);
+      }
+    }
+
+    // Si MultiSelect es true y columnEncargado tiene SelectorOptions, agregamos la columna encargado
+    if (
+      this.metadata &&
+      this.tableConfig &&
+      this.tableConfig.showSelect &&
+      this.tableConfig.selectorOptions &&
+      this.tableConfig.selectorOptions.length > 0
+    ) {
+      const hasEncargado = this.metadata.Columns.some(
+        (col) => col.FieldName === 'encargado',
+      );
+      if (!hasEncargado) {
+        this.metadata.Columns.push(columnEncargado);
+      }
     }
 
     this.paginate();

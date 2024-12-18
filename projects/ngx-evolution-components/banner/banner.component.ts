@@ -1,8 +1,10 @@
 import { NgClass } from '@angular/common';
 import {
   Component,
+  EventEmitter,
   Input,
   OnChanges,
+  Output,
   SimpleChanges,
   ViewEncapsulation,
 } from '@angular/core';
@@ -25,6 +27,7 @@ export class BannerComponent implements OnChanges {
   @Input() duration: number | null = null;
   @Input() twClass?: string;
   @Input() useAnimation: boolean = true;
+  @Output() closed = new EventEmitter<void>();
   public isHidden: boolean = false;
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -40,5 +43,6 @@ export class BannerComponent implements OnChanges {
 
   public hideBanner(): void {
     this.isHidden = true;
+    this.closed.emit();
   }
 }

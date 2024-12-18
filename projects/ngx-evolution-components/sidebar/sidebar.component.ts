@@ -154,12 +154,12 @@ export class SidebarComponent implements OnInit, OnChanges {
    */
   selectOption(option: ISidebarOption | IMoreOptionItem) {
     if (isPlatformBrowser(this.platformId)) {
-      if (option.route) {
+      if (option.action) {
+        option.action();
+      } else if (option.route) {
         this.router.navigate([option.route]);
-      } else if (option.action) {
-        option.action!();
       }
-      this.closeMoreOptionsModal();
+      this.closeSidebar();
       this.cdr.detectChanges();
     }
   }

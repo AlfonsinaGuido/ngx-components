@@ -3,18 +3,19 @@ import { applicationConfig, Meta, StoryObj } from '@storybook/angular';
 import {
   SmartListComponent,
   ISmartlistFullConfig,
-  ISmartListItem,
   IPaginationConfig,
   ITableConfig,
+  ISmartlistMetadata,
 } from '@aseinfo/ngx-evolution-components/public-api';
-import { metaData } from './configs/sidebar-config';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { baseMetaData, data } from './configs/smart-list-config';
 
 const meta: Meta<SmartListComponent> = {
   title: 'Evolution Components/Smart List',
   component: SmartListComponent,
   decorators: [
     applicationConfig({
-      providers: [provideHttpClient()],
+      providers: [provideHttpClient(), provideAnimationsAsync()],
     }),
   ],
   tags: ['autodocs'],
@@ -23,23 +24,6 @@ const meta: Meta<SmartListComponent> = {
 export default meta;
 
 type Story = StoryObj<SmartListComponent>;
-
-const smartlistConfig: ISmartlistFullConfig = {
-  Code: 'evowave.SolicitudAmonestaciones',
-  ClientControlID: 'evowave.SolicitudAmonestaciones',
-  Parameters: {},
-  DatabaseDialect: 'Microsoft.Data.SqlClient',
-  UrlMetadata: '/api/configuracion/SmartList/evowave.SolicitudAmonestaciones',
-  FormTagId: 'evowave_SolicitudAmonestaciones_form',
-  AlmacenaInformacionPersonalizacion: false,
-  Height: 'Auto',
-  Metadata: metaData,
-  HasQueryBuilder: false,
-  UrlData: '/api/configuracion/SmartList/evowave.SolicitudAmonestaciones/Data',
-  FormatoEntero: '{0:n0}',
-  Checksum: 'c3c0d2dfa2ca6048dd03942e9132c668d215ebb03e1eb0bee496f8eb857da3b7',
-  Rows: 1,
-};
 
 const paginationConfig: IPaginationConfig = {
   isManualPaginate: false,
@@ -56,8 +40,15 @@ const paginationConfig: IPaginationConfig = {
   },
 };
 
+const titlesConfig = {
+  showing: 'Mostrando',
+  results: 'resultados',
+  page: 'Pag',
+  of: 'de',
+};
+
 const tableConfig: ITableConfig = {
-  hiddenColumns: [2],
+  hiddenColumns: [],
   sortableColumns: [1],
   actionIcons: [
     { type: 'class', icon: 'add' },
@@ -65,42 +56,137 @@ const tableConfig: ITableConfig = {
     { type: 'class', icon: 'delete' },
     { type: 'class', icon: 'verified_user' },
   ],
+  showActions: true,
+  showSelect: false,
+  showStateButtons: false,
+  noPagination: false,
+  maxHeight: '120px',
   emptyStateText: 'No hay datos para mostrar',
   twClass: '',
 };
 
-const data: ISmartListItem[] = [
-  {
-    amo_codigo: 6,
-    amo_fecha_infraccion: '2024-09-18T06:00:00',
-    cau_descripcion:
-      'Falta sin causa justificada dos días completos y consecutivos',
-    cia_descripcion: 'ASEINFO Guatemala.',
-    exp_apellidos_nombres1: 'Abrego Labbe, Rene Armando',
-    exp_apellidos_nombres2: 'Delgado de García, María del Rosario',
-    g_record_number: '1',
-    g_total_recs: 1,
-    tam_descripcion: 'Oral',
-  },
-  {
-    amo_codigo: 7,
-    amo_fecha_infraccion: '2024-09-19T06:00:00',
-    cau_descripcion:
-      'Falta sin causa justificada dos días completos y consecutivos',
-    cia_descripcion: 'ASEINFO Salvador.',
-    exp_apellidos_nombres1: 'Abrego Labbe, Rene Armando',
-    exp_apellidos_nombres2: 'Delgado de García, María del Rosario',
-    g_record_number: '2',
-    g_total_recs: 1,
-    tam_descripcion: 'Oral',
-  },
-];
+/**
+ * Historia Default
+ */
+const metaDataDefault: ISmartlistMetadata = {
+  ...baseMetaData,
+  MultiSelect: false,
+};
+
+const smartlistConfigDefault: ISmartlistFullConfig = {
+  Code: 'evowave.SolicitudAmonestaciones',
+  ClientControlID: 'evowave.SolicitudAmonestaciones',
+  Parameters: {},
+  DatabaseDialect: 'Microsoft.Data.SqlClient',
+  UrlMetadata: '/api/configuracion/SmartList/evowave.SolicitudAmonestaciones',
+  FormTagId: 'evowave_SolicitudAmonestaciones_form',
+  AlmacenaInformacionPersonalizacion: false,
+  Height: 'Auto',
+  Metadata: metaDataDefault,
+  HasQueryBuilder: false,
+  UrlData: '/api/configuracion/SmartList/evowave.SolicitudAmonestaciones/Data',
+  FormatoEntero: '{0:n0}',
+  Checksum: 'c3c0d2dfa2ca6048dd03942e9132c668d215ebb03e1eb0bee496f8eb857da3b7',
+  Rows: 1,
+};
 
 export const Default: Story = {
   args: {
-    smartlistConfig,
-    paginationConfig,
+    smartlistConfig: smartlistConfigDefault,
+    paginationConfig: { ...paginationConfig, titles: titlesConfig },
     tableConfig,
+    data,
+  },
+  argTypes: {
+    smartlistConfig: {
+      description: 'Configuración completa del Smart List.',
+    },
+    paginationConfig: {
+      description: 'Configuración completa de paginación.',
+    },
+  },
+};
+
+/**
+ * Historia EncargadoSinEstado: Con "encargado" pero sin "estado"
+ * y noPagination = true
+ */
+const metaDataEncargadoSinEstado: ISmartlistMetadata = {
+  ...baseMetaData,
+};
+
+const tableConfigEncargadoSinEstado: ITableConfig = {
+  ...tableConfig,
+};
+
+const smartlistConfigEncargadoSinEstado: ISmartlistFullConfig = {
+  ...smartlistConfigDefault,
+  Metadata: metaDataEncargadoSinEstado,
+};
+
+export const ConSelector: Story = {
+  args: {
+    smartlistConfig: { ...smartlistConfigEncargadoSinEstado },
+    paginationConfig: { ...paginationConfig, titles: titlesConfig },
+    tableConfig: {
+      ...tableConfigEncargadoSinEstado,
+      showSelect: true,
+      showActions: false,
+      selectorOptions: [
+        { Id: 'z', Description: 'aaa z', Bag: {} },
+        { Id: 'a', Description: 'aaa a', Bag: {} },
+        { Id: 'b', Description: 'aaa b', Bag: {} },
+      ],
+    },
+    data,
+  },
+};
+
+/**
+ * Historia EstadoSinEncargado: Con "estado" pero sin "encargado"
+ * noPagination = false (por defecto)
+ */
+const metaDataEstadoSinEncargado: ISmartlistMetadata = {
+  ...baseMetaData,
+  MultiSelect: false,
+};
+
+const tableConfigEstadoSinEncargado: ITableConfig = {
+  ...tableConfig,
+  noPagination: false,
+  showStateButtons: true,
+  showActions: false,
+};
+
+const smartlistConfigEstadoSinEncargado: ISmartlistFullConfig = {
+  ...smartlistConfigDefault,
+  Metadata: metaDataEstadoSinEncargado,
+};
+
+export const ConBotonesDeEstado: Story = {
+  args: {
+    smartlistConfig: smartlistConfigEstadoSinEncargado,
+    paginationConfig: { ...paginationConfig, titles: titlesConfig },
+    tableConfig: {
+      ...tableConfigEstadoSinEncargado,
+      showActions: false,
+      showSelect: false,
+    },
+    data,
+  },
+};
+
+const tableConfigConScroll: ITableConfig = {
+  ...tableConfig,
+  noPagination: true,
+  showActions: false,
+};
+
+export const ConScroll: Story = {
+  args: {
+    smartlistConfig: smartlistConfigDefault,
+    paginationConfig: { ...paginationConfig, titles: titlesConfig },
+    tableConfig: tableConfigConScroll,
     data,
   },
 };

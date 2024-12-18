@@ -4,6 +4,7 @@
     border-collapse: collapse;
     margin: 1rem 0;
     font-size: 14px;
+    margin: 0;
 
     th,
     td {
@@ -40,6 +41,27 @@
         }
       }
     }
+
+    .pt-35 {
+      padding-top: 35px;
+    }
+    .smart-list-selector {
+      bottom: 80px;
+      height: 60px;
+      .mat-mdc-form-field-infix {
+        bottom: 8px;
+      }
+      .mat-mdc-form-field-focus-overlay {
+        height: 42px;
+      }
+      label {
+        font-size: 12px;
+      }
+
+      span {
+        font-size: 12px;
+      }
+    }
   }
 
   .modal-backdrop {
@@ -61,6 +83,31 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  --scrollbar-track-color: #f1f1f1;
+  --scrollbar-thumb-color: #c1c1c1;
+  --scrollbar-size: 5px;
+
+  .custom-scroll::-webkit-scrollbar {
+    width: var(--scrollbar-size);
+  }
+
+  .custom-scroll::-webkit-scrollbar-track {
+    background: var(--scrollbar-track-color);
+    border-radius: 5px;
+  }
+
+  .custom-scroll::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb-color);
+    border-radius: 5px;
+  }
+
+  @supports not selector(::-webkit-scrollbar) {
+    .custom-scroll {
+      scrollbar-width: thin;
+      scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
+    }
   }
 }
 
@@ -142,6 +189,52 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+}
+
+evo-button {
+  .evo-button.smart-list-button {
+    border-radius: 20px;
+    width: 80px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    div.label {
+      font-size: 12px;
+      font-weight: 500;
+    }
+  }
+  .evo-button.smart-list-button__assigned {
+    pointer-events: none;
+    border: none;
+    background-color: var(--light-caution);
+    color: var(--caution);
+  }
+
+  .evo-button.smart-list-button__assigned:hover {
+    pointer-events: none;
+    border: none;
+    background-color: var(--light-caution);
+    color: var(--caution);
+  }
+
+  .evo-button.smart-list-button__add {
+    border: 1.5px solid var(--success);
+    color: var(--success);
+  }
+
+  .evo-button.smart-list-button__add:hover {
+    border: 1.5px solid var(--light-success);
+    color: var(--light-success);
+  }
+
+  .evo-button.smart-list-button__delete {
+    border: 1.5px solid var(--warn);
+    color: var(--warn);
+  }
+
+  .evo-button.smart-list-button__delete:hover {
+    border: 1.5px solid var(--light-warn);
+    color: var(--light-warn);
   }
 }
 

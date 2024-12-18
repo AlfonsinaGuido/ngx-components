@@ -25,9 +25,14 @@ import {
   IPaginationConfig,
   ITableConfig,
   IPaginationEvents,
+  SelectComponent,
+  IValueList,
+  columnEncargado,
+  columnEstado,
 } from '../public-api';
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'smart-list',
@@ -39,6 +44,7 @@ import { Subscription } from 'rxjs';
     ButtonComponent,
     ActionMenuComponent,
     PaginationComponent,
+    SelectComponent,
   ],
   encapsulation: ViewEncapsulation.None,
 })
@@ -51,6 +57,10 @@ export class SmartListComponent implements OnInit, OnChanges {
     actionIcons: [],
     emptyStateText: 'No hay datos para mostrar',
     twClass: '',
+    showActions: true,
+    showStateButtons: false,
+    noPagination: true,
+    maxHeight: '10px',
   };
   @Input() paginationConfig: IPaginationConfig = {
     isManualPaginate: false,
@@ -74,7 +84,7 @@ export class SmartListComponent implements OnInit, OnChanges {
   };
   @Output() columnSort = new EventEmitter<string>();
   @Output() rowAction = new EventEmitter<{
-    actionType: 'button' | 'checkbox';
+    actionType: 'button' | 'checkbox' | 'selector';
     action: string;
     item: ISmartListItem;
   }>();
@@ -94,6 +104,10 @@ export class SmartListComponent implements OnInit, OnChanges {
   sortState: { [key: string]: 'asc' | 'desc' | null } = {};
   initialPageSize: number = 5;
   private viewportSubscription!: Subscription;
+  private selectControls = new WeakMap<
+    ISmartListItem,
+    { [key: string]: FormControl }
+  >();
   constructor(
     private cdr: ChangeDetectorRef,
     private eRef: ElementRef,
@@ -120,6 +134,122 @@ export class SmartListComponent implements OnInit, OnChanges {
   ngOnDestroy(): void {
     if (this.viewportSubscription) {
       this.viewportSubscription.unsubscribe();
+    }
+  }
+
+  /**
+   * Transforma las opciones de selector para cumplir con el contrato de IValueList.
+   * @param options Opciones en el formato { Id: string; Description: string }[].
+   * @returns Opciones transformadas en el formato IValueList[].
+   */
+  transformSelectorOptions(
+    options: { Id: string; Description: string }[],
+  ): IValueList[] {
+    return options.map((option) => ({
+      ...option,
+      Bag: {}, // Agrega un objeto vacío para cumplir con el contrato de IValueList
+    }));
+  }
+
+  /**
+   * Maneja el cambio de valor en el selector dentro de una fila.
+   * @param item El elemento de la fila donde se realizó el cambio.
+   * @param fieldName El nombre del campo asociado al selector.
+   * @param value El nuevo valor seleccionado.
+   */
+  handleSelectorChange(
+    item: ISmartListItem,
+    fieldName: string,
+    value: any,
+  ): void {
+    if (!item) return; // Si el item no existe, no hace nada.
+    item[fieldName] = value;
+    this.rowAction.emit({ actionType: 'selector', action: 'update', item });
+  }
+
+  /**
+   * Obtiene los datos completos de la tabla con los valores seleccionados en cada fila.
+   * @returns Un arreglo con todos los elementos de la tabla y sus valores actuales.
+   */
+  getTableData(): ISmartListItem[] {
+    return [...this.data];
+  }
+
+  /**
+   * Crea o devuelve un FormControl para el selector asociado a un item y columna especifica.
+   */
+  getOrCreateSelectControl(
+    item: ISmartListItem,
+    column: IColumnConfig,
+  ): FormControl {
+    let controlsForItem = this.selectControls.get(item);
+    if (!controlsForItem) {
+      controlsForItem = {};
+      this.selectControls.set(item, controlsForItem);
+    }
+    if (!controlsForItem[column.FieldName]) {
+      controlsForItem[column.FieldName] = new FormControl(
+        item[column.FieldName] || this.createDefaultControl(column),
+      );
+    }
+    return controlsForItem[column.FieldName];
+  }
+
+  /**
+   * Crea un valor de control por defecto si no existe en el elemento.
+   * @param column La columna que contiene el selector.
+   * @returns Un valor inicial para el control.
+   */
+  createDefaultControl(column: IColumnConfig): any {
+    return column.MultiSelect ?? [];
+  }
+
+  /**
+   * Evento que se dispara al cambiar el valor del selector en una fila.
+   * Actualiza el valor en el item para la columna dada.
+   */
+  onSelectorValueChange(
+    value: any,
+    item: ISmartListItem,
+    column: IColumnConfig,
+  ): void {
+    const control = this.getOrCreateSelectControl(item, column);
+    control.setValue(value);
+    item[column.FieldName] = value;
+    this.rowAction.emit({ actionType: 'selector', action: 'update', item });
+  }
+
+  /**
+   * Retorna toda la información de la tabla con los valores seleccionados actualizados.
+   */
+  getAllData(): ISmartListItem[] {
+    return this.data; // Devuelve la referencia a la data actualizada
+  }
+
+  /**
+   * Actualiza los valores de selectores en filas específicas, si se requiere.
+   * @param updates Arreglo de objetos con { codes: any[], value: any, fieldName: string }
+   */
+  updateSelectorValues(
+    updates: { codes: any[]; value: any; fieldName: string }[],
+  ): void {
+    for (const update of updates) {
+      // Se asume que se puede identificar el item por la llave primaria u otra lógica
+      const primaryKeyField =
+        this.metadata?.Columns.find((c) => c.IsPrimaryKey)?.FieldName || '';
+      for (const code of update.codes) {
+        const item = this.data.find((d) => d[primaryKeyField] === code);
+        if (item) {
+          item[update.fieldName] = update.value;
+          const column = this.metadata?.Columns.find(
+            (c) => c.FieldName === update.fieldName,
+          );
+          if (column) {
+            const control = this.getOrCreateSelectControl(item, column);
+            control.setValue(update.value);
+          }
+        }
+      }
     }
   }
 
@@ -187,6 +317,34 @@ export class SmartListComponent implements OnInit, OnChanges {
 
   initializeTable(): void {
     this.metadata = this.smartlistConfig?.Metadata || null;
+
+    // Si showStateButtons es true, agregamos la columna estado
+    if (this.metadata && this.tableConfig.showStateButtons) {
+      // Verificamos que no exista ya la columna 'estado' para no duplicarla
+      const hasEstado = this.metadata.Columns.some(
+        (col) => col.FieldName === 'estado',
+      );
+      if (!hasEstado) {
+        this.metadata.Columns.push(columnEstado);
+      }
+    }
+
+    // Si MultiSelect es true y columnEncargado tiene SelectorOptions, agregamos la columna encargado
+    if (
+      this.metadata &&
+      this.tableConfig &&
+      this.tableConfig.showSelect &&
+      this.tableConfig.selectorOptions &&
+      this.tableConfig.selectorOptions.length > 0
+    ) {
+      const hasEncargado = this.metadata.Columns.some(
+        (col) => col.FieldName === 'encargado',
+      );
+      if (!hasEncargado) {
+        this.metadata.Columns.push(columnEncargado);
+      }
+    }
+
     this.paginate();
     this.cdr.markForCheck();
   }
@@ -256,7 +414,13 @@ export class SmartListComponent implements OnInit, OnChanges {
    * @param actionCode El código de la acción que se ejecuta.
    */
   handleAction(item: ISmartListItem, actionCode: string) {
-    if (!item) return;
+    if (
+      !item ||
+      item['estado'] === 'asignado' ||
+      item['estado'] === 'assigned'
+    ) {
+      return;
+    }
 
     const action = this.metadata?.Buttons?.find(
       (btn) => btn.Code === actionCode,
@@ -380,10 +544,13 @@ export class SmartListComponent implements OnInit, OnChanges {
   getButtonLabel(item: ISmartListItem): string {
     switch (item['estado']) {
       case 'asignado':
+      case 'assigned':
         return 'Asignado';
       case 'agregar':
+      case 'add':
         return 'Agregar';
       case 'quitar':
+      case 'remove':
         return 'Quitar';
       default:
         return '';
@@ -396,15 +563,18 @@ export class SmartListComponent implements OnInit, OnChanges {
    * @returns La clase del tema del botón.
    */
   getButtonTheme(action: ISmartListItem): string {
-    switch (action['Code']) {
-      case 'edit':
-        return 'smart-list-button__update';
-      case 'new':
-        return 'smart-list-button__add';
-      case 'delete':
-        return 'smart-list-button__delete';
+    switch (action['estado']) {
+      case 'asignado':
+      case 'assigned':
+        return 'smart-list-button smart-list-button__assigned';
+      case 'agregar':
+      case 'add':
+        return 'smart-list-button smart-list-button__add';
+      case 'quitar':
+      case 'remove':
+        return 'smart-list-button smart-list-button__delete';
       default:
-        return 'smart-list-button__default';
+        return 'smart-list-button smart-list-button__default';
     }
   }
 

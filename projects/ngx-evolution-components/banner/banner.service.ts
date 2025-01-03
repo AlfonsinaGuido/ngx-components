@@ -77,7 +77,7 @@ export class BannerService {
       isError,
       useAnimation: false,
       twClass:
-        'max-sm:w-full w-3/5 !absolute bottom-2 z-50 left-1/2 -translate-x-1/2',
+        'max-sm:w-11/12 w-3/5 !absolute bottom-2 z-50 left-1/2 -translate-x-1/2',
     };
 
     Object.assign(this.currentBanner.instance, bannerData);

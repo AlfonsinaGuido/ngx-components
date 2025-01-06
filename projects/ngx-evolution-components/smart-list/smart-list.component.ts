@@ -18,15 +18,21 @@ import {
   ISmartlistMetadata,
   IActionConfig,
   ButtonComponent,
-  ISmartListTitles,
   ViewportService,
   ActionMenuComponent,
   PaginationComponent,
-  IIcon,
   ClassUtilityService,
+  IPaginationConfig,
+  ITableConfig,
+  IPaginationEvents,
+  SelectComponent,
+  IValueList,
+  columnEncargado,
+  columnEstado,
 } from '../public-api';
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'smart-list',
@@ -38,47 +44,59 @@ import { Subscription } from 'rxjs';
     ButtonComponent,
     ActionMenuComponent,
     PaginationComponent,
+    SelectComponent,
   ],
   encapsulation: ViewEncapsulation.None,
 })
 export class SmartListComponent implements OnInit, OnChanges {
   @Input() smartlistConfig: ISmartlistFullConfig | null = null;
   @Input() data: ISmartListItem[] = [];
-  @Input() titles: ISmartListTitles = {
-    showing: 'Mostrando',
-    results: 'resultados',
-    page: 'Pag',
-    of: 'de',
+  @Input() tableConfig: ITableConfig = {
+    hiddenColumns: [],
+    sortableColumns: [],
+    actionIcons: [],
+    emptyStateText: 'No hay datos para mostrar',
+    twClass: '',
+    showActions: true,
+    showStateButtons: false,
+    noPagination: true,
+    maxHeight: '10px',
+  };
+  @Input() paginationConfig: IPaginationConfig = {
+    isManualPaginate: false,
+    currentPage: 1,
+    totalPages: 1,
+    pageSize: 10,
+    totalItems: 0,
+    page: 1,
+    titles: {
+      showing: 'Mostrando',
+      results: 'resultados',
+      page: 'Pag',
+      of: 'de',
+    },
   };
 
-  @Input() page: number = 1;
-  @Input() pageSize: number = 1;
-  @Input() totalPages: number = 2;
-  @Input() hiddenColumns: number[] = [];
-  @Input() sortableColumns: number[] = [];
-  @Input() emptyStateText: string = 'No hay datos para mostrar';
-  @Input() twClass: string = '';
-  @Input() actionIcons: IIcon[] = [];
-  @Input() isManualPaginate: boolean = false;
-
-  @Output() pageSelected = new EventEmitter<number>();
-  @Output() selectedUsers = new EventEmitter<ISmartListItem[]>();
+  @Output() paginationEvents: IPaginationEvents = {
+    onPageChange: (page: number) => this.goToPage(page),
+    onPreviousPage: () => this.previousPage(),
+    onNextPage: () => this.nextPage(),
+  };
+  @Output() columnSort = new EventEmitter<string>();
   @Output() rowAction = new EventEmitter<{
-    actionType: 'button' | 'checkbox';
+    actionType: 'button' | 'checkbox' | 'selector';
     action: string;
     item: ISmartListItem;
   }>();
-  @Output() columnSort = new EventEmitter<{
-    column: string;
-    order: 'asc' | 'desc' | null;
-    dataType: 'text' | 'date';
-  }>();
+
+  @Output() selectedUsers = new EventEmitter<ISmartListItem[]>();
+
+  @Output() pageSelected = new EventEmitter<number>();
   @Output() pageSizeChanged = new EventEmitter<number>();
 
   isMobile: boolean = false;
   isActionsModalOpen: boolean = false;
   paginatedItems: ISmartListItem[] = [];
-  totalItems: number = 0;
   selectedItems: ISmartListItem[] = [];
   selectedItem: ISmartListItem | null = null;
   metadata: ISmartlistMetadata | null = null;
@@ -86,7 +104,10 @@ export class SmartListComponent implements OnInit, OnChanges {
   sortState: { [key: string]: 'asc' | 'desc' | null } = {};
   initialPageSize: number = 5;
   private viewportSubscription!: Subscription;
-
+  private selectControls = new WeakMap<
+    ISmartListItem,
+    { [key: string]: FormControl }
+  >();
   constructor(
     private cdr: ChangeDetectorRef,
     private eRef: ElementRef,
@@ -97,16 +118,16 @@ export class SmartListComponent implements OnInit, OnChanges {
   /**
    * Inicializa la tabla y verifica el viewport al cargar el componente.
    */
-  ngOnInit() {
-    this.initialPageSize = this.pageSize;
+  ngOnInit(): void {
+    this.initialPageSize = this.paginationConfig.pageSize;
 
     this.viewportSubscription = this.viewportService
       .getIsMobile()
       .subscribe((isMobile) => {
         this.isMobile = isMobile;
+        this.adjustPagination();
         this.adjustPageSize();
       });
-
     this.initializeTable();
   }
 
@@ -117,16 +138,135 @@ export class SmartListComponent implements OnInit, OnChanges {
   }
 
   /**
+   * Transforma las opciones de selector para cumplir con el contrato de IValueList.
+   * @param options Opciones en el formato { Id: string; Description: string }[].
+   * @returns Opciones transformadas en el formato IValueList[].
+   */
+  transformSelectorOptions(
+    options: { Id: string; Description: string }[],
+  ): IValueList[] {
+    return options.map((option) => ({
+      ...option,
+      Bag: {}, // Agrega un objeto vacío para cumplir con el contrato de IValueList
+    }));
+  }
+
+  /**
+   * Maneja el cambio de valor en el selector dentro de una fila.
+   * @param item El elemento de la fila donde se realizó el cambio.
+   * @param fieldName El nombre del campo asociado al selector.
+   * @param value El nuevo valor seleccionado.
+   */
+  handleSelectorChange(
+    item: ISmartListItem,
+    fieldName: string,
+    value: any,
+  ): void {
+    if (!item) return; // Si el item no existe, no hace nada.
+    item[fieldName] = value;
+    this.rowAction.emit({ actionType: 'selector', action: 'update', item });
+  }
+
+  /**
+   * Obtiene los datos completos de la tabla con los valores seleccionados en cada fila.
+   * @returns Un arreglo con todos los elementos de la tabla y sus valores actuales.
+   */
+  getTableData(): ISmartListItem[] {
+    return [...this.data];
+  }
+
+  /**
+   * Crea o devuelve un FormControl para el selector asociado a un item y columna especifica.
+   */
+  getOrCreateSelectControl(
+    item: ISmartListItem,
+    column: IColumnConfig,
+  ): FormControl {
+    let controlsForItem = this.selectControls.get(item);
+    if (!controlsForItem) {
+      controlsForItem = {};
+      this.selectControls.set(item, controlsForItem);
+    }
+    if (!controlsForItem[column.FieldName]) {
+      controlsForItem[column.FieldName] = new FormControl(
+        item[column.FieldName] || this.createDefaultControl(column),
+      );
+    }
+    return controlsForItem[column.FieldName];
+  }
+
+  /**
+   * Crea un valor de control por defecto si no existe en el elemento.
+   * @param column La columna que contiene el selector.
+   * @returns Un valor inicial para el control.
+   */
+  createDefaultControl(column: IColumnConfig): any {
+    return column.MultiSelect ?? [];
+  }
+
+  /**
+   * Evento que se dispara al cambiar el valor del selector en una fila.
+   * Actualiza el valor en el item para la columna dada.
+   */
+  onSelectorValueChange(
+    value: any,
+    item: ISmartListItem,
+    column: IColumnConfig,
+  ): void {
+    const control = this.getOrCreateSelectControl(item, column);
+    control.setValue(value);
+    item[column.FieldName] = value;
+    this.rowAction.emit({ actionType: 'selector', action: 'update', item });
+  }
+
+  /**
+   * Retorna toda la información de la tabla con los valores seleccionados actualizados.
+   */
+  getAllData(): ISmartListItem[] {
+    return this.data; // Devuelve la referencia a la data actualizada
+  }
+
+  /**
+   * Actualiza los valores de selectores en filas específicas, si se requiere.
+   * @param updates Arreglo de objetos con { codes: any[], value: any, fieldName: string }
+   */
+  updateSelectorValues(
+    updates: { codes: any[]; value: any; fieldName: string }[],
+  ): void {
+    for (const update of updates) {
+      // Se asume que se puede identificar el item por la llave primaria u otra lógica
+      const primaryKeyField =
+        this.metadata?.Columns.find((c) => c.IsPrimaryKey)?.FieldName || '';
+      for (const code of update.codes) {
+        const item = this.data.find((d) => d[primaryKeyField] === code);
+        if (item) {
+          item[update.fieldName] = update.value;
+          const column = this.metadata?.Columns.find(
+            (c) => c.FieldName === update.fieldName,
+          );
+          if (column) {
+            const control = this.getOrCreateSelectControl(item, column);
+            control.setValue(update.value);
+          }
+        }
+      }
+    }
+  }
+
+  /**
    * Ajusta el pageSize según el estado de `isMobile`.
    */
   adjustPageSize() {
-    if (this.isMobile && this.pageSize !== 1) {
-      this.pageSize = 1;
-      this.pageSizeChanged.emit(this.pageSize);
+    if (this.isMobile && this.paginationConfig.pageSize !== 1) {
+      this.paginationConfig.pageSize = 1;
+      this.pageSizeChanged.emit(this.paginationConfig.pageSize);
       this.paginate();
-    } else if (!this.isMobile && this.pageSize !== this.initialPageSize) {
-      this.pageSize = this.initialPageSize;
-      this.pageSizeChanged.emit(this.pageSize);
+    } else if (
+      !this.isMobile &&
+      this.paginationConfig.pageSize !== this.initialPageSize
+    ) {
+      this.paginationConfig.pageSize = this.initialPageSize;
+      this.pageSizeChanged.emit(this.paginationConfig.pageSize);
       this.paginate();
     }
   }
@@ -165,10 +305,8 @@ export class SmartListComponent implements OnInit, OnChanges {
    * Detecta los cambios en las entradas del componente y actualiza la tabla.
    * @param changes Cambios detectados en los inputs.
    */
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes['smartlistConfig'] && changes['smartlistConfig'].currentValue) {
-      this.metadata = this.smartlistConfig?.Metadata || null;
-      this.totalItems = this.data.length; // Asegúrate de actualizar `totalItems` correctamente
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['data'] || changes['smartlistConfig']) {
       this.initializeTable();
     }
   }
@@ -176,28 +314,76 @@ export class SmartListComponent implements OnInit, OnChanges {
   /**
    * Inicializa la tabla y ajusta los elementos paginados.
    */
-  initializeTable() {
+
+  initializeTable(): void {
     this.metadata = this.smartlistConfig?.Metadata || null;
-    this.totalItems = this.data.length;
-    if (!this.isManualPaginate) {
-      this.totalPages = Math.ceil(this.totalItems / this.pageSize);
+
+    // Si showStateButtons es true, agregamos la columna estado
+    if (this.metadata && this.tableConfig.showStateButtons) {
+      // Verificamos que no exista ya la columna 'estado' para no duplicarla
+      const hasEstado = this.metadata.Columns.some(
+        (col) => col.FieldName === 'estado',
+      );
+      if (!hasEstado) {
+        this.metadata.Columns.push(columnEstado);
+      }
     }
-    this.page = 1;
+
+    // Si MultiSelect es true y columnEncargado tiene SelectorOptions, agregamos la columna encargado
+    if (
+      this.metadata &&
+      this.tableConfig &&
+      this.tableConfig.showSelect &&
+      this.tableConfig.selectorOptions &&
+      this.tableConfig.selectorOptions.length > 0
+    ) {
+      const hasEncargado = this.metadata.Columns.some(
+        (col) => col.FieldName === 'encargado',
+      );
+      if (!hasEncargado) {
+        this.metadata.Columns.push(columnEncargado);
+      }
+    }
+
     this.paginate();
+    this.cdr.markForCheck();
+  }
+
+  getVisibleActions(): IActionConfig[] {
+    return this.metadata?.Buttons?.filter((btn) => btn.Visible) || [];
   }
 
   /**
    * Paginación de los elementos de la tabla.
    */
-  paginate() {
-    if (this.isManualPaginate) {
-      this.paginatedItems = this.data;
+  paginate(): void {
+    if (this.paginationConfig.isManualPaginate) {
+      this.paginatedItems = [...this.data];
     } else {
-      const startIndex = (this.page - 1) * this.pageSize;
-      this.paginatedItems =
-        this.data?.slice(startIndex, startIndex + this.pageSize) || [];
+      this.paginationConfig.totalItems = this.data.length;
+      this.paginationConfig.totalPages = Math.ceil(
+        this.paginationConfig.totalItems / this.paginationConfig.pageSize,
+      );
+      const startIndex =
+        (this.paginationConfig.page! - 1) * this.paginationConfig.pageSize;
+      this.paginatedItems = this.data.slice(
+        startIndex,
+        startIndex + this.paginationConfig.pageSize,
+      );
     }
-    this.cdr.detectChanges();
+  }
+
+  /**
+   * Ajusta la configuración de la paginación según si el dispositivo es móvil.
+   */
+  adjustPagination(): void {
+    if (this.isMobile) {
+      this.paginationConfig.pageSize = 1;
+    } else {
+      this.paginationConfig.pageSize = 10;
+    }
+    this.paginate();
+    this.cdr.markForCheck();
   }
 
   /**
@@ -217,7 +403,8 @@ export class SmartListComponent implements OnInit, OnChanges {
   getVisibleColumns(): IColumnConfig[] {
     if (!this.metadata || !this.metadata.Columns) return [];
     return this.metadata.Columns.filter(
-      (col, index) => col.Visible && !this.hiddenColumns.includes(index),
+      (col, index) =>
+        col.Visible && !this.tableConfig.hiddenColumns.includes(index),
     );
   }
 
@@ -227,7 +414,13 @@ export class SmartListComponent implements OnInit, OnChanges {
    * @param actionCode El código de la acción que se ejecuta.
    */
   handleAction(item: ISmartListItem, actionCode: string) {
-    if (!item) return;
+    if (
+      !item ||
+      item['estado'] === 'asignado' ||
+      item['estado'] === 'assigned'
+    ) {
+      return;
+    }
 
     const action = this.metadata?.Buttons?.find(
       (btn) => btn.Code === actionCode,
@@ -247,61 +440,73 @@ export class SmartListComponent implements OnInit, OnChanges {
    * @returns `true` si todos están seleccionados, `false` de lo contrario.
    */
   areAllSelected(): boolean {
-    return (
-      this.paginatedItems.length > 0 &&
-      this.paginatedItems.every((item) => item.selected)
-    );
+    return this.paginatedItems.every((item) => item.selected);
   }
 
   /**
    * Alterna la selección de todos los elementos.
    */
-  selectAllResults() {
-    const allSelected = this.areAllSelected();
-    this.data.forEach((item) => {
-      item.selected = !allSelected;
-    });
+  selectAllResults(): void {
+    const allSelected = this.data.every((item) => item.selected);
+    this.data.forEach((item) => (item.selected = !allSelected));
     this.selectedItems = this.data.filter((item) => item.selected);
     this.selectedUsers.emit(this.selectedItems);
     this.paginate();
   }
 
   /**
+   * Alterna la selección de todos los elementos paginados en la tabla.
+   * Marca todos los elementos como seleccionados o deseleccionados según su estado actual.
+   * Emite los elementos seleccionados mediante el evento `selectedUsers`.
+   */
+  selectAll(): void {
+    const allSelected = this.areAllSelected();
+    this.paginatedItems.forEach((item) => (item.selected = !allSelected));
+    this.selectedUsers.emit(
+      this.paginatedItems.filter((item) => item.selected),
+    );
+    this.cdr.markForCheck();
+  }
+
+  /**
    * Alterna la selección de un elemento específico.
    * @param item El elemento de la tabla que se selecciona o deselecciona.
    */
-  toggleSelect(item: ISmartListItem) {
+  toggleSelect(item: ISmartListItem): void {
     item.selected = !item.selected;
-    if (item.selected) {
-      this.selectedItems.push(item);
-    } else {
-      this.selectedItems = this.selectedItems.filter(
-        (selected) => selected !== item,
-      );
-    }
+    this.selectedItems = this.paginatedItems.filter((i) => i.selected);
     this.selectedUsers.emit(this.selectedItems);
+    this.cdr.markForCheck();
   }
 
   /**
    * Navega a una página específica de la tabla.
    * @param page El número de la página a la que se navega.
    */
-  goToPage(page: number) {
-    if (page >= 1 && page <= this.totalPages) {
-      this.page = page;
+  goToPage(page: number): void {
+    if (page >= 1 && page <= this.paginationConfig.totalPages) {
+      this.paginationConfig.page! = page;
       this.pageSelected.emit(page);
-      if (!this.isManualPaginate) {
-        this.paginate();
-      }
+      this.paginate();
     }
+  }
+
+  /**
+   * Método para optimizar el renderizado de filas en el For utilizando una clave única.
+   * @param index Índice de la fila en el array.
+   * @param item Elemento de la lista.
+   * @returns La clave única del elemento o el índice si no se encuentra una clave.
+   */
+  trackByItem(index: number, item: ISmartListItem): any {
+    return item['key'] || index;
   }
 
   /**
    * Navega a la página anterior.
    */
   previousPage() {
-    if (this.page > 1) {
-      this.goToPage(this.page - 1);
+    if (this.paginationConfig.page! > 1) {
+      this.goToPage(this.paginationConfig.page! - 1);
     }
   }
 
@@ -309,8 +514,8 @@ export class SmartListComponent implements OnInit, OnChanges {
    * Navega a la página siguiente.
    */
   nextPage() {
-    if (this.page < this.totalPages) {
-      this.goToPage(this.page + 1);
+    if (this.paginationConfig.page! < this.paginationConfig.totalPages) {
+      this.goToPage(this.paginationConfig.page! + 1);
     }
   }
 
@@ -324,7 +529,6 @@ export class SmartListComponent implements OnInit, OnChanges {
   getTitleFromCode(code: string): string {
     if (!code) return '';
 
-    // Remueve prefijos como 'evowave.' y convierte camelCase a formato de palabras con espacios.
     const formattedTitle = code
       .replace(/^.*\./, '')
       .replace(/([A-Z])/g, ' $1')
@@ -340,10 +544,13 @@ export class SmartListComponent implements OnInit, OnChanges {
   getButtonLabel(item: ISmartListItem): string {
     switch (item['estado']) {
       case 'asignado':
+      case 'assigned':
         return 'Asignado';
       case 'agregar':
+      case 'add':
         return 'Agregar';
       case 'quitar':
+      case 'remove':
         return 'Quitar';
       default:
         return '';
@@ -356,22 +563,21 @@ export class SmartListComponent implements OnInit, OnChanges {
    * @returns La clase del tema del botón.
    */
   getButtonTheme(action: ISmartListItem): string {
-    switch (action['Code']) {
-      case 'edit':
-        return 'smart-list-button__update';
-      case 'new':
-        return 'smart-list-button__add';
-      case 'delete':
-        return 'smart-list-button__delete';
+    switch (action['estado']) {
+      case 'asignado':
+      case 'assigned':
+        return 'smart-list-button smart-list-button__assigned';
+      case 'agregar':
+      case 'add':
+        return 'smart-list-button smart-list-button__add';
+      case 'quitar':
+      case 'remove':
+        return 'smart-list-button smart-list-button__delete';
       default:
-        return 'smart-list-button__default';
+        return 'smart-list-button smart-list-button__default';
     }
   }
 
-  /**
-   * Alterna el estado de orden en la columna seleccionada, incluyendo el estado sin ordenar.
-   * @param columnName El nombre del campo de la columna
-   */
   /**
    * Alterna el estado de orden en la columna seleccionada, incluyendo el estado sin ordenar.
    * @param columnName El nombre del campo de la columna
@@ -382,16 +588,12 @@ export class SmartListComponent implements OnInit, OnChanges {
     );
 
     // Verifica si la columna es ordenable según la lista de índices de `sortableColumns`
-    if (columnIndex === -1 || !this.sortableColumns.includes(columnIndex)) {
+    if (
+      columnIndex === -1 ||
+      !this.tableConfig.sortableColumns.includes(columnIndex)
+    ) {
       return;
     }
-
-    // Resetea la ordenación de otras columnas
-    Object.keys(this.sortState).forEach((key) => {
-      if (key !== columnName) {
-        this.sortState[key] = null;
-      }
-    });
 
     // Alterna el estado de la columna seleccionada entre 'asc', 'desc' y null
     this.sortState[columnName] =
@@ -401,11 +603,14 @@ export class SmartListComponent implements OnInit, OnChanges {
           ? null
           : 'asc';
 
-    this.columnSort.emit({
-      column: columnName,
-      order: this.sortState[columnName],
-      dataType: this.detectColumnType(columnName),
-    });
+    const orderByClause = Object.entries(this.sortState)
+      .filter(([_, order]) => order !== null)
+      .map(([column, order]) =>
+        order === 'asc' ? column : `${column} ${order}`,
+      )
+      .join(',');
+
+    this.columnSort.emit(orderByClause);
   }
 
   /**
@@ -419,7 +624,10 @@ export class SmartListComponent implements OnInit, OnChanges {
     );
 
     // Verifica si la columna es ordenable según la lista de índices de `sortableColumns`
-    if (columnIndex !== -1 && this.sortableColumns.includes(columnIndex)) {
+    if (
+      columnIndex !== -1 &&
+      this.tableConfig.sortableColumns.includes(columnIndex)
+    ) {
       switch (this.sortState[columnName]) {
         case 'asc':
           return 'arrow_upward';
@@ -439,7 +647,7 @@ export class SmartListComponent implements OnInit, OnChanges {
   getClasses(context: string): string {
     const baseClasses = this.classUtility.getCombinedClasses(
       context,
-      this.twClass,
+      this.tableConfig.twClass,
     );
 
     // Agrega clases adicionales según el contexto proporcionado
@@ -480,5 +688,22 @@ export class SmartListComponent implements OnInit, OnChanges {
       return 'date';
     }
     return 'text';
+  }
+
+  /**
+   * Método para optimizar renderizado de columnas en el *ngFor.
+   */
+  trackByColumnCode(index: number, column: IColumnConfig): string | number {
+    return column?.Code || index;
+  }
+
+  /**
+   * Genera la clase CSS correspondiente al ícono de ordenamiento.
+   * @param columnName El nombre del campo de la columna
+   * @returns La clase CSS para el ícono de ordenamiento
+   */
+  getSortIconClass(columnName: string): string {
+    const icon = this.getSortIcon(columnName);
+    return `sort-icon ${icon}`;
   }
 }

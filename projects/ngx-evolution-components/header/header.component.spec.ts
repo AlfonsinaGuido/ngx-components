@@ -49,6 +49,7 @@ describe('HeaderComponent', () => {
         { label: 'Notification 1' },
         { label: 'Notification 2' },
       ],
+      authorizationItems: [],
       seeAllButton: {
         seeAllNotifications: {
           label: 'Test',

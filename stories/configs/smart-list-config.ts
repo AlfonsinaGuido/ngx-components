@@ -1,6 +1,40 @@
-import { ISmartlistMetadata } from '@aseinfo/ngx-evolution-components/public-api';
+import {
+  ISmartListItem,
+  ISmartlistMetadata,
+} from '@aseinfo/ngx-evolution-components/public-api';
 
-export const metaData: ISmartlistMetadata = {
+export const data: ISmartListItem[] = [
+  {
+    amo_codigo: 6,
+    amo_fecha_infraccion: '2024-09-18T06:00:00',
+    cau_descripcion:
+      'Falta sin causa justificada dos días completos y consecutivos',
+    cia_descripcion: 'ASEINFO Guatemala.',
+    exp_apellidos_nombres1: 'Abrego Labbe, Rene Armando',
+    exp_apellidos_nombres2: 'Delgado de García, María del Rosario',
+    estado: 'asignado',
+    encargado: '1',
+    g_record_number: '1',
+    g_total_recs: 1,
+    tam_descripcion: 'Oral',
+  },
+  {
+    amo_codigo: 7,
+    amo_fecha_infraccion: '2024-09-19T06:00:00',
+    cau_descripcion:
+      'Falta sin causa justificada dos días completos y consecutivos',
+    cia_descripcion: 'ASEINFO Salvador.',
+    exp_apellidos_nombres1: 'Abrego Labbe, Rene Armando',
+    exp_apellidos_nombres2: 'Delgado de García, María del Rosario',
+    estado: 'quitar',
+    encargado: '2',
+    g_record_number: '2',
+    g_total_recs: 1,
+    tam_descripcion: 'Oral',
+  },
+];
+
+export const baseMetaData: ISmartlistMetadata = {
   Code: 'evowave.SolicitudAmonestaciones',
   MultiSelect: true,
   AutogenerateColumns: false,

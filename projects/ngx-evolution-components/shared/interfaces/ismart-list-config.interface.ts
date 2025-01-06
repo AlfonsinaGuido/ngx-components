@@ -1,3 +1,5 @@
+import { IIcon, IValueList } from '../../public-api';
+
 export interface ISmartlistFullConfig {
   Code: string;
   ClientControlID: string;
@@ -52,6 +54,7 @@ export interface IColumnConfig {
   Width?: string;
   Wrap?: boolean;
   Format?: string;
+  MultiSelect?: boolean;
 }
 
 export interface ISmartListItem {
@@ -93,4 +96,18 @@ export interface IActionConfig {
 export interface ILocalizedString {
   Key: string;
   Translation: string;
+}
+
+export interface ITableConfig {
+  showActions?: boolean;
+  showStateButtons?: boolean;
+  showSelect?: boolean;
+  selectorOptions?: IValueList[];
+  noPagination?: boolean;
+  maxHeight?: string;
+  hiddenColumns: number[];
+  sortableColumns: number[];
+  actionIcons: IIcon[];
+  emptyStateText: string;
+  twClass: string;
 }

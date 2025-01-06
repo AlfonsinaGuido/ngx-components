@@ -1,6 +1,7 @@
 export interface IEmpleado {
   Nombre: string;
   Email: string;
+  Codigo: number;
   Empleos: IEmpleo[];
 }
 

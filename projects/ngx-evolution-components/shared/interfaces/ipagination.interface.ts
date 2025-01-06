@@ -12,6 +12,7 @@ export interface IPaginationConfig {
   pageSize: number;
   totalItems: number;
   titles: IPaginationTitles;
+  page?: number;
   twClass?: string;
 }
 

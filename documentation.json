@@ -81,6 +81,16 @@
         "defaultValue": "Object.values(\n  actividades.reduce((acc: any, act) => {\n    const estadoConfig = estadosMap[act.EstadoDb];\n    if (!estadoConfig) return acc;\n\n    if (!acc[act.EstadoDb]) {\n      acc[act.EstadoDb] = { ...estadoConfig, actividades: [] };\n    }\n\n    acc[act.EstadoDb].actividades.push(act);\n\n    return acc;\n  }, {}),\n)"
       },
       {
+        "name": "ConBotonesDeEstado",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/smart-list.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    smartlistConfig: smartlistConfigEstadoSinEncargado,\n    paginationConfig: { ...paginationConfig, titles: titlesConfig },\n    tableConfig: tableConfigEstadoSinEncargado,\n    data,\n  },\n}"
+      },
+      {
         "name": "conClasePersonalizada",
         "ctype": "miscellaneous",
         "subtype": "variable",
@@ -91,6 +101,26 @@
         "defaultValue": "{\n  args: {\n    label: 'Custom',\n    size: 'md',\n    twClass:\n      'bg-slate-600 text-white border-slate-700 font-bold cursor-pointer rounded-xl p-2',\n  },\n}"
       },
       {
+        "name": "ConScroll",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/smart-list.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    smartlistConfig: smartlistConfigDefault,\n    paginationConfig: { ...paginationConfig, titles: titlesConfig },\n    tableConfig: tableConfigConScroll,\n    data,\n  },\n}"
+      },
+      {
+        "name": "ConSelector",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/smart-list.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    smartlistConfig: smartlistConfigEncargadoSinEstado,\n    paginationConfig: { ...paginationConfig, titles: titlesConfig },\n    tableConfig: tableConfigEncargadoSinEstado,\n    data,\n  },\n}"
+      },
+      {
         "name": "ControlledError",
         "ctype": "miscellaneous",
         "subtype": "variable",
@@ -98,7 +128,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    title: 'Error',\r\n    message: 'No se puede eliminar un programa con personas asignadas.',\r\n    isError: true,\r\n    duration: 10000,\r\n    twClass: '',\r\n  },\r\n}"
+        "defaultValue": "{\n  args: {\n    title: 'Error',\n    message: 'No se puede eliminar un programa con personas asignadas.',\n    isError: true,\n    duration: 10000,\n    twClass: '',\n  },\n}"
       },
       {
         "name": "customTailwindClass",
@@ -109,16 +139,6 @@
         "deprecationMessage": "",
         "type": "Story",
         "defaultValue": "{\n  args: {\n    name: 'Canceladas',\n    count: 2,\n    index: 4,\n    twClass: 'bg-red-500 text-red-500',\n  },\n}"
-      },
-      {
-        "name": "data",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
-        "file": "stories/smart-list.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "ISmartListItem[]",
-        "defaultValue": "[\n  {\n    amo_codigo: 6,\n    amo_fecha_infraccion: '2024-09-18T06:00:00',\n    cau_descripcion:\n      'Falta sin causa justificada dos días completos y consecutivos',\n    cia_descripcion: 'ASEINFO Guatemala.',\n    exp_apellidos_nombres1: 'Abrego Labbe, Rene Armando',\n    exp_apellidos_nombres2: 'Delgado de García, María del Rosario',\n    g_record_number: '1',\n    g_total_recs: 1,\n    tam_descripcion: 'Oral',\n  },\n  {\n    amo_codigo: 7,\n    amo_fecha_infraccion: '2024-09-19T06:00:00',\n    cau_descripcion:\n      'Falta sin causa justificada dos días completos y consecutivos',\n    cia_descripcion: 'ASEINFO Salvador.',\n    exp_apellidos_nombres1: 'Abrego Labbe, Rene Armando',\n    exp_apellidos_nombres2: 'Delgado de García, María del Rosario',\n    g_record_number: '2',\n    g_total_recs: 1,\n    tam_descripcion: 'Oral',\n  },\n]"
       },
       {
         "name": "Default",
@@ -318,7 +338,17 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    smartlistConfig: smartlistConfig,\n    data: data,\n    titles: titles,\n    page: 1,\n    totalPages: 1,\n    pageSize: 5,\n    hiddenColumns: [2],\n    twClass: '',\n    sortableColumns: [1],\n    isManualPaginate: false,\n    actionIcons: [\n      { type: 'class', icon: 'add' },\n      { type: 'class', icon: 'edit' },\n      { type: 'class', icon: 'delete' },\n      { type: 'class', icon: 'verified_user' },\n    ],\n  },\n}"
+        "defaultValue": "{\n  args: {\n    smartlistConfig: smartlistConfigDefault,\n    paginationConfig: { ...paginationConfig, titles: titlesConfig },\n    tableConfig,\n    data,\n  },\n  argTypes: {\n    smartlistConfig: {\n      description: 'Configuración completa del Smart List.',\n    },\n    paginationConfig: {\n      description: 'Configuración completa de paginación.',\n    },\n  },\n}"
+      },
+      {
+        "name": "Default",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/stepper.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    stepperConfig: { ...defaultConfig },\n  },\n}"
       },
       {
         "name": "Default",
@@ -409,6 +439,16 @@
         "deprecationMessage": "",
         "type": "object",
         "defaultValue": "{\n  currentPage: 1,\n  totalPages: 5,\n  pageSize: 10,\n  totalItems: 50,\n  isManualPaginate: false,\n  titles: {\n    showing: 'Mostrando',\n    results: 'resultados',\n    page: 'Página',\n    of: 'de',\n  },\n  twClass: '',\n}"
+      },
+      {
+        "name": "defaultConfig",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/stepper.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "object",
+        "defaultValue": "{\n  steps: [\n    { title: 'Paso 1', text: 'Este es el paso 1' },\n    { title: 'Paso 2', text: 'Este es el paso 2' },\n    { title: 'Paso 3', text: 'Este es el paso 3' },\n  ],\n  selectedStepIndex: 0,\n  canContinue: true,\n  continueButtonText: 'Siguiente',\n  backButtonText: 'Atrás',\n  twClass: '',\n  highestCompletedIndex: 0,\n  orientation: Orientation.Vertical,\n}"
       },
       {
         "name": "Disabled",
@@ -691,6 +731,16 @@
         "defaultValue": "{\n  args: {\n    breadcrumbs: [\n      {\n        label: 'notificaciones',\n        url: '/notificaciones',\n      },\n    ],\n  },\n}"
       },
       {
+        "name": "Horizontal",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/stepper.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    stepperConfig: { ...defaultConfig, orientation: Orientation.Horizontal },\n  },\n}"
+      },
+      {
         "name": "iconDialog",
         "ctype": "miscellaneous",
         "subtype": "variable",
@@ -838,7 +888,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<BannerComponent>",
-        "defaultValue": "{\r\n  title: 'Evolution Components/Banner',\r\n  component: BannerComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideAnimationsAsync()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
+        "defaultValue": "{\n  title: 'Evolution Components/Banner',\n  component: BannerComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
       },
       {
         "name": "meta",
@@ -988,7 +1038,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<SmartListComponent>",
-        "defaultValue": "{\n  title: 'Evolution Components/Smart List',\n  component: SmartListComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+        "defaultValue": "{\n  title: 'Evolution Components/Smart List',\n  component: SmartListComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient(), provideAnimationsAsync()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
       },
       {
         "name": "meta",
@@ -1009,6 +1059,42 @@
         "deprecationMessage": "",
         "type": "Meta<TimeSegmentedListComponent>",
         "defaultValue": "{\n  title: 'Evolution Components/Time Segmented List',\n  component: TimeSegmentedListComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideMarkdown()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+      },
+      {
+        "name": "metaDataDefault",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/smart-list.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "ISmartlistMetadata",
+        "defaultValue": "{\n  ...baseMetaData,\n  Columns: [...baseMetaData.Columns],\n}",
+        "rawdescription": "Historia Default: Con \"encargado\" y \"estado\"",
+        "description": "<p>Historia Default: Con &quot;encargado&quot; y &quot;estado&quot;</p>\n"
+      },
+      {
+        "name": "metaDataEncargadoSinEstado",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/smart-list.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "ISmartlistMetadata",
+        "defaultValue": "{\n  ...baseMetaData,\n  Columns: [...baseMetaData.Columns, columnEncargado],\n}",
+        "rawdescription": "Historia EncargadoSinEstado: Con \"encargado\" pero sin \"estado\"\ny noPagination = true",
+        "description": "<p>Historia EncargadoSinEstado: Con &quot;encargado&quot; pero sin &quot;estado&quot;\ny noPagination = true</p>\n"
+      },
+      {
+        "name": "metaDataEstadoSinEncargado",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/smart-list.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "ISmartlistMetadata",
+        "defaultValue": "{\n  ...baseMetaData,\n  Columns: [...baseMetaData.Columns, columnEstado],\n}",
+        "rawdescription": "Historia EstadoSinEncargado: Con \"estado\" pero sin \"encargado\"\nnoPagination = false (por defecto)",
+        "description": "<p>Historia EstadoSinEncargado: Con &quot;estado&quot; pero sin &quot;encargado&quot;\nnoPagination = false (por defecto)</p>\n"
       },
       {
         "name": "muchasActividades",
@@ -1089,6 +1175,16 @@
         "deprecationMessage": "",
         "type": "Story",
         "defaultValue": "{\n  args: {\n    icon: {\n      icon: 'add-user.svg',\n      type: 'svg',\n    },\n  },\n}"
+      },
+      {
+        "name": "paginationConfig",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/smart-list.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "IPaginationConfig",
+        "defaultValue": "{\n  isManualPaginate: false,\n  currentPage: 1,\n  totalPages: 2,\n  pageSize: 5,\n  totalItems: 10,\n  page: 1,\n  titles: {\n    showing: 'Mostrando',\n    results: 'resultados',\n    page: 'Pag',\n    of: 'de',\n  },\n}"
       },
       {
         "name": "pastToday",
@@ -1301,14 +1397,34 @@
         "defaultValue": "{\n  args: {\n    config: {\n      ...defaultconfig,\n      size: 'sm',\n      nombre: 'Onboarding General para Todos los Empleados',\n      descripcion:\n        'Se permite texto hasta dos líneas. Se permite texto hasta dos líneas.',\n      isFluid: false,\n    },\n  },\n}"
       },
       {
-        "name": "smartlistConfig",
+        "name": "smartlistConfigDefault",
         "ctype": "miscellaneous",
         "subtype": "variable",
         "file": "stories/smart-list.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "ISmartlistFullConfig",
-        "defaultValue": "{\n  Code: 'evowave.SolicitudAmonestaciones',\n  ClientControlID: 'evowave.SolicitudAmonestaciones',\n  Parameters: {},\n  DatabaseDialect: 'Microsoft.Data.SqlClient',\n  UrlMetadata: '/api/configuracion/SmartList/evowave.SolicitudAmonestaciones',\n  FormTagId: 'evowave_SolicitudAmonestaciones_form',\n  AlmacenaInformacionPersonalizacion: false,\n  Height: 'Auto',\n  Metadata: metaData,\n  HasQueryBuilder: false,\n  UrlData: '/api/configuracion/SmartList/evowave.SolicitudAmonestaciones/Data',\n  FormatoEntero: '{0:n0}',\n  Checksum: 'c3c0d2dfa2ca6048dd03942e9132c668d215ebb03e1eb0bee496f8eb857da3b7',\n  Rows: 1,\n}"
+        "defaultValue": "{\n  Code: 'evowave.SolicitudAmonestaciones',\n  ClientControlID: 'evowave.SolicitudAmonestaciones',\n  Parameters: {},\n  DatabaseDialect: 'Microsoft.Data.SqlClient',\n  UrlMetadata: '/api/configuracion/SmartList/evowave.SolicitudAmonestaciones',\n  FormTagId: 'evowave_SolicitudAmonestaciones_form',\n  AlmacenaInformacionPersonalizacion: false,\n  Height: 'Auto',\n  Metadata: metaDataDefault,\n  HasQueryBuilder: false,\n  UrlData: '/api/configuracion/SmartList/evowave.SolicitudAmonestaciones/Data',\n  FormatoEntero: '{0:n0}',\n  Checksum: 'c3c0d2dfa2ca6048dd03942e9132c668d215ebb03e1eb0bee496f8eb857da3b7',\n  Rows: 1,\n}"
+      },
+      {
+        "name": "smartlistConfigEncargadoSinEstado",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/smart-list.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "ISmartlistFullConfig",
+        "defaultValue": "{\n  ...smartlistConfigDefault,\n  Metadata: metaDataEncargadoSinEstado,\n}"
+      },
+      {
+        "name": "smartlistConfigEstadoSinEncargado",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/smart-list.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "ISmartlistFullConfig",
+        "defaultValue": "{\n  ...smartlistConfigDefault,\n  Metadata: metaDataEstadoSinEncargado,\n}"
       },
       {
         "name": "soloTituloYDescripcion",
@@ -1348,7 +1464,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    title: 'Éxito',\r\n    message: 'Se asignaron correctamente las personas al programa.',\r\n    duration: 10000,\r\n    twClass: '',\r\n  },\r\n}"
+        "defaultValue": "{\n  args: {\n    title: 'Éxito',\n    message: 'Se asignaron correctamente las personas al programa.',\n    duration: 10000,\n    twClass: '',\n  },\n}"
       },
       {
         "name": "svgDialog",
@@ -1359,6 +1475,46 @@
         "deprecationMessage": "",
         "type": "Story",
         "defaultValue": "{\n  args: {\n    title: 'Dialogo de testing',\n    icon: {\n      icon: 'company-logo.svg',\n      type: 'svg',\n    },\n    buttonsItems: [\n      {\n        label: 'Item 1',\n        theme: 'secondary',\n        onClick: {\n          action: Testing1,\n        },\n      },\n      {\n        label: 'Item 2',\n        theme: 'primary',\n        onClick: {\n          action: Testing2,\n        },\n      },\n    ],\n    simpleContent: 'Testing de prueba para dialogo',\n  },\n}"
+      },
+      {
+        "name": "tableConfig",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/smart-list.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "ITableConfig",
+        "defaultValue": "{\n  hiddenColumns: [],\n  sortableColumns: [1],\n  actionIcons: [\n    { type: 'class', icon: 'add' },\n    { type: 'class', icon: 'edit' },\n    { type: 'class', icon: 'delete' },\n    { type: 'class', icon: 'verified_user' },\n  ],\n  showActions: false,\n  noPagination: false,\n  maxHeight: '120px',\n  emptyStateText: 'No hay datos para mostrar',\n  twClass: '',\n}"
+      },
+      {
+        "name": "tableConfigConScroll",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/smart-list.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "ITableConfig",
+        "defaultValue": "{\n  ...tableConfig,\n  noPagination: true,\n}"
+      },
+      {
+        "name": "tableConfigEncargadoSinEstado",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/smart-list.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "ITableConfig",
+        "defaultValue": "{\n  ...tableConfig,\n}"
+      },
+      {
+        "name": "tableConfigEstadoSinEncargado",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/smart-list.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "ITableConfig",
+        "defaultValue": "{\n  ...tableConfig,\n  noPagination: false,\n}"
       },
       {
         "name": "Testing1",
@@ -1391,14 +1547,14 @@
         "defaultValue": "'Te apoyamos en cada paso hacia tu éxito profesional'"
       },
       {
-        "name": "titles",
+        "name": "titlesConfig",
         "ctype": "miscellaneous",
         "subtype": "variable",
         "file": "stories/smart-list.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
-        "type": "ISmartListTitles",
-        "defaultValue": "{\n  showing: 'Mostrando',\n  results: 'resultados',\n  page: 'pag',\n  of: 'de',\n}"
+        "type": "object",
+        "defaultValue": "{\n  showing: 'Mostrando',\n  results: 'resultados',\n  page: 'Pag',\n  of: 'de',\n}"
       },
       {
         "name": "today",
@@ -1418,7 +1574,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    title: 'Error',\r\n    message: 'No se pudo establecer conexión con el Identity Server.',\r\n    isError: true,\r\n    useAnimation: false,\r\n    twClass: '',\r\n  },\r\n}"
+        "defaultValue": "{\n  args: {\n    title: 'Error',\n    message: 'No se pudo establecer conexión con el Identity Server.',\n    isError: true,\n    useAnimation: false,\n    twClass: '',\n  },\n}"
       },
       {
         "name": "Unlabeled",
@@ -1541,6 +1697,16 @@
         "deprecationMessage": "",
         "type": "Story",
         "defaultValue": "{\n  args: {\n    ...Default.args,\n    companyData: {\n      companyName: 'ASEINFO',\n      companyImage: 'company-logo.svg',\n    },\n  },\n}"
+      },
+      {
+        "name": "WithContinueDisabled",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/stepper.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    stepperConfig: { ...defaultConfig, canContinue: false },\n  },\n}"
       },
       {
         "name": "WithFunction",
@@ -2016,6 +2182,17 @@
         "name": "Story",
         "ctype": "miscellaneous",
         "subtype": "typealias",
+        "rawtype": "StoryObj<StepperComponent>",
+        "file": "stories/stepper.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "description": "",
+        "kind": 183
+      },
+      {
+        "name": "Story",
+        "ctype": "miscellaneous",
+        "subtype": "typealias",
         "rawtype": "StoryObj<SvgComponent>",
         "file": "stories/svg.stories.ts",
         "deprecated": false,
@@ -2370,6 +2547,184 @@
           "description": "<p>Arrow Function que permite validar la actividad que quiere ingresar a una columna</p>\n"
         }
       ],
+      "stories/smart-list.stories.ts": [
+        {
+          "name": "ConBotonesDeEstado",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/smart-list.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    smartlistConfig: smartlistConfigEstadoSinEncargado,\n    paginationConfig: { ...paginationConfig, titles: titlesConfig },\n    tableConfig: tableConfigEstadoSinEncargado,\n    data,\n  },\n}"
+        },
+        {
+          "name": "ConScroll",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/smart-list.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    smartlistConfig: smartlistConfigDefault,\n    paginationConfig: { ...paginationConfig, titles: titlesConfig },\n    tableConfig: tableConfigConScroll,\n    data,\n  },\n}"
+        },
+        {
+          "name": "ConSelector",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/smart-list.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    smartlistConfig: smartlistConfigEncargadoSinEstado,\n    paginationConfig: { ...paginationConfig, titles: titlesConfig },\n    tableConfig: tableConfigEncargadoSinEstado,\n    data,\n  },\n}"
+        },
+        {
+          "name": "Default",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/smart-list.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    smartlistConfig: smartlistConfigDefault,\n    paginationConfig: { ...paginationConfig, titles: titlesConfig },\n    tableConfig,\n    data,\n  },\n  argTypes: {\n    smartlistConfig: {\n      description: 'Configuración completa del Smart List.',\n    },\n    paginationConfig: {\n      description: 'Configuración completa de paginación.',\n    },\n  },\n}"
+        },
+        {
+          "name": "meta",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/smart-list.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Meta<SmartListComponent>",
+          "defaultValue": "{\n  title: 'Evolution Components/Smart List',\n  component: SmartListComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient(), provideAnimationsAsync()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+        },
+        {
+          "name": "metaDataDefault",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/smart-list.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "ISmartlistMetadata",
+          "defaultValue": "{\n  ...baseMetaData,\n  Columns: [...baseMetaData.Columns],\n}",
+          "rawdescription": "Historia Default: Con \"encargado\" y \"estado\"",
+          "description": "<p>Historia Default: Con &quot;encargado&quot; y &quot;estado&quot;</p>\n"
+        },
+        {
+          "name": "metaDataEncargadoSinEstado",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/smart-list.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "ISmartlistMetadata",
+          "defaultValue": "{\n  ...baseMetaData,\n  Columns: [...baseMetaData.Columns, columnEncargado],\n}",
+          "rawdescription": "Historia EncargadoSinEstado: Con \"encargado\" pero sin \"estado\"\ny noPagination = true",
+          "description": "<p>Historia EncargadoSinEstado: Con &quot;encargado&quot; pero sin &quot;estado&quot;\ny noPagination = true</p>\n"
+        },
+        {
+          "name": "metaDataEstadoSinEncargado",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/smart-list.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "ISmartlistMetadata",
+          "defaultValue": "{\n  ...baseMetaData,\n  Columns: [...baseMetaData.Columns, columnEstado],\n}",
+          "rawdescription": "Historia EstadoSinEncargado: Con \"estado\" pero sin \"encargado\"\nnoPagination = false (por defecto)",
+          "description": "<p>Historia EstadoSinEncargado: Con &quot;estado&quot; pero sin &quot;encargado&quot;\nnoPagination = false (por defecto)</p>\n"
+        },
+        {
+          "name": "paginationConfig",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/smart-list.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "IPaginationConfig",
+          "defaultValue": "{\n  isManualPaginate: false,\n  currentPage: 1,\n  totalPages: 2,\n  pageSize: 5,\n  totalItems: 10,\n  page: 1,\n  titles: {\n    showing: 'Mostrando',\n    results: 'resultados',\n    page: 'Pag',\n    of: 'de',\n  },\n}"
+        },
+        {
+          "name": "smartlistConfigDefault",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/smart-list.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "ISmartlistFullConfig",
+          "defaultValue": "{\n  Code: 'evowave.SolicitudAmonestaciones',\n  ClientControlID: 'evowave.SolicitudAmonestaciones',\n  Parameters: {},\n  DatabaseDialect: 'Microsoft.Data.SqlClient',\n  UrlMetadata: '/api/configuracion/SmartList/evowave.SolicitudAmonestaciones',\n  FormTagId: 'evowave_SolicitudAmonestaciones_form',\n  AlmacenaInformacionPersonalizacion: false,\n  Height: 'Auto',\n  Metadata: metaDataDefault,\n  HasQueryBuilder: false,\n  UrlData: '/api/configuracion/SmartList/evowave.SolicitudAmonestaciones/Data',\n  FormatoEntero: '{0:n0}',\n  Checksum: 'c3c0d2dfa2ca6048dd03942e9132c668d215ebb03e1eb0bee496f8eb857da3b7',\n  Rows: 1,\n}"
+        },
+        {
+          "name": "smartlistConfigEncargadoSinEstado",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/smart-list.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "ISmartlistFullConfig",
+          "defaultValue": "{\n  ...smartlistConfigDefault,\n  Metadata: metaDataEncargadoSinEstado,\n}"
+        },
+        {
+          "name": "smartlistConfigEstadoSinEncargado",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/smart-list.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "ISmartlistFullConfig",
+          "defaultValue": "{\n  ...smartlistConfigDefault,\n  Metadata: metaDataEstadoSinEncargado,\n}"
+        },
+        {
+          "name": "tableConfig",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/smart-list.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "ITableConfig",
+          "defaultValue": "{\n  hiddenColumns: [],\n  sortableColumns: [1],\n  actionIcons: [\n    { type: 'class', icon: 'add' },\n    { type: 'class', icon: 'edit' },\n    { type: 'class', icon: 'delete' },\n    { type: 'class', icon: 'verified_user' },\n  ],\n  showActions: false,\n  noPagination: false,\n  maxHeight: '120px',\n  emptyStateText: 'No hay datos para mostrar',\n  twClass: '',\n}"
+        },
+        {
+          "name": "tableConfigConScroll",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/smart-list.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "ITableConfig",
+          "defaultValue": "{\n  ...tableConfig,\n  noPagination: true,\n}"
+        },
+        {
+          "name": "tableConfigEncargadoSinEstado",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/smart-list.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "ITableConfig",
+          "defaultValue": "{\n  ...tableConfig,\n}"
+        },
+        {
+          "name": "tableConfigEstadoSinEncargado",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/smart-list.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "ITableConfig",
+          "defaultValue": "{\n  ...tableConfig,\n  noPagination: false,\n}"
+        },
+        {
+          "name": "titlesConfig",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/smart-list.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "object",
+          "defaultValue": "{\n  showing: 'Mostrando',\n  results: 'resultados',\n  page: 'Pag',\n  of: 'de',\n}"
+        }
+      ],
       "stories/tag.stories.ts": [
         {
           "name": "conClasePersonalizada",
@@ -2431,7 +2786,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    title: 'Error',\r\n    message: 'No se puede eliminar un programa con personas asignadas.',\r\n    isError: true,\r\n    duration: 10000,\r\n    twClass: '',\r\n  },\r\n}"
+          "defaultValue": "{\n  args: {\n    title: 'Error',\n    message: 'No se puede eliminar un programa con personas asignadas.',\n    isError: true,\n    duration: 10000,\n    twClass: '',\n  },\n}"
         },
         {
           "name": "meta",
@@ -2441,7 +2796,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<BannerComponent>",
-          "defaultValue": "{\r\n  title: 'Evolution Components/Banner',\r\n  component: BannerComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideAnimationsAsync()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
+          "defaultValue": "{\n  title: 'Evolution Components/Banner',\n  component: BannerComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
         },
         {
           "name": "Success",
@@ -2451,7 +2806,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    title: 'Éxito',\r\n    message: 'Se asignaron correctamente las personas al programa.',\r\n    duration: 10000,\r\n    twClass: '',\r\n  },\r\n}"
+          "defaultValue": "{\n  args: {\n    title: 'Éxito',\n    message: 'Se asignaron correctamente las personas al programa.',\n    duration: 10000,\n    twClass: '',\n  },\n}"
         },
         {
           "name": "UncontrolledError",
@@ -2461,7 +2816,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    title: 'Error',\r\n    message: 'No se pudo establecer conexión con el Identity Server.',\r\n    isError: true,\r\n    useAnimation: false,\r\n    twClass: '',\r\n  },\r\n}"
+          "defaultValue": "{\n  args: {\n    title: 'Error',\n    message: 'No se pudo establecer conexión con el Identity Server.',\n    isError: true,\n    useAnimation: false,\n    twClass: '',\n  },\n}"
         }
       ],
       "stories/header-columna.stories.ts": [
@@ -2514,58 +2869,6 @@
           "deprecationMessage": "",
           "type": "Story",
           "defaultValue": "{\n  args: {\n    name: 'Desasignadas',\n    count: 0,\n    index: 1,\n    withCount: false,\n  },\n}"
-        }
-      ],
-      "stories/smart-list.stories.ts": [
-        {
-          "name": "data",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "stories/smart-list.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "ISmartListItem[]",
-          "defaultValue": "[\n  {\n    amo_codigo: 6,\n    amo_fecha_infraccion: '2024-09-18T06:00:00',\n    cau_descripcion:\n      'Falta sin causa justificada dos días completos y consecutivos',\n    cia_descripcion: 'ASEINFO Guatemala.',\n    exp_apellidos_nombres1: 'Abrego Labbe, Rene Armando',\n    exp_apellidos_nombres2: 'Delgado de García, María del Rosario',\n    g_record_number: '1',\n    g_total_recs: 1,\n    tam_descripcion: 'Oral',\n  },\n  {\n    amo_codigo: 7,\n    amo_fecha_infraccion: '2024-09-19T06:00:00',\n    cau_descripcion:\n      'Falta sin causa justificada dos días completos y consecutivos',\n    cia_descripcion: 'ASEINFO Salvador.',\n    exp_apellidos_nombres1: 'Abrego Labbe, Rene Armando',\n    exp_apellidos_nombres2: 'Delgado de García, María del Rosario',\n    g_record_number: '2',\n    g_total_recs: 1,\n    tam_descripcion: 'Oral',\n  },\n]"
-        },
-        {
-          "name": "Default",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "stories/smart-list.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Story",
-          "defaultValue": "{\n  args: {\n    smartlistConfig: smartlistConfig,\n    data: data,\n    titles: titles,\n    page: 1,\n    totalPages: 1,\n    pageSize: 5,\n    hiddenColumns: [2],\n    twClass: '',\n    sortableColumns: [1],\n    isManualPaginate: false,\n    actionIcons: [\n      { type: 'class', icon: 'add' },\n      { type: 'class', icon: 'edit' },\n      { type: 'class', icon: 'delete' },\n      { type: 'class', icon: 'verified_user' },\n    ],\n  },\n}"
-        },
-        {
-          "name": "meta",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "stories/smart-list.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Meta<SmartListComponent>",
-          "defaultValue": "{\n  title: 'Evolution Components/Smart List',\n  component: SmartListComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
-        },
-        {
-          "name": "smartlistConfig",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "stories/smart-list.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "ISmartlistFullConfig",
-          "defaultValue": "{\n  Code: 'evowave.SolicitudAmonestaciones',\n  ClientControlID: 'evowave.SolicitudAmonestaciones',\n  Parameters: {},\n  DatabaseDialect: 'Microsoft.Data.SqlClient',\n  UrlMetadata: '/api/configuracion/SmartList/evowave.SolicitudAmonestaciones',\n  FormTagId: 'evowave_SolicitudAmonestaciones_form',\n  AlmacenaInformacionPersonalizacion: false,\n  Height: 'Auto',\n  Metadata: metaData,\n  HasQueryBuilder: false,\n  UrlData: '/api/configuracion/SmartList/evowave.SolicitudAmonestaciones/Data',\n  FormatoEntero: '{0:n0}',\n  Checksum: 'c3c0d2dfa2ca6048dd03942e9132c668d215ebb03e1eb0bee496f8eb857da3b7',\n  Rows: 1,\n}"
-        },
-        {
-          "name": "titles",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "stories/smart-list.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "ISmartListTitles",
-          "defaultValue": "{\n  showing: 'Mostrando',\n  results: 'resultados',\n  page: 'pag',\n  of: 'de',\n}"
         }
       ],
       "stories/action-menu.stories.ts": [
@@ -3548,6 +3851,48 @@
           "defaultValue": "{\n  title: 'Evolution Components/Sidebar',\n  component: SidebarComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync(), provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n  argTypes: {\n    twClass: {\n      control: {\n        type: 'text',\n      },\n    },\n    commonProps: {\n      description:\n        'Common properties shared between the header and the sidebar, including icons, titles, and user data.',\n      control: {\n        type: 'object',\n      },\n    },\n    options: {\n      description:\n        'Sidebar navigation or action options with icons and titles.',\n      control: {\n        type: 'object',\n      },\n    },\n    additionalOptions: {\n      description:\n        'Additional options that will be displayed in the sidebar (only on mobile version).',\n      control: {\n        type: 'object',\n      },\n    },\n    footerOptions: {\n      description:\n        'Options specifically for the footer section of the sidebar.',\n      control: {\n        type: 'object',\n      },\n    },\n  },\n  args: {\n    commonProps: {\n      icons: {\n        appMenuIcons: {\n          buttonIcon: {\n            icon: 'app-menu.svg',\n            type: 'svg',\n          },\n        },\n        authorizationMenuIcons: {\n          buttonIcon: {\n            icon: 'fact_check',\n            type: 'class',\n          },\n        },\n        notificationMenuIcons: {\n          buttonIcon: {\n            icon: 'bell.svg',\n            type: 'svg',\n          },\n        },\n        settingMenuIcons: {\n          buttonIcon: {\n            icon: 'settings.svg',\n            type: 'svg',\n          },\n        },\n      } as IHeaderIcons,\n      titles: {\n        appTitle: 'Tus aplicaciones',\n        authorizationTitle: 'Autorizaciones',\n        notificationTitle: 'Notificaciones',\n        settingTitle: 'Ajustes',\n      } as IHeaderTitles,\n      items: {\n        appItems: [\n          {\n            label: 'Evo Wave',\n            icon: {\n              icon: 'company-logo.svg',\n              type: 'svg',\n            },\n            url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoWave',\n          },\n          {\n            label: 'Evo Chart',\n            icon: {\n              icon: 'company-logo.svg',\n              type: 'svg',\n            },\n            url: 'https://servidorinvestigacion.eastus.cloudapp.azure.com/EvoChart',\n          },\n        ],\n        authorizationItems: [\n          {\n            label:\n              'Carlos Sanchez requiere autorización de acceso al Programa Recursos Humanos',\n            avatarName: 'Carlos Sanchez',\n            avatarImgUrl:\n              'https://material.angular.io/assets/img/examples/shiba1.jpg',\n            onClick: {\n              action: (name = 'Carlos Sanchez') => {\n                alert('Se autorizó a ' + name);\n              },\n            },\n          },\n          {\n            label:\n              'Samuel Lopez requiere autorización de acceso al Programa Desarrollo',\n            avatarName: 'Samuel Lopez',\n            avatarImgUrl:\n              'https://material.angular.io/assets/img/examples/shiba1.jpg',\n            onClick: {\n              action: () => {\n                alert('Se autorizó a Samuel Lopez');\n              },\n            },\n          },\n        ],\n        notificationItems: [\n          {\n            label: 'Carlos Sanchez finalizó Programa Recursos Humanos',\n            avatarName: 'Carlos Sanchez',\n            avatarImgUrl:\n              'https://material.angular.io/assets/img/examples/shiba1.jpg',\n            onClick: {\n              action: (name = 'Carlos Sanchez') => {\n                alert('Notificación de: ' + name);\n              },\n            },\n          },\n        ],\n        seeAllButton: {\n          seeAllAuthorizations: {\n            label: 'Ver todas',\n            onClick: {\n              action: (path = '/autorizaciones') => {\n                alert('Redirige a pantalla: ' + path);\n              },\n            },\n          },\n          seeAllNotifications: {\n            label: 'Ver todas',\n            onClick: {\n              action: (path = '/notificaciones') => {\n                alert('Redirige a pantalla: ' + path);\n              },\n            },\n          },\n        },\n        settingMenu: {\n          options: [\n            {\n              name: 'Apellido primero',\n            },\n            {\n              name: 'Autorizaciones',\n            },\n          ],\n        },\n        userDataItems: [\n          {\n            label: 'Administrar Cuenta',\n            icon: {\n              icon: 'manage_accounts',\n              type: 'class',\n            },\n            url: 'https://localhost:7002/identity/account/manage',\n          },\n          {\n            label: 'Cerrar Sesión',\n            onClick: {\n              action: () => {\n                alert('Se ejecuta Logout');\n              },\n            },\n          },\n        ],\n      } as IHeaderItems,\n      companyData: {\n        companyImage: 'company-logo.svg',\n        companyName: 'ASEINFO',\n      } as IHeaderCompanyData,\n      userData: {\n        fullName: 'Stela Lopez',\n        email: 'slopez@empresa.com',\n        jobPositions: [\n          {\n            Puesto: {\n              Nombre: 'Gerente Desarrollo',\n            },\n            Unidad: {\n              Descripcion: 'Unidad',\n            },\n            Compania: {\n              Descripcion: 'Compania',\n            },\n            CentroTrabajo: {\n              Descripcion: 'Centro de Trabajo',\n            },\n            onClick: {\n              action: (position = 'Gerente Desarrollo') => {\n                alert('Puesto elegido: ' + position);\n              },\n            },\n          },\n        ],\n      },\n      moreOptions: {\n        label: 'Ver más',\n        insideLabel: 'Más opciones',\n        icon: {\n          icon: 'dashboard.svg',\n          type: 'svg',\n        },\n        options: [\n          {\n            label: 'Opción 1',\n            icon: {\n              icon: 'dashboard.svg',\n              type: 'svg',\n            },\n            route: '/opcion1',\n            action: () => alert('Opción 1 seleccionada'),\n          },\n          {\n            label: 'Opción 2',\n            icon: {\n              icon: 'settings.svg',\n              type: 'svg',\n            },\n            route: '/opcion2',\n            action: () => alert('Opción 2 seleccionada'),\n          },\n          {\n            label: 'Opción 3',\n            icon: {\n              icon: 'files.svg',\n              type: 'svg',\n            },\n            route: '/opcion3',\n            action: () => alert('Opción 3 seleccionada'),\n          },\n          {\n            label: 'Opción 1',\n            icon: {\n              icon: 'dashboard.svg',\n              type: 'svg',\n            },\n            route: '/opcion1',\n            action: () => alert('Opción 1 seleccionada'),\n          },\n          {\n            label: 'Opción 2',\n            icon: {\n              icon: 'settings.svg',\n              type: 'svg',\n            },\n            route: '/opcion2',\n            action: () => alert('Opción 2 seleccionada'),\n          },\n          {\n            label: 'Opción 3',\n            icon: {\n              icon: 'files.svg',\n              type: 'svg',\n            },\n            route: '/opcion3',\n            action: () => alert('Opción 3 seleccionada'),\n          },\n          {\n            label: 'Opción 1',\n            icon: {\n              icon: 'dashboard.svg',\n              type: 'svg',\n            },\n            route: '/opcion1',\n            action: () => alert('Opción 1 seleccionada'),\n          },\n          {\n            label: 'Opción 2',\n            icon: {\n              icon: 'settings.svg',\n              type: 'svg',\n            },\n            route: '/opcion2',\n            action: () => alert('Opción 2 seleccionada'),\n          },\n          {\n            label: 'Opción 3',\n            icon: {\n              icon: 'files.svg',\n              type: 'svg',\n            },\n            route: '/opcion3',\n            action: () => alert('Opción 3 seleccionada'),\n          },\n          {\n            label: 'Opción 3',\n            icon: {\n              icon: 'files.svg',\n              type: 'svg',\n            },\n            route: '/opcion3',\n            action: () => alert('Opción 3 seleccionada'),\n          },\n        ],\n      },\n    } as IHeader,\n    options: [\n      {\n        icon: { icon: 'dashboard.svg', type: 'svg' },\n        action: () => alert('Dashboard'),\n        route: '/dashboard',\n        title: 'Dashboard',\n      },\n      {\n        icon: { icon: 'files.svg', type: 'svg' },\n        action: () => alert('Files'),\n        route: '/files',\n        title: 'Files',\n      },\n    ] as ISidebarOption[],\n    additionalOptions: [\n      {\n        icon: { icon: 'company-logo.svg', type: 'svg' },\n        action: () => alert('Dashboard'),\n        route: '/dashboard',\n        title: 'Dashboard',\n      },\n    ] as ISidebarOption[],\n    footerOptions: [\n      {\n        icon: { icon: 'settings.svg', type: 'svg' },\n        action: () => alert('settings'),\n        route: '/settings',\n        title: 'Settings',\n      },\n      {\n        icon: { icon: 'dashboard.svg', type: 'svg' },\n        action: () => alert('dashboard'),\n        route: '/dashboard',\n        title: 'Dashboard',\n      },\n    ] as ISidebarOption[],\n    twClass: '',\n  },\n}"
         }
       ],
+      "stories/stepper.stories.ts": [
+        {
+          "name": "Default",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/stepper.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    stepperConfig: { ...defaultConfig },\n  },\n}"
+        },
+        {
+          "name": "defaultConfig",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/stepper.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "object",
+          "defaultValue": "{\n  steps: [\n    { title: 'Paso 1', text: 'Este es el paso 1' },\n    { title: 'Paso 2', text: 'Este es el paso 2' },\n    { title: 'Paso 3', text: 'Este es el paso 3' },\n  ],\n  selectedStepIndex: 0,\n  canContinue: true,\n  continueButtonText: 'Siguiente',\n  backButtonText: 'Atrás',\n  twClass: '',\n  highestCompletedIndex: 0,\n  orientation: Orientation.Vertical,\n}"
+        },
+        {
+          "name": "Horizontal",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/stepper.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    stepperConfig: { ...defaultConfig, orientation: Orientation.Horizontal },\n  },\n}"
+        },
+        {
+          "name": "WithContinueDisabled",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/stepper.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    stepperConfig: { ...defaultConfig, canContinue: false },\n  },\n}"
+        }
+      ],
       "stories/svg.stories.ts": [
         {
           "name": "Default",
@@ -4191,6 +4536,19 @@
           "kind": 183
         }
       ],
+      "stories/stepper.stories.ts": [
+        {
+          "name": "Story",
+          "ctype": "miscellaneous",
+          "subtype": "typealias",
+          "rawtype": "StoryObj<StepperComponent>",
+          "file": "stories/stepper.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "description": "",
+          "kind": 183
+        }
+      ],
       "stories/svg.stories.ts": [
         {
           "name": "Story",
@@ -4260,7 +4618,7 @@
   },
   "routes": [],
   "coverage": {
-    "count": 0,
+    "count": 2,
     "status": "low",
     "files": [
       {
@@ -5728,7 +6086,27 @@
         "type": "variable",
         "linktype": "miscellaneous",
         "linksubtype": "variable",
-        "name": "data",
+        "name": "ConBotonesDeEstado",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/smart-list.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "ConScroll",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/smart-list.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "ConSelector",
         "coveragePercent": 0,
         "coverageCount": "0/1",
         "status": "low"
@@ -5758,7 +6136,37 @@
         "type": "variable",
         "linktype": "miscellaneous",
         "linksubtype": "variable",
-        "name": "smartlistConfig",
+        "name": "metaDataDefault",
+        "coveragePercent": 100,
+        "coverageCount": "1/1",
+        "status": "very-good"
+      },
+      {
+        "filePath": "stories/smart-list.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "metaDataEncargadoSinEstado",
+        "coveragePercent": 100,
+        "coverageCount": "1/1",
+        "status": "very-good"
+      },
+      {
+        "filePath": "stories/smart-list.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "metaDataEstadoSinEncargado",
+        "coveragePercent": 100,
+        "coverageCount": "1/1",
+        "status": "very-good"
+      },
+      {
+        "filePath": "stories/smart-list.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "paginationConfig",
         "coveragePercent": 0,
         "coverageCount": "0/1",
         "status": "low"
@@ -5768,7 +6176,117 @@
         "type": "variable",
         "linktype": "miscellaneous",
         "linksubtype": "variable",
-        "name": "titles",
+        "name": "smartlistConfigDefault",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/smart-list.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "smartlistConfigEncargadoSinEstado",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/smart-list.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "smartlistConfigEstadoSinEncargado",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/smart-list.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "tableConfig",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/smart-list.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "tableConfigConScroll",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/smart-list.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "tableConfigEncargadoSinEstado",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/smart-list.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "tableConfigEstadoSinEncargado",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/smart-list.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "titlesConfig",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/stepper.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Default",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/stepper.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "defaultConfig",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/stepper.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Horizontal",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/stepper.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "WithContinueDisabled",
         "coveragePercent": 0,
         "coverageCount": "0/1",
         "status": "low"

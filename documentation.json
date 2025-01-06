@@ -88,7 +88,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    smartlistConfig: smartlistConfigEstadoSinEncargado,\n    paginationConfig: { ...paginationConfig, titles: titlesConfig },\n    tableConfig: tableConfigEstadoSinEncargado,\n    data,\n  },\n}"
+        "defaultValue": "{\n  args: {\n    smartlistConfig: smartlistConfigEstadoSinEncargado,\n    paginationConfig: { ...paginationConfig, titles: titlesConfig },\n    tableConfig: {\n      ...tableConfigEstadoSinEncargado,\n      showActions: false,\n      showSelect: false,\n    },\n    data,\n  },\n}"
       },
       {
         "name": "conClasePersonalizada",
@@ -118,7 +118,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    smartlistConfig: smartlistConfigEncargadoSinEstado,\n    paginationConfig: { ...paginationConfig, titles: titlesConfig },\n    tableConfig: tableConfigEncargadoSinEstado,\n    data,\n  },\n}"
+        "defaultValue": "{\n  args: {\n    smartlistConfig: { ...smartlistConfigEncargadoSinEstado },\n    paginationConfig: { ...paginationConfig, titles: titlesConfig },\n    tableConfig: {\n      ...tableConfigEncargadoSinEstado,\n      showSelect: true,\n      showActions: false,\n      selectorOptions: [\n        { Id: 'z', Description: 'aaa z', Bag: {} },\n        { Id: 'a', Description: 'aaa a', Bag: {} },\n        { Id: 'b', Description: 'aaa b', Bag: {} },\n      ],\n    },\n    data,\n  },\n}"
       },
       {
         "name": "ControlledError",
@@ -978,9 +978,9 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "ISmartlistMetadata",
-        "defaultValue": "{\n  ...baseMetaData,\n  Columns: [...baseMetaData.Columns],\n}",
-        "rawdescription": "Historia Default: Con \"encargado\" y \"estado\"",
-        "description": "<p>Historia Default: Con &quot;encargado&quot; y &quot;estado&quot;</p>\n"
+        "defaultValue": "{\n  ...baseMetaData,\n  MultiSelect: false,\n}",
+        "rawdescription": "Historia Default",
+        "description": "<p>Historia Default</p>\n"
       },
       {
         "name": "metaDataEncargadoSinEstado",
@@ -990,7 +990,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "ISmartlistMetadata",
-        "defaultValue": "{\n  ...baseMetaData,\n  Columns: [...baseMetaData.Columns, columnEncargado],\n}",
+        "defaultValue": "{\n  ...baseMetaData,\n}",
         "rawdescription": "Historia EncargadoSinEstado: Con \"encargado\" pero sin \"estado\"\ny noPagination = true",
         "description": "<p>Historia EncargadoSinEstado: Con &quot;encargado&quot; pero sin &quot;estado&quot;\ny noPagination = true</p>\n"
       },
@@ -1002,7 +1002,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "ISmartlistMetadata",
-        "defaultValue": "{\n  ...baseMetaData,\n  Columns: [...baseMetaData.Columns, columnEstado],\n}",
+        "defaultValue": "{\n  ...baseMetaData,\n  MultiSelect: false,\n}",
         "rawdescription": "Historia EstadoSinEncargado: Con \"estado\" pero sin \"encargado\"\nnoPagination = false (por defecto)",
         "description": "<p>Historia EstadoSinEncargado: Con &quot;estado&quot; pero sin &quot;encargado&quot;\nnoPagination = false (por defecto)</p>\n"
       },
@@ -1394,7 +1394,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "ITableConfig",
-        "defaultValue": "{\n  hiddenColumns: [],\n  sortableColumns: [1],\n  actionIcons: [\n    { type: 'class', icon: 'add' },\n    { type: 'class', icon: 'edit' },\n    { type: 'class', icon: 'delete' },\n    { type: 'class', icon: 'verified_user' },\n  ],\n  showActions: false,\n  noPagination: false,\n  maxHeight: '120px',\n  emptyStateText: 'No hay datos para mostrar',\n  twClass: '',\n}"
+        "defaultValue": "{\n  hiddenColumns: [],\n  sortableColumns: [1],\n  actionIcons: [\n    { type: 'class', icon: 'add' },\n    { type: 'class', icon: 'edit' },\n    { type: 'class', icon: 'delete' },\n    { type: 'class', icon: 'verified_user' },\n  ],\n  showActions: true,\n  showSelect: false,\n  showStateButtons: false,\n  noPagination: false,\n  maxHeight: '120px',\n  emptyStateText: 'No hay datos para mostrar',\n  twClass: '',\n}"
       },
       {
         "name": "tableConfigConScroll",
@@ -1404,7 +1404,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "ITableConfig",
-        "defaultValue": "{\n  ...tableConfig,\n  noPagination: true,\n}"
+        "defaultValue": "{\n  ...tableConfig,\n  noPagination: true,\n  showActions: false,\n}"
       },
       {
         "name": "tableConfigEncargadoSinEstado",
@@ -1424,7 +1424,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "ITableConfig",
-        "defaultValue": "{\n  ...tableConfig,\n  noPagination: false,\n}"
+        "defaultValue": "{\n  ...tableConfig,\n  noPagination: false,\n  showStateButtons: true,\n  showActions: false,\n}"
       },
       {
         "name": "Testing1",
@@ -2417,7 +2417,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    smartlistConfig: smartlistConfigEstadoSinEncargado,\n    paginationConfig: { ...paginationConfig, titles: titlesConfig },\n    tableConfig: tableConfigEstadoSinEncargado,\n    data,\n  },\n}"
+          "defaultValue": "{\n  args: {\n    smartlistConfig: smartlistConfigEstadoSinEncargado,\n    paginationConfig: { ...paginationConfig, titles: titlesConfig },\n    tableConfig: {\n      ...tableConfigEstadoSinEncargado,\n      showActions: false,\n      showSelect: false,\n    },\n    data,\n  },\n}"
         },
         {
           "name": "ConScroll",
@@ -2437,7 +2437,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    smartlistConfig: smartlistConfigEncargadoSinEstado,\n    paginationConfig: { ...paginationConfig, titles: titlesConfig },\n    tableConfig: tableConfigEncargadoSinEstado,\n    data,\n  },\n}"
+          "defaultValue": "{\n  args: {\n    smartlistConfig: { ...smartlistConfigEncargadoSinEstado },\n    paginationConfig: { ...paginationConfig, titles: titlesConfig },\n    tableConfig: {\n      ...tableConfigEncargadoSinEstado,\n      showSelect: true,\n      showActions: false,\n      selectorOptions: [\n        { Id: 'z', Description: 'aaa z', Bag: {} },\n        { Id: 'a', Description: 'aaa a', Bag: {} },\n        { Id: 'b', Description: 'aaa b', Bag: {} },\n      ],\n    },\n    data,\n  },\n}"
         },
         {
           "name": "Default",
@@ -2467,9 +2467,9 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "ISmartlistMetadata",
-          "defaultValue": "{\n  ...baseMetaData,\n  Columns: [...baseMetaData.Columns],\n}",
-          "rawdescription": "Historia Default: Con \"encargado\" y \"estado\"",
-          "description": "<p>Historia Default: Con &quot;encargado&quot; y &quot;estado&quot;</p>\n"
+          "defaultValue": "{\n  ...baseMetaData,\n  MultiSelect: false,\n}",
+          "rawdescription": "Historia Default",
+          "description": "<p>Historia Default</p>\n"
         },
         {
           "name": "metaDataEncargadoSinEstado",
@@ -2479,7 +2479,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "ISmartlistMetadata",
-          "defaultValue": "{\n  ...baseMetaData,\n  Columns: [...baseMetaData.Columns, columnEncargado],\n}",
+          "defaultValue": "{\n  ...baseMetaData,\n}",
           "rawdescription": "Historia EncargadoSinEstado: Con \"encargado\" pero sin \"estado\"\ny noPagination = true",
           "description": "<p>Historia EncargadoSinEstado: Con &quot;encargado&quot; pero sin &quot;estado&quot;\ny noPagination = true</p>\n"
         },
@@ -2491,7 +2491,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "ISmartlistMetadata",
-          "defaultValue": "{\n  ...baseMetaData,\n  Columns: [...baseMetaData.Columns, columnEstado],\n}",
+          "defaultValue": "{\n  ...baseMetaData,\n  MultiSelect: false,\n}",
           "rawdescription": "Historia EstadoSinEncargado: Con \"estado\" pero sin \"encargado\"\nnoPagination = false (por defecto)",
           "description": "<p>Historia EstadoSinEncargado: Con &quot;estado&quot; pero sin &quot;encargado&quot;\nnoPagination = false (por defecto)</p>\n"
         },
@@ -2543,7 +2543,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "ITableConfig",
-          "defaultValue": "{\n  hiddenColumns: [],\n  sortableColumns: [1],\n  actionIcons: [\n    { type: 'class', icon: 'add' },\n    { type: 'class', icon: 'edit' },\n    { type: 'class', icon: 'delete' },\n    { type: 'class', icon: 'verified_user' },\n  ],\n  showActions: false,\n  noPagination: false,\n  maxHeight: '120px',\n  emptyStateText: 'No hay datos para mostrar',\n  twClass: '',\n}"
+          "defaultValue": "{\n  hiddenColumns: [],\n  sortableColumns: [1],\n  actionIcons: [\n    { type: 'class', icon: 'add' },\n    { type: 'class', icon: 'edit' },\n    { type: 'class', icon: 'delete' },\n    { type: 'class', icon: 'verified_user' },\n  ],\n  showActions: true,\n  showSelect: false,\n  showStateButtons: false,\n  noPagination: false,\n  maxHeight: '120px',\n  emptyStateText: 'No hay datos para mostrar',\n  twClass: '',\n}"
         },
         {
           "name": "tableConfigConScroll",
@@ -2553,7 +2553,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "ITableConfig",
-          "defaultValue": "{\n  ...tableConfig,\n  noPagination: true,\n}"
+          "defaultValue": "{\n  ...tableConfig,\n  noPagination: true,\n  showActions: false,\n}"
         },
         {
           "name": "tableConfigEncargadoSinEstado",
@@ -2573,7 +2573,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "ITableConfig",
-          "defaultValue": "{\n  ...tableConfig,\n  noPagination: false,\n}"
+          "defaultValue": "{\n  ...tableConfig,\n  noPagination: false,\n  showStateButtons: true,\n  showActions: false,\n}"
         },
         {
           "name": "titlesConfig",

@@ -5,6 +5,7 @@
 // Services
 export * from './shared/services/viewport.service';
 export * from './shared/services/class-utility.service';
+export * from './banner/banner.service';
 
 // Components
 export * from './svg/svg.component';
@@ -69,6 +70,7 @@ export * from './shared/interfaces/iempleado-responsable.interface';
 export * from './shared/interfaces/itipo-actividad.interface';
 export * from './shared/interfaces/itime-segmented-list.interface';
 export * from './shared/interfaces/istepper.interface';
+export * from './shared/interfaces/ibanner.interface';
 
 // Data
 export * from './shared/data/smartlist/columns.data';

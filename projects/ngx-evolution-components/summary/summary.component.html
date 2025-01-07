@@ -7,8 +7,12 @@
   <div class="flex flex-wrap gap-6">
     @for (element of elements; track $index) {
       <div class="text-sm w-52">
-        <div class="text-medium-gray">{{ element.title }}</div>
-        <div class="font-bold">{{ element.description }}</div>
+        <div class="test-element-title text-medium-gray">
+          {{ element.title }}
+        </div>
+        <div class="test-element-description font-bold">
+          {{ element.description }}
+        </div>
       </div>
     }
   </div>

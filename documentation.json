@@ -344,6 +344,16 @@
         "name": "Default",
         "ctype": "miscellaneous",
         "subtype": "variable",
+        "file": "stories/summary.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\r\n  args: {\r\n    title: 'Resumen',\r\n    elements: [\r\n      {\r\n        title: 'Empleados Asignados',\r\n        description: '20',\r\n      },\r\n      {\r\n        title: 'Programa',\r\n        description: 'Programa Desarrolladores',\r\n      },\r\n      {\r\n        title: 'Fecha de Asignación',\r\n        description: '18 Noviembre 2024',\r\n      },\r\n      {\r\n        title: 'Empleados Asignados',\r\n        description: '20',\r\n      },\r\n      {\r\n        title: 'Programa',\r\n        description: 'Programa Desarrolladores',\r\n      },\r\n      {\r\n        title: 'Fecha de Asignación',\r\n        description: '18 Noviembre 2024',\r\n      },\r\n    ],\r\n    twClass: '',\r\n  },\r\n}"
+      },
+      {
+        "name": "Default",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
         "file": "stories/svg.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
@@ -949,6 +959,16 @@
         "deprecationMessage": "",
         "type": "Meta<SmartListComponent>",
         "defaultValue": "{\n  title: 'Evolution Components/Smart List',\n  component: SmartListComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient(), provideAnimationsAsync()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+      },
+      {
+        "name": "meta",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/summary.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Meta<SummaryComponent>",
+        "defaultValue": "{\r\n  title: 'Evolution Components/Summary',\r\n  component: SummaryComponent,\r\n  tags: ['autodocs'],\r\n}"
       },
       {
         "name": "meta",
@@ -2045,6 +2065,17 @@
         "subtype": "typealias",
         "rawtype": "StoryObj<StepperComponent>",
         "file": "stories/stepper.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "description": "",
+        "kind": 183
+      },
+      {
+        "name": "Story",
+        "ctype": "miscellaneous",
+        "subtype": "typealias",
+        "rawtype": "StoryObj<SummaryComponent>",
+        "file": "stories/summary.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "description": "",
@@ -3652,6 +3683,28 @@
           "defaultValue": "{\n  args: {\n    stepperConfig: { ...defaultConfig, canContinue: false },\n  },\n}"
         }
       ],
+      "stories/summary.stories.ts": [
+        {
+          "name": "Default",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/summary.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\r\n  args: {\r\n    title: 'Resumen',\r\n    elements: [\r\n      {\r\n        title: 'Empleados Asignados',\r\n        description: '20',\r\n      },\r\n      {\r\n        title: 'Programa',\r\n        description: 'Programa Desarrolladores',\r\n      },\r\n      {\r\n        title: 'Fecha de Asignación',\r\n        description: '18 Noviembre 2024',\r\n      },\r\n      {\r\n        title: 'Empleados Asignados',\r\n        description: '20',\r\n      },\r\n      {\r\n        title: 'Programa',\r\n        description: 'Programa Desarrolladores',\r\n      },\r\n      {\r\n        title: 'Fecha de Asignación',\r\n        description: '18 Noviembre 2024',\r\n      },\r\n    ],\r\n    twClass: '',\r\n  },\r\n}"
+        },
+        {
+          "name": "meta",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/summary.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Meta<SummaryComponent>",
+          "defaultValue": "{\r\n  title: 'Evolution Components/Summary',\r\n  component: SummaryComponent,\r\n  tags: ['autodocs'],\r\n}"
+        }
+      ],
       "stories/svg.stories.ts": [
         {
           "name": "Default",
@@ -4259,6 +4312,19 @@
           "subtype": "typealias",
           "rawtype": "StoryObj<StepperComponent>",
           "file": "stories/stepper.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "description": "",
+          "kind": 183
+        }
+      ],
+      "stories/summary.stories.ts": [
+        {
+          "name": "Story",
+          "ctype": "miscellaneous",
+          "subtype": "typealias",
+          "rawtype": "StoryObj<SummaryComponent>",
+          "file": "stories/summary.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "description": "",
@@ -5893,6 +5959,26 @@
         "linktype": "miscellaneous",
         "linksubtype": "variable",
         "name": "WithContinueDisabled",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/summary.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Default",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/summary.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "meta",
         "coveragePercent": 0,
         "coverageCount": "0/1",
         "status": "low"

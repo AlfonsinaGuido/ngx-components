@@ -348,7 +348,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    title: 'Resumen',\r\n    elements: [\r\n      {\r\n        title: 'Empleados Asignados',\r\n        description: '20',\r\n      },\r\n      {\r\n        title: 'Programa',\r\n        description: 'Programa Desarrolladores',\r\n      },\r\n      {\r\n        title: 'Fecha de Asignación',\r\n        description: '18 Noviembre 2024',\r\n      },\r\n      {\r\n        title: 'Empleados Asignados',\r\n        description: '20',\r\n      },\r\n      {\r\n        title: 'Programa',\r\n        description: 'Programa Desarrolladores',\r\n      },\r\n      {\r\n        title: 'Fecha de Asignación',\r\n        description: '18 Noviembre 2024',\r\n      },\r\n    ],\r\n    twClass: '',\r\n  },\r\n}"
+        "defaultValue": "{\r\n  args: {\r\n    title: 'Resumen',\r\n    elements: [\r\n      {\r\n        title: 'Empleados Asignados',\r\n        description: '20',\r\n      },\r\n      {\r\n        title: 'Programa',\r\n        description: 'Programa Desarrolladores',\r\n      },\r\n      {\r\n        title: 'Fecha de Asignación',\r\n        description: '18 Noviembre 2024',\r\n      },\r\n      {\r\n        title: 'Programa',\r\n        description: 'Programa Desarrolladores',\r\n      },\r\n      {\r\n        title: 'Fecha de Asignación',\r\n        description: '18 Noviembre 2024',\r\n      },\r\n      {\r\n        title: 'Empleados Asignados',\r\n        description: '20',\r\n      },\r\n    ],\r\n    twClass: '',\r\n  },\r\n}"
       },
       {
         "name": "Default",
@@ -3692,7 +3692,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    title: 'Resumen',\r\n    elements: [\r\n      {\r\n        title: 'Empleados Asignados',\r\n        description: '20',\r\n      },\r\n      {\r\n        title: 'Programa',\r\n        description: 'Programa Desarrolladores',\r\n      },\r\n      {\r\n        title: 'Fecha de Asignación',\r\n        description: '18 Noviembre 2024',\r\n      },\r\n      {\r\n        title: 'Empleados Asignados',\r\n        description: '20',\r\n      },\r\n      {\r\n        title: 'Programa',\r\n        description: 'Programa Desarrolladores',\r\n      },\r\n      {\r\n        title: 'Fecha de Asignación',\r\n        description: '18 Noviembre 2024',\r\n      },\r\n    ],\r\n    twClass: '',\r\n  },\r\n}"
+          "defaultValue": "{\r\n  args: {\r\n    title: 'Resumen',\r\n    elements: [\r\n      {\r\n        title: 'Empleados Asignados',\r\n        description: '20',\r\n      },\r\n      {\r\n        title: 'Programa',\r\n        description: 'Programa Desarrolladores',\r\n      },\r\n      {\r\n        title: 'Fecha de Asignación',\r\n        description: '18 Noviembre 2024',\r\n      },\r\n      {\r\n        title: 'Programa',\r\n        description: 'Programa Desarrolladores',\r\n      },\r\n      {\r\n        title: 'Fecha de Asignación',\r\n        description: '18 Noviembre 2024',\r\n      },\r\n      {\r\n        title: 'Empleados Asignados',\r\n        description: '20',\r\n      },\r\n    ],\r\n    twClass: '',\r\n  },\r\n}"
         },
         {
           "name": "meta",

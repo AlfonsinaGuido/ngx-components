@@ -42,9 +42,7 @@
     }
     @if (label) {
       @if (isMarkdown) {
-        <markdown class="label line-clamp-2">
-          {{ label }}
-        </markdown>
+        <markdown class="label line-clamp-2" [data]="label"></markdown>
       } @else {
         <div class="label line-clamp-2">
           {{ label }}

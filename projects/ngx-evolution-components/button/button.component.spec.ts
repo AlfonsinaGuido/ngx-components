@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ButtonComponent } from './button.component';
 import { MatIconTestingModule } from '@angular/material/icon/testing';
@@ -59,18 +59,20 @@ describe('ButtonComponent', () => {
     expect(component.getClasses).toEqual(expectedClasses);
   });
 
-  it('should show <markdown> if isMarkdown is true', () => {
+  it('should show <markdown> if isMarkdown is true', waitForAsync(() => {
     component.label = 'Texto con **Markdown**';
     component.isMarkdown = true;
     fixture.detectChanges();
 
-    const markdownElement = fixture.nativeElement.querySelector('markdown');
-    const divElement = fixture.nativeElement.querySelector('div.label');
+    fixture.whenStable().then(() => {
+      const markdownElement = fixture.nativeElement.querySelector('markdown');
+      const divElement = fixture.nativeElement.querySelector('div.label');
 
-    expect(markdownElement).toBeTruthy();
-    expect(divElement).toBeFalsy();
-    expect(markdownElement.textContent).toContain('Texto con **Markdown**');
-  });
+      expect(markdownElement).toBeTruthy();
+      expect(divElement).toBeFalsy();
+      expect(markdownElement.textContent).toContain('Texto con Markdown');
+    });
+  }));
 
   it('should show <div> if isMarkdown is false', () => {
     component.label = 'Texto plano';

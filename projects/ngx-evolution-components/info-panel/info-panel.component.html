@@ -1,15 +1,11 @@
 <div class="flex flex-col gap-4" [class]="twClass">
   @if (title) {
-    <markdown class="container-title font-bold">
-      {{ title }}
-    </markdown>
+    <markdown class="container-title font-bold" [data]="title"></markdown>
   }
   @if (subtitle) {
-    <markdown class="container-subtitle">
-      {{ subtitle }}
-    </markdown>
+    <markdown class="container-subtitle" [data]="subtitle"></markdown>
   }
   @if (info) {
-    <markdown class="container-info">{{ info }}</markdown>
+    <markdown class="container-info" [data]="info"></markdown>
   }
 </div>

@@ -39,11 +39,12 @@ describe('InputComponent', () => {
   });
 
   it('should subscribe to valueChanges on init, ngOnInit()', () => {
-    spyOn(component.inputConfiguration.control.valueChanges, 'subscribe');
+    const valueChangesSpy = spyOn(
+      component.inputConfiguration.control.valueChanges,
+      'subscribe',
+    );
     component.ngOnInit();
-    expect(
-      component.inputConfiguration.control.valueChanges.subscribe,
-    ).toHaveBeenCalled();
+    expect(valueChangesSpy).toHaveBeenCalledWith(jasmine.any(Function));
   });
 
   it('should unsubscribe from valueChanges on destroy, ngOnDestroy()', () => {

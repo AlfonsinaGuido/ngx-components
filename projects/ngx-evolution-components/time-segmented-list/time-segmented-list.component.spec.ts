@@ -101,14 +101,14 @@ describe('TimeSegmentedListComponent', () => {
     component.todayItems = [
       {
         label: 'Item 1',
-        onClick: { action: () => {} },
+        onClick: { action: () => console.log('Item 1 clicked') },
         avatarName: 'A',
         avatarImgUrl: 'url1',
         date: '',
       },
       {
         label: 'Item 2',
-        onClick: { action: () => {} },
+        onClick: { action: () => console.log('Item 2 clicked') },
         avatarName: 'B',
         avatarImgUrl: 'url2',
         date: '',

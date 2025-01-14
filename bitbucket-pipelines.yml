@@ -1,11 +1,13 @@
-options:
-  docker: true
-  size: 2x
-
 clone:
   depth: full
 
 definitions:
+  services:
+    docker:
+      memory: 512
+    docker-large-memory:
+      memory: 5120
+      type: docker
   caches:
     sonar: ~/.sonar/cache
   steps:
@@ -47,4 +49,7 @@ pipelines:
   branches:
     development:
       - step: *build-test
+        services: [docker-large-memory]
+        size: 2x
       - step: *publish-verdaccio-patch
+        services: [docker]

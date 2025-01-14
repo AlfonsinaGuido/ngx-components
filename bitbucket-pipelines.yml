@@ -37,6 +37,7 @@ definitions:
         caches:
           - node
         script:
+          - rm -rf node_modules
           - npm install --quiet
           - npm run build
           - cd ./dist/@aseinfo/ngx-evolution-components

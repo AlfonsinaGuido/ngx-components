@@ -1,0 +1,51 @@
+<div
+  [ngClass]="
+    getClasses(
+      'evo-stepper evo-stepper shadow-lg border border-light-gray rounded-lg p-6 bg-white custom-stepper-container'
+    )
+  "
+>
+  <mat-stepper
+    matStepperIcon="edit"
+    [orientation]="stepperConfig.orientation"
+    [selectedIndex]="stepperConfig.selectedStepIndex"
+    [animationDuration]="animationDuration + 'ms'"
+    class="stepper-container custom-mat-stepper"
+    (selectionChange)="onStepSelectionChange($event)"
+  >
+    <ng-template matStepperIcon="edit">
+      <mat-icon fontSet="material-symbols-outlined">check</mat-icon>
+    </ng-template>
+
+    <!-- Pasos -->
+    @for (step of stepperConfig.steps; track $index) {
+      <mat-step>
+        <ng-template matStepLabel>
+          <h3 class="step-title font-bold text-lg">{{ step.title }}</h3>
+          <p class="step-text text-gray-600 mt-1">{{ step.text }}</p>
+        </ng-template>
+      </mat-step>
+    }
+  </mat-stepper>
+
+  <div class="navigation-buttons mt-4 flex flex-col gap-4">
+    <!-- Botón de Continue -->
+    <evo-button
+      [label]="stepperConfig.continueButtonText"
+      [theme]="'primary'"
+      [isFluid]="true"
+      [disabled]="!canContinue()"
+      [twClass]="'rounded-2xl'"
+      (click)="onContinue()"
+    ></evo-button>
+
+    <!-- Botón de Back -->
+    <evo-button
+      [label]="stepperConfig.backButtonText"
+      [isFluid]="true"
+      [disabled]="stepperConfig.selectedStepIndex <= 0"
+      [twClass]="'rounded-2xl bg-gray-300 text-gray-700'"
+      (click)="onBack()"
+    ></evo-button>
+  </div>
+</div>

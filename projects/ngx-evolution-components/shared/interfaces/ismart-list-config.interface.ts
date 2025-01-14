@@ -1,4 +1,4 @@
-import { IIcon } from '../../public-api';
+import { IIcon, IValueList } from '../../public-api';
 
 export interface ISmartlistFullConfig {
   Code: string;
@@ -54,6 +54,7 @@ export interface IColumnConfig {
   Width?: string;
   Wrap?: boolean;
   Format?: string;
+  MultiSelect?: boolean;
 }
 
 export interface ISmartListItem {
@@ -98,6 +99,12 @@ export interface ILocalizedString {
 }
 
 export interface ITableConfig {
+  showActions?: boolean;
+  showStateButtons?: boolean;
+  showSelect?: boolean;
+  selectorOptions?: IValueList[];
+  noPagination?: boolean;
+  maxHeight?: string;
   hiddenColumns: number[];
   sortableColumns: number[];
   actionIcons: IIcon[];

@@ -12,6 +12,8 @@ definitions:
     sonar: ~/.sonar/cache
   steps:
     - step: &build-test
+        services: [docker-large-memory]
+        size: 2x
         image: node:18
         name: Build and test
         caches:
@@ -29,6 +31,7 @@ definitions:
               SONAR_HOST_URL: ${SONAR_HOST_URL}
               SONAR_TOKEN: ${SONAR_TOKEN}
     - step: &publish-verdaccio-patch
+        services: [docker]
         image: node:18
         name: Publish npm patch
         caches:
@@ -49,7 +52,4 @@ pipelines:
   branches:
     development:
       - step: *build-test
-        services: [docker-large-memory]
-        size: 2x
       - step: *publish-verdaccio-patch
-        services: [docker]

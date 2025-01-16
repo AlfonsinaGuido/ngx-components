@@ -4,6 +4,8 @@ import {
   Output,
   EventEmitter,
   ViewEncapsulation,
+  OnChanges,
+  SimpleChanges,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
@@ -18,15 +20,24 @@ import { ClassUtilityService } from '../public-api';
   styleUrls: ['./search-bar.component.scss', '../styles/output.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class SearchBarComponent {
+export class SearchBarComponent implements OnChanges {
   @Input() placeholder: string = 'Buscar...';
   @Input() twClass: string = '';
   @Output() searchQuery = new EventEmitter<string>();
 
-  constructor(private classUtility: ClassUtilityService) {}
-
   inputValue: string = '';
   private typingTimeout: any;
+
+  constructor(private classUtility: ClassUtilityService) {}
+
+  /**
+   * Detecta cambios en las propiedades de entrada y actualiza el campo de búsqueda si es necesario.
+   */
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['placeholder'] && !changes['placeholder'].isFirstChange()) {
+      this.clearInput(); // Limpia el campo cuando cambia el placeholder
+    }
+  }
 
   /**
    * Maneja el evento de entrada en el campo de búsqueda y emite la consulta de búsqueda después de un tiempo de espera.
@@ -53,7 +64,7 @@ export class SearchBarComponent {
    */
   clearInput(): void {
     this.inputValue = '';
-    this.searchQuery.emit(''); // Emitir un valor vacío explícitamente
+    this.emitSearch(); // Emitir un valor vacío explícitamente
   }
 
   /**

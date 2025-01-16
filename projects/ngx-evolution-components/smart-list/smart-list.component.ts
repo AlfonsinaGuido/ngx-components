@@ -93,6 +93,7 @@ export class SmartListComponent implements OnInit, OnChanges {
 
   @Output() pageSelected = new EventEmitter<number>();
   @Output() pageSizeChanged = new EventEmitter<number>();
+  @Output() allEncargadosSelected = new EventEmitter<boolean>();
 
   isMobile: boolean = false;
   isActionsModalOpen: boolean = false;
@@ -213,10 +214,25 @@ export class SmartListComponent implements OnInit, OnChanges {
     item: ISmartListItem,
     column: IColumnConfig,
   ): void {
+    // Actualizamos el FormControl y la fila
     const control = this.getOrCreateSelectControl(item, column);
     control.setValue(value);
     item[column.FieldName] = value;
+
+    // Emitimos un rowAction de tipo 'selector'
     this.rowAction.emit({ actionType: 'selector', action: 'update', item });
+
+    // 1) Tomar todas las columnas que sean Format === 'selector'
+    const selectorColumns =
+      this.metadata?.Columns.filter((c) => c.Format === 'selector') || [];
+
+    // 2) Verificar si, para cada fila, TODAS esas columnas tienen valor
+    const allAssignedForSelectors = this.data.every((row) => {
+      return selectorColumns.every((col) => !!row[col.FieldName]);
+    });
+
+    // 3) Emitir el resultado
+    this.allEncargadosSelected.emit(allAssignedForSelectors);
   }
 
   /**
@@ -317,34 +333,6 @@ export class SmartListComponent implements OnInit, OnChanges {
 
   initializeTable(): void {
     this.metadata = this.smartlistConfig?.Metadata || null;
-
-    // Si showStateButtons es true, agregamos la columna estado
-    if (this.metadata && this.tableConfig.showStateButtons) {
-      // Verificamos que no exista ya la columna 'estado' para no duplicarla
-      const hasEstado = this.metadata.Columns.some(
-        (col) => col.FieldName === 'estado',
-      );
-      if (!hasEstado) {
-        this.metadata.Columns.push(columnEstado);
-      }
-    }
-
-    // Si MultiSelect es true y columnEncargado tiene SelectorOptions, agregamos la columna encargado
-    if (
-      this.metadata &&
-      this.tableConfig &&
-      this.tableConfig.showSelect &&
-      this.tableConfig.selectorOptions &&
-      this.tableConfig.selectorOptions.length > 0
-    ) {
-      const hasEncargado = this.metadata.Columns.some(
-        (col) => col.FieldName === 'encargado',
-      );
-      if (!hasEncargado) {
-        this.metadata.Columns.push(columnEncargado);
-      }
-    }
-
     this.paginate();
     this.cdr.markForCheck();
   }
@@ -440,7 +428,10 @@ export class SmartListComponent implements OnInit, OnChanges {
    * @returns `true` si todos están seleccionados, `false` de lo contrario.
    */
   areAllSelected(): boolean {
-    return this.paginatedItems.every((item) => item.selected);
+    const targetItems = this.tableConfig.noPagination
+      ? this.data
+      : this.paginatedItems;
+    return targetItems.every((item) => item.selected);
   }
 
   /**
@@ -460,11 +451,18 @@ export class SmartListComponent implements OnInit, OnChanges {
    * Emite los elementos seleccionados mediante el evento `selectedUsers`.
    */
   selectAll(): void {
-    const allSelected = this.areAllSelected();
-    this.paginatedItems.forEach((item) => (item.selected = !allSelected));
-    this.selectedUsers.emit(
-      this.paginatedItems.filter((item) => item.selected),
-    );
+    const targetItems = this.tableConfig.noPagination
+      ? this.data
+      : this.paginatedItems;
+    const allSelected = targetItems.every((item) => item.selected);
+
+    targetItems.forEach((item) => (item.selected = !allSelected));
+
+    // Emitir todos los elementos seleccionados (no solo los paginados)
+    this.selectedItems = this.data.filter((item) => item.selected);
+    this.selectedUsers.emit(this.selectedItems);
+
+    // Actualizar la vista de la tabla
     this.cdr.markForCheck();
   }
 

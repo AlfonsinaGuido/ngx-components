@@ -33,7 +33,13 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "tsConfig": "projects/ngx-evolution-components/tsconfig.spec.json",
-            "polyfills": ["zone.js", "zone.js/testing"]
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "inlineStyleLanguage": "scss",
+            "codeCoverage": true,
+            "karmaConfig": "karma.conf.js"
           }
         },
         "storybook": {
@@ -42,7 +48,12 @@
             "configDir": ".storybook",
             "browserTarget": "ngx-evolution-components:build",
             "compodoc": true,
-            "compodocArgs": ["-e", "json", "-d", "."],
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "."
+            ],
             "port": 6006,
             "styles": [
               "projects/ngx-evolution-components/styles/storybook.scss"
@@ -55,7 +66,12 @@
             "configDir": ".storybook",
             "browserTarget": "ngx-evolution-components:build",
             "compodoc": true,
-            "compodocArgs": ["-e", "json", "-d", "."],
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "."
+            ],
             "outputDir": "storybook-static"
           }
         }

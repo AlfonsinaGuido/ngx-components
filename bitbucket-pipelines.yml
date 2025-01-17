@@ -39,12 +39,14 @@ definitions:
         script:
           - rm -rf node_modules
           - npm install --quiet
+          - cd ./projects/ngx-evolution-components
           - npm version patch -m "Bump version to %s [skip ci]"
           - npm config set @aseinfo:registry https://npm.aseinfo.net
           - npm config get @aseinfo:registry
+          - git push && git push --tags
+          - cd ../../
           - npm run build
           - cd ./dist/@aseinfo/ngx-evolution-components
-          - git push && git push --tags
           - pipe: atlassian/npm-publish:1.0.0
             variables:
               NPM_TOKEN: $NPM_TOKEN

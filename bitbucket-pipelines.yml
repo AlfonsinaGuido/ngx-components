@@ -44,8 +44,9 @@ definitions:
           - cd ./projects/ngx-evolution-components
           - mkdir .git && npm version patch -m "Bump version to %s [skip ci]"
           - git push --no-verify && git push --tags --no-verify && rmdir .git
+          - cd ../../
           - npm run build
-          - cd ../../dist/@aseinfo/ngx-evolution-components
+          - cd ./dist/@aseinfo/ngx-evolution-components
           - pipe: atlassian/npm-publish:1.0.0
             variables:
               NPM_TOKEN: $NPM_TOKEN

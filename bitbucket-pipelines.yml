@@ -51,9 +51,10 @@ definitions:
             variables:
               NPM_TOKEN: $NPM_TOKEN
     - step: &config-git-permissions
+        name: Config git permissions
         script:
           - git config --global user.name "Pipeline Package Publisher"
-          - git config --globar user.email "ci-bot@aseinfo.com.sv"
+          - git config --global user.email "ci-bot@aseinfo.com.sv"
           - git remote set-url origin https://${BITBUCKET_USERNAME}:${BITBUCKET_APP_PASSWORD}@bitbucket.org/aseinfodev/ngxevolutioncomponents.git
 
 pipelines:

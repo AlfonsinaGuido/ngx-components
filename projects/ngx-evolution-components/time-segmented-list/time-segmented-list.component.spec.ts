@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { TimeSegmentedListComponent } from './time-segmented-list.component';
 import { DebugElement, SimpleChanges } from '@angular/core';
 import { ITimeSegmentedList } from '../public-api';
@@ -97,18 +97,18 @@ describe('TimeSegmentedListComponent', () => {
     );
   });
 
-  it('should render todayItems list', () => {
+  it('should render todayItems list', waitForAsync(() => {
     component.todayItems = [
       {
         label: 'Item 1',
-        onClick: { action: () => {} },
+        onClick: { action: () => console.log('Item 1 clicked') },
         avatarName: 'A',
         avatarImgUrl: 'url1',
         date: '',
       },
       {
         label: 'Item 2',
-        onClick: { action: () => {} },
+        onClick: { action: () => console.log('Item 2 clicked') },
         avatarName: 'B',
         avatarImgUrl: 'url2',
         date: '',
@@ -116,17 +116,19 @@ describe('TimeSegmentedListComponent', () => {
     ];
     fixture.detectChanges();
 
-    const todayListItems = debugElement
-      .queryAll(By.css('ul'))[0]
-      .queryAll(By.css('li'));
-    expect(todayListItems.length).toBe(2);
-    expect(todayListItems[0].nativeElement.textContent.trim()).toContain(
-      'Item 1',
-    );
-    expect(todayListItems[1].nativeElement.textContent.trim()).toContain(
-      'Item 2',
-    );
-  });
+    fixture.whenStable().then(() => {
+      const todayListItems = debugElement
+        .queryAll(By.css('ul'))[0]
+        .queryAll(By.css('li'));
+      expect(todayListItems.length).toBe(2);
+      expect(todayListItems[0].nativeElement.textContent.trim()).toContain(
+        'Item 1',
+      );
+      expect(todayListItems[1].nativeElement.textContent.trim()).toContain(
+        'Item 2',
+      );
+    });
+  }));
 
   it('should show empty message for empty todayItems list', () => {
     component.todayItems = [];

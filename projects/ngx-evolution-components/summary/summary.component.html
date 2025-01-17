@@ -1,0 +1,19 @@
+<div
+  class="p-7 rounded-3xl border border-light-gray text-dark-gray {{ twClass }}"
+>
+  <div class="text-xl font-bold mb-3">
+    {{ title }}
+  </div>
+  <div class="flex flex-wrap gap-6">
+    @for (element of elements; track $index) {
+      <div class="text-sm w-52">
+        <div class="test-element-title text-medium-gray">
+          {{ element.title }}
+        </div>
+        <div class="test-element-description font-bold">
+          {{ element.description }}
+        </div>
+      </div>
+    }
+  </div>
+</div>

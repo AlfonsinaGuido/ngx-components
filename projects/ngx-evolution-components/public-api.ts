@@ -5,11 +5,13 @@
 // Services
 export * from './shared/services/viewport.service';
 export * from './shared/services/class-utility.service';
+export * from './banner/banner.service';
 
 // Components
 export * from './svg/svg.component';
 export * from './banner/banner.component';
 export * from './avatar/avatar.component';
+export * from './summary/summary.component';
 export * from './button/button.component';
 export * from './input/input.component';
 export * from './autocomplete/autocomplete.component';
@@ -69,6 +71,8 @@ export * from './shared/interfaces/iempleado-responsable.interface';
 export * from './shared/interfaces/itipo-actividad.interface';
 export * from './shared/interfaces/itime-segmented-list.interface';
 export * from './shared/interfaces/istepper.interface';
+export * from './shared/interfaces/ibanner.interface';
+export * from './shared/interfaces/isummary-element';
 
 // Data
 export * from './shared/data/smartlist/columns.data';

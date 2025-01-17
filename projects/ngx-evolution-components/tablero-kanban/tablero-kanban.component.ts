@@ -1,14 +1,6 @@
-import {
-  AfterViewInit,
-  Component,
-  EventEmitter,
-  Input,
-  OnInit,
-  Output,
-} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import {
   ColumnaTableroComponent,
-  EstadoActividad,
   HeaderColumnaComponent,
   IActividad,
   IColumna,
@@ -41,7 +33,7 @@ interface actividadesData {
   templateUrl: './tablero-kanban.component.html',
   styleUrls: ['./tablero-kanban.component.scss', '../styles/output.scss'],
 })
-export class TableroKanbanComponent implements OnInit {
+export class TableroKanbanComponent {
   @Input() columns!: IColumna[];
   @Input() twClass?: string;
   @Output('activityModified')
@@ -49,8 +41,6 @@ export class TableroKanbanComponent implements OnInit {
   public actividadesMock: IActividad[] = [];
   public actividadesEmpleos: actividadesData[] = [];
   public isSingle: boolean = true;
-
-  ngOnInit(): void {}
 
   changeActivityStatus(event: IActividad): void {
     this.activityModified.emit(event);

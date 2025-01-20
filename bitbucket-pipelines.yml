@@ -1,0 +1,65 @@
+clone:
+  depth: full
+
+definitions:
+  services:
+    docker:
+      memory: 512
+    docker-large-memory:
+      memory: 5120
+      type: docker
+  caches:
+    sonar: ~/.sonar/cache
+  steps:
+    - step: &build-test
+        services: [docker-large-memory]
+        size: 2x
+        image: node:18
+        name: Build and test
+        caches:
+          - node
+          - sonar
+        script:
+          - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+          - echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list
+          - apt-get update
+          - apt-get install -y google-chrome-stable xvfb
+          - npm install --quiet
+          - npm run test -- --code-coverage --no-watch --no-progress --browsers=ChromeHeadlessNoSandbox
+          - pipe: sonarsource/sonarcloud-scan:3.1.0
+            variables:
+              SONAR_HOST_URL: ${SONAR_HOST_URL}
+              SONAR_TOKEN: ${SONAR_TOKEN}
+    - step: &publish-verdaccio-patch
+        services: [docker]
+        image: node:18
+        name: Publish npm patch
+        caches:
+          - node
+        script:
+          - rm -rf node_modules
+          - npm install --quiet
+          - npm config set @aseinfo:registry https://npm.aseinfo.net
+          - npm config get @aseinfo:registry
+          - cd ./projects/ngx-evolution-components
+          - mkdir .git && npm version patch -m "Bump version to %s [skip ci]"
+          - git push origin development --no-verify && git push --tags --no-verify && rmdir .git
+          - cd ../../
+          - npm run build
+          - cd ./dist/@aseinfo/ngx-evolution-components
+          - pipe: atlassian/npm-publish:1.0.0
+            variables:
+              NPM_TOKEN: $NPM_TOKEN
+    - step: &config-git-permissions
+        name: Config git permissions
+        script:
+          - git config --global user.name "Pipeline Package Publisher"
+          - git config --global user.email "ci-bot@aseinfo.com.sv"
+          - git remote set-url origin https://${BITBUCKET_USERNAME}:${BITBUCKET_APP_PASSWORD}@bitbucket.org/aseinfodev/ngxevolutioncomponents.git
+
+pipelines:
+  branches:
+    development:
+      - step: *build-test
+      - step: *config-git-permissions
+      - step: *publish-verdaccio-patch

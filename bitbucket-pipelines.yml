@@ -53,13 +53,14 @@ definitions:
           - npm install --quiet
           - npm config set @aseinfo:registry https://npm.aseinfo.net
           - npm config get @aseinfo:registry
+          - cd ./projects/ngx-evolution-components
           - npm version patch
+          - cd ../../
           - npm run build
           - cd ./dist/@aseinfo/ngx-evolution-components
           - pipe: atlassian/npm-publish:1.0.0
             variables:
               NPM_TOKEN: $NPM_TOKEN
-
 
 pipelines:
   branches:

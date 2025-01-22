@@ -41,10 +41,6 @@ definitions:
           - npm install --quiet
           - npm config set @aseinfo:registry https://npm.aseinfo.net
           - npm config get @aseinfo:registry
-          - cd ./projects/ngx-evolution-components
-          - mkdir .git && npm version patch -m "Bump version to %s [skip ci]"
-          - git push origin development --no-verify && git push --tags --no-verify && rmdir .git
-          - cd ../../
           - npm run build
           - cd ./dist/@aseinfo/ngx-evolution-components
           - pipe: atlassian/npm-publish:1.0.0
@@ -56,10 +52,18 @@ definitions:
           - git config --global user.name "Pipeline Package Publisher"
           - git config --global user.email "ci-bot@aseinfo.com.sv"
           - git remote set-url origin https://${BITBUCKET_USERNAME}:${BITBUCKET_APP_PASSWORD}@bitbucket.org/aseinfodev/ngxevolutioncomponents.git
+    - step: &commit-patch
+        name: Push patch to Bitbucket
+        script:
+          - cd ./projects/ngx-evolution-components
+          - mkdir .git && npm version patch -m "Bump version to %s [skip ci]"
+          - git push origin development --no-verify && git push --tags --no-verify && rmdir .git
+
 
 pipelines:
   branches:
     development:
       - step: *build-test
-      - step: *config-git-permissions
       - step: *publish-verdaccio-patch
+      - step: *config-git-permissions
+      - step: *commit-patch

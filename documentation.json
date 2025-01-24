@@ -818,7 +818,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<BannerComponent>",
-        "defaultValue": "{\n  title: 'Evolution Components/Banner',\n  component: BannerComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync()],\n    }),\n    moduleMetadata({\n      imports: [ButtonComponent],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+        "defaultValue": "{\n  title: 'Evolution Components/Banner',\n  component: BannerComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
       },
       {
         "name": "meta",
@@ -1576,7 +1576,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  render: (args) => ({\n    props: {\n      title: args.title,\n      message: args.message,\n      type: args.type,\n      twClass: args.twClass,\n      redirect: () => {\n        alert('Se redirige a la ruta de Gestionar');\n      },\n    },\n    template: `\n        <evo-banner [title]=\"title\" [message]=\"message\" [type]=\"type\" [twClass]=\"twClass\">\n          <evo-button label=\"Gestionar\" twClass=\"mt-2\" [isFlat]=\"true\" theme=\"secondary\" (click)=\"redirect()\"></evo-button>\n        </evo-banner>\n      `,\n  }),\n  args: {\n    title: 'Asignación de Encargado de Actividad Pendiente',\n    message:\n      'Existen inconsistencias en la asignación del Encargado de Actividad que deben ser resueltas.',\n    type: 'caution',\n    twClass: '',\n  },\n}"
+        "defaultValue": "{\n  render: (args) => ({\n    props: {\n      title: args.title,\n      message: args.message,\n      type: args.type,\n      twClass: args.twClass,\n      onRedirect: () => {\n        alert('Se redirige a la ruta de Gestionar filtrando por actividad.');\n      },\n    },\n    template: `\n        <evo-banner [title]=\"title\" [message]=\"message\" [type]=\"type\" [twClass]=\"twClass\">\n          <a class=\"!text-sm !text-caution !underline hover:!underline font-bold ms-1 cursor-pointer\" (click)=\"onRedirect()\" >Resolver ahora</a>\n        </evo-banner>\n      `,\n  }),\n  args: {\n    title: 'Asignación de Encargado de Actividad Pendiente',\n    message:\n      'Existen inconsistencias en la asignación del Encargado de Actividad que deben ser resueltas.',\n    type: 'caution',\n    twClass: '',\n  },\n}"
       },
       {
         "name": "Warning",
@@ -2698,7 +2698,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<BannerComponent>",
-          "defaultValue": "{\n  title: 'Evolution Components/Banner',\n  component: BannerComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync()],\n    }),\n    moduleMetadata({\n      imports: [ButtonComponent],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+          "defaultValue": "{\n  title: 'Evolution Components/Banner',\n  component: BannerComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
         },
         {
           "name": "Success",
@@ -2728,7 +2728,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  render: (args) => ({\n    props: {\n      title: args.title,\n      message: args.message,\n      type: args.type,\n      twClass: args.twClass,\n      redirect: () => {\n        alert('Se redirige a la ruta de Gestionar');\n      },\n    },\n    template: `\n        <evo-banner [title]=\"title\" [message]=\"message\" [type]=\"type\" [twClass]=\"twClass\">\n          <evo-button label=\"Gestionar\" twClass=\"mt-2\" [isFlat]=\"true\" theme=\"secondary\" (click)=\"redirect()\"></evo-button>\n        </evo-banner>\n      `,\n  }),\n  args: {\n    title: 'Asignación de Encargado de Actividad Pendiente',\n    message:\n      'Existen inconsistencias en la asignación del Encargado de Actividad que deben ser resueltas.',\n    type: 'caution',\n    twClass: '',\n  },\n}"
+          "defaultValue": "{\n  render: (args) => ({\n    props: {\n      title: args.title,\n      message: args.message,\n      type: args.type,\n      twClass: args.twClass,\n      onRedirect: () => {\n        alert('Se redirige a la ruta de Gestionar filtrando por actividad.');\n      },\n    },\n    template: `\n        <evo-banner [title]=\"title\" [message]=\"message\" [type]=\"type\" [twClass]=\"twClass\">\n          <a class=\"!text-sm !text-caution !underline hover:!underline font-bold ms-1 cursor-pointer\" (click)=\"onRedirect()\" >Resolver ahora</a>\n        </evo-banner>\n      `,\n  }),\n  args: {\n    title: 'Asignación de Encargado de Actividad Pendiente',\n    message:\n      'Existen inconsistencias en la asignación del Encargado de Actividad que deben ser resueltas.',\n    type: 'caution',\n    twClass: '',\n  },\n}"
         }
       ],
       "stories/header-columna.stories.ts": [

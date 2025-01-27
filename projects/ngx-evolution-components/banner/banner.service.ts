@@ -10,13 +10,13 @@ import {
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { Subscription } from 'rxjs';
-import { BannerComponent, IBanner } from '../public-api';
+import { BannerComponent, BannerType, IBanner } from '../public-api';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BannerService {
-  private messages: { title: string; message: string; isError?: boolean }[] =
+  private messages: { title: string; message: string; type?: BannerType }[] =
     [];
   private currentBanner: ComponentRef<BannerComponent> | null = null;
   private isBrowser: boolean;
@@ -42,10 +42,10 @@ export class BannerService {
    * Muestra un mensaje en un componente Banner.
    * @param {string} title - El título a mostrar.
    * @param {string} message - El mensaje a mostrar.
-   * @param {boolean} isError - Opcional. Indica si es mensaje de error, sino será de éxito.
+   * @param {boolean} type - Opcional. Indica el tipo de banner 'caution' o 'error', sino será de éxito: 'success'.
    */
-  showMessage(title: string, message: string, isError?: boolean): void {
-    this.messages.push({ title, message, isError });
+  showMessage(title: string, message: string, type?: BannerType): void {
+    this.messages.push({ title, message, type });
     if (!isPlatformBrowser(this.platformId)) return;
     this.displayNextMessage();
   }
@@ -59,7 +59,7 @@ export class BannerService {
 
     const BANNER_DURATION = 10000;
 
-    const { title, message, isError } = this.messages.shift()!;
+    const { title, message, type } = this.messages.shift()!;
 
     this.currentBanner = createComponent(BannerComponent, {
       environmentInjector: this.injector.get(ApplicationRef).injector,
@@ -74,7 +74,7 @@ export class BannerService {
     const bannerData: IBanner = {
       title,
       message,
-      isError,
+      type,
       useAnimation: false,
       twClass:
         'max-sm:w-11/12 w-3/5 !absolute bottom-2 z-50 left-1/2 -translate-x-1/2',

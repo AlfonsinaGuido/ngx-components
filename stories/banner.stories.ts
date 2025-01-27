@@ -32,11 +32,37 @@ export const Success: Story = {
   },
 };
 
+export const Warning: Story = {
+  render: (args) => ({
+    props: {
+      title: args.title,
+      message: args.message,
+      type: args.type,
+      twClass: args.twClass,
+      onRedirect: () => {
+        alert('Se redirige a la ruta de Gestionar filtrando por actividad.');
+      },
+    },
+    template: `
+        <evo-banner [title]="title" [message]="message" [type]="type" [twClass]="twClass">
+          <a class="!text-sm !text-caution !underline hover:!underline font-bold ms-1 cursor-pointer" (click)="onRedirect()" >Resolver ahora</a>
+        </evo-banner>
+      `,
+  }),
+  args: {
+    title: 'Asignación de Encargado de Actividad Pendiente',
+    message:
+      'Existen inconsistencias en la asignación del Encargado de Actividad que deben ser resueltas.',
+    type: 'caution',
+    twClass: '',
+  },
+};
+
 export const ControlledError: Story = {
   args: {
     title: 'Error',
     message: 'No se puede eliminar un programa con personas asignadas.',
-    isError: true,
+    type: 'error',
     duration: 10000,
     twClass: '',
   },
@@ -46,7 +72,7 @@ export const UncontrolledError: Story = {
   args: {
     title: 'Error',
     message: 'No se pudo establecer conexión con el Identity Server.',
-    isError: true,
+    type: 'error',
     useAnimation: false,
     twClass: '',
   },

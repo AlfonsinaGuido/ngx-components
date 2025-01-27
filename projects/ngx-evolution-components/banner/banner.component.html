@@ -1,36 +1,18 @@
 @if (!isHidden && title && message) {
   <div
-    [ngClass]="
-      type === 'success'
-        ? 'bg-light-success'
-        : type === 'caution'
-          ? 'bg-light-caution'
-          : 'bg-light-warn'
+    [class]="
+      (type === 'error' ? 'bg-light-warn' : 'bg-light-' + type) + ' ' + twClass
     "
-    class="flex items-center justify-between p-3 rounded-xl relative {{
-      twClass
-    }}"
+    class="flex items-center justify-between p-3 rounded-xl relative"
     [@slideDown]="useAnimation"
   >
     <div class="flex gap-2">
       <div class="min-w-4">
         <mat-icon
-          [ngClass]="
-            type === 'success'
-              ? 'text-success'
-              : type === 'caution'
-                ? 'text-caution'
-                : 'text-warn'
-          "
+          [class]="type === 'error' ? 'text-warn' : 'text-' + type"
           class="min-w-min absolute top-[12px] left-3 text-xl"
           aria-hidden="false"
-          [attr.aria-label]="
-            (type === 'success'
-              ? 'Success'
-              : type === 'caution'
-                ? 'Caution'
-                : 'Error') + ' icon'
-          "
+          [attr.aria-label]="type + ' icon'"
           fontSet="material-symbols-outlined"
           >{{
             type === "success"

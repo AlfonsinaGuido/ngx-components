@@ -1,4 +1,3 @@
-import { NgClass } from '@angular/common';
 import {
   Component,
   EventEmitter,
@@ -15,7 +14,7 @@ import { BannerType } from '../public-api';
 @Component({
   selector: 'evo-banner',
   standalone: true,
-  imports: [NgClass, MatIconModule],
+  imports: [MatIconModule],
   templateUrl: './banner.component.html',
   styleUrls: ['./banner.component.scss', '../styles/output.scss'],
   animations: [slideDown],

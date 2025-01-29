@@ -74,8 +74,8 @@ describe('BannerComponent', () => {
     expect(bannerElement).toBeFalsy();
   });
 
-  it('should apply error styles if isError is true', () => {
-    component.isError = true;
+  it('should apply error styles if type is error', () => {
+    component.type = 'error';
     component.title = 'Error';
     component.message = 'An error occurred';
     fixture.detectChanges();
@@ -91,8 +91,7 @@ describe('BannerComponent', () => {
     expect(iconElement).toBeTruthy();
   });
 
-  it('should apply success styles if isError is false', () => {
-    component.isError = false;
+  it('should apply success styles if type is success', () => {
     component.title = 'Success';
     component.message = 'Operation completed successfully';
     fixture.detectChanges();
@@ -102,6 +101,23 @@ describe('BannerComponent', () => {
     );
     const iconElement = fixture.debugElement.query(
       By.css('mat-icon.text-success'),
+    );
+
+    expect(bannerElement).toBeTruthy();
+    expect(iconElement).toBeTruthy();
+  });
+
+  it('should apply caution styles if type is caution', () => {
+    component.type = 'caution';
+    component.title = 'Caution';
+    component.message = 'Caution test';
+    fixture.detectChanges();
+
+    const bannerElement = fixture.debugElement.query(
+      By.css('div.bg-light-caution'),
+    );
+    const iconElement = fixture.debugElement.query(
+      By.css('mat-icon.text-caution'),
     );
 
     expect(bannerElement).toBeTruthy();

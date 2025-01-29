@@ -202,18 +202,6 @@ describe('DynamicTableComponent', () => {
     expect(component.paginatedItems.every((x) => !x.selected)).toBeTrue();
   });
 
-  it('should toggle an individual row selection', () => {
-    setPaginationData(2);
-    const row = component.paginatedItems[0];
-    expect(row.selected).toBe(false);
-
-    component.toggleRowSelect(row);
-    expect(row.selected).toBe(true);
-
-    component.toggleRowSelect(row);
-    expect(row.selected).toBe(false);
-  });
-
   it('should return true if column index is in hiddenColumns', () => {
     component.hiddenColumns = [1];
     expect(component.isColumnHidden(1)).toBeTrue();

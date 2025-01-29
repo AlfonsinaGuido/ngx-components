@@ -1,0 +1,174 @@
+<!-- Si no hay datos -->
+@if (data.length === 0) {
+  <div class="text-center py-4">
+    {{ emptyStateText }}
+  </div>
+} @else {
+  <!-- Vista de tabla (no móvil) -->
+  @if (!isMobile) {
+    <div class="dt-table-container" [ngClass]="twClass">
+      <div
+        class="dt-table-scroll custom-scroll"
+        [ngStyle]="{ 'max-height': maxHeight }"
+      >
+        <table class="dt-table">
+          <thead>
+            <tr>
+              <!-- Checkbox general si multiSelect -->
+              @if (multiSelect) {
+                <th>
+                  <input
+                    type="checkbox"
+                    [checked]="areAllSelected()"
+                    (change)="toggleSelectAll()"
+                  />
+                </th>
+              }
+
+              <!-- Encabezados de columnas -->
+              @for (column of columns; track trackByColumn) {
+                <!-- Ocultamos la columna si hiddenColumns la incluye -->
+                <th
+                  [hidden]="hiddenColumns.includes(columns.indexOf(column))"
+                  [style.textAlign]="column.align || 'left'"
+                  [style.width]="column.width"
+                >
+                  <div class="flex items-center">
+                    <span>{{ column.header }}</span>
+                    <!-- Sort button, si la columna es sortable -->
+                    @if (sortableColumns.includes(columns.indexOf(column))) {
+                      <evo-button
+                        class="sort-button ml-2"
+                        [icon]="{
+                          type: 'class',
+                          icon: getSortIcon(columns.indexOf(column)),
+                        }"
+                        size="sm"
+                        [withoutBorder]="true"
+                        (click)="toggleSort(columns.indexOf(column))"
+                        [theme]="'secondary'"
+                      ></evo-button>
+                    }
+                  </div>
+                </th>
+              }
+            </tr>
+          </thead>
+
+          <tbody>
+            @for (row of paginatedItems; track trackByRow) {
+              <tr (click)="$event.stopPropagation()">
+                <!-- Checkbox por fila -->
+                @if (multiSelect) {
+                  <td>
+                    <input
+                      type="checkbox"
+                      [(ngModel)]="row.selected"
+                      (change)="toggleRowSelect(row)"
+                    />
+                  </td>
+                }
+
+                <!-- Celdas -->
+                @for (column of columns; track trackByColumn) {
+                  <td
+                    [hidden]="hiddenColumns.includes(columns.indexOf(column))"
+                    [style.textAlign]="column.align || 'left'"
+                  >
+                    <!-- Chequeamos si renderizar color/tag -->
+                    @if (
+                      shouldRenderColorTag(row, columns.indexOf(column)) ||
+                      isTagColumn(columns.indexOf(column))
+                    ) {
+                      <div
+                        class="dt-tag"
+                        [ngStyle]="getTagStyle(row, columns.indexOf(column))"
+                      >
+                        {{ row[column.field] }}
+                        @if (isTagColumn(columns.indexOf(column))) {
+                          <button
+                            class="tag-close"
+                            (click)="onTagClick(row, columns.indexOf(column))"
+                          >
+                            ✕
+                          </button>
+                        }
+                      </div>
+                    } @else {
+                      {{ row[column.field] }}
+                    }
+                  </td>
+                }
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  }
+
+  <!-- Vista tipo Cards (móvil) -->
+  @if (isMobile) {
+    <div class="dt-card-container" [ngClass]="twClass">
+      <div
+        class="dt-card-list custom-scroll"
+        [ngStyle]="{ 'max-height': maxHeight }"
+      >
+        @for (row of paginatedItems; track trackByRow) {
+          <div class="dt-card">
+            @if (multiSelect) {
+              <div class="dt-card-select">
+                <input
+                  type="checkbox"
+                  [(ngModel)]="row.selected"
+                  (change)="toggleRowSelect(row)"
+                />
+              </div>
+            }
+
+            <!-- Bloques por cada columna -->
+            @for (column of columns; track trackByColumn) {
+              <div
+                class="dt-card-field"
+                [hidden]="hiddenColumns.includes(columns.indexOf(column))"
+              >
+                <p class="dt-card-field-header">{{ column.header }}</p>
+                <div class="dt-card-field-value">
+                  @if (
+                    shouldRenderColorTag(row, columns.indexOf(column)) ||
+                    isTagColumn(columns.indexOf(column))
+                  ) {
+                    <div
+                      class="dt-tag"
+                      [ngStyle]="getTagStyle(row, columns.indexOf(column))"
+                    >
+                      {{ row[column.field] }}
+                      @if (isTagColumn(columns.indexOf(column))) {
+                        <button
+                          class="tag-close"
+                          (click)="onTagClick(row, columns.indexOf(column))"
+                        >
+                          ✕
+                        </button>
+                      }
+                    </div>
+                  } @else {
+                    {{ row[column.field] }}
+                  }
+                </div>
+              </div>
+            }
+          </div>
+        }
+      </div>
+    </div>
+  }
+
+  <!-- Paginación -->
+  <pagination
+    [config]="paginationConfig"
+    (nextPageClicked)="paginationEvents.onNextPage()"
+    (previousPageClicked)="paginationEvents.onPreviousPage()"
+    (pageSelected)="paginationEvents.onPageChange($event.page)"
+  ></pagination>
+}

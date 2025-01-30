@@ -90,7 +90,6 @@ describe('DynamicTableComponent', () => {
   });
 
   it('should initialize the component on ngOnInit', () => {
-    // Llamamos manualmente
     spyOn<any>(component, 'initializeTable').and.callThrough();
     component.ngOnInit();
     expect(component['initializeTable']).toHaveBeenCalled();
@@ -130,6 +129,18 @@ describe('DynamicTableComponent', () => {
 
     expect(component.paginatedItems.length).toBe(2);
     expect(component.paginationConfig.totalPages).toBe(2);
+  });
+
+  it('should adjust pagination manually when isManualPaginate is true', () => {
+    component.paginationConfig.isManualPaginate = true;
+    component.paginationConfig.totalPages = 1;
+    component.paginationConfig.pageSize = 2;
+    component.data = [...mockData];
+
+    component['adjustPagination']();
+
+    expect(component.paginatedItems.length).toBe(3);
+    expect(component.paginationConfig.totalPages).toBe(1);
   });
 
   it('should go to a valid page number', () => {
@@ -192,6 +203,9 @@ describe('DynamicTableComponent', () => {
   });
 
   it('should select all if none are selected, and deselect if all are selected', () => {
+    // Asegúrate de habilitar la selección múltiple
+    component.config.multiSelect = true;
+
     setPaginationData(2);
     expect(component.areAllSelected()).toBeFalse();
 
@@ -209,13 +223,13 @@ describe('DynamicTableComponent', () => {
   });
 
   it('should return true if column index is in tagsColumns', () => {
-    component.tagsColumns = [2];
+    component.config.tagsColumns = [2];
     expect(component.isTagColumn(2)).toBeTrue();
     expect(component.isTagColumn(1)).toBeFalse();
   });
 
   it('should toggle sort states among asc -> desc -> null for a sortable column', () => {
-    component.sortableColumns = [1];
+    component.config.sortableColumns = [1];
     component.toggleSort(1);
     expect(component.sortState[1]).toBe('asc');
 
@@ -228,14 +242,14 @@ describe('DynamicTableComponent', () => {
 
   it('should not affect state if column is not sortable', () => {
     spyOn(component.columnSort, 'emit');
-    component.sortableColumns = [0];
+    component.config.sortableColumns = [0];
     component.toggleSort(1);
     expect(component.sortState[1]).toBeUndefined();
     expect(component.columnSort.emit).not.toHaveBeenCalled();
   });
 
   it('should return arrow_upward if sorted asc, arrow_downward if desc, sort if null', () => {
-    component.sortableColumns = [0];
+    component.config.sortableColumns = [0];
     component.toggleSort(0);
     expect(component.getSortIcon(0)).toBe('arrow_upward');
     component.toggleSort(0);
@@ -245,7 +259,7 @@ describe('DynamicTableComponent', () => {
   });
 
   it('should return style if cell matches a color rule', () => {
-    component.colorRules = {
+    component.config.colorRules = {
       2: [
         {
           matchValue: 'Active',
@@ -259,7 +273,7 @@ describe('DynamicTableComponent', () => {
   });
 
   it('should return empty object if no rule matches', () => {
-    component.colorRules = {
+    component.config.colorRules = {
       2: [{ matchValue: 'Xxx', bgColor: '#eee', textColor: '#111' }],
     };
     const styleObj = component.getColorStyle({ status: 'Active' }, 2);
@@ -267,7 +281,7 @@ describe('DynamicTableComponent', () => {
   });
 
   it('should return true if getMatchedColorRule returns a rule', () => {
-    component.colorRules = {
+    component.config.colorRules = {
       2: [{ matchValue: 'Active', bgColor: '#0f0', textColor: '#fff' }],
     };
     const result = component.shouldRenderColorTag({ status: 'Active' }, 2);
@@ -275,7 +289,7 @@ describe('DynamicTableComponent', () => {
   });
 
   it('should return false if no color rule is matched', () => {
-    component.colorRules = {};
+    component.config.colorRules = {};
     const result = component.shouldRenderColorTag({ status: 'Active' }, 2);
     expect(result).toBeFalse();
   });

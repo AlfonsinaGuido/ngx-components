@@ -13,17 +13,17 @@ import {
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { FormsModule } from '@angular/forms';
-import { PaginationComponent } from '../pagination/pagination.component';
 import { MatIconModule } from '@angular/material/icon';
 import {
-  IColorMatchRule,
-  IColorRuleByColumn,
   IDynamicTableColumn,
+  ITableRow,
   IPaginationConfig,
   IPaginationEvents,
-  ITableRow,
+  IColorMatchRule,
+  IDynamicTableConfig,
+  ButtonComponent,
+  PaginationComponent,
 } from '../public-api';
-import { ButtonComponent } from '../button/button.component';
 
 @Component({
   selector: 'evo-dynamic-table',
@@ -36,7 +36,7 @@ import { ButtonComponent } from '../button/button.component';
     ButtonComponent,
   ],
   templateUrl: './dynamic-table.component.html',
-  styleUrls: ['./dynamic-table.component.scss'],
+  styleUrls: ['./dynamic-table.component.scss', '../styles/output.scss'],
   encapsulation: ViewEncapsulation.None,
 })
 export class DynamicTableComponent implements OnInit, OnChanges, OnDestroy {
@@ -56,14 +56,20 @@ export class DynamicTableComponent implements OnInit, OnChanges, OnDestroy {
     },
     page: 0,
   };
-  @Input() multiSelect: boolean = false;
+
+  // Agrupación de opciones en config
+  @Input() config: IDynamicTableConfig = {
+    multiSelect: false,
+    sortableColumns: [],
+    tagsColumns: [],
+    colorRules: {},
+    maxHeight: 'auto',
+    emptyStateText: 'No hay datos para mostrar',
+  };
+
+  // Resto de inputs
   @Input() hiddenColumns: number[] = [];
-  @Input() sortableColumns: number[] = [];
-  @Input() tagsColumns: number[] = [];
-  @Input() colorRules: IColorRuleByColumn = {};
-  @Input() maxHeight: string = 'auto';
   @Input() isMobile: boolean = false;
-  @Input() emptyStateText: string = 'No hay datos para mostrar';
   @Input() twClass: string = '';
 
   @Output() selectionChange = new EventEmitter<ITableRow[]>();
@@ -83,6 +89,7 @@ export class DynamicTableComponent implements OnInit, OnChanges, OnDestroy {
   paginatedItems: ITableRow[] = [];
   sortState: { [colIndex: number]: 'asc' | 'desc' | null } = {};
   private viewportSubscription!: Subscription;
+
   constructor(private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
@@ -124,6 +131,13 @@ export class DynamicTableComponent implements OnInit, OnChanges, OnDestroy {
       this.paginationConfig.totalPages = Math.ceil(
         this.paginationConfig.totalItems / this.paginationConfig.pageSize,
       );
+
+      // Asegúrate de que la página actual no exceda el número total de páginas
+      if (
+        this.paginationConfig.currentPage > this.paginationConfig.totalPages
+      ) {
+        this.paginationConfig.currentPage = 1; // Volver a la primera página
+      }
 
       const startIndex =
         (this.paginationConfig.currentPage - 1) *
@@ -178,11 +192,15 @@ export class DynamicTableComponent implements OnInit, OnChanges, OnDestroy {
    * Selecciona/deselecciona todas las filas.
    */
   public toggleSelectAll(): void {
+    if (!this.config.multiSelect) {
+      return;
+    }
+
     const targetItems = this.paginationConfig.isManualPaginate
       ? this.data
       : this.paginatedItems;
 
-    const allSelected = targetItems.every((row) => row.selected);
+    const allSelected = this.areAllSelected();
     targetItems.forEach((row) => (row.selected = !allSelected));
 
     this.emitSelection();
@@ -193,6 +211,11 @@ export class DynamicTableComponent implements OnInit, OnChanges, OnDestroy {
    * @param row La fila a togglear.
    */
   public toggleRowSelect(row: ITableRow): void {
+    if (!this.config.multiSelect) {
+      // Si no se permite multiselección, primero deseleccionamos todas
+      this.data.forEach((item) => (item.selected = false));
+    }
+
     row.selected = !row.selected;
     this.emitSelection();
   }
@@ -219,7 +242,7 @@ export class DynamicTableComponent implements OnInit, OnChanges, OnDestroy {
    * @param colIndex Índice de la columna.
    */
   public isTagColumn(colIndex: number): boolean {
-    return this.tagsColumns.includes(colIndex);
+    return this.config.tagsColumns.includes(colIndex);
   }
 
   /**
@@ -227,7 +250,7 @@ export class DynamicTableComponent implements OnInit, OnChanges, OnDestroy {
    * @param colIndex Índice de la columna a ordenar.
    */
   public toggleSort(colIndex: number): void {
-    if (!this.sortableColumns.includes(colIndex)) return;
+    if (!this.config.sortableColumns.includes(colIndex)) return;
 
     const currentState = this.sortState[colIndex] || null;
     let newState: 'asc' | 'desc' | null = null;
@@ -240,8 +263,9 @@ export class DynamicTableComponent implements OnInit, OnChanges, OnDestroy {
       newState = null;
     }
     this.sortState[colIndex] = newState;
-    let orderBy: string = '';
+    let orderBy = '';
     const activeSorts: string[] = [];
+
     for (const idx of Object.keys(this.sortState)) {
       const indexNum = parseInt(idx, 10);
       const dir = this.sortState[indexNum];
@@ -249,6 +273,7 @@ export class DynamicTableComponent implements OnInit, OnChanges, OnDestroy {
         activeSorts.push(`${this.columns[indexNum].field} ${dir}`);
       }
     }
+
     orderBy = activeSorts.join(',');
     this.columnSort.emit(orderBy);
   }
@@ -258,7 +283,7 @@ export class DynamicTableComponent implements OnInit, OnChanges, OnDestroy {
    * @param colIndex índice de la columna
    */
   public getSortIcon(colIndex: number): string {
-    if (!this.sortableColumns.includes(colIndex)) {
+    if (!this.config.sortableColumns.includes(colIndex)) {
       return 'sort'; // Ícono genérico de no-sort
     }
     switch (this.sortState[colIndex]) {
@@ -280,7 +305,7 @@ export class DynamicTableComponent implements OnInit, OnChanges, OnDestroy {
     row: ITableRow,
     colIndex: number,
   ): { [klass: string]: any } {
-    const rules = this.colorRules[colIndex];
+    const rules = this.config.colorRules[colIndex];
     if (!rules || rules.length === 0) return {};
 
     const cellValue = row[this.columns[colIndex].field];
@@ -302,8 +327,25 @@ export class DynamicTableComponent implements OnInit, OnChanges, OnDestroy {
     row: ITableRow,
     colIndex: number,
   ): IColorMatchRule | null {
-    const rules = this.colorRules[colIndex];
-    if (!rules) return null;
+    // Verifica si this.config.colorRules está definido
+    if (!this.config || !this.config.colorRules) {
+      return null;
+    }
+
+    // Verifica si this.columns está definido y tiene suficientes elementos
+    if (!this.columns || this.columns.length <= colIndex) {
+      return null;
+    }
+
+    // Verifica si row está definido
+    if (!row) {
+      return null;
+    }
+
+    const rules = this.config.colorRules[colIndex];
+    if (!rules) {
+      return null;
+    }
 
     const cellValue = row[this.columns[colIndex].field];
     return rules.find((r) => r.matchValue === cellValue) || null;
@@ -313,7 +355,6 @@ export class DynamicTableComponent implements OnInit, OnChanges, OnDestroy {
    * Determina si la celda debe mostrarse como un "tag" de color (regla) o no.
    */
   public shouldRenderColorTag(row: ITableRow, colIndex: number): boolean {
-    // Decides si hay una regla de color que coincida.
     return !!this.getMatchedColorRule(row, colIndex);
   }
 
@@ -339,7 +380,6 @@ export class DynamicTableComponent implements OnInit, OnChanges, OnDestroy {
    * @param colIndex índice de la columna
    */
   public onTagClick(row: ITableRow, colIndex: number): void {
-    // Emitimos un evento para que el padre decida qué hacer.
     this.tagClick.emit({ row, columnIndex: colIndex });
   }
 

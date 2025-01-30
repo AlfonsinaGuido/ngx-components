@@ -1,24 +1,28 @@
 <!-- Si no hay datos -->
 @if (data.length === 0) {
   <div class="text-center py-4">
-    {{ emptyStateText }}
+    {{ config.emptyStateText }}
   </div>
 } @else {
   <!-- Vista de tabla (no móvil) -->
   @if (!isMobile) {
-    <div class="dt-table-container" [ngClass]="twClass">
+    <div
+      class="w-full overflow-hidden bg-white rounded-lg border border-gray-300"
+      [ngClass]="twClass"
+    >
       <div
-        class="dt-table-scroll custom-scroll"
-        [ngStyle]="{ 'max-height': maxHeight }"
+        class="w-full overflow-y-auto"
+        [ngStyle]="{ 'max-height': config.maxHeight }"
       >
-        <table class="dt-table">
+        <table class="w-full border-collapse">
           <thead>
             <tr>
-              <!-- Checkbox general si multiSelect -->
-              @if (multiSelect) {
-                <th>
+              <!-- Checkbox general si config.multiSelect -->
+              @if (config.multiSelect) {
+                <th class="p-3">
                   <input
                     type="checkbox"
+                    class="scale-110"
                     [checked]="areAllSelected()"
                     (change)="toggleSelectAll()"
                   />
@@ -32,13 +36,16 @@
                   [hidden]="hiddenColumns.includes(columns.indexOf(column))"
                   [style.textAlign]="column.align || 'left'"
                   [style.width]="column.width"
+                  class="p-3 bg-gray-50 font-semibold text-sm text-gray-600"
                 >
                   <div class="flex items-center">
                     <span>{{ column.header }}</span>
                     <!-- Sort button, si la columna es sortable -->
-                    @if (sortableColumns.includes(columns.indexOf(column))) {
+                    @if (
+                      config.sortableColumns.includes(columns.indexOf(column))
+                    ) {
                       <evo-button
-                        class="sort-button ml-2"
+                        class="ml-2 border-none bg-transparent cursor-pointer text-gray-500 hover:text-gray-700"
                         [icon]="{
                           type: 'class',
                           icon: getSortIcon(columns.indexOf(column)),
@@ -57,12 +64,13 @@
 
           <tbody>
             @for (row of paginatedItems; track trackByRow) {
-              <tr (click)="$event.stopPropagation()">
+              <tr class="hover:bg-gray-50" (click)="$event.stopPropagation()">
                 <!-- Checkbox por fila -->
-                @if (multiSelect) {
-                  <td>
+                @if (config.multiSelect) {
+                  <td class="p-3">
                     <input
                       type="checkbox"
+                      class="scale-110"
                       [(ngModel)]="row.selected"
                       (change)="toggleRowSelect(row)"
                     />
@@ -74,6 +82,7 @@
                   <td
                     [hidden]="hiddenColumns.includes(columns.indexOf(column))"
                     [style.textAlign]="column.align || 'left'"
+                    class="p-3 border-b border-gray-200"
                   >
                     <!-- Chequeamos si renderizar color/tag -->
                     @if (
@@ -81,13 +90,13 @@
                       isTagColumn(columns.indexOf(column))
                     ) {
                       <div
-                        class="dt-tag"
+                        class="inline-flex items-center bg-gray-200 rounded-full px-2 py-1 text-sm"
                         [ngStyle]="getTagStyle(row, columns.indexOf(column))"
                       >
                         {{ row[column.field] }}
                         @if (isTagColumn(columns.indexOf(column))) {
                           <button
-                            class="tag-close"
+                            class="ml-1.5 bg-transparent border-none text-gray-500 hover:text-red-500 cursor-pointer"
                             (click)="onTagClick(row, columns.indexOf(column))"
                           >
                             ✕
@@ -109,15 +118,15 @@
 
   <!-- Vista tipo Cards (móvil) -->
   @if (isMobile) {
-    <div class="dt-card-container" [ngClass]="twClass">
+    <div class="w-full" [ngClass]="twClass">
       <div
-        class="dt-card-list custom-scroll"
-        [ngStyle]="{ 'max-height': maxHeight }"
+        class="w-full overflow-y-auto"
+        [ngStyle]="{ 'max-height': config.maxHeight }"
       >
         @for (row of paginatedItems; track trackByRow) {
-          <div class="dt-card">
-            @if (multiSelect) {
-              <div class="dt-card-select">
+          <div class="border border-gray-300 rounded-lg p-4 mb-4 bg-white">
+            @if (config.multiSelect) {
+              <div class="absolute top-2 right-2">
                 <input
                   type="checkbox"
                   [(ngModel)]="row.selected"
@@ -129,23 +138,23 @@
             <!-- Bloques por cada columna -->
             @for (column of columns; track trackByColumn) {
               <div
-                class="dt-card-field"
+                class="mb-4"
                 [hidden]="hiddenColumns.includes(columns.indexOf(column))"
               >
-                <p class="dt-card-field-header">{{ column.header }}</p>
-                <div class="dt-card-field-value">
+                <p class="font-bold text-sm mb-1">{{ column.header }}</p>
+                <div class="text-sm text-gray-700">
                   @if (
                     shouldRenderColorTag(row, columns.indexOf(column)) ||
                     isTagColumn(columns.indexOf(column))
                   ) {
                     <div
-                      class="dt-tag"
+                      class="inline-flex items-center bg-gray-200 rounded-full px-2 py-1 text-sm"
                       [ngStyle]="getTagStyle(row, columns.indexOf(column))"
                     >
                       {{ row[column.field] }}
                       @if (isTagColumn(columns.indexOf(column))) {
                         <button
-                          class="tag-close"
+                          class="ml-1.5 bg-transparent border-none text-gray-500 hover:text-red-500 cursor-pointer"
                           (click)="onTagClick(row, columns.indexOf(column))"
                         >
                           ✕

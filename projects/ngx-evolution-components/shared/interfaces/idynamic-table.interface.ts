@@ -20,3 +20,12 @@ export interface ITableRow {
   [key: string]: any;
   selected?: boolean;
 }
+
+export interface IDynamicTableConfig {
+  multiSelect: boolean;
+  sortableColumns: number[];
+  tagsColumns: number[];
+  colorRules: IColorRuleByColumn;
+  maxHeight: string;
+  emptyStateText: string;
+}

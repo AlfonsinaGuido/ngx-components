@@ -25,8 +25,6 @@ const exampleData = [
 
 /**
  * Reglas de color para la columna 'status' (índice = 2).
- * Ejemplo de configuración de color,
- * pero se usará solo en historias que lo requieran.
  */
 const colorRules = {
   2: [
@@ -75,14 +73,16 @@ export const Default: Story = {
     columns: exampleColumns,
     data: exampleData,
     paginationConfig: { ...basePagination },
-    multiSelect: false,
+    config: {
+      multiSelect: false,
+      sortableColumns: [0, 1, 2],
+      tagsColumns: [],
+      colorRules: {},
+      maxHeight: '250px',
+      emptyStateText: 'No hay datos para mostrar',
+    },
     hiddenColumns: [],
-    sortableColumns: [0, 1, 2],
-    tagsColumns: [],
-    colorRules: {},
-    maxHeight: '250px',
     isMobile: false,
-    emptyStateText: 'No hay datos para mostrar',
     twClass: '',
   },
 };
@@ -95,13 +95,16 @@ export const WithColorTags: Story = {
     columns: exampleColumns,
     data: exampleData,
     paginationConfig: { ...basePagination },
-    multiSelect: false,
+    config: {
+      multiSelect: false,
+      sortableColumns: [1, 2],
+      tagsColumns: [],
+      colorRules: colorRules,
+      maxHeight: '300px',
+      emptyStateText: 'No hay datos para mostrar',
+    },
     hiddenColumns: [],
-    sortableColumns: [1, 2],
-    colorRules: colorRules,
-    maxHeight: '300px',
     isMobile: false,
-    emptyStateText: 'No hay datos para mostrar',
     twClass: '',
   },
 };
@@ -109,21 +112,23 @@ export const WithColorTags: Story = {
 /**
  * Historia nueva:
  * Columna 'Estado' en modo tag,
- * pero sin aplicar colorRules (sin fondo de color).
+ * pero sin aplicar colorRules.
  */
 export const TagNoColor: Story = {
   args: {
     columns: exampleColumns,
     data: exampleData,
     paginationConfig: { ...basePagination },
-    multiSelect: false,
+    config: {
+      multiSelect: false,
+      sortableColumns: [1, 2],
+      tagsColumns: [2], // Columna 'Estado' en modo tag
+      colorRules: {}, // Sin reglas de color
+      maxHeight: '300px',
+      emptyStateText: 'No hay datos para mostrar',
+    },
     hiddenColumns: [],
-    sortableColumns: [1, 2],
-    tagsColumns: [2],
-    colorRules: {},
-    maxHeight: '300px',
     isMobile: false,
-    emptyStateText: 'No hay datos para mostrar',
     twClass: '',
   },
 };
@@ -136,14 +141,16 @@ export const MobileView: Story = {
     columns: exampleColumns,
     data: exampleData,
     paginationConfig: { ...basePagination },
-    multiSelect: true,
+    config: {
+      multiSelect: true,
+      sortableColumns: [0, 1, 2],
+      tagsColumns: [],
+      colorRules: colorRules,
+      maxHeight: '400px',
+      emptyStateText: 'No hay datos para mostrar',
+    },
     hiddenColumns: [],
-    sortableColumns: [0, 1, 2],
-    tagsColumns: [],
-    colorRules: colorRules,
-    maxHeight: '400px',
     isMobile: true,
-    emptyStateText: 'No hay datos para mostrar',
     twClass: 'p-4',
   },
 };
@@ -162,12 +169,16 @@ export const ManualPagination: Story = {
       currentPage: 1,
       pageSize: 2,
     },
-    multiSelect: false,
+    config: {
+      multiSelect: false,
+      sortableColumns: [0, 2],
+      tagsColumns: [],
+      colorRules: colorRules,
+      maxHeight: 'auto',
+      emptyStateText: 'No hay datos para mostrar',
+    },
     hiddenColumns: [],
-    sortableColumns: [0, 2],
-    colorRules: colorRules,
     isMobile: false,
-    emptyStateText: 'No hay datos para mostrar',
     twClass: '',
   },
 };
@@ -180,14 +191,16 @@ export const Empty: Story = {
     columns: exampleColumns,
     data: [],
     paginationConfig: { ...basePagination, pageSize: 2 },
-    multiSelect: false,
+    config: {
+      multiSelect: false,
+      sortableColumns: [],
+      tagsColumns: [],
+      colorRules: {},
+      maxHeight: '200px',
+      emptyStateText: 'No hay datos para mostrar',
+    },
     hiddenColumns: [],
-    sortableColumns: [],
-    tagsColumns: [],
-    colorRules: {},
-    maxHeight: '200px',
     isMobile: false,
-    emptyStateText: 'No hay datos para mostrar',
     twClass: '',
   },
 };

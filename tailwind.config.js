@@ -14,6 +14,8 @@ module.exports = {
         "light-gray": "var(--light-gray)",
         "medium-gray": "var(--medium-gray)",
         "dark-gray": "var(--dark-gray)",
+        caution: "var(--caution)",
+        "light-caution": "var(--light-caution)",
       },
       fontFamily: {
         sans: ["Plus Jakarta Sans", "sans-serif"],

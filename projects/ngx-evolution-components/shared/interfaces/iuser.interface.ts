@@ -7,6 +7,12 @@ export interface IUserData {
   jobPositions: IJobPosition[];
 }
 
+export interface IUserCodes {
+  codcia: number;
+  codemp: number;
+  codexp: number;
+}
+
 interface IJobPosition extends IPlaza {
   onClick: IButtonAction;
 }

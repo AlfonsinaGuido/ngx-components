@@ -6,6 +6,8 @@ export interface IEmpleado {
 }
 
 interface IEmpleo {
+  Codigo?: number;
+  ExpedienteCodigo?: number;
   Expediente: IExpediente;
   Plaza: IPlaza;
 }
@@ -19,6 +21,7 @@ interface IFotografia {
 }
 
 export interface IPlaza {
+  CompaniaCodigo?: number;
   Puesto: IPuesto;
   Unidad: IUnidad;
   Compania: ICompania;

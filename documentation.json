@@ -21,6 +21,18 @@
         "defaultValue": "{\n  args: {\n    icons: {\n      buttonIcon: {\n        icon: 'fact_check',\n        type: 'class',\n      },\n      closeIcon: {\n        icon: 'close.svg',\n        type: 'svg',\n      },\n    },\n    title: 'Autorizaciones',\n    lengthOfItems: 3,\n    seeAllButton: {\n      label: 'Ver todas',\n      onClick: {\n        action: (path = '/autorizaciones') => {\n          alert('Redirige a pantalla: ' + path);\n        },\n      },\n    },\n    items: [\n      {\n        label:\n          'Carlos Sanchez requiere autorización de acceso al Programa Recursos Humanos',\n        avatarName: 'Carlos Sanchez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Carlos Sanchez') => {\n            alert('Se autorizó a ' + name);\n          },\n        },\n      },\n      {\n        label:\n          'Samuel Lopez requiere autorización de acceso al Programa Desarrollo',\n        avatarName: 'Samuel Lopez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: () => {\n            alert('Se autorizó a Samuel Lopez');\n          },\n        },\n      },\n      {\n        label:\n          'Ignacio Fernandez requiere autorización de acceso al Programa Recursos Humanos',\n        avatarName: 'Ignacio Fernandez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Ignacio Fernandez') => {\n            alert('Se autorizó a ' + name);\n          },\n        },\n      },\n    ],\n    twClass: '',\n  },\n}"
       },
       {
+        "name": "basePagination",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/dynamic-table.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "object",
+        "defaultValue": "{\n  isManualPaginate: false,\n  currentPage: 1,\n  totalPages: 1,\n  pageSize: 3,\n  totalItems: 0,\n  titles: {\n    showing: 'Mostrando',\n    results: 'resultados',\n    page: 'Página',\n    of: 'de',\n  },\n  page: 0,\n}",
+        "rawdescription": "Paginación base",
+        "description": "<p>Paginación base</p>\n"
+      },
+      {
         "name": "buttonsItemsScrollable",
         "ctype": "miscellaneous",
         "subtype": "variable",
@@ -69,6 +81,18 @@
         "deprecationMessage": "",
         "type": "Story",
         "defaultValue": "{\n  args: {\n    title: 'Dialogo de testing',\n    simpleContent:\n      'Testing de prueba para dialogo para comprobar que tanto se puede expandir el texto el dialogo',\n    buttonsItems: [\n      {\n        label: 'Item 1',\n        theme: 'secondary',\n        onClick: {\n          action: Testing1,\n        },\n      },\n      {\n        label: 'Item 2',\n        theme: 'primary',\n        onClick: {\n          action: Testing2,\n        },\n      },\n    ],\n    disableClosing: true,\n    closeButton: true,\n  },\n}"
+      },
+      {
+        "name": "colorRules",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/dynamic-table.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "object",
+        "defaultValue": "{\n  2: [\n    { matchValue: 'Activo', bgColor: '#D1FAE5', textColor: '#065F46' },\n    { matchValue: 'Pendiente', bgColor: '#FEF9C3', textColor: '#92400E' },\n    { matchValue: 'Inactivo', bgColor: '#FEE2E2', textColor: '#7F1D1D' },\n  ],\n}",
+        "rawdescription": "Reglas de color para la columna 'status' (índice = 2).",
+        "description": "<p>Reglas de color para la columna &#39;status&#39; (índice = 2).</p>\n"
       },
       {
         "name": "columns",
@@ -128,7 +152,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    title: 'Error',\n    message: 'No se puede eliminar un programa con personas asignadas.',\n    type: 'error',\n    duration: 10000,\n    twClass: '',\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    title: 'Error',\r\n    message: 'No se puede eliminar un programa con personas asignadas.',\r\n    type: 'error',\r\n    duration: 10000,\r\n    twClass: '',\r\n  },\r\n}"
       },
       {
         "name": "customTailwindClass",
@@ -224,11 +248,13 @@
         "name": "Default",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "stories/filter.stories.ts",
+        "file": "stories/dynamic-table.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    fields: fields,\n  },\n}"
+        "defaultValue": "{\n  args: {\n    columns: exampleColumns,\n    data: exampleData,\n    paginationConfig: { ...basePagination },\n    config: {\n      multiSelect: false,\n      sortableColumns: [0, 1, 2],\n      tagsColumns: [],\n      colorRules: {},\n      maxHeight: '250px',\n      emptyStateText: 'No hay datos para mostrar',\n    },\n    hiddenColumns: [],\n    isMobile: false,\n    twClass: '',\n  },\n}",
+        "rawdescription": "Historia por defecto",
+        "description": "<p>Historia por defecto</p>\n"
       },
       {
         "name": "Default",
@@ -471,6 +497,18 @@
         "defaultValue": "{\n  args: {\n    ...Default.args,\n    disabled: true,\n  },\n}"
       },
       {
+        "name": "Empty",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/dynamic-table.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    columns: exampleColumns,\n    data: [],\n    paginationConfig: { ...basePagination, pageSize: 2 },\n    config: {\n      multiSelect: false,\n      sortableColumns: [],\n      tagsColumns: [],\n      colorRules: {},\n      maxHeight: '200px',\n      emptyStateText: 'No hay datos para mostrar',\n    },\n    hiddenColumns: [],\n    isMobile: false,\n    twClass: '',\n  },\n}",
+        "rawdescription": "Historia sin datos",
+        "description": "<p>Historia sin datos</p>\n"
+      },
+      {
         "name": "ErrorEmail",
         "ctype": "miscellaneous",
         "subtype": "variable",
@@ -501,14 +539,26 @@
         "defaultValue": "{\n  [EstadoActividad.Pendiente]: {\n    id: 1,\n    nombre: 'abiertas',\n    validacion: { action: validarEstado, estado: EstadoActividad.Pendiente },\n  },\n  [EstadoActividad.EnProceso]: {\n    id: 2,\n    nombre: 'en progreso',\n    validacion: { action: validarEstado, estado: EstadoActividad.EnProceso },\n  },\n  [EstadoActividad.Finalizada]: {\n    id: 3,\n    nombre: 'finalizadas',\n    validacion: { action: validarEstado, estado: EstadoActividad.Finalizada },\n  },\n}"
       },
       {
-        "name": "fields",
+        "name": "exampleColumns",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "stories/filter.stories.ts",
+        "file": "stories/dynamic-table.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
-        "type": "IFilter",
-        "defaultValue": "{\n  fields: [\n    {\n      id: 'empleado',\n      fieldType: 'searchBar',\n      inputPlaceholder: 'Empleados',\n      twClass: 'h-12',\n      control: formControlDefaultInput,\n    },\n    {\n      id: 'fecha',\n      fieldType: 'date',\n      inputType: 'date',\n      label: 'Fecha',\n      detail: '',\n      twClass: 'max-w-max',\n      control: formControlDefaultInput,\n    },\n    {\n      id: 'tel',\n      fieldType: 'tel',\n      inputType: 'tel',\n      label: 'Telefono',\n      twClass: 'max-w-max',\n      requiredErrorMessage: 'Ninguna',\n      control: formControlPatternInput,\n    },\n    {\n      id: 'autocomplete',\n      fieldType: 'autocomplete',\n      control: formControlDefaultInput,\n      label: 'Autocomplete Empleados',\n      twClass: 'max-w-max',\n      items: valuelistTest,\n    },\n  ],\n}"
+        "type": "[]",
+        "defaultValue": "[\n  { header: 'ID', field: 'id', width: '50px' },\n  { header: 'Nombre', field: 'name' },\n  { header: 'Estado', field: 'status' },\n]"
+      },
+      {
+        "name": "exampleData",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/dynamic-table.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "[]",
+        "defaultValue": "[\n  { id: 1, name: 'Juan', status: 'Activo' },\n  { id: 2, name: 'María', status: 'Pendiente' },\n  { id: 3, name: 'Mario', status: 'Inactivo' },\n  { id: 4, name: 'Luisa', status: 'Activo' },\n  { id: 5, name: 'Carlos', status: 'Pendiente' },\n]",
+        "rawdescription": "Datos de ejemplo",
+        "description": "<p>Datos de ejemplo</p>\n"
       },
       {
         "name": "form",
@@ -831,6 +881,18 @@
         "defaultValue": "(): void => {\n  alert('Logueado');\n}"
       },
       {
+        "name": "ManualPagination",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/dynamic-table.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    columns: exampleColumns,\n    data: exampleData,\n    paginationConfig: {\n      ...basePagination,\n      isManualPaginate: true,\n      totalPages: 3,\n      currentPage: 1,\n      pageSize: 2,\n    },\n    config: {\n      multiSelect: false,\n      sortableColumns: [0, 2],\n      tagsColumns: [],\n      colorRules: colorRules,\n      maxHeight: 'auto',\n      emptyStateText: 'No hay datos para mostrar',\n    },\n    hiddenColumns: [],\n    isMobile: false,\n    twClass: '',\n  },\n}",
+        "rawdescription": "Historia con paginación manual",
+        "description": "<p>Historia con paginación manual</p>\n"
+      },
+      {
         "name": "masColumnas",
         "ctype": "miscellaneous",
         "subtype": "variable",
@@ -898,7 +960,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<BannerComponent>",
-        "defaultValue": "{\n  title: 'Evolution Components/Banner',\n  component: BannerComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+        "defaultValue": "{\r\n  title: 'Evolution Components/Banner',\r\n  component: BannerComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideAnimationsAsync()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
       },
       {
         "name": "meta",
@@ -1115,6 +1177,18 @@
         "defaultValue": "{\n  ...baseMetaData,\n  MultiSelect: false,\n}",
         "rawdescription": "Historia EstadoSinEncargado: Con \"estado\" pero sin \"encargado\"\nnoPagination = false (por defecto)",
         "description": "<p>Historia EstadoSinEncargado: Con &quot;estado&quot; pero sin &quot;encargado&quot;\nnoPagination = false (por defecto)</p>\n"
+      },
+      {
+        "name": "MobileView",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/dynamic-table.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    columns: exampleColumns,\n    data: exampleData,\n    paginationConfig: { ...basePagination },\n    config: {\n      multiSelect: true,\n      sortableColumns: [0, 1, 2],\n      tagsColumns: [],\n      colorRules: colorRules,\n      maxHeight: '400px',\n      emptyStateText: 'No hay datos para mostrar',\n    },\n    hiddenColumns: [],\n    isMobile: true,\n    twClass: 'p-4',\n  },\n}",
+        "rawdescription": "Historia en modo móvil (cards).",
+        "description": "<p>Historia en modo móvil (cards).</p>\n"
       },
       {
         "name": "muchasActividades",
@@ -1484,7 +1558,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    title: 'Éxito',\n    message: 'Se asignaron correctamente las personas al programa.',\n    duration: 10000,\n    twClass: '',\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    title: 'Éxito',\r\n    message: 'Se asignaron correctamente las personas al programa.',\r\n    duration: 10000,\r\n    twClass: '',\r\n  },\r\n}"
       },
       {
         "name": "svgDialog",
@@ -1535,6 +1609,18 @@
         "deprecationMessage": "",
         "type": "ITableConfig",
         "defaultValue": "{\n  ...tableConfig,\n  noPagination: false,\n  showStateButtons: true,\n  showActions: false,\n}"
+      },
+      {
+        "name": "TagNoColor",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/dynamic-table.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    columns: exampleColumns,\n    data: exampleData,\n    paginationConfig: { ...basePagination },\n    config: {\n      multiSelect: false,\n      sortableColumns: [1, 2],\n      tagsColumns: [2],\n      colorRules: {},\n      maxHeight: '300px',\n      emptyStateText: 'No hay datos para mostrar',\n    },\n    hiddenColumns: [],\n    isMobile: false,\n    twClass: '',\n  },\n}",
+        "rawdescription": "Historia nueva:\nColumna 'Estado' en modo tag,\npero sin aplicar colorRules.",
+        "description": "<p>Historia nueva:\nColumna &#39;Estado&#39; en modo tag,\npero sin aplicar colorRules.</p>\n"
       },
       {
         "name": "Testing1",
@@ -1594,7 +1680,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    title: 'Error',\n    message: 'No se pudo establecer conexión con el Identity Server.',\n    type: 'error',\n    useAnimation: false,\n    twClass: '',\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    title: 'Error',\r\n    message: 'No se pudo establecer conexión con el Identity Server.',\r\n    type: 'error',\r\n    useAnimation: false,\r\n    twClass: '',\r\n  },\r\n}"
       },
       {
         "name": "Unlabeled",
@@ -1676,7 +1762,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  render: (args) => ({\n    props: {\n      title: args.title,\n      message: args.message,\n      type: args.type,\n      twClass: args.twClass,\n      onRedirect: () => {\n        alert('Se redirige a la ruta de Gestionar filtrando por actividad.');\n      },\n    },\n    template: `\n        <evo-banner [title]=\"title\" [message]=\"message\" [type]=\"type\" [twClass]=\"twClass\">\n          <a class=\"!text-sm !text-caution !underline hover:!underline font-bold ms-1 cursor-pointer\" (click)=\"onRedirect()\" >Resolver ahora</a>\n        </evo-banner>\n      `,\n  }),\n  args: {\n    title: 'Asignación de Encargado de Actividad Pendiente',\n    message:\n      'Existen inconsistencias en la asignación del Encargado de Actividad que deben ser resueltas.',\n    type: 'caution',\n    twClass: '',\n  },\n}"
+        "defaultValue": "{\r\n  render: (args) => ({\r\n    props: {\r\n      title: args.title,\r\n      message: args.message,\r\n      type: args.type,\r\n      twClass: args.twClass,\r\n      onRedirect: () => {\r\n        alert('Se redirige a la ruta de Gestionar filtrando por actividad.');\r\n      },\r\n    },\r\n    template: `\r\n        <evo-banner [title]=\"title\" [message]=\"message\" [type]=\"type\" [twClass]=\"twClass\">\r\n          <a class=\"!text-sm !text-caution !underline hover:!underline font-bold ms-1 cursor-pointer\" (click)=\"onRedirect()\" >Resolver ahora</a>\r\n        </evo-banner>\r\n      `,\r\n  }),\r\n  args: {\r\n    title: 'Asignación de Encargado de Actividad Pendiente',\r\n    message:\r\n      'Existen inconsistencias en la asignación del Encargado de Actividad que deben ser resueltas.',\r\n    type: 'caution',\r\n    twClass: '',\r\n  },\r\n}"
       },
       {
         "name": "Warning",
@@ -1717,6 +1803,18 @@
         "deprecationMessage": "",
         "type": "Story",
         "defaultValue": "{\n  args: {\n    avatarName: 'Carlos Sanchez',\n    withoutBorder: true,\n  },\n}"
+      },
+      {
+        "name": "WithColorTags",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/dynamic-table.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    columns: exampleColumns,\n    data: exampleData,\n    paginationConfig: { ...basePagination },\n    config: {\n      multiSelect: false,\n      sortableColumns: [1, 2],\n      tagsColumns: [],\n      colorRules: colorRules,\n      maxHeight: '300px',\n      emptyStateText: 'No hay datos para mostrar',\n    },\n    hiddenColumns: [],\n    isMobile: false,\n    twClass: '',\n  },\n}",
+        "rawdescription": "Historia con \"colorRules\" aplicados a la columna Status.",
+        "description": "<p>Historia con &quot;colorRules&quot; aplicados a la columna Status.</p>\n"
       },
       {
         "name": "WithCompanyName",
@@ -2058,8 +2156,8 @@
         "name": "Story",
         "ctype": "miscellaneous",
         "subtype": "typealias",
-        "rawtype": "StoryObj<FilterComponent>",
-        "file": "stories/filter.stories.ts",
+        "rawtype": "StoryObj<DynamicTableComponent>",
+        "file": "stories/dynamic-table.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "description": "",
@@ -2358,6 +2456,126 @@
           "deprecationMessage": "",
           "type": "Story",
           "defaultValue": "{\n  args: {\n    ...(() => {\n      const { seeAllButton, ...rest } = NotificationsMenu.args as {\n        seeAllButton?: IButton;\n      };\n      return rest;\n    })(),\n    lengthOfItems: 15,\n    items: [\n      {\n        label: 'Carlos Sanchez finalizó Programa Recursos Humanos',\n        avatarName: 'Carlos Sanchez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Carlos Sanchez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n      },\n      {\n        label: 'Samuel Lopez finalizó Programa Desarrollo',\n        avatarName: 'Samuel Lopez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Samuel Lopez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n      },\n      {\n        label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',\n        avatarName: 'Ignacio Fernandez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Ignacio Fernandez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n      },\n      {\n        label: 'Carlos Sanchez finalizó Programa Recursos Humanos',\n        avatarName: 'Carlos Sanchez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Carlos Sanchez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n      },\n      {\n        label: 'Samuel Lopez finalizó Programa Desarrollo',\n        avatarName: 'Samuel Lopez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Samuel Lopez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n      },\n      {\n        label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',\n        avatarName: 'Ignacio Fernandez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Ignacio Fernandez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n      },\n      {\n        label: 'Carlos Sanchez finalizó Programa Recursos Humanos',\n        avatarName: 'Carlos Sanchez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Carlos Sanchez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n      },\n      {\n        label: 'Samuel Lopez finalizó Programa Desarrollo',\n        avatarName: 'Samuel Lopez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Samuel Lopez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n      },\n      {\n        label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',\n        avatarName: 'Ignacio Fernandez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Ignacio Fernandez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n      },\n      {\n        label: 'Carlos Sanchez finalizó Programa Recursos Humanos',\n        avatarName: 'Carlos Sanchez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Carlos Sanchez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n      },\n      {\n        label: 'Samuel Lopez finalizó Programa Desarrollo',\n        avatarName: 'Samuel Lopez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Samuel Lopez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n      },\n      {\n        label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',\n        avatarName: 'Ignacio Fernandez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Ignacio Fernandez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n      },\n      {\n        label: 'Carlos Sanchez finalizó Programa Recursos Humanos',\n        avatarName: 'Carlos Sanchez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Carlos Sanchez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n      },\n      {\n        label: 'Samuel Lopez finalizó Programa Desarrollo',\n        avatarName: 'Samuel Lopez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Samuel Lopez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n      },\n      {\n        label: 'Ignacio Fernandez finalizó Programa Recursos Humanos',\n        avatarName: 'Ignacio Fernandez',\n        avatarImgUrl:\n          'https://material.angular.io/assets/img/examples/shiba1.jpg',\n        onClick: {\n          action: (name = 'Ignacio Fernandez') => {\n            alert('Notificación de: ' + name);\n          },\n        },\n      },\n    ],\n  },\n}"
+        }
+      ],
+      "stories/dynamic-table.stories.ts": [
+        {
+          "name": "basePagination",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/dynamic-table.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "object",
+          "defaultValue": "{\n  isManualPaginate: false,\n  currentPage: 1,\n  totalPages: 1,\n  pageSize: 3,\n  totalItems: 0,\n  titles: {\n    showing: 'Mostrando',\n    results: 'resultados',\n    page: 'Página',\n    of: 'de',\n  },\n  page: 0,\n}",
+          "rawdescription": "Paginación base",
+          "description": "<p>Paginación base</p>\n"
+        },
+        {
+          "name": "colorRules",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/dynamic-table.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "object",
+          "defaultValue": "{\n  2: [\n    { matchValue: 'Activo', bgColor: '#D1FAE5', textColor: '#065F46' },\n    { matchValue: 'Pendiente', bgColor: '#FEF9C3', textColor: '#92400E' },\n    { matchValue: 'Inactivo', bgColor: '#FEE2E2', textColor: '#7F1D1D' },\n  ],\n}",
+          "rawdescription": "Reglas de color para la columna 'status' (índice = 2).",
+          "description": "<p>Reglas de color para la columna &#39;status&#39; (índice = 2).</p>\n"
+        },
+        {
+          "name": "Default",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/dynamic-table.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    columns: exampleColumns,\n    data: exampleData,\n    paginationConfig: { ...basePagination },\n    config: {\n      multiSelect: false,\n      sortableColumns: [0, 1, 2],\n      tagsColumns: [],\n      colorRules: {},\n      maxHeight: '250px',\n      emptyStateText: 'No hay datos para mostrar',\n    },\n    hiddenColumns: [],\n    isMobile: false,\n    twClass: '',\n  },\n}",
+          "rawdescription": "Historia por defecto",
+          "description": "<p>Historia por defecto</p>\n"
+        },
+        {
+          "name": "Empty",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/dynamic-table.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    columns: exampleColumns,\n    data: [],\n    paginationConfig: { ...basePagination, pageSize: 2 },\n    config: {\n      multiSelect: false,\n      sortableColumns: [],\n      tagsColumns: [],\n      colorRules: {},\n      maxHeight: '200px',\n      emptyStateText: 'No hay datos para mostrar',\n    },\n    hiddenColumns: [],\n    isMobile: false,\n    twClass: '',\n  },\n}",
+          "rawdescription": "Historia sin datos",
+          "description": "<p>Historia sin datos</p>\n"
+        },
+        {
+          "name": "exampleColumns",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/dynamic-table.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "[]",
+          "defaultValue": "[\n  { header: 'ID', field: 'id', width: '50px' },\n  { header: 'Nombre', field: 'name' },\n  { header: 'Estado', field: 'status' },\n]"
+        },
+        {
+          "name": "exampleData",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/dynamic-table.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "[]",
+          "defaultValue": "[\n  { id: 1, name: 'Juan', status: 'Activo' },\n  { id: 2, name: 'María', status: 'Pendiente' },\n  { id: 3, name: 'Mario', status: 'Inactivo' },\n  { id: 4, name: 'Luisa', status: 'Activo' },\n  { id: 5, name: 'Carlos', status: 'Pendiente' },\n]",
+          "rawdescription": "Datos de ejemplo",
+          "description": "<p>Datos de ejemplo</p>\n"
+        },
+        {
+          "name": "ManualPagination",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/dynamic-table.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    columns: exampleColumns,\n    data: exampleData,\n    paginationConfig: {\n      ...basePagination,\n      isManualPaginate: true,\n      totalPages: 3,\n      currentPage: 1,\n      pageSize: 2,\n    },\n    config: {\n      multiSelect: false,\n      sortableColumns: [0, 2],\n      tagsColumns: [],\n      colorRules: colorRules,\n      maxHeight: 'auto',\n      emptyStateText: 'No hay datos para mostrar',\n    },\n    hiddenColumns: [],\n    isMobile: false,\n    twClass: '',\n  },\n}",
+          "rawdescription": "Historia con paginación manual",
+          "description": "<p>Historia con paginación manual</p>\n"
+        },
+        {
+          "name": "MobileView",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/dynamic-table.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    columns: exampleColumns,\n    data: exampleData,\n    paginationConfig: { ...basePagination },\n    config: {\n      multiSelect: true,\n      sortableColumns: [0, 1, 2],\n      tagsColumns: [],\n      colorRules: colorRules,\n      maxHeight: '400px',\n      emptyStateText: 'No hay datos para mostrar',\n    },\n    hiddenColumns: [],\n    isMobile: true,\n    twClass: 'p-4',\n  },\n}",
+          "rawdescription": "Historia en modo móvil (cards).",
+          "description": "<p>Historia en modo móvil (cards).</p>\n"
+        },
+        {
+          "name": "TagNoColor",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/dynamic-table.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    columns: exampleColumns,\n    data: exampleData,\n    paginationConfig: { ...basePagination },\n    config: {\n      multiSelect: false,\n      sortableColumns: [1, 2],\n      tagsColumns: [2],\n      colorRules: {},\n      maxHeight: '300px',\n      emptyStateText: 'No hay datos para mostrar',\n    },\n    hiddenColumns: [],\n    isMobile: false,\n    twClass: '',\n  },\n}",
+          "rawdescription": "Historia nueva:\nColumna 'Estado' en modo tag,\npero sin aplicar colorRules.",
+          "description": "<p>Historia nueva:\nColumna &#39;Estado&#39; en modo tag,\npero sin aplicar colorRules.</p>\n"
+        },
+        {
+          "name": "WithColorTags",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/dynamic-table.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    columns: exampleColumns,\n    data: exampleData,\n    paginationConfig: { ...basePagination },\n    config: {\n      multiSelect: false,\n      sortableColumns: [1, 2],\n      tagsColumns: [],\n      colorRules: colorRules,\n      maxHeight: '300px',\n      emptyStateText: 'No hay datos para mostrar',\n    },\n    hiddenColumns: [],\n    isMobile: false,\n    twClass: '',\n  },\n}",
+          "rawdescription": "Historia con \"colorRules\" aplicados a la columna Status.",
+          "description": "<p>Historia con &quot;colorRules&quot; aplicados a la columna Status.</p>\n"
         }
       ],
       "stories/dialog.stories.ts": [
@@ -2827,7 +3045,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    title: 'Error',\n    message: 'No se puede eliminar un programa con personas asignadas.',\n    type: 'error',\n    duration: 10000,\n    twClass: '',\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    title: 'Error',\r\n    message: 'No se puede eliminar un programa con personas asignadas.',\r\n    type: 'error',\r\n    duration: 10000,\r\n    twClass: '',\r\n  },\r\n}"
         },
         {
           "name": "meta",
@@ -2837,7 +3055,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<BannerComponent>",
-          "defaultValue": "{\n  title: 'Evolution Components/Banner',\n  component: BannerComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+          "defaultValue": "{\r\n  title: 'Evolution Components/Banner',\r\n  component: BannerComponent,\r\n  decorators: [\r\n    applicationConfig({\r\n      providers: [provideAnimationsAsync()],\r\n    }),\r\n  ],\r\n  tags: ['autodocs'],\r\n}"
         },
         {
           "name": "Success",
@@ -2847,7 +3065,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    title: 'Éxito',\n    message: 'Se asignaron correctamente las personas al programa.',\n    duration: 10000,\n    twClass: '',\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    title: 'Éxito',\r\n    message: 'Se asignaron correctamente las personas al programa.',\r\n    duration: 10000,\r\n    twClass: '',\r\n  },\r\n}"
         },
         {
           "name": "UncontrolledError",
@@ -2857,7 +3075,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    title: 'Error',\n    message: 'No se pudo establecer conexión con el Identity Server.',\n    type: 'error',\n    useAnimation: false,\n    twClass: '',\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    title: 'Error',\r\n    message: 'No se pudo establecer conexión con el Identity Server.',\r\n    type: 'error',\r\n    useAnimation: false,\r\n    twClass: '',\r\n  },\r\n}"
         },
         {
           "name": "Warning",
@@ -2867,7 +3085,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  render: (args) => ({\n    props: {\n      title: args.title,\n      message: args.message,\n      type: args.type,\n      twClass: args.twClass,\n      onRedirect: () => {\n        alert('Se redirige a la ruta de Gestionar filtrando por actividad.');\n      },\n    },\n    template: `\n        <evo-banner [title]=\"title\" [message]=\"message\" [type]=\"type\" [twClass]=\"twClass\">\n          <a class=\"!text-sm !text-caution !underline hover:!underline font-bold ms-1 cursor-pointer\" (click)=\"onRedirect()\" >Resolver ahora</a>\n        </evo-banner>\n      `,\n  }),\n  args: {\n    title: 'Asignación de Encargado de Actividad Pendiente',\n    message:\n      'Existen inconsistencias en la asignación del Encargado de Actividad que deben ser resueltas.',\n    type: 'caution',\n    twClass: '',\n  },\n}"
+          "defaultValue": "{\r\n  render: (args) => ({\r\n    props: {\r\n      title: args.title,\r\n      message: args.message,\r\n      type: args.type,\r\n      twClass: args.twClass,\r\n      onRedirect: () => {\r\n        alert('Se redirige a la ruta de Gestionar filtrando por actividad.');\r\n      },\r\n    },\r\n    template: `\r\n        <evo-banner [title]=\"title\" [message]=\"message\" [type]=\"type\" [twClass]=\"twClass\">\r\n          <a class=\"!text-sm !text-caution !underline hover:!underline font-bold ms-1 cursor-pointer\" (click)=\"onRedirect()\" >Resolver ahora</a>\r\n        </evo-banner>\r\n      `,\r\n  }),\r\n  args: {\r\n    title: 'Asignación de Encargado de Actividad Pendiente',\r\n    message:\r\n      'Existen inconsistencias en la asignación del Encargado de Actividad que deben ser resueltas.',\r\n    type: 'caution',\r\n    twClass: '',\r\n  },\r\n}"
         }
       ],
       "stories/header-columna.stories.ts": [
@@ -4427,13 +4645,13 @@
           "kind": 183
         }
       ],
-      "stories/filter.stories.ts": [
+      "stories/dynamic-table.stories.ts": [
         {
           "name": "Story",
           "ctype": "miscellaneous",
           "subtype": "typealias",
-          "rawtype": "StoryObj<FilterComponent>",
-          "file": "stories/filter.stories.ts",
+          "rawtype": "StoryObj<DynamicTableComponent>",
+          "file": "stories/dynamic-table.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "description": "",
@@ -4704,7 +4922,7 @@
   },
   "routes": [],
   "coverage": {
-    "count": 2,
+    "count": 7,
     "status": "low",
     "files": [
       {
@@ -5418,114 +5636,104 @@
         "status": "low"
       },
       {
-        "filePath": "stories/filter.stories.ts",
-        "type": "function",
+        "filePath": "stories/dynamic-table.stories.ts",
+        "type": "variable",
         "linktype": "miscellaneous",
-        "linksubtype": "function",
-        "name": "addCircularSafeProperties",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
+        "linksubtype": "variable",
+        "name": "basePagination",
+        "coveragePercent": 100,
+        "coverageCount": "1/1",
+        "status": "very-good"
       },
       {
-        "filePath": "stories/filter.stories.ts",
+        "filePath": "stories/dynamic-table.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "colorRules",
+        "coveragePercent": 100,
+        "coverageCount": "1/1",
+        "status": "very-good"
+      },
+      {
+        "filePath": "stories/dynamic-table.stories.ts",
         "type": "variable",
         "linktype": "miscellaneous",
         "linksubtype": "variable",
         "name": "Default",
+        "coveragePercent": 100,
+        "coverageCount": "1/1",
+        "status": "very-good"
+      },
+      {
+        "filePath": "stories/dynamic-table.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Empty",
+        "coveragePercent": 100,
+        "coverageCount": "1/1",
+        "status": "very-good"
+      },
+      {
+        "filePath": "stories/dynamic-table.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "exampleColumns",
         "coveragePercent": 0,
         "coverageCount": "0/1",
         "status": "low"
       },
       {
-        "filePath": "stories/filter.stories.ts",
+        "filePath": "stories/dynamic-table.stories.ts",
         "type": "variable",
         "linktype": "miscellaneous",
         "linksubtype": "variable",
-        "name": "fields",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
+        "name": "exampleData",
+        "coveragePercent": 100,
+        "coverageCount": "1/1",
+        "status": "very-good"
       },
       {
-        "filePath": "stories/filter.stories.ts",
+        "filePath": "stories/dynamic-table.stories.ts",
         "type": "variable",
         "linktype": "miscellaneous",
         "linksubtype": "variable",
-        "name": "form",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
+        "name": "ManualPagination",
+        "coveragePercent": 100,
+        "coverageCount": "1/1",
+        "status": "very-good"
       },
       {
-        "filePath": "stories/filter.stories.ts",
+        "filePath": "stories/dynamic-table.stories.ts",
         "type": "variable",
         "linktype": "miscellaneous",
         "linksubtype": "variable",
-        "name": "formControlDefaultInput",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
+        "name": "MobileView",
+        "coveragePercent": 100,
+        "coverageCount": "1/1",
+        "status": "very-good"
       },
       {
-        "filePath": "stories/filter.stories.ts",
+        "filePath": "stories/dynamic-table.stories.ts",
         "type": "variable",
         "linktype": "miscellaneous",
         "linksubtype": "variable",
-        "name": "formControlEmailInput",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
+        "name": "TagNoColor",
+        "coveragePercent": 100,
+        "coverageCount": "1/1",
+        "status": "very-good"
       },
       {
-        "filePath": "stories/filter.stories.ts",
+        "filePath": "stories/dynamic-table.stories.ts",
         "type": "variable",
         "linktype": "miscellaneous",
         "linksubtype": "variable",
-        "name": "formControlPatternInput",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
-      },
-      {
-        "filePath": "stories/filter.stories.ts",
-        "type": "variable",
-        "linktype": "miscellaneous",
-        "linksubtype": "variable",
-        "name": "formControlRequiredInput",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
-      },
-      {
-        "filePath": "stories/filter.stories.ts",
-        "type": "variable",
-        "linktype": "miscellaneous",
-        "linksubtype": "variable",
-        "name": "formControlUnlabeledInput",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
-      },
-      {
-        "filePath": "stories/filter.stories.ts",
-        "type": "variable",
-        "linktype": "miscellaneous",
-        "linksubtype": "variable",
-        "name": "meta",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
-      },
-      {
-        "filePath": "stories/filter.stories.ts",
-        "type": "variable",
-        "linktype": "miscellaneous",
-        "linksubtype": "variable",
-        "name": "valuelistTest",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
+        "name": "WithColorTags",
+        "coveragePercent": 100,
+        "coverageCount": "1/1",
+        "status": "very-good"
       },
       {
         "filePath": "stories/header-columna.stories.ts",

@@ -1,12 +1,15 @@
 {
   "name": "@aseinfo/ngx-evolution-components",
-  "version": "0.0.11",
+  "version": "0.0.14",
   "peerDependencies": {
     "@angular/common": "^17.3.0",
     "@angular/core": "^17.3.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.aseinfo.net"
   },
   "sideEffects": false
 }

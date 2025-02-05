@@ -24,6 +24,7 @@ import { CommonModule } from '@angular/common';
 import { AutocompleteComponent } from '../autocomplete/autocomplete.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIcon, MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'evo-filter',
@@ -37,6 +38,7 @@ import { MatIcon, MatIconModule } from '@angular/material/icon';
     SelectComponent,
     MatMenuModule,
     MatIconModule,
+    MatButtonModule,
   ],
   templateUrl: './filter.component.html',
   styleUrl: './filter.component.scss',
@@ -74,12 +76,11 @@ export class FilterComponent implements OnInit {
     });
   }
 
-  testing() {
-    alert('Limpiando');
+  applyFilter() {
+    this.filterResponse.emit(this.response);
   }
 
   testingparams(event: any, id: string) {
-    console.log('Search ', event, 'Id: ', id);
     const index = this.response.findIndex((obj) => obj.id === id);
 
     if (index !== -1) {
@@ -93,7 +94,15 @@ export class FilterComponent implements OnInit {
         content: event,
       });
     }
-    console.log('Object response  ', this.response);
+  }
+
+  cleanFields() {
+    this.fields.fields.forEach((value) => {
+      value.control.reset();
+    });
+    this.response.forEach((value) => {
+      value.content = '';
+    });
     this.filterResponse.emit(this.response);
   }
 

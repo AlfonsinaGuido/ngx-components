@@ -90,5 +90,6 @@ export class AutocompleteComponent implements OnInit, OnDestroy {
    */
   public clean(): void {
     this.inputConfiguration.control.reset();
+    this.valueChange.emit(null);
   }
 }

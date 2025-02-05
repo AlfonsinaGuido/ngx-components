@@ -60,24 +60,20 @@ const valuelistTest: IValueList[] = [
 
 const form = new FormBuilder().group({
   defaultFieldInput: new FormControl('', []),
-  requiredFieldInput: new FormControl('', [Validators.required]),
-  unlabeledFieldInput: new FormControl('', [Validators.required]),
-  emailFieldInput: new FormControl('', [Validators.required, Validators.email]),
-  patternFieldInput: new FormControl('', [
-    Validators.required,
-    Validators.pattern(/^\(\d{3}\) \d{3}-\d{4}$/),
-  ]),
+  defaultFieldInputTel: new FormControl('', []),
+  defaultFieldInputDate: new FormControl('', []),
+  defaultFieldAutocomplete: new FormControl('', []),
+  defaultFieldSelect: new FormControl('', []),
 });
 
 const formControlDefaultInput = form.controls['defaultFieldInput'];
+const formControlDefaultInputTel = form.controls['defaultFieldInputDate'];
+const formControlDefaultInputDate = form.controls['defaultFieldInputTel'];
 
-const formControlRequiredInput = form.controls['requiredFieldInput'];
+const formControlDefaultInputAutocomplete =
+  form.controls['defaultFieldAutocomplete'];
 
-const formControlUnlabeledInput = form.controls['unlabeledFieldInput'];
-
-const formControlEmailInput = form.controls['emailFieldInput'];
-
-const formControlPatternInput = form.controls['patternFieldInput'];
+const formControlDefaultInputSelect = form.controls['defaultFieldSelect'];
 
 function addCircularSafeProperties(formControl: FormControl) {
   Object.defineProperty(formControl, 'toJSON', {
@@ -88,10 +84,10 @@ function addCircularSafeProperties(formControl: FormControl) {
 }
 
 addCircularSafeProperties(formControlDefaultInput);
-addCircularSafeProperties(formControlRequiredInput);
-addCircularSafeProperties(formControlUnlabeledInput);
-addCircularSafeProperties(formControlEmailInput);
-addCircularSafeProperties(formControlPatternInput);
+addCircularSafeProperties(formControlDefaultInputDate);
+addCircularSafeProperties(formControlDefaultInputTel);
+addCircularSafeProperties(formControlDefaultInputAutocomplete);
+addCircularSafeProperties(formControlDefaultInputSelect);
 
 const fields: IFilter = {
   fields: [
@@ -99,33 +95,41 @@ const fields: IFilter = {
       id: 'empleado',
       fieldType: 'searchBar',
       inputPlaceholder: 'Empleados',
-      twClass: 'h-12',
+      twClass: 'h-12 !w-full',
       control: formControlDefaultInput,
     },
     {
-      id: 'fecha',
+      id: 'fechaNacimiento',
       fieldType: 'date',
       inputType: 'date',
-      label: 'Fecha',
-      detail: '',
-      twClass: 'max-w-max',
-      control: formControlDefaultInput,
+      label: 'Fecha Nacimiento',
+      twClass: 'max-w-max !w-full',
+      requiredErrorMessage: '',
+      control: formControlDefaultInputDate,
     },
     {
       id: 'tel',
       fieldType: 'tel',
       inputType: 'tel',
       label: 'Telefono',
-      twClass: 'max-w-max',
+      twClass: 'max-w-max !w-full',
       requiredErrorMessage: 'Ninguna',
-      control: formControlPatternInput,
+      control: formControlDefaultInputTel,
     },
     {
       id: 'autocomplete',
       fieldType: 'autocomplete',
-      control: formControlDefaultInput,
+      control: formControlDefaultInputAutocomplete,
       label: 'Autocomplete Empleados',
-      twClass: 'max-w-max',
+      twClass: 'max-w-max !w-full',
+      items: valuelistTest,
+    },
+    {
+      id: 'select',
+      fieldType: 'select',
+      control: formControlDefaultInputSelect,
+      label: 'Empleados select',
+      twClass: '!w-full',
       items: valuelistTest,
     },
   ],

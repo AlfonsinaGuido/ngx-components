@@ -43,6 +43,7 @@ export * from './info-panel/info-panel.component';
 export * from './time-segmented-list/time-segmented-list.component';
 export * from './stepper/stepper.component';
 export * from './dynamic-table/dynamic-table.component';
+export * from './filter/filter.component';
 
 // Interfaces
 export * from './shared/interfaces/ibutton.interface';
@@ -75,6 +76,7 @@ export * from './shared/interfaces/istepper.interface';
 export * from './shared/interfaces/ibanner.interface';
 export * from './shared/interfaces/isummary-element';
 export * from './shared/interfaces/idynamic-table.interface';
+export * from './shared/interfaces/ifilter.interface';
 
 // Data
 export * from './shared/data/smartlist/columns.data';

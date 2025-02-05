@@ -1,11 +1,16 @@
 <ng-template #dynamicFilter>
   <div class="flex flex-col px-4 py-2">
     <div class="flex-1 space-y-2">
-      @for (field of fields.fields; track $index) {
-        <div mat-menu-item [ngSwitch]="field.fieldType">
-          <div *ngSwitchCase="'searchBar'" class="mb-10">
+      @for (field of fields.fields; track field; let index = $index) {
+        <div
+          mat-menu-item
+          (click)="$event.stopPropagation()"
+          [ngSwitch]="field.fieldType"
+          class="w-full"
+        >
+          <div *ngSwitchCase="'searchBar'" class="mb-5">
             <evo-search-bar
-              [twClass]="'h-12 min-w-36 max-w-lg'"
+              [twClass]="'min-w-36 max-w-lg'"
               [placeholder]="'empleados'"
               (searchQuery)="testingparams($event, field.id)"
             >
@@ -27,11 +32,13 @@
             ></evo-autocomplete>
           </div>
           <div *ngSwitchCase="'select'">
-            <!-- <evo-select [label]="field.label"
-            [items]="field.items"
-            [control]="field.control"
-            [isRequired]="false"
-            ></evo-select> -->
+            <evo-select
+              [label]="field.label"
+              [items]="field.items || []"
+              [control]="field.control"
+              [isRequired]="false"
+              (valueChange)="testingparams($event, field.id)"
+            ></evo-select>
           </div>
           <div *ngSwitchDefault>
             <evo-input
@@ -56,14 +63,14 @@
         <evo-button
           [label]="'limpiar'"
           [theme]="'secondary'"
-          (click)="testing()"
+          (click)="$event.stopPropagation(); cleanFields()"
         ></evo-button>
       </div>
       <div>
         <evo-button
           [label]="'filtrar'"
           [theme]="'primary'"
-          (click)="testing()"
+          (click)="applyFilter()"
         ></evo-button>
       </div>
     </div>
@@ -76,7 +83,7 @@
 </div>
 <div class="block sm:hidden">
   <button
-    mat-icon-button
+    mat-stroked-button
     [matMenuTriggerFor]="menu"
     [matMenuTriggerRestoreFocus]="false"
     class="flex items-center"

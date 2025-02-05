@@ -2,59 +2,58 @@
   <div class="flex flex-col px-4 py-2">
     <div class="flex-1 space-y-2">
       @for (field of fields.fields; track field; let index = $index) {
-        <div
-          mat-menu-item
-          (click)="$event.stopPropagation()"
-          [ngSwitch]="field.fieldType"
-          class="w-full"
-        >
-          <div *ngSwitchCase="'searchBar'" class="mb-5">
-            <evo-search-bar
-              [twClass]="'min-w-36 max-w-lg'"
-              [placeholder]="'empleados'"
-              (searchQuery)="testingparams($event, field.id)"
-            >
-            </evo-search-bar>
-          </div>
-          <div *ngSwitchCase="'autocomplete'">
-            <evo-autocomplete
-              [inputConfiguration]="{
-                inputType: field.inputType,
-                control: field.control,
-                label: field.label,
-                inputPlaceholder: field.inputPlaceholder,
-                requiredErrorMessage: field.requiredErrorMessage,
-                emailErrorMessage: field.emailErrorMessage,
-                twClass: field.twClass,
-              }"
-              [items]="field.items || []"
-              (valueChange)="testingparams($event, field.id)"
-            ></evo-autocomplete>
-          </div>
-          <div *ngSwitchCase="'select'">
-            <evo-select
-              [label]="field.label"
-              [items]="field.items || []"
-              [control]="field.control"
-              [isRequired]="false"
-              (valueChange)="testingparams($event, field.id)"
-            ></evo-select>
-          </div>
-          <div *ngSwitchDefault>
-            <evo-input
-              class="flex-grow"
-              [inputConfiguration]="{
-                inputType: field.inputType,
-                control: field.control,
-                label: field.label,
-                inputPlaceholder: field.inputPlaceholder,
-                requiredErrorMessage: field.requiredErrorMessage,
-                emailErrorMessage: field.emailErrorMessage,
-                twClass: field.twClass,
-              }"
-              (valueChange)="testingparams($event, field.id)"
-            ></evo-input>
-          </div>
+        <div mat-menu-item (click)="$event.stopPropagation()" class="w-full">
+          @switch (field.fieldType) {
+            @case ("searchBar") {
+              <div class="mb-5">
+                <evo-search-bar
+                  [twClass]="'min-w-36 max-w-lg'"
+                  [placeholder]="'empleados'"
+                  (searchQuery)="testingparams($event, field.id)"
+                >
+                </evo-search-bar>
+              </div>
+            }
+            @case ("autocomplete") {
+              <evo-autocomplete
+                [inputConfiguration]="{
+                  inputType: field.inputType,
+                  control: field.control,
+                  label: field.label,
+                  inputPlaceholder: field.inputPlaceholder,
+                  requiredErrorMessage: field.requiredErrorMessage,
+                  emailErrorMessage: field.emailErrorMessage,
+                  twClass: field.twClass,
+                }"
+                [items]="field.items || []"
+                (valueChange)="testingparams($event, field.id)"
+              ></evo-autocomplete>
+            }
+            @case ("select") {
+              <evo-select
+                [label]="field.label"
+                [items]="field.items || []"
+                [control]="field.control"
+                [isRequired]="false"
+                (valueChange)="testingparams($event, field.id)"
+              ></evo-select>
+            }
+            @default {
+              <evo-input
+                class="flex-grow"
+                [inputConfiguration]="{
+                  inputType: field.inputType,
+                  control: field.control,
+                  label: field.label,
+                  inputPlaceholder: field.inputPlaceholder,
+                  requiredErrorMessage: field.requiredErrorMessage,
+                  emailErrorMessage: field.emailErrorMessage,
+                  twClass: field.twClass,
+                }"
+                (valueChange)="testingparams($event, field.id)"
+              ></evo-input>
+            }
+          }
         </div>
       }
     </div>

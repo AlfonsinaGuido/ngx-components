@@ -13,6 +13,7 @@ import {
   IFilter,
   SelectComponent,
   IFilterResponse,
+  AutocompleteComponent,
 } from '../public-api';
 import {
   FormBuilder,
@@ -21,7 +22,6 @@ import {
   Validators,
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { AutocompleteComponent } from '../autocomplete/autocomplete.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -56,7 +56,6 @@ export class FilterComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
-    console.log('Input de campos ingresados ', this.fields);
   }
 
   initForm(): void {

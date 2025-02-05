@@ -82,6 +82,9 @@ export * from './shared/interfaces/ifilter.interface';
 export * from './shared/data/smartlist/columns.data';
 
 // Api Interfaces
+export * from './shared/interfaces/api/iplaza.interface';
+export * from './shared/interfaces/api/iexpediente.interface';
+export * from './shared/interfaces/api/iempleo.interface';
 export * from './shared/interfaces/api/iempleado.interface';
 export * from './shared/interfaces/api/ipermiso.interface';
 export * from './shared/interfaces/api/ivalue-list.interface';

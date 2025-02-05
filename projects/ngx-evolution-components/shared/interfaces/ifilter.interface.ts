@@ -1,6 +1,9 @@
 import { Form, FormGroup } from '@angular/forms';
-import { IInput, MatNativeControlInputType } from './iinput.interface';
-import { IValueList } from './api/ivalue-list.interface';
+import {
+  IInput,
+  IValueList,
+  MatNativeControlInputType,
+} from '../../public-api';
 
 export type InputType =
   | 'autocomplete'

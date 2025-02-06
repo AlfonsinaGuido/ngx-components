@@ -88,6 +88,7 @@ describe('SidebarComponent', () => {
         email: 'user@example.com',
         jobPositions: [
           {
+            CompaniaCodigo: 178,
             Puesto: {
               Nombre: 'Test Nombre',
             },

@@ -1,0 +1,23 @@
+<mat-tab-group
+  (selectedIndexChange)="selectedIndexChange.emit($event)"
+  animationDuration="0ms"
+  [selectedIndex]="selectedIndex"
+  color="accent"
+  class="evo-tabs {{ twClass }}"
+>
+  @for (tab of tabs; track $index) {
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <span
+          [matBadge]="tab.badgeValue"
+          matBadgeOverlap="false"
+          [matBadgeHidden]="tab.badgeValue === 0"
+          matBadgeColor="warn"
+          class="text-dark-gray text-base font-bold"
+          >{{ tab.label }}</span
+        >
+      </ng-template>
+      <ng-container *ngTemplateOutlet="tab.content"></ng-container>
+    </mat-tab>
+  }
+</mat-tab-group>

@@ -6,7 +6,76 @@
   "interceptors": [],
   "classes": [],
   "directives": [],
-  "components": [],
+  "components": [
+    {
+      "name": "TabContentComponent",
+      "id": "component-TabContentComponent-01f07bad069cfcdfd09ddbae3e2e804fbaa575a79592870405c947a56ece224a88f71b9c20745d27fbd39db9199c5bf1daf953ffb659175445247a1e159f3068",
+      "file": "stories/tabs.stories.ts",
+      "encapsulation": [],
+      "entryComponents": [],
+      "inputs": [],
+      "outputs": [],
+      "providers": [],
+      "selector": "app-tab-content",
+      "styleUrls": [],
+      "styles": [],
+      "template": "<ng-template #tabContent1 matTabContent><div>Programas</div></ng-template>\n<ng-template #tabContent2 matTabContent><div>Tabla</div></ng-template>\n",
+      "templateUrl": [],
+      "viewProviders": [],
+      "hostDirectives": [],
+      "inputsClass": [],
+      "outputsClass": [],
+      "propertiesClass": [
+        {
+          "name": "tabContent1",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "TemplateRef<any>",
+          "optional": false,
+          "description": "",
+          "line": 20,
+          "decorators": [
+            {
+              "name": "ViewChild",
+              "stringifiedArguments": "'tabContent1', {static: true}"
+            }
+          ],
+          "modifierKind": [170]
+        },
+        {
+          "name": "tabContent2",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "TemplateRef<any>",
+          "optional": false,
+          "description": "",
+          "line": 21,
+          "decorators": [
+            {
+              "name": "ViewChild",
+              "stringifiedArguments": "'tabContent2', {static: true}"
+            }
+          ],
+          "modifierKind": [170]
+        }
+      ],
+      "methodsClass": [],
+      "deprecated": false,
+      "deprecationMessage": "",
+      "hostBindings": [],
+      "hostListeners": [],
+      "standalone": false,
+      "imports": [],
+      "description": "",
+      "rawdescription": "\n",
+      "type": "component",
+      "sourceCode": "import { Component, TemplateRef, ViewChild } from '@angular/core';\nimport { provideAnimationsAsync } from '@angular/platform-browser/animations/async';\nimport { TabsComponent } from '@aseinfo/ngx-evolution-components/public-api';\nimport {\n  applicationConfig,\n  moduleMetadata,\n  type Meta,\n  type StoryObj,\n} from '@storybook/angular';\n\n// Componente que contiene las plantillas de pestañas\n@Component({\n  selector: 'app-tab-content',\n  template: `\n    <ng-template #tabContent1 matTabContent><div>Programas</div></ng-template>\n    <ng-template #tabContent2 matTabContent><div>Tabla</div></ng-template>\n  `,\n})\nclass TabContentComponent {\n  @ViewChild('tabContent1', { static: true }) tabContent1!: TemplateRef<any>;\n  @ViewChild('tabContent2', { static: true }) tabContent2!: TemplateRef<any>;\n}\n\n// More on how to set up stories at: https://storybook.js.org/docs/writing-stories\nconst meta: Meta<TabsComponent> = {\n  title: 'Evolution Components/Tabs',\n  component: TabsComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync()],\n    }),\n    moduleMetadata({\n      declarations: [TabContentComponent],\n    }),\n  ],\n  tags: ['autodocs'],\n};\n\nexport default meta;\ntype Story = StoryObj<TabsComponent>;\n\n// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args\n\nexport const Default: Story = {\n  render: (args) => ({\n    props: args,\n    template: `\n      <app-tab-content #tabContent></app-tab-content>\n      <evo-tabs\n        [tabs]=\"[\n          { label: tabs[0]?.label, badgeValue: tabs[0]?.badgeValue, content: tabContent.tabContent1 },\n          { label: tabs[1]?.label, badgeValue: tabs[1]?.badgeValue, content: tabContent.tabContent2 },\n        ]\"\n        [selectedIndex]=\"selectedIndex\"\n        [twClass]=\"twClass\"\n      >\n      </evo-tabs>\n    `,\n  }),\n  args: {\n    selectedIndex: 0,\n    tabs: [\n      {\n        label: 'Asignar',\n        badgeValue: 0,\n        content: '' as any as TemplateRef<any>,\n      },\n      {\n        label: 'Gestionar',\n        badgeValue: 4,\n        content: '' as any as TemplateRef<any>,\n      },\n    ],\n    twClass: '',\n  },\n};\n",
+      "assetsDirs": [],
+      "styleUrlsData": "",
+      "stylesData": "",
+      "extends": []
+    }
+  ],
   "modules": [],
   "miscellaneous": {
     "variables": [
@@ -415,6 +484,16 @@
         "deprecationMessage": "",
         "type": "Story",
         "defaultValue": "{\n  args: {\n    columns: 3,\n  },\n}"
+      },
+      {
+        "name": "Default",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/tabs.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  render: (args) => ({\n    props: args,\n    template: `\n      <app-tab-content #tabContent></app-tab-content>\n      <evo-tabs\n        [tabs]=\"[\n          { label: tabs[0]?.label, badgeValue: tabs[0]?.badgeValue, content: tabContent.tabContent1 },\n          { label: tabs[1]?.label, badgeValue: tabs[1]?.badgeValue, content: tabContent.tabContent2 },\n        ]\"\n        [selectedIndex]=\"selectedIndex\"\n        [twClass]=\"twClass\"\n      >\n      </evo-tabs>\n    `,\n  }),\n  args: {\n    selectedIndex: 0,\n    tabs: [\n      {\n        label: 'Asignar',\n        badgeValue: 0,\n        content: '' as any as TemplateRef<any>,\n      },\n      {\n        label: 'Gestionar',\n        badgeValue: 4,\n        content: '' as any as TemplateRef<any>,\n      },\n    ],\n    twClass: '',\n  },\n}"
       },
       {
         "name": "Default",
@@ -1061,6 +1140,16 @@
         "deprecationMessage": "",
         "type": "Meta<SvgComponent>",
         "defaultValue": "{\n  title: 'Evolution Components/Svg',\n  component: SvgComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideHttpClient()],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+      },
+      {
+        "name": "meta",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "stories/tabs.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Meta<TabsComponent>",
+        "defaultValue": "{\n  title: 'Evolution Components/Tabs',\n  component: TabsComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync()],\n    }),\n    moduleMetadata({\n      declarations: [TabContentComponent],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
       },
       {
         "name": "meta",
@@ -2248,6 +2337,17 @@
         "subtype": "typealias",
         "rawtype": "StoryObj<TableroSkeletonComponent>",
         "file": "stories/tablero-skeleton.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "description": "",
+        "kind": 183
+      },
+      {
+        "name": "Story",
+        "ctype": "miscellaneous",
+        "subtype": "typealias",
+        "rawtype": "StoryObj<TabsComponent>",
+        "file": "stories/tabs.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "description": "",
@@ -4018,6 +4118,28 @@
           "defaultValue": "{\n  args: {\n    columns: 5,\n  },\n}"
         }
       ],
+      "stories/tabs.stories.ts": [
+        {
+          "name": "Default",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/tabs.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  render: (args) => ({\n    props: args,\n    template: `\n      <app-tab-content #tabContent></app-tab-content>\n      <evo-tabs\n        [tabs]=\"[\n          { label: tabs[0]?.label, badgeValue: tabs[0]?.badgeValue, content: tabContent.tabContent1 },\n          { label: tabs[1]?.label, badgeValue: tabs[1]?.badgeValue, content: tabContent.tabContent2 },\n        ]\"\n        [selectedIndex]=\"selectedIndex\"\n        [twClass]=\"twClass\"\n      >\n      </evo-tabs>\n    `,\n  }),\n  args: {\n    selectedIndex: 0,\n    tabs: [\n      {\n        label: 'Asignar',\n        badgeValue: 0,\n        content: '' as any as TemplateRef<any>,\n      },\n      {\n        label: 'Gestionar',\n        badgeValue: 4,\n        content: '' as any as TemplateRef<any>,\n      },\n    ],\n    twClass: '',\n  },\n}"
+        },
+        {
+          "name": "meta",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "stories/tabs.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Meta<TabsComponent>",
+          "defaultValue": "{\n  title: 'Evolution Components/Tabs',\n  component: TabsComponent,\n  decorators: [\n    applicationConfig({\n      providers: [provideAnimationsAsync()],\n    }),\n    moduleMetadata({\n      declarations: [TabContentComponent],\n    }),\n  ],\n  tags: ['autodocs'],\n}"
+        }
+      ],
       "stories/time-segmented-list.stories.ts": [
         {
           "name": "Default",
@@ -4646,6 +4768,19 @@
           "subtype": "typealias",
           "rawtype": "StoryObj<TableroSkeletonComponent>",
           "file": "stories/tablero-skeleton.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "description": "",
+          "kind": 183
+        }
+      ],
+      "stories/tabs.stories.ts": [
+        {
+          "name": "Story",
+          "ctype": "miscellaneous",
+          "subtype": "typealias",
+          "rawtype": "StoryObj<TabsComponent>",
+          "file": "stories/tabs.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "description": "",
@@ -6451,6 +6586,35 @@
         "linktype": "miscellaneous",
         "linksubtype": "variable",
         "name": "masColumnas",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/tabs.stories.ts",
+        "type": "component",
+        "linktype": "component",
+        "name": "TabContentComponent",
+        "coveragePercent": 0,
+        "coverageCount": "0/3",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/tabs.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Default",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "stories/tabs.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "meta",
         "coveragePercent": 0,
         "coverageCount": "0/1",
         "status": "low"

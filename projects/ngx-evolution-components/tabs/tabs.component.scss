@@ -1,0 +1,10 @@
+.evo-tabs {
+  .mdc-tab {
+    justify-content: left;
+    max-width: fit-content;
+  }
+  .mat-mdc-tab-body-wrapper {
+    border-top: 1px solid var(--light-gray);
+    padding-top: 12px;
+  }
+}

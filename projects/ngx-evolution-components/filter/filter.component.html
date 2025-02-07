@@ -9,7 +9,7 @@
                 <evo-search-bar
                   [twClass]="'min-w-36 max-w-lg'"
                   [placeholder]="'empleados'"
-                  (searchQuery)="testingparams($event, field.id)"
+                  (searchQuery)="getInputValue($event, field.id)"
                 >
                 </evo-search-bar>
               </div>
@@ -26,7 +26,7 @@
                   twClass: field.twClass,
                 }"
                 [items]="field.items || []"
-                (valueChange)="testingparams($event, field.id)"
+                (valueChange)="getInputValue($event, field.id)"
               ></evo-autocomplete>
             }
             @case ("select") {
@@ -35,7 +35,7 @@
                 [items]="field.items || []"
                 [control]="field.control"
                 [isRequired]="false"
-                (valueChange)="testingparams($event, field.id)"
+                (valueChange)="getInputValue($event, field.id)"
               ></evo-select>
             }
             @default {
@@ -50,7 +50,7 @@
                   emailErrorMessage: field.emailErrorMessage,
                   twClass: field.twClass,
                 }"
-                (valueChange)="testingparams($event, field.id)"
+                (valueChange)="getInputValue($event, field.id)"
               ></evo-input>
             }
           }

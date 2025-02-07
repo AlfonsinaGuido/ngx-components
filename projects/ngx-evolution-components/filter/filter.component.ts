@@ -58,6 +58,9 @@ export class FilterComponent implements OnInit {
     this.initForm();
   }
 
+  /**
+   * Inicializa form y validators del formulario dinamico contenido en el filter
+   */
   initForm(): void {
     this.form = this.formBuilder.group({
       defaultFieldSelect: new FormControl('', []),
@@ -75,11 +78,20 @@ export class FilterComponent implements OnInit {
     });
   }
 
+  /**
+   * Emite el form, al componente padre
+   */
   applyFilter() {
     this.filterResponse.emit(this.response);
   }
 
-  testingparams(event: any, id: string) {
+  /**
+   * Almacena los resultados de los campos filtrados y los almacena
+   * en un solo objeto de response
+   * @param event respuesta del input
+   * @param id codigo del campo
+   */
+  getInputValue(event: any, id: string) {
     const index = this.response.findIndex((obj) => obj.id === id);
 
     if (index !== -1) {
@@ -95,6 +107,9 @@ export class FilterComponent implements OnInit {
     }
   }
 
+  /**
+   * Limpia formulario y emite una respuesta de campos vacios
+   */
   cleanFields() {
     this.fields.fields.forEach((value) => {
       value.control.reset();
@@ -105,6 +120,11 @@ export class FilterComponent implements OnInit {
     this.filterResponse.emit(this.response);
   }
 
+  /**
+   * Devuelve el FormControl dependiendo del input ingresado
+   * @param fieldName codigo del input
+   * @returns FormControl
+   */
   getFormControl(fieldName: string): FormControl {
     return this.form.controls[fieldName] as FormControl;
   }

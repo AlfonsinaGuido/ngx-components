@@ -223,6 +223,7 @@ export const Default: Story = {
       email: 'slopez@empresa.com',
       jobPositions: [
         {
+          CompaniaCodigo: 180,
           Puesto: {
             Nombre: 'Gerente Desarrollo',
           },
@@ -242,6 +243,7 @@ export const Default: Story = {
           },
         },
         {
+          CompaniaCodigo: 190,
           Puesto: {
             Nombre: 'Gerente Calidad',
           },

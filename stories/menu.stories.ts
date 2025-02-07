@@ -403,6 +403,7 @@ export const UserMenu: Story = {
       email: 'slopez@empresa.com',
       jobPositions: [
         {
+          CompaniaCodigo: 180,
           Puesto: {
             Nombre: 'Gerente Desarrollo',
           },
@@ -422,6 +423,7 @@ export const UserMenu: Story = {
           },
         },
         {
+          CompaniaCodigo: 190,
           Puesto: {
             Nombre: 'Gerente Calidad',
           },
@@ -441,6 +443,7 @@ export const UserMenu: Story = {
           },
         },
         {
+          CompaniaCodigo: 200,
           Puesto: {
             Nombre: 'Community Manager',
           },

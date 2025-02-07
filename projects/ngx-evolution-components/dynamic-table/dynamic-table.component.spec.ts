@@ -3,7 +3,7 @@ import { DynamicTableComponent } from './dynamic-table.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ButtonComponent } from '../button/button.component';
 import { PaginationComponent } from '../pagination/pagination.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, FormControl } from '@angular/forms';
 import {
   IDynamicTableColumn,
   IPaginationConfig,
@@ -320,5 +320,38 @@ describe('DynamicTableComponent', () => {
 
     const col2 = { header: 'NoField' } as any;
     expect(component.trackByColumn(2, col2)).toBe(2);
+  });
+
+  it('should create and reuse a FormControl for a given row and column', () => {
+    const row: ITableRow = { id: 10, name: 'Test', selected: false };
+    const column: IDynamicTableColumn = { header: 'Name', field: 'name' };
+
+    const control1 = component.getOrCreateSelectControl(row, column);
+    expect(control1).toBeTruthy();
+    expect(control1 instanceof FormControl).toBeTrue();
+    expect(control1.value).toEqual(row['name']);
+
+    control1.setValue('Updated Test');
+
+    const control2 = component.getOrCreateSelectControl(row, column);
+    expect(control2).toBe(control1);
+    expect(control2.value).toEqual('Updated Test');
+  });
+
+  it('should update row value and emit selectorValueChange event on value change', () => {
+    const row: ITableRow = { id: 20, name: 'Initial', selected: false };
+    const column: IDynamicTableColumn = { header: 'Name', field: 'name' };
+    const newValue = 'New Value';
+
+    spyOn(component.selectorValueChange, 'emit');
+
+    component.onSelectorValueChange(newValue, row, column);
+
+    expect(row['name']).toEqual(newValue);
+    expect(component.selectorValueChange.emit).toHaveBeenCalledWith({
+      row,
+      column,
+      value: newValue,
+    });
   });
 });

@@ -12,7 +12,7 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import {
   IDynamicTableColumn,
@@ -23,6 +23,9 @@ import {
   IDynamicTableConfig,
   ButtonComponent,
   PaginationComponent,
+  SelectComponent,
+  AvatarComponent,
+  ViewportService,
 } from '../public-api';
 
 @Component({
@@ -34,6 +37,8 @@ import {
     FormsModule,
     MatIconModule,
     ButtonComponent,
+    SelectComponent,
+    AvatarComponent,
   ],
   templateUrl: './dynamic-table.component.html',
   styleUrls: ['./dynamic-table.component.scss', '../styles/output.scss'],
@@ -54,7 +59,6 @@ export class DynamicTableComponent implements OnInit, OnChanges, OnDestroy {
       page: 'Página',
       of: 'de',
     },
-    page: 0,
   };
 
   // Agrupación de opciones en config
@@ -69,7 +73,6 @@ export class DynamicTableComponent implements OnInit, OnChanges, OnDestroy {
 
   // Resto de inputs
   @Input() hiddenColumns: number[] = [];
-  @Input() isMobile: boolean = false;
   @Input() twClass: string = '';
 
   @Output() selectionChange = new EventEmitter<ITableRow[]>();
@@ -85,14 +88,35 @@ export class DynamicTableComponent implements OnInit, OnChanges, OnDestroy {
     onPreviousPage: () => this.previousPage(),
     onNextPage: () => this.nextPage(),
   };
+  @Output() selectorValueChange = new EventEmitter<{
+    row: ITableRow;
+    column: IDynamicTableColumn;
+    value: any;
+  }>();
 
   paginatedItems: ITableRow[] = [];
   sortState: { [colIndex: number]: 'asc' | 'desc' | null } = {};
   private viewportSubscription!: Subscription;
+  private selectControls = new WeakMap<
+    ITableRow,
+    { [key: string]: FormControl }
+  >();
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  isMobile: boolean = false;
+
+  constructor(
+    private cdr: ChangeDetectorRef,
+    private _viewportService: ViewportService,
+  ) {}
 
   ngOnInit(): void {
+    this.viewportSubscription = this._viewportService
+      .getIsMobile()
+      .subscribe((isMobile) => {
+        this.isMobile = isMobile;
+        this.adjustPagination();
+        this.cdr.markForCheck();
+      });
     this.initializeTable();
   }
 
@@ -178,31 +202,26 @@ export class DynamicTableComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   /**
-   * Retorna si todas las filas (de la página actual, si no hay paginación manual) están seleccionadas.
+   * Retorna si todas las filas **de la página actual** están seleccionadas.
    */
   public areAllSelected(): boolean {
-    const targetItems = this.paginationConfig.isManualPaginate
-      ? this.data
-      : this.paginatedItems;
-
-    return targetItems.every((row) => row.selected);
+    return (
+      this.paginatedItems.length > 0 &&
+      this.paginatedItems.every((row) => row.selected)
+    );
   }
 
   /**
-   * Selecciona/deselecciona todas las filas.
+   * Selecciona o deselecciona todas las filas de la **página actual**.
+   * Si ninguna está seleccionada, las marca como seleccionadas.
+   * Si todas están seleccionadas, las deselecciona.
    */
   public toggleSelectAll(): void {
     if (!this.config.multiSelect) {
       return;
     }
-
-    const targetItems = this.paginationConfig.isManualPaginate
-      ? this.data
-      : this.paginatedItems;
-
     const allSelected = this.areAllSelected();
-    targetItems.forEach((row) => (row.selected = !allSelected));
-
+    this.paginatedItems.forEach((row) => (row.selected = !allSelected));
     this.emitSelection();
   }
 
@@ -399,5 +418,35 @@ export class DynamicTableComponent implements OnInit, OnChanges, OnDestroy {
    */
   public trackByColumn(index: number, column: IDynamicTableColumn): any {
     return column.field || index;
+  }
+
+  /**
+   * Devuelve (o crea) un FormControl para el selector en la celda (row, column).
+   */
+  getOrCreateSelectControl(
+    row: ITableRow,
+    column: IDynamicTableColumn,
+  ): FormControl {
+    let controlsForRow = this.selectControls.get(row);
+    if (!controlsForRow) {
+      controlsForRow = {};
+      this.selectControls.set(row, controlsForRow);
+    }
+    if (!controlsForRow[column.field]) {
+      controlsForRow[column.field] = new FormControl(row[column.field]);
+    }
+    return controlsForRow[column.field];
+  }
+
+  /**
+   * Maneja el cambio de valor de un selector en una celda.
+   */
+  onSelectorValueChange(
+    value: any,
+    row: ITableRow,
+    column: IDynamicTableColumn,
+  ): void {
+    row[column.field] = value;
+    this.selectorValueChange.emit({ row, column, value });
   }
 }

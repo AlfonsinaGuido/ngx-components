@@ -34,6 +34,8 @@ export class PaginationComponent {
       of: 'de',
     },
     twClass: '',
+    simplePageIndicator: false,
+    nextPage: false,
   };
 
   @Output() pageSelected = new EventEmitter<{ page: number }>();
@@ -53,10 +55,18 @@ export class PaginationComponent {
 
   /**
    * Navega a la página siguiente.
+   * Si simplePageIndicator es true, se evalúa la propiedad nextPage para habilitar la lógica.
+   * Si simplePageIndicator es false, se ignora nextPage y se emite el evento si aún hay páginas.
    */
   nextPage() {
-    if (this.config.currentPage < this.config.totalPages) {
-      this.nextPageClicked.emit();
+    if (this.config.simplePageIndicator) {
+      if (this.config.nextPage) {
+        this.nextPageClicked.emit();
+      }
+    } else {
+      if (this.config.currentPage < this.config.totalPages) {
+        this.nextPageClicked.emit();
+      }
     }
   }
 
@@ -79,9 +89,14 @@ export class PaginationComponent {
   }
 
   /**
-   * Obtiene el texto para el indicador de la página actual y el total de páginas.
+   * Obtiene el texto para el indicador de la página actual.
+   * Si simplePageIndicator es true, muestra solo "Página n".
+   * Caso contrario, muestra "Página n de n".
    */
   getPageIndicatorText(): string {
+    if (this.config.simplePageIndicator) {
+      return `${this.config.titles.page} ${this.config.currentPage}`;
+    }
     return `${this.config.titles.page} ${this.config.currentPage} ${this.config.titles.of} ${this.config.totalPages}`;
   }
 
@@ -89,6 +104,9 @@ export class PaginationComponent {
    * Obtiene el texto para mostrar el rango de ítems y el total de resultados.
    */
   getItemsRangeText(): string {
+    if (this.config.hideItemsRange) {
+      return '';
+    }
     let startItem = this.config.currentPage * this.config.pageSize;
     let endItem = this.config.totalItems;
 

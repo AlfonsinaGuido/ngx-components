@@ -1,0 +1,46 @@
+.smart-table-selector {
+  height: 60px;
+  font-size: 12px;
+
+  .mat-mdc-form-field-infix {
+    bottom: 8px;
+  }
+  .mat-mdc-form-field-focus-overlay {
+    height: 42px;
+  }
+  label,
+  span {
+    font-size: 12px;
+  }
+}
+
+table.w-full th.th-checkbox-header {
+  background-color: #f9fafb;
+}
+
+.dynamic-table {
+  --scrollbar-track-color: #f1f1f1;
+  --scrollbar-thumb-color: #c1c1c1;
+  --scrollbar-size: 5px;
+
+  .custom-scroll::-webkit-scrollbar {
+    width: var(--scrollbar-size);
+  }
+
+  .custom-scroll::-webkit-scrollbar-track {
+    background: var(--scrollbar-track-color);
+    border-radius: 5px;
+  }
+
+  .custom-scroll::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb-color);
+    border-radius: 5px;
+  }
+
+  @supports not selector(::-webkit-scrollbar) {
+    .custom-scroll {
+      scrollbar-width: thin;
+      scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
+    }
+  }
+}

@@ -61,6 +61,29 @@ definitions:
           - pipe: atlassian/npm-publish:1.0.0
             variables:
               NPM_TOKEN: $NPM_TOKEN
+    - step: &build-storybook
+        name: Build Storybook
+        caches:
+          - node
+        script:
+          - npm install --quiet
+          - npm run build-storybook
+        artifacts:
+          - storybook-static/**
+    - step: &deploy-storybook
+        name: Deploy Storybook
+        deployment: Production
+        script:
+          - chown -R 65536:165536 $BITBUCKET_CLONE_DIR
+          - pipe: microsoft/azure-static-web-apps-deploy:main
+            variables:
+              API_TOKEN: $deployment_token
+              APP_BUILD_COMMAND: "npm run build-storybook"
+              APP_LOCATION: "$BITBUCKET_CLONE_DIR"
+              BRANCH: "development"
+              CONFIG_FILE_LOCATION: "$BITBUCKET_CLONE_DIR/storybook-static"
+              OUTPUT_LOCATION: "$BITBUCKET_CLONE_DIR/storybook-static"
+              VERBOSE: "true"
 
 pipelines:
   branches:
@@ -69,3 +92,5 @@ pipelines:
       - step: *config-git-permissions
       - step: *commit-patch
       - step: *publish-verdaccio-patch
+      - step: *build-storybook
+      - step: *deploy-storybook

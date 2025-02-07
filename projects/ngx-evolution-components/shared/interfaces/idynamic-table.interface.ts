@@ -1,9 +1,15 @@
+import { IValueList } from '../../public-api';
+
 export interface IDynamicTableColumn {
   header: string;
   field: string;
   visible?: boolean;
   width?: string;
   align?: string;
+  format?: string;
+  selectorOptions?: IValueList[];
+  isMultiple?: boolean;
+  imgField?: string;
 }
 
 export interface IColorRuleByColumn {

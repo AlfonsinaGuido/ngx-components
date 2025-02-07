@@ -7,11 +7,11 @@
   <!-- Vista de tabla (no móvil) -->
   @if (!isMobile) {
     <div
-      class="w-full overflow-hidden bg-white rounded-lg border border-gray-300"
+      class="w-full overflow-hidden bg-white rounded-lg border border-gray-300 dynamic-table"
       [ngClass]="twClass"
     >
       <div
-        class="w-full overflow-y-auto"
+        class="w-full overflow-y-auto custom-scroll"
         [ngStyle]="{ 'max-height': config.maxHeight }"
       >
         <table class="w-full border-collapse">
@@ -19,12 +19,12 @@
             <tr>
               <!-- Checkbox general si config.multiSelect -->
               @if (config.multiSelect) {
-                <th class="p-3">
+                <th class="p-3 th-checkbox-header text-center">
                   <input
                     type="checkbox"
-                    class="scale-110"
+                    class="scale-110 checkbox-input align-middle text-primary"
                     [checked]="areAllSelected()"
-                    (change)="toggleSelectAll()"
+                    (click)="toggleSelectAll(); $event.stopPropagation()"
                   />
                 </th>
               }
@@ -66,13 +66,14 @@
             @for (row of paginatedItems; track trackByRow) {
               <tr class="hover:bg-gray-50" (click)="$event.stopPropagation()">
                 <!-- Checkbox por fila -->
+
                 @if (config.multiSelect) {
-                  <td class="p-3">
+                  <td class="p-3 text-center">
                     <input
                       type="checkbox"
-                      class="scale-110"
-                      [(ngModel)]="row.selected"
-                      (change)="toggleRowSelect(row)"
+                      class="scale-110 checkbox-input align-middle text-primary"
+                      [checked]="row.selected"
+                      (click)="toggleRowSelect(row); $event.stopPropagation()"
                     />
                   </td>
                 }
@@ -84,27 +85,52 @@
                     [style.textAlign]="column.align || 'left'"
                     class="p-3 border-b border-gray-200"
                   >
-                    <!-- Chequeamos si renderizar color/tag -->
                     @if (
-                      shouldRenderColorTag(row, columns.indexOf(column)) ||
-                      isTagColumn(columns.indexOf(column))
+                      column.format === "selector" && column.selectorOptions
                     ) {
-                      <div
-                        class="inline-flex items-center bg-gray-200 rounded-full px-2 py-1 text-sm"
-                        [ngStyle]="getTagStyle(row, columns.indexOf(column))"
-                      >
-                        {{ row[column.field] }}
-                        @if (isTagColumn(columns.indexOf(column))) {
-                          <button
-                            class="ml-1.5 bg-transparent border-none text-gray-500 hover:text-red-500 cursor-pointer"
-                            (click)="onTagClick(row, columns.indexOf(column))"
-                          >
-                            ✕
-                          </button>
-                        }
-                      </div>
+                      <evo-select
+                        [control]="getOrCreateSelectControl(row, column)"
+                        [items]="column.selectorOptions"
+                        (valueChange)="
+                          onSelectorValueChange($event, row, column)
+                        "
+                        [isMultiple]="column.isMultiple"
+                        [twClass]="'smart-table-selector'"
+                      ></evo-select>
                     } @else {
-                      {{ row[column.field] }}
+                      @if (column.format === "avatar") {
+                        <evo-avatar
+                          [name]="row[column.field]"
+                          [imgUrl]="column.imgField ? row[column.imgField] : ''"
+                          size="sm"
+                        ></evo-avatar>
+                      } @else {
+                        @if (
+                          shouldRenderColorTag(row, columns.indexOf(column)) ||
+                          isTagColumn(columns.indexOf(column))
+                        ) {
+                          <div
+                            class="inline-flex items-center bg-gray-200 rounded-full px-2 py-1 text-sm"
+                            [ngStyle]="
+                              getTagStyle(row, columns.indexOf(column))
+                            "
+                          >
+                            {{ row[column.field] }}
+                            @if (isTagColumn(columns.indexOf(column))) {
+                              <button
+                                class="ml-1.5 bg-transparent border-none text-gray-500 hover:text-red-500 cursor-pointer"
+                                (click)="
+                                  onTagClick(row, columns.indexOf(column))
+                                "
+                              >
+                                ✕
+                              </button>
+                            }
+                          </div>
+                        } @else {
+                          {{ row[column.field] }}
+                        }
+                      }
                     }
                   </td>
                 }
@@ -118,19 +144,22 @@
 
   <!-- Vista tipo Cards (móvil) -->
   @if (isMobile) {
-    <div class="w-full" [ngClass]="twClass">
+    <div class="w-full dynamic-table" [ngClass]="twClass">
       <div
-        class="w-full overflow-y-auto"
+        class="w-full overflow-y-auto custom-scroll"
         [ngStyle]="{ 'max-height': config.maxHeight }"
       >
         @for (row of paginatedItems; track trackByRow) {
-          <div class="border border-gray-300 rounded-lg p-4 mb-4 bg-white">
+          <div
+            class="border border-gray-300 rounded-lg p-4 mb-4 bg-white relative"
+          >
             @if (config.multiSelect) {
               <div class="absolute top-2 right-2">
                 <input
                   type="checkbox"
-                  [(ngModel)]="row.selected"
-                  (change)="toggleRowSelect(row)"
+                  class="scale-110 checkbox-input align-middle text-primary"
+                  [checked]="row.selected"
+                  (click)="toggleRowSelect(row); $event.stopPropagation()"
                 />
               </div>
             }
@@ -143,26 +172,44 @@
               >
                 <p class="font-bold text-sm mb-1">{{ column.header }}</p>
                 <div class="text-sm text-gray-700">
-                  @if (
-                    shouldRenderColorTag(row, columns.indexOf(column)) ||
-                    isTagColumn(columns.indexOf(column))
-                  ) {
-                    <div
-                      class="inline-flex items-center bg-gray-200 rounded-full px-2 py-1 text-sm"
-                      [ngStyle]="getTagStyle(row, columns.indexOf(column))"
-                    >
-                      {{ row[column.field] }}
-                      @if (isTagColumn(columns.indexOf(column))) {
-                        <button
-                          class="ml-1.5 bg-transparent border-none text-gray-500 hover:text-red-500 cursor-pointer"
-                          (click)="onTagClick(row, columns.indexOf(column))"
-                        >
-                          ✕
-                        </button>
-                      }
-                    </div>
+                  @if (column.format === "selector" && column.selectorOptions) {
+                    <evo-select
+                      [control]="getOrCreateSelectControl(row, column)"
+                      [items]="column.selectorOptions"
+                      (valueChange)="onSelectorValueChange($event, row, column)"
+                      [isMultiple]="column.isMultiple"
+                      [twClass]="'smart-table-selector'"
+                    ></evo-select>
                   } @else {
-                    {{ row[column.field] }}
+                    @if (column.format === "avatar") {
+                      <evo-avatar
+                        [name]="row[column.field]"
+                        [imgUrl]="column.imgField ? row[column.imgField] : ''"
+                        size="sm"
+                      ></evo-avatar>
+                    } @else {
+                      @if (
+                        shouldRenderColorTag(row, columns.indexOf(column)) ||
+                        isTagColumn(columns.indexOf(column))
+                      ) {
+                        <div
+                          class="inline-flex items-center bg-gray-200 rounded-full px-2 py-1 text-sm"
+                          [ngStyle]="getTagStyle(row, columns.indexOf(column))"
+                        >
+                          {{ row[column.field] }}
+                          @if (isTagColumn(columns.indexOf(column))) {
+                            <button
+                              class="ml-1.5 bg-transparent border-none text-gray-500 hover:text-red-500 cursor-pointer"
+                              (click)="onTagClick(row, columns.indexOf(column))"
+                            >
+                              ✕
+                            </button>
+                          }
+                        </div>
+                      } @else {
+                        {{ row[column.field] }}
+                      }
+                    }
                   }
                 </div>
               </div>

@@ -16,7 +16,11 @@
   <!-- Botón para ir a la página siguiente -->
   <evo-button
     (click)="nextPage()"
-    [disabled]="config.currentPage >= config.totalPages"
+    [disabled]="
+      config.simplePageIndicator
+        ? !config.nextPage
+        : config.currentPage >= config.totalPages
+    "
     [icon]="{ type: 'class', icon: 'chevron_right' }"
     [withoutBorder]="true"
     [twClass]="'pagination__evo-button'"

@@ -14,6 +14,9 @@ export interface IPaginationConfig {
   titles: IPaginationTitles;
   page?: number;
   twClass?: string;
+  hideItemsRange?: boolean;
+  simplePageIndicator?: boolean;
+  nextPage?: boolean;
 }
 
 export interface IPaginationEvents {

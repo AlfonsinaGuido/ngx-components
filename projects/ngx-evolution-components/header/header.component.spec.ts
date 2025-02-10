@@ -71,6 +71,7 @@ describe('HeaderComponent', () => {
       email: 'test',
       jobPositions: [
         {
+          CompaniaCodigo: 178,
           Puesto: {
             Nombre: 'Test Nombre',
           },

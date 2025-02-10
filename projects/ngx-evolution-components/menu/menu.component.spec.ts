@@ -78,6 +78,7 @@ describe('MenuComponent', () => {
       email: 'test',
       jobPositions: [
         {
+          CompaniaCodigo: 178,
           Puesto: {
             Nombre: 'Test Nombre',
           },
@@ -113,6 +114,7 @@ describe('MenuComponent', () => {
       email: 'test',
       jobPositions: [
         {
+          CompaniaCodigo: 178,
           Puesto: {
             Nombre: 'Test Nombre',
           },

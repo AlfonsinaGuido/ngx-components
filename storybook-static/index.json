@@ -1,0 +1,1240 @@
+{
+  "v": 5,
+  "entries": {
+    "configure-your-project--docs": {
+      "id": "configure-your-project--docs",
+      "title": "Configure your project",
+      "name": "Docs",
+      "importPath": "./stories/Configure.mdx",
+      "storiesImports": [],
+      "type": "docs",
+      "tags": ["dev", "test", "unattached-mdx"]
+    },
+    "evolution-components-accordion--docs": {
+      "id": "evolution-components-accordion--docs",
+      "title": "Evolution Components/Accordion",
+      "name": "Docs",
+      "importPath": "./stories/accordion.stories.ts",
+      "type": "docs",
+      "tags": ["dev", "test", "autodocs"],
+      "storiesImports": []
+    },
+    "evolution-components-accordion--interactive-accordion": {
+      "type": "story",
+      "id": "evolution-components-accordion--interactive-accordion",
+      "name": "Interactive Accordion",
+      "title": "Evolution Components/Accordion",
+      "importPath": "./stories/accordion.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-action-menu--docs": {
+      "id": "evolution-components-action-menu--docs",
+      "title": "Evolution Components/Action Menu",
+      "name": "Docs",
+      "importPath": "./stories/action-menu.stories.ts",
+      "type": "docs",
+      "tags": ["dev", "test", "autodocs"],
+      "storiesImports": []
+    },
+    "evolution-components-action-menu--default": {
+      "type": "story",
+      "id": "evolution-components-action-menu--default",
+      "name": "Default",
+      "title": "Evolution Components/Action Menu",
+      "importPath": "./stories/action-menu.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-assign-card--docs": {
+      "id": "evolution-components-assign-card--docs",
+      "title": "Evolution Components/Assign Card",
+      "name": "Docs",
+      "importPath": "./stories/assign-card.stories.ts",
+      "type": "docs",
+      "tags": ["dev", "test", "autodocs"],
+      "storiesImports": []
+    },
+    "evolution-components-assign-card--default": {
+      "type": "story",
+      "id": "evolution-components-assign-card--default",
+      "name": "Default",
+      "title": "Evolution Components/Assign Card",
+      "importPath": "./stories/assign-card.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-assign-card--no-data": {
+      "type": "story",
+      "id": "evolution-components-assign-card--no-data",
+      "name": "No Data",
+      "title": "Evolution Components/Assign Card",
+      "importPath": "./stories/assign-card.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-autocomplete--docs": {
+      "id": "evolution-components-autocomplete--docs",
+      "title": "Evolution Components/Autocomplete",
+      "name": "Docs",
+      "importPath": "./stories/autocomplete.stories.ts",
+      "type": "docs",
+      "tags": ["dev", "test", "autodocs"],
+      "storiesImports": []
+    },
+    "evolution-components-autocomplete--default": {
+      "type": "story",
+      "id": "evolution-components-autocomplete--default",
+      "name": "Default",
+      "title": "Evolution Components/Autocomplete",
+      "importPath": "./stories/autocomplete.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-autocomplete--required": {
+      "type": "story",
+      "id": "evolution-components-autocomplete--required",
+      "name": "Required",
+      "title": "Evolution Components/Autocomplete",
+      "importPath": "./stories/autocomplete.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-autocomplete--unlabeled": {
+      "type": "story",
+      "id": "evolution-components-autocomplete--unlabeled",
+      "name": "Unlabeled",
+      "title": "Evolution Components/Autocomplete",
+      "importPath": "./stories/autocomplete.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-avatar--docs": {
+      "id": "evolution-components-avatar--docs",
+      "title": "Evolution Components/Avatar",
+      "name": "Docs",
+      "importPath": "./stories/avatar.stories.ts",
+      "type": "docs",
+      "tags": ["dev", "test", "autodocs"],
+      "storiesImports": []
+    },
+    "evolution-components-avatar--foto-de-perfil": {
+      "type": "story",
+      "id": "evolution-components-avatar--foto-de-perfil",
+      "name": "Foto De Perfil",
+      "title": "Evolution Components/Avatar",
+      "importPath": "./stories/avatar.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-avatar--iniciales": {
+      "type": "story",
+      "id": "evolution-components-avatar--iniciales",
+      "name": "Iniciales",
+      "title": "Evolution Components/Avatar",
+      "importPath": "./stories/avatar.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-banner--docs": {
+      "id": "evolution-components-banner--docs",
+      "title": "Evolution Components/Banner",
+      "name": "Docs",
+      "importPath": "./stories/banner.stories.ts",
+      "type": "docs",
+      "tags": ["dev", "test", "autodocs"],
+      "storiesImports": []
+    },
+    "evolution-components-banner--success": {
+      "type": "story",
+      "id": "evolution-components-banner--success",
+      "name": "Success",
+      "title": "Evolution Components/Banner",
+      "importPath": "./stories/banner.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-banner--warning": {
+      "type": "story",
+      "id": "evolution-components-banner--warning",
+      "name": "Warning",
+      "title": "Evolution Components/Banner",
+      "importPath": "./stories/banner.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-banner--controlled-error": {
+      "type": "story",
+      "id": "evolution-components-banner--controlled-error",
+      "name": "Controlled Error",
+      "title": "Evolution Components/Banner",
+      "importPath": "./stories/banner.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-banner--uncontrolled-error": {
+      "type": "story",
+      "id": "evolution-components-banner--uncontrolled-error",
+      "name": "Uncontrolled Error",
+      "title": "Evolution Components/Banner",
+      "importPath": "./stories/banner.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-breadcrumb--docs": {
+      "id": "evolution-components-breadcrumb--docs",
+      "title": "Evolution Components/Breadcrumb",
+      "name": "Docs",
+      "importPath": "./stories/breadcrumb.stories.ts",
+      "type": "docs",
+      "tags": ["dev", "test", "autodocs"],
+      "storiesImports": []
+    },
+    "evolution-components-breadcrumb--default": {
+      "type": "story",
+      "id": "evolution-components-breadcrumb--default",
+      "name": "Default",
+      "title": "Evolution Components/Breadcrumb",
+      "importPath": "./stories/breadcrumb.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-breadcrumb--without-home-path": {
+      "type": "story",
+      "id": "evolution-components-breadcrumb--without-home-path",
+      "name": "Without Home Path",
+      "title": "Evolution Components/Breadcrumb",
+      "importPath": "./stories/breadcrumb.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-breadcrumb--hidden": {
+      "type": "story",
+      "id": "evolution-components-breadcrumb--hidden",
+      "name": "Hidden",
+      "title": "Evolution Components/Breadcrumb",
+      "importPath": "./stories/breadcrumb.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-button--docs": {
+      "id": "evolution-components-button--docs",
+      "title": "Evolution Components/Button",
+      "name": "Docs",
+      "importPath": "./stories/button.stories.ts",
+      "type": "docs",
+      "tags": ["dev", "test", "autodocs"],
+      "storiesImports": []
+    },
+    "evolution-components-button--default": {
+      "type": "story",
+      "id": "evolution-components-button--default",
+      "name": "Default",
+      "title": "Evolution Components/Button",
+      "importPath": "./stories/button.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-button--primary": {
+      "type": "story",
+      "id": "evolution-components-button--primary",
+      "name": "Primary",
+      "title": "Evolution Components/Button",
+      "importPath": "./stories/button.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-button--secondary": {
+      "type": "story",
+      "id": "evolution-components-button--secondary",
+      "name": "Secondary",
+      "title": "Evolution Components/Button",
+      "importPath": "./stories/button.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-button--warning": {
+      "type": "story",
+      "id": "evolution-components-button--warning",
+      "name": "Warning",
+      "title": "Evolution Components/Button",
+      "importPath": "./stories/button.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-button--with-markdown": {
+      "type": "story",
+      "id": "evolution-components-button--with-markdown",
+      "name": "With Markdown",
+      "title": "Evolution Components/Button",
+      "importPath": "./stories/button.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-button--with-function": {
+      "type": "story",
+      "id": "evolution-components-button--with-function",
+      "name": "With Function",
+      "title": "Evolution Components/Button",
+      "importPath": "./stories/button.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-button--with-mat-icon": {
+      "type": "story",
+      "id": "evolution-components-button--with-mat-icon",
+      "name": "With Mat Icon",
+      "title": "Evolution Components/Button",
+      "importPath": "./stories/button.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-button--with-avatar-name": {
+      "type": "story",
+      "id": "evolution-components-button--with-avatar-name",
+      "name": "With Avatar Name",
+      "title": "Evolution Components/Button",
+      "importPath": "./stories/button.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-button--with-avatar-img": {
+      "type": "story",
+      "id": "evolution-components-button--with-avatar-img",
+      "name": "With Avatar Img",
+      "title": "Evolution Components/Button",
+      "importPath": "./stories/button.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-button--with-avatar-and-label": {
+      "type": "story",
+      "id": "evolution-components-button--with-avatar-and-label",
+      "name": "With Avatar And Label",
+      "title": "Evolution Components/Button",
+      "importPath": "./stories/button.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-button--with-svg-icon": {
+      "type": "story",
+      "id": "evolution-components-button--with-svg-icon",
+      "name": "With Svg Icon",
+      "title": "Evolution Components/Button",
+      "importPath": "./stories/button.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-button--only-svg-icon": {
+      "type": "story",
+      "id": "evolution-components-button--only-svg-icon",
+      "name": "Only Svg Icon",
+      "title": "Evolution Components/Button",
+      "importPath": "./stories/button.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-button--disabled": {
+      "type": "story",
+      "id": "evolution-components-button--disabled",
+      "name": "Disabled",
+      "title": "Evolution Components/Button",
+      "importPath": "./stories/button.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-button--without-border": {
+      "type": "story",
+      "id": "evolution-components-button--without-border",
+      "name": "Without Border",
+      "title": "Evolution Components/Button",
+      "importPath": "./stories/button.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-button--is-flat": {
+      "type": "story",
+      "id": "evolution-components-button--is-flat",
+      "name": "Is Flat",
+      "title": "Evolution Components/Button",
+      "importPath": "./stories/button.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-button--is-fluid": {
+      "type": "story",
+      "id": "evolution-components-button--is-fluid",
+      "name": "Is Fluid",
+      "title": "Evolution Components/Button",
+      "importPath": "./stories/button.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-kanban-carta-actividad--docs": {
+      "id": "evolution-components-kanban-carta-actividad--docs",
+      "title": "Evolution Components/Kanban/Carta Actividad",
+      "name": "Docs",
+      "importPath": "./stories/carta-actividad.stories.ts",
+      "type": "docs",
+      "tags": ["dev", "test", "autodocs"],
+      "storiesImports": []
+    },
+    "evolution-components-kanban-carta-actividad--default": {
+      "type": "story",
+      "id": "evolution-components-kanban-carta-actividad--default",
+      "name": "Default",
+      "title": "Evolution Components/Kanban/Carta Actividad",
+      "importPath": "./stories/carta-actividad.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-kanban-carta-actividad--por-vencer": {
+      "type": "story",
+      "id": "evolution-components-kanban-carta-actividad--por-vencer",
+      "name": "Por Vencer",
+      "title": "Evolution Components/Kanban/Carta Actividad",
+      "importPath": "./stories/carta-actividad.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-kanban-carta-actividad--vencida": {
+      "type": "story",
+      "id": "evolution-components-kanban-carta-actividad--vencida",
+      "name": "Vencida",
+      "title": "Evolution Components/Kanban/Carta Actividad",
+      "importPath": "./stories/carta-actividad.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-kanban-carta-actividad--sin-tag-de-prioridad": {
+      "type": "story",
+      "id": "evolution-components-kanban-carta-actividad--sin-tag-de-prioridad",
+      "name": "Sin Tag De Prioridad",
+      "title": "Evolution Components/Kanban/Carta Actividad",
+      "importPath": "./stories/carta-actividad.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-kanban-carta-actividad--sin-avatar": {
+      "type": "story",
+      "id": "evolution-components-kanban-carta-actividad--sin-avatar",
+      "name": "Sin Avatar",
+      "title": "Evolution Components/Kanban/Carta Actividad",
+      "importPath": "./stories/carta-actividad.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-kanban-carta-actividad--sin-fecha-fin": {
+      "type": "story",
+      "id": "evolution-components-kanban-carta-actividad--sin-fecha-fin",
+      "name": "Sin Fecha Fin",
+      "title": "Evolution Components/Kanban/Carta Actividad",
+      "importPath": "./stories/carta-actividad.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-kanban-carta-actividad--sin-footer": {
+      "type": "story",
+      "id": "evolution-components-kanban-carta-actividad--sin-footer",
+      "name": "Sin Footer",
+      "title": "Evolution Components/Kanban/Carta Actividad",
+      "importPath": "./stories/carta-actividad.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-kanban-carta-actividad--solo-titulo-y-descripcion": {
+      "type": "story",
+      "id": "evolution-components-kanban-carta-actividad--solo-titulo-y-descripcion",
+      "name": "Solo Titulo Y Descripcion",
+      "title": "Evolution Components/Kanban/Carta Actividad",
+      "importPath": "./stories/carta-actividad.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-kanban-columna-tablero--docs": {
+      "id": "evolution-components-kanban-columna-tablero--docs",
+      "title": "Evolution Components/Kanban/Columna Tablero",
+      "name": "Docs",
+      "importPath": "./stories/columna-tablero.stories.ts",
+      "type": "docs",
+      "tags": ["dev", "test", "autodocs"],
+      "storiesImports": []
+    },
+    "evolution-components-kanban-columna-tablero--default": {
+      "type": "story",
+      "id": "evolution-components-kanban-columna-tablero--default",
+      "name": "Default",
+      "title": "Evolution Components/Kanban/Columna Tablero",
+      "importPath": "./stories/columna-tablero.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-kanban-columna-tablero--sin-actividadeds": {
+      "type": "story",
+      "id": "evolution-components-kanban-columna-tablero--sin-actividadeds",
+      "name": "Sin Actividadeds",
+      "title": "Evolution Components/Kanban/Columna Tablero",
+      "importPath": "./stories/columna-tablero.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-dialog--docs": {
+      "id": "evolution-components-dialog--docs",
+      "title": "Evolution Components/Dialog",
+      "name": "Docs",
+      "importPath": "./stories/dialog.stories.ts",
+      "type": "docs",
+      "tags": ["dev", "test", "autodocs"],
+      "storiesImports": []
+    },
+    "evolution-components-dialog--default": {
+      "type": "story",
+      "id": "evolution-components-dialog--default",
+      "name": "Default",
+      "title": "Evolution Components/Dialog",
+      "importPath": "./stories/dialog.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-dialog--scrollable-content": {
+      "type": "story",
+      "id": "evolution-components-dialog--scrollable-content",
+      "name": "Scrollable Content",
+      "title": "Evolution Components/Dialog",
+      "importPath": "./stories/dialog.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-dialog--simple-content": {
+      "type": "story",
+      "id": "evolution-components-dialog--simple-content",
+      "name": "Simple Content",
+      "title": "Evolution Components/Dialog",
+      "importPath": "./stories/dialog.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-dialog--buttons-items-simple": {
+      "type": "story",
+      "id": "evolution-components-dialog--buttons-items-simple",
+      "name": "Buttons Items Simple",
+      "title": "Evolution Components/Dialog",
+      "importPath": "./stories/dialog.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-dialog--buttons-items-scrollable": {
+      "type": "story",
+      "id": "evolution-components-dialog--buttons-items-scrollable",
+      "name": "Buttons Items Scrollable",
+      "title": "Evolution Components/Dialog",
+      "importPath": "./stories/dialog.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-dialog--close-button": {
+      "type": "story",
+      "id": "evolution-components-dialog--close-button",
+      "name": "Close Button",
+      "title": "Evolution Components/Dialog",
+      "importPath": "./stories/dialog.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-dialog--icon-dialog": {
+      "type": "story",
+      "id": "evolution-components-dialog--icon-dialog",
+      "name": "Icon Dialog",
+      "title": "Evolution Components/Dialog",
+      "importPath": "./stories/dialog.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-dialog--svg-dialog": {
+      "type": "story",
+      "id": "evolution-components-dialog--svg-dialog",
+      "name": "Svg Dialog",
+      "title": "Evolution Components/Dialog",
+      "importPath": "./stories/dialog.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-dynamic-table--docs": {
+      "id": "evolution-components-dynamic-table--docs",
+      "title": "Evolution Components/Dynamic Table",
+      "name": "Docs",
+      "importPath": "./stories/dynamic-table.stories.ts",
+      "type": "docs",
+      "tags": ["dev", "test", "autodocs"],
+      "storiesImports": []
+    },
+    "evolution-components-dynamic-table--default": {
+      "type": "story",
+      "id": "evolution-components-dynamic-table--default",
+      "name": "Default",
+      "title": "Evolution Components/Dynamic Table",
+      "importPath": "./stories/dynamic-table.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-dynamic-table--with-color-tags": {
+      "type": "story",
+      "id": "evolution-components-dynamic-table--with-color-tags",
+      "name": "With Color Tags",
+      "title": "Evolution Components/Dynamic Table",
+      "importPath": "./stories/dynamic-table.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-dynamic-table--simple-pagination": {
+      "type": "story",
+      "id": "evolution-components-dynamic-table--simple-pagination",
+      "name": "Simple Pagination",
+      "title": "Evolution Components/Dynamic Table",
+      "importPath": "./stories/dynamic-table.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-dynamic-table--tag-no-color": {
+      "type": "story",
+      "id": "evolution-components-dynamic-table--tag-no-color",
+      "name": "Tag No Color",
+      "title": "Evolution Components/Dynamic Table",
+      "importPath": "./stories/dynamic-table.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-dynamic-table--mobile-view": {
+      "type": "story",
+      "id": "evolution-components-dynamic-table--mobile-view",
+      "name": "Mobile View",
+      "title": "Evolution Components/Dynamic Table",
+      "importPath": "./stories/dynamic-table.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-dynamic-table--manual-pagination": {
+      "type": "story",
+      "id": "evolution-components-dynamic-table--manual-pagination",
+      "name": "Manual Pagination",
+      "title": "Evolution Components/Dynamic Table",
+      "importPath": "./stories/dynamic-table.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-dynamic-table--empty": {
+      "type": "story",
+      "id": "evolution-components-dynamic-table--empty",
+      "name": "Empty",
+      "title": "Evolution Components/Dynamic Table",
+      "importPath": "./stories/dynamic-table.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-dynamic-table--checkboxes-and-selector": {
+      "type": "story",
+      "id": "evolution-components-dynamic-table--checkboxes-and-selector",
+      "name": "Checkboxes And Selector",
+      "title": "Evolution Components/Dynamic Table",
+      "importPath": "./stories/dynamic-table.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-dynamic-table--with-avatar": {
+      "type": "story",
+      "id": "evolution-components-dynamic-table--with-avatar",
+      "name": "With Avatar",
+      "title": "Evolution Components/Dynamic Table",
+      "importPath": "./stories/dynamic-table.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-filter--docs": {
+      "id": "evolution-components-filter--docs",
+      "title": "Evolution Components/Filter",
+      "name": "Docs",
+      "importPath": "./stories/filter.stories.ts",
+      "type": "docs",
+      "tags": ["dev", "test", "autodocs"],
+      "storiesImports": []
+    },
+    "evolution-components-filter--default": {
+      "type": "story",
+      "id": "evolution-components-filter--default",
+      "name": "Default",
+      "title": "Evolution Components/Filter",
+      "importPath": "./stories/filter.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-kanban-header-columna--docs": {
+      "id": "evolution-components-kanban-header-columna--docs",
+      "title": "Evolution Components/Kanban/Header Columna",
+      "name": "Docs",
+      "importPath": "./stories/header-columna.stories.ts",
+      "type": "docs",
+      "tags": ["dev", "test", "autodocs"],
+      "storiesImports": []
+    },
+    "evolution-components-kanban-header-columna--default": {
+      "type": "story",
+      "id": "evolution-components-kanban-header-columna--default",
+      "name": "Default",
+      "title": "Evolution Components/Kanban/Header Columna",
+      "importPath": "./stories/header-columna.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-kanban-header-columna--muchas-actividades": {
+      "type": "story",
+      "id": "evolution-components-kanban-header-columna--muchas-actividades",
+      "name": "Muchas Actividades",
+      "title": "Evolution Components/Kanban/Header Columna",
+      "importPath": "./stories/header-columna.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-kanban-header-columna--nombre-columna-largo": {
+      "type": "story",
+      "id": "evolution-components-kanban-header-columna--nombre-columna-largo",
+      "name": "Nombre Columna Largo",
+      "title": "Evolution Components/Kanban/Header Columna",
+      "importPath": "./stories/header-columna.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-kanban-header-columna--custom-tailwind-class": {
+      "type": "story",
+      "id": "evolution-components-kanban-header-columna--custom-tailwind-class",
+      "name": "Custom Tailwind Class",
+      "title": "Evolution Components/Kanban/Header Columna",
+      "importPath": "./stories/header-columna.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-kanban-header-columna--without-count": {
+      "type": "story",
+      "id": "evolution-components-kanban-header-columna--without-count",
+      "name": "Without Count",
+      "title": "Evolution Components/Kanban/Header Columna",
+      "importPath": "./stories/header-columna.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-header--docs": {
+      "id": "evolution-components-header--docs",
+      "title": "Evolution Components/Header",
+      "name": "Docs",
+      "importPath": "./stories/header.stories.ts",
+      "type": "docs",
+      "tags": ["dev", "test", "autodocs"],
+      "storiesImports": []
+    },
+    "evolution-components-header--default": {
+      "type": "story",
+      "id": "evolution-components-header--default",
+      "name": "Default",
+      "title": "Evolution Components/Header",
+      "importPath": "./stories/header.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-header--with-company-name": {
+      "type": "story",
+      "id": "evolution-components-header--with-company-name",
+      "name": "With Company Name",
+      "title": "Evolution Components/Header",
+      "importPath": "./stories/header.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-highlight--docs": {
+      "id": "evolution-components-highlight--docs",
+      "title": "Evolution Components/Highlight",
+      "name": "Docs",
+      "importPath": "./stories/highlight.stories.ts",
+      "type": "docs",
+      "tags": ["dev", "test", "autodocs"],
+      "storiesImports": []
+    },
+    "evolution-components-highlight--default": {
+      "type": "story",
+      "id": "evolution-components-highlight--default",
+      "name": "Default",
+      "title": "Evolution Components/Highlight",
+      "importPath": "./stories/highlight.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-highlight--subtitle": {
+      "type": "story",
+      "id": "evolution-components-highlight--subtitle",
+      "name": "Subtitle",
+      "title": "Evolution Components/Highlight",
+      "importPath": "./stories/highlight.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-highlight--card-text": {
+      "type": "story",
+      "id": "evolution-components-highlight--card-text",
+      "name": "Card Text",
+      "title": "Evolution Components/Highlight",
+      "importPath": "./stories/highlight.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-info-panel--docs": {
+      "id": "evolution-components-info-panel--docs",
+      "title": "Evolution Components/Info Panel",
+      "name": "Docs",
+      "importPath": "./stories/info-panel.stories.ts",
+      "type": "docs",
+      "tags": ["dev", "test", "autodocs"],
+      "storiesImports": []
+    },
+    "evolution-components-info-panel--default": {
+      "type": "story",
+      "id": "evolution-components-info-panel--default",
+      "name": "Default",
+      "title": "Evolution Components/Info Panel",
+      "importPath": "./stories/info-panel.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-input--docs": {
+      "id": "evolution-components-input--docs",
+      "title": "Evolution Components/Input",
+      "name": "Docs",
+      "importPath": "./stories/input.stories.ts",
+      "type": "docs",
+      "tags": ["dev", "test", "autodocs"],
+      "storiesImports": []
+    },
+    "evolution-components-input--default": {
+      "type": "story",
+      "id": "evolution-components-input--default",
+      "name": "Default",
+      "title": "Evolution Components/Input",
+      "importPath": "./stories/input.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-input--required": {
+      "type": "story",
+      "id": "evolution-components-input--required",
+      "name": "Required",
+      "title": "Evolution Components/Input",
+      "importPath": "./stories/input.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-input--unlabeled": {
+      "type": "story",
+      "id": "evolution-components-input--unlabeled",
+      "name": "Unlabeled",
+      "title": "Evolution Components/Input",
+      "importPath": "./stories/input.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-input--error-email": {
+      "type": "story",
+      "id": "evolution-components-input--error-email",
+      "name": "Error Email",
+      "title": "Evolution Components/Input",
+      "importPath": "./stories/input.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-input--error-pattern": {
+      "type": "story",
+      "id": "evolution-components-input--error-pattern",
+      "name": "Error Pattern",
+      "title": "Evolution Components/Input",
+      "importPath": "./stories/input.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-login--docs": {
+      "id": "evolution-components-login--docs",
+      "title": "Evolution Components/Login",
+      "name": "Docs",
+      "importPath": "./stories/login.stories.ts",
+      "type": "docs",
+      "tags": ["dev", "test", "autodocs"],
+      "storiesImports": []
+    },
+    "evolution-components-login--simple-content": {
+      "type": "story",
+      "id": "evolution-components-login--simple-content",
+      "name": "Simple Content",
+      "title": "Evolution Components/Login",
+      "importPath": "./stories/login.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-login--no-icon": {
+      "type": "story",
+      "id": "evolution-components-login--no-icon",
+      "name": "No Icon",
+      "title": "Evolution Components/Login",
+      "importPath": "./stories/login.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-login--no-subtitle": {
+      "type": "story",
+      "id": "evolution-components-login--no-subtitle",
+      "name": "No Subtitle",
+      "title": "Evolution Components/Login",
+      "importPath": "./stories/login.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-menu--docs": {
+      "id": "evolution-components-menu--docs",
+      "title": "Evolution Components/Menu",
+      "name": "Docs",
+      "importPath": "./stories/menu.stories.ts",
+      "type": "docs",
+      "tags": ["dev", "test", "autodocs"],
+      "storiesImports": []
+    },
+    "evolution-components-menu--default": {
+      "type": "story",
+      "id": "evolution-components-menu--default",
+      "name": "Default",
+      "title": "Evolution Components/Menu",
+      "importPath": "./stories/menu.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-menu--authorizations-menu": {
+      "type": "story",
+      "id": "evolution-components-menu--authorizations-menu",
+      "name": "Authorizations Menu",
+      "title": "Evolution Components/Menu",
+      "importPath": "./stories/menu.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-menu--notifications-menu": {
+      "type": "story",
+      "id": "evolution-components-menu--notifications-menu",
+      "name": "Notifications Menu",
+      "title": "Evolution Components/Menu",
+      "importPath": "./stories/menu.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-menu--with-scroll": {
+      "type": "story",
+      "id": "evolution-components-menu--with-scroll",
+      "name": "With Scroll",
+      "title": "Evolution Components/Menu",
+      "importPath": "./stories/menu.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-menu--settings-menu": {
+      "type": "story",
+      "id": "evolution-components-menu--settings-menu",
+      "name": "Settings Menu",
+      "title": "Evolution Components/Menu",
+      "importPath": "./stories/menu.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-menu--user-menu": {
+      "type": "story",
+      "id": "evolution-components-menu--user-menu",
+      "name": "User Menu",
+      "title": "Evolution Components/Menu",
+      "importPath": "./stories/menu.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-pagination--docs": {
+      "id": "evolution-components-pagination--docs",
+      "title": "Evolution Components/Pagination",
+      "name": "Docs",
+      "importPath": "./stories/pagination.stories.ts",
+      "type": "docs",
+      "tags": ["dev", "test", "autodocs"],
+      "storiesImports": []
+    },
+    "evolution-components-pagination--interactive-pagination": {
+      "type": "story",
+      "id": "evolution-components-pagination--interactive-pagination",
+      "name": "Interactive Pagination",
+      "title": "Evolution Components/Pagination",
+      "importPath": "./stories/pagination.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-program-card--docs": {
+      "id": "evolution-components-program-card--docs",
+      "title": "Evolution Components/Program Card",
+      "name": "Docs",
+      "importPath": "./stories/program-card.stories.ts",
+      "type": "docs",
+      "tags": ["dev", "test", "autodocs"],
+      "storiesImports": []
+    },
+    "evolution-components-program-card--default": {
+      "type": "story",
+      "id": "evolution-components-program-card--default",
+      "name": "Default",
+      "title": "Evolution Components/Program Card",
+      "importPath": "./stories/program-card.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-program-card--small": {
+      "type": "story",
+      "id": "evolution-components-program-card--small",
+      "name": "Small",
+      "title": "Evolution Components/Program Card",
+      "importPath": "./stories/program-card.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-program-card--medium": {
+      "type": "story",
+      "id": "evolution-components-program-card--medium",
+      "name": "Medium",
+      "title": "Evolution Components/Program Card",
+      "importPath": "./stories/program-card.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-program-card--large": {
+      "type": "story",
+      "id": "evolution-components-program-card--large",
+      "name": "Large",
+      "title": "Evolution Components/Program Card",
+      "importPath": "./stories/program-card.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-search-bar--docs": {
+      "id": "evolution-components-search-bar--docs",
+      "title": "Evolution Components/Search Bar",
+      "name": "Docs",
+      "importPath": "./stories/search-bar.stories.ts",
+      "type": "docs",
+      "tags": ["dev", "test", "autodocs"],
+      "storiesImports": []
+    },
+    "evolution-components-search-bar--default": {
+      "type": "story",
+      "id": "evolution-components-search-bar--default",
+      "name": "Default",
+      "title": "Evolution Components/Search Bar",
+      "importPath": "./stories/search-bar.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-select--docs": {
+      "id": "evolution-components-select--docs",
+      "title": "Evolution Components/Select",
+      "name": "Docs",
+      "importPath": "./stories/select.stories.ts",
+      "type": "docs",
+      "tags": ["dev", "test", "autodocs"],
+      "storiesImports": []
+    },
+    "evolution-components-select--default": {
+      "type": "story",
+      "id": "evolution-components-select--default",
+      "name": "Default",
+      "title": "Evolution Components/Select",
+      "importPath": "./stories/select.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-select--multiple": {
+      "type": "story",
+      "id": "evolution-components-select--multiple",
+      "name": "Multiple",
+      "title": "Evolution Components/Select",
+      "importPath": "./stories/select.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-select--required": {
+      "type": "story",
+      "id": "evolution-components-select--required",
+      "name": "Required",
+      "title": "Evolution Components/Select",
+      "importPath": "./stories/select.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-select--unlabeled": {
+      "type": "story",
+      "id": "evolution-components-select--unlabeled",
+      "name": "Unlabeled",
+      "title": "Evolution Components/Select",
+      "importPath": "./stories/select.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-sidebar--docs": {
+      "id": "evolution-components-sidebar--docs",
+      "title": "Evolution Components/Sidebar",
+      "name": "Docs",
+      "importPath": "./stories/sidebar.stories.ts",
+      "type": "docs",
+      "tags": ["dev", "test", "autodocs"],
+      "storiesImports": []
+    },
+    "evolution-components-sidebar--default": {
+      "type": "story",
+      "id": "evolution-components-sidebar--default",
+      "name": "Default",
+      "title": "Evolution Components/Sidebar",
+      "importPath": "./stories/sidebar.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-smart-list--docs": {
+      "id": "evolution-components-smart-list--docs",
+      "title": "Evolution Components/Smart List",
+      "name": "Docs",
+      "importPath": "./stories/smart-list.stories.ts",
+      "type": "docs",
+      "tags": ["dev", "test", "autodocs"],
+      "storiesImports": []
+    },
+    "evolution-components-smart-list--default": {
+      "type": "story",
+      "id": "evolution-components-smart-list--default",
+      "name": "Default",
+      "title": "Evolution Components/Smart List",
+      "importPath": "./stories/smart-list.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-smart-list--con-selector": {
+      "type": "story",
+      "id": "evolution-components-smart-list--con-selector",
+      "name": "Con Selector",
+      "title": "Evolution Components/Smart List",
+      "importPath": "./stories/smart-list.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-smart-list--con-botones-de-estado": {
+      "type": "story",
+      "id": "evolution-components-smart-list--con-botones-de-estado",
+      "name": "Con Botones De Estado",
+      "title": "Evolution Components/Smart List",
+      "importPath": "./stories/smart-list.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-smart-list--con-scroll": {
+      "type": "story",
+      "id": "evolution-components-smart-list--con-scroll",
+      "name": "Con Scroll",
+      "title": "Evolution Components/Smart List",
+      "importPath": "./stories/smart-list.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-stepper--docs": {
+      "id": "evolution-components-stepper--docs",
+      "title": "Evolution Components/Stepper",
+      "name": "Docs",
+      "importPath": "./stories/stepper.stories.ts",
+      "type": "docs",
+      "tags": ["dev", "test", "autodocs"],
+      "storiesImports": []
+    },
+    "evolution-components-stepper--default": {
+      "type": "story",
+      "id": "evolution-components-stepper--default",
+      "name": "Default",
+      "title": "Evolution Components/Stepper",
+      "importPath": "./stories/stepper.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-stepper--horizontal": {
+      "type": "story",
+      "id": "evolution-components-stepper--horizontal",
+      "name": "Horizontal",
+      "title": "Evolution Components/Stepper",
+      "importPath": "./stories/stepper.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-stepper--with-continue-disabled": {
+      "type": "story",
+      "id": "evolution-components-stepper--with-continue-disabled",
+      "name": "With Continue Disabled",
+      "title": "Evolution Components/Stepper",
+      "importPath": "./stories/stepper.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-summary--docs": {
+      "id": "evolution-components-summary--docs",
+      "title": "Evolution Components/Summary",
+      "name": "Docs",
+      "importPath": "./stories/summary.stories.ts",
+      "type": "docs",
+      "tags": ["dev", "test", "autodocs"],
+      "storiesImports": []
+    },
+    "evolution-components-summary--default": {
+      "type": "story",
+      "id": "evolution-components-summary--default",
+      "name": "Default",
+      "title": "Evolution Components/Summary",
+      "importPath": "./stories/summary.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-svg--docs": {
+      "id": "evolution-components-svg--docs",
+      "title": "Evolution Components/Svg",
+      "name": "Docs",
+      "importPath": "./stories/svg.stories.ts",
+      "type": "docs",
+      "tags": ["dev", "test", "autodocs"],
+      "storiesImports": []
+    },
+    "evolution-components-svg--default": {
+      "type": "story",
+      "id": "evolution-components-svg--default",
+      "name": "Default",
+      "title": "Evolution Components/Svg",
+      "importPath": "./stories/svg.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-kanban-tablero--docs": {
+      "id": "evolution-components-kanban-tablero--docs",
+      "title": "Evolution Components/Kanban/Tablero",
+      "name": "Docs",
+      "importPath": "./stories/tablero-kanban.stories.ts",
+      "type": "docs",
+      "tags": ["dev", "test", "autodocs"],
+      "storiesImports": []
+    },
+    "evolution-components-kanban-tablero--default": {
+      "type": "story",
+      "id": "evolution-components-kanban-tablero--default",
+      "name": "Default",
+      "title": "Evolution Components/Kanban/Tablero",
+      "importPath": "./stories/tablero-kanban.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-kanban-tablero-skeleton--docs": {
+      "id": "evolution-components-kanban-tablero-skeleton--docs",
+      "title": "Evolution Components/Kanban/Tablero Skeleton",
+      "name": "Docs",
+      "importPath": "./stories/tablero-skeleton.stories.ts",
+      "type": "docs",
+      "tags": ["dev", "test", "autodocs"],
+      "storiesImports": []
+    },
+    "evolution-components-kanban-tablero-skeleton--default": {
+      "type": "story",
+      "id": "evolution-components-kanban-tablero-skeleton--default",
+      "name": "Default",
+      "title": "Evolution Components/Kanban/Tablero Skeleton",
+      "importPath": "./stories/tablero-skeleton.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-kanban-tablero-skeleton--mas-columnas": {
+      "type": "story",
+      "id": "evolution-components-kanban-tablero-skeleton--mas-columnas",
+      "name": "Mas Columnas",
+      "title": "Evolution Components/Kanban/Tablero Skeleton",
+      "importPath": "./stories/tablero-skeleton.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-tabs--docs": {
+      "id": "evolution-components-tabs--docs",
+      "title": "Evolution Components/Tabs",
+      "name": "Docs",
+      "importPath": "./stories/tabs.stories.ts",
+      "type": "docs",
+      "tags": ["dev", "test", "autodocs"],
+      "storiesImports": []
+    },
+    "evolution-components-tabs--default": {
+      "type": "story",
+      "id": "evolution-components-tabs--default",
+      "name": "Default",
+      "title": "Evolution Components/Tabs",
+      "importPath": "./stories/tabs.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-tag-prioridad--docs": {
+      "id": "evolution-components-tag-prioridad--docs",
+      "title": "Evolution Components/Tag Prioridad",
+      "name": "Docs",
+      "importPath": "./stories/tag.stories.ts",
+      "type": "docs",
+      "tags": ["dev", "test", "autodocs"],
+      "storiesImports": []
+    },
+    "evolution-components-tag-prioridad--default": {
+      "type": "story",
+      "id": "evolution-components-tag-prioridad--default",
+      "name": "Default",
+      "title": "Evolution Components/Tag Prioridad",
+      "importPath": "./stories/tag.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-tag-prioridad--prioridad-mas-baja": {
+      "type": "story",
+      "id": "evolution-components-tag-prioridad--prioridad-mas-baja",
+      "name": "Prioridad Mas Baja",
+      "title": "Evolution Components/Tag Prioridad",
+      "importPath": "./stories/tag.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-tag-prioridad--prioridad-media": {
+      "type": "story",
+      "id": "evolution-components-tag-prioridad--prioridad-media",
+      "name": "Prioridad Media",
+      "title": "Evolution Components/Tag Prioridad",
+      "importPath": "./stories/tag.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-tag-prioridad--prioridad-alta": {
+      "type": "story",
+      "id": "evolution-components-tag-prioridad--prioridad-alta",
+      "name": "Prioridad Alta",
+      "title": "Evolution Components/Tag Prioridad",
+      "importPath": "./stories/tag.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-tag-prioridad--con-clase-personalizada": {
+      "type": "story",
+      "id": "evolution-components-tag-prioridad--con-clase-personalizada",
+      "name": "Con Clase Personalizada",
+      "title": "Evolution Components/Tag Prioridad",
+      "importPath": "./stories/tag.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    },
+    "evolution-components-time-segmented-list--docs": {
+      "id": "evolution-components-time-segmented-list--docs",
+      "title": "Evolution Components/Time Segmented List",
+      "name": "Docs",
+      "importPath": "./stories/time-segmented-list.stories.ts",
+      "type": "docs",
+      "tags": ["dev", "test", "autodocs"],
+      "storiesImports": []
+    },
+    "evolution-components-time-segmented-list--default": {
+      "type": "story",
+      "id": "evolution-components-time-segmented-list--default",
+      "name": "Default",
+      "title": "Evolution Components/Time Segmented List",
+      "importPath": "./stories/time-segmented-list.stories.ts",
+      "tags": ["dev", "test", "autodocs"]
+    }
+  }
+}

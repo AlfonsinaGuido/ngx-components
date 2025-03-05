@@ -463,7 +463,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    stepperConfig: { ...defaultConfig },\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    stepperConfig: { ...defaultConfig },\r\n  },\r\n}"
       },
       {
         "name": "Default",
@@ -583,7 +583,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "object",
-        "defaultValue": "{\n  steps: [\n    { title: 'Paso 1', text: 'Este es el paso 1' },\n    { title: 'Paso 2', text: 'Este es el paso 2' },\n    { title: 'Paso 3', text: 'Este es el paso 3' },\n  ],\n  selectedStepIndex: 0,\n  canContinue: true,\n  continueButtonText: 'Siguiente',\n  backButtonText: 'Atrás',\n  twClass: '',\n  highestCompletedIndex: 0,\n  orientation: Orientation.Vertical,\n}"
+        "defaultValue": "{\r\n  steps: [\r\n    { title: 'Paso 1', text: 'Este es el paso 1' },\r\n    { title: 'Paso 2', text: 'Este es el paso 2' },\r\n    { title: 'Paso 3', text: 'Este es el paso 3' },\r\n  ],\r\n  selectedStepIndex: 0,\r\n  canContinue: true,\r\n  continueButtonText: 'Siguiente',\r\n  backButtonText: 'Atrás',\r\n  twClass: '',\r\n  highestCompletedIndex: 0,\r\n  orientation: Orientation.Vertical,\r\n}"
       },
       {
         "name": "Disabled",
@@ -907,7 +907,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    stepperConfig: { ...defaultConfig, orientation: Orientation.Horizontal },\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    stepperConfig: { ...defaultConfig, orientation: Orientation.Horizontal },\r\n  },\r\n}"
       },
       {
         "name": "iconDialog",
@@ -1973,7 +1973,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    stepperConfig: { ...defaultConfig, canContinue: false },\n  },\n}"
+        "defaultValue": "{\r\n  args: {\r\n    stepperConfig: { ...defaultConfig, canContinue: false },\r\n  },\r\n}"
       },
       {
         "name": "WithFunction",
@@ -4320,7 +4320,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    stepperConfig: { ...defaultConfig },\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    stepperConfig: { ...defaultConfig },\r\n  },\r\n}"
         },
         {
           "name": "defaultConfig",
@@ -4330,7 +4330,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "object",
-          "defaultValue": "{\n  steps: [\n    { title: 'Paso 1', text: 'Este es el paso 1' },\n    { title: 'Paso 2', text: 'Este es el paso 2' },\n    { title: 'Paso 3', text: 'Este es el paso 3' },\n  ],\n  selectedStepIndex: 0,\n  canContinue: true,\n  continueButtonText: 'Siguiente',\n  backButtonText: 'Atrás',\n  twClass: '',\n  highestCompletedIndex: 0,\n  orientation: Orientation.Vertical,\n}"
+          "defaultValue": "{\r\n  steps: [\r\n    { title: 'Paso 1', text: 'Este es el paso 1' },\r\n    { title: 'Paso 2', text: 'Este es el paso 2' },\r\n    { title: 'Paso 3', text: 'Este es el paso 3' },\r\n  ],\r\n  selectedStepIndex: 0,\r\n  canContinue: true,\r\n  continueButtonText: 'Siguiente',\r\n  backButtonText: 'Atrás',\r\n  twClass: '',\r\n  highestCompletedIndex: 0,\r\n  orientation: Orientation.Vertical,\r\n}"
         },
         {
           "name": "Horizontal",
@@ -4340,7 +4340,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    stepperConfig: { ...defaultConfig, orientation: Orientation.Horizontal },\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    stepperConfig: { ...defaultConfig, orientation: Orientation.Horizontal },\r\n  },\r\n}"
         },
         {
           "name": "WithContinueDisabled",
@@ -4350,7 +4350,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    stepperConfig: { ...defaultConfig, canContinue: false },\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    stepperConfig: { ...defaultConfig, canContinue: false },\r\n  },\r\n}"
         }
       ],
       "stories/summary.stories.ts": [

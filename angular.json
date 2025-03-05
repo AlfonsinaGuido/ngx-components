@@ -59,7 +59,10 @@
             "browserTarget": "ngx-evolution-components:build",
             "compodoc": true,
             "compodocArgs": ["-e", "json", "-d", "."],
-            "outputDir": "storybook-static"
+            "outputDir": "storybook-static",
+            "styles": [
+              "projects/ngx-evolution-components/styles/storybook.scss"
+            ]
           }
         }
       }
